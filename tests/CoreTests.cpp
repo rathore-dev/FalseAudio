@@ -10,6 +10,9 @@
 #include "core/tune/CrossoverPlanner.h"
 #include "core/tune/SystemSolver.h"
 #include "core/sim/VirtualCar.h"
+#include "core/sim/VirtualRig.h"
+#include "core/tune/AutoTuneEngine.h"
+#include <juce_gui_basics/juce_gui_basics.h>
 #include <iostream>
 
 using namespace fa;
@@ -283,8 +286,41 @@ static void testEndToEndVirtualCar()
            juce::String (dt, 3) + " ms (expected " + juce::String (0.5 / speedOfSound * 1000.0, 3) + ")");
 }
 
+static void testAutoTuneEngine()
+{
+    std::cout << "AutoTuneEngine one-click run (virtual rig, 2 mics x 2 positions)\n";
+    auto cfg = SystemConfig::makeLayout (3, true);
+    VirtualRig rig (cfg, 2);
+    rig.setSimulatedSweepMs (0);
+    rig.getCar().driver ("FL.tweeter").wiredInverted = true;
+
+    AutoTuneEngine engine;
+    engine.onMicPositionChanged = [&rig] (int p) { rig.setMicPosition (p); };
+
+    AutoTuneEngine::Options o;
+    o.micPositions = 4;
+    const auto t0 = juce::Time::getMillisecondCounterHiRes();
+    engine.start (cfg, rig, rig, o);
+    while (engine.isRunning())
+        juce::Thread::sleep (20);
+
+    const auto r = engine.getLastResult();
+    std::cout << "      took " << juce::String ((juce::Time::getMillisecondCounterHiRes() - t0) / 1000.0, 2)
+              << " s, " << (int) r.measurements.size() << " measurements\n";
+    for (auto& w : r.report.warnings)
+        std::cout << "      ! " << w << "\n";
+
+    check (r.success, "Pipeline completes", r.error);
+    check (r.leftErrorDb < 2.0 && r.rightErrorDb < 2.5, "Verified side errors",
+           "L " + juce::String (r.leftErrorDb, 2) + " dB, R " + juce::String (r.rightErrorDb, 2) + " dB");
+    check (r.report.wiringInverted.count ("FL.tweeter") && r.report.wiringInverted.at ("FL.tweeter"),
+           "Finds the reversed tweeter");
+    check (r.score >= 70, "Score", juce::String (r.score) + " / 100");
+}
+
 int main()
 {
+    juce::ScopedJuceInitialiser_GUI juceInit;
     testCrossoverSums();
     testSweepMeasurement();
     testArrivalEstimate();
@@ -292,6 +328,7 @@ int main()
     testCalibrationParse();
     testCrossoverPlanner();
     testEndToEndVirtualCar();
+    testAutoTuneEngine();
 
     std::cout << "\n" << (failures == 0 ? "ALL TESTS PASSED" : juce::String (failures) + " TEST(S) FAILED") << "\n";
     return failures == 0 ? 0 : 1;
