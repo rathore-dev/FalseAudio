@@ -186,6 +186,22 @@ void Session::useManualDsp()
     sendChangeMessage();
 }
 
+void Session::useUIAutomationDsp (const DspProfile& profile, std::function<void*()> windowProvider)
+{
+    auto controller = std::make_unique<UIAutomationController> (profile, std::move (windowProvider),
+        [this] (const juce::String& title, const juce::StringArray& steps)
+        {
+            AutoTuneEngine::UserAction a;
+            a.kind = AutoTuneEngine::UserAction::Kind::manualDsp;
+            a.title = title;
+            a.message = "These controls haven't been taught yet. Set them in your DSP software, then press Done.";
+            a.steps = steps;
+            return autoTune.askUser (a);
+        });
+    config.caps = profile.caps;
+    setDspController (std::move (controller), DspKind::uiAutomation);
+}
+
 void Session::setDspController (std::unique_ptr<DspController> controller, DspKind kind)
 {
     liveDsp = std::move (controller);

@@ -5,6 +5,7 @@
 #include "audio/LiveAnalyzer.h"
 #include "bridge/DspController.h"
 #include "bridge/Exporters.h"
+#include "bridge/UIAutomationController.h"
 #include "sim/VirtualRig.h"
 #include "tune/AutoTuneEngine.h"
 
@@ -50,6 +51,10 @@ public:
     DspKind getDspKind() const noexcept { return mode == Mode::demo ? DspKind::virtualDemo : liveDspKind; }
     void useManualDsp();
     void setDspController (std::unique_ptr<DspController> controller, DspKind kind);
+
+    /** Drive the vendor's DSP software with a taught profile. The window provider returns the
+        HWND of the DSP app (e.g. DspWindowHost::getAttached().handle). */
+    void useUIAutomationDsp (const DspProfile& profile, std::function<void*()> windowProvider);
     DspController& getDsp();
     MeasurementSource& getSource();
 
