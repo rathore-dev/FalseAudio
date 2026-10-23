@@ -1,0 +1,9 @@
+# Generated from Nono Tuning Tool
+# Version 3.3.0
+# NTT: Name - Flat
+# NTT: Definition v2 - FACQAQAgTpABAA 
+11.98 0
+11.99 0
+12 0
+22000 0
+22000.01 0

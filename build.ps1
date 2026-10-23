@@ -6,12 +6,14 @@ param(
     [ValidateSet("Debug", "Release", "RelWithDebInfo")] [string] $Config = "Release",
     [string] $Target = "all",
     [switch] $Run,
-    [switch] $Clean
+    [switch] $Clean,
+    [string] $BuildDir = "",          # separate folder per parallel worker, e.g. build/w1
+    [switch] $KeepGoing               # continue past failing files (ninja -k 0)
 )
 
 $ErrorActionPreference = "Stop"
 $root = $PSScriptRoot
-$buildDir = Join-Path $root "build\$Config"
+$buildDir = if ($BuildDir) { Join-Path $root $BuildDir } else { Join-Path $root "build\$Config" }
 
 $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 $vsPath = & $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
@@ -34,7 +36,7 @@ if ($Clean -and (Test-Path $buildDir)) { Remove-Item -Recurse -Force $buildDir }
 cmake -S $root -B $buildDir -G Ninja "-DCMAKE_BUILD_TYPE=$Config"
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-cmake --build $buildDir --target $Target
+if ($KeepGoing) { cmake --build $buildDir --target $Target -- -k 0 } else { cmake --build $buildDir --target $Target }
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 if ($Run) {
