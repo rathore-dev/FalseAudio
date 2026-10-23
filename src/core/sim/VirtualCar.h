@@ -1,0 +1,44 @@
+#pragma once
+
+#include "../tune/SystemConfig.h"
+#include "../measure/Measurement.h"
+#include <map>
+
+namespace fa
+{
+/** A simulated car: imperfect drivers at different distances, cabin reflections that change
+    with mic position, and optionally a driver wired in reverse. Produces real impulse
+    responses so the whole measurement + tuning chain can run without hardware (tests and
+    the app's demo mode). */
+class VirtualCar
+{
+public:
+    struct Driver
+    {
+        double distanceM = 1.0;
+        double lowRollHz = 50.0;             // natural acoustic HP (2nd order)
+        double highRollHz = 20000.0;         // natural acoustic LP (2nd order)
+        double sensitivityDb = 0.0;
+        bool   wiredInverted = false;
+        std::vector<FilterSpec> resonances;  // breakup, cabin modes, etc.
+    };
+
+    struct Reflection { double extraMs, gainDb; };
+
+    VirtualCar (const SystemConfig& layout, juce::uint32 seed = 42);
+
+    Driver& driver (const juce::String& channelId) { return drivers[channelId]; }
+
+    /** Simulates a sweep measurement of the given channels playing together with the given
+        DSP settings, at mic position `position` (0..n). */
+    Measurement measure (const std::vector<std::pair<juce::String, ChannelSettings>>& playing,
+                         int position, double sampleRate = 48000.0, double noiseDb = -90.0) const;
+
+private:
+    std::map<juce::String, Driver> drivers;
+    std::map<juce::String, std::vector<Reflection>> reflections;
+    juce::uint32 seed;
+
+    cplx acoustic (const juce::String& id, double f, int position, double fs) const;
+};
+} // namespace fa

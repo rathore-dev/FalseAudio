@@ -1,0 +1,5 @@
+build/
+external/JUCE/
+*.user
+.vs/
+.vscode/
