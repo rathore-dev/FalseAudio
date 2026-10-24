@@ -316,6 +316,12 @@ void SystemSolver::matchLevels()
             pos.push_back (predict (ch.id, ch.settings, p));
         const auto avg = smoothFractionalOctave (powerAverage (pos), 3.0);
 
+        // Optional per-band target (house curve SUM files): the band's intended contribution.
+        // Only trusted where the band dominates (within 3 dB of the full curve), so a house-curve
+        // crossover point that differs from ours can't drag a driver's level down.
+        const auto bandIt = opts.bandTargets.find (ch.role);
+        const TargetCurve* bandTarget = bandIt != opts.bandTargets.end() ? &bandIt->second : nullptr;
+
         double measured = 0.0, target = 0.0;
         int n = 0;
         for (size_t i = 0; i < freqs.size(); ++i)
@@ -323,7 +329,14 @@ void SystemSolver::matchLevels()
             if (freqs[i] < lo || freqs[i] > hi)
                 continue;
             measured += avg.magnitudeDb (i);
-            target += cfg.target.levelAt (freqs[i]);
+            double t = cfg.target.levelAt (freqs[i]);
+            if (bandTarget != nullptr)
+            {
+                const double b = bandTarget->levelAt (freqs[i]);
+                if (b >= t - 3.0)
+                    t = b;
+            }
+            target += t;
             ++n;
         }
         if (n > 0)

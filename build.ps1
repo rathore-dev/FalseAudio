@@ -8,7 +8,8 @@ param(
     [switch] $Run,
     [switch] $Clean,
     [string] $BuildDir = "",          # separate folder per parallel worker, e.g. build/w1
-    [switch] $KeepGoing               # continue past failing files (ninja -k 0)
+    [switch] $KeepGoing,              # continue past failing files (ninja -k 0)
+    [int] $Jobs = 0                   # parallel compile jobs; defaults to 3 for per-worker builds so many workers can share the PC
 )
 
 $ErrorActionPreference = "Stop"
@@ -36,7 +37,11 @@ if ($Clean -and (Test-Path $buildDir)) { Remove-Item -Recurse -Force $buildDir }
 cmake -S $root -B $buildDir -G Ninja "-DCMAKE_BUILD_TYPE=$Config"
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-if ($KeepGoing) { cmake --build $buildDir --target $Target -- -k 0 } else { cmake --build $buildDir --target $Target }
+if ($Jobs -le 0 -and $BuildDir) { $Jobs = 3 }
+$ninjaArgs = @()
+if ($Jobs -gt 0) { $ninjaArgs += "-j$Jobs" }
+if ($KeepGoing) { $ninjaArgs += @("-k", "0") }
+if ($ninjaArgs.Count -gt 0) { cmake --build $buildDir --target $Target -- @ninjaArgs } else { cmake --build $buildDir --target $Target }
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 if ($Run) {

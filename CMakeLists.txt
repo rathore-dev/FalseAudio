@@ -9,6 +9,15 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 add_subdirectory(external/JUCE)
 
 # ---------------------------------------------------------------------------
+# Embedded data: the HouseCurves target collection (full curves + per-band sums).
+# ---------------------------------------------------------------------------
+file(GLOB_RECURSE FA_HOUSE_CURVES CONFIGURE_DEPENDS HouseCurves/*.txt)
+juce_add_binary_data(FalseAudioData
+    HEADER_NAME FalseAudioData.h
+    NAMESPACE FalseAudioData
+    SOURCES ${FA_HOUSE_CURVES})
+
+# ---------------------------------------------------------------------------
 # Core library: measurement, analysis, auto-tune and DSP bridge.
 # Kept free of UI code so it can be unit-tested headless.
 # ---------------------------------------------------------------------------
@@ -24,6 +33,8 @@ target_compile_definitions(FalseAudioCore PUBLIC
     JUCE_WASAPI=1
     JUCE_DIRECTSOUND=1)
 target_link_libraries(FalseAudioCore
+    PRIVATE
+        FalseAudioData
     PUBLIC
         juce::juce_audio_utils
         juce::juce_audio_devices

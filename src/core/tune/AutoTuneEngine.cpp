@@ -1,5 +1,6 @@
 #include "AutoTuneEngine.h"
 #include "../dsp/Spectrum.h"
+#include "TargetLibrary.h"
 
 namespace fa
 {
@@ -246,6 +247,8 @@ bool AutoTuneEngine::runStages (Result& result)
         if (probe == nullptr && ! config.channels.empty())
             probe = &config.channels.front();
 
+        bool lastClipped = false;
+        double lastSnr = 100.0;
         for (int attempt = 0; attempt < 4 && probe != nullptr; ++attempt)
         {
             progress (0.0, "Level check (" + juce::String (options.sweepLevelDbFS, 0) + " dBFS)");
@@ -259,18 +262,33 @@ bool AutoTuneEngine::runStages (Result& result)
                 return fail (error);
 
             const auto& m = ms.front();
-            if (m.clipped && options.sweepLevelDbFS > -40.0)
+            lastClipped = m.clipped;
+            lastSnr = m.snrDb;
+            for (auto& other : ms)
+            {
+                lastClipped = lastClipped || other.clipped;
+                lastSnr = std::min (lastSnr, other.snrDb);
+            }
+            if (lastClipped && options.sweepLevelDbFS > -40.0)
             {
                 options.sweepLevelDbFS -= 6.0;
                 continue;
             }
-            if (m.snrDb < 45.0 && options.sweepLevelDbFS < -6.0)
+            if (lastSnr < 45.0 && options.sweepLevelDbFS < -6.0)
             {
-                options.sweepLevelDbFS = std::min (-6.0, options.sweepLevelDbFS + std::min (12.0, 45.0 - m.snrDb));
+                options.sweepLevelDbFS = std::min (-6.0, options.sweepLevelDbFS + std::min (12.0, 45.0 - lastSnr));
                 continue;
             }
             break;
         }
+
+        // Don't tune on data that can't be trusted.
+        if (lastClipped)
+            return fail ("The microphone input still clips at " + juce::String (options.sweepLevelDbFS, 0)
+                         + " dBFS. Lower the mic preamp gain (or the amp gain) and try again.");
+        if (lastSnr < 15.0)
+            return fail ("Almost no signal reached the microphone (signal-to-noise " + juce::String (lastSnr, 0)
+                         + " dB). Check the mic input, the DSP input routing, that the amp is on and the volume is up.");
     }
 
     const int mics = std::max (1, source->numMicrophones());
@@ -316,6 +334,8 @@ bool AutoTuneEngine::runStages (Result& result)
                 if (m.snrDb < 25.0)
                     result.report.warnings.add (c.label + ": low signal-to-noise (" + juce::String (m.snrDb, 0)
                                                 + " dB). Is the speaker connected and the amp on?");
+                if (m.clipped)
+                    result.report.warnings.add (c.label + ": the mic input clipped during this sweep - its response may be wrong.");
                 data[c.id].add (m);
                 result.measurements.push_back (m);
             }
@@ -361,6 +381,9 @@ bool AutoTuneEngine::runStages (Result& result)
     setStage (Stage::solve);
     SystemSolver::Options so;
     so.matchRightToLeft = options.matchRightToLeft;
+    if (options.useBandTargets)
+        if (auto* entry = TargetLibrary::findByName (config.target.name))
+            so.bandTargets = entry->bands;
     SystemSolver solver (config, data, so);
 
     progress (0.05, "Checking polarity");                 solver.checkPolarity();

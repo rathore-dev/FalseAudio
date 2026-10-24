@@ -139,4 +139,105 @@ Measurement VirtualCar::measure (const std::vector<std::pair<juce::String, Chann
     m.analyse (nullptr);
     return m;
 }
+namespace
+{
+    cplx electrical (const ChannelSettings& settings, double f, double fs)
+    {
+        cplx elec = magFromDb (settings.gainDb) * (settings.inverted ? -1.0 : 1.0);
+        elec *= settings.highPass.response (f, fs);
+        elec *= settings.lowPass.response (f, fs);
+        for (auto& p : settings.peq)
+            elec *= p.response (f, fs);
+        return elec * std::polar (1.0, -2.0 * pi * f * settings.delayMs * 0.001);
+    }
+
+    /** Linear convolution of x with the impulse response whose spectrum is `bins` (fftSize n),
+        truncated to outLen samples. */
+    std::vector<float> convolveWithSpectrum (const std::vector<float>& x, const std::vector<cplx>& irBins, int irLen, int outLen)
+    {
+        const auto h = inverseRealFFT (irBins, irLen);
+        std::vector<float> hf (h.size());
+        std::transform (h.begin(), h.end(), hf.begin(), [] (double v) { return (float) v; });
+
+        const int n = nextPowerOfTwo ((int) x.size() + irLen);
+        const auto X = realFFT (x.data(), (int) x.size(), n);
+        auto H = realFFT (hf.data(), irLen, n);
+        for (size_t k = 0; k < H.size(); ++k)
+            H[k] *= X[k];
+        const auto y = inverseRealFFT (H, n);
+
+        std::vector<float> out ((size_t) outLen, 0.0f);
+        for (int i = 0; i < std::min (outLen, n); ++i)
+            out[(size_t) i] = (float) y[(size_t) i];
+        return out;
+    }
+}
+
+Measurement VirtualCar::measureSwept (const std::vector<std::pair<juce::String, ChannelSettings>>& playing,
+                                      int position, const LogSweep& sweep, double noiseDb) const
+{
+    const double fs = sweep.sampleRate;
+    const auto stimulus = sweep.generate();
+    const int recLen = (int) stimulus.size();
+
+    const int n = 1 << 15;
+    const double binHz = fs / n;
+    std::vector<float> recorded ((size_t) recLen, 0.0f);
+
+    for (auto& [id, settings] : playing)
+    {
+        if (settings.muted || drivers.count (id) == 0)
+            continue;
+        const auto& d = drivers.at (id);
+
+        std::vector<cplx> elec ((size_t) n / 2 + 1, cplx (0.0, 0.0)), acou ((size_t) n / 2 + 1, cplx (0.0, 0.0));
+        for (size_t k = 1; k < elec.size(); ++k)
+        {
+            const double f = k * binHz;
+            elec[k] = electrical (settings, f, fs);
+            acou[k] = acoustic (id, f, position, fs);
+        }
+
+        std::vector<float> y;
+        if (d.isNonlinear())
+        {
+            // DSP output -> driver nonlinearity -> acoustic path.
+            auto x = convolveWithSpectrum (stimulus, elec, n, recLen);
+            for (auto& v : x)
+            {
+                const double u = v;
+                v = (float) (u + d.nonlinearH2 * u * u + d.nonlinearH3 * u * u * u);
+            }
+            y = convolveWithSpectrum (x, acou, n, recLen);
+        }
+        else
+        {
+            for (size_t k = 0; k < elec.size(); ++k)
+                elec[k] *= acou[k];
+            y = convolveWithSpectrum (stimulus, elec, n, recLen);
+        }
+
+        for (int i = 0; i < recLen; ++i)
+            recorded[(size_t) i] += y[(size_t) i];
+    }
+
+    juce::Random rng ((juce::int64) (seed + 104729u * (juce::uint32) (position + 1)));
+    const double noise = magFromDb (noiseDb);
+    for (auto& v : recorded)
+        v += (float) (noise * (rng.nextDouble() * 2.0 - 1.0));
+
+    Measurement m;
+    m.sampleRate = fs;
+    m.ir = deconvolve (recorded, stimulus, fs, sweep.fStart, sweep.fEnd, harmonicPreRoll (sweep));
+    m.zeroSample = (int) m.ir.size() - recLen;
+
+    juce::StringArray ids;
+    for (auto& [id, s] : playing)
+        ids.add (id);
+    m.channelId = ids.joinIntoString ("+");
+    m.name = m.channelId + " @pos" + juce::String (position + 1) + " (swept)";
+    m.micPosition = position;
+    m.analyse (nullptr);
+    return m;
+}
 } // namespace fa

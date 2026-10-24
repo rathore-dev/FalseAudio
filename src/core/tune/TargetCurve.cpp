@@ -79,6 +79,11 @@ TargetCurve TargetCurve::flat()
 
 TargetCurve TargetCurve::parse (const juce::String& text, const juce::String& name)
 {
+    return parse (text, name, true);
+}
+
+TargetCurve TargetCurve::parse (const juce::String& text, const juce::String& name, bool normaliseAt1k)
+{
     TargetCurve t;
     t.name = name;
 
@@ -99,7 +104,7 @@ TargetCurve TargetCurve::parse (const juce::String& text, const juce::String& na
     std::sort (t.points.begin(), t.points.end());
 
     // Normalise so 1 kHz sits at 0 dB, like the process PDF expects.
-    if (! t.points.empty())
+    if (normaliseAt1k && ! t.points.empty())
     {
         const double ref = t.levelAt (1000.0);
         for (auto& p : t.points)

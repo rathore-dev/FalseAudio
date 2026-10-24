@@ -68,10 +68,12 @@ void Measurement::analyse (const MicCalibration* cal, const IRWindow& window)
     const float peakAbs = std::abs (ir[(size_t) peakSample]);
     peakDbFS = dbFromMag (peakAbs);
 
-    // Noise floor estimated from the pre-roll region (before time zero).
+    // Noise floor estimated from the last 45 ms of pre-roll before time zero. A long pre-roll
+    // (harmonicPreRoll) also holds the Farina harmonic impulses further back; keep them out.
     double noise = 0.0;
     int nNoise = 0;
-    for (int i = 0; i < std::max (1, zeroSample - (int) (0.005 * sampleRate)); ++i)
+    const int noiseEnd = std::min ((int) ir.size(), std::max (1, zeroSample - (int) (0.005 * sampleRate)));
+    for (int i = std::max (0, zeroSample - (int) (0.05 * sampleRate)); i < noiseEnd; ++i)
     {
         noise += (double) ir[(size_t) i] * ir[(size_t) i];
         ++nNoise;

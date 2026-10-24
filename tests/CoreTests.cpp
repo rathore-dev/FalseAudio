@@ -12,6 +12,10 @@
 #include "core/sim/VirtualCar.h"
 #include "core/sim/VirtualRig.h"
 #include "core/tune/AutoTuneEngine.h"
+#include "core/tune/TargetLibrary.h"
+#include "core/measure/Analysis.h"
+#include "core/audio/ListeningTracks.h"
+#include "TestRegistry.h"
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <iostream>
 
@@ -318,6 +322,298 @@ static void testAutoTuneEngine()
     check (r.score >= 70, "Score", juce::String (r.score) + " / 100");
 }
 
+//==============================================================================
+static void testTargetLibrary()
+{
+    std::cout << "Target library (embedded house curves)\n";
+    const auto& all = TargetLibrary::builtIn();
+
+    int house = 0;
+    bool normalised = true, bandsOk = true;
+    for (auto& e : all)
+    {
+        if (e.family == "FalseAudio")
+            continue; // parametric presets keep their own definition (harmanLike tilts from 500 Hz)
+        normalised = normalised && std::abs (e.curve.levelAt (1000.0)) < 0.05;
+        ++house;
+        bandsOk = bandsOk && e.bands.size() == 4 && e.band (DriverRole::subwoofer) != nullptr
+                  && e.band (DriverRole::midbass) != nullptr && e.band (DriverRole::midrange) != nullptr
+                  && e.band (DriverRole::tweeter) != nullptr && e.extraBands.count ("Rear sub") == 1;
+        std::cout << "      " << e.curve.name << " (" << (int) e.curve.points.size() << " pts): " << e.description << "\n";
+    }
+    check (house == 8, "All 8 house curves load", juce::String (house) + " house + " + juce::String ((int) all.size() - house) + " parametric");
+    check (all.size() == 11, "Parametric presets included");
+    check (normalised, "Every house curve is 0 dB at 1 kHz");
+    check (bandsOk, "Per-band targets present (sub, midbass, midrange, tweeter, rear sub)");
+
+    const auto* af = TargetLibrary::findByName ("Audiofrog");
+    check (af != nullptr, "findByName Audiofrog");
+    if (af != nullptr)
+    {
+        // Bands keep the family's reference: where a band dominates it equals the full curve.
+        const double tw = af->band (DriverRole::tweeter)->levelAt (10000.0) - af->curve.levelAt (10000.0);
+        const double mid = af->band (DriverRole::midrange)->levelAt (1000.0) - af->curve.levelAt (1000.0);
+        const double sub = af->band (DriverRole::subwoofer)->levelAt (50.0) - af->band (DriverRole::tweeter)->levelAt (50.0);
+        check (std::abs (tw) < 1.0 && std::abs (mid) < 1.0 && sub > 60.0, "Band targets share the full curve's reference",
+               "tweeter@10k " + juce::String (tw, 2) + " dB, mid@1k " + juce::String (mid, 2) + " dB re full");
+        check (af->curve.levelAt (30.0) > 6.0 && af->curve.levelAt (10000.0) < -2.0, "Audiofrog shape (bass rise, treble tilt)");
+    }
+
+    // Import round trip through the user folder.
+    auto tmp = juce::File::getSpecialLocation (juce::File::tempDirectory).getChildFile ("FA_W7_TestCurve.txt");
+    tmp.replaceWithText ("* test\n20 6\n100 4\n1000 2\n10000 -1\n20000 -3\n");
+    TargetLibrary::Entry imported;
+    juce::String err;
+    const bool ok = TargetLibrary::import (tmp, imported, err);
+    bool listed = false;
+    for (auto& e : TargetLibrary::userCurves())
+        listed = listed || e.curve.name == imported.curve.name;
+    check (ok && listed && std::abs (imported.curve.levelAt (1000.0)) < 1e-6 && ! imported.builtIn,
+           "Import copies the curve to the user folder", ok ? imported.file.getFullPathName() : err);
+    check (TargetLibrary::find (imported.curve.name).has_value(), "find() sees user curves");
+    TargetLibrary::removeUserCurve (imported.curve.name);
+    tmp.deleteFile();
+}
+
+static void testBandTargetLevels()
+{
+    std::cout << "Per-band targets in level matching\n";
+    auto cfg = SystemConfig::makeLayout (3, true);
+    CrossoverPlanner::apply (cfg, CrossoverPlanner::planDefaults (cfg));
+    VirtualCar car (cfg);
+
+    DriverDataMap data;
+    for (auto& c : cfg.channels)
+    {
+        auto& dd = data[c.id];
+        dd.measuredWith = c.settings;
+        dd.add (car.measure ({ { c.id, c.settings } }, 0));
+    }
+
+    auto run = [&] (const std::map<DriverRole, TargetCurve>& bands)
+    {
+        auto c = cfg;
+        SystemSolver::Options o;
+        o.bandTargets = bands;
+        SystemSolver s (c, data, o);
+        s.matchLevels();
+        return c.find ("FL.tweeter")->settings.gainDb - c.find ("FL.midrange")->settings.gainDb;
+    };
+
+    TargetCurve quieter;
+    quieter.name = "quieter";
+    for (auto f : makeLogFrequencies (10.0, 24000.0, 48))
+        quieter.points.emplace_back (f, cfg.target.levelAt (f) - 2.0);
+
+    const double plain = run ({});
+    const double same = run ({ { DriverRole::tweeter, cfg.target } });
+    const double lowered = run ({ { DriverRole::tweeter, quieter } });
+
+    check (std::abs (same - plain) < 0.11, "Band target equal to the full curve changes nothing",
+           juce::String (plain, 2) + " vs " + juce::String (same, 2) + " dB");
+    check (std::abs ((lowered - plain) + 2.0) < 0.25, "Tweeter band target 2 dB lower -> tweeter 2 dB lower",
+           juce::String (lowered - plain, 2) + " dB");
+}
+
+//==============================================================================
+static void testDistortion()
+{
+    std::cout << "Harmonic distortion (Farina) on a swept, nonlinear virtual driver\n";
+    auto cfg = SystemConfig::makeLayout (3, true);
+    VirtualCar car (cfg);
+    const juce::String id = "FL.midrange";
+
+    LogSweep sweep;
+    sweep.sampleRate = 48000.0;
+    sweep.fStart = 20.0;
+    sweep.fEnd = 8000.0;           // keeps H2/H3 below Nyquist in the simulation (no aliasing)
+    sweep.seconds = 2.0;
+    sweep.tailSeconds = 0.5;
+    sweep.levelDbFS = -6.0;
+    const double A = magFromDb (sweep.levelDbFS);
+    const double h2 = 0.2, h3 = 0.16;
+
+    ChannelSettings flat;
+    const auto linear = car.measure ({ { id, flat } }, 0);
+    const auto linSm = smoothFractionalOctave (linear.response, 6.0);
+    auto linDb = [&linSm] (double f) { return dbFromMag (std::abs (linSm.interpolate (f))); };
+
+    // Linear driver: harmonics should be at the noise floor.
+    {
+        const auto m = car.measureSwept ({ { id, flat } }, 0, sweep);
+        const auto d = analysis::harmonicDistortion (m, sweep.seconds, sweep.fStart, sweep.fEnd);
+        double worst = -200.0;
+        for (size_t i = 0; i < d.freqs.size(); ++i)
+            if (d.freqs[i] >= 300.0 && d.freqs[i] <= 2000.0)
+                worst = std::max (worst, d.harmonicDb[0][i]);
+        check (d.valid && worst < -50.0, "Linear driver shows no distortion", "worst H2 " + juce::String (worst, 1) + " dB");
+        check (std::abs (m.onsetMs - linear.onsetMs) < 0.05, "Swept simulation matches the direct one (arrival)",
+               juce::String (m.onsetMs, 3) + " vs " + juce::String (linear.onsetMs, 3) + " ms");
+    }
+
+    car.driver (id).nonlinearH2 = h2;
+    car.driver (id).nonlinearH3 = h3;
+    const auto m = car.measureSwept ({ { id, flat } }, 0, sweep);
+    const auto d = analysis::harmonicDistortion (m, sweep.seconds, sweep.fStart, sweep.fEnd);
+    check (d.valid && d.harmonicDb.size() >= 2, "Distortion analysis valid", juce::String ((int) d.harmonicDb.size()) + " harmonics");
+    if (! d.valid || d.harmonicDb.size() < 2)
+        return;
+
+    const double compression = 1.0 + 0.75 * h3 * A * A;
+    const double c2 = dbFromMag (h2 * A / 2.0 / compression);
+    const double c3 = dbFromMag (h3 * A * A / 4.0 / compression);
+
+    for (int k : { 2, 3 })
+    {
+        double err = 0.0, meas = 0.0, expd = 0.0;
+        int n = 0;
+        for (size_t i = 0; i < d.freqs.size(); ++i)
+        {
+            const double f = d.freqs[i];
+            if (f < 400.0 || f > 2000.0)
+                continue;
+            const double expected = (k == 2 ? c2 : c3) + linDb (k * f) - linDb (f);
+            err += d.harmonicDb[(size_t) k - 2][i] - expected;
+            meas += d.harmonicDb[(size_t) k - 2][i];
+            expd += expected;
+            ++n;
+        }
+        err /= std::max (1, n);
+        check (n > 10 && std::abs (err) < 2.0, "H" + juce::String (k) + " level recovered (400 Hz - 2 kHz)",
+               "measured " + juce::String (meas / std::max (1, n), 1) + " dB, expected " + juce::String (expd / std::max (1, n), 1)
+                   + " dB, mean error " + juce::String (err, 2) + " dB");
+    }
+
+    double thd1k = 0.0;
+    for (size_t i = 0; i < d.freqs.size(); ++i)
+        if (d.freqs[i] <= 1000.0)
+            thd1k = d.thdPercent[i];
+    check (thd1k > 1.0 && thd1k < 20.0, "THD reported in percent", juce::String (thd1k, 2) + " % @ 1 kHz");
+}
+
+static void testAdvancedAnalysis()
+{
+    std::cout << "ETC, waterfall, step response, decay times\n";
+    auto cfg = SystemConfig::makeLayout (3, true);
+    VirtualCar car (cfg);
+    const auto m = car.measure ({ { "FL.midrange", ChannelSettings() } }, 0);
+
+    const auto etc = analysis::energyTimeCurve (m);
+    const auto etcPeak = (int) (std::max_element (etc.begin(), etc.end()) - etc.begin());
+    check (etc.size() == m.ir.size() && std::abs (etcPeak - m.peakSample) < (int) (0.001 * m.sampleRate),
+           "ETC peak at the arrival", juce::String (etcPeak) + " vs IR peak " + juce::String (m.peakSample));
+    const int preOnset = std::max (0, m.zeroSample - 100);
+    check (etc[(size_t) preOnset] < -60.0f, "ETC quiet before the arrival", juce::String (etc[(size_t) preOnset], 1) + " dB");
+
+    const auto wf = analysis::spectralDecay (m, 300.0, 30, 100.0, 10000.0);
+    bool decays = wf.levelDb.size() == 30 && ! wf.freqs.empty();
+    double first = 0.0, last = 0.0;
+    if (decays)
+    {
+        for (size_t i = 0; i < wf.freqs.size(); ++i)
+        {
+            first += wf.levelDb.front()[i];
+            last += wf.levelDb.back()[i];
+        }
+        first /= (double) wf.freqs.size();
+        last /= (double) wf.freqs.size();
+        decays = last < first - 30.0;
+    }
+    check (decays, "Waterfall decays", "first slice " + juce::String (first, 1) + " dB, last " + juce::String (last, 1) + " dB");
+
+    const auto step = analysis::stepResponse (m);
+    float stepMax = 0.0f;
+    for (auto s : step)
+        stepMax = std::max (stepMax, std::abs (s));
+    check (step.size() == m.ir.size() && std::abs (stepMax - 1.0f) < 1e-4f && std::abs (step.back()) < 0.1f,
+           "Step response normalised, band-pass settles to zero", "end " + juce::String (step.back(), 3));
+
+    // Synthetic reverberant decay with a known RT60.
+    Measurement room;
+    room.sampleRate = 48000.0;
+    room.zeroSample = deconvolutionPreRoll (room.sampleRate);
+    const double rt60 = 0.4;
+    juce::Random rng (99);
+    room.ir.assign ((size_t) (room.zeroSample + 2.0 * room.sampleRate), 0.0f);
+    for (size_t i = (size_t) room.zeroSample; i < room.ir.size(); ++i)
+    {
+        const double t = (double) (i - (size_t) room.zeroSample) / room.sampleRate;
+        room.ir[i] = (float) ((rng.nextDouble() * 2.0 - 1.0) * std::pow (10.0, -3.0 * t / rt60));
+    }
+    const auto dts = analysis::decayTimes (room);
+    bool rtOk = dts.size() >= 6;
+    juce::String detail;
+    for (auto& [fc, t] : dts)
+    {
+        // Octave filters' own ringing and few noise cycles inflate the low bands a little.
+        rtOk = rtOk && std::abs (t - rt60) < (fc >= 250.0 ? 0.15 : 0.25) * rt60;
+        detail << juce::String (fc, 0) << ":" << juce::String (t, 2) << " ";
+    }
+    check (rtOk, "T20 decay per octave", detail.trim());
+}
+
+//==============================================================================
+static double rmsDb (const std::vector<float>& x)
+{
+    double acc = 0.0;
+    for (auto v : x)
+        acc += (double) v * v;
+    return dbFromPower (acc / (double) std::max<size_t> (1, x.size()));
+}
+
+static void testListeningTracks()
+{
+    std::cout << "Listening tracks\n";
+    const double fs = 48000.0;
+
+    const auto full = ListeningTracks::make (ListeningTrack::pinkFull, fs, -20.0);
+    check (std::abs (rmsDb (full.left) + 20.0) < 0.1 && full.left == full.right, "Mono pink noise at -20 dBFS RMS, identical L/R",
+           juce::String (rmsDb (full.left), 2) + " dBFS");
+
+    const auto c = ListeningTracks::make (ListeningTrack::panCentre, fs, -20.0);
+    check (std::abs (rmsDb (c.left) - rmsDb (c.right)) < 0.01 && std::abs (rmsDb (c.left) + 23.01) < 0.1,
+           "Centre: equal in L and R, -3 dB each (equal power)",
+           "L " + juce::String (rmsDb (c.left), 2) + ", R " + juce::String (rmsDb (c.right), 2) + " dBFS");
+
+    const auto l = ListeningTracks::make (ListeningTrack::panLeft, fs, -20.0);
+    bool rightSilent = true;
+    for (auto v : l.right)
+        rightSilent = rightSilent && v == 0.0f;
+    check (rightSilent && rmsDb (l.left) > -20.1, "Left: only the left channel plays");
+
+    const auto lc = ListeningTracks::make (ListeningTrack::panLeftCentre, fs, -20.0);
+    const double powerSum = std::pow (10.0, rmsDb (lc.left) / 10.0) + std::pow (10.0, rmsDb (lc.right) / 10.0);
+    check (rmsDb (lc.left) > rmsDb (lc.right) + 7.0 && std::abs (dbFromPower (powerSum) + 20.0) < 0.1,
+           "Left-centre: louder left, constant total power",
+           "L-R " + juce::String (rmsDb (lc.left) - rmsDb (lc.right), 2) + " dB");
+
+    for (auto t : { ListeningTrack::pinkBelow200, ListeningTrack::pink200to1k, ListeningTrack::pink1kto4k, ListeningTrack::pinkAbove4k })
+    {
+        const auto tr = ListeningTracks::make (t, fs, -20.0);
+        const auto [lo, hi] = ListeningTracks::bandLimits (t);
+        const int n = (int) tr.left.size();
+        const auto bins = realFFT (tr.left.data(), n, n);
+        double in = 0.0, out = 0.0;
+        for (size_t k = 1; k < bins.size(); ++k)
+        {
+            const double f = (double) k * fs / n;
+            (f >= lo * 0.99 && f <= hi * 1.01 ? in : out) += std::norm (bins[k]);
+        }
+        const double leak = dbFromPower (out / std::max (in, 1e-30));
+        check (leak < -60.0, ListeningTracks::name (t) + " is band-limited", "out-of-band " + juce::String (leak, 1) + " dB");
+    }
+
+    const auto sweepTrack = ListeningTracks::make (ListeningTrack::panSweep, fs, -20.0);
+    const int seg = (int) (2.0 * fs);
+    const std::vector<float> firstL (sweepTrack.left.begin() + seg / 2, sweepTrack.left.begin() + seg);
+    const std::vector<float> firstR (sweepTrack.right.begin() + seg / 2, sweepTrack.right.begin() + seg);
+    check (sweepTrack.left.size() == (size_t) seg * 8 && rmsDb (firstR) < -100.0 && rmsDb (firstL) > -21.0,
+           "Pan sweep starts hard left");
+
+    const auto quiet = ListeningTracks::make (ListeningTrack::noiseCheck, fs);
+    check (rmsDb (quiet.left) < -200.0 && rmsDb (quiet.right) < -200.0, "Noise-check track is silent");
+}
+
 int main()
 {
     juce::ScopedJuceInitialiser_GUI juceInit;
@@ -329,6 +625,13 @@ int main()
     testCrossoverPlanner();
     testEndToEndVirtualCar();
     testAutoTuneEngine();
+    testTargetLibrary();
+    testBandTargetLevels();
+    testDistortion();
+    testAdvancedAnalysis();
+    testListeningTracks();
+
+    failures += fa::test::runRegistered();
 
     std::cout << "\n" << (failures == 0 ? "ALL TESTS PASSED" : juce::String (failures) + " TEST(S) FAILED") << "\n";
     return failures == 0 ? 0 : 1;

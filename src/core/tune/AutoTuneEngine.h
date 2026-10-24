@@ -36,6 +36,8 @@ public:
         bool   refineCrossovers = true;
         int    maxVerifyPasses = 2;
         double acceptableErrorDb = 1.5;   // stop correcting once the side error is below this
+        bool   useBandTargets = false;    // level-match bands to the house curve's per-band targets
+                                          // (when config.target is a TargetLibrary built-in with bands)
     };
 
     struct UserAction

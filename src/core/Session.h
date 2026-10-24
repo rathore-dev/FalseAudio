@@ -2,6 +2,8 @@
 
 #include <juce_data_structures/juce_data_structures.h>
 #include "audio/AudioEngine.h"
+#include "audio/ListeningTracks.h"
+#include <optional>
 #include "audio/LiveAnalyzer.h"
 #include "bridge/DspController.h"
 #include "bridge/Exporters.h"
@@ -81,6 +83,27 @@ public:
     bool loadSession (const juce::File& f, juce::String& error);
     juce::File getAppDataFolder() const;
 
+    // ---- Listening checks & imaging (process steps 8-10) ------------------
+    /** Plays a listening-check track on the interface's L/R outputs (loops until stopped).
+        Stopped automatically when a sweep / auto tune starts. */
+    void playListeningTrack (ListeningTrack track, double levelDbFS = -20.0);
+    void stopListeningTrack();
+    bool isPlayingListeningTrack() const noexcept { return audio.isPlayingBack(); }
+    std::optional<ListeningTrack> getCurrentListeningTrack() const noexcept
+    {
+        return audio.isPlayingBack() ? currentTrack : std::nullopt;
+    }
+
+    /** Moves the stereo image with levels, never delays (process rule): db > 0 moves the image
+        to the RIGHT by lowering every left-side channel, db < 0 moves it LEFT by lowering the
+        right side. Nudging back first restores the lowered side, so only one side is ever cut.
+        Automatic DSPs are updated in the background; returns the changes as readable steps
+        (for a manual DSP the user types these in). */
+    juce::StringArray nudgeImage (double db);
+
+    /** Accumulated image offset in dB (> 0: left side lowered, < 0: right side lowered). */
+    double getImageBalanceDb() const noexcept { return imageBalanceDb; }
+
 private:
     void autoTuneMeasurement (const Measurement& m) override;
     void autoTuneFinished (const AutoTuneEngine::Result& r) override;
@@ -108,6 +131,19 @@ private:
     std::unique_ptr<juce::Thread> measureThread;
 
     std::unique_ptr<juce::PropertiesFile> settings;
+
+    // Listening checks / imaging
+    std::optional<ListeningTrack> currentTrack;
+    double imageBalanceDb = 0.0;
+
+    // Channel writes to an automatic DSP outside the auto tune (e.g. image nudges), done on a
+    // background thread because DSP controllers may block.
+    void applyChannelsInBackground (const std::vector<OutputChannel>& channels);
+    void finishDspApply();                   // drops queued writes and waits (before replacing a DSP)
+    juce::CriticalSection dspApplyLock;
+    std::map<juce::String, OutputChannel> dspApplyQueue;
+    bool dspApplyBusy = false;               // guarded by dspApplyLock
+    std::unique_ptr<juce::Thread> dspApplyThread;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Session)
 };

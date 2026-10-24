@@ -63,6 +63,28 @@ std::vector<float> deconvolve (const std::vector<float>& recorded,
                                const std::vector<float>& reference,
                                double fs, double fLow, double fHigh)
 {
+    return deconvolve (recorded, reference, fs, fLow, fHigh, deconvolutionPreRoll (fs));
+}
+
+double harmonicAdvanceSeconds (const LogSweep& sweep, int harmonic)
+{
+    if (harmonic <= 1 || sweep.fEnd <= sweep.fStart)
+        return 0.0;
+    return sweep.seconds * std::log ((double) harmonic) / std::log (sweep.fEnd / sweep.fStart);
+}
+
+int harmonicPreRoll (const LogSweep& sweep, int maxHarmonic)
+{
+    // One more harmonic's worth of room so the highest one gets a clean left window.
+    const double advance = harmonicAdvanceSeconds (sweep, std::max (2, maxHarmonic) + 1);
+    return deconvolutionPreRoll (sweep.sampleRate) + (int) std::ceil (advance * sweep.sampleRate);
+}
+
+std::vector<float> deconvolve (const std::vector<float>& recorded,
+                               const std::vector<float>& reference,
+                               double fs, double fLow, double fHigh,
+                               int preRollSamples)
+{
     const int n = nextPowerOfTwo ((int) (recorded.size() + reference.size()));
     const auto Y = realFFT (recorded.data(), (int) recorded.size(), n);
     const auto X = realFFT (reference.data(), (int) reference.size(), n);
@@ -85,8 +107,8 @@ std::vector<float> deconvolve (const std::vector<float>& recorded,
     const auto h = inverseRealFFT (H, n);
 
     // Keep the causal part plus a little pre-roll (wrapped from the end) for the left window.
-    const int preRoll = deconvolutionPreRoll (fs);
     const int keep = (int) recorded.size();
+    const int preRoll = juce::jlimit (0, n - keep, preRollSamples);
     std::vector<float> ir ((size_t) (keep + preRoll));
     for (int i = 0; i < preRoll; ++i)
         ir[(size_t) i] = (float) h[(size_t) (n - preRoll + i)];

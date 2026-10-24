@@ -35,4 +35,20 @@ std::vector<float> deconvolve (const std::vector<float>& recorded,
                                const std::vector<float>& reference,
                                double sampleRate,
                                double fLow, double fHigh);
+
+/** Same, with an explicit pre-roll (samples kept before time zero). Use harmonicPreRoll() to keep
+    the Farina harmonic impulses, which an exponential sweep puts BEFORE time zero.
+    Sample index `preRollSamples` of the result corresponds to zero delay. */
+std::vector<float> deconvolve (const std::vector<float>& recorded,
+                               const std::vector<float>& reference,
+                               double sampleRate,
+                               double fLow, double fHigh,
+                               int preRollSamples);
+
+/** Seconds by which harmonic k's impulse precedes the linear impulse for this sweep
+    (T * ln(k) / ln(fEnd / fStart)). */
+double harmonicAdvanceSeconds (const LogSweep& sweep, int harmonic);
+
+/** Pre-roll that keeps harmonics up to `maxHarmonic` (plus the usual 50 ms) in a deconvolved IR. */
+int harmonicPreRoll (const LogSweep& sweep, int maxHarmonic = 6);
 } // namespace fa

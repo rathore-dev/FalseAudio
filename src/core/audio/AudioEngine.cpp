@@ -37,6 +37,7 @@ AudioEngine::AudioEngine() = default;
 
 AudioEngine::~AudioEngine()
 {
+    activePlayback.store (nullptr);
     deviceManager.removeAudioCallback (this);
     deviceManager.closeAudioDevice();
 }
@@ -172,12 +173,16 @@ std::vector<Measurement> AudioEngine::measureSweep (const SweepRequest& request,
     if (r.loopbackOutput >= 0)       cap->outputs.push_back (r.loopbackOutput);
 
     cap->inputs = r.micInputs;
-    const bool useLoopback = r.loopbackInput >= 0 && r.loopbackOutput >= 0 && r.loopbackInput < numIns;
+    const bool useLoopback = r.loopbackInput >= 0 && r.loopbackOutput >= 0
+                          && r.loopbackInput < numIns && r.loopbackOutput < numOuts;
     if (useLoopback)
         cap->inputs.push_back (r.loopbackInput);
 
-    // Extra half second to catch the device's round-trip latency.
-    const int total = (int) cap->stimulus.size() + (int) (0.5 * sampleRate);
+    // Extra half second (plus the reported round-trip latency) so the end of the response isn't cut.
+    int reportedLatency = 0;
+    if (auto* device = deviceManager.getCurrentAudioDevice())
+        reportedLatency = std::max (0, device->getOutputLatencyInSamples() + device->getInputLatencyInSamples());
+    const int total = (int) cap->stimulus.size() + (int) (0.5 * sampleRate) + std::min (reportedLatency, (int) sampleRate);
     cap->recorded.assign (cap->inputs.size(), std::vector<float> ((size_t) total, 0.0f));
 
     activeCapture.store (cap.get());
@@ -200,19 +205,49 @@ std::vector<Measurement> AudioEngine::measureSweep (const SweepRequest& request,
     }
 
     activeCapture.store (nullptr);
-    juce::Thread::sleep (50); // let any in-flight callback finish with the capture
+    waitForCallbackToFinish(); // the audio thread must be done with `cap` before it is freed
 
     if (error.isNotEmpty())
         return results;
 
-    const auto& reference = useLoopback ? cap->recorded.back() : cap->stimulus;
+    auto peakDbOf = [] (const std::vector<float>& x)
+    {
+        float p = 0.0f;
+        for (auto v : x)
+            p = std::max (p, std::abs (v));
+        return dbFromMag (p);
+    };
+
+    juce::StringArray warnings;
+
+    // Timing reference. With a loopback cable the IR's time zero is the true electrical output
+    // start. Without one, the internal stimulus is the reference and time zero includes the
+    // interface's output + input latency: every arrival shifts by the same amount, which is
+    // harmless because delays and phases are only compared between channels measured on the
+    // same device - but onsetMs is then not an absolute distance.
+    const std::vector<float>* reference = &cap->stimulus;
+    if (useLoopback)
+    {
+        if (peakDbOf (cap->recorded.back()) > sweep.levelDbFS - 40.0)
+            reference = &cap->recorded.back();
+        else
+            warnings.add ("The loopback input is silent - check the loopback cable. Used the internal reference instead "
+                          "(timing then includes the interface latency, which is fine for relative delays).");
+    }
+
+    // Keep the Farina harmonic impulses (they sit before time zero) for distortion analysis.
+    const int preRoll = harmonicPreRoll (sweep);
 
     for (size_t k = 0; k < r.micInputs.size(); ++k)
     {
+        if (peakDbOf (cap->recorded[k]) < -80.0)
+            warnings.add ("No signal on microphone " + juce::String ((int) k + 1) + " (input "
+                          + juce::String (r.micInputs[k] + 1) + "). Check the cable, phantom power and input gain.");
+
         Measurement m;
         m.sampleRate = sampleRate;
-        m.ir = deconvolve (cap->recorded[k], reference, sampleRate, sweep.fStart, sweep.fEnd);
-        m.zeroSample = deconvolutionPreRoll (sampleRate);
+        m.ir = deconvolve (cap->recorded[k], *reference, sampleRate, sweep.fStart, sweep.fEnd, preRoll);
+        m.zeroSample = (int) m.ir.size() - (int) cap->recorded[k].size();
         m.channelId = request.label;
         m.micPosition = (int) k;
         m.name = request.label + (r.micInputs.size() > 1 ? " mic " + juce::String ((int) k + 1) : juce::String());
@@ -224,8 +259,20 @@ std::vector<Measurement> AudioEngine::measureSweep (const SweepRequest& request,
     }
 
     if (cap->clipped.load())
-        error = "Input clipped during the sweep - lower the sweep level or the mic gain.";
+        warnings.insert (0, "Input clipped during the sweep - lower the sweep level or the mic gain.");
 
+    for (auto& m : results)
+    {
+        if (! m.clipped && m.snrDb < 20.0)
+        {
+            warnings.add ("Low signal-to-noise (" + juce::String (m.snrDb, 0) + " dB) on " + m.name
+                          + ". Raise the volume or sweep level, or reduce background noise.");
+            break;
+        }
+    }
+
+    // Results are still returned with warnings; callers treat a non-empty error with results as advisory.
+    error = warnings.joinIntoString ("\n");
     return results;
 }
 
@@ -328,6 +375,9 @@ void AudioEngine::audioDeviceIOCallbackWithContext (const float* const* in, int 
                                                     float* const* out, int numOutputChannels,
                                                     int numSamples, const juce::AudioIODeviceCallbackContext&)
 {
+    inCallback.store (true);
+    struct ClearFlag { std::atomic<bool>& flag; ~ClearFlag() { flag.store (false); } } clearFlag { inCallback };
+
     for (int ch = 0; ch < numOutputChannels; ++ch)
         if (out[ch] != nullptr)
             juce::FloatVectorOperations::clear (out[ch], numSamples);
@@ -368,11 +418,38 @@ void AudioEngine::audioDeviceIOCallbackWithContext (const float* const* in, int 
         cap->position.store (pos);
     }
 
+    // Listening-check playback (lock-free; a sweep always takes priority).
+    auto* pb = cap == nullptr ? activePlayback.load() : nullptr;
+    if (pb != nullptr)
+    {
+        size_t pos = pb->position.load();
+        const size_t len = std::min (pb->left.size(), pb->right.size());
+        for (int i = 0; i < numSamples && len > 0; ++i)
+        {
+            if (pos >= len)
+            {
+                if (! pb->loop)
+                    break;
+                pos = 0;
+            }
+            const float sl = pb->left[pos] * pb->gain, sr = pb->right[pos] * pb->gain;
+            if (pb->leftOut >= 0 && pb->leftOut < numOutputChannels && out[pb->leftOut] != nullptr)
+                out[pb->leftOut][i] = sl;
+            if (pb->rightOut >= 0 && pb->rightOut < numOutputChannels && out[pb->rightOut] != nullptr)
+                out[pb->rightOut][i] = sr;
+            if (pb->loopOut >= 0 && pb->loopOut < numOutputChannels && out[pb->loopOut] != nullptr)
+                out[pb->loopOut][i] = 0.5f * (sl + sr);
+            outPeak = std::max (outPeak, std::max (std::abs (sl), std::abs (sr)));
+            ++pos;
+        }
+        pb->position.store (pos);
+    }
+
     const juce::ScopedTryLock tl (lock);
     if (! tl.isLocked() || (int) inputRings.size() < numInputChannels)
         return;
 
-    if (cap == nullptr && generator.signal != GeneratorSettings::Signal::off)
+    if (cap == nullptr && pb == nullptr && generator.signal != GeneratorSettings::Signal::off)
     {
         const int w = ringWrite.load();
         for (int i = 0; i < numSamples; ++i)
@@ -413,6 +490,43 @@ void AudioEngine::audioDeviceIOCallbackWithContext (const float* const* in, int 
 
     if (outPeak > outputPeak.load())
         outputPeak.store (outPeak);
+}
+
+void AudioEngine::waitForCallbackToFinish() const
+{
+    // seq_cst: a callback that starts after the caller swapped a pointer out sees the new value,
+    // so only a callback that is already running can still hold the old one.
+    const auto start = juce::Time::getMillisecondCounter();
+    while (inCallback.load() && juce::Time::getMillisecondCounter() - start < 2000)
+        juce::Thread::yield();
+}
+
+void AudioEngine::playStereo (std::vector<float> left, std::vector<float> right, bool loop, double gainDb)
+{
+    auto pb = std::make_unique<Playback>();
+    const size_t len = std::min (left.size(), right.size());
+    left.resize (len);
+    right.resize (len);
+    pb->left = std::move (left);
+    pb->right = std::move (right);
+    pb->loop = loop;
+    pb->gain = (float) magFromDb (gainDb);
+
+    const auto r = getRouting();
+    pb->leftOut = r.leftOutput;
+    pb->rightOut = r.rightOutput;
+    pb->loopOut = r.loopbackOutput;
+
+    activePlayback.store (pb.get());
+    waitForCallbackToFinish();
+    ownedPlayback = std::move (pb); // frees the previous playback, which the audio thread has let go of
+}
+
+void AudioEngine::stopPlayback()
+{
+    activePlayback.store (nullptr);
+    waitForCallbackToFinish();
+    ownedPlayback.reset();
 }
 
 bool AudioEngine::copyLatestInput (int physicalInput, float* dest, int numSamples) const

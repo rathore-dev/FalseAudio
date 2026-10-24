@@ -37,6 +37,10 @@ public:
         bool matchRightToLeft = true;   // process rule: tune left to target, then right to left
         bool allowPolarityFlip = true;  // fix reversed wiring in the DSP
         int  extraPhaseSearchSteps = 81;
+
+        /** Optional per-band targets (TargetLibrary::Entry::bands, same 0 dB @ 1 kHz frame as
+            config.target). Used by matchLevels() as each band's level reference. Empty = off. */
+        std::map<DriverRole, TargetCurve> bandTargets;
     };
 
     struct Report

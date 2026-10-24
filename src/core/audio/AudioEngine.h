@@ -63,6 +63,14 @@ public:
     void setGenerator (const GeneratorSettings& g);
     GeneratorSettings getGenerator() const;
 
+    /** Plays a stereo track on the left/right outputs (and the loopback output, as the mono
+        sum) - used for the listening checks. Replaces any running playback; the live
+        generator is muted while it plays and a sweep measurement always takes priority.
+        Lock-free on the audio thread. Call from the message thread. */
+    void playStereo (std::vector<float> left, std::vector<float> right, bool loop, double gainDb = 0.0);
+    void stopPlayback();
+    bool isPlayingBack() const noexcept { return activePlayback.load() != nullptr; }
+
     /** Copies the most recent `numSamples` of a physical input channel. Returns false if not available. */
     bool copyLatestInput (int physicalInput, float* dest, int numSamples) const;
 
@@ -109,6 +117,22 @@ private:
     };
     std::atomic<Capture*> activeCapture { nullptr };
 
+    // Stereo track playback (listening checks), handed to the audio thread like the capture.
+    struct Playback
+    {
+        std::vector<float> left, right;
+        bool loop = true;
+        float gain = 1.0f;
+        int leftOut = -1, rightOut = -1, loopOut = -1; // routing captured when playback starts
+        std::atomic<size_t> position { 0 };
+    };
+    std::atomic<Playback*> activePlayback { nullptr };
+
+    // Set while the audio callback runs, so a retired capture/playback is only freed once the
+    // audio thread can no longer be using it.
+    std::atomic<bool> inCallback { false };
+    void waitForCallbackToFinish() const;
+
     // Live ring buffers (sized when the device starts)
     static constexpr int ringSize = 1 << 17;
     std::vector<std::vector<float>> inputRings;
@@ -124,6 +148,8 @@ private:
     double sinePhase = 0.0;
     double pinkB[7] {};
     juce::Random rng;
+
+    std::unique_ptr<Playback> ownedPlayback; // keeps activePlayback alive (message thread)
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioEngine)
 };

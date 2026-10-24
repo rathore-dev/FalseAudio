@@ -22,6 +22,8 @@ Session::~Session()
     measureCancel = true;
     if (measureThread != nullptr)
         measureThread->stopThread (5000);
+    finishDspApply();
+    audio.stopPlayback();
     saveSettings();
 }
 
@@ -107,6 +109,7 @@ void Session::setMode (Mode m)
 
 void Session::rebuildDemoRig()
 {
+    finishDspApply();
     demoRig = std::make_unique<VirtualRig> (config, 1);
     // A realistic installer mistake for the demo to find.
     for (auto& c : config.channels)
@@ -117,6 +120,7 @@ void Session::rebuildDemoRig()
 void Session::setConfig (const SystemConfig& c)
 {
     config = c;
+    imageBalanceDb = 0.0;
     rebuildDemoRig();
     saveSettings();
     sendChangeMessage();
@@ -173,6 +177,7 @@ bool Session::loadCalibration (int micIndex, const juce::File& file, juce::Strin
 //==============================================================================
 void Session::useManualDsp()
 {
+    finishDspApply();
     liveDsp = std::make_unique<ManualDspController> (config.caps, [this] (const juce::String& title, const juce::StringArray& steps)
     {
         AutoTuneEngine::UserAction a;
@@ -204,6 +209,7 @@ void Session::useUIAutomationDsp (const DspProfile& profile, std::function<void*
 
 void Session::setDspController (std::unique_ptr<DspController> controller, DspKind kind)
 {
+    finishDspApply();
     liveDsp = std::move (controller);
     liveDspKind = kind;
     sendChangeMessage();
@@ -245,6 +251,8 @@ bool Session::startAutoTune (juce::String& error)
         return false;
     }
 
+    stopListeningTrack();
+
     if (mode == Mode::demo)
     {
         rebuildDemoRig();
@@ -275,6 +283,7 @@ void Session::autoTuneFinished (const AutoTuneEngine::Result& r)
     if (r.success)
     {
         config = r.tunedConfig;
+        imageBalanceDb = 0.0;
         saveSettings();
     }
     sendChangeMessage();
@@ -329,6 +338,7 @@ void Session::measureOnce (Feed feed, const juce::String& label,
     if (measureThread != nullptr)
         measureThread->stopThread (2000);
 
+    stopListeningTrack();
     measuringNow = true;
     measureCancel = false;
 
@@ -358,6 +368,113 @@ void Session::measureOnce (Feed feed, const juce::String& label,
         });
     });
     measureThread->startThread();
+}
+
+//==============================================================================
+void Session::playListeningTrack (ListeningTrack track, double levelDbFS)
+{
+    if (autoTune.isRunning() || measuringNow.load())
+        return;
+
+    auto t = ListeningTracks::make (track, audio.getSampleRate(), levelDbFS);
+    audio.playStereo (std::move (t.left), std::move (t.right), t.loop);
+    currentTrack = track;
+    sendChangeMessage();
+}
+
+void Session::stopListeningTrack()
+{
+    const bool wasPlaying = audio.isPlayingBack();
+    audio.stopPlayback();
+    currentTrack.reset();
+    if (wasPlaying)
+        sendChangeMessage();
+}
+
+juce::StringArray Session::nudgeImage (double db)
+{
+    juce::StringArray steps;
+    if (autoTune.isRunning() || std::abs (db) < 1.0e-6)
+        return steps;
+
+    // Only one side is ever lowered; nudging back restores it before cutting the other side.
+    const double before = imageBalanceDb;
+    imageBalanceDb = juce::jlimit (-20.0, 20.0, before + db);
+    const double leftChange  = std::max (before, 0.0) - std::max (imageBalanceDb, 0.0);
+    const double rightChange = std::max (-before, 0.0) - std::max (-imageBalanceDb, 0.0);
+
+    std::vector<OutputChannel> changed;
+    for (auto& c : config.channels)
+    {
+        const double d = c.side == Side::left ? leftChange : c.side == Side::right ? rightChange : 0.0;
+        if (std::abs (d) < 1.0e-9)
+            continue;
+
+        const double old = c.settings.gainDb;
+        c.settings.gainDb = juce::jlimit (config.caps.minChannelGainDb, config.caps.maxChannelGainDb, old + d);
+        steps.add (c.label + ": gain " + juce::String (old, 1) + " dB -> " + juce::String (c.settings.gainDb, 1) + " dB");
+        changed.push_back (c);
+    }
+
+    if (! changed.empty())
+    {
+        if (getDsp().isAutomatic())
+            applyChannelsInBackground (changed);
+        saveSettings();
+        sendChangeMessage();
+    }
+    return steps;
+}
+
+void Session::finishDspApply()
+{
+    {
+        const juce::ScopedLock sl (dspApplyLock);
+        dspApplyQueue.clear();
+    }
+    if (dspApplyThread != nullptr)
+        dspApplyThread->waitForThreadToExit (10000);
+}
+
+void Session::applyChannelsInBackground (const std::vector<OutputChannel>& channels)
+{
+    const juce::ScopedLock sl (dspApplyLock);
+    for (auto& c : channels)
+        dspApplyQueue[c.id] = c;
+
+    if (dspApplyBusy)
+        return; // the running worker picks the new values up
+
+    if (dspApplyThread != nullptr)
+        dspApplyThread->waitForThreadToExit (2000); // it has already drained the queue and is returning
+
+    dspApplyBusy = true;
+    auto* dsp = &getDsp();
+    dspApplyThread = std::make_unique<OneShotThread> ([this, dsp]
+    {
+        for (;;)
+        {
+            std::map<juce::String, OutputChannel> work;
+            {
+                const juce::ScopedLock lock (dspApplyLock);
+                if (dspApplyQueue.empty())
+                {
+                    dspApplyBusy = false;
+                    return;
+                }
+                work.swap (dspApplyQueue);
+            }
+            for (auto& [id, ch] : work)
+            {
+                juce::String err;
+                if (! dsp->applyChannel (ch, err))
+                {
+                    DBG ("DSP write failed for " + id + ": " + err);
+                }
+            }
+        }
+    });
+    dspApplyThread->startThread();
 }
 
 //==============================================================================

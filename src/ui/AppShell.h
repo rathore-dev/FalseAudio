@@ -5,7 +5,8 @@
 namespace fa::ui
 {
 /** Identifiers of every page, in navigation-rail order. */
-enum class PageId { autoTune, system, hardware, measure, live, alignment, crossoverEq, dsp, report };
+enum class PageId { autoTune, system, hardware, measure, live, alignment, crossoverEq, dsp, report,
+                    gear, install, insights };   // appended: Equipment, Install & Gains, Insights
 
 /** The main window content: header (title, Demo/Live pill), navigation rail, page area, and
     an overlay layer for modal sheets and toasts.

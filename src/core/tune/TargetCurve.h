@@ -29,6 +29,9 @@ struct TargetCurve
     static TargetCurve flat();              // home/studio flat
     static TargetCurve parse (const juce::String& text, const juce::String& name);
 
+    /** Same as parse(), optionally keeping the file's absolute levels (no 1 kHz normalisation). */
+    static TargetCurve parse (const juce::String& text, const juce::String& name, bool normaliseAt1k);
+
     juce::var toVar() const;
     static TargetCurve fromVar (const juce::var& v);
 };
