@@ -1,0 +1,308 @@
+{
+  "products": [
+    {
+      "id": "boss-audio-r2504",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "R2504",
+      "series": "Riot",
+      "sourceUrl": "https://www.bossaudio.com/products/791489115247",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1000 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF fixed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 94,
+          "2ohm": 188,
+          "bridged4ohm": 375
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-r3002",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "R3002",
+      "series": "Riot",
+      "sourceUrl": "https://www.bossaudio.com/products/791489115308",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 600 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF fixed.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 113,
+          "2ohm": 225,
+          "bridged4ohm": 450
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-pt1600",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "PT1600",
+      "series": "Phantom",
+      "sourceUrl": "https://www.bossaudio.com/products/791489122795",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1600 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF variable.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 600,
+          "bridged4ohm": 1200
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-r1004",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "R1004",
+      "series": "Riot",
+      "sourceUrl": "https://www.bossaudio.com/products/791489115254",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 400 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. No crossovers listed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 38,
+          "2ohm": 75
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "boss-audio-ox4-400",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "OX4.400",
+      "series": "Onyx",
+      "sourceUrl": "https://www.bossaudio.com/products/791489125857",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1600 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 300,
+          "bridged4ohm": 600
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-r4002",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "R4002",
+      "series": "Riot",
+      "sourceUrl": "https://www.bossaudio.com/products/791489115292",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 800 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF fixed.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 300,
+          "bridged4ohm": 600
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-pf1800",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "PF1800",
+      "series": "Phantom",
+      "sourceUrl": "https://www.bossaudio.com/products/791489122764",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1800 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF variable.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 169,
+          "2ohm": 338,
+          "bridged4ohm": 675
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-pt1000",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "PT1000",
+      "series": "Phantom",
+      "sourceUrl": "https://www.bossaudio.com/products/791489122801",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1000 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF variable.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 188,
+          "2ohm": 375,
+          "bridged4ohm": 750
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-ox2-600",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "OX2.600",
+      "series": "Onyx",
+      "sourceUrl": "https://www.bossaudio.com/products/791489125871",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1200 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 225,
+          "2ohm": 450,
+          "bridged4ohm": 900
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-pf2200",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "PF2200",
+      "series": "Phantom",
+      "sourceUrl": "https://www.bossaudio.com/products/791489122757",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 2200 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF variable.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 206,
+          "2ohm": 413,
+          "bridged4ohm": 825
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-ar1600-2",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "AR1600.2",
+      "series": "Armor",
+      "sourceUrl": "https://www.bossaudio.com/products/791489116497",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1600 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF fixed.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 600,
+          "bridged4ohm": 1200
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-ar1600-4",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "AR1600.4",
+      "series": "Armor",
+      "sourceUrl": "https://www.bossaudio.com/products/791489116466",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1600 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF fixed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 300,
+          "bridged4ohm": 600
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-r3004",
+      "category": "ampMulti",
+      "brand": "Boss Audio",
+      "model": "R3004",
+      "series": "Riot",
+      "sourceUrl": "https://www.bossaudio.com/products/791489115230",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1200 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs. HPF fixed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 113,
+          "2ohm": 225,
+          "bridged4ohm": 450
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true
+      }
+    }
+  ]
+}

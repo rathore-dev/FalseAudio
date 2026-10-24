@@ -1,0 +1,299 @@
+{
+  "products": [
+    {
+      "id": "massive-audio-h30005",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "H30005",
+      "series": "Hippo",
+      "sourceUrl": "https://www.massiveaudio.com/products/h30005-300-watts-rms-x-4-2-ohm-1500w-1-ohm-5-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). rmsPerChannelW = ch1-4. Sub ch: 596 W @4, 1034 W @2, 1515 W @1 ohm. Input 0.3-7 V (high or low). Bass boost 30-120 Hz. Gain remote included.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 202,
+          "2ohm": 308
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 7,
+        "snrDb": 93,
+        "thdPercent": 0.1,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "massive-audio-h30004",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "H30004",
+      "series": "Hippo",
+      "sourceUrl": "https://www.massiveaudio.com/products/h30004-500-watts-rms-x-4-4-ohm-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Input 0.3-7 V (high or low).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 700,
+          "bridged4ohm": 1400
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 7,
+        "snrDb": 93,
+        "thdPercent": 0.1,
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "massive-audio-h12004",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "H12004",
+      "series": "Hippo",
+      "sourceUrl": "https://www.massiveaudio.com/products/h12004-200-watts-rms-x-4-4-ohm-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). LPF 20 Hz-3 kHz, HPF 20 Hz-3 kHz. Input 0.4-8 V (high or low).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 340,
+          "bridged4ohm": 680
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "massive-audio-h8004",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "H8004",
+      "series": "Hippo",
+      "sourceUrl": "https://www.massiveaudio.com/products/h8004-125-watts-rms-x-4-4-ohm-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). LPF/HPF 20 Hz-3 kHz. Input 0.4-8 V (high or low).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 125,
+          "2ohm": 220,
+          "bridged4ohm": 450
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "massive-audio-gt5x",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "GT5X",
+      "series": "GT",
+      "sourceUrl": "https://www.massiveaudio.com/products/gt5x-75-watts-rms-x-4-4-ohm-510-watts-1-ohm-5-ch-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). rmsPerChannelW = ch1-4. Sub ch: 190 W @4, 300 W @2, 510 W @1 ohm. Sub LPF 80-200 Hz. Bass boost -3 to +12 dB. 4 AWG recommended.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 115
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 7,
+        "snrDb": 91,
+        "thdPercent": 0.08,
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "massive-audio-gtr4x",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "GTR4X",
+      "series": "GT",
+      "sourceUrl": "https://www.massiveaudio.com/products/gtr4x-120-watts-rms-x-4-4-ohm-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). LPF 20 Hz-3 kHz. 4 AWG recommended.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 120,
+          "2ohm": 200,
+          "bridged4ohm": 430
+        },
+        "inputSensitivityMinV": 0.31,
+        "inputSensitivityMaxV": 7,
+        "snrDb": 91,
+        "thdPercent": 0.08,
+        "minStableOhms": 2,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "massive-audio-gt4x",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "GT4X",
+      "series": "GT",
+      "sourceUrl": "https://www.massiveaudio.com/products/gt4x-75-watts-rms-x-4-4-ohm-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). LPF 20-500 Hz. 4 AWG recommended.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 120,
+          "bridged4ohm": 230
+        },
+        "inputSensitivityMinV": 0.31,
+        "inputSensitivityMaxV": 7,
+        "snrDb": 94,
+        "thdPercent": 0.06,
+        "minStableOhms": 2,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "massive-audio-ex44n",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "EX44N",
+      "series": "E",
+      "sourceUrl": "https://www.massiveaudio.com/products/ex44n-100-watts-rms-x-4-4-ohm-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Input 0.4-10 V (high or low).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 200,
+          "bridged4ohm": 400
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 90,
+        "thdPercent": 0.05,
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "massive-audio-bpx8004",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "BPX8004",
+      "series": "BPX",
+      "sourceUrl": "https://www.massiveaudio.com/products/bpx8004-60-watts-rms-x-4-4-ohm-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Input 0.2-9 V. Bass boost 0/6/12 dB @45 Hz. THD at 30% rated power.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 120,
+          "bridged4ohm": 240
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "massive-audio-bpx10004",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "BPX10004",
+      "series": "BPX",
+      "sourceUrl": "https://www.massiveaudio.com/products/bpx10004-80-watts-rms-x-4-4-ohm-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Input 0.2-9 V. Bass boost 0-12 dB @45 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 160,
+          "bridged4ohm": 320
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 90,
+        "thdPercent": 0.05,
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "massive-audio-bpx15005",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "BPX15005",
+      "series": "BPX",
+      "sourceUrl": "https://www.massiveaudio.com/products/bpx1500-5-80-watts-rms-x-4-500-watts-2-ohm-full-range-5-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). rmsPerChannelW = ch1-4. Sub ch: 200 W @4, 500 W @2 ohm (2 ohm min). Boost 0-12 dB @45 Hz.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 160,
+          "bridged4ohm": 320
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "massive-audio-bp500-2-v2",
+      "category": "ampMulti",
+      "brand": "Massive Audio",
+      "model": "BP500.2 V2",
+      "series": "BP",
+      "sourceUrl": "https://www.massiveaudio.com/products/bp500-2v2-80-watts-4-ohm-2-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Input 0.2-9 V. Boost 0/6/12 dB @45 Hz.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 160,
+          "bridged4ohm": 320
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

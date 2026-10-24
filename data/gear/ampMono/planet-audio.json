@@ -1,0 +1,232 @@
+{
+  "products": [
+    {
+      "id": "planet-audio-ac1500-1m",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "AC1500.1M",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac1500-1m/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 45 Hz to 90 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 1125,
+          "4ohm": 563
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "planet-audio-ac2500-1m",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "AC2500.1M",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac2500-1m/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 45 Hz to 90 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 1875,
+          "4ohm": 938
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "planet-audio-ac3000-1d",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "AC3000.1D",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac3000-1d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 150 Hz. Subsonic 15 Hz to 40 Hz. Strappable: up to 4500 W @2 ohm strapped.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 2250,
+          "2ohm": 1125,
+          "4ohm": 563
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "planet-audio-ac4000-1d",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "AC4000.1D",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac4000-1d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 150 Hz. Subsonic 15 Hz to 40 Hz. Strappable: up to 6000 W @2 ohm strapped.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 3000,
+          "2ohm": 1500,
+          "4ohm": 750
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "planet-audio-tr3000-1d",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "TR3000.1D",
+      "series": "Torque",
+      "sourceUrl": "https://planetaudio.com/auto/tr3000-1d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 250 Hz. Subsonic 15 Hz to 40 Hz. Strappable: up to 4500 W @2 ohm strapped.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 2250,
+          "2ohm": 1125,
+          "4ohm": 563
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "planet-audio-tr4000-1d",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "TR4000.1D",
+      "series": "Torque",
+      "sourceUrl": "https://planetaudio.com/auto/tr4000-1d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 250 Hz. Subsonic 15 Hz to 40 Hz. Strappable: up to 6000 W @2 ohm strapped.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 3000,
+          "2ohm": 1500,
+          "4ohm": 750
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "planet-audio-tr5000-1d",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "TR5000.1D",
+      "series": "Torque",
+      "sourceUrl": "https://planetaudio.com/auto/tr5000-1d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 250 Hz. Subsonic 15 Hz to 40 Hz. Strappable: up to 7500 W @2 ohm strapped.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 3750,
+          "2ohm": 1875,
+          "4ohm": 938
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "planet-audio-pl3000-1d",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "PL3000.1D",
+      "series": "Pulse",
+      "sourceUrl": "https://planetaudio.com/auto/pl3000-1d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 250 Hz. Subsonic 15 Hz to 40 Hz. Strappable: up to 4500 W @2 ohm strapped.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 2250,
+          "2ohm": 1125,
+          "4ohm": 563
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "planet-audio-mb1200-1d",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "MB1200.1D",
+      "series": "Big Bang",
+      "sourceUrl": "https://planetaudio.com/auto/mb1200-1d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 250 Hz. Subsonic 15 Hz to 40 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 900,
+          "2ohm": 450,
+          "4ohm": 225
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "planet-audio-mb2000-1d",
+      "category": "ampMono",
+      "brand": "Planet Audio",
+      "model": "MB2000.1D",
+      "series": "Big Bang",
+      "sourceUrl": "https://planetaudio.com/auto/mb2000-1d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 250 Hz. Subsonic 15 Hz to 40 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 1500,
+          "2ohm": 750,
+          "4ohm": 375
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    }
+  ]
+}

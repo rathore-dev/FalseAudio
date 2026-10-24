@@ -1,0 +1,244 @@
+{
+  "products": [
+    {
+      "id": "american-bass-vfl-rebel-3000-1",
+      "category": "ampMono",
+      "brand": "American Bass",
+      "model": "VFL REBEL-3000.1",
+      "series": "VFL Rebel",
+      "year": 2025,
+      "sourceUrl": "https://www.americanbassusa.com/products/rebel-3000-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; rated test voltage not stated. Bass boost 0-12 dB, 30-70 Hz. LPF 60 Hz-20 kHz, HPF 10 Hz-1 kHz (as listed). Fuse 300 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 980,
+          "2ohm": 1905,
+          "1ohm": 3000
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 4,
+        "snrDb": 90,
+        "thdPercent": 0.35,
+        "efficiencyPercent": 90,
+        "fuseRatingA": 300,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "american-bass-vfl-rebel-5000-1",
+      "category": "ampMono",
+      "brand": "American Bass",
+      "model": "VFL REBEL-5000.1",
+      "series": "VFL Rebel",
+      "year": 2025,
+      "sourceUrl": "https://www.americanbassusa.com/products/rebel-5000-4",
+      "verified": true,
+      "notes": "Manufacturer spec table; rated test voltage not stated. SNR printed '<92dB'. Bass boost 0-12 dB, 30-70 Hz. Fuse 450 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1600,
+          "2ohm": 3400,
+          "1ohm": 5000
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 4,
+        "thdPercent": 0.4,
+        "fuseRatingA": 450,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "american-bass-vfl-rebel-8000-1",
+      "category": "ampMono",
+      "brand": "American Bass",
+      "model": "VFL REBEL-8000.1",
+      "series": "VFL Rebel",
+      "year": 2025,
+      "sourceUrl": "https://www.americanbassusa.com/products/rebel-8000",
+      "verified": true,
+      "notes": "Manufacturer spec table; rated test voltage not stated. Bass boost 0-12 dB, 30-70 Hz. Fuse 750 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 2090,
+          "2ohm": 4300,
+          "1ohm": 8000
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 4,
+        "snrDb": 91,
+        "thdPercent": 0.5,
+        "efficiencyPercent": 90,
+        "fuseRatingA": 750,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "american-bass-godfather-1500-1d",
+      "category": "ampMono",
+      "brand": "American Bass",
+      "model": "Godfather 1500.1D",
+      "series": "Godfather",
+      "sourceUrl": "https://www.americanbassusa.com/products/godfather-1500-1d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; rated test voltage not stated. LPF 35-250 Hz, subsonic 10-50 Hz, bass boost 0-9 dB @45 Hz. Fuse 140 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 670,
+          "2ohm": 1120,
+          "1ohm": 1508
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 85,
+        "thdPercent": 0.1,
+        "dampingFactor": 150,
+        "efficiencyPercent": 90,
+        "fuseRatingA": 140,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9
+      }
+    },
+    {
+      "id": "american-bass-godfather-2000-1d",
+      "category": "ampMono",
+      "brand": "American Bass",
+      "model": "Godfather 2000.1D",
+      "series": "Godfather",
+      "sourceUrl": "https://www.americanbassusa.com/products/godfather-2000-1d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; rated test voltage not stated. LPF 35-250 Hz, subsonic 10-50 Hz, bass boost 0-9 dB @45 Hz. Fuse 200 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1060,
+          "2ohm": 1560,
+          "1ohm": 2340
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 85,
+        "thdPercent": 0.1,
+        "dampingFactor": 150,
+        "efficiencyPercent": 90,
+        "fuseRatingA": 200,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9
+      }
+    },
+    {
+      "id": "american-bass-godfather-3500-1d",
+      "category": "ampMono",
+      "brand": "American Bass",
+      "model": "Godfather 3500.1D",
+      "series": "Godfather",
+      "sourceUrl": "https://www.americanbassusa.com/products/godfather-3500-1d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; rated test voltage not stated. Page lists 1540 W at both 4 and 2 ohm (4-ohm value looks like an error, omitted). LPF 35-250 Hz, subsonic 10-50 Hz. Fuse 300 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 1540,
+          "1ohm": 3047
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 85,
+        "thdPercent": 0.1,
+        "dampingFactor": 150,
+        "efficiencyPercent": 90,
+        "fuseRatingA": 300,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9
+      }
+    },
+    {
+      "id": "american-bass-godfather-5d",
+      "category": "ampMono",
+      "brand": "American Bass",
+      "model": "Godfather 5D",
+      "series": "Godfather Comp",
+      "sourceUrl": "https://www.americanbassusa.com/products/godfather-comp-5d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; rated test voltage not stated. LPF 35-250 Hz, subsonic 10-50 Hz, boost 0-12 dB @45 Hz. Fuse 350 A (700 A strapped).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1630,
+          "2ohm": 2790,
+          "1ohm": 4160
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "fuseRatingA": 350,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "american-bass-vfl-stealth-3000-1d",
+      "category": "ampMono",
+      "brand": "American Bass",
+      "model": "VFL Stealth 3000.1D",
+      "series": "VFL Stealth",
+      "sourceUrl": "https://www.americanbassusa.com/products/vfl-stealth-3000-1d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; rated test voltage not stated. LPF 35-250 Hz, subsonic 10-50 Hz. Fuse 120 A (240 A linked).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 750,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 85,
+        "thdPercent": 0.1,
+        "dampingFactor": 150,
+        "efficiencyPercent": 90,
+        "fuseRatingA": 120,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9
+      }
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "products": [
+    {
+      "id": "memphis-audio-prx400-1v2",
+      "category": "ampMono",
+      "brand": "Memphis Audio",
+      "model": "PRX400.1V2",
+      "series": "Power Reference V2",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2024/04/PRX-V2-Amplifier-Instruction-Manual.pdf",
+      "verified": true,
+      "notes": "Specs from PR V2 manual; rated voltage not stated. THD <1%. LPF 50-250 Hz 18 dB/oct; 24 dB subsonic (variable); bass boost centred 45 Hz (feature list says 0-12 dB, setup text says 0-18 dB). Low-level input 200 mV-6 V; has high-level inputs. Remote bass knob RG6. Wiring kit 8 AWG (8GKIT).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 230,
+          "2ohm": 400,
+          "1ohm": 600
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 85,
+        "thdPercent": 1,
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-prx800-1v2",
+      "category": "ampMono",
+      "brand": "Memphis Audio",
+      "model": "PRX800.1V2",
+      "series": "Power Reference V2",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2024/04/PRX-V2-Amplifier-Instruction-Manual.pdf",
+      "verified": true,
+      "notes": "Specs from PR V2 manual; rated voltage not stated. THD <1%. LPF 50-250 Hz 18 dB/oct; 24 dB subsonic (variable); bass boost centred 45 Hz (feature list says 0-12 dB, setup text says 0-18 dB). Low-level input 200 mV-6 V; has high-level inputs. Remote bass knob RG6. Wiring kit 4 AWG (4GKIT).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500,
+          "1ohm": 800
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 85,
+        "thdPercent": 1,
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-prx1000-1v2",
+      "category": "ampMono",
+      "brand": "Memphis Audio",
+      "model": "PRX1000.1V2",
+      "series": "Power Reference V2",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2024/04/PRX-V2-Amplifier-Instruction-Manual.pdf",
+      "verified": true,
+      "notes": "Specs from PR V2 manual; rated voltage not stated. THD <1%. LPF 50-250 Hz 18 dB/oct; 24 dB subsonic (variable); bass boost centred 45 Hz (feature list says 0-12 dB, setup text says 0-18 dB). Low-level input 200 mV-6 V; has high-level inputs. Remote bass knob RG6. Wiring kit 4 AWG (4GKIT).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 750,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 80,
+        "thdPercent": 1,
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-prx1500-1v2",
+      "category": "ampMono",
+      "brand": "Memphis Audio",
+      "model": "PRX1500.1V2",
+      "series": "Power Reference V2",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2024/04/PRX-V2-Amplifier-Instruction-Manual.pdf",
+      "verified": true,
+      "notes": "Specs from PR V2 manual; rated voltage not stated. THD <1%. LPF 50-250 Hz 18 dB/oct; 24 dB subsonic (variable); bass boost centred 45 Hz (feature list says 0-12 dB, setup text says 0-18 dB). Low-level input 200 mV-6 V; has high-level inputs. Remote bass knob RG6. Wiring kit 4 AWG (4GKIT).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 1000,
+          "1ohm": 1500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 85,
+        "thdPercent": 1,
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-srx250-1v",
+      "category": "ampMono",
+      "brand": "Memphis Audio",
+      "model": "SRX250.1V",
+      "series": "Street Reference V",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2022/06/SRX-V-AMP-MONO-INSTRUCTION-MANUAL.pdf",
+      "verified": true,
+      "notes": "SRX V mono manual; rated voltage not stated. THD <1%. Bass boost 45 Hz 0/6/12 dB; subsonic 15-50 Hz 12 dB/oct; LPF range 15-250 Hz. Low-level input 100 mV-6 V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250
+        },
+        "inputSensitivityMinV": 0.1,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 98,
+        "thdPercent": 1,
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-srx500-1v",
+      "category": "ampMono",
+      "brand": "Memphis Audio",
+      "model": "SRX500.1V",
+      "series": "Street Reference V",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2022/06/SRX-V-AMP-MONO-INSTRUCTION-MANUAL.pdf",
+      "verified": true,
+      "notes": "SRX V mono manual; rated voltage not stated. THD <1%. Bass boost 45 Hz 0/6/12 dB; subsonic 15-50 Hz 12 dB/oct; LPF range 17-250 Hz. Low-level input 100 mV-6 V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 350,
+          "2ohm": 500
+        },
+        "inputSensitivityMinV": 0.1,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 98,
+        "thdPercent": 1,
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-srx750-1v",
+      "category": "ampMono",
+      "brand": "Memphis Audio",
+      "model": "SRX750.1V",
+      "series": "Street Reference V",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2022/06/SRX-V-AMP-MONO-INSTRUCTION-MANUAL.pdf",
+      "verified": true,
+      "notes": "SRX V mono manual; rated voltage not stated. THD <1%. Bass boost 45 Hz 0/6/12 dB; subsonic 15-50 Hz 12 dB/oct; LPF range 15-250 Hz. Low-level input 100 mV-6 V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 750
+        },
+        "inputSensitivityMinV": 0.1,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 98,
+        "thdPercent": 1,
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-srx1200-1v",
+      "category": "ampMono",
+      "brand": "Memphis Audio",
+      "model": "SRX1200.1V",
+      "series": "Street Reference V",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2022/06/SRX-V-AMP-MONO-INSTRUCTION-MANUAL.pdf",
+      "verified": true,
+      "notes": "SRX V mono manual; rated voltage not stated. THD <1%. Bass boost 45 Hz 0/6/12 dB; subsonic 15-50 Hz 12 dB/oct; LPF range 16-250 Hz. Low-level input 100 mV-6 V. 4 AWG kit.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 550,
+          "2ohm": 950,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.1,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 98,
+        "thdPercent": 1,
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

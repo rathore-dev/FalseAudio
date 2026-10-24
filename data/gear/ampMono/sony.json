@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "sony-xm-gs100",
+      "category": "ampMono",
+      "brand": "Sony",
+      "model": "XM-GS100",
+      "series": "GS",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_31906_Sony_XM-GS100.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Power figures from retailer summary. LPF 50-300 Hz 12 dB/oct, subsonic filter, boost 0-10 dB @40 Hz. Fuse 60 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 330,
+          "2ohm": 600
+        },
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 10
+      }
+    }
+  ]
+}

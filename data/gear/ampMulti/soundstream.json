@@ -1,0 +1,250 @@
+{
+  "products": [
+    {
+      "id": "soundstream-rs4-1200",
+      "category": "ampMulti",
+      "brand": "Soundstream",
+      "model": "RS4.1200",
+      "series": "Reserve",
+      "sourceUrl": "https://www.soundstream.com/products/rs4-1200",
+      "verified": true,
+      "notes": "Manufacturer page; rated test voltage not stated. Input 250 mV-8 V (RCA or speaker-level). HPF/LPF 50-400 Hz 12 dB/oct; bass boost 0/6/12 dB @45 Hz (rear only). Fuse 2x35 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 110,
+          "bridged4ohm": 220
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 8,
+        "fuseRatingA": 70,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-rs4-2000",
+      "category": "ampMulti",
+      "brand": "Soundstream",
+      "model": "RS4.2000",
+      "series": "Reserve",
+      "sourceUrl": "https://www.soundstream.com/products/rs4-2000",
+      "verified": true,
+      "notes": "Manufacturer page; rated test voltage not stated. Input 250 mV-8 V (RCA or speaker-level). HPF/LPF 50-400 Hz; boost 0/6/12 dB @45 Hz rear. Fuse 2x40 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 220,
+          "bridged4ohm": 440
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 8,
+        "fuseRatingA": 80,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-rs2-1200",
+      "category": "ampMulti",
+      "brand": "Soundstream",
+      "model": "RS2.1200",
+      "series": "Reserve",
+      "sourceUrl": "https://www.soundstream.com/products/rs2-1200",
+      "verified": true,
+      "notes": "Manufacturer page; rated test voltage not stated. Input 250 mV-8 V (RCA or speaker-level). HPF 50-1000 Hz, LPF 50-250 Hz, boost 0-12 dB @45 Hz. Fuse 40 A.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 220,
+          "bridged4ohm": 440
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 8,
+        "fuseRatingA": 40,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-rs5-4500d",
+      "category": "ampMulti",
+      "brand": "Soundstream",
+      "model": "RS5.4500D",
+      "series": "Reserve",
+      "sourceUrl": "https://www.soundstream.com/products/rs5-4500d",
+      "verified": true,
+      "notes": "Manufacturer page; rated test voltage not stated. Input 250 mV-8 V (RCA or speaker-level). rmsPerChannelW = ch1-4. Sub ch: 500 W @4, 750 W @2, 1000 W @1 ohm. Sub LPF 30-150 Hz, boost 0-12 dB @45 Hz. MAXI fuse 100 A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 160,
+          "bridged4ohm": 320
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 8,
+        "fuseRatingA": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-ar4-1200",
+      "category": "ampMulti",
+      "brand": "Soundstream",
+      "model": "AR4.1200",
+      "series": "Arachnid",
+      "sourceUrl": "https://www.soundstream.com/products/ar4-1200",
+      "verified": true,
+      "notes": "Manufacturer page; operating 9-16 V, rated voltage not stated. LPF 50 Hz-1.5 kHz, HPF 120 Hz-3 kHz, boost 0-12 dB @50 Hz. Fuse 2x20 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 120,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 1,
+        "fuseRatingA": 40,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-ar4-1800",
+      "category": "ampMulti",
+      "brand": "Soundstream",
+      "model": "AR4.1800",
+      "series": "Arachnid",
+      "sourceUrl": "https://www.soundstream.com/products/ar4-1800",
+      "verified": true,
+      "notes": "Manufacturer page; operating 9-16 V. HPF 120 Hz-3 kHz; LPF listed '50-250KHz' (likely 50-250 Hz). Boost 0-12 dB @50 Hz. Fuse 2x35 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 180,
+          "2ohm": 225,
+          "bridged4ohm": 450
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 1,
+        "fuseRatingA": 70,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-pn4-2000dx",
+      "category": "ampMulti",
+      "brand": "Soundstream",
+      "model": "PN4-2000DX",
+      "series": "Picasso Nano",
+      "sourceUrl": "https://www.soundstream.com/products/pn4-2000dx",
+      "verified": true,
+      "notes": "Manufacturer page. Spec table: 110 W x4 @4, 200 W x4 @2, bridged 200 W x2; feature list says 100 W x4 @4 and 400 W x2 bridged (inconsistent). Rated voltage not stated. 12 dB/oct HPF/LPF/BPF; 12 dB boost @45 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 110,
+          "2ohm": 200,
+          "bridged4ohm": 200
+        },
+        "snrDb": 80,
+        "thdPercent": 0.05,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-pn4-3500dx",
+      "category": "ampMulti",
+      "brand": "Soundstream",
+      "model": "PN4-3500DX",
+      "series": "Picasso Nano",
+      "sourceUrl": "https://www.soundstream.com/products/pn4-3500dx",
+      "verified": true,
+      "notes": "Manufacturer page. Bridged 4 ohm listed as 600 W x2 (table) and 500 W x2 (features) - omitted. Rated voltage not stated.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 170,
+          "2ohm": 300
+        },
+        "snrDb": 80,
+        "thdPercent": 0.05,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-pn5-3000dx",
+      "category": "ampMulti",
+      "brand": "Soundstream",
+      "model": "PN5-3000DX",
+      "series": "Picasso Nano",
+      "sourceUrl": "https://www.soundstream.com/products/pn5-3000dx",
+      "verified": true,
+      "notes": "Manufacturer page. rmsPerChannelW = ch1-4. Sub ch: 300 W @4, 550 W @2 ohm. Rated voltage not stated.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "snrDb": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

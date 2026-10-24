@@ -1,0 +1,50 @@
+{
+  "products": [
+    {
+      "id": "sony-xm-gs4",
+      "category": "ampMulti",
+      "brand": "Sony",
+      "model": "XM-GS4",
+      "series": "GS",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_51146_Sony_XM-GS4.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Rated at 14.4 V, 1% THD. Fuse 2x30 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 80,
+          "bridged4ohm": 160
+        },
+        "snrDb": 93,
+        "thdPercent": 1,
+        "fuseRatingA": 60,
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "sony-xm-s400d",
+      "category": "ampMulti",
+      "brand": "Sony",
+      "model": "XM-S400D",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_51009_Sony_XM-S400D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Compact, non-bridgeable. Fixed HPF/LPF 120 Hz 12 dB/oct. Fuse 15 A. minStableOhms inferred from 4-ohm-only rating.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 45
+        },
+        "snrDb": 83,
+        "thdPercent": 0.08,
+        "fuseRatingA": 15,
+        "amplifierClass": "D",
+        "minStableOhms": 4,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    }
+  ]
+}

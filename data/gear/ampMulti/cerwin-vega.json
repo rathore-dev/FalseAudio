@@ -1,0 +1,285 @@
+{
+  "products": [
+    {
+      "id": "cerwin-vega-h400-2d",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "H400.2D",
+      "series": "HED",
+      "sourceUrl": "https://www.cerwinvega.com/products/h400-2d-2-channel-digital-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Power supply 12-14.4 V (rated voltage not specified). THD <0.3%. SNR >90 dBA @1 W. High-level input 0.3-8.5 V; low-level 'wide range' (no figure). Damping >100 @50 Hz. HPF/LPF 50-500 Hz 12/24 dB. Fuse 2x30 A ATC.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 125,
+          "1ohm": 200,
+          "bridged4ohm": 290
+        },
+        "highLevelInputMaxV": 8.5,
+        "snrDb": 90,
+        "thdPercent": 0.3,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": true,
+        "hasLpf": true,
+        "fuseRatingA": 60
+      }
+    },
+    {
+      "id": "cerwin-vega-h440-4d",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "H440.4D",
+      "series": "HED",
+      "sourceUrl": "https://www.cerwinvega.com/products/cerwing-vega-mobile-h440-4d",
+      "verified": true,
+      "notes": "Manufacturer page. Power supply 12-14.4 V (rated voltage not specified). THD <0.3%. SNR >90 dBA @1 W. High-level input 0.3-8.5 V; low-level 'wide range' (no figure). Damping >100 @50 Hz. HPF/LPF 50-500 Hz. Fuse 2x25 A ATC.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 110,
+          "bridged4ohm": 220
+        },
+        "highLevelInputMaxV": 8.5,
+        "snrDb": 90,
+        "thdPercent": 0.3,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "fuseRatingA": 50
+      }
+    },
+    {
+      "id": "cerwin-vega-h800-4d",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "H800.4D",
+      "series": "HED",
+      "sourceUrl": "https://www.cerwinvega.com/products/h800-4d-hed-4-channel-digital-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Power supply 12-14.4 V (rated voltage not specified). THD <0.3%. SNR >90 dBA @1 W. High-level input 0.3-8.5 V; low-level 'wide range' (no figure). Damping >100 @50 Hz. HPF/LPF 50-500 Hz. Fuse 2x35 A ATC.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 125,
+          "2ohm": 200,
+          "bridged4ohm": 400
+        },
+        "highLevelInputMaxV": 8.5,
+        "snrDb": 90,
+        "thdPercent": 0.3,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "fuseRatingA": 70
+      }
+    },
+    {
+      "id": "cerwin-vega-h800-5d",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "H800.5D",
+      "series": "HED",
+      "sourceUrl": "https://www.cerwinvega.com/products/h800-5d-hed-5-channel-digital-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Power supply 12-14.4 V (rated voltage not specified). THD <0.3%. SNR >90 dBA @1 W. High-level input 0.3-8.5 V; low-level 'wide range' (no figure). Damping >100 @50 Hz. rmsPerChannelW = ch1-4. Sub ch: 180 W @4, 300 W @2 ohm. Sub subsonic 10-55 Hz. Fuse 2x40 A ATC.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 85,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "highLevelInputMaxV": 8.5,
+        "snrDb": 90,
+        "thdPercent": 0.3,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "fuseRatingA": 80,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "cerwin-vega-h900-6d",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "H900.6D",
+      "series": "HED",
+      "sourceUrl": "https://www.cerwinvega.com/products/hed-6-channel-digital-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Power supply 12-14.4 V (rated voltage not specified). THD <0.3%. SNR >90 dBA @1 W. High-level input 0.3-8.5 V; low-level 'wide range' (no figure). Damping >100 @50 Hz. Bridged 3x300 W @4 ohm. HPF/LPF 50-500 Hz. Fuse 3x40 A ATC.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "highLevelInputMaxV": 8.5,
+        "snrDb": 90,
+        "thdPercent": 0.3,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "fuseRatingA": 120
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp700-2",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "CVP700.2",
+      "series": "CVP",
+      "sourceUrl": "https://www.cerwinvega.com/products/cvp700-2",
+      "verified": true,
+      "notes": "Manufacturer page; rated voltage not stated. Input 250 mV-6 V; high-level inputs 4-8 V with auto turn-on. SNR >=90 dB. HPF/subsonic 52-400 Hz, LPF 52-400 Hz. Fuse 1x30 A.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 160,
+          "bridged4ohm": 310
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 8,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "fuseRatingA": 30,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp1400-4",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "CVP1400.4",
+      "series": "CVP",
+      "sourceUrl": "https://www.cerwinvega.com/products/cvp1400-4-cvp-performance-1400w-max-4-ch-small-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; rated voltage not stated. Input 250 mV-6 V; high-level inputs 4-8 V with auto turn-on. SNR >=90 dB. HPF/LPF 52-400 Hz. Fuse 2x30 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 140,
+          "bridged4ohm": 290
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 8,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "fuseRatingA": 60,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp2400-4",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "CVP2400.4",
+      "series": "CVP",
+      "sourceUrl": "https://www.cerwinvega.com/products/cvp2400-4-cvp-performance-1400w-max-4-ch-small-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; rated voltage not stated. Input 250 mV-6 V; high-level inputs 4-8 V with auto turn-on. SNR >=90 dB. HPF/LPF 52-400 Hz. Fuse 3x35 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 120,
+          "2ohm": 210,
+          "bridged4ohm": 410
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 8,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "fuseRatingA": 105,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp2700-5",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "CVP2700.5",
+      "series": "CVP",
+      "sourceUrl": "https://www.cerwinvega.com/products/cvp2700-5-cvp-performance-2700w-max-5-ch-small-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; rated voltage not stated. Input 250 mV-6 V; high-level inputs 4-8 V with auto turn-on. SNR >=90 dB. rmsPerChannelW = ch1-4. Sub ch: 220 W @4, 400 W @2 ohm. HPF/subsonic 10-250 Hz, LPF 52-400 Hz. Fuse 3x30 A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 130
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 8,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "fuseRatingA": 90,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "cerwin-vega-cvpro2k4",
+      "category": "ampMulti",
+      "brand": "Cerwin-Vega",
+      "model": "CVPRO2K4",
+      "series": "CVPRO",
+      "sourceUrl": "https://www.cerwinvega.com/products/full-range-class-d-4-channel-amplifier-cvpro2k4",
+      "verified": true,
+      "notes": "Manufacturer page. Supply 10-17 V; rated voltage not stated. THD 0.1% @1 kHz 4 ohm. SNR 90 dBA @1 W (105 @ full power). HPF 50 Hz-6 kHz, LPF 15 Hz-1 kHz. Fuse 150 A (page: fuse at 1/2 full current draw). 1/0 AWG recommended.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 325,
+          "2ohm": 520,
+          "bridged4ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 5,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "dampingFactor": 150,
+        "fuseRatingA": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

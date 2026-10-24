@@ -1,0 +1,222 @@
+{
+  "products": [
+    {
+      "id": "massive-audio-gt1",
+      "category": "ampMono",
+      "brand": "Massive Audio",
+      "model": "GT1",
+      "series": "GT",
+      "sourceUrl": "https://www.massiveaudio.com/products/gt1-520-watt-rms-1-ohm-mono-block-gt-series-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Fuse 40 A recommended. Bass remote included.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 370,
+          "1ohm": 520
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 7,
+        "snrDb": 95,
+        "thdPercent": 0.07,
+        "fuseRatingA": 40,
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "massive-audio-gtr1a",
+      "category": "ampMono",
+      "brand": "Massive Audio",
+      "model": "GTR1A",
+      "series": "GT",
+      "sourceUrl": "https://www.massiveaudio.com/products/gtr1a-1060-watt-rms-1-ohm-mono-block-gt-series-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Full range. Bass boost 30-120 Hz. Fuse 90 A recommended.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 710,
+          "1ohm": 1060
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 7,
+        "snrDb": 92,
+        "thdPercent": 0.1,
+        "fuseRatingA": 90,
+        "minStableOhms": 1,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "massive-audio-gtr2a",
+      "category": "ampMono",
+      "brand": "Massive Audio",
+      "model": "GTR2A",
+      "series": "GT",
+      "sourceUrl": "https://www.massiveaudio.com/products/gtr2a-2030-watt-rms-1-ohm-mono-block-gt-series-full-range-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Full range. Bass boost 30-120 Hz. Fuse 150 A recommended.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 1300,
+          "1ohm": 2030
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 7,
+        "snrDb": 93,
+        "thdPercent": 0.07,
+        "fuseRatingA": 150,
+        "minStableOhms": 1,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "massive-audio-h1000",
+      "category": "ampMono",
+      "brand": "Massive Audio",
+      "model": "H1000",
+      "series": "Hippo",
+      "sourceUrl": "https://www.massiveaudio.com/products/h1000-1050-watt-rms-1-ohm-mono-block-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Full range; 24 dB subsonic; fuse 60 A recommended. Max RCA 8 V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 710,
+          "1ohm": 1050
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "fuseRatingA": 60,
+        "minStableOhms": 1,
+        "hasSubsonic": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "massive-audio-h3000",
+      "category": "ampMono",
+      "brand": "Massive Audio",
+      "model": "H3000",
+      "series": "Hippo",
+      "sourceUrl": "https://www.massiveaudio.com/products/h3000-3000-watts-rms-1-ohm-mono-block-hippo-series-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Boost 0-12 dB 30-70 Hz, subsonic 10 Hz-1 kHz. Fuse 200 A. Spec table says max RCA 4 V vs feature list 8 V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 2000,
+          "1ohm": 3000
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "fuseRatingA": 200,
+        "minStableOhms": 1,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "massive-audio-h5000",
+      "category": "ampMono",
+      "brand": "Massive Audio",
+      "model": "H5000",
+      "series": "Hippo",
+      "sourceUrl": "https://www.massiveaudio.com/products/h5000-5000-watt-rms-1-ohm-mono-block-hippo-series-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Boost 0-12 dB 40-120 Hz, subsonic 10 Hz-1 kHz. Fuse 400 A. 0 AWG inputs.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 3300,
+          "1ohm": 5000
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "fuseRatingA": 400,
+        "minStableOhms": 1,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "massive-audio-e2n",
+      "category": "ampMono",
+      "brand": "Massive Audio",
+      "model": "E2N",
+      "series": "E",
+      "sourceUrl": "https://www.massiveaudio.com/products/e2n-800-watts-rms-x-1-1-ohm-mono-block-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Max RCA input 10 V; max supply 15 V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 400,
+          "1ohm": 800
+        },
+        "inputSensitivityMaxV": 10,
+        "snrDb": 80,
+        "thdPercent": 0.3,
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "massive-audio-e3n",
+      "category": "ampMono",
+      "brand": "Massive Audio",
+      "model": "E3N",
+      "series": "E",
+      "sourceUrl": "https://www.massiveaudio.com/products/e3n-1-400-watts-rms-x-1-1-ohm-mono-block-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Max RCA input 10 V; max supply 15 V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 700,
+          "1ohm": 1400
+        },
+        "inputSensitivityMaxV": 10,
+        "snrDb": 80,
+        "thdPercent": 0.3,
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "massive-audio-bp2000-1-v2",
+      "category": "ampMono",
+      "brand": "Massive Audio",
+      "model": "BP2000.1 V2",
+      "series": "BP",
+      "sourceUrl": "https://www.massiveaudio.com/products/bp2000-1-v2-1000-watts-rms-x-1-1-ohm-digital-mono-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; CTA-2006 compliant per page (CTA-2006 rates at 14.4 V). Boost 0/6/12 dB @45 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 900,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

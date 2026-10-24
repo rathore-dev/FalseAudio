@@ -1,0 +1,115 @@
+{
+  "products": [
+    {
+      "id": "mtx-th400-4",
+      "category": "ampMulti",
+      "brand": "MTX",
+      "model": "TH400.4",
+      "series": "Thunder",
+      "sourceUrl": "https://www.mtx.com/MTX007950D-TH-Amp-Manual-A4-Half-Page.pdf",
+      "verified": true,
+      "notes": "THUNDER (TH) series owner's manual (MTX007950 RevD 11/24); test voltage not stated in spec table. Input 200 mV-10 V. fuseRatingA = top of MTX recommended external fuse range. Fuse 40-60 A, 8 or 4 AWG. Crossover 40-400 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 98,
+        "thdPercent": 0.1,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "mtx-th800-4",
+      "category": "ampMulti",
+      "brand": "MTX",
+      "model": "TH800.4",
+      "series": "Thunder",
+      "sourceUrl": "https://www.mtx.com/MTX007950D-TH-Amp-Manual-A4-Half-Page.pdf",
+      "verified": true,
+      "notes": "THUNDER (TH) series owner's manual (MTX007950 RevD 11/24); test voltage not stated in spec table. Input 200 mV-10 V. fuseRatingA = top of MTX recommended external fuse range. Fuse 60-80 A, 4 AWG. Crossover 40-400 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 200,
+          "bridged4ohm": 400
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 98,
+        "thdPercent": 0.2,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "mtx-th1400-5",
+      "category": "ampMulti",
+      "brand": "MTX",
+      "model": "TH1400.5",
+      "series": "Thunder",
+      "sourceUrl": "https://www.mtx.com/MTX007950D-TH-Amp-Manual-A4-Half-Page.pdf",
+      "verified": true,
+      "notes": "THUNDER (TH) series owner's manual (MTX007950 RevD 11/24); test voltage not stated in spec table. Input 200 mV-10 V. fuseRatingA = top of MTX recommended external fuse range. rmsPerChannelW = ch1-4. Sub ch: 300 W @4, 500 W @2, 800 W @1 ohm. Ch1-4 crossover 40-400 Hz; sub LPF 50-250 Hz, subsonic 10-55 Hz, boost 0-12 dB. Fuse 150-200 A, 1/0 AWG.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 0.4,
+        "fuseRatingA": 200,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "mtx-th900-6",
+      "category": "ampMulti",
+      "brand": "MTX",
+      "model": "TH900.6",
+      "series": "Thunder",
+      "sourceUrl": "https://www.mtx.com/MTX007950D-TH-Amp-Manual-A4-Half-Page.pdf",
+      "verified": true,
+      "notes": "THUNDER (TH) series owner's manual (MTX007950 RevD 11/24); test voltage not stated in spec table. Input 200 mV-10 V. fuseRatingA = top of MTX recommended external fuse range. Bridged 300 W x3 @4 ohm. Crossover 40-400 Hz. Fuse 100-150 A, 4 AWG.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 0.1,
+        "fuseRatingA": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    }
+  ]
+}

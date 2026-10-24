@@ -1,0 +1,208 @@
+{
+  "products": [
+    {
+      "id": "boss-audio-ar1500m",
+      "category": "ampMono",
+      "brand": "Boss Audio",
+      "model": "AR1500M",
+      "series": "Armor",
+      "sourceUrl": "https://www.bossaudio.com/products/791489116442",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1500 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 563,
+          "2ohm": 1125
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-ar2000m",
+      "category": "ampMono",
+      "brand": "Boss Audio",
+      "model": "AR2000M",
+      "series": "Armor",
+      "sourceUrl": "https://www.bossaudio.com/products/791489116435",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 2000 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 750,
+          "2ohm": 1500
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-ar3000d",
+      "category": "ampMono",
+      "brand": "Boss Audio",
+      "model": "AR3000D",
+      "series": "Armor",
+      "sourceUrl": "https://www.bossaudio.com/products/791489116411",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 3000 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Strappable.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 563,
+          "2ohm": 1125,
+          "1ohm": 2250
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-ox4kd",
+      "category": "ampMono",
+      "brand": "Boss Audio",
+      "model": "OX4KD",
+      "series": "Onyx",
+      "sourceUrl": "https://www.bossaudio.com/products/791489125802",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 4000 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Strappable.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 750,
+          "2ohm": 1500,
+          "1ohm": 3000
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-ox1-5km",
+      "category": "ampMono",
+      "brand": "Boss Audio",
+      "model": "OX1.5KM",
+      "series": "Onyx",
+      "sourceUrl": "https://www.bossaudio.com/products/791489125833",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1500 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 563,
+          "2ohm": 1125
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-pd3000",
+      "category": "ampMono",
+      "brand": "Boss Audio",
+      "model": "PD3000",
+      "series": "Phantom",
+      "sourceUrl": "https://www.bossaudio.com/products/791489101219",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 3000 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Strappable.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 563,
+          "2ohm": 1125,
+          "1ohm": 2250
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-r1100m-s",
+      "category": "ampMono",
+      "brand": "Boss Audio",
+      "model": "R1100M-S",
+      "series": "Riot",
+      "sourceUrl": "https://www.bossaudio.com/products/791489132022",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 1100 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 413,
+          "2ohm": 825
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-r2000m",
+      "category": "ampMono",
+      "brand": "Boss Audio",
+      "model": "R2000M",
+      "series": "Riot",
+      "sourceUrl": "https://www.bossaudio.com/products/791489115186",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 2000 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Has high-level inputs.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 750,
+          "2ohm": 1500
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "boss-audio-r3400d",
+      "category": "ampMono",
+      "brand": "Boss Audio",
+      "model": "R3400D",
+      "series": "Riot",
+      "sourceUrl": "https://www.bossaudio.com/products/791489115162",
+      "verified": true,
+      "notes": "Manufacturer spec data (bossaudio.com product JSON). Boss lists 'total power' 3400 W max; the RMS figures are 75% of Boss max ratings and test voltage/THD conditions are not stated - treat as optimistic. Strappable.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 638,
+          "2ohm": 1275,
+          "1ohm": 2550
+        },
+        "thdPercent": 0.01,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true
+      }
+    }
+  ]
+}

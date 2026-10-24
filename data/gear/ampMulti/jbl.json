@@ -1,0 +1,92 @@
+{
+  "products": [
+    {
+      "id": "jbl-club-a754",
+      "category": "ampMulti",
+      "brand": "JBL",
+      "model": "Club A754",
+      "series": "Club",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_76836_JBL_Club_A754.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. HPF/LPF 32-320 Hz 12 dB/oct. Preamp and speaker-level inputs. Fuse 2x30 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "fuseRatingA": 60,
+        "amplifierClass": "H",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "jbl-club-a758",
+      "category": "ampMulti",
+      "brand": "JBL",
+      "model": "Club A758",
+      "series": "Club",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_94592_JBL_CLUB_A758.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. 8 channels; bridged 250 W x4. Low-level 0.2-5 Vrms, high-level 1-25 Vrms. Fuse 105 A.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 25,
+        "fuseRatingA": 105,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "jbl-club-704",
+      "category": "ampMulti",
+      "brand": "JBL",
+      "model": "Club 704",
+      "series": "Club",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_47214_JBL_Club_704.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Retailer summary: 70 W x4 @4 ohm. Fuse 2x30 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70
+        },
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "jbl-stage-a6004",
+      "category": "ampMulti",
+      "brand": "JBL",
+      "model": "Stage A6004",
+      "series": "Stage",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_51707_JBL_STAGE_A6004.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Retailer summary: 70 W x4 @2 ohm; switchable bass EQ and crossover mode switch. Fuse 2x15 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "2ohm": 70
+        },
+        "fuseRatingA": 30,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      }
+    }
+  ]
+}

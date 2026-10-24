@@ -1,0 +1,110 @@
+{
+  "products": [
+    {
+      "id": "kenwood-x502-1",
+      "category": "ampMono",
+      "brand": "Kenwood",
+      "model": "X502-1",
+      "series": "eXcelon X",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_54168_Kenwood_X502-1.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Kenwood ratings @14.4 V (11-16 V allowable), <=1% THD unless noted. Sub THD <=0.5%. LPF 50-200 Hz -24 dB/oct, infrasonic 25 Hz, boost 0-18 dB @40 Hz. Fuse 2x30 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 12,
+        "snrDb": 100,
+        "thdPercent": 0.5,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "kenwood-x503-1",
+      "category": "ampMono",
+      "brand": "Kenwood",
+      "model": "X503-1",
+      "series": "eXcelon X",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_94515_Kenwood_X503-1.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Infrasonic filter 25 Hz. Fuse 2x30 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500
+        },
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "kenwood-xr601-1",
+      "category": "ampMono",
+      "brand": "Kenwood",
+      "model": "XR601-1",
+      "series": "eXcelon Reference",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_51762_Kenwood_XR601-1.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. 400 W @4 ohm (20-200 Hz, 1% THD), 600 W @2 ohm (100 Hz, 1% THD). SNR 78 dBA ref 1 W. LPF 50-200 Hz. Fuse 3x30 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 600
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 100,
+        "thdPercent": 1,
+        "fuseRatingA": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "kenwood-xr1001-1",
+      "category": "ampMono",
+      "brand": "Kenwood",
+      "model": "XR1001-1",
+      "series": "eXcelon Reference",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_51764_Kenwood_XR1001-1.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. LPF 50-200 Hz -24 dB/oct, infrasonic 15-40 Hz, boost 0-18 dB @40 Hz. Fuse 3x40 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 12,
+        "snrDb": 100,
+        "thdPercent": 1,
+        "fuseRatingA": 120,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18
+      }
+    }
+  ]
+}

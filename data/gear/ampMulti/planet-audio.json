@@ -1,0 +1,211 @@
+{
+  "products": [
+    {
+      "id": "planet-audio-ac800-4",
+      "category": "ampMulti",
+      "brand": "Planet Audio",
+      "model": "AC800.4",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac800-4/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 35 Hz to 160 Hz. HPF Fixed Hz 80 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "2ohm": 150,
+          "4ohm": 75,
+          "bridged4ohm": 300
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "planet-audio-ac1600-4",
+      "category": "ampMulti",
+      "brand": "Planet Audio",
+      "model": "AC1600.4",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac1600-4/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 45 Hz to 90 Hz. HPF Variable 50 Hz to 500 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "2ohm": 300,
+          "4ohm": 150,
+          "bridged4ohm": 600
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "planet-audio-ac2400-4",
+      "category": "ampMulti",
+      "brand": "Planet Audio",
+      "model": "AC2400.4",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac2400-4/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 45 Hz to 90 Hz. HPF Variable 50 Hz to 500 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "2ohm": 450,
+          "4ohm": 225,
+          "bridged4ohm": 900
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "planet-audio-ac1800-5",
+      "category": "ampMulti",
+      "brand": "Planet Audio",
+      "model": "AC1800.5",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac1800-5/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 45 Hz to 90 Hz. HPF Variable 50 Hz to 500 Hz. rmsPerChannelW = ch1-4; 5th (sub) channel up to 225 W @4 ohm.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "2ohm": 225,
+          "4ohm": 113,
+          "bridged4ohm": 450
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "planet-audio-ac1200-2",
+      "category": "ampMulti",
+      "brand": "Planet Audio",
+      "model": "AC1200.2",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac1200-2/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 45 Hz to 90 Hz. HPF Variable 50 Hz to 500 Hz.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "2ohm": 450,
+          "4ohm": 225,
+          "bridged4ohm": 900
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "planet-audio-ac2000-2",
+      "category": "ampMulti",
+      "brand": "Planet Audio",
+      "model": "AC2000.2",
+      "series": "Anarchy",
+      "sourceUrl": "https://planetaudio.com/auto/ac2000-2/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 45 Hz to 90 Hz. HPF Variable 50 Hz to 500 Hz.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "2ohm": 750,
+          "4ohm": 375,
+          "bridged4ohm": 1500
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "planet-audio-pl1600-4",
+      "category": "ampMulti",
+      "brand": "Planet Audio",
+      "model": "PL1600.4",
+      "series": "Pulse",
+      "sourceUrl": "https://planetaudio.com/auto/pl1600-4/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 250 Hz. HPF Fixed Hz 80 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "2ohm": 300,
+          "4ohm": 150,
+          "bridged4ohm": 600
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "planet-audio-mb1200-4d",
+      "category": "ampMulti",
+      "brand": "Planet Audio",
+      "model": "MB1200.4D",
+      "series": "Big Bang",
+      "sourceUrl": "https://planetaudio.com/auto/mb1200-4d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 250 Hz. HPF Variable 50 Hz to 250 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "2ohm": 225,
+          "4ohm": 113,
+          "bridged4ohm": 450
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "planet-audio-mb2200-5d",
+      "category": "ampMulti",
+      "brand": "Planet Audio",
+      "model": "MB2200.5D",
+      "series": "Big Bang",
+      "sourceUrl": "https://planetaudio.com/auto/mb2200-5d/",
+      "verified": true,
+      "notes": "Manufacturer page (Planet Audio, Boss Audio group). Power listed as 'Up to ... RMS' (75% of max rating); test voltage/THD not stated - treat as optimistic. LPF 50 Hz to 250 Hz. HPF Variable 50 Hz to 250 Hz. rmsPerChannelW = ch1-4; 5th (sub) channel up to 375 W @4 ohm.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "2ohm": 225,
+          "4ohm": 113,
+          "bridged4ohm": 450
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "hasHpf": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "products": [
+    {
+      "id": "kenwood-x302-4",
+      "category": "ampMulti",
+      "brand": "Kenwood",
+      "model": "X302-4",
+      "series": "eXcelon X",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_54169_Kenwood_X302-4.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Kenwood ratings @14.4 V (11-16 V allowable), <=1% THD unless noted. SNR 100 dB ref rated power (85 dBA ref 1 W). HPF/LPF 50-200 Hz -12 dB/oct; boost 0-18 dB @40 Hz. Speaker-level 4-12 V. Current 20 A. Fuse 40 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 75,
+          "bridged4ohm": 150
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 12,
+        "snrDb": 100,
+        "thdPercent": 1,
+        "fuseRatingA": 40,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "kenwood-x303-4",
+      "category": "ampMulti",
+      "brand": "Kenwood",
+      "model": "X303-4",
+      "series": "eXcelon X",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_94516_Kenwood_X303-4.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Fuse 2x20 A. Has speaker-level input.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 75,
+          "bridged4ohm": 150
+        },
+        "fuseRatingA": 40,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "kenwood-x803-5",
+      "category": "ampMulti",
+      "brand": "Kenwood",
+      "model": "X803-5",
+      "series": "eXcelon X",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_94517_Kenwood_X803-5.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. rmsPerChannelW = ch1-4. Sub ch: 300 W @4, 500 W @2 ohm. Fuse 3x30 A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 75
+        },
+        "fuseRatingA": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "kenwood-xr901-5",
+      "category": "ampMulti",
+      "brand": "Kenwood",
+      "model": "XR901-5",
+      "series": "eXcelon Reference",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_51765_Kenwood_XR901-5.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Kenwood ratings @14.4 V (11-16 V allowable), <=1% THD unless noted. rmsPerChannelW = ch1-4. Sub ch: 400 W @4, 600 W @2 ohm. Current consumption 80 A. HPF/LPF 50-200 Hz. SNR 78 dBA ref 1 W.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 75
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 100,
+        "thdPercent": 1,
+        "fuseRatingA": 120,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "kenwood-kac-d3104",
+      "category": "ampMulti",
+      "brand": "Kenwood",
+      "model": "KAC-D3104",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_53680_Kenwood_KAC-D3104.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. HPF/LPF 50-200 Hz, boost 0-18 dB @40 Hz. Fuse 2x30 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 75,
+          "bridged4ohm": 150
+        },
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18
+      }
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "products": [
+    {
+      "id": "skar-audio-rp-75-4ab",
+      "category": "ampMulti",
+      "brand": "Skar Audio",
+      "model": "RP-75.4AB",
+      "series": "RP",
+      "sourceUrl": "https://www.skaraudio.com/products/rp-75-4ab-car-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; RMS rated at 14.4 V. Working voltage 8.5-16 V. LPF 50-500 Hz, HPF 20 Hz-5 kHz, bass EQ 0/+6/+12 dB. Fuse 60 A. 8 AWG.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMaxV": 6,
+        "snrDb": 105,
+        "dampingFactor": 150,
+        "efficiencyPercent": 65,
+        "fuseRatingA": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "skar-audio-rp-150-4ab",
+      "category": "ampMulti",
+      "brand": "Skar Audio",
+      "model": "RP-150.4AB",
+      "series": "RP",
+      "sourceUrl": "https://www.skaraudio.com/products/rp-150-4ab-car-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; RMS rated at 14.4 V. Working voltage 8.5-16 V. LPF 50-500 Hz, HPF 20 Hz-5 kHz. Fuse 120 A. 4 AWG.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250,
+          "bridged4ohm": 500
+        },
+        "inputSensitivityMaxV": 6,
+        "snrDb": 105,
+        "dampingFactor": 150,
+        "efficiencyPercent": 65,
+        "fuseRatingA": 120,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "skar-audio-sa-50-4d",
+      "category": "ampMulti",
+      "brand": "Skar Audio",
+      "model": "SA-50.4D",
+      "series": "SA",
+      "sourceUrl": "https://www.skaraudio.com/products/sa-504d-car-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; RMS rated at 14.4 V. Working voltage 8.5-16 V. LPF 50-250 Hz, HPF 50 Hz-25 kHz. Fuse 30 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 100,
+          "bridged4ohm": 110
+        },
+        "fuseRatingA": 30,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "skar-audio-sa-125-4d",
+      "category": "ampMulti",
+      "brand": "Skar Audio",
+      "model": "SA-125.4D",
+      "series": "SA",
+      "sourceUrl": "https://www.skaraudio.com/products/sa-1254d-car-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; RMS rated at 14.4 V. Working voltage 8.5-16 V. LPF 50-250 Hz, HPF 50 Hz-25 kHz. Fuse 70 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 125,
+          "2ohm": 180,
+          "bridged4ohm": 285
+        },
+        "fuseRatingA": 70,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "skar-audio-sk-m4004d",
+      "category": "ampMulti",
+      "brand": "Skar Audio",
+      "model": "SK-M4004D",
+      "series": "SK-M (mini)",
+      "sourceUrl": "https://www.skaraudio.com/products/sk-m4004d-car-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; RMS rated at 14.4 V. Working voltage 8.5-14.4 V. HPF/LPF 50-500 Hz. Has speaker-level inputs. Fuse 40 A. 8 AWG.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 140,
+          "bridged4ohm": 270
+        },
+        "inputSensitivityMaxV": 8,
+        "snrDb": 85,
+        "dampingFactor": 100,
+        "efficiencyPercent": 86,
+        "fuseRatingA": 40,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "skar-audio-sk-m9005d",
+      "category": "ampMulti",
+      "brand": "Skar Audio",
+      "model": "SK-M9005D",
+      "series": "SK-M (mini)",
+      "sourceUrl": "https://www.skaraudio.com/products/sk-m9005d-car-amplifier",
+      "verified": true,
+      "notes": "Manufacturer spec table; RMS rated at 14.4 V. rmsPerChannelW = ch1-4. Ch5: 300 W @4, 450 W @2 ohm. Ch1-4 HPF/LPF 20-500 Hz; ch5 LPF 50-500 Hz; bass EQ 0-18 dB. Fuse 80 A. 8 AWG.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 55,
+          "2ohm": 85,
+          "bridged4ohm": 170
+        },
+        "inputSensitivityMaxV": 8,
+        "snrDb": 85,
+        "dampingFactor": 100,
+        "efficiencyPercent": 74,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18
+      }
+    }
+  ]
+}

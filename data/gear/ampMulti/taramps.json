@@ -1,0 +1,224 @@
+{
+  "products": [
+    {
+      "id": "taramps-ds-800x4",
+      "category": "ampMulti",
+      "brand": "Taramps",
+      "model": "DS 800x4",
+      "series": "DS",
+      "sourceUrl": "https://www.taramps.com.br/en/?p=27366",
+      "verified": true,
+      "notes": "2-ohm version. Ratings at 12.6 VDC nominal (supply 9-16 V). Fixed 90 Hz HPF/LPF -12 dB/oct. Input sens 250 mV (page). Draw: 43 A max music, 86 A max sine.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 136,
+          "2ohm": 200,
+          "bridged4ohm": 400
+        },
+        "snrDb": 88,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "taramps-ds-4000x4-2-ohms",
+      "category": "ampMulti",
+      "brand": "Taramps",
+      "model": "DS 4000x4 2 Ohms",
+      "series": "DS",
+      "sourceUrl": "https://www.taramps.com.br/en/?p=28069",
+      "verified": true,
+      "notes": "2-ohm version. Ratings at 14.4 VDC (supply 9-17 V). Fixed 90 Hz HPF/LPF -12 dB/oct. Draw: 160 A max music, 320 A max sine.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 625,
+          "2ohm": 1000,
+          "bridged4ohm": 2000
+        },
+        "snrDb": 86,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "taramps-ts-400x4",
+      "category": "ampMulti",
+      "brand": "Taramps",
+      "model": "TS 400x4",
+      "series": "TS",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/ts-400x4/",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @14.4 VDC (supply 8-16 V). Fixed 90 Hz HPF/LPF -12 dB/oct. Max music draw 19 A; rated power draw 38 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 63,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.18,
+        "inputSensitivityMaxV": 4,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "taramps-ts-800x4-2-ohms",
+      "category": "ampMulti",
+      "brand": "Taramps",
+      "model": "TS 800x4 2 Ohms",
+      "series": "TS",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/ts-800x4-2-ohms/",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @14.4 VDC (supply 9-16 V). Fixed 90 Hz HPF/LPF -12 dB/oct. High-level input 3->10 V. Draw: 38 A max music, 76 A max sine.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 136,
+          "2ohm": 200,
+          "bridged4ohm": 400
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 10,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "taramps-ts-1200x4",
+      "category": "ampMulti",
+      "brand": "Taramps",
+      "model": "TS 1200x4",
+      "series": "TS",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/ts-1200x4/",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @14.4 VDC (supply 9-16 V). Fixed 90 Hz HPF/LPF -12 dB/oct. Max music draw 55 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 185,
+          "2ohm": 300,
+          "bridged4ohm": 600
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 10,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "taramps-ds-440x4-v2",
+      "category": "ampMulti",
+      "brand": "Taramps",
+      "model": "DS 440x4 V2",
+      "series": "DS",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/ds-440x4-v2/",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @12.6 VDC (supply 9-16 V). Fixed 90 Hz HPF/LPF -12 dB/oct. Draw: 23 A max music, 46 A max sine.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 110,
+          "bridged4ohm": 220
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 10,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "taramps-ds-1200x4-2-ohms",
+      "category": "ampMulti",
+      "brand": "Taramps",
+      "model": "DS 1200x4 2 Ohms",
+      "series": "DS",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/ds-1200x4-2-ohms/",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @12.6 VDC (supply 9-16 V). Input sensitivity listed as 250 mV. Fixed 90 Hz HPF/LPF -12 dB/oct. Draw: 67.5 A max music, 135 A max sine.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 192,
+          "2ohm": 300
+        },
+        "inputSensitivityMinV": 0.25,
+        "snrDb": 88,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "taramps-ds-2000x4-2-ohms",
+      "category": "ampMulti",
+      "brand": "Taramps",
+      "model": "DS 2000x4 2 Ohms",
+      "series": "DS",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/ds-2000x4-2-ohms/",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @14.4 VDC (supply 9-17 V). Input sensitivity 250 mV. Fixed 90 Hz HPF/LPF -12 dB/oct. Draw: 100 A max music, 200 A max sine.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 325,
+          "2ohm": 500,
+          "bridged4ohm": 1000
+        },
+        "inputSensitivityMinV": 0.25,
+        "snrDb": 86,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "taramps-ds-800x2-2-ohms",
+      "category": "ampMulti",
+      "brand": "Taramps",
+      "model": "DS 800x2 2 Ohms",
+      "series": "DS",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/ds-800x2-2-ohms/",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @12.6 VDC (supply 9-16 V). Bridged figure listed without impedance. HPF 80 Hz-2.2 kHz -6 dB/oct variable, LPF 80 Hz fixed. Draw: 38 A max music, 77 A max sine.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 400,
+          "bridged4ohm": 800
+        },
+        "inputSensitivityMinV": 0.25,
+        "snrDb": 96,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    }
+  ]
+}

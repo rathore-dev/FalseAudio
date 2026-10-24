@@ -1,0 +1,259 @@
+{
+  "products": [
+    {
+      "id": "dd-audio-m4a",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "M4a",
+      "series": "M-Series",
+      "sourceUrl": "https://ddaudio.com/m-series/amplifiers/monoblock/m4a/",
+      "verified": true,
+      "notes": "Discontinued. 5200 W RMS at 12 V into 1 ohm; 7000 W at ~14 V; claimed >1000 A sustained current. Power/ground 2x 0 AWG, speaker 10 AWG. RCA input 0.15-5 V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 5200
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 5,
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "dd-audio-ss600",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "SS600",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/monoblock/ss600/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 60 A. LPF 80 Hz-20 kHz, subsonic 20-80 Hz, bass boost 12 dB. High-level input 1.1-20 V. 4 AWG power.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 350,
+          "1ohm": 600
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 20,
+        "snrDb": 95,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "dd-audio-ss1100",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "SS1100",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/monoblock/ss1100/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 110 A. LPF 80 Hz-20 kHz, subsonic 20-80 Hz. High-level inputs. 4 AWG power.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 750,
+          "1ohm": 1100
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "dd-audio-ss2000",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "SS2000",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/monoblock/ss2000/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 200 A. LPF 80 Hz-20 kHz, subsonic 20-80 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 1400,
+          "1ohm": 2000
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "dd-audio-ss3000",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "SS3000",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/monoblock/ss3000/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 300 A. LPF 80 Hz-20 kHz, subsonic 20-80 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 2200,
+          "1ohm": 3000
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 4,
+        "snrDb": 95,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "dd-audio-ss6000",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "SS6000",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/monoblock/ss6000/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 600 A. LPF 80 Hz-20 kHz, subsonic 20-80 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 2000,
+          "2ohm": 4000,
+          "1ohm": 6000
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 4,
+        "snrDb": 95,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "dd-audio-d1100",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "D1100",
+      "series": "D",
+      "sourceUrl": "https://ddaudio.com/d-series/amplifiers/monoblock/d1100/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 110 A. LPF 50-500 Hz, subsonic 25-100 Hz. 4 AWG power.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 380,
+          "2ohm": 700,
+          "1ohm": 1100
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 80,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "dd-audio-sx1000",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "SX1000",
+      "series": "SX",
+      "sourceUrl": "https://ddaudio.com/sx-series/amplifiers/monoblock/sx1000/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 100 A. LPF 50 Hz-20 kHz, subsonic 30-100 Hz, bass boost 12 dB. 8 AWG power.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 600,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 8,
+        "snrDb": 95,
+        "dampingFactor": 70,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "dd-audio-m2500",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "M2500",
+      "series": "M",
+      "sourceUrl": "https://ddaudio.com/m-series/amplifiers/monoblock/m2500/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Dynamic 4000 W. Max current draw 400 A. LPF 50-500 Hz, subsonic 20-250 Hz. 1x 1/0 AWG power.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1000,
+          "2ohm": 1500,
+          "1ohm": 2500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 97,
+        "dampingFactor": 400,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "dd-audio-m5000",
+      "category": "ampMono",
+      "brand": "DD Audio",
+      "model": "M5000",
+      "series": "M",
+      "sourceUrl": "https://ddaudio.com/m-series/amplifiers/monoblock/m5000/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Dynamic 7000 W. Max current draw 700 A. LPF 50-500 Hz, subsonic 20-250 Hz. 2x 1/0 AWG power.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1900,
+          "2ohm": 3000,
+          "1ohm": 5000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 97,
+        "dampingFactor": 400,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,426 @@
+{
+  "products": [
+    {
+      "id": "orion-xtr500-4",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "XTR500.4",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr500-4",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping factor listed as '100dB' on page. Input level 0.2-6 V. Bass boost 0-18 dB. HPF 50-5 kHz, LPF 50-400 Hz. Fuse 80 A (2x40 A ATC).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 90,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "dampingFactor": 100,
+        "efficiencyPercent": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 80
+      }
+    },
+    {
+      "id": "orion-xtr750-4",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "XTR750.4",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr750-4",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping factor listed as '100dB' on page. Input level 0.2-6 V. Bass boost 0-18 dB. HPF 50-5 kHz, LPF 50-400 Hz. Fuse 120 A (3x40 A ATC).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 135,
+          "2ohm": 188,
+          "bridged4ohm": 375
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "dampingFactor": 100,
+        "efficiencyPercent": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 120
+      }
+    },
+    {
+      "id": "orion-xtr1000-4",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "XTR1000.4",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr1000-4",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping factor listed as '100dB' on page. Input level 0.2-6 V. Bass boost 0-18 dB. HPF 50-5 kHz, LPF 50-400 Hz. Fuse 120 A (3x40 A ATC).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 165,
+          "2ohm": 250,
+          "bridged4ohm": 500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "dampingFactor": 100,
+        "efficiencyPercent": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 120
+      }
+    },
+    {
+      "id": "orion-xtr1700-4",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "XTR1700.4",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr1700-4",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping factor listed as '100dB' on page. Input level 0.2-6 V. Bass boost 0-18 dB. Fuse 150 A recommended.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 425,
+          "bridged4ohm": 850
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "dampingFactor": 100,
+        "efficiencyPercent": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 150
+      }
+    },
+    {
+      "id": "orion-xtr750-2",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "XTR750.2",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr750-2",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping factor listed as '100dB' on page. Input level 0.2-6 V. Bass boost 0-18 dB. HPF 50-1.5 kHz / 500-15 kHz, LPF 50-400 Hz. Fuse 80 A (2x40 A ATC).",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 225,
+          "2ohm": 375,
+          "bridged4ohm": 750
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "dampingFactor": 100,
+        "efficiencyPercent": 80,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 80
+      }
+    },
+    {
+      "id": "orion-xtr1500-2",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "XTR1500.2",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr1500-2",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping factor listed as '100dB' on page. Input level 0.2-6 V. Bass boost 0-18 dB. Fuse 150 A recommended.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 425,
+          "2ohm": 750,
+          "bridged4ohm": 1500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "dampingFactor": 100,
+        "efficiencyPercent": 80,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 150
+      }
+    },
+    {
+      "id": "orion-xtr1500-5",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "XTR1500.5",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr1500-5",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping factor listed as '100dB' on page. Input level 0.2-6 V. Bass boost 0-18 dB. rmsPerChannelW = ch 1-4 (class AB). Sub ch5 (class D): 380 W @4, 650 W @2, 1000 W @1 ohm. HPF ch1-4 50-5 kHz, LPF ch1-4 50-400 Hz, LPF ch5 50-250 Hz. Damping '200dB'. Fuse listed as TBD.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 90,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "dampingFactor": 200,
+        "efficiencyPercent": 60,
+        "amplifierClass": "AB/D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "orion-hcca1000-4",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "HCCA1000.4",
+      "series": "HCCA",
+      "sourceUrl": "https://www.orioncaraudio.com/products/hcca1000-4",
+      "verified": true,
+      "notes": "Manufacturer page. Power @0.5% THD+N; 'distortion at rated power 0.005%'. Test voltage not stated (supply 9-16 V). Input 200 mV-6 V, 20 kohm. HPF 40-1.25 kHz / 400-12.5 kHz, LPF 40-300 Hz. Efficiency >67% at 2 ohm. Fuse 80 A recommended.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250,
+          "bridged4ohm": 500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 0.005,
+        "dampingFactor": 100,
+        "efficiencyPercent": 67,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 80
+      }
+    },
+    {
+      "id": "orion-hcca2000-4",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "HCCA2000.4",
+      "series": "HCCA",
+      "sourceUrl": "https://www.orioncaraudio.com/products/hcca2000-4",
+      "verified": true,
+      "notes": "Manufacturer page. Power @0.5% THD+N; 'distortion at rated power 0.005%'. Supply 9-16 V. Input 200 mV-6 V. HPF 40-1.25 kHz / 400-12.5 kHz, LPF 40-300 Hz. Fuse 200 A recommended.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500,
+          "bridged4ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 0.005,
+        "dampingFactor": 100,
+        "efficiencyPercent": 67,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 200
+      }
+    },
+    {
+      "id": "orion-hcca1500-2",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "HCCA1500.2",
+      "series": "HCCA",
+      "sourceUrl": "https://www.orioncaraudio.com/products/hcca1500-2",
+      "verified": true,
+      "notes": "Manufacturer page. Power @0.5% THD+N. Supply 9-16 V. Input 200 mV-6 V. HPF 40-1.25 kHz / 400-12.5 kHz, LPF 40-300 Hz. Fuse 150 A recommended.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 750,
+          "bridged4ohm": 1500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "thdPercent": 0.005,
+        "dampingFactor": 100,
+        "efficiencyPercent": 67,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 150
+      }
+    },
+    {
+      "id": "orion-cea400-4d",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "CEA400.4D",
+      "series": "Cobalt Elite",
+      "year": 2026,
+      "sourceUrl": "https://www.orioncaraudio.com/products/cea400-4d-400-watt-rms-4-channel-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; test voltage/THD not stated (supply 10-16 V). HPF/LPF 50-250 Hz. Input 0.2-12 V. Fuse 60 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 12,
+        "snrDb": 98,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "orion-cea600-4d",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "CEA600.4D",
+      "series": "Cobalt Elite",
+      "year": 2026,
+      "sourceUrl": "https://www.orioncaraudio.com/products/cea600-4d-600-watt-rms-4-channel-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; test voltage/THD not stated (supply 10-16 V). HPF/LPF 50-250 Hz. Input 0.2-12 V. Fuse 80 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 12,
+        "snrDb": 98,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "orion-cea1000-5d",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "CEA1000.5D",
+      "series": "Cobalt Elite",
+      "year": 2026,
+      "sourceUrl": "https://www.orioncaraudio.com/products/cea1000-5d-1000-watt-rms-5-channel-class-d-amplifier",
+      "verified": true,
+      "notes": "rmsPerChannelW = ch 1-4. Sub channel: 250 W @4, 400 W @2, 650 W @1 ohm. Test voltage not stated (supply 10-16 V). HPF/LPF 50-250 Hz. Input 0.2-12 V. Fuse 120 A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 120,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 12,
+        "snrDb": 95,
+        "fuseRatingA": 120,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "orion-xtrpro4-1k",
+      "category": "ampMulti",
+      "brand": "Orion",
+      "model": "XTRPRO4.1K",
+      "series": "XTR PRO",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtrpro4-1k",
+      "verified": true,
+      "notes": "Manufacturer page; test voltage/THD not stated. HPF 40-500 Hz, LPF 40-300 Hz. Damping >100.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 220,
+          "1ohm": 310
+        },
+        "snrDb": 94,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

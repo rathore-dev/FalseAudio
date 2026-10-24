@@ -1,0 +1,138 @@
+{
+  "products": [
+    {
+      "id": "soundstream-pn1-3000dx",
+      "category": "ampMono",
+      "brand": "Soundstream",
+      "model": "PN1-3000DX",
+      "series": "Picasso Nano",
+      "sourceUrl": "https://www.soundstream.com/products/pn1-3000dx",
+      "verified": true,
+      "notes": "Manufacturer page. 2-ohm rating inconsistent (table 450 W, features 600 W) - omitted. LPF 50-250 Hz, subsonic 20-50 Hz, boost 0-12 dB @45 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "1ohm": 800
+        },
+        "snrDb": 80,
+        "thdPercent": 0.05,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-pn1-4000dx",
+      "category": "ampMono",
+      "brand": "Soundstream",
+      "model": "PN1-4000DX",
+      "series": "Picasso Nano",
+      "sourceUrl": "https://www.soundstream.com/products/pn1-4000dx",
+      "verified": true,
+      "notes": "Manufacturer page. LPF 50-250 Hz, subsonic 20-50 Hz, boost 0-12 dB @45 Hz. Rated voltage not stated.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "2ohm": 700,
+          "1ohm": 1200
+        },
+        "snrDb": 80,
+        "thdPercent": 0.05,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-ar1-2500d",
+      "category": "ampMono",
+      "brand": "Soundstream",
+      "model": "AR1.2500D",
+      "series": "Arachnid",
+      "sourceUrl": "https://www.soundstream.com/products/ar1-2500d-amplifier-1",
+      "verified": true,
+      "notes": "Manufacturer page; operating 9-16 V. LPF 40-180 Hz, subsonic 10-50 Hz, boost 0-13 dB @30-80 Hz. Strappable. Fuse N/A on page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 850,
+          "1ohm": 1250
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 96,
+        "thdPercent": 1,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 13
+      }
+    },
+    {
+      "id": "soundstream-bxa1-5000d",
+      "category": "ampMono",
+      "brand": "Soundstream",
+      "model": "BXA1-5000D",
+      "series": "Bass Xtreme",
+      "sourceUrl": "https://www.soundstream.com/products/bxa1-5000d",
+      "verified": true,
+      "notes": "Manufacturer page; operating 9-16 V. LPF 40-150 Hz, subsonic 10-50 Hz, boost 0-12 dB @45 Hz, bass EQ sweep. Fuse 2x60 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 700,
+          "2ohm": 1100,
+          "1ohm": 1650
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 105,
+        "thdPercent": 0.3,
+        "fuseRatingA": 120,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "soundstream-sr1-3500d",
+      "category": "ampMono",
+      "brand": "Soundstream",
+      "model": "SR1.3500D",
+      "series": "Reign",
+      "sourceUrl": "https://www.soundstream.com/products/sr1-3500d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; operating 9-16 V. LPF 40-180 Hz, subsonic 10-50 Hz, boost 0-12 dB @30-80 Hz. Strappable.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 800,
+          "1ohm": 1300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 85,
+        "thdPercent": 0.1,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

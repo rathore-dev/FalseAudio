@@ -1,0 +1,241 @@
+{
+  "products": [
+    {
+      "id": "hifonics-zrx1200-1d",
+      "category": "ampMono",
+      "brand": "Hifonics",
+      "model": "ZRX1200.1D",
+      "series": "Zeus",
+      "sourceUrl": "https://www.sonicelectronix.com/item_67917_Hifonics-Zeus-ZRX1200.1D.html",
+      "verified": false,
+      "notes": "Retailer listing; discontinued. Bass boost 0 to +10 dB at 45 Hz; 4 AWG wiring.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 600,
+          "1ohm": 1200
+        },
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 10,
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "hifonics-zrx1500-1d",
+      "category": "ampMono",
+      "brand": "Hifonics",
+      "model": "ZRX1500.1D",
+      "series": "Zeus",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_31257_Hifonics_ZRX15001D.aspx",
+      "verified": false,
+      "notes": "Retailer listing.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 1000,
+          "1ohm": 1500
+        },
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "hifonics-a1200-1d",
+      "category": "ampMono",
+      "brand": "Hifonics",
+      "model": "A1200.1D",
+      "series": "Alpha",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_78706_Hifonics_A12001D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. LPF 30-250 Hz, subsonic 10-50 Hz, boost 0-12 dB @45 Hz. External fuse (60 A listed).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 325,
+          "2ohm": 600,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 1,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "hifonics-a2000-1d",
+      "category": "ampMono",
+      "brand": "Hifonics",
+      "model": "A2000.1D",
+      "series": "Alpha",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_78708_Hifonics_A20001D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. LPF 30-250 Hz, subsonic 10-50 Hz, boost 0-12 dB @45 Hz. External fuse (100 A listed). Power doubles per halving of load - likely optimistic.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 1000,
+          "1ohm": 2000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 1,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "hifonics-zd-1350-1d",
+      "category": "ampMono",
+      "brand": "Hifonics",
+      "model": "ZD-1350.1D",
+      "series": "Zeus Delta",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_89031_Hifonics_ZD-13501D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. LPF 50-250 Hz, subsonic 15-40 Hz. Fuse 80 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 350,
+          "2ohm": 675,
+          "1ohm": 1350
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "thdPercent": 0.1,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "hifonics-zd-1950-1d",
+      "category": "ampMono",
+      "brand": "Hifonics",
+      "model": "ZD-1950.1D",
+      "series": "Zeus Delta",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_89581_Hifonics_ZD-19501D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. LPF 50-250 Hz, subsonic 15-40 Hz. Fuse 100 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 450,
+          "2ohm": 975,
+          "1ohm": 1950
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "thdPercent": 0.1,
+        "fuseRatingA": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "hifonics-hcc-3000-1d",
+      "category": "ampMono",
+      "brand": "Hifonics",
+      "model": "HCC-3000.1D",
+      "series": "Colossus Classic",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_93017_Hifonics_HCC-30001D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. LPF 30-250 Hz, subsonic 15-35 Hz. Fuse 250 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 750,
+          "2ohm": 1500,
+          "1ohm": 3000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "thdPercent": 0.1,
+        "fuseRatingA": 250,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 10
+      }
+    },
+    {
+      "id": "hifonics-hcm-1500-1d",
+      "category": "ampMono",
+      "brand": "Hifonics",
+      "model": "HCM-1500.1D",
+      "series": "Colossus",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_93982_Hifonics_HCM-15001D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Full range. HPF 15 Hz-1 kHz, LPF 50 Hz-10 kHz. Fuse 150 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 375,
+          "2ohm": 750,
+          "1ohm": 1500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "thdPercent": 0.1,
+        "fuseRatingA": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "hifonics-brl2000-1",
+      "category": "ampMono",
+      "brand": "Hifonics",
+      "model": "BRL2000.1",
+      "series": "Brutus",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_97857_Hifonics_BRL20001.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. HPF 15 Hz-1 kHz, LPF 50 Hz-10 kHz. Fuse 250 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 700,
+          "2ohm": 1200,
+          "1ohm": 2000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 101,
+        "thdPercent": 0.5,
+        "fuseRatingA": 250,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

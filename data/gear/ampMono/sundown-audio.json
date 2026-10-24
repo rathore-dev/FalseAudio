@@ -1,0 +1,380 @@
+{
+  "products": [
+    {
+      "id": "sundown-audio-saz-1500d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SAZ-1500D",
+      "series": "SAZ",
+      "sourceUrl": "https://sundownaudio.com/products/saz-1500-15th-anniversary-edition",
+      "verified": false,
+      "notes": "Specs from forum copy of Sundown spec list (not fetched from manufacturer page); fuse listed as 40A x 4.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 800,
+          "1ohm": 1500
+        },
+        "fuseRatingA": 160,
+        "efficiencyPercent": 86,
+        "amplifierClass": "D",
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "sundown-audio-saev4-600-1d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SAEv4-600.1D",
+      "series": "SAE v4",
+      "sourceUrl": "https://sundownaudio.com/products/saev4-600-1d-600w-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. LPF 40-180 Hz, subsonic 10-40 Hz (12 dB), phase 0-180.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 450,
+          "1ohm": 600
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-saev4-1000-1d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SAEv4-1000.1D",
+      "series": "SAE v4",
+      "sourceUrl": "https://sundownaudio.com/products/saev4-1000-1d-600w-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. LPF 40-180 Hz, subsonic 10-40 Hz, phase 0-180.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 375,
+          "2ohm": 600,
+          "1ohm": 1000
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-saev4-1500-1d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SAEv4-1500.1D",
+      "series": "SAE v4",
+      "sourceUrl": "https://sundownaudio.com/products/saev4-1500-1d-1500w-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. LPF 40-180 Hz, subsonic 10-40 Hz, phase 0-180.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 450,
+          "2ohm": 800,
+          "1ohm": 1500
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-saev4-2000-1d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SAEv4-2000.1D",
+      "series": "SAE v4",
+      "sourceUrl": "https://sundownaudio.com/products/saev4-2000-1d-2000w-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. LPF 40-180 Hz, subsonic 10-40 Hz, phase 0-180.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 875,
+          "2ohm": 1300,
+          "1ohm": 2000
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-saev4-3000-1d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SAEv4-3000.1D",
+      "series": "SAE v4",
+      "sourceUrl": "https://sundownaudio.com/products/saev4-3000-1d-3000w-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. LPF 40-180 Hz, subsonic 10-40 Hz, phase 0-180.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1300,
+          "2ohm": 2000,
+          "1ohm": 3000
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-salt-1",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SALT-1",
+      "series": "SALT",
+      "sourceUrl": "https://sundownaudio.com/products/salt-1-1000w-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. SALT = Sundown Audio Low-voltage Technology, marketed as producing rated power at ~12.x V (exact test voltage not stated). Linkable: 2000 W @2 ohm strapped. 24 dB LPF 35-250 Hz, 24 dB subsonic 10-50 Hz, boost 0-9 dB @45 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 500,
+          "1ohm": 1000
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9
+      }
+    },
+    {
+      "id": "sundown-audio-salt-1-5",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SALT-1.5",
+      "series": "SALT",
+      "sourceUrl": "https://sundownaudio.com/products/salt-1-5-1000w-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. SALT = Sundown Audio Low-voltage Technology, marketed as producing rated power at ~12.x V (exact test voltage not stated). Linkable: 3000 W @2 ohm strapped. LPF 35-250 Hz, subsonic 10-50 Hz (24 dB), boost 0-9 dB @45 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 750,
+          "1ohm": 1500
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9
+      }
+    },
+    {
+      "id": "sundown-audio-salt-2",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SALT-2",
+      "series": "SALT",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-salt-2-2000w-competition-car-audio-class-d-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. SALT = Sundown Audio Low-voltage Technology, marketed as producing rated power at ~12.x V (exact test voltage not stated). Linkable: 4000 W @2 ohm strapped. LPF 35-250 Hz, subsonic 10-50 Hz, boost 0-9 dB @45 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 1000,
+          "1ohm": 2000
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9
+      }
+    },
+    {
+      "id": "sundown-audio-salt-3",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SALT-3",
+      "series": "SALT",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-salt-3-3000w-competition-car-audio-class-d-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. SALT = Sundown Audio Low-voltage Technology, marketed as producing rated power at ~12.x V (exact test voltage not stated). Linkable: 6000 W @2 ohm strapped. LPF 35-250 Hz, subsonic 10-50 Hz, boost 0-9 dB @45 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 750,
+          "2ohm": 1500,
+          "1ohm": 3000
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9
+      }
+    },
+    {
+      "id": "sundown-audio-sfb-600d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SFB-600D",
+      "series": "SFB",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sfb-600d-600w-full-range-car-audio-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. Full range. LPF 80 Hz-20 kHz, HPF 15 Hz-1 kHz, boost 0-9 dB @50 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 350,
+          "1ohm": 600
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9
+      }
+    },
+    {
+      "id": "sundown-audio-sfb-1000d-v-2",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SFB-1000D v.2",
+      "series": "SFB",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sfb-1000d-1000w-full-range-car-audio-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. Full range. LPF 80 Hz-20 kHz, HPF 15 Hz-1 kHz. Bass boost listed as 0-9 dB and 0-12 dB on the same page. Fuse 100 A recommended; input 5 V max.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 850,
+          "1ohm": 1000
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "inputSensitivityMaxV": 5,
+        "fuseRatingA": 100,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "sundown-audio-sia-1250d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SIA-1250D",
+      "series": "SIA",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sia-1250d-smart-1250w-wide-range-car-audio-class-d-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. Full-bridge; same power at 1 and 2 ohm. LPF 40 Hz-20 kHz, HPF 10 Hz-1 kHz, 12 dB boost @50 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 800,
+          "2ohm": 1250,
+          "1ohm": 1250
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "sundown-audio-sia-1750d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SIA-1750D",
+      "series": "SIA",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sia-1750d-smart-1750w-wide-range-car-audio-class-d-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. Full-bridge. LPF 40 Hz-20 kHz, HPF 10 Hz-1 kHz, boost 12 dB @50 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1250,
+          "2ohm": 1750,
+          "1ohm": 1750
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "sundown-audio-sia-2500d",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SIA-2500D",
+      "series": "SIA",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sia-2500d-smart-2500w-wide-range-car-audio-class-d-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. Full-bridge. LPF 40 Hz-20 kHz, HPF 10 Hz-1 kHz, boost 12 dB @50 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 2000,
+          "2ohm": 2500,
+          "1ohm": 2500
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "sundown-audio-sia-3500d-v2",
+      "category": "ampMono",
+      "brand": "Sundown Audio",
+      "model": "SIA-3500D v2",
+      "series": "SIA",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sia-3500d-smart-3500w-wide-range-car-audio-class-d-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. Full-bridge. LPF 40 Hz-20 kHz, HPF 10 Hz-1 kHz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 2600,
+          "2ohm": 3300,
+          "1ohm": 3500
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    }
+  ]
+}

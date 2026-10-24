@@ -1,0 +1,114 @@
+{
+  "products": [
+    {
+      "id": "hifonics-a1200-4d",
+      "category": "ampMulti",
+      "brand": "Hifonics",
+      "model": "A1200.4D",
+      "series": "Alpha",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_78711_Hifonics_A12004D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. HPF 20 Hz-4 kHz, LPF 50 Hz-4 kHz. External fuse (50 A listed).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 300,
+          "bridged4ohm": 600
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 85,
+        "thdPercent": 0.05,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "hifonics-a2500-5d",
+      "category": "ampMulti",
+      "brand": "Hifonics",
+      "model": "A2500.5D",
+      "series": "Alpha",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_78713_Hifonics_A25005D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. rmsPerChannelW = ch1-4. Ch5: 250 W @4, 450 W @2, 750 W @1 ohm. HPF ch1-4 10-250 Hz; ch5 LPF 50-250 Hz. Fuse 60 A listed.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 100
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 85,
+        "thdPercent": 0.05,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "hifonics-zd-750-4d",
+      "category": "ampMulti",
+      "brand": "Hifonics",
+      "model": "ZD-750.4D",
+      "series": "Zeus Delta",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_89583_Hifonics_ZD-7504D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. HPF/LPF 50-250 Hz. Fuse 60 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 175,
+          "bridged4ohm": 375
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "thdPercent": 0.5,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "hifonics-zd-1750-5d",
+      "category": "ampMulti",
+      "brand": "Hifonics",
+      "model": "ZD-1750.5D",
+      "series": "Zeus Delta",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_89032_Hifonics_ZD-17505D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. rmsPerChannelW = ch1-4. Sub ch: 225 W @4, 450 W @2, 850 W @1 ohm. HPF/LPF 50-250 Hz, subsonic 15-40 Hz. Fuse 100 A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 225,
+          "bridged4ohm": 450
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "thdPercent": 0.1,
+        "fuseRatingA": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

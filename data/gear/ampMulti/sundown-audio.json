@@ -1,0 +1,277 @@
+{
+  "products": [
+    {
+      "id": "sundown-audio-saev4-100-4",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SAEv4-100.4",
+      "series": "SAE v4",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-saev3-400-4-4-channel-400x4-car-audio-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. HPF/LPF 40 Hz-5 kHz 12 dB. Input 6 V max.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMaxV": 6,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-saev4-150-4",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SAEv4-150.4",
+      "series": "SAE v4",
+      "sourceUrl": "https://sundownaudio.com/products/saev4-150-4-225x4-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. HPF/LPF 40 Hz-5 kHz 12 dB.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 225,
+          "bridged4ohm": 450
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-saev4-200-4",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SAEv4-200.4",
+      "series": "SAE v4",
+      "sourceUrl": "https://sundownaudio.com/products/saev4-200-4-300x4-4-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. HPF/LPF 40 Hz-5 kHz 12 dB.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 300,
+          "bridged4ohm": 600
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-saev4-900-5",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SAEv4-900.5",
+      "series": "SAE v4",
+      "sourceUrl": "https://sundownaudio.com/products/saev4-900-5-120x4-500x1-5-channel-amplifier",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. rmsPerChannelW = ch1-4 (class AB). Ch5 (class D): 225 W @4 (page label says 2 ohm), 325 W @2, 500 W @1 ohm. Ch1-4 HPF/LPF 40 Hz-5 kHz; ch5 LPF 40-250 Hz, subsonic 10-40 Hz.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 120
+        },
+        "amplifierClass": "AB/D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-sfb-200-4",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SFB-200.4",
+      "series": "SFB",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sfb-200-4-4-channel-200x4-car-audio-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. Full-bridge, 1-ohm stable per channel. LPF 50 Hz-6 kHz, HPF 15 Hz-6 kHz, bass boost @50 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 125,
+          "1ohm": 200
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "sundown-audio-sfb-500-4",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SFB-500.4",
+      "series": "SFB",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sfb-500-4-4-channel-500x4-car-audio-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. Full-bridge, 1-ohm stable per channel. LPF 50 Hz-6 kHz, HPF 15 Hz-6 kHz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 300,
+          "1ohm": 500
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "sundown-audio-sfb-1000-4",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SFB-1000.4",
+      "series": "SFB",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sfb-1000-4-4-channel-1000x4-car-audio-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. Full-bridge, 1-ohm stable per channel. LPF 50 Hz-6 kHz, HPF 15 Hz-6 kHz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 350,
+          "2ohm": 590,
+          "1ohm": 1000
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "sundown-audio-sfb-1800-5",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SFB-1800.5",
+      "series": "SFB",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-sfb-1800-5-5-channel-1800x5-car-audio-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. rmsPerChannelW = ch1-4. Ch5: 250 W @4, 500 W @2, 1000 W @1 ohm. Ch1-4 LPF 50 Hz-6 kHz, HPF 15 Hz-6 kHz; ch5 LPF 50 Hz-20 kHz, HPF 50 Hz-1 kHz.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 300
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true
+      }
+    },
+    {
+      "id": "sundown-audio-salt-200-4",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SALT-200.4",
+      "series": "SALT",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-salt-200-4-car-audio-4-channel-4x200-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. SALT = Sundown Audio Low-voltage Technology, marketed as producing rated power at ~12.x V (exact test voltage not stated). HPF/LPF 50-500 Hz (x1/x10), subsonic 10-500 Hz. Page labels are muddled (says 200 x 4 @ 4 ohms bridged).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 325,
+          "bridged4ohm": 700
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-salt-500-4",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SALT-500.4",
+      "series": "SALT",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-salt-500-4-4-channel-500x4-car-audio-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. SALT = Sundown Audio Low-voltage Technology, marketed as producing rated power at ~12.x V (exact test voltage not stated). HPF/LPF 50-500 Hz (x1/x10), subsonic 10-500 Hz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 700,
+          "bridged4ohm": 1400
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-salt-1700-5",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SALT-1700.5",
+      "series": "SALT",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-salt-1700-5-car-audio-5-channel-1700w-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. SALT = Sundown Audio Low-voltage Technology, marketed as producing rated power at ~12.x V (exact test voltage not stated). rmsPerChannelW = ch1-4 (4 ohm bridged stable). Ch5: 480 W @4, 800 W @2, 1300 W @1 ohm. HPF/LPF 50-500 Hz x1/x10, subsonic 10-100 Hz.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 125,
+          "2ohm": 220
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "sundown-audio-salt-2000-6",
+      "category": "ampMulti",
+      "brand": "Sundown Audio",
+      "model": "SALT-2000.6",
+      "series": "SALT",
+      "sourceUrl": "https://sundownaudio.com/products/sundown-audio-salt-2000-6-car-audio-6-channel-2000w-amplifier-amp",
+      "verified": true,
+      "notes": "Manufacturer product description; test voltage not stated. SALT = Sundown Audio Low-voltage Technology, marketed as producing rated power at ~12.x V (exact test voltage not stated). Unequal channels: ch1-2 100 W @4 / 200 W @2; ch3-4 150 W @4 / 250 W @2; ch5-6 200 W @4 / 350 W @2 / 550 W @1 ohm. rmsPerChannelW shows ch1-2. HPF/LPF 50-500 Hz, subsonic 10-100 Hz.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 200
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    }
+  ]
+}

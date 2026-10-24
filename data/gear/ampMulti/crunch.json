@@ -1,0 +1,165 @@
+{
+  "products": [
+    {
+      "id": "crunch-gp-1000-2",
+      "category": "ampMulti",
+      "brand": "Crunch",
+      "model": "GP-1000.2",
+      "series": "GroundPounder",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_56136_Crunch_GP-10002.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Ratings appear to be max (not RMS) power - 1x20 A fuse cannot support 1000 W RMS. Treat as optimistic. 12 dB/oct crossovers.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 500,
+          "bridged4ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "fuseRatingA": 20,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "crunch-gp-2000-2",
+      "category": "ampMulti",
+      "brand": "Crunch",
+      "model": "GP-2000.2",
+      "series": "GroundPounder",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_56138_Crunch_GP-20002.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Ratings appear to be max power (1x30 A fuse). Treat as optimistic.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 1000,
+          "bridged4ohm": 2000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "fuseRatingA": 30,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "crunch-gp-1500-4",
+      "category": "ampMulti",
+      "brand": "Crunch",
+      "model": "GP-1500.4",
+      "series": "GroundPounder",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_56140_Crunch_GP-15004.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Ratings appear to be max power (1x40 A fuse). Treat as optimistic.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 185,
+          "2ohm": 375,
+          "bridged4ohm": 750
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "fuseRatingA": 40,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "crunch-gp-2000-4",
+      "category": "ampMulti",
+      "brand": "Crunch",
+      "model": "GP-2000.4",
+      "series": "GroundPounder",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_56142_Crunch_GP-20004.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Ratings appear to be max power (2x30 A fuse). Treat as optimistic.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 500,
+          "bridged4ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "fuseRatingA": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "crunch-pz2-1530-2d",
+      "category": "ampMulti",
+      "brand": "Crunch",
+      "model": "PZ2-1530.2D",
+      "series": "Power Zone",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_93092_Crunch_PZ2-15302D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Ratings appear to be max power (1x50 A fuse). HPF/LPF 40-400 Hz.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 375,
+          "2ohm": 750,
+          "bridged4ohm": 1500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "thdPercent": 0.5,
+        "fuseRatingA": 50,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "crunch-dr-1325-4d",
+      "category": "ampMulti",
+      "brand": "Crunch",
+      "model": "DR-1325.4D",
+      "series": "Drive",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_93768_Crunch_DR-13254D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Ratings appear to be max power. HPF/LPF 40-400 Hz. Fuse 60 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 165,
+          "2ohm": 330,
+          "bridged4ohm": 660
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 100,
+        "thdPercent": 0.5,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    }
+  ]
+}

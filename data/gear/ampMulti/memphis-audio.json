@@ -1,0 +1,139 @@
+{
+  "products": [
+    {
+      "id": "memphis-audio-prx500-4v2",
+      "category": "ampMulti",
+      "brand": "Memphis Audio",
+      "model": "PRX500.4V2",
+      "series": "Power Reference V2",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2024/04/PRX-V2-Amplifier-Instruction-Manual.pdf",
+      "verified": true,
+      "notes": "PR V2 manual; rated voltage not stated. THD <1%. HPF/LPF 50-250 Hz 12 dB/oct. Stable 2 ohm stereo / 4 ohm bridged. Input 200 mV-6 V. 8 AWG kit (8GKIT).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 83,
+        "thdPercent": 1,
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-prx800-5v2",
+      "category": "ampMulti",
+      "brand": "Memphis Audio",
+      "model": "PRX800.5V2",
+      "series": "Power Reference V2",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2024/04/PRX-V2-Amplifier-Instruction-Manual.pdf",
+      "verified": true,
+      "notes": "rmsPerChannelW = 4 main channels. Sub channel: 250 W @4 ohm, 400 W @2 ohm (2 ohm min). Manual lists 70 W x4 @4 ohm; product page lists 75 W x4. Rated voltage not stated. HPF/LPF 50-250 Hz. Input 200 mV-6 V. 4 AWG kit.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 80,
+        "thdPercent": 1,
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-prx1500-5v2",
+      "category": "ampMulti",
+      "brand": "Memphis Audio",
+      "model": "PRX1500.5V2",
+      "series": "Power Reference V2",
+      "sourceUrl": "https://www.memphiscaraudio.com/product/prx1500-5v2/",
+      "verified": true,
+      "notes": "rmsPerChannelW = 4 main channels. Sub channel: 400 W @4, 700 W @2, 1000 W @1 ohm. 12 dB/oct crossovers, 18 dB subsonic. Rated voltage not stated. 4 AWG kit.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "thdPercent": 1,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-srx150-2v",
+      "category": "ampMulti",
+      "brand": "Memphis Audio",
+      "model": "SRX150.2V",
+      "series": "Street Reference V",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2022/06/SRX-V-AMPLIFIER-FULL-RANGE-INSTRUCTION-MANUAL.pdf",
+      "verified": true,
+      "notes": "SRX V manual; rated voltage not stated. THD <0.1% @4 ohm, <0.5% @2 ohm. LPF 50-250 Hz, HPF 50 Hz-1 kHz, 12 dB/oct. Bass boost 45 Hz 0/6/12 dB. High-level input 1.8-25 V.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 75,
+          "bridged4ohm": 150
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6.3,
+        "highLevelInputMaxV": 25,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "memphis-audio-srx300-4v",
+      "category": "ampMulti",
+      "brand": "Memphis Audio",
+      "model": "SRX300.4V",
+      "series": "Street Reference V",
+      "sourceUrl": "https://www.memphiscaraudio.com/wp-content/uploads/2022/06/SRX-V-AMPLIFIER-FULL-RANGE-INSTRUCTION-MANUAL.pdf",
+      "verified": true,
+      "notes": "SRX V manual; rated voltage not stated. THD <0.1% @4 ohm, <0.5% @2 ohm. LPF 50-250 Hz, HPF 50 Hz-1 kHz, 12 dB/oct. Bass boost 45 Hz 0/6/12 dB. High-level input 1.8-25 V. 8 AWG kit.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 75,
+          "bridged4ohm": 150
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6.3,
+        "highLevelInputMaxV": 25,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

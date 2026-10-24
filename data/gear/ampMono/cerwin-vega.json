@@ -1,0 +1,183 @@
+{
+  "products": [
+    {
+      "id": "cerwin-vega-h1000-1d",
+      "category": "ampMono",
+      "brand": "Cerwin-Vega",
+      "model": "H1000.1D",
+      "series": "HED",
+      "sourceUrl": "https://www.cerwinvega.com/products/1000w-monoblock-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Power supply 12-14.4 V (rated voltage not specified). THD <0.3%. SNR >90 dBA @1 W. High-level input 0.3-8.5 V; low-level 'wide range' (no figure). Damping >100 @50 Hz. LPF 50-250 Hz, subsonic 10-55 Hz, bass boost 0-18 dB. Fuse 3x30 A ATC.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 450,
+          "2ohm": 700,
+          "1ohm": 1000
+        },
+        "highLevelInputMaxV": 8.5,
+        "snrDb": 90,
+        "thdPercent": 0.3,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": false,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 90
+      }
+    },
+    {
+      "id": "cerwin-vega-h1500-1d",
+      "category": "ampMono",
+      "brand": "Cerwin-Vega",
+      "model": "H1500.1D",
+      "series": "HED",
+      "sourceUrl": "https://www.cerwinvega.com/products/1500w-hed-monoblock-series-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Power supply 12-14.4 V (rated voltage not specified). THD <0.3%. SNR >90 dBA @1 W. High-level input 0.3-8.5 V; low-level 'wide range' (no figure). Damping >100 @50 Hz. LPF 50-250 Hz, subsonic 10-55 Hz, bass boost 0-18 dB. Fuse not listed.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1000,
+          "1ohm": 1500
+        },
+        "highLevelInputMaxV": 8.5,
+        "snrDb": 90,
+        "thdPercent": 0.3,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": false,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp2400-1",
+      "category": "ampMono",
+      "brand": "Cerwin-Vega",
+      "model": "CVP2400.1",
+      "series": "CVP",
+      "sourceUrl": "https://www.cerwinvega.com/products/cvp2400-1-cvp-performance-2400w-max-1-ch-small-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; rated voltage not stated. Input 250 mV-6 V; high-level inputs 4-8 V with auto turn-on. SNR >=90 dB. Subsonic 10-50 Hz, LPF 52-400 Hz. Fuse 3x35 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 370,
+          "2ohm": 660,
+          "1ohm": 900
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 8,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "fuseRatingA": 105,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp3600-1",
+      "category": "ampMono",
+      "brand": "Cerwin-Vega",
+      "model": "CVP3600.1",
+      "series": "CVP",
+      "sourceUrl": "https://www.cerwinvega.com/products/cvp3600-1-cvp-performance-3600w-max-1-ch-small-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; rated voltage not stated. Input 250 mV-6 V; high-level inputs 4-8 V with auto turn-on. SNR >=90 dB. Subsonic 10-50 Hz, LPF 52-400 Hz. Fuse 4x35 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 900,
+          "1ohm": 1300
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 8,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "fuseRatingA": 140,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "cerwin-vega-cvpro3k",
+      "category": "ampMono",
+      "brand": "Cerwin-Vega",
+      "model": "CVPRO3K",
+      "series": "CVPRO",
+      "sourceUrl": "https://www.cerwinvega.com/products/full-range-class-d-monoblock-cvp-pro-amplifier-cvpro3k",
+      "verified": true,
+      "notes": "Manufacturer page. Supply 10-17 V. THD 0.1%. LPF 15 Hz-1 kHz, HPF 50 Hz-20 kHz, subsonic 15 Hz-1 kHz, boost 0-12 dB @35-70 Hz. Fuse 150 A (page: 1/2 full current draw). 1/0 AWG recommended.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1100,
+          "2ohm": 2050,
+          "1ohm": 3000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "dampingFactor": 150,
+        "fuseRatingA": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "cerwin-vega-cvpro5k",
+      "category": "ampMono",
+      "brand": "Cerwin-Vega",
+      "model": "CVPRO5K",
+      "series": "CVPRO",
+      "sourceUrl": "https://www.cerwinvega.com/products/full-range-class-d-monoblock-cvp-pro-amplifier-cvpro5k",
+      "verified": true,
+      "notes": "Manufacturer page. Power @0.1% THD; supply 10-17 V. LPF 15 Hz-1 kHz, subsonic 15 Hz-1 kHz, boost 0-12 dB @35-70 Hz. Fuse 200 A (page: 1/2 full current draw). 1/0 AWG recommended.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1900,
+          "2ohm": 3300,
+          "1ohm": 5000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "dampingFactor": 150,
+        "fuseRatingA": 200,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

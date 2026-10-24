@@ -1,0 +1,89 @@
+{
+  "products": [
+    {
+      "id": "crunch-dr-2125-1d",
+      "category": "ampMono",
+      "brand": "Crunch",
+      "model": "DR-2125.1D",
+      "series": "Drive",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_93917_Crunch_DR-21251D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Ratings appear to be max power (80 A fuse cannot support 2125 W RMS). LPF 40-300 Hz, subsonic 10-40 Hz.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1050,
+          "2ohm": 2125
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 100,
+        "thdPercent": 0.5,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "crunch-dr-2725-1d",
+      "category": "ampMono",
+      "brand": "Crunch",
+      "model": "DR-2725.1D",
+      "series": "Drive",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_93765_Crunch_DR-27251D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Ratings appear to be max power. LPF 40-300 Hz, subsonic 10-40 Hz. Fuse 100 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1360,
+          "2ohm": 2725
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 100,
+        "thdPercent": 0.5,
+        "fuseRatingA": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "crunch-dr-3725-1d",
+      "category": "ampMono",
+      "brand": "Crunch",
+      "model": "DR-3725.1D",
+      "series": "Drive",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_93767_Crunch_DR-37251D.aspx",
+      "verified": false,
+      "notes": "Retailer listing (OnlineCarStereo); test voltage not stated. Ratings appear to be max power. LPF 40-300 Hz, subsonic 10-40 Hz. Fuse 150 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 930,
+          "2ohm": 1860,
+          "1ohm": 3725
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 100,
+        "thdPercent": 0.5,
+        "fuseRatingA": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

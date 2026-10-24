@@ -1,0 +1,191 @@
+{
+  "products": [
+    {
+      "id": "dd-audio-ss4-500",
+      "category": "ampMulti",
+      "brand": "DD Audio",
+      "model": "SS4-500",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/multi-channel/ss4-500/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 40 A. HPF 30 Hz-5 kHz, LPF 80 Hz-20 kHz. 4 AWG power.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 20,
+        "snrDb": 95,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "dd-audio-ss4-1300",
+      "category": "ampMulti",
+      "brand": "DD Audio",
+      "model": "SS4-1300",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/multi-channel/ss4-1300/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 150 A. HPF 20 Hz-5 kHz, LPF 50 Hz-20 kHz. 4 AWG power.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 180,
+          "2ohm": 325,
+          "bridged4ohm": 650
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 20,
+        "snrDb": 95,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "dd-audio-ss4-3000",
+      "category": "ampMulti",
+      "brand": "DD Audio",
+      "model": "SS4-3000",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/multi-channel/ss4-3000/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Total wattage listed 4000. Max current draw 300 A. HPF 20 Hz-5 kHz, LPF 50 Hz-5 kHz.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 650,
+          "2ohm": 1000
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 95,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "dd-audio-ss5-500",
+      "category": "ampMulti",
+      "brand": "DD Audio",
+      "model": "SS5-500",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/multi-channel/ss5-500/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. rmsPerChannelW = ch1-4. Sub ch: 500 W @1 ohm. Max current draw 100 A. HPF 20 Hz-5 kHz, LPF 50 Hz-5 kHz, subsonic 10-50 Hz.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 120
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 20,
+        "snrDb": 95,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "dd-audio-ss5-1500",
+      "category": "ampMulti",
+      "brand": "DD Audio",
+      "model": "SS5-1500",
+      "series": "SS",
+      "sourceUrl": "https://ddaudio.com/ss-series/amplifiers/multi-channel/ss5-1500/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. rmsPerChannelW = ch1-4. Sub ch: 1500 W @1 ohm. Max current draw 150 A. HPF 50 Hz-5 kHz, LPF 50 Hz-5 kHz, subsonic 10-50 Hz.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 300
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 20,
+        "snrDb": 95,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "dd-audio-d4-800",
+      "category": "ampMulti",
+      "brand": "DD Audio",
+      "model": "D4-800",
+      "series": "D",
+      "sourceUrl": "https://ddaudio.com/d-series/amplifiers/multi-channel/d4-800/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 80 A. Filter listed as 'Sub-Sonic 30 Hz-5 kHz' (likely HPF), LPF 50 Hz-5 kHz. 4 AWG power.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 125,
+          "2ohm": 200,
+          "bridged4ohm": 400
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 90,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "dd-audio-d4-2200",
+      "category": "ampMulti",
+      "brand": "DD Audio",
+      "model": "D4-2200",
+      "series": "D",
+      "sourceUrl": "https://ddaudio.com/d-series/amplifiers/multi-channel/d4-2200/",
+      "verified": true,
+      "notes": "Manufacturer spec table; continuous power at 14.4 V test voltage (operating 9-16 V). THD value not published. Max current draw 220 A. HPF 30 Hz-5 kHz, LPF 50 Hz-5 kHz. 2 AWG power.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 370,
+          "1ohm": 550,
+          "bridged4ohm": 700,
+          "bridged2ohm": 1040
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 85,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    }
+  ]
+}

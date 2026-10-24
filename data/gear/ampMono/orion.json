@@ -1,0 +1,305 @@
+{
+  "products": [
+    {
+      "id": "orion-xtr500-1d",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "XTR500.1D",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr500-1d-500-watt-rms-class-d-monoblock-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping listed as '200dB'. Input 0.2-6 V. Bass boost 0-18 dB. LPF 30-300 Hz, subsonic 10-25 Hz. Page says '2-Ohm Stable' in features but publishes 1-ohm rating. Fuse not listed.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 125,
+          "2ohm": 250,
+          "1ohm": 500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "dampingFactor": 200,
+        "efficiencyPercent": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "orion-xtr1000-1d",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "XTR1000.1D",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr1000-1d-1000-watt-rms-class-d-monoblock-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping listed as '200dB'. Input 0.2-6 V. Bass boost 0-18 dB. LPF 30-300 Hz, subsonic 10-25 Hz. Fuse 80 A (2x40 A ATC). Features say '2-Ohm Stable' but 1-ohm rating published.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 510,
+          "2ohm": 790,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "dampingFactor": 200,
+        "efficiencyPercent": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 80
+      }
+    },
+    {
+      "id": "orion-xtr1500-1dz",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "XTR1500.1Dz",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr1500-1dz-1500-watt-rms-class-d-monoblock-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping listed as '200dB'. Input 0.2-6 V. Bass boost 0-18 dB. LPF 30-300 Hz, subsonic off/25 Hz. Fuse 150 A recommended (not included).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 750,
+          "2ohm": 1050,
+          "1ohm": 1500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "dampingFactor": 200,
+        "efficiencyPercent": 88,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 150
+      }
+    },
+    {
+      "id": "orion-xtr2500-1dz",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "XTR2500.1Dz",
+      "series": "XTR",
+      "sourceUrl": "https://www.orioncaraudio.com/products/xtr2500-1dz",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping listed as '200dB'. Input 0.2-6 V. Bass boost 0-18 dB. LPF 50-250 Hz, subsonic off/25 Hz. Fuse 250 A recommended (not included).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1250,
+          "2ohm": 1750,
+          "1ohm": 2500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "dampingFactor": 200,
+        "efficiencyPercent": 88,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 250
+      }
+    },
+    {
+      "id": "orion-hcca3000-1dsplx",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "HCCA3000.1DSPLX",
+      "series": "HCCA",
+      "sourceUrl": "https://www.orioncaraudio.com/products/hcca3000-1dsplx-3000w-rms-monoblock-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping listed as '200dB'. Input 0.2-6 V. Bass boost 0-18 dB. LPF 40-300 Hz, subsonic 10-40 Hz, input impedance 24 kohm. Fuse 350 A recommended. Page also lists an ambiguous '6000W' row (likely sub-1-ohm), omitted.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1350,
+          "2ohm": 2100,
+          "1ohm": 3000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "dampingFactor": 200,
+        "efficiencyPercent": 88,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 350
+      }
+    },
+    {
+      "id": "orion-hcca5000-1dsplx",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "HCCA5000.1DSPLX",
+      "series": "HCCA",
+      "sourceUrl": "https://www.orioncaraudio.com/products/hcca5000-1dsplx-5000w-rms-monoblock-class-d-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page. Ratings @0.5% THD+N; test voltage not stated (supply 9-16 V). Damping listed as '200dB'. Input 0.2-6 V. Bass boost 0-18 dB. LPF 40-300 Hz, subsonic 10-40 Hz. Fuse 500 A recommended. Ambiguous '11600W' row omitted.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 2300,
+          "2ohm": 3600,
+          "1ohm": 5000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "dampingFactor": 200,
+        "efficiencyPercent": 88,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 18,
+        "fuseRatingA": 500
+      }
+    },
+    {
+      "id": "orion-cea650-1d",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "CEA650.1D",
+      "series": "Cobalt Elite",
+      "year": 2026,
+      "sourceUrl": "https://www.orioncaraudio.com/products/cea650-1d-650-watt-max-class-d-monoblock-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; test voltage/THD not stated (supply 10-16 V). LPF 50-250 Hz, subsonic 15-40 Hz, input 0.2-6 V (22 kohm). Fuse 80 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500,
+          "1ohm": 650
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 92,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "orion-cea900-1d",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "CEA900.1D",
+      "series": "Cobalt Elite",
+      "year": 2026,
+      "sourceUrl": "https://www.orioncaraudio.com/products/cea900-1d-900-watt-rms-class-d-monoblock-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; test voltage/THD not stated (supply 10-16 V). LPF 50-250 Hz, subsonic 15-40 Hz, input 0.2-6 V (22 kohm). Fuse 100 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 650,
+          "1ohm": 900
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 92,
+        "fuseRatingA": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "orion-cea1200-1d",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "CEA1200.1D",
+      "series": "Cobalt Elite",
+      "year": 2026,
+      "sourceUrl": "https://www.orioncaraudio.com/products/cea1200-1d-1200-watt-rms-class-d-monoblock-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; test voltage/THD not stated (supply 10-16 V). LPF 50-250 Hz, subsonic 15-40 Hz, input 0.2-6 V (22 kohm). Fuse 140 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 850,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 92,
+        "fuseRatingA": 140,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "orion-cea1600-1d",
+      "category": "ampMono",
+      "brand": "Orion",
+      "model": "CEA1600.1D",
+      "series": "Cobalt Elite",
+      "year": 2026,
+      "sourceUrl": "https://www.orioncaraudio.com/products/cea1600-1d-1600-watt-rms-class-d-monoblock-amplifier",
+      "verified": true,
+      "notes": "Manufacturer page; test voltage/THD not stated (supply 10-16 V). LPF 50-250 Hz, subsonic 15-40 Hz, input 0.2-6 V (22 kohm). Fuse 180 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 650,
+          "2ohm": 1100,
+          "1ohm": 1600
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 92,
+        "fuseRatingA": 180,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

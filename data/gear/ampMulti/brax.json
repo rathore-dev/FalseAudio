@@ -1,0 +1,118 @@
+{
+  "products": [
+    {
+      "id": "brax-mx4-pro",
+      "category": "ampMulti",
+      "brand": "Brax",
+      "model": "MX4 PRO",
+      "series": "MATRIX",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/brax/amplifiers/mx4-pro",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data; RMS (<=1% THD+N where stated); test voltage not stated. Non-DSP amp. RCA 1-8V. No filters (designed for BRAX DSP). Fuses 6x25A LP-Mini.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 300,
+          "1ohm": 300,
+          "bridged4ohm": 600,
+          "bridged2ohm": 600
+        },
+        "inputSensitivityMinV": 1.0,
+        "inputSensitivityMaxV": 8.0,
+        "snrDb": 116,
+        "thdPercent": 0.0005,
+        "dampingFactor": 1400,
+        "fuseRatingA": 150,
+        "amplifierClass": "AB",
+        "minStableOhms": 1,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "brax-rx2-pro",
+      "category": "ampMulti",
+      "brand": "Brax",
+      "model": "RX2 PRO",
+      "series": "Revelation",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/brax/amplifiers/revelation-rx2-pro",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data; RMS (<=1% THD+N where stated); test voltage not stated. Non-DSP amp. Purifi Eigentakt Class D. RCA 1-8V; digital input module. No filters. Fuses 4x25A. Founders Edition variant also exists.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 510,
+          "bridged4ohm": 930
+        },
+        "inputSensitivityMinV": 1.0,
+        "inputSensitivityMaxV": 8.0,
+        "snrDb": 125,
+        "thdPercent": 0.0002,
+        "dampingFactor": 10000,
+        "fuseRatingA": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "brax-gx2400",
+      "category": "ampMulti",
+      "brand": "Brax",
+      "model": "GX2400",
+      "series": "GX",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/brax/amplifiers/gx2400",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data; RMS (<=1% THD+N where stated); test voltage not stated. Non-DSP amp. RCA 1-8V. No crossovers/filters. Fuses 4x30A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 240,
+          "bridged4ohm": 480
+        },
+        "inputSensitivityMinV": 1.0,
+        "inputSensitivityMaxV": 8.0,
+        "snrDb": 120,
+        "thdPercent": 0.0008,
+        "dampingFactor": 1000,
+        "fuseRatingA": 120,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "brax-gx2000",
+      "category": "ampMulti",
+      "brand": "Brax",
+      "model": "GX2000",
+      "series": "GX",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/brax/amplifiers/gx2000",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data; RMS (<=1% THD+N where stated); test voltage not stated. Non-DSP amp. RCA 1-8V. No crossovers/filters. Fuses 4x30A.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 290,
+          "2ohm": 530,
+          "bridged4ohm": 1060
+        },
+        "inputSensitivityMinV": 1.0,
+        "inputSensitivityMaxV": 8.0,
+        "snrDb": 120,
+        "thdPercent": 0.0009,
+        "dampingFactor": 1000,
+        "fuseRatingA": 120,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    }
+  ]
+}

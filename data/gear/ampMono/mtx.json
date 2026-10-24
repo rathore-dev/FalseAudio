@@ -1,0 +1,91 @@
+{
+  "products": [
+    {
+      "id": "mtx-th750-1",
+      "category": "ampMono",
+      "brand": "MTX",
+      "model": "TH750.1",
+      "series": "Thunder",
+      "sourceUrl": "https://www.mtx.com/MTX007950D-TH-Amp-Manual-A4-Half-Page.pdf",
+      "verified": true,
+      "notes": "THUNDER (TH) series owner's manual (MTX007950 RevD 11/24); test voltage not stated in spec table. Input 200 mV-10 V. fuseRatingA = top of MTX recommended external fuse range. Fuse 80-100 A, 4 AWG. LPF 50-250 Hz, subsonic 10-55 Hz, boost 0-12 dB. EBC remote.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 500,
+          "1ohm": 750
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 100,
+        "thdPercent": 0.1,
+        "fuseRatingA": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "mtx-th1500-1",
+      "category": "ampMono",
+      "brand": "MTX",
+      "model": "TH1500.1",
+      "series": "Thunder",
+      "sourceUrl": "https://www.mtx.com/MTX007950D-TH-Amp-Manual-A4-Half-Page.pdf",
+      "verified": true,
+      "notes": "THUNDER (TH) series owner's manual (MTX007950 RevD 11/24); test voltage not stated in spec table. Input 200 mV-10 V. fuseRatingA = top of MTX recommended external fuse range. Fuse 150-200 A, 4 AWG. LPF 50-250 Hz, subsonic 10-55 Hz, boost 0-12 dB.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 1000,
+          "1ohm": 1500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 100,
+        "thdPercent": 0.2,
+        "fuseRatingA": 200,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "mtx-th2500-1",
+      "category": "ampMono",
+      "brand": "MTX",
+      "model": "TH2500.1",
+      "series": "Thunder",
+      "sourceUrl": "https://www.mtx.com/MTX007950D-TH-Amp-Manual-A4-Half-Page.pdf",
+      "verified": true,
+      "notes": "THUNDER (TH) series owner's manual (MTX007950 RevD 11/24); test voltage not stated in spec table. Input 200 mV-10 V. fuseRatingA = top of MTX recommended external fuse range. Fuse 250-300 A, 1/0 AWG. LPF 50-250 Hz, subsonic 10-55 Hz, boost 0-12 dB.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1000,
+          "2ohm": 1750,
+          "1ohm": 2500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 100,
+        "thdPercent": 0.1,
+        "fuseRatingA": 300,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}
