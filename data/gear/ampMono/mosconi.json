@@ -1,0 +1,51 @@
+{
+  "products": [
+    {
+      "id": "mosconi-pro-1-10-evo",
+      "category": "ampMono",
+      "brand": "Mosconi",
+      "model": "Pro 1|10 EVO",
+      "series": "Pro EVO",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-pro-evo/mosconi-pro-1-10-evo",
+      "verified": true,
+      "notes": "Gladen Mosconi (manufacturer, gladen.com) data; power figures as listed (test voltage/THD not stated). Input sensitivity 1-8.75V set per channel by DIP switches in 0.25V steps (single range). Crossover only in DDSP mode (optional digital board). Operating 9-16V. Fuse not stated. ",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 900,
+          "2ohm": 1600,
+          "1ohm": 3000
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8.75,
+        "snrDb": 120,
+        "thdPercent": 0.006,
+        "dampingFactor": 1000,
+        "amplifierClass": "D",
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "mosconi-one-1-1000",
+      "category": "ampMono",
+      "brand": "Mosconi",
+      "model": "One 1|1000",
+      "series": "One",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-one/mosconi-one-1-1000",
+      "verified": true,
+      "notes": "Gladen Mosconi data. Input 0.35-15V with low/high-level input switch (single range listed). Phase 0-360. Fuses 4x30A. Filters not listed on page. Also 24V truck version.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1000
+        },
+        "inputSensitivityMinV": 0.35,
+        "inputSensitivityMaxV": 15,
+        "fuseRatingA": 120,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      }
+    }
+  ]
+}

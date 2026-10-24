@@ -1,0 +1,310 @@
+{
+  "products": [
+    {
+      "id": "kicker-cxa360-4",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "CXA360.4",
+      "series": "CX",
+      "year": 2019,
+      "sourceUrl": "https://www.kicker.com/CXA3604-4x90-Watt-4-Channel-Full-Range-Amp",
+      "verified": true,
+      "notes": "Kicker publishes CEA-2006 style ratings; test voltage/THD not restated on this product page (Kicker standard is 14.4V, <=1% THD+N). Low-level input 125mV-5V, high-level 1-40V. Crossover HI/LO/OFF variable 50-200Hz 12dB/oct; KickEQ 0-6dB@40Hz. SNR 95dB. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 65,
+          "2ohm": 90,
+          "bridged4ohm": 180
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-cxa660-5",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "CXA660.5",
+      "series": "CX",
+      "year": 2019,
+      "sourceUrl": "https://www.kicker.com/CXA6605-4x90-Watt-4-Channel-Full-Range-Amp-with-300-watt-Class-D-Sub-Channel",
+      "verified": true,
+      "notes": "Kicker publishes CEA-2006 style ratings; test voltage/THD not restated on this product page (Kicker standard is 14.4V, <=1% THD+N). Low-level input 125mV-5V, high-level 1-40V. 5-ch: mains Class A/B; sub ch Class D 150W@4ohm, 300W@2ohm. Amp1-2 HPF 10-200Hz 12dB/oct; sub LPF 50-200Hz 12dB/oct; subsonic 25Hz 24dB/oct; KickEQ 0-6dB@40Hz. SNR 90dB. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 65,
+          "2ohm": 90,
+          "bridged4ohm": 180
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 90,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-lx500-4",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "LX500.4",
+      "series": "LX",
+      "sourceUrl": "https://www.kicker.com/51LX5004",
+      "verified": true,
+      "notes": "RMS at 14.4V (Kicker rating). Low-level input 125mV-5V, high-level 1-40V. SNR >95dB A-wtd re rated power. Per-pair crossover Off/HP/LP/BP: HP 20Hz-5kHz, LP 40Hz-5kHz; selectable 12/18/24dB Butterworth or 12/24dB L-R. Dynamic 1100W. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 125,
+          "2ohm": 225,
+          "bridged4ohm": 450
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "kicker-lx1200-5",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "LX1200.5",
+      "series": "LX",
+      "sourceUrl": "https://www.kicker.com/51LX12005",
+      "verified": true,
+      "notes": "RMS at 14.4V (Kicker rating). Low-level input 125mV-5V, high-level 1-40V. SNR >95dB A-wtd re rated power. 5-ch: sub ch 300W@4ohm, 550W@2ohm, 700W@1ohm. Stereo HP 20Hz-5kHz/LP 40Hz-5kHz; sub LP 40-160Hz 24dB L-R; subsonic 10-80Hz; KickEQ+ 0-6dB, 20-80Hz, Q 1-5. minStableOhms 1 applies to sub ch. Dynamic 1500W. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 125,
+          "2ohm": 175,
+          "bridged4ohm": 350
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-lx1300-7",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "LX1300.7",
+      "series": "LX",
+      "sourceUrl": "https://www.kicker.com/51LX13007",
+      "verified": true,
+      "notes": "RMS at 14.4V (Kicker rating). Low-level input 125mV-5V, high-level 1-40V. SNR >95dB A-wtd re rated power. 7-ch: rmsPerChannelW = Amp 1&2 (4 channels). Amp 3 (2 ch): 65W x2 @4ohm/2ohm, 130W bridged@4ohm. Sub ch: 300W@4ohm, 550W@2ohm, 700W@1ohm. Stereo HP 20Hz-5kHz/LP 40Hz-5kHz; sub LP 40-160Hz; subsonic 10-80Hz; KickEQ+ 0-6dB. minStableOhms 1 applies to sub ch. Dynamic 1500W. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 7,
+        "rmsPerChannelW": {
+          "4ohm": 125,
+          "2ohm": 150,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-wxa1000-4",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "WXA1000.4",
+      "series": "Warhorse",
+      "sourceUrl": "https://www.kicker.com/49WXA10004",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Half-bridge Class D, operates down to 6.5V. Amp1 Off/HP/LP 10Hz-5kHz 24dB/oct (10X switch); Amp2 Off/HP/LP/BP, LP 100-5000Hz, HP 10-500Hz. Dynamic 2000W. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 450,
+          "bridged4ohm": 900
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "kicker-key200-4",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "KEY200.4",
+      "series": "KEY",
+      "sourceUrl": "https://www.kicker.com/key-2004-4-channel-smart-amplifier",
+      "verified": true,
+      "notes": "Smart amp with built-in auto 40-band EQ, auto time alignment, compressor (mic-driven, not user-programmable). Only 4-ohm rating listed; test voltage not stated. High-level input 250mV-10V (no low-level figure listed). Crossover Off/60/80/120Hz 24dB/oct. Fuse holder included, rating not stated.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50
+        },
+        "highLevelInputMaxV": 10,
+        "snrDb": 90,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "kicker-kxa400-4",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "KXA400.4",
+      "series": "KX",
+      "year": 2017,
+      "sourceUrl": "https://www.kicker.com/kxa4004-4-channel-amplifier",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Single input range 250mV-10V (line or speaker level). Discontinued (sold out on kicker.com). Amp1 Off/HP/LP 10-5000Hz; Amp2 Off/HP/LP/BP HP 10-500Hz, LP 40-5000Hz; 24dB/oct. KickEQ 0-18dB@40Hz. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "kicker-kxa400-2",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "KXA400.2",
+      "series": "KX",
+      "year": 2017,
+      "sourceUrl": "https://www.kicker.com/kxa4002-2-channel-stereo-amplifier",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Single input range 250mV-10V (line or speaker level). Discontinued (sold out on kicker.com). HP 10-500Hz, LP 40-500Hz (400-5000Hz with 10X), 24dB/oct. KickEQ+ 0-18dB@40Hz. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 200,
+          "bridged4ohm": 400
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "kicker-kxa1200-2",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "KXA1200.2",
+      "series": "KX",
+      "year": 2017,
+      "sourceUrl": "https://www.kicker.com/kxa12002-2-channel-stereo-amplifier",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Single input range 250mV-10V (line or speaker level). Discontinued (sold out on kicker.com). HP 10-500Hz, LP 40-500Hz (400-5000Hz with 10X), 24dB/oct. KickEQ 0-18dB@40Hz. Bridged rating not listed. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 600
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "kicker-kxa800-5",
+      "category": "ampMulti",
+      "brand": "Kicker",
+      "model": "KXA800.5",
+      "series": "KX",
+      "year": 2017,
+      "sourceUrl": "https://www.kicker.com/kxa8005-hybrid-5-channel-amplifier-with-400-watt-subwoofer-channel",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Single input range 250mV-10V (line or speaker level). Discontinued (sold out on kicker.com). 5-ch: sub ch 200W@4ohm, 400W@2ohm (<=1.5% THD+N), 400W@1ohm. minStableOhms 1 applies to sub ch. Sub LPF 40-160Hz, subsonic 10-80Hz; KickEQ+ 0-18dB, 20-80Hz, Q 1-5. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    }
+  ]
+}

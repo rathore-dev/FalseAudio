@@ -1,0 +1,191 @@
+{
+  "products": [
+    {
+      "id": "jl-audio-xdm200-2",
+      "category": "ampMulti",
+      "brand": "JL Audio",
+      "model": "XDM200/2",
+      "series": "XDM",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807XDM2002.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio owner's manual (manufacturer PDF; retailer-hosted copy at sourceUrl). Rated RMS @14.4V, <1% THD+N. Differential-balanced RCA inputs 200mV-4V RMS; DC-offset turn-on mode for speaker-level sources. No on-board fuse; recommended 20A. Bridged 8ohm: 150W. @12.5V: 60W x2@4ohm, 90W x2@2ohm. Filter 12dB/oct HP or LP 50-500Hz. Damping >150@4ohm, >75@2ohm. Car/marine.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "snrDb": 104,
+        "thdPercent": 1.0,
+        "dampingFactor": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "jl-audio-xdm400-4",
+      "category": "ampMulti",
+      "brand": "JL Audio",
+      "model": "XDM400/4",
+      "series": "XDM",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807XDM4004.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio owner's manual (manufacturer PDF; retailer-hosted copy at sourceUrl). Rated RMS @14.4V, <1% THD+N. Differential-balanced RCA inputs 200mV-4V RMS; DC-offset turn-on mode for speaker-level sources. No on-board fuse; recommended 40A. Bridged 8ohm: 150W x2. @12.5V: 60W x4@4ohm, 90W x4@2ohm. Filters per pair 12dB/oct HP or LP 50-500Hz. Damping >150@4ohm, >75@2ohm.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "snrDb": 104,
+        "thdPercent": 1.0,
+        "dampingFactor": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "jl-audio-xdm600-6",
+      "category": "ampMulti",
+      "brand": "JL Audio",
+      "model": "XDM600/6",
+      "series": "XDM",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807XDM6006.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio owner's manual (manufacturer PDF; retailer-hosted copy at sourceUrl). Rated RMS @14.4V, <1% THD+N. Differential-balanced RCA inputs 200mV-4V RMS; DC-offset turn-on mode for speaker-level sources. No on-board fuse; recommended 50A. Bridged 8ohm: 150W x3. @12.5V: 60W x6@4ohm, 90W x6@2ohm. Filters per pair 12dB/oct HP or LP 50-500Hz.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "snrDb": 104,
+        "thdPercent": 1.0,
+        "dampingFactor": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "jl-audio-xdm800-8",
+      "category": "ampMulti",
+      "brand": "JL Audio",
+      "model": "XDM800/8",
+      "series": "XDM",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807XDM8008.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio owner's manual (manufacturer PDF; retailer-hosted copy at sourceUrl). Rated RMS @14.4V, <1% THD+N. Differential-balanced RCA inputs 200mV-4V RMS; DC-offset turn-on mode for speaker-level sources. No on-board fuse; recommended 80A. Bridged 8ohm: 150W x4. @12.5V: 60W x8@4ohm, 90W x8@2ohm. Filters per pair 12dB/oct HP or LP 50-500Hz.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "snrDb": 104,
+        "thdPercent": 1.0,
+        "dampingFactor": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "jl-audio-xdm700-5",
+      "category": "ampMulti",
+      "brand": "JL Audio",
+      "model": "XDM700/5",
+      "series": "XDM",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807XDM7005.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio owner's manual (manufacturer PDF; retailer-hosted copy at sourceUrl). Rated RMS @14.4V, <1% THD+N. Differential-balanced RCA inputs 200mV-4V RMS; DC-offset turn-on mode for speaker-level sources. No on-board fuse; recommended 60A. 5-ch: sub ch 180W@4ohm, 240W@3ohm, 300W@2ohm (same @12.5V); sub SNR >103dB, damping >120@4ohm. Mains @12.5V 60W@4ohm/90W@2ohm. CH1&2 HP 50-5000Hz; CH3&4 HP 50-500Hz or BP; sub LP 12/24dB 50-500Hz.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "snrDb": 104,
+        "thdPercent": 1.0,
+        "dampingFactor": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "jl-audio-xdm500-3",
+      "category": "ampMulti",
+      "brand": "JL Audio",
+      "model": "XDM500/3",
+      "series": "XDM",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807XDM5003.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio owner's manual (manufacturer PDF; retailer-hosted copy at sourceUrl). Rated RMS @14.4V, <1% THD+N. Differential-balanced RCA inputs 200mV-4V RMS; DC-offset turn-on mode for speaker-level sources. No on-board fuse; recommended 50A. 3-ch: 2 mains + sub ch 180W@4ohm, 240W@3ohm, 300W@2ohm. CH1&2 HP 50-500Hz 12dB/oct; sub LP 12/24dB 50-500Hz.",
+      "amp": {
+        "channels": 3,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "snrDb": 104,
+        "thdPercent": 1.0,
+        "dampingFactor": 150,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "jl-audio-jd400-4",
+      "category": "ampMulti",
+      "brand": "JL Audio",
+      "model": "JD400/4",
+      "series": "JD",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807JD4004.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio JD400/4 owner's manual (manufacturer PDF; retailer-hosted copy). Rated RMS @14.4V, <1% THD+N, all channels driven. Bridged 8ohm: 150W x2. Input 200mV-8V RMS (Low 200mV-2V / High 800mV-8V). Filters per pair 12dB/oct LP or HP 50-500Hz, defeatable. No on-board fuse; recommended 40A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8.0,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    }
+  ]
+}

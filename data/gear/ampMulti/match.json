@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": "match-m-2-1amp",
+      "category": "ampMulti",
+      "brand": "Match",
+      "model": "M 2.1AMP",
+      "series": "M",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/m-21amp",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data; RMS (<=1% THD+N where stated); test voltage not stated. Non-DSP amp. Switchable stereo/mono: stereo 2x170W@4ohm; mono 210W@4ohm, 350W@2ohm (entered as bridged4ohm/bridged2ohm). Class HD. RCA 1-6V. No filters. Fuse 1x30A.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 170,
+          "bridged4ohm": 210,
+          "bridged2ohm": 350
+        },
+        "inputSensitivityMinV": 1.0,
+        "inputSensitivityMaxV": 6.0,
+        "snrDb": 108,
+        "thdPercent": 0.02,
+        "dampingFactor": 100,
+        "fuseRatingA": 30,
+        "amplifierClass": "HD",
+        "minStableOhms": 4,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,521 @@
+{
+  "products": [
+    {
+      "id": "rockford-fosgate-t1000-4ad",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "T1000-4ad",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t1000-4ad/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 150 A. Efficiency 84.1%@4ohm/81.6%@2ohm/81%@1ohm. HP/LP 50-500Hz 24dB/oct front & rear; bass +18dB@45Hz, treble +12dB@12kHz. Current 60A avg/120A max @13.8V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 250,
+          "1ohm": 250,
+          "bridged4ohm": 500,
+          "bridged2ohm": 500
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 5,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 84.1,
+        "amplifierClass": "AD",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-t1000x5ad",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "T1000X5ad",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t1000x5ad/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 100 A. 5-ch: rmsPerChannelW = 4 main channels (Class AD). Sub ch (Class BD): 400W@4ohm, 600W@2ohm, 600W@1ohm. LP/HP 50-250Hz 12dB/oct; sub infrasonic 28Hz; bass +18dB@45Hz. Efficiency >85% avg. Max current 108A @13.8V. minStableOhms 1 applies to sub channel; mains rated to 2 ohm.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 85,
+        "amplifierClass": "AD",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-t600-4",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "T600-4",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t600-4/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 80 A. Efficiency 70%@4ohm/64%@2ohm. Bridged 2-ohm listed as stable (no wattage). HP/LP 50-500Hz 24dB/oct. Current 40A avg/80A max @13.8V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 70,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-t400-4",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "T400-4",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t400-4/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 60 A. Efficiency 69%@4ohm/68%@2ohm. HP/LP 50-500Hz 24dB/oct. Current 30A avg/60A max @13.8V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 69,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-t400x4ad",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "T400X4ad",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t400x4ad/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 60 A. Efficiency stated >75% avg. HP/LP 50-250Hz 12dB/oct. Current 28A avg/55A max @13.8V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 75,
+        "amplifierClass": "AD",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-t400x2ad",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "T400X2ad",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t400x2ad/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 60 A. Efficiency stated >75% avg. HP/LP 50-250Hz 12dB/oct. Current 23A avg/45A max @13.8V.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 200,
+          "bridged4ohm": 400
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 75,
+        "amplifierClass": "AD",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-p1000x5",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "P1000X5",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p1000x5/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 150 A. 5-ch: main ch Class A/B (2 ohm min); sub ch Class BD: 150W@4ohm, 300W@2ohm, 500W@1ohm (sub efficiency 80%@4ohm). minStableOhms 1 applies to sub ch. Front/rear HP 50-250Hz 12dB/oct; sub LP 50-250Hz, infrasonic 28Hz. Current 75A avg/150A max @13.8V.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 66,
+        "amplifierClass": "AB",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-p1000x2",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "P1000X2",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p1000x2/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 140 A. Efficiency 69%@4ohm/64%@2ohm. HP/LP 50-250Hz 12dB/oct. Current 70A avg/140A max @13.8V.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500,
+          "bridged4ohm": 1000
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 69,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-p600x4",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "P600X4",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p600x4/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 100 A. HP/LP 50-250Hz 12dB/oct. Current 45A avg/90A max @13.8V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 68,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-p500x2",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "P500X2",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p500x2/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 80 A. HP/LP 50-250Hz 12dB/oct. Current 40A avg/80A max @13.8V.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250,
+          "bridged4ohm": 500
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 73,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-p400x4",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "P400X4",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p400x4/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 60 A. HP/LP 50-250Hz 12dB/oct. Current 30A avg/60A max @13.8V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 67,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-p300x2",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "P300X2",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p300x2/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 50 A. HP/LP 50-250Hz 12dB/oct. Current 23A avg/45A max @13.8V.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 69,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-pbr400x4d",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "PBR400X4D",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pbr400x4d/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 60 A. Compact Punch Boosted Rail. HP fixed 60/80Hz, LP 80Hz, 12dB/oct. Efficiency >75%. Current 27A avg/50A max @13.8V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 75,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false
+      }
+    },
+    {
+      "id": "rockford-fosgate-pbr300x2",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "PBR300X2",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pbr300x2/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 50 A. Class BR (Boosted Rail). HP/LP 50-500Hz 12dB/oct. Bass EQ only via optional remote PEQ (+18dB@45Hz). Current 23A avg/45A max @13.8V.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 11,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 68,
+        "amplifierClass": "BR",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false
+      }
+    },
+    {
+      "id": "rockford-fosgate-r2-750x5",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "R2-750X5",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r2-750x5/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 120 A. 5-ch: sub ch 200W@4ohm, 350W@2ohm. Front/rear HP/LP 50-250Hz 12dB/oct; sub LP 50-250Hz, infrasonic 15-40Hz. Max current 71A @13.8V sine. High-level input 450mV-12V.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 12,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-r2-500x4",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "R2-500X4",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r2-500x4/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 80 A. HP/LP 50-250Hz 12dB/oct. No tone controls. Max current 59A @13.8V sine. High-level input 450mV-12V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 125,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 12,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": false,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false
+      }
+    },
+    {
+      "id": "rockford-fosgate-r2-300x4",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "R2-300X4",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r2-300x4/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 60 A. HP/LP 50-250Hz 12dB/oct. No tone controls. Max current 39A @13.8V sine. High-level input 450mV-12V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 75,
+          "bridged4ohm": 150
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 12,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": false,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false
+      }
+    },
+    {
+      "id": "rockford-fosgate-r2-200x2",
+      "category": "ampMulti",
+      "brand": "Rockford Fosgate",
+      "model": "R2-200X2",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r2-200x2/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 30 A. HP/LP 50-250Hz 12dB/oct. No tone controls. Max current 18A @13.8V sine. High-level input 450mV-12V.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 12,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": false,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false
+      }
+    }
+  ]
+}

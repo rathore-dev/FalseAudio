@@ -1,0 +1,151 @@
+{
+  "products": [
+    {
+      "id": "focal-fpx-4-800",
+      "category": "ampMulti",
+      "brand": "Focal",
+      "model": "FPX 4.800",
+      "series": "FPX",
+      "sourceUrl": "https://dam.focal-naim.com/m/2b48d9b2ad106afb/original/Notice_FPX_2019_Web-pdf.pdf",
+      "verified": true,
+      "notes": "Discontinued (focal.com: no longer available). Specs from Focal FPX user manual (2019) table: 'CEA power' at 4 ohm, 'max power' at 2 ohm/bridged listed as W RMS; test voltage not stated. Input sensitivity not published. HP/LP 50-500Hz per pair; bass boost 0-12dB on CH3/4.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 120,
+          "2ohm": 185,
+          "bridged4ohm": 370
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "focal-fpx-2-750",
+      "category": "ampMulti",
+      "brand": "Focal",
+      "model": "FPX 2.750",
+      "series": "FPX",
+      "sourceUrl": "https://dam.focal-naim.com/m/2b48d9b2ad106afb/original/Notice_FPX_2019_Web-pdf.pdf",
+      "verified": true,
+      "notes": "Discontinued (focal.com: no longer available). Specs from Focal FPX user manual (2019) table: 'CEA power' at 4 ohm, 'max power' at 2 ohm/bridged listed as W RMS; test voltage not stated. Input sensitivity not published. HP/LP 50-500Hz; subsonic 20-50Hz; bass boost 0-12dB.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 220,
+          "2ohm": 385,
+          "bridged4ohm": 770
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "focal-fpx-4-400-sq",
+      "category": "ampMulti",
+      "brand": "Focal",
+      "model": "FPX 4.400 SQ",
+      "series": "FPX",
+      "sourceUrl": "https://dam.focal-naim.com/m/f3a9592acc3027f/original/FT_FPX4-400SQ-pdf.pdf",
+      "verified": true,
+      "notes": "Discontinued (focal.com: no longer available). Specs from Focal FPX user manual (2019) table: 'CEA power' at 4 ohm, 'max power' at 2 ohm/bridged listed as W RMS; test voltage not stated. Input sensitivity not published. Technical sheet: CEA 4x70W RMS @4ohm, 4x100W @2ohm, 2x200W bridged; THD 0.04%; SNR >77dBA (1W); HP/LP 40-5000Hz; operating 8.3-16V. Bass correction CH3/4.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "snrDb": 77,
+        "thdPercent": 0.04,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "focal-fpx-5-1200",
+      "category": "ampMulti",
+      "brand": "Focal",
+      "model": "FPX 5.1200",
+      "series": "FPX",
+      "sourceUrl": "https://dam.focal-naim.com/m/2b48d9b2ad106afb/original/Notice_FPX_2019_Web-pdf.pdf",
+      "verified": true,
+      "notes": "Discontinued (focal.com: no longer available). Specs from Focal FPX user manual (2019) table: 'CEA power' at 4 ohm, 'max power' at 2 ohm/bridged listed as W RMS; test voltage not stated. Input sensitivity not published. 5-ch: sub ch 420W@4ohm, 720W@2ohm; bridged 2x240W + 720W (ch5 at 2ohm). HP/LP 50-500Hz on CH1-4; CH5 LP 50-250Hz, subsonic 20-50Hz, bass boost 0-12dB.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 120,
+          "bridged4ohm": 240
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "focal-impulse-4-320",
+      "category": "ampMulti",
+      "brand": "Focal",
+      "model": "Impulse 4.320",
+      "series": "Impulse",
+      "sourceUrl": "https://dam.focal-naim.com/m/1d2aa66aa905614a/original/FT_PlugPlay_impulse-pdf.pdf",
+      "verified": true,
+      "notes": "Ultra-compact plug&play amp. Focal technical sheet: CEA 4x55W RMS @4ohm, 4x80W @2ohm, 2x160W bridged @4ohm; THD 0.02%; SNR >80dB (1W/A). CH1/2 fixed HP 75Hz; CH3/4 filter 40-200Hz. Test voltage, input sensitivity and fuse not published.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 55,
+          "2ohm": 80,
+          "bridged4ohm": 160
+        },
+        "snrDb": 80,
+        "thdPercent": 0.02,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "focal-ap-4-380",
+      "category": "ampMulti",
+      "brand": "Focal",
+      "model": "AP 4.380",
+      "series": "AP",
+      "sourceUrl": "https://dam.focal-naim.com/m/1db1040b42393d32/original/Notice_AP_4-380_web-pdf.pdf",
+      "verified": true,
+      "notes": "Focal user manual: 4x70W RMS @4ohm, 4x95W @2ohm, 2x190W bridged @4ohm; THD 0.06%. Filters: 75Hz (CH1/2), 40-300Hz (CH3/4); bass boost +6/+12dB @50Hz. High- and low-level input on one connector. Input sensitivity, SNR and fuse not clearly stated.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 95,
+          "bridged4ohm": 190
+        },
+        "thdPercent": 0.06,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

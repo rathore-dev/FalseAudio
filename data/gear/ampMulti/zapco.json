@@ -1,0 +1,262 @@
+{
+  "products": [
+    {
+      "id": "zapco-st-4x-sq-iii",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "ST-4X SQ III",
+      "series": "ST-X III",
+      "sourceUrl": "https://www.zapco.com/st-x-3-series-amp/st-4x-sq-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Variable electronic crossover (range not listed), bass boost (range not listed). Fuse not listed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 95,
+          "bridged4ohm": 190
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 95,
+        "thdPercent": 0.1,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "zapco-st-6x-sq-iii",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "ST-6X SQ III",
+      "series": "ST-X III",
+      "sourceUrl": "https://www.zapco.com/st-x-3-series-amp/st-6x-sq-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). THD+N <0.05% (below rated). Variable crossover and bass boost. Fuse not listed.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "zapco-st-2xp-sq-iii",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "ST-2XP SQ III",
+      "series": "ST-X III",
+      "sourceUrl": "https://www.zapco.com/st-x-3-series-amp/st-2xp-sq-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). THD+N <0.05%. Variable crossover and bass boost. Fuse not listed.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250,
+          "bridged4ohm": 500
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 95,
+        "thdPercent": 0.5,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "zapco-st-4xp-sq-iii",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "ST-4XP SQ III",
+      "series": "ST-X III",
+      "sourceUrl": "https://www.zapco.com/st-x-3-series-amp/st-4xp-sq-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Variable crossover and bass boost. Fuse not listed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250,
+          "bridged4ohm": 500
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 95,
+        "thdPercent": 0.1,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "zapco-st-204d-sq-iii",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "ST-204D SQ III",
+      "series": "ST-X III",
+      "sourceUrl": "https://www.zapco.com/st-x-3-series-amp/st-204d-sq-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated).  Fuse not listed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 290,
+          "bridged4ohm": 580
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "zapco-st-104d-sq-iii",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "ST-104D SQ III",
+      "series": "ST-D Compact",
+      "sourceUrl": "https://www.zapco.com/st-d-comp-series-amp/st-104d-sq-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Product page ratings (series page shows 80/140W - conflict). Input 0.35-9V on Low setting. Variable crossover and bass boost. Fuse not listed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.35,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 90,
+        "thdPercent": 0.5,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "zapco-st-105d",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "ST-105D",
+      "series": "ST-D Compact",
+      "sourceUrl": "https://www.zapco.com/st-d-comp-series-amp/st-105d",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). 5-ch: sub ch 200W@4ohm, 300W@2ohm. Input 0.38-13V (ch1-4), 0.21-9V (ch5). Fuse not listed.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 130,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.38,
+        "inputSensitivityMaxV": 13,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "zapco-ref-150-4",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "REF 150.4",
+      "series": "Reference",
+      "sourceUrl": "https://www.zapco.com/ref-series-amp/ref-150-4",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Reference series. Fuses 2x40A (fuseRatingA = total). Crossover not listed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 230,
+          "bridged4ohm": 470
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 102,
+        "thdPercent": 0.02,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "fuseRatingA": 80
+      }
+    },
+    {
+      "id": "zapco-ref-250-2",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "REF 250.2",
+      "series": "Reference",
+      "sourceUrl": "https://www.zapco.com/ref-series-amp/ref-250-2",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Reference series. Fuses 2x40A (fuseRatingA = total). Crossover not listed.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 350,
+          "bridged4ohm": 800
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 104,
+        "thdPercent": 0.02,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "fuseRatingA": 80
+      }
+    },
+    {
+      "id": "zapco-ref-150-6",
+      "category": "ampMulti",
+      "brand": "Zapco",
+      "model": "REF 150.6",
+      "series": "Reference",
+      "sourceUrl": "https://www.zapco.com/ref-series-amp/ref-150-6",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Reference series. Fuses 3x40A (fuseRatingA = total). Crossover not listed.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 220,
+          "bridged4ohm": 450
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 102,
+        "thdPercent": 0.02,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "fuseRatingA": 120
+      }
+    }
+  ]
+}

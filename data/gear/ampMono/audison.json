@@ -1,0 +1,146 @@
+{
+  "products": [
+    {
+      "id": "audison-sr-1-500",
+      "category": "ampMono",
+      "brand": "Audison",
+      "model": "SR 1.500",
+      "series": "SR",
+      "sourceUrl": "https://audison.com/product/sr-1-500/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. LP 50-250Hz 24dB/oct; pre-out HP 50-250Hz; subsonic 25Hz 24dB/oct; bass boost 0-12dB. DF >300. Fuses 2x35A. Current 40A @1ohm.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 800,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 100,
+        "thdPercent": 0.1,
+        "dampingFactor": 300,
+        "fuseRatingA": 70,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "audison-ap-f1d",
+      "category": "ampMono",
+      "brand": "Audison",
+      "model": "AP F1D",
+      "series": "Prima",
+      "sourceUrl": "https://audison.com/product/ap-f1d/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Input sensitivity selectable steps: Pre-In 0.6/2.0/6.0V, Speaker-In 2.0/6.5/20V. Fuses 2x30A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 800,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 20,
+        "snrDb": 110,
+        "thdPercent": 0.1,
+        "dampingFactor": 140,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "audison-af-m1d",
+      "category": "ampMono",
+      "brand": "Audison",
+      "model": "AF M1D",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-m1d/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. LP full/50-150Hz 24dB/oct; phase 0-180; bass boost 0-6dB @45Hz. Fuse not listed.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1000,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 105,
+        "thdPercent": 0.03,
+        "dampingFactor": 125,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 6,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "audison-av-uno",
+      "category": "ampMono",
+      "brand": "Audison",
+      "model": "AV uno",
+      "series": "Voce",
+      "sourceUrl": "https://audison.com/product/av-uno/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. LP 50-150Hz 24dB/oct; subsonic off-50Hz 24dB/oct.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 700,
+          "2ohm": 1300,
+          "1ohm": 1700
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 24,
+        "snrDb": 95,
+        "thdPercent": 0.04,
+        "dampingFactor": 160,
+        "fuseRatingA": 100,
+        "amplifierClass": "AB",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "audison-th-uno",
+      "category": "ampMono",
+      "brand": "Audison",
+      "model": "TH uno",
+      "series": "Thesis",
+      "sourceUrl": "https://audison.com/product/th-uno/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Thesis reference amp; page lists A-Class (bias-selectable) - amplifierClass left as stated on page. Input 0.3-4.8V RMS (two ranges). No on-board crossover (removable crossover module supplied). Bias presets Energy Saving/Hi-Current/Hi-AB/A-Class.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 850,
+          "2ohm": 1500,
+          "1ohm": 2300
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 4.8,
+        "snrDb": 106,
+        "thdPercent": 0.01,
+        "dampingFactor": 500,
+        "fuseRatingA": 150,
+        "amplifierClass": "A",
+        "minStableOhms": 1
+      }
+    }
+  ]
+}

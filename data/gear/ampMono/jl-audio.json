@@ -1,0 +1,139 @@
+{
+  "products": [
+    {
+      "id": "jl-audio-xdm600-1",
+      "category": "ampMono",
+      "brand": "JL Audio",
+      "model": "XDM600/1",
+      "series": "XDM",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807XDM6001.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio owner's manual (manufacturer PDF; retailer-hosted copy at sourceUrl). Rated RMS @14.4V, <1% THD+N. RCA 200mV-4V RMS. No on-board fuse; recommended 50A. LP 12/24dB/oct 50-500Hz; infrasonic filter 24dB/oct. Damping >1000@4ohm, >500@2ohm. 3ohm: 500W. @12.5V: 300W@4ohm, 400W@3ohm, 500W@2ohm. SNR >67dB ref 1W.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 600
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "snrDb": 83,
+        "thdPercent": 1.0,
+        "dampingFactor": 1000,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "jl-audio-xdm1000-1",
+      "category": "ampMono",
+      "brand": "JL Audio",
+      "model": "XDM1000/1",
+      "series": "XDM",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807XDM10001.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio owner's manual (manufacturer PDF; retailer-hosted copy at sourceUrl). Rated RMS @14.4V, <1% THD+N. RCA 200mV-4V RMS. No on-board fuse; recommended 80A. LP 12/24dB/oct 50-500Hz; infrasonic filter 24dB/oct. Damping >1000@4ohm, >500@2ohm. 3ohm: 800W. @12.5V: 500W@4ohm, 650W@3ohm, 800W@2ohm. SNR >53dB ref 1W.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "snrDb": 83,
+        "thdPercent": 1.0,
+        "dampingFactor": 1000,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "jl-audio-jd250-1",
+      "category": "ampMono",
+      "brand": "JL Audio",
+      "model": "JD250/1",
+      "series": "JD",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807JD2501.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio JD monoblock owner's manual (manufacturer PDF, covers JD250/1, JD500/1, JD1000/1; retailer-hosted copy). Rated continuous RMS @14.4V, 1% THD+N. Input 200mV-8V RMS in two ranges: Low 200mV-2V, High 800mV-8V (accepts speaker level). LP 12dB/oct 50-500Hz (not defeatable); bass boost 0-+12dB @45Hz. Damping >1000@4ohm, >500@2ohm. No on-board fuse; recommended 30A. 3ohm: 200W. @12.5V: 115W@4ohm, 150W@3ohm, 200W@2ohm. SNR >80dB ref rated, >60dB ref 1W.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8.0,
+        "snrDb": 80,
+        "thdPercent": 1.0,
+        "dampingFactor": 1000,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "jl-audio-jd500-1",
+      "category": "ampMono",
+      "brand": "JL Audio",
+      "model": "JD500/1",
+      "series": "JD",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807JD2501.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio JD monoblock owner's manual (manufacturer PDF, covers JD250/1, JD500/1, JD1000/1; retailer-hosted copy). Rated continuous RMS @14.4V, 1% THD+N. Input 200mV-8V RMS in two ranges: Low 200mV-2V, High 800mV-8V (accepts speaker level). LP 12dB/oct 50-500Hz (not defeatable); bass boost 0-+12dB @45Hz. Damping >1000@4ohm, >500@2ohm. No on-board fuse; recommended 50A. 3ohm: 350W. @12.5V: 225W@4ohm, 300W@3ohm, 400W@2ohm.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8.0,
+        "thdPercent": 1.0,
+        "dampingFactor": 1000,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "jl-audio-jd1000-1",
+      "category": "ampMono",
+      "brand": "JL Audio",
+      "model": "JD1000/1",
+      "series": "JD",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/807JD2501.pdf",
+      "verified": true,
+      "notes": "Specs from JL Audio JD monoblock owner's manual (manufacturer PDF, covers JD250/1, JD500/1, JD1000/1; retailer-hosted copy). Rated continuous RMS @14.4V, 1% THD+N. Input 200mV-8V RMS in two ranges: Low 200mV-2V, High 800mV-8V (accepts speaker level). LP 12dB/oct 50-500Hz (not defeatable); bass boost 0-+12dB @45Hz. Damping >1000@4ohm, >500@2ohm. No on-board fuse; recommended 80A. 3ohm: 800W. @12.5V: 500W@4ohm, 650W@3ohm, 800W@2ohm. SNR >80dB ref rated, >50dB ref 1W.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 8.0,
+        "snrDb": 80,
+        "thdPercent": 1.0,
+        "dampingFactor": 1000,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": false
+      }
+    }
+  ]
+}

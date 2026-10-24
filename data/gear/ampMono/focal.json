@@ -1,0 +1,27 @@
+{
+  "products": [
+    {
+      "id": "focal-fpx-1-1000",
+      "category": "ampMono",
+      "brand": "Focal",
+      "model": "FPX 1.1000",
+      "series": "FPX",
+      "sourceUrl": "https://dam.focal-naim.com/m/2b48d9b2ad106afb/original/Notice_FPX_2019_Web-pdf.pdf",
+      "verified": true,
+      "notes": "Discontinued (focal.com: no longer available). Specs from Focal FPX user manual (2019) table: 'CEA power' at 4 ohm, 'max power' at 2 ohm/bridged listed as W RMS; test voltage not stated. Input sensitivity not published. Manual table also lists 1x1000W RMS (in the bridged/lowest-load row; manual says load must stay above 1 ohm) - not entered as 1ohm rating. LP 50-250Hz 24dB/oct; subsonic 10-50Hz 24dB/oct; bass boost 0-12dB; phase 0-180.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 420,
+          "2ohm": 700
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

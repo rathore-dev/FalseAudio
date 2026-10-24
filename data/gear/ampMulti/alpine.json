@@ -1,0 +1,197 @@
+{
+  "products": [
+    {
+      "id": "alpine-r2-a60f",
+      "category": "ampMulti",
+      "brand": "Alpine",
+      "model": "R2-A60F",
+      "series": "R-Series",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_R2-A60F_R2-A75M.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.2-4.0 V, Hi 0.5-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. THD+N 1.0% at rated power into 2ohm (0.5% into 4ohm). CH1/2 HPF/LPF 50-400Hz, HPF-H 400Hz-6kHz; CH3/4 HPF/LPF/BPF 50-400Hz, BPF-H 400Hz-6kHz; -12dB/oct. Recommended external fuse 60A (on-board fuse value not stated).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 80,
+        "thdPercent": 1.0,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "alpine-r-a90s",
+      "category": "ampMulti",
+      "brand": "Alpine",
+      "model": "R-A90S",
+      "series": "R-Series",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_R-A90S.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.2-4.0 V, Hi 0.5-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. 6-ch: rmsPerChannelW = CH1-4. CH5/6: 150W x2 @4ohm, 250W x2 @2ohm, 500W x1 bridged @4ohm. THD+N 1.0% at rated power into 2ohm. CH1/2 HPF/HPF-H(400Hz-6kHz)/LPF 50-400Hz; CH3/4 HPF/BPF. On-board fuses 30A x3 (fuseRatingA = total 90A); external 90A.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 85,
+        "thdPercent": 1.0,
+        "dampingFactor": 500,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "alpine-s2-a36f",
+      "category": "ampMulti",
+      "brand": "Alpine",
+      "model": "S2-A36F",
+      "series": "S-Series",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_S2-A36F_S2-A55V.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.2-4.0 V, Hi 0.5-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. HPF/LPF 50-400Hz -12dB/oct; mid-bass EQ knob (amount not listed). Recommended external fuse 40A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 90,
+          "bridged4ohm": 180
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 83,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "alpine-s2-a55v",
+      "category": "ampMulti",
+      "brand": "Alpine",
+      "model": "S2-A55V",
+      "series": "S-Series",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_S2-A36F_S2-A55V.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.2-4.0 V, Hi 0.5-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. 5-ch: sub ch 200W@4ohm, 300W@2ohm (damping >750). Mains HPF 50-400Hz -12dB/oct; sub LPF 50-400Hz -24dB/oct; bass EQ knob on sub. Recommended external fuse 60A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 40,
+          "2ohm": 60,
+          "bridged4ohm": 120
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 83,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "alpine-hda-f60",
+      "category": "ampMulti",
+      "brand": "Alpine",
+      "model": "HDA-F60",
+      "series": "Status",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_HDA-M80_HDA-F60_HDA-V90.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.2-4.0 V, Hi 0.5-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. Hi-Res Status series. Power rating 14.4V <=1.0% THD+N; 0.02% THD+N @10W. HPF/LPF 50-400Hz. On-board fuses 35A x2; external 70A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 87,
+        "thdPercent": 1.0,
+        "dampingFactor": 500,
+        "fuseRatingA": 70,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "alpine-hda-v90",
+      "category": "ampMulti",
+      "brand": "Alpine",
+      "model": "HDA-V90",
+      "series": "Status",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_HDA-M80_HDA-F60_HDA-V90.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.2-4.0 (sub ch 0.1-4.0) V, Hi 0.5-10 (sub ch 0.4-10) V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. 5-ch: sub ch 300W@4ohm, 500W@2ohm (damping 1000), variable subsonic, Bass EQ 0-+12dB @50Hz. Mains HPF 50-400Hz -12dB/oct. On-board fuses 30A x3; external 90A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 87,
+        "thdPercent": 1.0,
+        "dampingFactor": 500,
+        "fuseRatingA": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "alpine-kta-450",
+      "category": "ampMulti",
+      "brand": "Alpine",
+      "model": "KTA-450",
+      "series": "Power Pack",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_KTA-450.pdf",
+      "verified": true,
+      "notes": "CTA-2006 RMS 45W x4 @4/2ohm, 14.4V, <=1% THD+N (DPP 100W x4). Compact head-unit power pack. HPF off/60/80/120Hz. Add 20A external fuse. Input sensitivity not listed.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 45,
+          "2ohm": 45
+        },
+        "snrDb": 82,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasHpf": true
+      }
+    }
+  ]
+}

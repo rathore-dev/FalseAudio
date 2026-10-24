@@ -1,0 +1,152 @@
+{
+  "products": [
+    {
+      "id": "helix-m-one-x",
+      "category": "ampMono",
+      "brand": "Helix",
+      "model": "M ONE X",
+      "series": "M Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/m-one-x",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N (test voltage not stated). Non-DSP analog amp. High-level 1.1-13V. LP 50-250Hz; subsonic 10-50Hz; bass boost 0-12dB @30-80Hz. TwinPower Link: 1400W@4ohm/2060W@2ohm. Fuses 3x40A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 700,
+          "1ohm": 1030
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 13,
+        "snrDb": 95,
+        "thdPercent": 0.2,
+        "dampingFactor": 150,
+        "fuseRatingA": 120,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "helix-m-one",
+      "category": "ampMono",
+      "brand": "Helix",
+      "model": "M ONE",
+      "series": "M Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/m-one",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N (test voltage not stated). Non-DSP analog amp. High-level 1.1-13V. LP 50-250Hz; subsonic 10-50Hz; bass boost 0-12dB @25-75Hz. Fuses 2x35A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 240,
+          "2ohm": 410,
+          "1ohm": 600
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 13,
+        "snrDb": 95,
+        "thdPercent": 0.2,
+        "dampingFactor": 100,
+        "fuseRatingA": 70,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "helix-c-one",
+      "category": "ampMono",
+      "brand": "Helix",
+      "model": "C ONE",
+      "series": "C Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/c-one",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N (test voltage not stated). Non-DSP analog amp. HP/LP/BP 15-4000Hz 12dB/oct; bass boost 0-9dB @40-120Hz; phase 0-180. TwinPower Link 1660W@4ohm/2200W@2ohm. Fuses 3x30A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 525,
+          "2ohm": 830,
+          "1ohm": 1100
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 120,
+        "thdPercent": 0.006,
+        "dampingFactor": 1000,
+        "fuseRatingA": 90,
+        "amplifierClass": "AB",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "helix-p-one-mk2",
+      "category": "ampMono",
+      "brand": "Helix",
+      "model": "P ONE MK2",
+      "series": "P Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/p-one-mk2",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N (test voltage not stated). Non-DSP analog amp. No HP/LP filters; subsonic 21Hz 48dB/oct Butterworth. Optical input with 32-bit DAC. Fuses 4x30A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 880,
+          "1ohm": 1500
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 110,
+        "thdPercent": 0.01,
+        "dampingFactor": 450,
+        "fuseRatingA": 120,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "helix-amplify-201-x-over",
+      "category": "ampMono",
+      "brand": "Helix",
+      "model": "AMPLIFY 201 X-OVER",
+      "series": "AMPLIFY 2-Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/amplify/2-series/201-x-over",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N, 14.4V. Non-DSP analog amp. 1-ohm continuous with music signal only. High-level 3-32V. LP 50-250Hz 12dB/oct; subsonic 10-50Hz; phase 0-180. Fuses 2x30A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 450,
+          "1ohm": 750
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 32,
+        "snrDb": 114,
+        "thdPercent": 0.003,
+        "dampingFactor": 200,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    }
+  ]
+}

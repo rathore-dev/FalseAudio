@@ -1,0 +1,456 @@
+{
+  "products": [
+    {
+      "id": "kicker-cxa400-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "CXA400.1",
+      "series": "CX",
+      "year": 2019,
+      "sourceUrl": "https://www.kicker.com/CXA4001-400-Watt-Mono-Class-D-Subwoofer-Amp",
+      "verified": true,
+      "notes": "Kicker publishes CEA-2006 style ratings; test voltage/THD not restated on this product page (Kicker standard is 14.4V, <=1% THD+N). Low-level input 125mV-5V, high-level 1-40V. LPF 50-200Hz 12dB/oct; subsonic 25Hz 24dB/oct; KickEQ 0-6dB@40Hz. SNR >95dB A-wtd. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 300,
+          "1ohm": 400
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-cxa800-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "CXA800.1",
+      "series": "CX",
+      "year": 2019,
+      "sourceUrl": "https://www.kicker.com/CXA8001-800-Watt-Mono-Class-D-Subwoofer-Amp",
+      "verified": true,
+      "notes": "Kicker publishes CEA-2006 style ratings; test voltage/THD not restated on this product page (Kicker standard is 14.4V, <=1% THD+N). Low-level input 125mV-5V, high-level 1-40V. Listed sold out on kicker.com. LPF 50-200Hz 12dB/oct; subsonic 25Hz 24dB/oct; KickEQ 0-6dB@40Hz. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 600,
+          "1ohm": 800
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-cxa900-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "CXA900.1",
+      "series": "CX",
+      "sourceUrl": "https://www.kicker.com/CXA9001-900-Watt-Mono-Class-D-Subwoofer-Amp",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Low-level input 125mV-5V, high-level 1-40V. Model 53CXA9001. LPF 50-200Hz 24dB/oct L-R; subsonic 15Hz 24dB/oct; KickEQ+ 0-6dB@40Hz. Dynamic 1000W. SNR >95dB A-wtd. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 350,
+          "2ohm": 600,
+          "1ohm": 900
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-cxa1200-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "CXA1200.1",
+      "series": "CX",
+      "year": 2019,
+      "sourceUrl": "https://www.kicker.com/CXA12001-1200-Watt-Mono-Class-D-Subwoofer-Amp",
+      "verified": true,
+      "notes": "Kicker publishes CEA-2006 style ratings; test voltage/THD not restated on this product page (Kicker standard is 14.4V, <=1% THD+N). Low-level input 125mV-5V, high-level 1-40V. 1-ohm rating +/-10%. LPF 50-200Hz 12dB/oct; subsonic 25Hz 24dB/oct; KickEQ 0-6dB@40Hz. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1200,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-cxa1800-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "CXA1800.1",
+      "series": "CX",
+      "year": 2019,
+      "sourceUrl": "https://www.kicker.com/CXA18001-1800-Watt-Mono-Class-D-Subwoofer-Amp",
+      "verified": true,
+      "notes": "Kicker publishes CEA-2006 style ratings; test voltage/THD not restated on this product page (Kicker standard is 14.4V, <=1% THD+N). Low-level input 125mV-5V, high-level 1-40V. 1-ohm rating +/-10%. LPF 50-200Hz 12dB/oct; subsonic 25Hz 24dB/oct; KickEQ 0-6dB@40Hz. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 900,
+          "2ohm": 1800,
+          "1ohm": 1800
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-lx850-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "LX850.1",
+      "series": "LX",
+      "sourceUrl": "https://www.kicker.com/51LX8501",
+      "verified": true,
+      "notes": "RMS at 14.4V (Kicker rating). Low-level input 125mV-5V, high-level 1-40V. SNR >95dB A-wtd re rated power. LPF 40-160Hz 24dB L-R; subsonic 10-80Hz 24dB L-R; KickEQ+ 0-6dB, 20-80Hz, Q 1-5. Dynamic 1100W. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500,
+          "1ohm": 850
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-lx1250-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "LX1250.1",
+      "series": "LX",
+      "sourceUrl": "https://www.kicker.com/51LX12501",
+      "verified": true,
+      "notes": "RMS at 14.4V (Kicker rating). Low-level input 125mV-5V, high-level 1-40V. SNR >95dB A-wtd re rated power. LPF 40-160Hz 24dB L-R; subsonic 10-80Hz; KickEQ+ 0-6dB. Dynamic 1600W. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 750,
+          "1ohm": 1250
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-lx1650-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "LX1650.1",
+      "series": "LX",
+      "sourceUrl": "https://www.kicker.com/51LX16501",
+      "verified": true,
+      "notes": "RMS at 14.4V (Kicker rating). Low-level input 125mV-5V, high-level 1-40V. SNR >95dB A-wtd re rated power. LPF 40-160Hz 24dB L-R; subsonic 10-80Hz; KickEQ+ 0-6dB. Dynamic 2200W. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 550,
+          "2ohm": 1000,
+          "1ohm": 1650
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-lx3000-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "LX3000.1",
+      "series": "LX",
+      "sourceUrl": "https://www.kicker.com/51LX30001",
+      "verified": true,
+      "notes": "RMS at 14.4V (Kicker rating). Low-level input 125mV-5V, high-level 1-40V. SNR >95dB A-wtd re rated power. LPF 40-160Hz 24dB L-R; subsonic 10-80Hz; KickEQ+ 0-6dB. Dynamic 3800W. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1100,
+          "2ohm": 2000,
+          "1ohm": 3000
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 95,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 6
+      }
+    },
+    {
+      "id": "kicker-wxa3600-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "WXA3600.1",
+      "series": "Warhorse",
+      "sourceUrl": "https://www.kicker.com/49WXA36001",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Full-bridge Class D. LPF 50-200Hz 24dB/oct; defeatable subsonic 15Hz 24dB/oct; competition mode. Dynamic 5000W @14.4V 10% THD. SNR >90dB A-wtd. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1400,
+          "2ohm": 2500,
+          "1ohm": 3600
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "kicker-key500-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "KEY500.1",
+      "series": "KEY",
+      "sourceUrl": "https://www.kicker.com/key-5001-1-channel-smart-amplifier",
+      "verified": true,
+      "notes": "Smart amp with built-in auto-EQ DSP (not user-programmable). Test voltage not stated on page. LPF 40-160Hz, subsonic 10-40Hz (24dB), bass boost control (amount not specified). Class not stated. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 300,
+          "1ohm": 500
+        },
+        "inputSensitivityMinV": 0.125,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 40,
+        "snrDb": 90,
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "kicker-kxa400-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "KXA400.1",
+      "series": "KX",
+      "year": 2017,
+      "sourceUrl": "https://www.kicker.com/kxa4001-400-watt-mono-amplifier",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Single input range 250mV-10V (line or speaker level). Discontinued (sold out on kicker.com). 1-ohm +/-10%. LPF 40-160Hz 24dB/oct; subsonic 10-80Hz 24dB/oct; KickEQ+ 0-18dB, 20-80Hz, Q 1-5. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 400,
+          "1ohm": 400
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "kicker-kxa800-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "KXA800.1",
+      "series": "KX",
+      "year": 2017,
+      "sourceUrl": "https://www.kicker.com/kxa8001-800-watt-mono-amplifier",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Single input range 250mV-10V (line or speaker level). Discontinued (sold out on kicker.com). 1-ohm +/-10%. LPF 40-160Hz; subsonic 10-80Hz; KickEQ+ 0-18dB. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 800,
+          "1ohm": 800
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "kicker-kxa1200-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "KXA1200.1",
+      "series": "KX",
+      "year": 2017,
+      "sourceUrl": "https://www.kicker.com/kxa12001-1200-watt-mono-amplifier",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Single input range 250mV-10V (line or speaker level). Discontinued (sold out on kicker.com). 1-ohm +/-10%. LPF 40-160Hz; subsonic 10-80Hz; KickEQ+ 0-18dB. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1200,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "kicker-kxa1600-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "KXA1600.1",
+      "series": "KX",
+      "year": 2017,
+      "sourceUrl": "https://www.kicker.com/kxa16001-1600-watt-mono-amplifier",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Single input range 250mV-10V (line or speaker level). Discontinued (sold out on kicker.com). 1-ohm +/-10%. LPF 40-160Hz; subsonic 10-80Hz; KickEQ+ 0-18dB. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 800,
+          "2ohm": 1600,
+          "1ohm": 1600
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "kicker-kxa2400-1",
+      "category": "ampMono",
+      "brand": "Kicker",
+      "model": "KXA2400.1",
+      "series": "KX",
+      "year": 2017,
+      "sourceUrl": "https://www.kicker.com/kxa24001-2400-watt-mono-amplifier",
+      "verified": true,
+      "notes": "RMS at 14.4V, <=1% THD+N (Kicker rating). Single input range 250mV-10V (line or speaker level). Discontinued (sold out on kicker.com). 1-ohm +/-10%. LPF 40-160Hz; subsonic 10-80Hz; KickEQ+ 0-18dB. Fuse rating not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1200,
+          "2ohm": 2400,
+          "1ohm": 2400
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 10,
+        "snrDb": 95,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    }
+  ]
+}

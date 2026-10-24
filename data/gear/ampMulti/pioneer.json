@@ -1,0 +1,226 @@
+{
+  "products": [
+    {
+      "id": "pioneer-gm-dx104",
+      "category": "ampMulti",
+      "brand": "Pioneer",
+      "model": "GM-DX104",
+      "series": "GM-DX",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-dx104",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer spec table (1% THD; test voltage not stated). Input sensitivity not listed on the US page. Compact Hi-Res. Max 100W x4. HPF/LPF fixed 80Hz -12dB/oct. Avg current draw 1.6A. fuseRatingA = on-board 15A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 45,
+          "2ohm": 45,
+          "bridged4ohm": 90
+        },
+        "thdPercent": 1.0,
+        "fuseRatingA": 15,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "pioneer-gm-dx874",
+      "category": "ampMulti",
+      "brand": "Pioneer",
+      "model": "GM-DX874",
+      "series": "GM-DX",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-dx874",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer (1% THD, 20-240Hz; voltage not stated). Input level control RCA 0.2-6.5V, speaker-level 0.8-16V per Pioneer Europe spec page (not fetched directly; seen via search). HPF/LPF 40-500Hz -12dB/oct; bass boost @50Hz (amount not listed). On-board fuses 30A x2 (total 60A). Max 200W x4.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "1ohm": 125,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6.5,
+        "highLevelInputMaxV": 16,
+        "thdPercent": 1.0,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "pioneer-gm-dx975",
+      "category": "ampMulti",
+      "brand": "Pioneer",
+      "model": "GM-DX975",
+      "series": "GM-DX",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-dx975",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer spec table (1% THD; test voltage not stated). Input sensitivity not listed on the US page. 5-ch: sub ch 350W@4ohm, 600W@2ohm. A/B HPF/LPF 40-500Hz -12dB/oct; sub LPF 40-500Hz; bass boost @50Hz. On-board fuses 30A x3 (total 90A).",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "thdPercent": 1.0,
+        "fuseRatingA": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "pioneer-gm-a6704",
+      "category": "ampMulti",
+      "brand": "Pioneer",
+      "model": "GM-A6704",
+      "series": "GM-A",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-a6704",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer spec table (1% THD; test voltage not stated). Input sensitivity not listed on the US page. LPF 80Hz -12dB/oct; HPF A ch 40-500Hz, B ch 80Hz. Bass boost @50Hz (amount not listed). On-board fuses 25A x2 (total 50A). Max 170W x4@4ohm.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 95,
+          "bridged4ohm": 190
+        },
+        "thdPercent": 1.0,
+        "fuseRatingA": 50,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "pioneer-gm-a4704",
+      "category": "ampMulti",
+      "brand": "Pioneer",
+      "model": "GM-A4704",
+      "series": "GM-A",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-a4704",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer spec table (1% THD; test voltage not stated). Input sensitivity not listed on the US page. THD not stated. LPF 80Hz -12dB/oct; HPF A ch 40-500Hz, B ch 80Hz. On-board fuse 30A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 40,
+          "2ohm": 65,
+          "bridged4ohm": 130
+        },
+        "fuseRatingA": 30,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "pioneer-gm-a5702",
+      "category": "ampMulti",
+      "brand": "Pioneer",
+      "model": "GM-A5702",
+      "series": "GM-A",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-a5702",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer spec table (1% THD; test voltage not stated). Input sensitivity not listed on the US page. LPF 40-500Hz -12dB/oct; bass boost @50Hz. On-board fuses 30A x2 (total 60A).",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 240,
+          "bridged4ohm": 480
+        },
+        "thdPercent": 1.0,
+        "fuseRatingA": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "pioneer-gm-a3702",
+      "category": "ampMulti",
+      "brand": "Pioneer",
+      "model": "GM-A3702",
+      "series": "GM-A",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-a3702",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer spec table (1% THD; test voltage not stated). Input sensitivity not listed on the US page. LPF 80Hz -12dB/oct; adjustable bass boost. On-board fuse 25A.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 95,
+          "bridged4ohm": 190
+        },
+        "thdPercent": 1.0,
+        "fuseRatingA": 25,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "pioneer-gm-e360x4",
+      "category": "ampMulti",
+      "brand": "Pioneer",
+      "model": "GM-E360X4",
+      "series": "GM-E",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-e360x4",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer spec table (1% THD; test voltage not stated). Input sensitivity not listed on the US page. Sold out. THD/fuse not stated. HPF/LPF 32-320Hz -12dB/oct; bass boost 0/6/12dB @50Hz. Class AB per product title.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 90,
+          "bridged4ohm": 150
+        },
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "pioneer-gm-e190x2",
+      "category": "ampMulti",
+      "brand": "Pioneer",
+      "model": "GM-E190X2",
+      "series": "GM-E",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-e190x2",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer spec table (1% THD; test voltage not stated). Input sensitivity not listed on the US page. Sold out. THD/fuse/class not stated. HPF/LPF 32-320Hz -12dB/oct; bass boost 0/6/12dB @50Hz.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 95,
+          "bridged4ohm": 190
+        },
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "bassBoostMaxDb": 12
+      }
+    }
+  ]
+}

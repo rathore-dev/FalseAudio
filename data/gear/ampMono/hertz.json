@@ -1,0 +1,215 @@
+{
+  "products": [
+    {
+      "id": "hertz-ml-power-1",
+      "category": "ampMono",
+      "brand": "Hertz",
+      "model": "ML Power 1",
+      "series": "Mille",
+      "sourceUrl": "https://hertz-audio.com/product/ml-power-1/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. Pre-In 0.2-5V, Speaker-In 0.8-20V. LP 50-500Hz 24dB/oct; subsonic 18-40Hz 24dB/oct; phase 0-180. Fuse not stated on page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1000,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 105,
+        "thdPercent": 0.08,
+        "dampingFactor": 100,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "hertz-cp-1-2k",
+      "category": "ampMono",
+      "brand": "Hertz",
+      "model": "CP 1.2K",
+      "series": "Cento",
+      "sourceUrl": "https://hertz-audio.com/product/cp-1-2k/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. LP off/50-250Hz 24dB/oct; subsonic 25Hz 24dB/oct; bass boost 0-9dB. Pre-In 0.32-8V, Speaker-In 1.6-40V. On-board fuse per spec table: 2 x 35A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 650,
+          "2ohm": 1200
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 40,
+        "snrDb": 102,
+        "thdPercent": 0.03,
+        "dampingFactor": 140,
+        "fuseRatingA": 70,
+        "efficiencyPercent": 89,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "hertz-cp-1-700",
+      "category": "ampMono",
+      "brand": "Hertz",
+      "model": "CP 1.700",
+      "series": "Cento",
+      "sourceUrl": "https://hertz-audio.com/product/cp-1-700/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. LP off/50-250Hz 24dB/oct; subsonic 25Hz 24dB/oct; bass boost 0-9dB. Pre-In 0.32-8V, Speaker-In 1.6-40V. On-board fuse per spec table: 2 x 25A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 700
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 40,
+        "snrDb": 113,
+        "thdPercent": 0.01,
+        "dampingFactor": 350,
+        "fuseRatingA": 50,
+        "efficiencyPercent": 89,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "hertz-hcp-1dk",
+      "category": "ampMono",
+      "brand": "Hertz",
+      "model": "HCP 1DK",
+      "series": "HCP",
+      "sourceUrl": "https://hertz-audio.com/product/hcp-1dk/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. LP 50-250Hz 24dB/oct; subsonic 25Hz 24dB/oct; bass boost 0-6dB @50Hz. Pre-In 0.2-5V, Speaker-In 0.8-20V. DF >100. On-board fuse per spec table: 3 x 30A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1100
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 100,
+        "thdPercent": 0.25,
+        "dampingFactor": 100,
+        "fuseRatingA": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 6,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "hertz-dpower-1",
+      "category": "ampMono",
+      "brand": "Hertz",
+      "model": "DPower 1",
+      "series": "DPower",
+      "sourceUrl": "https://hertz-audio.com/product/dpower-1/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. Input LO 0.2-5V, HI 0.8-20V (pre/speaker in). LP 50-220Hz 12dB/oct; bass boost 0-12dB @45Hz. On-board fuse per spec table: 1 x 20A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 105,
+        "thdPercent": 0.1,
+        "dampingFactor": 100,
+        "fuseRatingA": 20,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "hertz-sp-1-900",
+      "category": "ampMono",
+      "brand": "Hertz",
+      "model": "SP 1.900",
+      "series": "SPL",
+      "sourceUrl": "https://hertz-audio.com/product/sp-1-900/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. Pre-In 0.6-6V, Speaker-In 2.2-22V. LP 50-250Hz (12 vs 24dB/oct conflict on page); subsonic 25Hz 24dB/oct; bass boost 0-8dB. Current 50A. Fuse not stated.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1000,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 95,
+        "thdPercent": 0.1,
+        "dampingFactor": 300,
+        "efficiencyPercent": 87,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 8,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "hertz-dp-1-500",
+      "category": "ampMono",
+      "brand": "Hertz",
+      "model": "DP 1.500",
+      "series": "Dieci",
+      "sourceUrl": "https://hertz-audio.com/product/dp-1-500/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. LP off/50-250Hz 24dB/oct; subsonic 25Hz 24dB/oct; bass boost 0-9dB. Pre-In 0.32-8V, Speaker-In 1.6-40V. On-board fuse per spec table: 1 x 30A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 280,
+          "2ohm": 500
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 40,
+        "snrDb": 99,
+        "thdPercent": 0.2,
+        "dampingFactor": 180,
+        "fuseRatingA": 30,
+        "efficiencyPercent": 86,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,413 @@
+{
+  "products": [
+    {
+      "id": "audison-sr-6-600",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "SR 6.600",
+      "series": "SR",
+      "sourceUrl": "https://audison.com/product/sr-6-600/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. 6-ch: rmsPerChannelW = CH1-4. CH5-6: 110W x2@4ohm, 185W x2@2ohm, 340W x2@1ohm; 5+6 bridged 370W@4ohm/600W@2ohm. minStableOhms 1 applies to CH5-6 (CH1-4 2ohm). HP/LP/BP 12dB/oct 50Hz-5kHz. Bass boost: spec table says no, features say up to 12dB @50Hz (conflict). Fuses 2x30A. Current 54A.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 85,
+          "2ohm": 140,
+          "bridged4ohm": 280
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 40,
+        "snrDb": 102,
+        "thdPercent": 0.05,
+        "dampingFactor": 100,
+        "fuseRatingA": 60,
+        "efficiencyPercent": 87,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false
+      }
+    },
+    {
+      "id": "audison-sr-5-600",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "SR 5.600",
+      "series": "SR",
+      "sourceUrl": "https://audison.com/product/sr-5-600/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. 5-ch: sub ch 330W@4ohm, 550W@2ohm. 3-ch: 230W x2 + sub. Front HP 50-500/50-5kHz; rear HP/BP/LP; sub LP 50-500Hz 24dB/oct; subsonic 25Hz 24dB/oct; bass boost 0-12dB. Fuses 2x25A. Current 44A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 115
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 105,
+        "thdPercent": 0.02,
+        "dampingFactor": 100,
+        "fuseRatingA": 50,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "audison-sr-4-500",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "SR 4.500",
+      "series": "SR",
+      "sourceUrl": "https://audison.com/product/sr-4-500/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. HP/LP 50Hz-3.2kHz 12dB/oct; bass boost 0-12dB (B ch). Fuses 2x25A. Current 40A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 130,
+          "2ohm": 220,
+          "bridged4ohm": 450
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 105,
+        "thdPercent": 0.08,
+        "dampingFactor": 200,
+        "fuseRatingA": 50,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "audison-sr-4-300",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "SR 4.300",
+      "series": "SR",
+      "sourceUrl": "https://audison.com/product/sr-4-300/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. HP/LP 50Hz-3.2kHz 12dB/oct; bass boost 0-12dB (B ch). Fuse 1x30A. Current 25A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 85,
+          "2ohm": 130,
+          "bridged4ohm": 250
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 100,
+        "thdPercent": 0.03,
+        "dampingFactor": 150,
+        "fuseRatingA": 30,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "audison-ap4-d",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "AP4 D",
+      "series": "Prima",
+      "sourceUrl": "https://audison.com/product/ap4-d/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Input sensitivity selectable steps: Pre-In 1.5/3/4.5V, Speaker-In 3/6/9V. No crossover. Supply 7.5-15VDC. Current 27A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 130,
+          "bridged4ohm": 260
+        },
+        "inputSensitivityMinV": 1.5,
+        "inputSensitivityMaxV": 4.5,
+        "highLevelInputMaxV": 9,
+        "snrDb": 100,
+        "thdPercent": 0.1,
+        "dampingFactor": 170,
+        "fuseRatingA": 30,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "audison-af-m6d",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "AF M6D",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-m6d/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Straight-wire companion amp (no crossover, no DSP) for external processors. All channels driven. Fuses 2x35A.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 135,
+          "2ohm": 220,
+          "bridged4ohm": 440
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 103,
+        "thdPercent": 0.04,
+        "dampingFactor": 160,
+        "fuseRatingA": 70,
+        "efficiencyPercent": 81,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "audison-af-m4d",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "AF M4D",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-m4d/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Straight-wire companion amp (no crossover, no DSP). All channels driven. Fuses 2x30A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 160,
+          "2ohm": 260,
+          "bridged4ohm": 520
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 103,
+        "thdPercent": 0.05,
+        "fuseRatingA": 60,
+        "efficiencyPercent": 83,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "audison-af-c4d",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "AF C4D",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-c4d/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Compact straight-wire companion amp (no crossover, no DSP). Efficiency 84% (features say 81%). Fuse 1x30A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 90,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 102,
+        "thdPercent": 0.03,
+        "dampingFactor": 95,
+        "fuseRatingA": 30,
+        "efficiencyPercent": 84,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "audison-av-5-1k",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "AV 5.1k",
+      "series": "Voce",
+      "sourceUrl": "https://audison.com/product/av-5-1k/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. 5-ch: A ch 75W x2@4ohm (A-class bias); B ch 140W x2@4ohm, 250W x2@2ohm; sub (Class D) 600W@4ohm, 1000W@2ohm (SNR 87dB, THD 0.3%, DF 80). Min load A 4ohm / B 2ohm / sub 2ohm. A HP 50-5kHz; B HP/BP; C LP 50-150Hz 24dB/oct. Current 110A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 24,
+        "snrDb": 100,
+        "thdPercent": 0.05,
+        "dampingFactor": 100,
+        "fuseRatingA": 100,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "audison-av-quattro",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "AV quattro",
+      "series": "Voce",
+      "sourceUrl": "https://audison.com/product/av-quattro/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Filters 12dB/oct ch A and B; ch B LP 50-500Hz 24dB/oct.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 120,
+          "2ohm": 200,
+          "bridged4ohm": 400
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 24,
+        "snrDb": 100,
+        "thdPercent": 0.04,
+        "dampingFactor": 100,
+        "fuseRatingA": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "audison-av-due",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "AV due",
+      "series": "Voce",
+      "sourceUrl": "https://audison.com/product/av-due/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Filter A 50Hz-5kHz HP/LP 12dB/oct; Filter B mono LP 50-500Hz 24dB/oct.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 260,
+          "2ohm": 450,
+          "bridged4ohm": 900
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 24,
+        "snrDb": 100,
+        "thdPercent": 0.04,
+        "dampingFactor": 120,
+        "fuseRatingA": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "audison-th-quattro",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "TH quattro",
+      "series": "Thesis",
+      "sourceUrl": "https://audison.com/product/th-quattro/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Thesis reference amp; page lists A-Class (bias-selectable) - amplifierClass left as stated on page. Input 0.3-4.8V RMS (two ranges). No on-board crossover (removable crossover module supplied). thdPercent measured @1kHz 90% power. 3-ch: 150/250W x2 + 540/650W x1. Dual Power Mode (A-class) 55W x4@4ohm.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 160,
+          "2ohm": 260,
+          "1ohm": 340,
+          "bridged4ohm": 500,
+          "bridged2ohm": 700
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 4.8,
+        "snrDb": 104,
+        "thdPercent": 0.03,
+        "dampingFactor": 80,
+        "fuseRatingA": 100,
+        "amplifierClass": "A",
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "audison-th-due",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "TH due",
+      "series": "Thesis",
+      "sourceUrl": "https://audison.com/product/th-due/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Thesis reference amp; page lists A-Class (bias-selectable) - amplifierClass left as stated on page. Input 0.3-4.8V RMS (two ranges). No on-board crossover (removable crossover module supplied). thdPercent measured @1kHz 90% power. Idle 2A.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500,
+          "1ohm": 750,
+          "bridged4ohm": 1000,
+          "bridged2ohm": 1500
+        },
+        "inputSensitivityMinV": 0.3,
+        "inputSensitivityMaxV": 4.8,
+        "snrDb": 106,
+        "thdPercent": 0.02,
+        "dampingFactor": 100,
+        "fuseRatingA": 100,
+        "amplifierClass": "A",
+        "minStableOhms": 1
+      }
+    },
+    {
+      "id": "audison-hv-venti",
+      "category": "ampMulti",
+      "brand": "Audison",
+      "model": "HV venti",
+      "series": "Thesis",
+      "sourceUrl": "https://audison.com/product/hv-venti/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Audison tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power unless noted. SNR A-wtd ref 1V. fuseRatingA = fuse listed in supply row. Dual mono. Page lists input sensitivity as 'high level 0.25-1.6 VRMS, low level 1-7 VRMS' (two ranges; labelling as printed). Supply 11-16VDC. External crossover module (45/55/65/80Hz).",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 800,
+          "bridged4ohm": 900
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 7,
+        "snrDb": 100,
+        "thdPercent": 0.05,
+        "dampingFactor": 80,
+        "fuseRatingA": 100,
+        "amplifierClass": "A",
+        "minStableOhms": 2
+      }
+    }
+  ]
+}

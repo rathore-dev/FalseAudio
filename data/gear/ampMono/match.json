@@ -1,0 +1,33 @@
+{
+  "products": [
+    {
+      "id": "match-up-1fx",
+      "category": "ampMono",
+      "brand": "Match",
+      "model": "UP 1FX",
+      "series": "UP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/up-1fx",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data; RMS (<=1% THD+N where stated); test voltage not stated. Non-DSP amp. RCA ranges 0.5-3V or 1-6V; high-level 2.5-16V or 5-32V. 1-ohm rating with music signal only. LP 50-250Hz 12dB (defeatable); subsonic 15Hz 12dB; DirectDSP bypass. Fuses 2x30A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 350,
+          "2ohm": 600,
+          "1ohm": 900
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 6.0,
+        "highLevelInputMaxV": 32,
+        "snrDb": 108,
+        "thdPercent": 0.002,
+        "dampingFactor": 160,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    }
+  ]
+}

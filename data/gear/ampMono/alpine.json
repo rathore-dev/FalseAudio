@@ -1,0 +1,173 @@
+{
+  "products": [
+    {
+      "id": "alpine-r2-a75m",
+      "category": "ampMono",
+      "brand": "Alpine",
+      "model": "R2-A75M",
+      "series": "R-Series",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_R2-A60F_R2-A75M.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.1-4.0 V, Hi 0.4-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. THD+N 1.0% at rated power. LPF 50-400Hz -24dB/oct; subsonic 8-40Hz -24dB/oct; Bass EQ 0-+12dB @50Hz. Recommended external fuse 80A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 750
+        },
+        "inputSensitivityMinV": 0.1,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 75,
+        "thdPercent": 1.0,
+        "dampingFactor": 250,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "alpine-r2-a150m",
+      "category": "ampMono",
+      "brand": "Alpine",
+      "model": "R2-A150M",
+      "series": "R-Series",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_R2-A150M.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.1-4.0 V, Hi 0.4-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. THD+N 1.0% at rated power (CTA-2006-D certified). LPF 50-400Hz -24dB/oct; subsonic 8-40Hz -24dB/oct; Bass EQ 0-+12dB @50Hz. Recommended external fuse 140A in connection section (150A used in wiring example).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 700,
+          "2ohm": 1200,
+          "1ohm": 1500
+        },
+        "inputSensitivityMinV": 0.1,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 75,
+        "thdPercent": 1.0,
+        "dampingFactor": 250,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "alpine-s2-a120m",
+      "category": "ampMono",
+      "brand": "Alpine",
+      "model": "S2-A120M",
+      "series": "S-Series",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_S2-A60M_S2-A120M.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.2-4.0 V, Hi 0.5-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. LPF 50-400Hz -24dB/oct; Bass EQ 0-+12dB @50Hz. Product page quotes power rating 14.4V <0.1% THD+N. Recommended external fuse 100A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1200,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 85,
+        "dampingFactor": 750,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "alpine-s2-a60m",
+      "category": "ampMono",
+      "brand": "Alpine",
+      "model": "S2-A60M",
+      "series": "S-Series",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_S2-A60M_S2-A120M.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.2-4.0 V, Hi 0.5-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. LPF 50-400Hz -24dB/oct; Bass EQ 0-+12dB @50Hz. Recommended external fuse 60A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 330,
+          "2ohm": 600,
+          "1ohm": 600
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 85,
+        "dampingFactor": 1000,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "alpine-hda-m80",
+      "category": "ampMono",
+      "brand": "Alpine",
+      "model": "HDA-M80",
+      "series": "Status",
+      "sourceUrl": "http://manuals.alpine-usa.com/products/documents/OM_HDA-M80_HDA-F60_HDA-V90.pdf",
+      "verified": true,
+      "notes": "Specs from Alpine owner's manual. RMS @14.4V. RCA input switch: Lo 0.1-4.0 V, Hi 0.4-10 V (Hi used for speaker-level via Speaker-RCA cable). SNR = IHF A-wtd ref 1W into 4ohm. Power rating 14.4V <=1.0% THD+N. LPF 50-400Hz -24dB/oct; variable subsonic; Bass EQ 0-+12dB @50Hz. On-board fuses 30A x3; external 90A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 800
+        },
+        "inputSensitivityMinV": 0.1,
+        "inputSensitivityMaxV": 4.0,
+        "highLevelInputMaxV": 10,
+        "snrDb": 83,
+        "thdPercent": 1.0,
+        "dampingFactor": 1500,
+        "fuseRatingA": 90,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "alpine-kta-200m",
+      "category": "ampMono",
+      "brand": "Alpine",
+      "model": "KTA-200M",
+      "series": "Power Pack",
+      "sourceUrl": "https://alpine-usa.com/product/kta-200m-power-pack-amplifier",
+      "verified": true,
+      "notes": "RMS 200W @4/2ohm, 14.4V, <=1% THD+N (DPP 400W). RCA low range 0.2-4V; voltage-adapting input. LPF off/60/80/120Hz L-R -24dB/oct. Fuse not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 4.0,
+        "snrDb": 80,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "products": [
+    {
+      "id": "helix-m-four",
+      "category": "ampMulti",
+      "brand": "Helix",
+      "model": "M FOUR",
+      "series": "M Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/m-four",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N (test voltage not stated). Non-DSP analog amp. High-level 1.3-13V. HP 15-4000Hz, LP 40-4000Hz, BP, 12dB/oct. Fuses 2x30A. Up to 135W/ch in typical multichannel use.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 13,
+        "snrDb": 98,
+        "thdPercent": 0.05,
+        "dampingFactor": 100,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "helix-m-six",
+      "category": "ampMulti",
+      "brand": "Helix",
+      "model": "M SIX",
+      "series": "M Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/m-six",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N (test voltage not stated). Non-DSP analog amp. HP/BP/subsonic 15Hz-4kHz, LP 40Hz-4kHz, 12dB/oct. Fuses 2x35A. High-level range not listed.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 6,
+        "snrDb": 98,
+        "thdPercent": 0.05,
+        "dampingFactor": 100,
+        "fuseRatingA": 70,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "helix-c-four",
+      "category": "ampMulti",
+      "brand": "Helix",
+      "model": "C FOUR",
+      "series": "C Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/c-four",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N (test voltage not stated). Non-DSP analog amp. Class AB with Class A driver stage. HP/LP/BP 15-4000Hz 12dB/oct. THD <0.007%, DF >1000. Fuses 3x30A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 220,
+          "bridged4ohm": 440
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 112,
+        "thdPercent": 0.007,
+        "dampingFactor": 1000,
+        "fuseRatingA": 90,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "helix-g-four",
+      "category": "ampMulti",
+      "brand": "Helix",
+      "model": "G FOUR",
+      "series": "G Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/g-four",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N (test voltage not stated). Non-DSP analog amp. High-level 2.5-14V. HP 15-4000Hz, LP 40-4000Hz, BP, 12dB/oct Butterworth; bass boost 0-12dB @45Hz. Fuses 2x30A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 120,
+          "bridged4ohm": 240
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 14,
+        "snrDb": 108,
+        "thdPercent": 0.02,
+        "dampingFactor": 200,
+        "fuseRatingA": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "helix-g-five",
+      "category": "ampMulti",
+      "brand": "Helix",
+      "model": "G FIVE",
+      "series": "G Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/g-five",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N (test voltage not stated). Non-DSP analog amp. 5-ch: ch A-D Class AB; sub ch Class D 360W@4ohm, 600W@2ohm. High-level 2.5-14V. Filters 15/40-4000Hz 12dB/oct; subsonic 15-50Hz; bass boost 0-12dB @45Hz. Fuses 3x40A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 120,
+          "bridged4ohm": 240
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 14,
+        "snrDb": 105,
+        "thdPercent": 0.02,
+        "dampingFactor": 200,
+        "fuseRatingA": 120,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "helix-amplify-204-x-over",
+      "category": "ampMulti",
+      "brand": "Helix",
+      "model": "AMPLIFY 204 X-OVER",
+      "series": "AMPLIFY 2-Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/amplify/2-series/204-x-over",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N, 14.4V. Non-DSP analog amp. High-level 2-16V. HP/LP 45-400Hz 12dB/oct (defeatable). THD @1kHz 1W. Fuses 2x30A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 190,
+          "bridged4ohm": 380
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 16,
+        "snrDb": 99,
+        "thdPercent": 0.012,
+        "dampingFactor": 70,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "helix-amplify-206-direct",
+      "category": "ampMulti",
+      "brand": "Helix",
+      "model": "AMPLIFY 206 DIRECT",
+      "series": "AMPLIFY 2-Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/amplify/2-series/206-direct",
+      "verified": true,
+      "notes": "Audiotec Fischer technical data: RMS at <=1% THD+N, 14.4V. Non-DSP analog amp. No filters (DirectDSP input for external processor). Fuses 3x25A.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 190,
+          "bridged4ohm": 380
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 103,
+        "thdPercent": 0.003,
+        "dampingFactor": 70,
+        "fuseRatingA": 75,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": false,
+        "hasHpf": false
+      }
+    }
+  ]
+}

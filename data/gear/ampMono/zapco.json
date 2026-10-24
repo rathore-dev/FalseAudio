@@ -1,0 +1,161 @@
+{
+  "products": [
+    {
+      "id": "zapco-st-500xm-iii",
+      "category": "ampMono",
+      "brand": "Zapco",
+      "model": "ST-500XM III",
+      "series": "ST-X III",
+      "sourceUrl": "https://www.zapco.com/st-x-3-series-amp/st-500xm-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Page labels figures as 'Power' (series page describes XM range as RMS). Series page: LP 40-180Hz, bass boost 0-12dB @30-80Hz, phase 0-180, variable subsonic; 1-ohm stable. Fuse not listed.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 300,
+          "1ohm": 400
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 85,
+        "thdPercent": 0.2,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "zapco-st-1000xm-iii",
+      "category": "ampMono",
+      "brand": "Zapco",
+      "model": "ST-1000XM III",
+      "series": "ST-X III",
+      "sourceUrl": "https://www.zapco.com/st-x-3-series-amp/st-1000xm-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Page labels figures as 'Power' (series page describes XM range as RMS). Series page: LP 40-180Hz, bass boost 0-12dB @30-80Hz, phase 0-180, variable subsonic; 1-ohm stable. Fuse not listed.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 700,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 100,
+        "thdPercent": 0.2,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "zapco-st-1500xm-iii",
+      "category": "ampMono",
+      "brand": "Zapco",
+      "model": "ST-1500XM III",
+      "series": "ST-X III",
+      "sourceUrl": "https://www.zapco.com/st-x-3-series-amp/st-1500xm-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Page labels figures as 'Power' (series page describes XM range as RMS). Series page: LP 40-180Hz, bass boost 0-12dB @30-80Hz, phase 0-180, variable subsonic; 1-ohm stable. Fuse not listed.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 800,
+          "2ohm": 1150,
+          "1ohm": 1600
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 85,
+        "thdPercent": 0.2,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "zapco-st-2000xm-iii",
+      "category": "ampMono",
+      "brand": "Zapco",
+      "model": "ST-2000XM III",
+      "series": "ST-X III",
+      "sourceUrl": "https://www.zapco.com/st-x-3-series-amp/st-2000xm-3",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Page labels figures as 'Power' (series page describes XM range as RMS). Series page: LP 40-180Hz, bass boost 0-12dB @30-80Hz, phase 0-180, variable subsonic; 1-ohm stable. Fuse not listed.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1000,
+          "2ohm": 1450,
+          "1ohm": 2000
+        },
+        "inputSensitivityMinV": 0.25,
+        "inputSensitivityMaxV": 5,
+        "snrDb": 85,
+        "thdPercent": 0.2,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 12
+      }
+    },
+    {
+      "id": "zapco-st-750d",
+      "category": "ampMono",
+      "brand": "Zapco",
+      "model": "ST-750D",
+      "series": "ST-D Compact",
+      "sourceUrl": "https://www.zapco.com/st-d-comp-series-amp/st-750d",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Input sensitivity not listed.  Fuse not listed.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 750
+        },
+        "snrDb": 98,
+        "thdPercent": 0.5,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "zapco-ref-500-1",
+      "category": "ampMono",
+      "brand": "Zapco",
+      "model": "REF 500.1",
+      "series": "Reference",
+      "sourceUrl": "https://www.zapco.com/ref-series-amp/ref-500-1",
+      "verified": true,
+      "notes": "Zapco product page data; test voltage not stated. thdPercent = THD at rated power as listed. Single input sensitivity range listed (RCA/speaker-level not separated). Reference series. Fuses 2x40A (fuseRatingA = total). Crossover not listed.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 320,
+          "2ohm": 550
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 8,
+        "snrDb": 102,
+        "thdPercent": 0.02,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "fuseRatingA": 80
+      }
+    }
+  ]
+}

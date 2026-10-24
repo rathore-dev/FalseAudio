@@ -1,0 +1,393 @@
+{
+  "products": [
+    {
+      "id": "rockford-fosgate-t2500-1bdcp",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "T2500-1bdCP",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t2500-1bdcp/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 300 A. Efficiency 81.9%@4ohm/77.7%@2ohm/64.5%@1ohm. LPF 35-250Hz 24dB/oct; infrasonic 28Hz 12dB/oct; Punch EQ +18dB@45Hz. bdSYNC pair: 5000W@2ohm. Current 175A avg/350A max @13.8V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1500,
+          "2ohm": 2500,
+          "1ohm": 2500
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 81.9,
+        "amplifierClass": "BD",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": false,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-t1500-1bdcp",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "T1500-1bdCP",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t1500-1bdcp/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 200 A. Efficiency 86.2%@4ohm/74.6%@2ohm/63.0%@1ohm. LPF 35-250Hz 24dB/oct; infrasonic 28Hz. Current 100A avg/200A max @13.8V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 1000,
+          "2ohm": 1500,
+          "1ohm": 1500
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 86.2,
+        "amplifierClass": "BD",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": false,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-t1000-1bdcp",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "T1000-1bdCP",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t1000-1bdcp/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 150 A. Efficiency 85.6%@4ohm/82.1%@2ohm/70%@1ohm. LPF 35-250Hz 24dB/oct; infrasonic 28Hz. Current 70A avg/140A max @13.8V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 700,
+          "2ohm": 1000,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 85.6,
+        "amplifierClass": "BD",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": false,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-t500-1bdcp",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "T500-1bdCP",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t500-1bdcp/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 80 A. Efficiency 86.2%@4ohm/82.3%@2ohm/73.4%@1ohm. LPF 35-250Hz 24dB/oct; infrasonic 28Hz. Current 35A avg/70A max @13.8V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500,
+          "1ohm": 500
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 86.2,
+        "amplifierClass": "BD",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": false,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-t750x1bd",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "T750X1bd",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t750x1bd/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 100 A. Efficiency stated as >85% average. LPF 50-250Hz 12dB/oct; infrasonic 28Hz. Max current 86A @13.8V sine. Input range 150mV-12V (single range covers line/speaker level).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 750,
+          "1ohm": 750
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 85,
+        "amplifierClass": "BD",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": false,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-p1000x1bd",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "P1000X1bd",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p1000x1bd/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 140 A. LPF 50-250Hz 12dB/oct; infrasonic 28Hz. Current 65A avg/130A max @13.8V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500,
+          "1ohm": 1000
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 86,
+        "amplifierClass": "BD",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": false,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-p500x1bd",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "P500X1bd",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p500x1bd/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 80 A. LPF 50-250Hz 12dB/oct; infrasonic 28Hz. Current 35A avg/70A max @13.8V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 300,
+          "1ohm": 500
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 86,
+        "amplifierClass": "BD",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": false,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-p300x1",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "P300X1",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p300x1/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 50 A. HP/LP 50-250Hz 12dB/oct. Current 23A avg/45A max @13.8V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 200,
+          "2ohm": 300
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 74,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-pbr300x1",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "PBR300X1",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pbr300x1/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 30 A. Class BR. LPF 35-250Hz 12dB/oct. Bass EQ via optional remote PEQ (+18dB@45Hz). High-level input 400mV-11V. Current 15A avg/30A max @13.8V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 150,
+          "1ohm": 300
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 11,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 75,
+        "amplifierClass": "BR",
+        "minStableOhms": 1,
+        "hasLpf": true,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "rockford-fosgate-pm100x1k",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "PM100X1K",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pm100x1k/",
+      "verified": true,
+      "notes": "Compact mono amp sold as a pair (Element Ready, powersports). Rated power THD+N <1%. Selectable HPF 60/80/100Hz 12dB/oct. Input sensitivity/fuse not listed on product page.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 100
+        },
+        "thdPercent": 1.0,
+        "minStableOhms": 2,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "rockford-fosgate-r2-1200x1",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "R2-1200X1",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r2-1200x1/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 200 A. LPF 50-250Hz 12dB/oct; infrasonic 15-40Hz. Efficiency >80%. Max current 121A @13.8V sine. High-level input 450mV-12V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 800,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 12,
+        "thdPercent": 1.0,
+        "efficiencyPercent": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-r2-750x1",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "R2-750X1",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r2-750x1/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 120 A. LPF 50-250Hz 12dB/oct; infrasonic 15-40Hz. Max current 71A @13.8V sine. High-level input 450mV-12V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 250,
+          "2ohm": 500,
+          "1ohm": 750
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 12,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-r2-500x1",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "R2-500X1",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r2-500x1/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 80 A. LPF 50-250Hz 12dB/oct; infrasonic 15-40Hz. Max current 52A @13.8V sine. High-level input 450mV-12V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 12,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    },
+    {
+      "id": "rockford-fosgate-r2-250x1",
+      "category": "ampMono",
+      "brand": "Rockford Fosgate",
+      "model": "R2-250X1",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r2-250x1/",
+      "verified": true,
+      "notes": "Rated continuous RMS power (CTA-2006 per Rockford), THD+N <1% (thdPercent is the rating limit); test voltage not stated on product page. No on-board fuse; recommended external fuse 50 A. LPF 50-250Hz 12dB/oct; infrasonic 15-40Hz. High-level input 450mV-12V.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250
+        },
+        "inputSensitivityMinV": 0.15,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 12,
+        "thdPercent": 1.0,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasSubsonic": true,
+        "bassBoostMaxDb": 18
+      }
+    }
+  ]
+}

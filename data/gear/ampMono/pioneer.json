@@ -1,0 +1,57 @@
+{
+  "products": [
+    {
+      "id": "pioneer-gm-dx871",
+      "category": "ampMono",
+      "brand": "Pioneer",
+      "model": "GM-DX871",
+      "series": "GM-DX",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-dx871",
+      "verified": true,
+      "notes": "RMS per usa.pioneer (1% THD, 20-240Hz; voltage not stated). Gain range RCA 200mV-6.5V, speaker-level 800mV-16V per Crutchfield (retailer). LPF 40-240Hz -12dB/oct; bass boost @50Hz; wired bass remote. On-board fuses 40A x2 (total 80A). Avg draw 2.4A@4ohm/3.6A@2ohm/5.7A@1ohm.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 300,
+          "2ohm": 500,
+          "1ohm": 800
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 6.5,
+        "highLevelInputMaxV": 16,
+        "thdPercent": 1.0,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": false
+      }
+    },
+    {
+      "id": "pioneer-gm-dx971",
+      "category": "ampMono",
+      "brand": "Pioneer",
+      "model": "GM-DX971",
+      "series": "GM-DX",
+      "sourceUrl": "https://usa.pioneer/collections/amplifiers/products/gm-dx971",
+      "verified": true,
+      "notes": "Continuous RMS per usa.pioneer spec table (1% THD; test voltage not stated). Input sensitivity not listed on the US page. LPF 40-240Hz -12dB/oct; bass boost @50Hz; wired remote. On-board fuses 40A x3 (total 120A).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 500,
+          "2ohm": 800,
+          "1ohm": 1200
+        },
+        "thdPercent": 1.0,
+        "fuseRatingA": 120,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "hasLpf": true,
+        "hasHpf": false
+      }
+    }
+  ]
+}

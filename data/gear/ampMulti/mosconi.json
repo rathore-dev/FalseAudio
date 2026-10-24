@@ -1,0 +1,192 @@
+{
+  "products": [
+    {
+      "id": "mosconi-pro-2-10-evo",
+      "category": "ampMulti",
+      "brand": "Mosconi",
+      "model": "Pro 2|10 EVO",
+      "series": "Pro EVO",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-pro-evo/mosconi-pro-2-10-evo",
+      "verified": true,
+      "notes": "Gladen Mosconi (manufacturer, gladen.com) data; power figures as listed (test voltage/THD not stated). Input sensitivity 1-8.75V set per channel by DIP switches in 0.25V steps (single range). Crossover only in DDSP mode (optional digital board). Operating 9-16V. Fuse not stated. ",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 240,
+          "2ohm": 360,
+          "bridged4ohm": 720
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8.75,
+        "snrDb": 120,
+        "thdPercent": 0.006,
+        "amplifierClass": "AB",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "mosconi-pro-2-10-aab-evo",
+      "category": "ampMulti",
+      "brand": "Mosconi",
+      "model": "Pro 2|10-AAB EVO",
+      "series": "Pro EVO",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-pro-evo/mosconi-pro-2-10aab-evo",
+      "verified": true,
+      "notes": "Gladen Mosconi (manufacturer, gladen.com) data; power figures as listed (test voltage/THD not stated). Input sensitivity 1-8.75V set per channel by DIP switches in 0.25V steps (single range). Crossover only in DDSP mode (optional digital board). Operating 9-16V. Fuse not stated. Class AAB; 2x30W @4ohm in pure Class A.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 240,
+          "2ohm": 360,
+          "bridged4ohm": 720
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8.75,
+        "amplifierClass": "AAB",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "mosconi-pro-2-30-evo",
+      "category": "ampMulti",
+      "brand": "Mosconi",
+      "model": "Pro 2|30 EVO",
+      "series": "Pro EVO",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-pro-evo/mosconi-pro-2-30-evo",
+      "verified": true,
+      "notes": "Gladen Mosconi (manufacturer, gladen.com) data; power figures as listed (test voltage/THD not stated). Input sensitivity 1-8.75V set per channel by DIP switches in 0.25V steps (single range). Crossover only in DDSP mode (optional digital board). Operating 9-16V. Fuse not stated. ",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 550,
+          "2ohm": 825,
+          "bridged4ohm": 1650,
+          "bridged2ohm": 2500
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8.75,
+        "snrDb": 120,
+        "thdPercent": 0.006,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "mosconi-pro-4-10-evo",
+      "category": "ampMulti",
+      "brand": "Mosconi",
+      "model": "Pro 4|10 EVO",
+      "series": "Pro EVO",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-pro-evo/mosconi-pro-4-10-evo",
+      "verified": true,
+      "notes": "Gladen Mosconi (manufacturer, gladen.com) data; power figures as listed (test voltage/THD not stated). Input sensitivity 1-8.75V set per channel by DIP switches in 0.25V steps (single range). Crossover only in DDSP mode (optional digital board). Operating 9-16V. Fuse not stated. ",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 120,
+          "2ohm": 160,
+          "bridged4ohm": 320
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8.75,
+        "snrDb": 120,
+        "thdPercent": 0.006,
+        "amplifierClass": "AB",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "mosconi-pro-4-10-aab-evo",
+      "category": "ampMulti",
+      "brand": "Mosconi",
+      "model": "Pro 4|10-AAB EVO",
+      "series": "Pro EVO",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-pro-evo/mosconi-pro-4-10aab-evo",
+      "verified": true,
+      "notes": "Gladen Mosconi (manufacturer, gladen.com) data; power figures as listed (test voltage/THD not stated). Input sensitivity 1-8.75V set per channel by DIP switches in 0.25V steps (single range). Crossover only in DDSP mode (optional digital board). Operating 9-16V. Fuse not stated. Class AAB; 4x10W pure Class A. Operating 10-16V.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 130,
+          "bridged4ohm": 220
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8.75,
+        "snrDb": 108,
+        "amplifierClass": "AAB",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "mosconi-pro-4-30-aab-evo",
+      "category": "ampMulti",
+      "brand": "Mosconi",
+      "model": "Pro 4|30-AAB EVO",
+      "series": "Pro EVO",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-pro-evo/mosconi-pro-4-30-aab-evo",
+      "verified": true,
+      "notes": "Gladen Mosconi (manufacturer, gladen.com) data; power figures as listed (test voltage/THD not stated). Input sensitivity 1-8.75V set per channel by DIP switches in 0.25V steps (single range). Crossover only in DDSP mode (optional digital board). Operating 9-16V. Fuse not stated. Class AAB; 4x30W pure Class A @4ohm.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 240,
+          "bridged4ohm": 480
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8.75,
+        "snrDb": 120,
+        "amplifierClass": "AAB",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "mosconi-pro-5-30-evo",
+      "category": "ampMulti",
+      "brand": "Mosconi",
+      "model": "Pro 5|30 EVO",
+      "series": "Pro EVO",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-pro-evo/mosconi-pro-5-30-evo",
+      "verified": true,
+      "notes": "Gladen Mosconi (manufacturer, gladen.com) data; power figures as listed (test voltage/THD not stated). Input sensitivity 1-8.75V set per channel by DIP switches in 0.25V steps (single range). Crossover only in DDSP mode (optional digital board). Operating 9-16V. Fuse not stated. 5-ch: rmsPerChannelW = Ch1&2. Ch3&4: 185W@4ohm, 290W@2ohm. Ch5 (Class D mono): 660W@4ohm, 1030W@2ohm.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 95,
+          "2ohm": 150
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8.75,
+        "snrDb": 100,
+        "thdPercent": 0.045,
+        "amplifierClass": "AB",
+        "minStableOhms": 2
+      }
+    },
+    {
+      "id": "mosconi-one-4-130",
+      "category": "ampMulti",
+      "brand": "Mosconi",
+      "model": "One 4|130",
+      "series": "One",
+      "sourceUrl": "https://www.gladen.com/de/mosconi/mosconi-one/mosconi-one-4-130",
+      "verified": true,
+      "notes": "Gladen Mosconi data. Input 0.35-16V with low/high-level switch. Crossover HP/LP/off 20-225Hz. Fuse not stated.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 130,
+          "2ohm": 175,
+          "bridged4ohm": 350
+        },
+        "inputSensitivityMinV": 0.35,
+        "inputSensitivityMaxV": 16,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    }
+  ]
+}

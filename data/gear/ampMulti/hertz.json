@@ -1,0 +1,375 @@
+{
+  "products": [
+    {
+      "id": "hertz-ml-power-4",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "ML Power 4",
+      "series": "Mille",
+      "sourceUrl": "https://hertz-audio.com/product/ml-power-4/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. Pre-In 0.2-5V, Speaker-In 0.8-20V. 3-ch: 150/250W x2 + 500W x1@4ohm. Filter A HP/LP 50-5kHz (2 ranges) 12dB/oct; Filter B HP/LP 80-3.3kHz. Current 50A @2ohm max musical. On-board fuse per spec table: 2 x 40A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 150,
+          "2ohm": 250,
+          "bridged4ohm": 500
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 100,
+        "thdPercent": 0.08,
+        "dampingFactor": 80,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "hertz-ml-power-5",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "ML Power 5",
+      "series": "Mille",
+      "sourceUrl": "https://hertz-audio.com/product/ml-power-5/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. 5-ch: sub ch 380W@4ohm, 550W@2ohm (SNR 106dB, DF 90). 3-ch: 200W x2 + sub. A ch HP 40-150Hz/LP 80-3.3kHz; B ch HP 80-3.3kHz; sub LP 50-500Hz 24dB/oct. Pre-In 0.2-5V, Speaker-In 0.8-20V. On-board fuse per spec table: 2 x 40A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 100
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 100,
+        "thdPercent": 0.08,
+        "dampingFactor": 50,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "hertz-cp-5-1k",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "CP 5.1K",
+      "series": "Cento",
+      "sourceUrl": "https://hertz-audio.com/product/cp-5-1k/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. 5-ch: sub ch 330W@4ohm, 510W@2ohm (SNR 116dB, DF 180). 3-ch: 260W x2 bridged@4ohm + sub. Front HP 50-5000Hz; rear HP/BP; sub LP 50-500Hz 24dB/oct; subsonic 25Hz; bass boost 0-9dB (sub). Pre-In 0.32-8V, Speaker-In 1.6-40V. Current 48A. On-board fuse per spec table: 2 x 30A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 130
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 40,
+        "snrDb": 101,
+        "thdPercent": 0.01,
+        "dampingFactor": 160,
+        "fuseRatingA": 60,
+        "efficiencyPercent": 83,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "hertz-cp-4-800",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "CP 4.800",
+      "series": "Cento",
+      "sourceUrl": "https://hertz-audio.com/product/cp-4-800/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. HP/LP 50-4000Hz 12dB/oct; bass boost 0-9dB rear ch; subsonic listed as feature (freq not given). Pre-In 0.32-8V, Speaker-In 1.6-40V. On-board fuse per spec table: 1 x 40A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 110,
+          "2ohm": 190,
+          "bridged4ohm": 380
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 40,
+        "snrDb": 101,
+        "thdPercent": 0.02,
+        "dampingFactor": 100,
+        "fuseRatingA": 40,
+        "efficiencyPercent": 85,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "hertz-hcp-4dk",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "HCP 4DK",
+      "series": "HCP",
+      "sourceUrl": "https://hertz-audio.com/product/hcp-4dk/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. HP/LP 50Hz-3.2kHz 12dB/oct; bass boost 0-12dB @50Hz; no subsonic. Pre-In 0.2-5V, Speaker-In 0.8-20V. Current 40A. On-board fuse per spec table: 2 x 35A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 120,
+          "2ohm": 220,
+          "bridged4ohm": 440
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 105,
+        "thdPercent": 0.03,
+        "dampingFactor": 200,
+        "fuseRatingA": 70,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": false
+      }
+    },
+    {
+      "id": "hertz-hcp-4",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "HCP 4",
+      "series": "HCP",
+      "sourceUrl": "https://hertz-audio.com/product/hcp-4/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. HP 80Hz fixed 12dB/oct; LP 50-500Hz 12dB/oct; bass boost 0/6/12dB @50Hz. Pre-In 0.2-5V, Speaker-In 0.8-20V. Current 21A. On-board fuse per spec table: 2 x 20A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 55,
+          "2ohm": 85,
+          "bridged4ohm": 170
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 103,
+        "thdPercent": 0.01,
+        "dampingFactor": 120,
+        "fuseRatingA": 40,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "hertz-hcp-5d",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "HCP 5D",
+      "series": "HCP",
+      "sourceUrl": "https://hertz-audio.com/product/hcp-5d/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. 5-ch: sub ch 160W@4ohm, 280W@2ohm (DF 250). 3-ch: 180W x2 + sub. Front/rear HP 50Hz-5kHz 12dB/oct; sub LP 50-500Hz 24dB/oct; subsonic 25Hz; bass boost 0-12dB @50Hz. Current 30A. On-board fuse per spec table: 2 x 25A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 55,
+          "2ohm": 90
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 100,
+        "thdPercent": 0.02,
+        "dampingFactor": 100,
+        "fuseRatingA": 50,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasHpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "hertz-sp-4-900",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "SP 4.900",
+      "series": "SPL",
+      "sourceUrl": "https://hertz-audio.com/product/sp-4-900/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. Pre-In 0.6-6V, Speaker-In 2.2-22V. HP/LP 50Hz-5kHz 12dB/oct; bass boost 0-8dB (LP on). Operates 6-16VDC. Current 50A. Fuse not stated.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 160,
+          "2ohm": 250,
+          "bridged4ohm": 500
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 105,
+        "thdPercent": 0.02,
+        "dampingFactor": 200,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 8,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "hertz-sp-4-500",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "SP 4.500",
+      "series": "SPL",
+      "sourceUrl": "https://hertz-audio.com/product/sp-4-500/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. Pre-In 0.6-6V, Speaker-In 2.2-22V. HP/LP 50Hz-5kHz 12dB/oct; bass boost 0-8dB @45Hz ch3-4. Efficiency 'up to 87%'. Fuse not stated.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 90,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 100,
+        "thdPercent": 0.02,
+        "dampingFactor": 150,
+        "efficiencyPercent": 87,
+        "amplifierClass": "D",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 8,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "hertz-dp-4-400",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "DP 4.400",
+      "series": "Dieci",
+      "sourceUrl": "https://hertz-audio.com/product/dp-4-400/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. HP/LP 50-4000Hz 12dB/oct; bass boost 0-9dB. Pre-In 0.32-8V, Speaker-In 1.6-40V. On-board fuse per spec table: 2 x 25A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 105,
+          "bridged4ohm": 210
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 40,
+        "snrDb": 101,
+        "thdPercent": 0.01,
+        "dampingFactor": 130,
+        "fuseRatingA": 50,
+        "efficiencyPercent": 60,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "hertz-dp-4-300",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "DP 4.300",
+      "series": "Dieci",
+      "sourceUrl": "https://hertz-audio.com/product/dp-4-300/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. HP/LP 50-4000Hz 12dB/oct; bass boost 0-9dB. Pre-In 0.32-8V, Speaker-In 1.6-40V. On-board fuse per spec table: 2 x 20A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 85,
+          "bridged4ohm": 170
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 40,
+        "snrDb": 100,
+        "thdPercent": 0.015,
+        "dampingFactor": 105,
+        "fuseRatingA": 40,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    },
+    {
+      "id": "hertz-dp-2-200",
+      "category": "ampMulti",
+      "brand": "Hertz",
+      "model": "DP 2.200",
+      "series": "Dieci",
+      "sourceUrl": "https://hertz-audio.com/product/dp-2-200/",
+      "verified": true,
+      "notes": "RMS @14.4VDC, 1% THD (Hertz tech data). thdPercent = THD @100Hz, 4ohm, 70% rated power. SNR A-wtd. HP/LP 50-4000Hz 12dB/oct; bass boost 0-9dB. Pre-In 0.32-8V, Speaker-In 1.6-40V. On-board fuse per spec table: 1 x 20A.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 110,
+          "bridged4ohm": 220
+        },
+        "inputSensitivityMinV": 0.32,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 40,
+        "snrDb": 100,
+        "thdPercent": 0.01,
+        "dampingFactor": 130,
+        "fuseRatingA": 20,
+        "amplifierClass": "AB",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 9,
+        "hasLpf": true,
+        "hasHpf": true
+      }
+    }
+  ]
+}
