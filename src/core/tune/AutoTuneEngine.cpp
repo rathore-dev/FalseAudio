@@ -396,11 +396,30 @@ bool AutoTuneEngine::runStages (Result& result)
     if (cancelled()) return false;
     progress (0.70, "Equalising left, then right to left"); solver.equalise();
     if (cancelled()) return false;
+
+    // Refine before analyseSum() so the sum-dip check reports on the refined settings.
+    advanced::Outcome refined;
+    if (options.competitionRefine)
+    {
+        progress (0.80, "Competition refinement (phase, levels, crossovers, EQ)");
+        advanced::Options ao;
+        ao.maxIterations = std::max (20, options.refineIterations);
+        ao.allowAllPass = config.caps.hasAllPass;
+        refined = advanced::refine (config, data, ao);   // restores config itself if there is no gain
+        if (cancelled()) return false;
+    }
+
     progress (0.95, "Checking the L+R sum");              solver.analyseSum();
+    result.sqScore = advanced::judge (config, data);
+    result.refineCostBefore = refined.costBefore;
+    result.refineCostAfter = refined.costAfter;
 
     result.report = solver.getReport();
     for (auto& n : crossoverNotes)
         result.report.notes.insert (0, n);
+    for (auto& n : refined.notes)
+        result.report.notes.add (n);
+    result.report.notes.add ("Simulated SQ judge: " + juce::String (result.sqScore.total, 1) + " / 100");
     progress (1.0, "Solved");
 
     //==========================================================================

@@ -1,0 +1,890 @@
+#include "Optimizer.h"
+#include "PredictionModel.h"
+#include "../CrossoverPlanner.h"
+#include <array>
+
+namespace fa::advanced
+{
+using detail::Model;
+
+namespace
+{
+/** Owns the optimisation state: one ChannelSettings per model channel plus cached responses,
+    so moving one parameter only recomputes the channel(s) it touches.
+
+    Cost (all terms roughly in dB, lower is better):
+      tonal      ERB-smoothed, position-power-averaged response of each side vs the anchored target,
+                 25 Hz..16 kHz, weighted by sqrt(ERB density) x spatial consistency (frequencies where
+                 the mic positions disagree are position-dependent and not worth chasing); dips count
+                 0.6x (less audible than peaks). RMS, mean of both sides.
+      symmetry   RMS L-R difference 100 Hz..10 kHz (x1.5 in the 200 Hz..4 kHz imaging band).
+      sumLR      coherent-summation loss of L+R (+sub): 10log10(mean (|FL|+|FR|+|M|)^2 / mean |FL+FR+M|^2),
+                 ERB smoothed, 40 Hz..1.5 kHz (where seat-to-seat phase is still controllable).
+      sumSide    same per side over all its drivers, 40 Hz..10 kHz (crossover holes).
+      boost      boostPenalty x (0.1 x every dB of EQ boost + 0.2 x boost that lands where positions
+                 disagree, i.e. boosting into cancellations + 0.1 x channel gain added).
+      reg        tiny pull towards the input (keeps changes meaningful and deterministic). */
+class Problem
+{
+public:
+    Problem (const SystemConfig& c, const DriverDataMap& d, const Options& o)
+        : cfg (c), model (c, d), opts (o)
+    {
+        for (auto& mc : model.channels())
+            init.push_back (cfg.channels[mc.cfgIndex].settings);
+        state = init;
+        cache.resize (state.size());
+        for (size_t k = 0; k < state.size(); ++k)
+            rebuild (k);
+
+        const auto fl = model.sum (contribs());
+        wsL = detail::spatialWeights (model, fl, 0);
+        wsR = detail::spatialWeights (model, fl, 1);
+
+        for (size_t k = 0; k < state.size(); ++k)
+            halfPeriod.push_back (500.0 / phaseFrequency (k));
+    }
+
+    const Model& getModel() const { return model; }
+    size_t numChannels() const { return state.size(); }
+    const OutputChannel& channel (size_t k) const { return cfg.channels[model.channels()[k].cfgIndex]; }
+
+    /** Frequency whose half period bounds a channel's fine delay search. */
+    double phaseFrequency (size_t k) const
+    {
+        const auto& s = init[k];
+        const auto role = model.channels()[k].role;
+        if (role == DriverRole::subwoofer)
+            return s.lowPass.enabled ? s.lowPass.freq : 80.0;
+        if (role == DriverRole::tweeter || ! s.lowPass.enabled)
+            return s.highPass.enabled ? s.highPass.freq : 1000.0;
+        return s.lowPass.freq;
+    }
+
+    double getHalfPeriod (size_t k) const { return halfPeriod[k]; }
+
+    //==========================================================================
+    struct Cache
+    {
+        std::vector<std::vector<cplx>> parts;     // HP, LP, peq...
+        std::vector<cplx> filt;
+        std::vector<std::vector<cplx>> contrib;   // [pos][freq]
+    };
+
+    std::vector<ChannelSettings> state, init;
+    std::vector<Cache> cache;
+
+    std::vector<const std::vector<std::vector<cplx>>*> contribs() const
+    {
+        std::vector<const std::vector<std::vector<cplx>>*> c;
+        for (auto& ch : cache)
+            c.push_back (&ch.contrib);
+        return c;
+    }
+
+    std::vector<cplx> partOf (const FilterSpec& spec) const
+    {
+        const auto r = spec.response (model.freqs(), model.sampleRate());
+        return r.values;
+    }
+
+    void product (size_t k)
+    {
+        auto& c = cache[k];
+        c.filt.assign (model.size(), cplx (1.0, 0.0));
+        for (auto& p : c.parts)
+            for (size_t i = 0; i < p.size(); ++i)
+                c.filt[i] *= p[i];
+        model.contribution (k, state[k], c.filt, c.contrib);
+    }
+
+    void rebuild (size_t k)
+    {
+        auto& c = cache[k];
+        c.parts.clear();
+        c.parts.push_back (partOf (state[k].highPass));
+        c.parts.push_back (partOf (state[k].lowPass));
+        for (auto& p : state[k].peq)
+            c.parts.push_back (partOf (p));
+        product (k);
+    }
+
+    void contribOnly (size_t k) { model.contribution (k, state[k], cache[k].filt, cache[k].contrib); }
+
+    //==========================================================================
+    CostBreakdown cost() const
+    {
+        CostBreakdown cb;
+        const auto& f = model.freqs();
+        const auto& t = model.targetDb();
+        const auto& we = model.erbWeights();
+        const auto N = model.size();
+        const int P = model.numPositions();
+        // One pass over channels/positions accumulates every power spectrum the terms need
+        // (identical to Model::sum + sideDb, without the per-position storage).
+        auto& pL = scratch[0]; auto& pR = scratch[1]; auto& idLR = scratch[2]; auto& acLR = scratch[3];
+        auto& idL = scratch[4]; auto& idR = scratch[5];
+        for (auto* v : { &pL, &pR, &idLR, &acLR, &idL, &idR })
+            v->assign (N, 0.0);
+        sFL.resize (N); sFR.resize (N); sM.resize (N); mL.resize (N); mR.resize (N);
+
+        for (int p = 0; p < P; ++p)
+        {
+            std::fill (sFL.begin(), sFL.end(), cplx (0.0, 0.0));
+            std::fill (sFR.begin(), sFR.end(), cplx (0.0, 0.0));
+            std::fill (sM.begin(), sM.end(), cplx (0.0, 0.0));
+            std::fill (mL.begin(), mL.end(), 0.0);
+            std::fill (mR.begin(), mR.end(), 0.0);
+            for (size_t k = 0; k < cache.size(); ++k)
+            {
+                const auto side = model.channels()[k].side;
+                const auto& c = cache[k].contrib[(size_t) p];
+                auto& dst = side == Side::left ? sFL : side == Side::right ? sFR : sM;
+                for (size_t i = 0; i < N; ++i)
+                {
+                    dst[i] += c[i];
+                    const double m = std::abs (c[i]);
+                    if (side != Side::right) mL[i] += m;
+                    if (side != Side::left)  mR[i] += m;
+                }
+            }
+            for (size_t i = 0; i < N; ++i)
+            {
+                const cplx l = sFL[i] + sM[i], r = sFR[i] + sM[i];
+                pL[i] += std::norm (l);
+                pR[i] += std::norm (r);
+                const double ideal = std::abs (sFL[i]) + std::abs (sFR[i]) + std::abs (sM[i]);
+                idLR[i] += ideal * ideal;
+                acLR[i] += std::norm (sFL[i] + sFR[i] + sM[i]);
+                idL[i] += mL[i] * mL[i];
+                idR[i] += mR[i] * mR[i];
+            }
+        }
+
+        std::vector<double> L = model.erbSmooth (pL), R = model.erbSmooth (pR);
+        for (size_t i = 0; i < N; ++i)
+        {
+            L[i] = dbFromPower (L[i] / P);
+            R[i] = dbFromPower (R[i] / P);
+        }
+        const double off = detail::anchorOffset (model, L, R);
+
+        auto tonalSide = [&] (const std::vector<double>& d, const std::vector<double>& ws)
+        {
+            double acc = 0.0, wsum = 0.0;
+            for (size_t i = 0; i < N; ++i)
+            {
+                if (f[i] < 25.0 || f[i] > 16000.0)
+                    continue;
+                const double e = d[i] - t[i] - off;
+                const double w = we[i] * ws[i];
+                acc += w * (e < 0.0 ? 0.6 : 1.0) * e * e;
+                wsum += w;
+            }
+            return wsum > 0.0 ? std::sqrt (acc / wsum) : 0.0;
+        };
+        cb.tonal = 0.5 * (tonalSide (L, wsL) + tonalSide (R, wsR));
+
+        {
+            double acc = 0.0, wsum = 0.0;
+            for (size_t i = 0; i < N; ++i)
+            {
+                if (f[i] < 100.0 || f[i] > 10000.0)
+                    continue;
+                const double w = we[i] * (f[i] >= 200.0 && f[i] <= 4000.0 ? 1.5 : 1.0) * std::min (wsL[i], wsR[i]);
+                acc += w * (L[i] - R[i]) * (L[i] - R[i]);
+                wsum += w;
+            }
+            cb.symmetry = wsum > 0.0 ? std::sqrt (acc / wsum) : 0.0;
+        }
+
+        auto summationLoss = [&] (const std::vector<double>& idealPow, const std::vector<double>& actualPow, double f1, double f2)
+        {
+            const auto id = model.erbSmooth (idealPow), ac = model.erbSmooth (actualPow);
+            double acc = 0.0, wsum = 0.0;
+            for (size_t i = 0; i < N; ++i)
+            {
+                if (f[i] < f1 || f[i] > f2 || id[i] <= 1e-20)
+                    continue;
+                acc += we[i] * std::max (0.0, dbFromPower (id[i]) - dbFromPower (ac[i]));
+                wsum += we[i];
+            }
+            return wsum > 0.0 ? acc / wsum : 0.0;
+        };
+
+        cb.summationLR = summationLoss (idLR, acLR, 40.0, 1500.0);
+        cb.summationSide = 0.5 * (summationLoss (idL, pL, 40.0, 10000.0) + summationLoss (idR, pR, 40.0, 10000.0));
+
+        // Boost: every dB costs a little, boost where positions disagree costs more, and so does
+        // channel gain added on top of what the solver chose.
+        double boost = 0.0;
+        for (size_t k = 0; k < state.size(); ++k)
+        {
+            const auto side = model.channels()[k].side;
+            for (auto& b : state[k].peq)
+            {
+                if (! b.enabled || b.gainDb <= 0.0
+                    || ! (b.type == FilterType::peaking || b.type == FilterType::lowShelf || b.type == FilterType::highShelf))
+                    continue;
+                const auto i = std::min (N - 1, (size_t) (std::lower_bound (f.begin(), f.end(), b.freq) - f.begin()));
+                const double ws = side == Side::left ? wsL[i] : side == Side::right ? wsR[i] : std::min (wsL[i], wsR[i]);
+                boost += 0.1 * b.gainDb + 0.2 * b.gainDb * (1.0 - ws);
+            }
+            boost += 0.1 * std::max (0.0, state[k].gainDb - init[k].gainDb);
+        }
+        cb.boost = opts.boostPenalty * boost;
+
+        double reg = 0.0;
+        for (size_t k = 0; k < state.size(); ++k)
+        {
+            reg += 0.02 * std::abs (state[k].delayMs - init[k].delayMs) / halfPeriod[k];
+            reg += 0.005 * std::abs (state[k].gainDb - init[k].gainDb);
+            reg += state[k].inverted != init[k].inverted ? 0.15 : 0.0;
+            if (state[k].highPass.freq != init[k].highPass.freq) reg += 0.01;
+            if (state[k].lowPass.freq != init[k].lowPass.freq)   reg += 0.01;
+        }
+        cb.regularisation = reg;
+
+        cb.total = opts.tonalWeight * cb.tonal + opts.symmetryWeight * cb.symmetry
+                 + opts.summationWeight * (cb.summationLR + cb.summationSide) + cb.boost + cb.regularisation;
+        return cb;
+    }
+
+private:
+    const SystemConfig& cfg;
+    Model model;
+    Options opts;
+    std::vector<double> wsL, wsR, halfPeriod;
+
+    // Scratch buffers reused by cost() (single-threaded use only).
+    mutable std::array<std::vector<double>, 6> scratch;
+    mutable std::vector<cplx> sFL, sFR, sM;
+    mutable std::vector<double> mL, mR;
+};
+
+//==============================================================================
+/** Coordinate descent with adaptive steps + deterministic random restarts. */
+class Search
+{
+public:
+    Search (Problem& p, const SystemConfig& c, const Options& o)
+        : pr (p), cfg (c), opts (o), rng (0x5EED1234)
+    {
+        budget = std::max (2000, opts.maxIterations * 60);
+        best = pr.cost().total;
+    }
+
+    enum class Kind { delay, gain, polarity, bandGain, xoverPair, xoverLP, xoverHP };
+
+    struct Param
+    {
+        Kind kind;
+        size_t k = 0, k2 = (size_t) -1;
+        int band = -1;
+        double lo = 0, hi = 0, step = 1, minStep = 1, cur = 0;
+        double base1 = 0, base2 = 0;   // crossover reference frequencies
+        double minHp = 0;              // safety floor for the HP that moves
+    };
+
+    double run()
+    {
+        buildParams();
+        descend();
+
+        if (tryDiscreteMoves())
+        {
+            buildParams();
+            descend();
+        }
+
+        // Random restarts from the best point (escape local minima of the phase landscape).
+        for (int r = 0; r < 6 && evals < budget; ++r)
+        {
+            const auto saved = snapshot();
+            const double savedCost = best;
+
+            for (size_t k = 0; k < pr.numChannels(); ++k)
+            {
+                if (! subAllowed (k))
+                    continue;
+                auto& s = pr.state[k];
+                const double hp = pr.getHalfPeriod (k);
+                s.delayMs = quantDelay (juce::jlimit (delayLo (k), delayHi (k), s.delayMs + (rng.nextDouble() - 0.5) * hp));
+                s.gainDb = quantGain (juce::jlimit (gainLo (k), gainHi (k), s.gainDb + (rng.nextDouble() - 0.5) * 1.0));
+                pr.contribOnly (k);
+            }
+            best = pr.cost().total;
+            buildParams();
+            descend();
+
+            if (best >= savedCost)
+            {
+                restore (saved);
+                best = savedCost;
+            }
+        }
+        return best;
+    }
+
+    int evaluations() const { return evals; }
+
+private:
+    Problem& pr;
+    const SystemConfig& cfg;
+    Options opts;
+    juce::Random rng;
+    std::vector<Param> params;
+    double best = 0.0;
+    int evals = 0, budget = 0;
+
+    bool subAllowed (size_t k) const
+    {
+        return opts.tuneSubIntegration || pr.getModel().channels()[k].role != DriverRole::subwoofer;
+    }
+
+    double quantDelay (double v) const
+    {
+        const double st = std::max (1e-4, cfg.caps.delayStepMs);
+        return std::round (v / st) * st;
+    }
+    double quantGain (double v) const
+    {
+        const double st = std::max (1e-3, cfg.caps.gainStepDb);
+        return std::round (v / st) * st;
+    }
+
+    double delayLo (size_t k) const
+    {
+        const double st = std::max (1e-4, cfg.caps.delayStepMs);
+        return std::ceil (std::max (0.0, pr.init[k].delayMs - pr.getHalfPeriod (k)) / st - 1e-9) * st;
+    }
+    double delayHi (size_t k) const
+    {
+        const double st = std::max (1e-4, cfg.caps.delayStepMs);
+        return std::floor (std::min (cfg.caps.maxDelayMs, pr.init[k].delayMs + pr.getHalfPeriod (k)) / st + 1e-9) * st;
+    }
+    double gainLo (size_t k) const { return std::min (pr.init[k].gainDb, std::max (cfg.caps.minChannelGainDb, pr.init[k].gainDb - 3.0)); }
+    double gainHi (size_t k) const { return std::max (pr.init[k].gainDb, std::min (cfg.caps.maxChannelGainDb, pr.init[k].gainDb + 3.0)); }
+
+    double bandBoostLimit (size_t k, double freq) const
+    {
+        double lim = std::min (cfg.safety.maxBoostDb, cfg.caps.peqMaxGainDb);
+        const auto& s = pr.init[k];
+        if (pr.getModel().channels()[k].role != DriverRole::subwoofer && s.highPass.enabled && freq < 2.0 * s.highPass.freq)
+            lim = std::min (lim, cfg.safety.maxLowFreqBoostDb);   // excursion protection
+        return lim;
+    }
+
+    double minHighPass (size_t k) const
+    {
+        const auto& ch = pr.channel (k);
+        return CrossoverPlanner::safeHighPassHz (ch, cfg.safety);
+    }
+
+    //==========================================================================
+    void buildParams()
+    {
+        params.clear();
+        const auto& mch = pr.getModel().channels();
+
+        // 1) phase: delays and polarity
+        for (size_t k = 0; k < mch.size(); ++k)
+        {
+            if (! subAllowed (k) || pr.state[k].muted)
+                continue;
+            Param p { Kind::delay, k };
+            p.lo = delayLo (k);
+            p.hi = delayHi (k);
+            p.cur = pr.state[k].delayMs;
+            p.minStep = std::max (1e-4, cfg.caps.delayStepMs);
+            p.step = std::max (p.minStep, quantDelay (pr.getHalfPeriod (k) / 4.0));
+            params.push_back (p);
+
+            Param q { Kind::polarity, k };
+            params.push_back (q);
+        }
+
+        // 2) levels
+        for (size_t k = 0; k < mch.size(); ++k)
+        {
+            if (! subAllowed (k) || pr.state[k].muted)
+                continue;
+            Param p { Kind::gain, k };
+            p.lo = gainLo (k);
+            p.hi = gainHi (k);
+            p.cur = pr.state[k].gainDb;
+            p.minStep = std::max (1e-3, cfg.caps.gainStepDb);
+            p.step = std::max (p.minStep, 1.0);
+            params.push_back (p);
+        }
+
+        // 3) crossover points (1/24-octave moves, +-1/3 octave, both sides of each pair together)
+        for (auto side : { Side::left, Side::right })
+        {
+            std::vector<size_t> chain;
+            for (size_t k = 0; k < mch.size(); ++k)
+                if (mch[k].side == side && mch[k].role != DriverRole::subwoofer && ! pr.state[k].muted)
+                    chain.push_back (k);
+            std::sort (chain.begin(), chain.end(), [this] (size_t a, size_t b)
+            {
+                return pr.init[a].highPass.freq < pr.init[b].highPass.freq;
+            });
+
+            for (size_t i = 0; i + 1 < chain.size(); ++i)
+            {
+                const auto lo = chain[i], up = chain[i + 1];
+                if (! pr.init[lo].lowPass.enabled || ! pr.init[up].highPass.enabled)
+                    continue;
+                Param p { Kind::xoverPair, lo, up };
+                p.base1 = pr.init[lo].lowPass.freq;
+                p.base2 = pr.init[up].highPass.freq;
+                p.minHp = minHighPass (up);
+                p.cur = currentOctaveSteps (pr.state[up].highPass.freq, p.base2);
+                p.lo = -8; p.hi = 8; p.step = 2; p.minStep = 1;
+                params.push_back (p);
+            }
+
+            // Sub <-> front: the lowest front way's HP moves on its own.
+            if (! chain.empty() && cfg.hasSubwoofer() && opts.tuneSubIntegration && pr.init[chain[0]].highPass.enabled)
+            {
+                Param p { Kind::xoverHP, chain[0] };
+                p.base2 = pr.init[chain[0]].highPass.freq;
+                p.minHp = minHighPass (chain[0]);
+                p.cur = currentOctaveSteps (pr.state[chain[0]].highPass.freq, p.base2);
+                p.lo = -6; p.hi = 6; p.step = 2; p.minStep = 1;
+                params.push_back (p);
+            }
+        }
+        for (size_t k = 0; k < mch.size(); ++k)
+        {
+            if (mch[k].role != DriverRole::subwoofer || ! opts.tuneSubIntegration || ! pr.init[k].lowPass.enabled)
+                continue;
+            Param p { Kind::xoverLP, k };
+            p.base1 = pr.init[k].lowPass.freq;
+            p.cur = currentOctaveSteps (pr.state[k].lowPass.freq, p.base1);
+            p.lo = -6; p.hi = 6; p.step = 2; p.minStep = 1;
+            params.push_back (p);
+        }
+
+        // 4) EQ band gains (redistribution happens through these plus discrete band moves)
+        for (size_t k = 0; k < mch.size(); ++k)
+        {
+            if (! subAllowed (k) || pr.state[k].muted)
+                continue;
+            for (int b = 0; b < (int) pr.state[k].peq.size(); ++b)
+            {
+                const auto& band = pr.state[k].peq[(size_t) b];
+                if (! band.enabled || ! (band.type == FilterType::peaking || band.type == FilterType::lowShelf
+                                         || band.type == FilterType::highShelf))
+                    continue;
+                Param p { Kind::bandGain, k };
+                p.band = b;
+                p.cur = band.gainDb;
+                p.lo = std::min (p.cur, std::max (cfg.caps.peqMinGainDb, p.cur - 6.0));
+                p.hi = std::max (p.cur, std::min (bandBoostLimit (k, band.freq), p.cur + 6.0));
+                p.minStep = std::max (1e-3, cfg.caps.gainStepDb);
+                p.step = std::max (p.minStep, 1.0);
+                params.push_back (p);
+            }
+        }
+    }
+
+    static double currentOctaveSteps (double f, double base)
+    {
+        return std::round (std::log2 (f / base) * 24.0);
+    }
+
+    //==========================================================================
+    struct Snapshot
+    {
+        std::vector<ChannelSettings> state;
+        std::vector<Problem::Cache> cache;
+    };
+    Snapshot snapshot() const { return { pr.state, pr.cache }; }
+    void restore (const Snapshot& s) { pr.state = s.state; pr.cache = s.cache; }
+
+    /** Applies a parameter value; returns false if it violates a constraint (state untouched). */
+    bool apply (const Param& p, double v, std::vector<size_t>& touched)
+    {
+        auto snap = [this] (double base, double steps) { return CrossoverPlanner::snapFrequency (base * std::pow (2.0, steps / 24.0), cfg.caps); };
+        touched.clear();
+        switch (p.kind)
+        {
+            case Kind::delay:
+                pr.state[p.k].delayMs = v;
+                pr.contribOnly (p.k);
+                touched.push_back (p.k);
+                return true;
+            case Kind::gain:
+                pr.state[p.k].gainDb = v;
+                pr.contribOnly (p.k);
+                touched.push_back (p.k);
+                return true;
+            case Kind::polarity:
+                pr.state[p.k].inverted = ! pr.state[p.k].inverted;
+                pr.contribOnly (p.k);
+                touched.push_back (p.k);
+                return true;
+            case Kind::bandGain:
+            {
+                auto& band = pr.state[p.k].peq[(size_t) p.band];
+                band.gainDb = v;
+                pr.cache[p.k].parts[(size_t) p.band + 2] = pr.partOf (band);
+                pr.product (p.k);
+                touched.push_back (p.k);
+                return true;
+            }
+            case Kind::xoverPair:
+            {
+                const double lp = snap (p.base1, v), hp = snap (p.base2, v);
+                const auto& upS = pr.state[p.k2];
+                const auto& loS = pr.state[p.k];
+                if (hp < std::min (p.minHp, p.base2) - 1e-6) return false;          // tweeter/mid safety
+                if (upS.lowPass.enabled && hp > upS.lowPass.freq / 1.5) return false;
+                if (loS.highPass.enabled && lp < loS.highPass.freq * 1.5) return false;
+                pr.state[p.k].lowPass.freq = lp;
+                pr.state[p.k2].highPass.freq = hp;
+                pr.cache[p.k].parts[1] = pr.partOf (pr.state[p.k].lowPass);
+                pr.cache[p.k2].parts[0] = pr.partOf (pr.state[p.k2].highPass);
+                pr.product (p.k);
+                pr.product (p.k2);
+                touched = { p.k, p.k2 };
+                return true;
+            }
+            case Kind::xoverHP:
+            {
+                const double hp = snap (p.base2, v);
+                const auto& s = pr.state[p.k];
+                if (hp < std::min (p.minHp, p.base2) - 1e-6) return false;
+                if (s.lowPass.enabled && hp > s.lowPass.freq / 1.5) return false;
+                pr.state[p.k].highPass.freq = hp;
+                pr.cache[p.k].parts[0] = pr.partOf (pr.state[p.k].highPass);
+                pr.product (p.k);
+                touched.push_back (p.k);
+                return true;
+            }
+            case Kind::xoverLP:
+            {
+                const double lp = snap (p.base1, v);
+                const auto& s = pr.state[p.k];
+                if (s.highPass.enabled && lp < s.highPass.freq * 1.5) return false;
+                pr.state[p.k].lowPass.freq = lp;
+                pr.cache[p.k].parts[1] = pr.partOf (pr.state[p.k].lowPass);
+                pr.product (p.k);
+                touched.push_back (p.k);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** Tries one value; keeps it only if the cost drops. */
+    bool tryValue (const Param& p, double v)
+    {
+        if (evals >= budget)
+            return false;
+
+        // Save only what the parameter can change (copying whole caches dominated the run time).
+        struct Saved
+        {
+            size_t k;
+            ChannelSettings s;
+            std::vector<cplx> filt, part;
+            std::vector<std::vector<cplx>> contrib;
+            int partIndex = -1;
+        };
+        std::vector<Saved> saved;
+        for (auto k : { p.k, p.k2 })
+        {
+            if (k >= pr.numChannels())
+                continue;
+            Saved sv { k, pr.state[k], {}, {}, pr.cache[k].contrib };
+            if (p.kind == Kind::bandGain)       sv.partIndex = p.band + 2;
+            else if (p.kind == Kind::xoverHP)   sv.partIndex = 0;
+            else if (p.kind == Kind::xoverLP)   sv.partIndex = 1;
+            else if (p.kind == Kind::xoverPair) sv.partIndex = k == p.k ? 1 : 0;
+            if (sv.partIndex >= 0)
+            {
+                sv.filt = pr.cache[k].filt;
+                sv.part = pr.cache[k].parts[(size_t) sv.partIndex];
+            }
+            saved.push_back (std::move (sv));
+        }
+
+        std::vector<size_t> touched;
+        if (! apply (p, v, touched))
+            return false;
+
+        ++evals;
+        const double c = pr.cost().total;
+        if (c < best - 1e-9)
+        {
+            best = c;
+            return true;
+        }
+        for (auto& sv : saved)
+        {
+            auto& cache = pr.cache[sv.k];
+            pr.state[sv.k] = std::move (sv.s);
+            cache.contrib = std::move (sv.contrib);
+            if (sv.partIndex >= 0)
+            {
+                cache.filt = std::move (sv.filt);
+                cache.parts[(size_t) sv.partIndex] = std::move (sv.part);
+            }
+        }
+        return false;
+    }
+
+    double quantise (const Param& p, double v) const
+    {
+        switch (p.kind)
+        {
+            case Kind::delay:    return quantDelay (v);
+            case Kind::gain:
+            case Kind::bandGain: return quantGain (v);
+            default:             return std::round (v);
+        }
+    }
+
+    void descend()
+    {
+        std::vector<size_t> order (params.size());
+        for (size_t i = 0; i < order.size(); ++i)
+            order[i] = i;
+
+        for (int sweep = 0; sweep < 200 && evals < budget; ++sweep)
+        {
+            // Deterministic shuffle within each group keeps the search unbiased.
+            for (size_t i = order.size(); i > 1; --i)
+                std::swap (order[i - 1], order[(size_t) rng.nextInt ((int) i)]);
+
+            bool improved = false, allMin = true;
+            for (auto idx : order)
+            {
+                auto& p = params[idx];
+                if (p.kind == Kind::polarity)
+                {
+                    if (tryValue (p, 0.0))
+                        improved = true;
+                    continue;
+                }
+
+                bool moved = false;
+                for (int dir : { 1, -1 })
+                {
+                    for (;;)
+                    {
+                        const double nv = quantise (p, juce::jlimit (p.lo, p.hi, p.cur + dir * p.step));
+                        if (std::abs (nv - p.cur) < 1e-9 || nv < p.lo - 1e-9 || nv > p.hi + 1e-9)
+                            break;
+                        if (! tryValue (p, nv))
+                            break;
+                        p.cur = nv;
+                        moved = true;
+                    }
+                    if (moved)
+                        break;
+                }
+                if (moved)
+                    improved = true;
+                else
+                    p.step = std::max (p.minStep, p.step * 0.5);
+                if (p.step > p.minStep + 1e-12)
+                    allMin = false;
+            }
+            if (! improved && allMin)
+                break;
+        }
+    }
+
+    /** Discrete moves: hand an EQ band to the overlapping driver, optional all-pass at a crossover. */
+    bool tryDiscreteMoves()
+    {
+        bool any = false;
+        const auto& mch = pr.getModel().channels();
+        const int slots = cfg.caps.peqBandsPerChannel;
+
+        for (size_t k = 0; k < mch.size(); ++k)
+        {
+            for (int b = (int) pr.state[k].peq.size() - 1; b >= 0; --b)
+            {
+                const auto band = pr.state[k].peq[(size_t) b];
+                if (band.type != FilterType::peaking)
+                    continue;
+                for (size_t j = 0; j < mch.size(); ++j)
+                {
+                    if (j == k || mch[j].side != mch[k].side || (int) pr.state[j].peq.size() >= slots || ! subAllowed (j))
+                        continue;
+                    // Only between drivers that overlap at the band's frequency (within the crossover region).
+                    const auto& sj = pr.state[j];
+                    const double jlo = sj.highPass.enabled && mch[j].role != DriverRole::subwoofer ? sj.highPass.freq : 10.0;
+                    const double jhi = sj.lowPass.enabled ? sj.lowPass.freq : 40000.0;
+                    if (band.freq < jlo / 1.41 || band.freq > jhi * 1.41)
+                        continue;
+                    if (band.gainDb > bandBoostLimit (j, band.freq))
+                        continue;
+
+                    if (evals >= budget)
+                        return any;
+                    const auto saved = snapshot();
+                    pr.state[k].peq.erase (pr.state[k].peq.begin() + b);
+                    pr.state[j].peq.push_back (band);
+                    pr.rebuild (k);
+                    pr.rebuild (j);
+                    ++evals;
+                    const double c = pr.cost().total;
+                    if (c < best - 1e-9)
+                    {
+                        best = c;
+                        any = true;
+                        break;
+                    }
+                    restore (saved);
+                }
+            }
+        }
+
+        if (opts.allowAllPass && cfg.caps.hasAllPass)
+        {
+            for (auto& p : params)
+            {
+                if (p.kind != Kind::xoverPair)
+                    continue;
+                const double fc = pr.state[p.k].lowPass.freq;
+                for (auto k : { p.k, p.k2 })
+                {
+                    if ((int) pr.state[k].peq.size() >= slots)
+                        continue;
+                    for (double fm : { 0.7, 1.0, 1.4 })
+                        for (double q : { 0.5, 0.7, 1.0 })
+                        {
+                            if (evals >= budget)
+                                return any;
+                            FilterSpec ap;
+                            ap.type = FilterType::allPass;
+                            ap.freq = CrossoverPlanner::snapFrequency (fc * fm, cfg.caps);
+                            ap.q = q;
+                            const auto saved = snapshot();
+                            pr.state[k].peq.push_back (ap);
+                            pr.rebuild (k);
+                            ++evals;
+                            const double c = pr.cost().total;
+                            if (c < best - 1e-9)
+                            {
+                                best = c;
+                                any = true;
+                            }
+                            else
+                                restore (saved);
+                        }
+                }
+            }
+        }
+        return any;
+    }
+};
+
+juce::String describeChange (const juce::String& what, double a, double b, int decimals, const juce::String& unit)
+{
+    const double d = b - a;
+    return what + " " + juce::String (a, decimals) + " -> " + juce::String (b, decimals) + " " + unit
+         + " (" + (d >= 0 ? "+" : "") + juce::String (d, decimals) + ")";
+}
+} // namespace
+
+//==============================================================================
+CostBreakdown evaluateCost (const SystemConfig& config, const DriverDataMap& data, const Options& options)
+{
+    Problem pr (config, data, options);
+    return pr.cost();
+}
+
+Outcome refine (SystemConfig& config, const DriverDataMap& data, const Options& options)
+{
+    Outcome out;
+    const SystemConfig original = config;
+
+    Problem pr (config, data, options);
+    if (pr.numChannels() == 0)
+    {
+        out.notes.add ("Refinement skipped: no measured channels.");
+        return out;
+    }
+
+    const auto before = pr.cost();
+    out.costBefore = before.total;
+
+    Search search (pr, config, options);
+    search.run();
+
+    // Rebuild every cache from the settings and recompute from scratch, so the decision below
+    // is made on exactly what will be written to the DSP.
+    for (size_t k = 0; k < pr.numChannels(); ++k)
+        pr.rebuild (k);
+    const auto after = pr.cost();
+    out.costAfter = after.total;
+
+    if (! (after.total < before.total - 1e-9))
+    {
+        config = original;
+        out.costAfter = out.costBefore;
+        out.notes.add ("Refinement: no change improved the predicted result (cost "
+                       + juce::String (before.total, 3) + "); tune left exactly as solved.");
+        return out;
+    }
+
+    auto line = [] (const CostBreakdown& c)
+    {
+        return "tonal " + juce::String (c.tonal, 2) + " dB, L/R " + juce::String (c.symmetry, 2) + " dB, L+R loss "
+             + juce::String (c.summationLR, 2) + " dB, crossover loss " + juce::String (c.summationSide, 2) + " dB";
+    };
+    out.notes.add ("Refinement (" + juce::String (search.evaluations()) + " evaluations): cost "
+                   + juce::String (before.total, 3) + " -> " + juce::String (after.total, 3));
+    out.notes.add ("  before: " + line (before));
+    out.notes.add ("  after:  " + line (after));
+
+    for (size_t k = 0; k < pr.numChannels(); ++k)
+    {
+        auto& ch = config.channels[pr.getModel().channels()[k].cfgIndex];
+        const auto& a = pr.init[k];
+        const auto& b = pr.state[k];
+        const double fc = pr.phaseFrequency (k);
+
+        if (std::abs (b.delayMs - a.delayMs) > 1e-6)
+            out.notes.add (ch.label + ": " + describeChange ("delay", a.delayMs, b.delayMs, 2, "ms")
+                           + (ch.role == DriverRole::subwoofer ? " - sub/front phase at " : " - phase match at ")
+                           + juce::String (fc, 0) + " Hz across all mic positions");
+        if (a.inverted != b.inverted)
+            out.notes.add (ch.label + ": polarity " + (b.inverted ? "inverted" : "normal")
+                           + " - sums better with its neighbours (fewer cancellations).");
+        if (std::abs (b.gainDb - a.gainDb) > 1e-6)
+            out.notes.add (ch.label + ": " + describeChange ("level", a.gainDb, b.gainDb, 1, "dB") + " - band balance/L-R symmetry");
+        if (std::abs (b.highPass.freq - a.highPass.freq) > 1e-6 && b.highPass.enabled)
+            out.notes.add (ch.label + ": " + describeChange ("high-pass", a.highPass.freq, b.highPass.freq, 0, "Hz")
+                           + " (safe minimum " + juce::String (CrossoverPlanner::safeHighPassHz (ch, config.safety), 0) + " Hz respected)");
+        if (std::abs (b.lowPass.freq - a.lowPass.freq) > 1e-6 && b.lowPass.enabled)
+            out.notes.add (ch.label + ": " + describeChange ("low-pass", a.lowPass.freq, b.lowPass.freq, 0, "Hz")
+                           + " - smoother summation with the neighbouring way");
+
+        int changedBands = 0;
+        double moved = 0.0;
+        const size_t common = std::min (a.peq.size(), b.peq.size());
+        for (size_t i = 0; i < common; ++i)
+            if (std::abs (a.peq[i].gainDb - b.peq[i].gainDb) > 1e-6 || a.peq[i].freq != b.peq[i].freq)
+            {
+                ++changedBands;
+                moved += std::abs (a.peq[i].gainDb - b.peq[i].gainDb);
+            }
+        if (changedBands > 0)
+            out.notes.add (ch.label + ": " + juce::String (changedBands) + " EQ band(s) re-balanced (total "
+                           + juce::String (moved, 1) + " dB moved)");
+        if (b.peq.size() != a.peq.size())
+            out.notes.add (ch.label + ": EQ bands " + juce::String ((int) a.peq.size()) + " -> " + juce::String ((int) b.peq.size())
+                           + " (bands handed between overlapping drivers / all-pass added)");
+
+        ch.settings = b;
+    }
+    return out;
+}
+} // namespace fa::advanced

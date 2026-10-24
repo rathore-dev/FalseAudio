@@ -3,6 +3,7 @@
 #include <juce_events/juce_events.h>
 #include "SystemSolver.h"
 #include "CrossoverPlanner.h"
+#include "advanced/Optimizer.h"
 #include "../audio/MeasurementSource.h"
 #include "../bridge/DspController.h"
 
@@ -38,6 +39,8 @@ public:
         double acceptableErrorDb = 1.5;   // stop correcting once the side error is below this
         bool   useBandTargets = false;    // level-match bands to the house curve's per-band targets
                                           // (when config.target is a TargetLibrary built-in with bands)
+        bool   competitionRefine = true;  // joint perceptual optimisation after the solver (advanced::refine)
+        int    refineIterations = 200;    // ~90 % of the gain of 400 in half the time
     };
 
     struct UserAction
@@ -62,6 +65,8 @@ public:
         double leftErrorDb = 0.0, rightErrorDb = 0.0, matchDb = 0.0;
         int score = 0;                                       // 0..100
         double seconds = 0.0;
+        advanced::JudgeScore sqScore;                        // simulated SQ judge on the final settings
+        double refineCostBefore = 0.0, refineCostAfter = 0.0;
     };
 
     struct Listener

@@ -68,6 +68,9 @@ public:
     std::function<void (const juce::String&)> onNodeSelected;
     std::function<void (double freq, double value)> onBackgroundDoubleClick; // e.g. add EQ band
 
+    /** Back to the ranges given by setRanges() (also ctrl+double-click). */
+    void resetView();
+
     // coordinate helpers (public for overlays)
     float xForFreq (double f) const;
     float yForValue (double v) const;
@@ -137,15 +140,21 @@ public:
     void setHighlight (const juce::String& channelId);
     void setArrivals (std::map<juce::String, double> arrivalMs);
     void setSeat (int seat); // 0 driver, 1 passenger, 2 centre
+    void setRightHandDrive (bool rhd);   // default false (driver seat on the left)
     std::function<void (const juce::String& channelId)> onChannelClicked;
     void paint (juce::Graphics&) override;
     void mouseUp (const juce::MouseEvent&) override;
     void mouseMove (const juce::MouseEvent&) override;
+    void mouseExit (const juce::MouseEvent&) override;
 private:
     SystemConfig config;
     juce::String highlight, hover;
     std::map<juce::String, double> arrivals;
     int seat = 0;
-    std::map<juce::String, juce::Point<float>> speakerPositions() const;
+    bool rightHandDrive = false;
+    std::map<juce::String, juce::Point<float>> speakerPositions() const;   // normalised car space
+    juce::AffineTransform carTransform() const;                             // car space -> pixels
+    juce::Point<float> seatPosition() const;
+    juce::String channelAt (juce::Point<float> localPos) const;
 };
 } // namespace fa::ui
