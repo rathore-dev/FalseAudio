@@ -191,6 +191,26 @@ void Session::useManualDsp()
     sendChangeMessage();
 }
 
+bool Session::useNativeMiniDsp (const MiniDspController::Options& options, juce::String& error)
+{
+    auto c = std::make_unique<MiniDspController> (options);
+    if (! c->connect (error))
+        return false;
+    config.caps = c->getCapabilities();
+    setDspController (std::move (c), DspKind::nativeMiniDsp);
+    return true;
+}
+
+bool Session::useNativeDsp408 (const Dsp408Controller::Options& options, juce::String& error)
+{
+    auto c = std::make_unique<Dsp408Controller> (options);
+    if (! c->connect (error))
+        return false;
+    config.caps = c->getCapabilities();
+    setDspController (std::move (c), DspKind::nativeDsp408);
+    return true;
+}
+
 void Session::useUIAutomationDsp (const DspProfile& profile, std::function<void*()> windowProvider)
 {
     auto controller = std::make_unique<UIAutomationController> (profile, std::move (windowProvider),

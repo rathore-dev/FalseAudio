@@ -8,6 +8,8 @@
 #include "bridge/DspController.h"
 #include "bridge/Exporters.h"
 #include "bridge/UIAutomationController.h"
+#include "bridge/native/MiniDspController.h"
+#include "bridge/native/Dsp408Controller.h"
 #include "sim/VirtualRig.h"
 #include "tune/AutoTuneEngine.h"
 
@@ -23,7 +25,7 @@ class Session : public juce::ChangeBroadcaster,
 {
 public:
     enum class Mode { demo, live };
-    enum class DspKind { virtualDemo, manual, uiAutomation };
+    enum class DspKind { virtualDemo, manual, uiAutomation, nativeMiniDsp, nativeDsp408 };
 
     Session();
     ~Session() override;
@@ -57,6 +59,11 @@ public:
     /** Drive the vendor's DSP software with a taught profile. The window provider returns the
         HWND of the DSP app (e.g. DspWindowHost::getAttached().handle). */
     void useUIAutomationDsp (const DspProfile& profile, std::function<void*()> windowProvider);
+
+    /** Direct USB control (no UI clicking). Both connect read-only and back up the device's
+        current state before the first write. Return false with an error if the unit isn't found. */
+    bool useNativeMiniDsp (const MiniDspController::Options& options, juce::String& error);
+    bool useNativeDsp408 (const Dsp408Controller::Options& options, juce::String& error);
     DspController& getDsp();
     MeasurementSource& getSource();
 
