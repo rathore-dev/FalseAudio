@@ -1,0 +1,138 @@
+{
+  "products": [
+    {
+      "id": "gladen-aerospace-20",
+      "category": "driverTweeter",
+      "brand": "Gladen",
+      "model": "Aerospace 20",
+      "series": "Aerospace",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-aerospace-lautsprecher/gladen-aerospace-20",
+      "verified": true,
+      "notes": "20 mm silk dome. Recommended HP > 3000 Hz 12 dB/oct.",
+      "driver": {
+        "sizeInches": 0.8,
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 1000,
+        "sensitivityDb": 92.5,
+        "sensitivityRef": "2.83V/1m",
+        "recommendedHpHz": 3000
+      }
+    },
+    {
+      "id": "gladen-aerospace-28",
+      "category": "driverTweeter",
+      "brand": "Gladen",
+      "model": "Aerospace 28",
+      "series": "Aerospace",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-aerospace-lautsprecher/gladen-aerospace-28",
+      "verified": true,
+      "notes": "28 mm silk dome. Recommended HP > 2200 Hz 12 dB/oct.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 720,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "recommendedHpHz": 2200
+      }
+    },
+    {
+      "id": "gladen-aerospace-60-amt",
+      "category": "driverTweeter",
+      "brand": "Gladen",
+      "model": "Aerospace 60 AMT",
+      "series": "Aerospace",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-aerospace-lautsprecher/gladen-aerospace-60-amt",
+      "verified": true,
+      "notes": "AMT tweeter. Recommended HP > 3500 Hz 18 dB/oct. Power listed '12 / 50 Watt' (assumed RMS/max).",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 4,
+        "fsHz": 2400,
+        "sensitivityDb": 92,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 12,
+        "powerPeakW": 50,
+        "freqLowHz": 2500,
+        "freqHighHz": 32000,
+        "recommendedHpHz": 3500
+      }
+    },
+    {
+      "id": "gladen-gamma-gt25",
+      "category": "driverTweeter",
+      "brand": "Gladen",
+      "model": "Gamma GT25",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-gt25",
+      "verified": true,
+      "notes": "25 mm carbon-fibre-graphene dome. Recommended HP > 2800 Hz 24 dB/oct. Gamma component sets rate it 80 W (3.5 kHz 24 dB/oct).",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "fsHz": 1050,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "recommendedHpHz": 2800
+      }
+    },
+    {
+      "id": "gladen-pro-25",
+      "category": "driverTweeter",
+      "brand": "Gladen",
+      "model": "PRO 25",
+      "series": "PRO",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-pro-lautsprecher/gladen-pro-25",
+      "verified": true,
+      "notes": "25 mm silk dome. Recommended HP > 3000 Hz 12 dB/oct.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 720,
+        "recommendedHpHz": 3000
+      }
+    },
+    {
+      "id": "gladen-sigma-22",
+      "category": "driverTweeter",
+      "brand": "Gladen",
+      "model": "Sigma 22",
+      "series": "Sigma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-sigma-lautsprecher/gladen-sigma-22",
+      "verified": true,
+      "notes": "22 mm silk dome. Recommended HP > 2800 Hz 24 dB/oct. Sigma 165.2 page rates it 120/80 W (3.5 kHz 24 dB/oct).",
+      "driver": {
+        "sizeInches": 0.87,
+        "nominalOhms": 4,
+        "reOhms": 3.63,
+        "fsHz": 790,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "recommendedHpHz": 2800
+      }
+    },
+    {
+      "id": "gladen-zeta-zt-30",
+      "category": "driverTweeter",
+      "brand": "Gladen",
+      "model": "Zeta ZT 30",
+      "series": "Zeta",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-zeta-lautsprecher/gladen-zeta-zt-30",
+      "verified": true,
+      "notes": "30 mm silk soft dome. Recommended HP > 2000 Hz 24 dB/oct. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 1.2,
+        "nominalOhms": 4,
+        "reOhms": 3.548,
+        "fsHz": 600,
+        "powerRmsW": 60,
+        "powerPeakW": 100,
+        "recommendedHpHz": 2000
+      }
+    }
+  ]
+}

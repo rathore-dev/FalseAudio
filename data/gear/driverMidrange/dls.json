@@ -1,0 +1,93 @@
+{
+  "products": [
+    {
+      "id": "dls-rc3",
+      "category": "driverMidrange",
+      "brand": "DLS",
+      "model": "RC3",
+      "series": "Reference",
+      "sourceUrl": "https://dls.se/product/rc3/",
+      "verified": true,
+      "notes": "3\" coated wood-fibre cone, outer diameter 90 mm.",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 4,
+        "sensitivityDb": 86.1,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 100,
+        "freqHighHz": 23000,
+        "mountingDepthMm": 35,
+        "cutoutMm": 75
+      }
+    },
+    {
+      "id": "dls-rc3c",
+      "category": "driverMidrange",
+      "brand": "DLS",
+      "model": "RC3C",
+      "series": "Reference",
+      "sourceUrl": "https://dls.se/product/rc3c/",
+      "verified": true,
+      "notes": "3\" coated wood-fibre cone, outer diameter 90 mm.",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 4,
+        "sensitivityDb": 85.4,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 100,
+        "freqHighHz": 12000,
+        "mountingDepthMm": 35,
+        "cutoutMm": 75
+      }
+    },
+    {
+      "id": "dls-rc50",
+      "category": "driverMidrange",
+      "brand": "DLS",
+      "model": "RC50",
+      "series": "Reference",
+      "sourceUrl": "https://dls.se/product/rc50/",
+      "verified": true,
+      "notes": "50 mm wide-band dome tweeter/midrange with resonance chamber; outer diameter 84 mm.",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "sensitivityDb": 83.2,
+        "powerRmsW": 50,
+        "powerPeakW": 80,
+        "freqLowHz": 500,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 45,
+        "cutoutMm": 65
+      }
+    },
+    {
+      "id": "dls-scandinavia-75",
+      "category": "driverMidrange",
+      "brand": "DLS",
+      "model": "Scandinavia 75",
+      "series": "Scandinavia",
+      "sourceUrl": "https://dls.se/product/scandinavia-75/",
+      "verified": true,
+      "notes": "Coated paper cone midrange, 84 x 84 mm frame.",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 4,
+        "reOhms": 3.5,
+        "fsHz": 100,
+        "qms": 4.95,
+        "qes": 0.76,
+        "qts": 0.66,
+        "vasLitres": 1.59,
+        "bl": 3.06,
+        "sensitivityDb": 85.2,
+        "freqLowHz": 100,
+        "freqHighHz": 10000,
+        "mountingDepthMm": 38,
+        "cutoutMm": 76
+      }
+    }
+  ]
+}

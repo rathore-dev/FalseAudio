@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": "rainbow-el-x165s",
+      "category": "driverCoax",
+      "brand": "Rainbow",
+      "model": "EL-X165S",
+      "series": "Experience Line",
+      "sourceUrl": "https://www.rainbow-audio.de/speaker/experience-line/el-x165s/",
+      "verified": true,
+      "notes": "T/S from manual 280089 (09/2025); manual prints Sd as '12.87 cm2' - value 128.7 cm2 is consistent with Vas/Cms (562.4 um/N). Product page lists 3.2 ohm.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "reOhms": 3.2,
+        "fsHz": 67,
+        "qms": 4.94,
+        "qes": 1.53,
+        "qts": 1.17,
+        "mmsGrams": 10.0,
+        "sdCm2": 128.7,
+        "vasLitres": 13.22,
+        "bl": 2.96,
+        "sensitivityDb": 86,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 60,
+        "powerPeakW": 150,
+        "freqLowHz": 67,
+        "freqHighHz": 20000,
+        "cutoutMm": 144.5,
+        "mountingDepthMm": 62
+      }
+    },
+    {
+      "id": "rainbow-el-x165a",
+      "category": "driverCoax",
+      "brand": "Rainbow",
+      "model": "EL-X165A",
+      "series": "Experience Line",
+      "sourceUrl": "https://www.rainbow-audio.de/speaker/experience-line/el-x165a/",
+      "verified": true,
+      "notes": "Impedance listed as 3.4 ohm.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3.4,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 63,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "rainbow-el-x6a",
+      "category": "driverCoax",
+      "brand": "Rainbow",
+      "model": "EL-X6A",
+      "series": "Experience Line",
+      "sourceUrl": "https://www.rainbow-audio.de/speaker/experience-line/el-x6a/",
+      "verified": true,
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 90,
+        "powerPeakW": 180,
+        "freqLowHz": 62,
+        "freqHighHz": 20000
+      }
+    }
+  ]
+}

@@ -1,0 +1,439 @@
+{
+  "products": [
+    {
+      "id": "ground-zero-gzcc-165-2sql",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZCC 165.2SQL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcc-165-2sql-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover frequency 4500 Hz. Crossover: 2-way with double woofer option. Tweeter: GZCT 25SQL. High performance midwoofer: GZCK 165XSPL. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 96,
+        "powerRmsW": 160,
+        "powerPeakW": 300,
+        "freqLowHz": 50,
+        "freqHighHz": 22000,
+        "cutoutMm": 145,
+        "mountingDepthMm": 71.5
+      }
+    },
+    {
+      "id": "ground-zero-gzcc-200-2sql",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZCC 200.2SQL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcc-200-2sql-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover frequency 4500 Hz. Crossover: 2-way with double woofer option. Tweeter: GZCT 25SQL. High performance midwoofer: GZCK 200XSPL. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 7.87,
+        "nominalOhms": 4,
+        "sensitivityDb": 97,
+        "powerRmsW": 200,
+        "powerPeakW": 380,
+        "freqLowHz": 50,
+        "freqHighHz": 22000,
+        "cutoutMm": 183,
+        "mountingDepthMm": 86
+      }
+    },
+    {
+      "id": "ground-zero-gzcs-100-2bmw",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZCS 100.2BMW",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcs-100-2bmw/",
+      "verified": true,
+      "notes": "Car specific 2-way speakers. Voice coil 25 mm / 1″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 87,
+        "powerRmsW": 70,
+        "powerPeakW": 110,
+        "freqLowHz": 70,
+        "freqHighHz": 24000
+      }
+    },
+    {
+      "id": "ground-zero-gzcs-100-2mb-206c",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZCS 100.2MB-206C",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcs-100-2mb-206c/",
+      "verified": true,
+      "notes": "Car specific 2-way speakers. Voice coil 25 mm / 1″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "powerRmsW": 60,
+        "powerPeakW": 100,
+        "freqLowHz": 100,
+        "freqHighHz": 24000
+      }
+    },
+    {
+      "id": "ground-zero-gzcs-100-2mb",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZCS 100.2MB",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcs-100-2mb/",
+      "verified": true,
+      "notes": "Car specific 2-way speakers. Voice coil 25 mm / 1″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 87,
+        "powerRmsW": 70,
+        "powerPeakW": 110,
+        "freqLowHz": 70,
+        "freqHighHz": 24000
+      }
+    },
+    {
+      "id": "ground-zero-gzcs-200-2vw-t5-t6",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZCS 200.2VW-T5/T6",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcs-200-2vw-t5-t6-2/",
+      "verified": true,
+      "notes": "Car specific 2-way speakers. Crossover: 18 dB/oct high pass filter (Tweeter) / 6 dB/oct low pass filter (Woofer). Tweeter: 28 mm / 1.1″ silk dome. High performance midwoofer: Carbon fiber cone. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 7.87,
+        "nominalOhms": 4,
+        "sensitivityDb": 89,
+        "powerRmsW": 80,
+        "powerPeakW": 140,
+        "freqLowHz": 40,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "ground-zero-gzhc-165-2",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZHC 165.2",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzhc-165-2-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover frequency 4500 Hz. Crossover: Variable 2-way. Tweeter: GZHT 25S. High performance midwoofer: GZHK 165. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "freqLowHz": 40,
+        "freqHighHz": 24000,
+        "cutoutMm": 144,
+        "mountingDepthMm": 69
+      }
+    },
+    {
+      "id": "ground-zero-gzic-130-2",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZIC 130.2",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzic-130-2-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover: 12 dB/oct – high pass filter. Tweeter: 19 mm / 0.75 ” mylar dome. Cone/dome: HQPP cone with 3D-structure. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 5.12,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "powerRmsW": 90,
+        "powerPeakW": 140,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "cutoutMm": 117.5
+      }
+    },
+    {
+      "id": "ground-zero-gzic-165-2",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZIC 165.2",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzic-165-2-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover: 12 dB/oct – high pass filter. Tweeter: 19 mm / 0.75 ” mylar dome. Cone/dome: HQPP cone with 3D-structure. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gzic-165-2he",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZIC 165.2HE",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzic-165-2he-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover: 12 dB/oct – high pass filter. Tweeter: 19 mm / 0.75 ” mylar dome. Cone/dome: HQPP cone with 3D-structure. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 91,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "freqLowHz": 75,
+        "freqHighHz": 20000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 65
+      }
+    },
+    {
+      "id": "ground-zero-gzic-165-2spl",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZIC 165.2SPL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzic-165-2spl-2/",
+      "verified": true,
+      "notes": "2-way SPL component speakers. Crossover frequency 5000 Hz. Crossover: 12 dB/oct – high pass filter. Tweeter: 25 mm /1 ” mylar dome. Cone/dome: HQPP cone with 3D structure. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 89,
+        "powerRmsW": 120,
+        "powerPeakW": 200,
+        "freqLowHz": 45,
+        "freqHighHz": 20000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gzic-400fx",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZIC 400FX",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzic-400fx-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover: 2x HP / 2x LP. Tweeter: 19 mm / 0.75″ silk dome. Cone/dome: Coated Paper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 89,
+        "powerRmsW": 60,
+        "powerPeakW": 100,
+        "freqLowHz": 70,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 30
+      }
+    },
+    {
+      "id": "ground-zero-gzic-650fx",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZIC 650FX",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzic-650fx-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover: 2x HP / 2x LP. Tweeter: 19 mm / 0.75″ silk dome. Cone/dome: Coated Paper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "powerRmsW": 100,
+        "powerPeakW": 140,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 44
+      }
+    },
+    {
+      "id": "ground-zero-gzrc-165-2sqx",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZRC 165.2SQX",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzrc-165-2sqx-2/",
+      "verified": true,
+      "notes": "2-way SQ component speakers. Crossover frequency 4600 Hz. Crossover: 12/18 dB/Oct. Tweeter: GZRT 25SQ. High performance midwoofer: GZRK 165SQX. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 90,
+        "powerRmsW": 120,
+        "powerPeakW": 190,
+        "freqLowHz": 45,
+        "freqHighHz": 25000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gzrc-165-2sqx-iv",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZRC 165.2SQX-IV",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzrc-165-2sqx-iv/",
+      "verified": true,
+      "notes": "2-way SQ component speakers. Crossover frequency 4600 Hz. Crossover: 12/12 dB/Oct. Tweeter: GZRT 25SQ. High performance midwoofer: GZRK 165SQX. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 90,
+        "powerRmsW": 120,
+        "powerPeakW": 190,
+        "freqLowHz": 45,
+        "freqHighHz": 25000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gztc-130-2x",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZTC 130.2X",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gztc-130-2x-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover frequency 5500 Hz. Crossover: 6 & 12 dB/Oct. Tweeter: 20 mm / 0.79″ silk dome. Cone/dome: HQPP cone with 3D structure. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 5.12,
+        "nominalOhms": 3,
+        "sensitivityDb": 88.5,
+        "powerRmsW": 80,
+        "powerPeakW": 130,
+        "freqLowHz": 60,
+        "freqHighHz": 22000,
+        "cutoutMm": 117.5
+      }
+    },
+    {
+      "id": "ground-zero-gztc-165-2x",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZTC 165.2X",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gztc-165-2x-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover frequency 5500 Hz. Crossover: 6 & 12 dB/Oct. Tweeter: 19 mm / 0.75″ silk dome. Cone/dome: HQPP cone with 3D structure. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 90,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "freqLowHz": 50,
+        "freqHighHz": 22000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gztc-165-3x-act",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZTC 165.3X-ACT",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gztc-165-3x-act/",
+      "verified": true,
+      "notes": "3-way component speakers. Crossover frequency 430/6000 Hz. Tweeter: 19 mm / 0.75″ silk dome. Midrange speaker: GZTM 100NEO. Cone/dome: HQPP cone with 3D structure.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 150,
+        "powerPeakW": 200,
+        "freqLowHz": 50,
+        "freqHighHz": 22000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gztc-165-3x-ii",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZTC 165.3X-II",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gztc-165-3x-ii/",
+      "verified": true,
+      "notes": "3-way component speakers. Crossover frequency 430/6000 Hz. Crossover: 6/6/12 dB / Octave. Tweeter: GZTT 20S. Mid Range Speaker: GZTM 100NEO. Cone/dome: HQPP cone with 3D structure. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 91,
+        "powerRmsW": 120,
+        "powerPeakW": 180,
+        "freqLowHz": 50,
+        "freqHighHz": 22000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gzuc-165-2sq",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZUC 165.2SQ",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzuc-165-2sq-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Crossover frequency 4800 Hz. Tweeter: GZUT 28SQ. High performance midwoofer: GZUK 165SQ. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 89,
+        "powerRmsW": 140,
+        "powerPeakW": 230,
+        "freqLowHz": 40,
+        "freqHighHz": 25000,
+        "cutoutMm": 144,
+        "mountingDepthMm": 63
+      }
+    },
+    {
+      "id": "ground-zero-gzuc-165-2sq-act",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZUC 165.2SQ-ACT",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzuc-165-2sq-act-2/",
+      "verified": true,
+      "notes": "2-way component speakers. Impedance: 4 + 4 ohms. Power handling: 80 / 130 Watts + 120 / 180 Watts. Tweeter: GZUT 28SQ. High performance midwoofer: GZUK 165SQ.",
+      "driver": {
+        "sizeInches": 6.5,
+        "freqLowHz": 40,
+        "freqHighHz": 25000,
+        "cutoutMm": 144,
+        "mountingDepthMm": 63
+      }
+    },
+    {
+      "id": "ground-zero-gzuc-165-3sq",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZUC 165.3SQ",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzuc-165-3sq-2/",
+      "verified": true,
+      "notes": "3-way component speakers. Crossover frequency 450 / 4500 Hz. Crossover: Variable 3-way. Tweeter: GZUT 28SQ. Midrange Speaker: GZUM 55SQ. High performance midwoofer: GZUK 165SQ. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 89,
+        "freqLowHz": 40,
+        "freqHighHz": 25000,
+        "cutoutMm": 144,
+        "mountingDepthMm": 63
+      }
+    },
+    {
+      "id": "ground-zero-gzuc-165-3sq-act",
+      "category": "componentSet",
+      "brand": "Ground Zero",
+      "model": "GZUC 165.3SQ-ACT",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzuc-165-3sq-act-2/",
+      "verified": true,
+      "notes": "3-way component speakers for active use. Impedance: 4 + 4 + 4 ohms. Power handling: 80 / 90 / 120 Watts. Tweeter: GZUT 28SQ. Midrange Speaker: GZUM 55SQ. High performance midwoofer: GZUK 165SQ.",
+      "driver": {
+        "sizeInches": 6.5,
+        "freqLowHz": 40,
+        "freqHighHz": 25000,
+        "cutoutMm": 144,
+        "mountingDepthMm": 63
+      }
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "products": [
+    {
+      "id": "skar-audio-ndx33-st",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "NDX33-ST",
+      "sourceUrl": "https://www.skaraudio.com/products/ndx33-st-3-3-inch-neodymium-super-tweeters",
+      "verified": true,
+      "notes": "Super Tweeter. Skar rates power per pair (150 Watts (Pair) RMS / 300 Watts (Pair) peak); values here are per speaker. Includes bass-blocker capacitor. Magnet: Neodymium.",
+      "driver": {
+        "sizeInches": 3.3,
+        "nominalOhms": 4,
+        "sensitivityDb": 109.0,
+        "powerRmsW": 75.0,
+        "powerPeakW": 150.0,
+        "freqLowHz": 2000.0,
+        "freqHighHz": 25000.0,
+        "mountingDepthMm": 37.8,
+        "cutoutMm": 66.5
+      }
+    },
+    {
+      "id": "skar-audio-pd1-x",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "PD1-X",
+      "sourceUrl": "https://www.skaraudio.com/products/pd1-x-1-inch-horn-driver",
+      "verified": true,
+      "notes": "Compression Horn Driver. Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 1.0,
+        "nominalOhms": 8,
+        "sensitivityDb": 110.0,
+        "powerRmsW": 100.0,
+        "powerPeakW": 200.0,
+        "freqLowHz": 550.0,
+        "freqHighHz": 6000.0,
+        "mountingDepthMm": 60.5,
+        "cutoutMm": 34.3
+      }
+    },
+    {
+      "id": "skar-audio-spx-t",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "SPX-T",
+      "sourceUrl": "https://www.skaraudio.com/products/spx-t-1-inch-component-tweeters",
+      "verified": true,
+      "notes": "Component Tweeter. Skar rates power per pair (80 Watts (Pair) RMS / 320 Watts (Pair) peak); values here are per speaker. Magnet: Neodymium.",
+      "driver": {
+        "sizeInches": 1.0,
+        "nominalOhms": 4,
+        "sensitivityDb": 92.0,
+        "powerRmsW": 40.0,
+        "powerPeakW": 160.0,
+        "freqLowHz": 1300.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 15.5,
+        "cutoutMm": 46.7
+      }
+    },
+    {
+      "id": "skar-audio-tws-01",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "TWS-01",
+      "sourceUrl": "https://www.skaraudio.com/products/tws-01-1-inch-component-tweeters",
+      "verified": true,
+      "notes": "Component Tweeter. Skar rates power per pair (80 Watts (Pair) RMS / 240 Watts (Pair) peak); values here are per speaker. Magnet: Neodymium.",
+      "driver": {
+        "sizeInches": 1.0,
+        "nominalOhms": 4,
+        "sensitivityDb": 92.0,
+        "powerRmsW": 40.0,
+        "powerPeakW": 120.0,
+        "freqLowHz": 2000.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 14.7,
+        "cutoutMm": 41.7
+      }
+    },
+    {
+      "id": "skar-audio-tx-t",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "TX-T",
+      "sourceUrl": "https://www.skaraudio.com/products/tx-t-1-inch-component-tweeters",
+      "verified": true,
+      "notes": "Component Tweeter. Skar rates power per pair (120 Watts (Pair) RMS / 240 Watts (Pair) peak); values here are per speaker. Magnet: Neodymium.",
+      "driver": {
+        "sizeInches": 1.0,
+        "nominalOhms": 4,
+        "sensitivityDb": 93.0,
+        "powerRmsW": 60.0,
+        "powerPeakW": 120.0,
+        "freqLowHz": 1600.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 24.4,
+        "cutoutMm": 52.1
+      }
+    },
+    {
+      "id": "skar-audio-vx1-st",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "VX1-ST",
+      "sourceUrl": "https://www.skaraudio.com/products/vx1-st-1-inch-pro-audio-tweeters",
+      "verified": true,
+      "notes": "Super Tweeter. Skar rates power per pair (240 Watts (Pair) RMS / 480 Watts (Pair) peak); values here are per speaker. Includes bass-blocker capacitor. Magnet: Neodymium.",
+      "driver": {
+        "sizeInches": 1.0,
+        "nominalOhms": 4,
+        "sensitivityDb": 106.0,
+        "powerRmsW": 120.0,
+        "powerPeakW": 240.0,
+        "freqLowHz": 2200.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 43.2,
+        "cutoutMm": 42.4
+      }
+    },
+    {
+      "id": "skar-audio-vx175-st",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "VX175-ST",
+      "sourceUrl": "https://www.skaraudio.com/products/vx175-st-1-75-inch-pro-audio-tweeters",
+      "verified": true,
+      "notes": "Aluminum Bullet Tweeter. Skar rates power per pair (200 Watts (Pair) RMS / 400 Watts (Pair) peak); values here are per speaker. Includes bass-blocker capacitor. Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 1.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 99.0,
+        "powerRmsW": 100.0,
+        "powerPeakW": 200.0,
+        "freqLowHz": 2800.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 38.4,
+        "cutoutMm": 70.9
+      }
+    },
+    {
+      "id": "skar-audio-vx200-st",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "VX200-ST",
+      "sourceUrl": "https://www.skaraudio.com/products/vx200-st-1-8-inch-pro-audio-tweeters",
+      "verified": true,
+      "notes": "Aluminum Bullet Tweeter. Skar rates power per pair (200 Watts (Pair) RMS / 400 Watts (Pair) peak); values here are per speaker. Includes bass-blocker capacitor. Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 1.8,
+        "nominalOhms": 4,
+        "sensitivityDb": 100.0,
+        "powerRmsW": 100.0,
+        "powerPeakW": 200.0,
+        "freqLowHz": 3000.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 30.0,
+        "cutoutMm": 71.6
+      }
+    },
+    {
+      "id": "skar-audio-vx35-st",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "VX35-ST",
+      "sourceUrl": "https://www.skaraudio.com/products/vx35-st-3-5-inch-pro-audio-tweeters",
+      "verified": true,
+      "notes": "Titanium Bullet Tweeter. Skar rates power per pair (300 Watts (Pair) RMS / 500 Watts (Pair) peak); values here are per speaker. Includes bass-blocker capacitor. Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 101.0,
+        "powerRmsW": 150.0,
+        "powerPeakW": 250.0,
+        "freqLowHz": 2200.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 48.3,
+        "cutoutMm": 69.8
+      }
+    },
+    {
+      "id": "skar-audio-vx4-st",
+      "category": "driverTweeter",
+      "brand": "Skar Audio",
+      "model": "VX4-ST",
+      "sourceUrl": "https://www.skaraudio.com/products/vx4-st-4-inch-pro-audio-tweeter",
+      "verified": true,
+      "notes": "Titanium Bullet Tweeter. Includes bass-blocker capacitor. Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 4.0,
+        "nominalOhms": 4,
+        "sensitivityDb": 102.0,
+        "powerRmsW": 300.0,
+        "powerPeakW": 600.0,
+        "freqLowHz": 2500.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 63.8,
+        "cutoutMm": 91.4
+      }
+    }
+  ]
+}

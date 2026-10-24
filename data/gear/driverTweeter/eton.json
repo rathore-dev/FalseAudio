@@ -1,0 +1,75 @@
+{
+  "products": [
+    {
+      "id": "eton-hex-28",
+      "category": "driverTweeter",
+      "brand": "ETON",
+      "model": "HEX 28",
+      "series": "HEX",
+      "sourceUrl": "https://eton-audio.com/lautsprecher/hochtoner/hex-28.html",
+      "verified": true,
+      "notes": "28 mm coated fabric dome, neodymium. Power 120 W with passive crossover.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "reOhms": 3.6,
+        "leMh": 0.09,
+        "fsHz": 730,
+        "mmsGrams": 0.36,
+        "sdCm2": 9.5,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 120,
+        "cutoutMm": 53,
+        "mountingDepthMm": 22.9
+      }
+    },
+    {
+      "id": "eton-graphit-28",
+      "category": "driverTweeter",
+      "brand": "ETON",
+      "model": "GRAPHIT 28",
+      "series": "GRAPHIT",
+      "sourceUrl": "https://eton-audio.com/lautsprecher/hochtoner/graphit-28.html",
+      "verified": true,
+      "notes": "28 mm fabric dome. Power 120 W with passive crossover. Cutout/depth with mounting housing.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "leMh": 0.03,
+        "fsHz": 1090,
+        "mmsGrams": 0.33,
+        "sdCm2": 8.1,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 120,
+        "cutoutMm": 44,
+        "mountingDepthMm": 15.5
+      }
+    },
+    {
+      "id": "eton-cxs28",
+      "category": "driverTweeter",
+      "brand": "ETON",
+      "model": "CXS28+",
+      "sourceUrl": "https://eton-audio.com/lautsprecher/hochtoner/cxs28-plus.html",
+      "verified": true,
+      "notes": "28 mm fabric dome, 8 ohm. Power 120 W with passive crossover. Cutout/depth with mounting housing.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 8,
+        "reOhms": 6.5,
+        "leMh": 0.03,
+        "fsHz": 1340,
+        "mmsGrams": 0.26,
+        "sdCm2": 8.1,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 120,
+        "cutoutMm": 44,
+        "mountingDepthMm": 15.5
+      }
+    }
+  ]
+}

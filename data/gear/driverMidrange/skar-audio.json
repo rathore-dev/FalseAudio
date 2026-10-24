@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": "skar-audio-fsx10",
+      "category": "driverMidrange",
+      "brand": "Skar Audio",
+      "model": "FSX10",
+      "sourceUrl": "https://www.skaraudio.com/products/fsx10-10-inch-mid-range-speaker",
+      "verified": true,
+      "notes": "Mid-Range Loudspeaker. Magnet: Ferrite. Also available as 8 ohm (FSX10-8). Pro-audio style midrange; Skar publishes no T/S parameters on the product page.",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "sensitivityDb": 95.8,
+        "powerRmsW": 150.0,
+        "powerPeakW": 300.0,
+        "freqLowHz": 50.0,
+        "freqHighHz": 5000.0,
+        "mountingDepthMm": 94.2,
+        "cutoutMm": 231.9
+      }
+    },
+    {
+      "id": "skar-audio-fsx65",
+      "category": "driverMidrange",
+      "brand": "Skar Audio",
+      "model": "FSX65",
+      "sourceUrl": "https://www.skaraudio.com/products/fsx65-6-5-inch-mid-range-speaker",
+      "verified": true,
+      "notes": "Mid-Range Loudspeaker. Magnet: Ferrite. Also available as 8 ohm (FSX65-8). Pro-audio style midrange; Skar publishes no T/S parameters on the product page.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 92.5,
+        "powerRmsW": 150.0,
+        "powerPeakW": 300.0,
+        "freqLowHz": 100.0,
+        "freqHighHz": 8000.0,
+        "mountingDepthMm": 63.8,
+        "cutoutMm": 147.3
+      }
+    },
+    {
+      "id": "skar-audio-fsx8",
+      "category": "driverMidrange",
+      "brand": "Skar Audio",
+      "model": "FSX8",
+      "sourceUrl": "https://www.skaraudio.com/products/fsx8-8-inch-mid-range-speaker",
+      "verified": true,
+      "notes": "Mid-Range Loudspeaker. Magnet: Ferrite. Also available as 4 ohm (FSX8-4). Pro-audio style midrange; Skar publishes no T/S parameters on the product page.",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 8,
+        "sensitivityDb": 93.1,
+        "powerRmsW": 150.0,
+        "powerPeakW": 300.0,
+        "freqLowHz": 80.0,
+        "freqHighHz": 6000.0,
+        "mountingDepthMm": 77.0,
+        "cutoutMm": 183.1
+      }
+    },
+    {
+      "id": "skar-audio-npx65",
+      "category": "driverMidrange",
+      "brand": "Skar Audio",
+      "model": "NPX65",
+      "sourceUrl": "https://www.skaraudio.com/products/npx65-6-5-inch-mid-range-car-loud-speaker",
+      "verified": true,
+      "notes": "Mid-Range Loudspeaker. Magnet: Neodymium. Also available as 8 ohm (NPX65-8). Pro-audio style midrange; Skar publishes no T/S parameters on the product page.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 92.6,
+        "powerRmsW": 150.0,
+        "powerPeakW": 300.0,
+        "freqLowHz": 100.0,
+        "freqHighHz": 8000.0,
+        "mountingDepthMm": 47.8,
+        "cutoutMm": 142.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "products": [
+    {
+      "id": "ground-zero-gz-reference-k-165",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZ Reference K-165",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gz-reference-k-165/",
+      "verified": true,
+      "notes": "Pure-high-end midwoofer. Cone/dome: aluminum. Voice coil 37 mm / 1.46″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 46,
+        "sensitivityDb": 85,
+        "powerRmsW": 110,
+        "freqLowHz": 50,
+        "freqHighHz": 4500,
+        "cutoutMm": 144,
+        "mountingDepthMm": 70
+      }
+    },
+    {
+      "id": "ground-zero-gz-ultra-k-165",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZ ULTRA K-165",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gz-ultra-k-165-2/",
+      "verified": true,
+      "notes": "Ultra-high-end midwoofer. Cone/dome: Carbon-fleece sandwich. Voice coil 32,5 mm / 1.28″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 43,
+        "sensitivityDb": 87,
+        "powerRmsW": 100,
+        "powerPeakW": 160,
+        "freqLowHz": 45,
+        "freqHighHz": 5000,
+        "cutoutMm": 147,
+        "mountingDepthMm": 67
+      }
+    },
+    {
+      "id": "ground-zero-gzck-165xspl",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZCK 165XSPL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzck-165xspl-2/",
+      "verified": true,
+      "notes": "SPL midwoofer. Voice coil 38 mm / 1.5″ CCA.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 56.8,
+        "powerRmsW": 100,
+        "powerPeakW": 250,
+        "freqLowHz": 50,
+        "freqHighHz": 10000,
+        "cutoutMm": 145
+      }
+    },
+    {
+      "id": "ground-zero-gzck-165xspl-ii",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZCK 165XSPL-II",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzck-165xspl-ii-2/",
+      "verified": true,
+      "notes": "SPL midwoofer. Mounting depth 71,5 mm / 2.81″. Voice coil 38 mm / 1.5″ CCA.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 56.8,
+        "powerRmsW": 100,
+        "powerPeakW": 250,
+        "freqLowHz": 50,
+        "freqHighHz": 10000,
+        "cutoutMm": 145
+      }
+    },
+    {
+      "id": "ground-zero-gzck-200xspl",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZCK 200XSPL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzck-200xspl-2/",
+      "verified": true,
+      "notes": "SPL midwoofer. Mounting depth 71.5 mm / 2.81″, 86 mm / 3.39″. Voice coil 38 mm / 1.5″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 7.87,
+        "nominalOhms": 4,
+        "fsHz": 54.3,
+        "sensitivityDb": 93,
+        "powerRmsW": 150,
+        "powerPeakW": 300,
+        "freqLowHz": 50,
+        "freqHighHz": 6000,
+        "cutoutMm": 183
+      }
+    },
+    {
+      "id": "ground-zero-gzck-200xspl-ii",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZCK 200XSPL-II",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzck-200xspl-ii/",
+      "verified": true,
+      "notes": "SPL midwoofer. Voice coil 38 mm / 1.5″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 7.87,
+        "nominalOhms": 4,
+        "fsHz": 54.3,
+        "sensitivityDb": 93,
+        "powerRmsW": 150,
+        "powerPeakW": 300,
+        "freqLowHz": 50,
+        "freqHighHz": 6000,
+        "cutoutMm": 183,
+        "mountingDepthMm": 86
+      }
+    },
+    {
+      "id": "ground-zero-gzck-250xspl",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZCK 250XSPL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzck-250xspl-2/",
+      "verified": true,
+      "notes": "SPL midwoofer. Voice coil 50 mm / 2″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 9.84,
+        "nominalOhms": 4,
+        "fsHz": 44,
+        "sensitivityDb": 93,
+        "powerRmsW": 200,
+        "powerPeakW": 400,
+        "freqLowHz": 40,
+        "freqHighHz": 6000,
+        "cutoutMm": 235,
+        "mountingDepthMm": 110
+      }
+    },
+    {
+      "id": "ground-zero-gzcs-k-165vw",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZCS K-165VW",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcs-k-165vw/",
+      "verified": true,
+      "notes": "Car specific midrange speaker. Cone/dome: Reinforced paper. Voice coil 38 mm / 1.5″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "fsHz": 60,
+        "qts": 0.61,
+        "vasLitres": 11.4,
+        "sensitivityDb": 87,
+        "powerRmsW": 70,
+        "powerPeakW": 100,
+        "freqLowHz": 50,
+        "freqHighHz": 5000,
+        "cutoutMm": 142,
+        "mountingDepthMm": 62
+      }
+    },
+    {
+      "id": "ground-zero-gzcs-k-200vw",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZCS K-200VW",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcs-k-200vw/",
+      "verified": true,
+      "notes": "Car specific midrange speaker. Cone/dome: Reinforced paper. Voice coil 38 mm / 1.5″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 3,
+        "fsHz": 48,
+        "qts": 0.61,
+        "vasLitres": 30.3,
+        "sensitivityDb": 89,
+        "powerRmsW": 80,
+        "powerPeakW": 120,
+        "freqLowHz": 40,
+        "freqHighHz": 4500,
+        "cutoutMm": 180,
+        "mountingDepthMm": 70
+      }
+    },
+    {
+      "id": "ground-zero-gzcw-10proc",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZCW 10PROC",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcw-10proc/",
+      "verified": true,
+      "notes": "High-Power SPL midwoofer. Cone/dome: carbon fiber. Voice coil 75 mm / 3″ Copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "fsHz": 30,
+        "qts": 0.22,
+        "vasLitres": 53,
+        "sensitivityDb": 90,
+        "powerRmsW": 500,
+        "powerPeakW": 1000,
+        "freqLowHz": 30,
+        "freqHighHz": 2400,
+        "cutoutMm": 227,
+        "mountingDepthMm": 122
+      }
+    },
+    {
+      "id": "ground-zero-gzcw-10spl",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZCW 10SPL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcw-10spl/",
+      "verified": true,
+      "notes": "High-Power SPL midwoofer. Cone/dome: Non-pressed paper. Voice coil 75 mm / 3″ Copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "fsHz": 33,
+        "qts": 0.22,
+        "vasLitres": 50,
+        "sensitivityDb": 91,
+        "powerRmsW": 500,
+        "powerPeakW": 1000,
+        "freqLowHz": 30,
+        "freqHighHz": 2400,
+        "cutoutMm": 227,
+        "mountingDepthMm": 122
+      }
+    },
+    {
+      "id": "ground-zero-gzhk-165",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZHK 165",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzhk-165-2/",
+      "verified": true,
+      "notes": "High power midwoofer. Cone/dome: Scooped paper. Voice coil 38 mm / 1.5″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 49.4,
+        "sensitivityDb": 87,
+        "powerRmsW": 120,
+        "powerPeakW": 180,
+        "freqLowHz": 40,
+        "freqHighHz": 5000,
+        "cutoutMm": 144,
+        "mountingDepthMm": 69
+      }
+    },
+    {
+      "id": "ground-zero-gzik-165spl",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZIK 165SPL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzik-165spl-2/",
+      "verified": true,
+      "notes": "SPL midwoofer. Cone/dome: HQPP cone with 3D structure. Voice coil 25 mm / 1″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "fsHz": 61.5,
+        "sensitivityDb": 87,
+        "powerRmsW": 80,
+        "powerPeakW": 120,
+        "freqLowHz": 60,
+        "freqHighHz": 4000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gznk-165sq-k",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZNK 165SQ-K",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gznk-165sq-k/",
+      "verified": true,
+      "notes": "High-quality SQ midwoofer. Cone/dome: Kevlar. Voice coil 38 mm / 1.5″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 43,
+        "sensitivityDb": 88,
+        "powerRmsW": 130,
+        "powerPeakW": 190,
+        "freqLowHz": 40,
+        "freqHighHz": 5000,
+        "cutoutMm": 144,
+        "mountingDepthMm": 70
+      }
+    },
+    {
+      "id": "ground-zero-gzpk-165sq-c",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZPK 165SQ-C",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzpk-165sq-c/",
+      "verified": true,
+      "notes": "High-quality SQ midwoofer. Cone/dome: Aluminum-ceramics. Voice coil 38 mm / 1.5″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 38,
+        "sensitivityDb": 89,
+        "powerRmsW": 140,
+        "powerPeakW": 200,
+        "freqLowHz": 40,
+        "freqHighHz": 5000,
+        "cutoutMm": 144,
+        "mountingDepthMm": 70
+      }
+    },
+    {
+      "id": "ground-zero-gzrk-165sqx",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZRK 165SQX",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzrk-165sqx-2/",
+      "verified": true,
+      "notes": "High power midwoofer. Cone/dome: Black anodized aluminum. Voice coil 25 mm / 1″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "fsHz": 60.1,
+        "sensitivityDb": 90,
+        "powerRmsW": 120,
+        "powerPeakW": 160,
+        "freqLowHz": 45,
+        "freqHighHz": 15000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gztk-165",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZTK 165",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gztk-165-2/",
+      "verified": true,
+      "notes": "High power midwoofer. Cone/dome: HQPP cone with 3D structure.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 80,
+        "powerPeakW": 100,
+        "freqLowHz": 50,
+        "freqHighHz": 4000,
+        "cutoutMm": 142.5,
+        "mountingDepthMm": 68
+      }
+    },
+    {
+      "id": "ground-zero-gzuk-165sq",
+      "category": "driverMidbass",
+      "brand": "Ground Zero",
+      "model": "GZUK 165SQ",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzuk-165sq-2/",
+      "verified": true,
+      "notes": "Sound quality midwoofer. Cone/dome: anodized aluminum. Voice coil 50 mm / 2″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 54.6,
+        "sensitivityDb": 87,
+        "powerRmsW": 120,
+        "powerPeakW": 180,
+        "freqLowHz": 40,
+        "freqHighHz": 3500,
+        "cutoutMm": 144,
+        "mountingDepthMm": 63
+      }
+    }
+  ]
+}

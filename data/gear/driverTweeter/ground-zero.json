@@ -1,0 +1,512 @@
+{
+  "products": [
+    {
+      "id": "ground-zero-gz-reference-t-26",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZ Reference T-26",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gz-reference-t-26/",
+      "verified": true,
+      "notes": "Pure-high-end tweeter. Cone/dome: titanium. Voice coil 20 mm / 0.79”. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.02,
+        "nominalOhms": 4,
+        "fsHz": 1240,
+        "sensitivityDb": 91,
+        "powerRmsW": 40,
+        "freqLowHz": 1400,
+        "freqHighHz": 25000,
+        "cutoutMm": 48,
+        "mountingDepthMm": 29
+      }
+    },
+    {
+      "id": "ground-zero-gz-ultra-t-30",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZ ULTRA T-30",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gz-ultra-t-30-2/",
+      "verified": true,
+      "notes": "Ultra-high-end tweeter. Cone/dome: coated textile. Voice coil CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.18,
+        "nominalOhms": 4,
+        "fsHz": 500,
+        "sensitivityDb": 82,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "freqLowHz": 1000,
+        "freqHighHz": 26000,
+        "cutoutMm": 60,
+        "mountingDepthMm": 41
+      }
+    },
+    {
+      "id": "ground-zero-gz-ultra-t-30s",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZ ULTRA T-30S",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gz-ultra-t-30s/",
+      "verified": true,
+      "notes": "Ultra-high-end tweeter. Cone/dome: coated textile. Voice coil CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.18,
+        "nominalOhms": 4,
+        "fsHz": 500,
+        "sensitivityDb": 82,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "freqLowHz": 1000,
+        "freqHighHz": 26000,
+        "cutoutMm": 60,
+        "mountingDepthMm": 41
+      }
+    },
+    {
+      "id": "ground-zero-gzcs-t-25s",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCS T-25S",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcs-t-25s/",
+      "verified": true,
+      "notes": "25 mm / 1″ tweeter. Voice coil 25 mm / 1″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "fsHz": 1460,
+        "sensitivityDb": 87,
+        "powerRmsW": 50,
+        "powerPeakW": 80,
+        "freqLowHz": 4000,
+        "freqHighHz": 20000,
+        "cutoutMm": 44,
+        "mountingDepthMm": 22
+      }
+    },
+    {
+      "id": "ground-zero-gzcs-t-25vw",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCS T-25VW",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzcs-t-25vw/",
+      "verified": true,
+      "notes": "Car specific tweeter for VW and identical brands. Listed low frequency limit (4 Hz) looks like a typo; omitted. Voice coil 25 mm / 1″ copper. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 87,
+        "powerRmsW": 50,
+        "powerPeakW": 80,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "ground-zero-gzct-0500x",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 0500X",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-0500x-2/",
+      "verified": true,
+      "notes": "Compression tweeter with aluminum dome. Cone/dome: Aluminum. Voice coil 25 mm / 1″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 102,
+        "powerRmsW": 30,
+        "powerPeakW": 100,
+        "freqLowHz": 4000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 43
+      }
+    },
+    {
+      "id": "ground-zero-gzct-19n-prox-b",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 19N-PROX B",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-19n-prox-b-2/",
+      "verified": true,
+      "notes": "High end compression tweeter with neodymium magnet. Cutout 60 x 46 mm. Cone/dome: Titan. Voice coil 25 mm / 1″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 109,
+        "powerRmsW": 30,
+        "powerPeakW": 100,
+        "freqLowHz": 3000,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 48
+      }
+    },
+    {
+      "id": "ground-zero-gzct-20n-pro",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 20N-PRO",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-20n-pro-2/",
+      "verified": true,
+      "notes": "High end compression tweeter with neodymium magnet. Mounting depth 29 – 48 mm / 1.14 – 1.89″. Cone/dome: Polyester. Voice coil 25 mm / 1″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 109,
+        "powerRmsW": 30,
+        "powerPeakW": 100,
+        "freqLowHz": 3000,
+        "freqHighHz": 22000,
+        "cutoutMm": 44
+      }
+    },
+    {
+      "id": "ground-zero-gzct-25m-spl",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 25M-SPL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-25m-spl-2/",
+      "verified": true,
+      "notes": "High-performance tweeter with Mylar dome. Crossover frequency 5500 Hz (Crossover high pass frequency). Cone/dome: Mylar. Voice coil 25 mm / 1″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 0.98,
+        "nominalOhms": 4,
+        "sensitivityDb": 84,
+        "powerRmsW": 70,
+        "powerPeakW": 100,
+        "freqLowHz": 3000,
+        "freqHighHz": 20000,
+        "cutoutMm": 48,
+        "mountingDepthMm": 16,
+        "recommendedHpHz": 5500
+      }
+    },
+    {
+      "id": "ground-zero-gzct-25sql",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 25SQL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-25sql-2/",
+      "verified": true,
+      "notes": "High power tweeter with silk dome. Cone/dome: Coated silk dome. Voice coil 25 mm / 1″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 93,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "freqLowHz": 3000,
+        "freqHighHz": 22000,
+        "cutoutMm": 48,
+        "mountingDepthMm": 36
+      }
+    },
+    {
+      "id": "ground-zero-gzct-28m-spl",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 28M-SPL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-28m-spl-2/",
+      "verified": true,
+      "notes": "High-performance tweeter with Mylar dome. Crossover frequency 5500 Hz. Cone/dome: Mylar. Voice coil 28 mm / 1.1″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "powerRmsW": 80,
+        "powerPeakW": 110,
+        "freqLowHz": 2500,
+        "freqHighHz": 20000,
+        "cutoutMm": 48,
+        "mountingDepthMm": 16
+      }
+    },
+    {
+      "id": "ground-zero-gzct-3500x-b",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 3500X-B",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-3500x-b-2/",
+      "verified": true,
+      "notes": "Compression tweeter with aluminum dome. Cone/dome: Aluminum. Voice coil 25 mm / 1″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 99,
+        "powerRmsW": 30,
+        "powerPeakW": 100,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 40
+      }
+    },
+    {
+      "id": "ground-zero-gzct-3500x-s",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 3500X-S",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-3500x-s-2/",
+      "verified": true,
+      "notes": "Compression tweeter with aluminum dome. Cone/dome: Aluminum. Voice coil 25 mm / 1″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 99,
+        "powerRmsW": 30,
+        "powerPeakW": 100,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 40
+      }
+    },
+    {
+      "id": "ground-zero-gzct-3500xii-b",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 3500XII-B",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-3500xii-b/",
+      "verified": true,
+      "notes": "Compression tweeter with aluminum dome. Cone/dome: Aluminum. Voice coil 25 mm / 1″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "powerRmsW": 30,
+        "powerPeakW": 100,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "cutoutMm": 72,
+        "mountingDepthMm": 36
+      }
+    },
+    {
+      "id": "ground-zero-gzct-3500xii-s",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 3500XII-S",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-3500xii-s/",
+      "verified": true,
+      "notes": "Compression tweeter with aluminum dome. Cone/dome: Aluminum. Voice coil 25 mm / 1″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "powerRmsW": 30,
+        "powerPeakW": 100,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "cutoutMm": 72,
+        "mountingDepthMm": 36
+      }
+    },
+    {
+      "id": "ground-zero-gzct-4000x",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 4000X",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-4000x-2/",
+      "verified": true,
+      "notes": "Compression tweeter with aluminum dome. Cone/dome: Aluminum. Voice coil 44.5 mm / 3.9″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 103,
+        "powerRmsW": 50,
+        "powerPeakW": 140,
+        "freqLowHz": 2500,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 87
+      }
+    },
+    {
+      "id": "ground-zero-gzct-5000spl",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 5000SPL",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-5000spl-2/",
+      "verified": true,
+      "notes": "Compression tweeter with titanium dome. Cone/dome: Titanium. Voice coil 44.5 mm / 3.9″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 108,
+        "powerRmsW": 70,
+        "powerPeakW": 180,
+        "freqLowHz": 1500,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 142
+      }
+    },
+    {
+      "id": "ground-zero-gzct-5000spl-b",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 5000SPL-B",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-5000spl-b-2/",
+      "verified": true,
+      "notes": "Compression tweeter with titanium dome. Cutout 165 x 130 mm / 6.50 x 5.12″. Cone/dome: Titan. Voice coil 44.5 mm / 3.9″ CCA. Sensitivity reference not stated.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 108,
+        "powerRmsW": 70,
+        "powerPeakW": 180,
+        "mountingDepthMm": 142
+      }
+    },
+    {
+      "id": "ground-zero-gzct-500iv-b",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZCT 500IV-B",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzct-500iv-b-2/",
+      "verified": true,
+      "notes": "Compression tweeter with aluminum dome. Mounting depth variable. Cone/dome: Aluminum. Voice coil 25 mm / 1″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 0.98,
+        "nominalOhms": 4,
+        "sensitivityDb": 102,
+        "powerRmsW": 30,
+        "powerPeakW": 100,
+        "freqLowHz": 4000,
+        "freqHighHz": 25000,
+        "cutoutMm": 37
+      }
+    },
+    {
+      "id": "ground-zero-gzht-25s",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZHT 25S",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzht-25s-2/",
+      "verified": true,
+      "notes": "Silk dome tweeter and coupled chamber. Cone/dome: Coated silk. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 0.98,
+        "nominalOhms": 4,
+        "sensitivityDb": 89,
+        "powerRmsW": 70,
+        "powerPeakW": 110,
+        "freqLowHz": 2200,
+        "freqHighHz": 24000,
+        "cutoutMm": 48,
+        "mountingDepthMm": 22
+      }
+    },
+    {
+      "id": "ground-zero-gznt-28sq",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZNT 28SQ",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gznt-28sq/",
+      "verified": true,
+      "notes": "High-Performance Tweeter. Recommended HP 3000 Hz @ 12 dB/oct. Cone/dome: Coated silk dome. Voice coil 28 mm / 1.1″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "fsHz": 1350,
+        "sensitivityDb": 91,
+        "powerRmsW": 90,
+        "powerPeakW": 140,
+        "freqLowHz": 2000,
+        "freqHighHz": 25000,
+        "cutoutMm": 48,
+        "mountingDepthMm": 29,
+        "recommendedHpHz": 3000
+      }
+    },
+    {
+      "id": "ground-zero-gzpt-28sq",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZPT 28SQ",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzpt-28sq-2/",
+      "verified": true,
+      "notes": "High-End Tweeter. Cone/dome: 2 layer coated silk. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "fsHz": 770,
+        "sensitivityDb": 90,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "freqLowHz": 2000,
+        "freqHighHz": 30000,
+        "cutoutMm": 48,
+        "mountingDepthMm": 35
+      }
+    },
+    {
+      "id": "ground-zero-gzpt-28sx-chrome-edition",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZPT 28SX Chrome Edition",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzpt-28sx-chrome-edition-2/",
+      "verified": true,
+      "notes": "High end tweeter – Chrome Edition. Cone/dome: 2 layer coated silk. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "fsHz": 750,
+        "sensitivityDb": 90,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "freqLowHz": 2000,
+        "freqHighHz": 30000,
+        "mountingDepthMm": 31
+      }
+    },
+    {
+      "id": "ground-zero-gzrt-25sq",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZRT 25SQ",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzrt-25sq-2/",
+      "verified": true,
+      "notes": "Silk dome tweeter. Cone/dome: Silk dome. Voice coil 25 mm / 1″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 0.98,
+        "nominalOhms": 4,
+        "fsHz": 1550,
+        "sensitivityDb": 89,
+        "powerRmsW": 70,
+        "powerPeakW": 110,
+        "freqLowHz": 2500,
+        "freqHighHz": 24000,
+        "cutoutMm": 48,
+        "mountingDepthMm": 16
+      }
+    },
+    {
+      "id": "ground-zero-gztt-20s",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZTT 20S",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gztt-20s-2/",
+      "verified": true,
+      "notes": "Silk dome tweeter. Sensitivity reference not stated.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 90.5
+      }
+    },
+    {
+      "id": "ground-zero-gzut-28sqx",
+      "category": "driverTweeter",
+      "brand": "Ground Zero",
+      "model": "GZUT 28SQX",
+      "sourceUrl": "https://www.ground-zero-audio.com/en/gzut-28sqx/",
+      "verified": true,
+      "notes": "Silk dome tweeter. Recommended HP 3000 Hz @ 12 dB/oct. Cone/dome: Coated silk dome. Voice coil 28 mm / 1.1″. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "fsHz": 1300,
+        "sensitivityDb": 90,
+        "powerRmsW": 80,
+        "powerPeakW": 130,
+        "freqLowHz": 2500,
+        "freqHighHz": 25000,
+        "cutoutMm": 48,
+        "mountingDepthMm": 18,
+        "recommendedHpHz": 3000
+      }
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "products": [
+    {
+      "id": "gladen-beta-130-2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Beta 130.2",
+      "series": "Beta",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-beta-lautsprecher/gladen-beta-130-2",
+      "verified": true,
+      "notes": "Paper cone; tweeter 25 mm (Fs 1500 Hz, Re 3.3), crossover 3500 Hz 12 dB. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "powerRmsW": 45,
+        "powerPeakW": 90
+      }
+    },
+    {
+      "id": "gladen-beta-165-2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Beta 165.2",
+      "series": "Beta",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-beta-lautsprecher/gladen-beta-165-2",
+      "verified": true,
+      "notes": "Paper cone. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 65,
+        "powerPeakW": 130
+      }
+    },
+    {
+      "id": "gladen-gamma-100-2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Gamma 100.2",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-100-2",
+      "verified": true,
+      "notes": "GW100 woofer + GT25 tweeter; passive crossover 2800 Hz; bi-amp capable. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 3,
+        "powerRmsW": 80,
+        "powerPeakW": 140
+      }
+    },
+    {
+      "id": "gladen-gamma-130-2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Gamma 130.2",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-130-2",
+      "verified": true,
+      "notes": "GW130 woofer + GT25 tweeter; passive crossover 2800 Hz; bi-amp capable. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "powerRmsW": 90,
+        "powerPeakW": 150
+      }
+    },
+    {
+      "id": "gladen-gamma-130-2-slim",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Gamma 130.2 Slim",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-130-2-slim",
+      "verified": true,
+      "notes": "Slim woofer (Qms 4.97, Qes 1.65, Qts 1.24, Vas 4.36 L, Mms 5.01 g) + GT25 tweeter; crossover 2800 Hz. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "powerRmsW": 80,
+        "powerPeakW": 130
+      }
+    },
+    {
+      "id": "gladen-gamma-165-2-ac",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Gamma 165.2 (AC)",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-165-2-ac",
+      "verified": true,
+      "notes": "GW165 woofer + GT25 tweeter; crossover 2800 Hz; AC = active version. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 100,
+        "powerPeakW": 175
+      }
+    },
+    {
+      "id": "gladen-gamma-165-2-slim",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Gamma 165.2 Slim",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-165-2-slim",
+      "verified": true,
+      "notes": "Slim woofer (Qms 5.21, Qes 0.99, Qts 0.83, Vas 9.5 L, Mms 10.1 g) + GT25 tweeter; crossover 2800 Hz. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 80,
+        "powerPeakW": 130
+      }
+    },
+    {
+      "id": "gladen-gamma-200-2-ac",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Gamma 200.2 (AC)",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-200-2-ac",
+      "verified": true,
+      "notes": "GW200 woofer + GT25 tweeter; crossover 2800 Hz. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 3,
+        "powerRmsW": 100,
+        "powerPeakW": 150
+      }
+    },
+    {
+      "id": "gladen-sigma-165-2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Sigma 165.2",
+      "series": "Sigma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-sigma-lautsprecher/gladen-sigma-165-2",
+      "verified": true,
+      "notes": "HEXATEC woofer (Qms 4.325, Qes 0.48, Qts 0.43, Vas 16.25 L, Mms 18.1 g, Sd 135 cm2) + Sigma 22 tweeter; crossover 4000/5500 Hz selectable, separable/bi-amp capable. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 175,
+        "powerPeakW": 250
+      }
+    },
+    {
+      "id": "gladen-sigma-130-2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Sigma 130.2",
+      "series": "Sigma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-sigma-lautsprecher/gladen-sigma-130-2",
+      "verified": true,
+      "notes": "Woofer Qms 3.895, Qes 0.49, Qts 0.44, Vas 7.0 L, Mms 9.69 g + Sigma 22 tweeter; crossover 4000/5500 Hz. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3
+      }
+    },
+    {
+      "id": "gladen-rs-100-g2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "RS-100 G2",
+      "series": "RS",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-rs-rc-lautsprecher/gladen-rs-100-g2",
+      "verified": true,
+      "notes": "25 mm tweeter + crossover. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 3,
+        "powerRmsW": 80,
+        "powerPeakW": 120
+      }
+    },
+    {
+      "id": "gladen-rs-130-g2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "RS-130 G2",
+      "series": "RS",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-rs-rc-lautsprecher/gladen-rs-130-g2",
+      "verified": true,
+      "notes": "25 mm tweeter + crossover. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "powerRmsW": 90,
+        "powerPeakW": 135
+      }
+    },
+    {
+      "id": "gladen-rs-165-g2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "RS-165 G2",
+      "series": "RS",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-rs-rc-lautsprecher/gladen-rs-165-g2",
+      "verified": true,
+      "notes": "25 mm tweeter + crossover (no crossover in AC version). Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 100,
+        "powerPeakW": 150
+      }
+    },
+    {
+      "id": "gladen-rs-165-3-g2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "RS-165/3 G2",
+      "series": "RS",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-rs-rc-lautsprecher/gladen-rs-165-3-g2",
+      "verified": true,
+      "notes": "3-way: 80 mm mid + 25 mm tweeter + crossover. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 120,
+        "powerPeakW": 170
+      }
+    },
+    {
+      "id": "gladen-rs-165-slim",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "RS-165 Slim",
+      "series": "RS",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-rs-rc-lautsprecher/gladen-rs-165-slim",
+      "verified": true,
+      "notes": "Slim woofer with internal magnet + 25 mm tweeter. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 80,
+        "powerPeakW": 120
+      }
+    },
+    {
+      "id": "gladen-alpha-100-g2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Alpha 100 G2",
+      "series": "Alpha",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-alpha-koax-lautsprecher/gladen-alpha-100-g2",
+      "verified": true,
+      "notes": "2-way system. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 3,
+        "powerRmsW": 55,
+        "powerPeakW": 85
+      }
+    },
+    {
+      "id": "gladen-alpha-130-g2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Alpha 130 G2",
+      "series": "Alpha",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-alpha-koax-lautsprecher/gladen-alpha-130-g2",
+      "verified": true,
+      "notes": "2-way system. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "powerRmsW": 65,
+        "powerPeakW": 95
+      }
+    },
+    {
+      "id": "gladen-alpha-165-g2",
+      "category": "componentSet",
+      "brand": "Gladen",
+      "model": "Alpha 165 G2",
+      "series": "Alpha",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-alpha-koax-lautsprecher/gladen-alpha-165-g2",
+      "verified": true,
+      "notes": "2-way system. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 75,
+        "powerPeakW": 110
+      }
+    }
+  ]
+}

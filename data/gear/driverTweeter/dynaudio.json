@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": "dynaudio-esotar2-110",
+      "category": "driverTweeter",
+      "brand": "Dynaudio",
+      "model": "Esotar2 110",
+      "series": "Esotar2",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "28 mm coated soft dome. Power = IEC long-term; peak = 10 ms transient. Recommended active HP 2000 Hz (-6 dB) per Esotec/Esotar2 manual; cutout from manual. Overall 111 x 41 mm.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 6,
+        "reOhms": 5.2,
+        "fsHz": 1000,
+        "sdCm2": 7.7,
+        "powerRmsW": 150,
+        "powerPeakW": 1000,
+        "freqLowHz": 2000,
+        "freqHighHz": 30000,
+        "cutoutMm": 86,
+        "recommendedHpHz": 2000
+      }
+    },
+    {
+      "id": "dynaudio-esotec-md-102",
+      "category": "driverTweeter",
+      "brand": "Dynaudio",
+      "model": "Esotec MD 102",
+      "series": "Esotec",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "28 mm soft dome. Power = IEC long-term; peak = 10 ms transient. Mounting hole 52.1-55.5 mm per manual. Passive X 252 crossover point 2200 Hz.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 8,
+        "reOhms": 5.6,
+        "fsHz": 1300,
+        "sdCm2": 7.7,
+        "powerRmsW": 100,
+        "powerPeakW": 500,
+        "freqLowHz": 2200,
+        "freqHighHz": 30000,
+        "cutoutMm": 52.1
+      }
+    }
+  ]
+}

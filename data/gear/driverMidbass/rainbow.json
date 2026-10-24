@@ -1,0 +1,90 @@
+{
+  "products": [
+    {
+      "id": "rainbow-pl-w6p",
+      "category": "driverMidbass",
+      "brand": "Rainbow",
+      "model": "PL-W6P",
+      "series": "Profi Line",
+      "sourceUrl": "https://www.rainbow-audio.de/speaker/profi-line/pl-w6p/",
+      "verified": true,
+      "notes": "165 mm with phase plug; Xmax +/-7 mm per Profi Line manual. Power = 'handling power'.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 38,
+        "xmaxMm": 7,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 180,
+        "freqLowHz": 35,
+        "freqHighHz": 5000,
+        "cutoutMm": 143,
+        "mountingDepthMm": 78
+      }
+    },
+    {
+      "id": "rainbow-pl-w6c",
+      "category": "driverMidbass",
+      "brand": "Rainbow",
+      "model": "PL-W6C",
+      "series": "Profi Line",
+      "sourceUrl": "https://www.rainbow-audio.de/speaker/profi-line/pl-w6c/",
+      "verified": true,
+      "notes": "165 mm crystal (aluminium) cone; Xmax +/-7 mm per Profi Line manual.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "fsHz": 36,
+        "xmaxMm": 7,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 180,
+        "freqLowHz": 33,
+        "freqHighHz": 5000,
+        "cutoutMm": 143,
+        "mountingDepthMm": 78
+      }
+    },
+    {
+      "id": "rainbow-el-mw165a",
+      "category": "driverMidbass",
+      "brand": "Rainbow",
+      "model": "EL-MW165A",
+      "series": "Experience Line",
+      "sourceUrl": "https://www.rainbow-audio.de/speaker/experience-line/el-mw165a/",
+      "verified": true,
+      "notes": "Impedance listed as 3.4 ohm.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3.4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "freqLowHz": 60,
+        "freqHighHz": 10000
+      }
+    },
+    {
+      "id": "rainbow-el-mw165s",
+      "category": "driverMidbass",
+      "brand": "Rainbow",
+      "model": "EL-MW165S",
+      "series": "Experience Line",
+      "sourceUrl": "https://www.rainbow-audio.de/speaker/experience-line/el-mw165s/",
+      "verified": true,
+      "notes": "Impedance listed as 3.4 ohm.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3.4,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 65,
+        "freqHighHz": 10000
+      }
+    }
+  ]
+}

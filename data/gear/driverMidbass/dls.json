@@ -1,0 +1,116 @@
+{
+  "products": [
+    {
+      "id": "dls-scandinavia-165",
+      "category": "driverMidbass",
+      "brand": "DLS",
+      "model": "Scandinavia 165",
+      "series": "Scandinavia",
+      "sourceUrl": "https://dls.se/product/scandinavia-165/",
+      "verified": true,
+      "notes": "Fibreglass cone midwoofer; recommended amplifier 50-200 W. BL value truncated on page (omitted).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "fsHz": 61,
+        "qms": 15.6,
+        "qes": 0.55,
+        "qts": 0.54,
+        "vasLitres": 10.2,
+        "sdCm2": 131,
+        "sensitivityDb": 91.9,
+        "freqLowHz": 50,
+        "freqHighHz": 4500,
+        "mountingDepthMm": 65,
+        "cutoutMm": 140
+      }
+    },
+    {
+      "id": "dls-scandinavia-165wi",
+      "category": "driverMidbass",
+      "brand": "DLS",
+      "model": "Scandinavia 165Wi",
+      "series": "Scandinavia",
+      "sourceUrl": "https://dls.se/product/scandinavia-165wi/",
+      "verified": true,
+      "notes": "Vented aluminium cone midbass, intended up to 500 Hz.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "fsHz": 52,
+        "qms": 3.13,
+        "qes": 0.8,
+        "qts": 0.64,
+        "vasLitres": 9.5,
+        "bl": 6.59,
+        "sensitivityDb": 84.3,
+        "freqLowHz": 30,
+        "freqHighHz": 500,
+        "mountingDepthMm": 68,
+        "cutoutMm": 140
+      }
+    },
+    {
+      "id": "dls-cruise-crpp-uw62",
+      "category": "driverMidbass",
+      "brand": "DLS",
+      "model": "Cruise CRPP-UW62",
+      "series": "Cruise",
+      "sourceUrl": "https://dls.se/product/cruise-crpp-uw62/",
+      "verified": true,
+      "notes": "Universal-fit midbass.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "sensitivityDb": 86.1,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 200,
+        "freqLowHz": 55,
+        "freqHighHz": 5000
+      }
+    },
+    {
+      "id": "dls-cruise-crpp-uw64",
+      "category": "driverMidbass",
+      "brand": "DLS",
+      "model": "Cruise CRPP-UW64",
+      "series": "Cruise",
+      "sourceUrl": "https://dls.se/product/cruise-crpp-uw64/",
+      "verified": true,
+      "notes": "Universal-fit midbass.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 86.1,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 200,
+        "freqLowHz": 55,
+        "freqHighHz": 5000
+      }
+    },
+    {
+      "id": "dls-cruise-crpp-uw83",
+      "category": "driverMidbass",
+      "brand": "DLS",
+      "model": "Cruise CRPP-UW83",
+      "series": "Cruise",
+      "sourceUrl": "https://dls.se/product/dls-cruise-crpp-uw83/",
+      "verified": true,
+      "notes": "Universal-fit midbass.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 3,
+        "sensitivityDb": 88.2,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 200,
+        "freqLowHz": 45,
+        "freqHighHz": 5000
+      }
+    }
+  ]
+}

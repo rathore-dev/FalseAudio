@@ -1,0 +1,163 @@
+{
+  "products": [
+    {
+      "id": "gladen-zeta-zm-80",
+      "category": "driverMidrange",
+      "brand": "Gladen",
+      "model": "Zeta ZM 80",
+      "series": "Zeta",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-zeta-lautsprecher/ga-zm80",
+      "verified": true,
+      "notes": "80 mm Nomex-paper cone, 25 mm coil. Recommended HP > 300 Hz 24 dB/oct.",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "reOhms": 2.5,
+        "fsHz": 91.9,
+        "qms": 2.92,
+        "qes": 0.42,
+        "qts": 0.37,
+        "mmsGrams": 4.3,
+        "sdCm2": 34.2,
+        "vasLitres": 1.14,
+        "bl": 3.85,
+        "sensitivityDb": 90.2,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 120,
+        "recommendedHpHz": 300
+      }
+    },
+    {
+      "id": "gladen-aerospace-80-pp",
+      "category": "driverMidrange",
+      "brand": "Gladen",
+      "model": "Aerospace 80 PP",
+      "series": "Aerospace",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-aerospace-lautsprecher/gladen-aerospace-80",
+      "verified": true,
+      "notes": "80 mm phase-plug midrange (C5 cone). Recommended HP > 300 Hz 18 dB/oct. Power listed '2 x 70 / 105 Watt' (interpreted RMS 70 / max 105).",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "reOhms": 2.5,
+        "fsHz": 110,
+        "qms": 3.27,
+        "qes": 0.34,
+        "qts": 0.31,
+        "mmsGrams": 3.3,
+        "sdCm2": 35,
+        "vasLitres": 1.1,
+        "bl": 4.1,
+        "sensitivityDb": 93.19,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 70,
+        "powerPeakW": 105,
+        "recommendedHpHz": 300
+      }
+    },
+    {
+      "id": "gladen-gamma-gm80",
+      "category": "driverMidrange",
+      "brand": "Gladen",
+      "model": "Gamma GM80",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-gm80",
+      "verified": true,
+      "notes": "80 mm glass-fibre-Nomex cone. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "reOhms": 2.54,
+        "fsHz": 190,
+        "qms": 3.07,
+        "qes": 1.74,
+        "qts": 1.11,
+        "mmsGrams": 2.59,
+        "sdCm2": 33.2,
+        "vasLitres": 0.42,
+        "powerRmsW": 50,
+        "powerPeakW": 75
+      }
+    },
+    {
+      "id": "gladen-pro-80",
+      "category": "driverMidrange",
+      "brand": "Gladen",
+      "model": "PRO 80",
+      "series": "PRO",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-pro-lautsprecher/gladen-pro-80",
+      "verified": true,
+      "notes": "80 mm push-pull drive, sanded paper cone. Recommended HP > 320 Hz 12 dB/oct. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "reOhms": 2.6,
+        "fsHz": 91.4,
+        "powerRmsW": 70,
+        "powerPeakW": 110,
+        "recommendedHpHz": 320
+      }
+    },
+    {
+      "id": "gladen-zeta-zm-70",
+      "category": "driverMidrange",
+      "brand": "Gladen",
+      "model": "Zeta ZM 70",
+      "series": "Zeta",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-zeta-lautsprecher/gladen-zeta-zm-70",
+      "verified": true,
+      "notes": "Aluminium cone, 22 mm coil. Recommended HP > 300 Hz 24 dB/oct. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.6,
+        "fsHz": 122,
+        "powerRmsW": 80,
+        "powerPeakW": 120,
+        "recommendedHpHz": 300
+      }
+    },
+    {
+      "id": "gladen-sigma-sm-50",
+      "category": "driverMidrange",
+      "brand": "Gladen",
+      "model": "Sigma SM 50",
+      "series": "Sigma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-sigma-lautsprecher/gladen-sigma-sm-50",
+      "verified": true,
+      "notes": "50 mm midrange; power rating with 300 Hz 24 dB/oct HP. Outer diameter 65 mm.",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "reOhms": 3.2,
+        "fsHz": 135,
+        "qms": 7.6,
+        "qes": 0.58,
+        "qts": 0.54,
+        "mmsGrams": 1.6,
+        "sdCm2": 15.6,
+        "vasLitres": 0.3,
+        "powerRmsW": 80,
+        "powerPeakW": 120,
+        "cutoutMm": 51,
+        "recommendedHpHz": 300
+      }
+    },
+    {
+      "id": "gladen-80-rs-g2",
+      "category": "driverMidrange",
+      "brand": "Gladen",
+      "model": "80 RS-G2",
+      "series": "RS",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-rs-rc-lautsprecher/gladen-80-rs-g2",
+      "verified": true,
+      "notes": "80 mm midrange. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "powerRmsW": 40,
+        "powerPeakW": 60
+      }
+    }
+  ]
+}

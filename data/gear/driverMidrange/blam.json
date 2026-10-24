@@ -1,0 +1,267 @@
+{
+  "products": [
+    {
+      "id": "blam-lfr52",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "LFR52",
+      "sourceUrl": "https://www.blam-audio.com/produit/haut-parleur-lfr52/",
+      "verified": true,
+      "notes": "2\" wide-band. Min. recommended HP 250 Hz 12 dB/oct (25 W RMS if filtered above 300 Hz). Sealed volume 50-500 mL. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "powerRmsW": 25,
+        "powerPeakW": 50,
+        "freqLowHz": 200,
+        "freqHighHz": 45000,
+        "recommendedHpHz": 250
+      }
+    },
+    {
+      "id": "blam-lfr80",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "LFR80",
+      "sourceUrl": "https://www.blam-audio.com/produit/haut-parleur-lfr80/",
+      "verified": true,
+      "notes": "80 mm wide-band. Min. recommended HP 250 Hz 12 dB/oct. Sealed volume 0.3-0.5 L. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "sensitivityDb": 91,
+        "powerRmsW": 25,
+        "powerPeakW": 100,
+        "freqLowHz": 150,
+        "freqHighHz": 37000,
+        "mountingDepthMm": 45,
+        "recommendedHpHz": 250
+      }
+    },
+    {
+      "id": "blam-lm80",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "LM80",
+      "sourceUrl": "https://www.blam-audio.com/produit/haut-parleur-lm80/",
+      "verified": true,
+      "notes": "80 mm midrange. Min. recommended HP 300 Hz 12 dB/oct. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "sensitivityDb": 87.6,
+        "powerRmsW": 25,
+        "powerPeakW": 100,
+        "freqLowHz": 100,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 45.5,
+        "recommendedHpHz": 300
+      }
+    },
+    {
+      "id": "blam-r80",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "R80",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-r80/",
+      "verified": true,
+      "notes": "80 mm midrange. Min. recommended HP 250 Hz 12 dB/oct. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "sensitivityDb": 86,
+        "powerRmsW": 25,
+        "powerPeakW": 100,
+        "freqLowHz": 150,
+        "freqHighHz": 23000,
+        "mountingDepthMm": 45.5,
+        "recommendedHpHz": 250
+      }
+    },
+    {
+      "id": "blam-r80-db",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "R80 DB",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-r80-db/",
+      "verified": true,
+      "notes": "80 mm midrange, dual 3 ohm voice coils. Min. recommended HP 250 Hz 12 dB/oct. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "voiceCoils": 2,
+        "coilOhms": 3,
+        "sensitivityDb": 86,
+        "powerRmsW": 25,
+        "powerPeakW": 100,
+        "freqLowHz": 150,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 45.5,
+        "recommendedHpHz": 250
+      }
+    },
+    {
+      "id": "blam-s-2n50-c",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "S 2N50 C",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-large-bande-s-2n50-c/",
+      "verified": true,
+      "notes": "50 mm wide-band, carbon cone with phase plug. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "powerRmsW": 25,
+        "powerPeakW": 50,
+        "freqLowHz": 250,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "blam-s-2n50-a",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "S 2N50 A",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-large-bande-s-2n50/",
+      "verified": true,
+      "notes": "50 mm wide-band, aluminium cone with dust cap. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "powerRmsW": 25,
+        "powerPeakW": 50,
+        "freqLowHz": 250,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "blam-mb2-c",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "MB2 C",
+      "series": "Signature Multix Barrel",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-mb2-c/",
+      "verified": true,
+      "notes": "50 mm wide-band, carbon cone. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "powerRmsW": 25,
+        "powerPeakW": 50,
+        "freqLowHz": 250,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "blam-mb2-a",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "MB2 A",
+      "series": "Signature Multix Barrel",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-mb2/",
+      "verified": true,
+      "notes": "50 mm wide-band, aluminium cone. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "powerRmsW": 25,
+        "powerPeakW": 50,
+        "freqLowHz": 250,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "blam-mb3",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "MB3",
+      "series": "Signature Multix Barrel",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-mb3/",
+      "verified": true,
+      "notes": "3\" full-range, 3K carbon cone, 38 mm coil. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "powerRmsW": 50,
+        "powerPeakW": 150,
+        "freqLowHz": 120,
+        "freqHighHz": 25000
+      }
+    },
+    {
+      "id": "blam-ms2",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "MS2",
+      "series": "Signature Multix",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-ms2/",
+      "verified": true,
+      "notes": "2\" Kevlar cone, neodymium. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "sensitivityDb": 87,
+        "powerRmsW": 25,
+        "powerPeakW": 50,
+        "freqLowHz": 250,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "blam-ms3",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "MS3",
+      "series": "Signature Multix",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-ms3/",
+      "verified": true,
+      "notes": "3\" carbon cone, neodymium. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "sensitivityDb": 88,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 120,
+        "freqHighHz": 32000,
+        "mountingDepthMm": 44.5
+      }
+    },
+    {
+      "id": "blam-s-3-55",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "S 3.55",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-s-3-55/",
+      "verified": true,
+      "notes": "3\" carbon cone; recommended enclosure 0.3-1.9 L. Impedance/power not listed. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 3,
+        "freqLowHz": 200,
+        "freqHighHz": 27000
+      }
+    },
+    {
+      "id": "blam-s3n50",
+      "category": "driverMidrange",
+      "brand": "BLAM",
+      "model": "S3N50",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/medium-s3n50/",
+      "verified": true,
+      "notes": "3\" carbon cone, neodymium. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 3,
+        "powerRmsW": 25,
+        "powerPeakW": 100,
+        "freqLowHz": 200,
+        "freqHighHz": 30000
+      }
+    }
+  ]
+}

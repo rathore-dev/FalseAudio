@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": "rainbow-pl-t28",
+      "category": "driverTweeter",
+      "brand": "Rainbow",
+      "model": "PL-T28",
+      "series": "Profi Line",
+      "sourceUrl": "https://www.rainbow-audio.de/speaker/profi-line/pl-t28/",
+      "verified": true,
+      "notes": "28 mm silk dome, stainless housing. Profi Line manual: response 2-30 kHz @ 18 dB/oct.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "fsHz": 650,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 40,
+        "freqLowHz": 2000,
+        "freqHighHz": 30000,
+        "cutoutMm": 52,
+        "mountingDepthMm": 36
+      }
+    },
+    {
+      "id": "rainbow-pl-t22",
+      "category": "driverTweeter",
+      "brand": "Rainbow",
+      "model": "PL-T22",
+      "series": "Profi Line",
+      "sourceUrl": "https://www.rainbow-audio.de/files/speaker/profi-line/Profi%20Line%20Manual%204%20types.pdf",
+      "verified": true,
+      "notes": "From Profi Line manual (rev. 03/2015); response 3-40 kHz @ 18 dB/oct. Outer diameter 39 mm.",
+      "driver": {
+        "nominalOhms": 4,
+        "fsHz": 950,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 3000,
+        "freqHighHz": 40000,
+        "cutoutMm": 36,
+        "mountingDepthMm": 35
+      }
+    }
+  ]
+}

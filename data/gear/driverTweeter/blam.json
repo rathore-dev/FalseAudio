@@ -1,0 +1,127 @@
+{
+  "products": [
+    {
+      "id": "blam-t20-mg",
+      "category": "driverTweeter",
+      "brand": "BLAM",
+      "model": "T20 MG",
+      "sourceUrl": "https://www.blam-audio.com/produit/tweeter-t20-mg/",
+      "verified": true,
+      "notes": "20 mm pure magnesium dome. Page lists response as '1,5 Hz - 45 kHz' (low limit apparently a typo, omitted). BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 0.75,
+        "nominalOhms": 4,
+        "powerRmsW": 15,
+        "powerPeakW": 100,
+        "freqHighHz": 45000
+      }
+    },
+    {
+      "id": "blam-t20hr",
+      "category": "driverTweeter",
+      "brand": "BLAM",
+      "model": "T20HR",
+      "sourceUrl": "https://www.blam-audio.com/produit/tweeter-t20hr/",
+      "verified": true,
+      "notes": "20 mm textile dome, neodymium N38H, ferrofluid. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 0.75,
+        "nominalOhms": 5
+      }
+    },
+    {
+      "id": "blam-t25hr",
+      "category": "driverTweeter",
+      "brand": "BLAM",
+      "model": "T25HR",
+      "sourceUrl": "https://www.blam-audio.com/produit/tweeter-t25hr/",
+      "verified": true,
+      "notes": "25 mm soft dome, neodymium N38H. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4
+      }
+    },
+    {
+      "id": "blam-t25mg",
+      "category": "driverTweeter",
+      "brand": "BLAM",
+      "model": "T25MG",
+      "sourceUrl": "https://www.blam-audio.com/produit/tweeter-t25mg/",
+      "verified": true,
+      "notes": "25 mm pure magnesium dome, neodymium N38. Electrical specs not listed on page. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 1
+      }
+    },
+    {
+      "id": "blam-t25s",
+      "category": "driverTweeter",
+      "brand": "BLAM",
+      "model": "T25S",
+      "sourceUrl": "https://www.blam-audio.com/produit/tweeter-t25s/",
+      "verified": true,
+      "notes": "25 mm soft dome, neodymium N38. Electrical specs not listed on page. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 1
+      }
+    },
+    {
+      "id": "blam-t25-mg70",
+      "category": "driverTweeter",
+      "brand": "BLAM",
+      "model": "T25 MG70",
+      "sourceUrl": "https://www.blam-audio.com/produit/t25-mg70/",
+      "verified": true,
+      "notes": "25 mm pure magnesium dome, N48H neodymium; made in France. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 1,
+        "freqHighHz": 43000
+      }
+    },
+    {
+      "id": "blam-t28-mg",
+      "category": "driverTweeter",
+      "brand": "BLAM",
+      "model": "T28 MG",
+      "sourceUrl": "https://www.blam-audio.com/produit/tweeter-t28mg/",
+      "verified": true,
+      "notes": "28 mm magnesium dome, pairs matched +/-1 dB. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 6,
+        "powerRmsW": 40,
+        "powerPeakW": 80,
+        "freqLowHz": 1500,
+        "freqHighHz": 30000
+      }
+    },
+    {
+      "id": "blam-t28s",
+      "category": "driverTweeter",
+      "brand": "BLAM",
+      "model": "T28S",
+      "sourceUrl": "https://www.blam-audio.com/produit/tweeter-t28s-2/",
+      "verified": true,
+      "notes": "28 mm soft dome. Electrical specs not listed on page. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 1.1
+      }
+    },
+    {
+      "id": "blam-amt1",
+      "category": "driverTweeter",
+      "brand": "BLAM",
+      "model": "AMT1",
+      "sourceUrl": "https://www.blam-audio.com/produit/tweeter-amt1/",
+      "verified": true,
+      "notes": "Air Motion Transformer (folded Kapton diaphragm); extends beyond 35 kHz. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "nominalOhms": 6,
+        "powerRmsW": 10,
+        "powerPeakW": 100,
+        "freqHighHz": 35000
+      }
+    }
+  ]
+}

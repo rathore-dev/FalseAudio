@@ -1,0 +1,273 @@
+{
+  "products": [
+    {
+      "id": "blam-mb-6d",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "MB 6D",
+      "series": "Signature Multix Barrel",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-mb-6d/",
+      "verified": true,
+      "notes": "38 mm coil, 3K carbon cone, neodymium. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "powerRmsW": 125,
+        "powerPeakW": 250,
+        "freqLowHz": 55,
+        "freqHighHz": 5000
+      }
+    },
+    {
+      "id": "blam-mb-6p",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "MB 6P",
+      "series": "Signature Multix Barrel",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-mb-6p/",
+      "verified": true,
+      "notes": "38 mm coil, 3K carbon cone, neodymium. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "powerRmsW": 125,
+        "powerPeakW": 250,
+        "freqLowHz": 60,
+        "freqHighHz": 5000
+      }
+    },
+    {
+      "id": "blam-mb-8d",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "MB 8D",
+      "series": "Signature Multix Barrel",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-mb-8d/",
+      "verified": true,
+      "notes": "8\" carbon cone, neodymium (page header mislabelled 'MB 6D'). BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 2,
+        "powerRmsW": 150,
+        "powerPeakW": 300,
+        "freqLowHz": 55,
+        "freqHighHz": 4000
+      }
+    },
+    {
+      "id": "blam-mb690",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "MB690",
+      "series": "Signature Multix",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-mb690/",
+      "verified": true,
+      "notes": "6x9\" woofer, 38 mm coil. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "nominalOhms": 2,
+        "powerRmsW": 125,
+        "powerPeakW": 250,
+        "freqLowHz": 55,
+        "freqHighHz": 4500
+      }
+    },
+    {
+      "id": "blam-s-4n24",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S 4N24",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s-4n24/",
+      "verified": true,
+      "notes": "4\" extended-range, carbon cone, 25 mm coil. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 3,
+        "powerRmsW": 60,
+        "powerPeakW": 120,
+        "freqLowHz": 95,
+        "freqHighHz": 9000
+      }
+    },
+    {
+      "id": "blam-s-6-80",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S 6.80",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s-6-80/",
+      "verified": true,
+      "notes": "28 mm coil, 80 x 17 mm magnet. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "powerRmsW": 60,
+        "powerPeakW": 120,
+        "freqLowHz": 60,
+        "freqHighHz": 7000
+      }
+    },
+    {
+      "id": "blam-s-6-85",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S 6.85",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s-6-85/",
+      "verified": true,
+      "notes": "32 mm coil, 85 x 20 mm magnet. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 100,
+        "powerPeakW": 200,
+        "freqLowHz": 45,
+        "freqHighHz": 5000
+      }
+    },
+    {
+      "id": "blam-s-6-100",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S 6.100",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s-6-100/",
+      "verified": true,
+      "notes": "38 mm coil, 100 x 20 mm magnet. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "powerRmsW": 125,
+        "powerPeakW": 250,
+        "freqLowHz": 50,
+        "freqHighHz": 5000
+      }
+    },
+    {
+      "id": "blam-s-6-300",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S 6.300",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s-6-300/",
+      "verified": true,
+      "notes": "38 mm coil, 100 x 20 mm magnet. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "powerRmsW": 125,
+        "powerPeakW": 250,
+        "freqLowHz": 50,
+        "freqHighHz": 5000
+      }
+    },
+    {
+      "id": "blam-s6-45",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S6.45",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s6-45/",
+      "verified": true,
+      "notes": "Shallow 6.5\" woofer. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "freqLowHz": 60,
+        "freqHighHz": 8000
+      }
+    },
+    {
+      "id": "blam-s-690",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S 690",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s-690/",
+      "verified": true,
+      "notes": "6x9\" (150 x 230 mm) high-sensitivity woofer. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "nominalOhms": 3,
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "freqLowHz": 60,
+        "freqHighHz": 8000
+      }
+    },
+    {
+      "id": "blam-s6-90s",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S6.90S",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s6-90s/",
+      "verified": true,
+      "notes": "Slim 6x9\" (150 x 230 mm) woofer. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "nominalOhms": 3,
+        "sensitivityDb": 94.2,
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "freqLowHz": 60,
+        "freqHighHz": 8000
+      }
+    },
+    {
+      "id": "blam-s-8-100",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S 8.100",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s-8-100/",
+      "verified": true,
+      "notes": "38 mm coil, 100 x 20 mm magnet. BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 2,
+        "powerRmsW": 150,
+        "powerPeakW": 300,
+        "freqLowHz": 50,
+        "freqHighHz": 3800
+      }
+    },
+    {
+      "id": "blam-s8-120",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "S8.120",
+      "series": "Signature",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofer-s-8-120/",
+      "verified": true,
+      "notes": "120 x 20 mm magnet. Page lists upper response as '500 KHz' (typo, omitted). BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 2,
+        "sensitivityDb": 89,
+        "powerRmsW": 150,
+        "powerPeakW": 300,
+        "freqLowHz": 30
+      }
+    },
+    {
+      "id": "blam-165rwf",
+      "category": "driverMidbass",
+      "brand": "BLAM",
+      "model": "165RWF",
+      "sourceUrl": "https://www.blam-audio.com/produit/woofers-165rwf/",
+      "verified": true,
+      "notes": "Extra-flat 165 mm woofer pair (steel basket, neodymium). BLAM product pages publish no Thiele/Small parameters (datasheet PDFs are image-only).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "sensitivityDb": 89.3,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 60,
+        "freqHighHz": 1000,
+        "mountingDepthMm": 32.5
+      }
+    }
+  ]
+}

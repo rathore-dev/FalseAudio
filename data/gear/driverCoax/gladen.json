@@ -1,0 +1,148 @@
+{
+  "products": [
+    {
+      "id": "gladen-beta-130-x",
+      "category": "driverCoax",
+      "brand": "Gladen",
+      "model": "Beta 130-X",
+      "series": "Beta",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-beta-lautsprecher/gladen-beta-130-x",
+      "verified": true,
+      "notes": "Coaxial with 20 mm tweeter; T/S refer to the woofer. Spec table lists 4 ohm, headline lists 3 ohm. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "reOhms": 2.64,
+        "fsHz": 81,
+        "qms": 4.39,
+        "qes": 1.22,
+        "qts": 0.96,
+        "vasLitres": 6.16,
+        "sdCm2": 88,
+        "mmsGrams": 7,
+        "powerRmsW": 40,
+        "powerPeakW": 80
+      }
+    },
+    {
+      "id": "gladen-gamma-gw-100-x",
+      "category": "driverCoax",
+      "brand": "Gladen",
+      "model": "Gamma GW 100-X",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-gw100-x",
+      "verified": true,
+      "notes": "Coaxial with 19 mm tweeter; T/S refer to the woofer. Spec table lists 4 ohm, headline lists 3 ohm. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 3,
+        "reOhms": 2.67,
+        "fsHz": 120,
+        "qms": 3.1,
+        "qes": 0.99,
+        "qts": 0.75,
+        "vasLitres": 1.23,
+        "sdCm2": 55.4,
+        "mmsGrams": 5.6,
+        "powerRmsW": 80,
+        "powerPeakW": 120
+      }
+    },
+    {
+      "id": "gladen-gamma-130-x",
+      "category": "driverCoax",
+      "brand": "Gladen",
+      "model": "Gamma 130-X",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-gw130-x",
+      "verified": true,
+      "notes": "Coaxial with 19 mm tweeter; T/S refer to the woofer. Spec table lists 4 ohm, headline lists 3 ohm. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "reOhms": 2.6,
+        "fsHz": 77,
+        "qms": 2.95,
+        "qes": 0.53,
+        "qts": 0.45,
+        "vasLitres": 6.43,
+        "sdCm2": 95,
+        "mmsGrams": 8.27,
+        "powerRmsW": 80,
+        "powerPeakW": 120
+      }
+    },
+    {
+      "id": "gladen-gamma-gw165-x",
+      "category": "driverCoax",
+      "brand": "Gladen",
+      "model": "Gamma GW165-X",
+      "series": "Gamma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-gamma-lautsprecher/gladen-gamma-gw165-x",
+      "verified": true,
+      "notes": "Coaxial with 19 mm tweeter; T/S refer to the woofer. Spec table lists 4 ohm, headline lists 3 ohm. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "reOhms": 2.67,
+        "fsHz": 57,
+        "qms": 2.97,
+        "qes": 0.51,
+        "qts": 0.44,
+        "vasLitres": 19.8,
+        "sdCm2": 134.8,
+        "mmsGrams": 10.1,
+        "powerRmsW": 80,
+        "powerPeakW": 120
+      }
+    },
+    {
+      "id": "gladen-beta-165-x",
+      "category": "driverCoax",
+      "brand": "Gladen",
+      "model": "Beta 165-X",
+      "series": "Beta",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-beta-lautsprecher/gladen-beta-165-x",
+      "verified": true,
+      "notes": "Coaxial, paper cone. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 60,
+        "powerPeakW": 120
+      }
+    },
+    {
+      "id": "gladen-sigma-165-x",
+      "category": "driverCoax",
+      "brand": "Gladen",
+      "model": "Sigma 165-X",
+      "series": "Sigma",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-sigma-lautsprecher/sigma-165-x",
+      "verified": true,
+      "notes": "Coaxial-coincident; silk dome tweeter (19 mm coil), neodymium. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "powerRmsW": 175,
+        "powerPeakW": 250
+      }
+    },
+    {
+      "id": "gladen-alpha-100-c",
+      "category": "driverCoax",
+      "brand": "Gladen",
+      "model": "Alpha 100 C",
+      "series": "Alpha",
+      "sourceUrl": "https://www.gladen.com/de/gladen/gladen-lautsprecher/gladen-alpha-koax-lautsprecher/gladen-alpha-100-c",
+      "verified": true,
+      "notes": "100 mm coaxial, 13 mm tweeter. Power quoted by Gladen as max/RMS.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 3,
+        "powerRmsW": 55,
+        "powerPeakW": 85
+      }
+    }
+  ]
+}

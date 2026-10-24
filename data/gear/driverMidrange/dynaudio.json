@@ -1,0 +1,56 @@
+{
+  "products": [
+    {
+      "id": "dynaudio-esotec-md-142",
+      "category": "driverMidrange",
+      "brand": "Dynaudio",
+      "model": "Esotec MD 142",
+      "series": "Esotec",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "75 mm (3\") soft-dome midrange. Xmax derived from published linear excursion 2.5 mm peak-to-peak. X 362 crossover points 900 Hz / 3.5 kHz.",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 8,
+        "reOhms": 5.3,
+        "fsHz": 475,
+        "sdCm2": 52,
+        "xmaxMm": 1.25,
+        "powerRmsW": 100,
+        "powerPeakW": 1000,
+        "freqLowHz": 700,
+        "freqHighHz": 6000,
+        "cutoutMm": 96
+      }
+    },
+    {
+      "id": "dynaudio-esotar-430",
+      "category": "driverMidrange",
+      "brand": "Dynaudio",
+      "model": "Esotar 430",
+      "series": "Esotar2",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "MSP cone midrange. Xmax derived from linear excursion 4.9 mm peak-to-peak. Overall 110 x 49 mm.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4,
+        "reOhms": 4,
+        "leMh": 0.19,
+        "fsHz": 64,
+        "qms": 1.5,
+        "qes": 0.21,
+        "qts": 0.18,
+        "mmsGrams": 4.9,
+        "sdCm2": 45,
+        "vasLitres": 3.5,
+        "bl": 6.2,
+        "xmaxMm": 2.45,
+        "powerRmsW": 150,
+        "powerPeakW": 1000,
+        "freqLowHz": 200,
+        "freqHighHz": 7000
+      }
+    }
+  ]
+}

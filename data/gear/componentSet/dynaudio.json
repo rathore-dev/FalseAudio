@@ -1,0 +1,208 @@
+{
+  "products": [
+    {
+      "id": "dynaudio-esotec-system-222",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotec System 222",
+      "series": "Esotec",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "2-way: MW 152 + MD 102 + X 252 passive crossover (1st order, 2200 Hz, tweeter level +2/0/-2 dB).",
+      "driver": {
+        "sizeInches": 5.75,
+        "nominalOhms": 4,
+        "powerRmsW": 100,
+        "powerPeakW": 1000
+      }
+    },
+    {
+      "id": "dynaudio-esotec-system-242",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotec System 242",
+      "series": "Esotec",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "2-way: MW 162 + MD 102 + X 252 passive crossover (2200 Hz).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "powerRmsW": 120,
+        "powerPeakW": 1000
+      }
+    },
+    {
+      "id": "dynaudio-esotec-system-242-gt",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotec System 242 GT",
+      "series": "Esotec",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "2-way: MW 162 GT + MD 102 + X 252 passive crossover (2200 Hz).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "powerRmsW": 120,
+        "powerPeakW": 1000
+      }
+    },
+    {
+      "id": "dynaudio-esotec-system-342",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotec System 342",
+      "series": "Esotec",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "3-way: MW 162 + MD 142 + MD 102 + X 362 passive crossover (900 Hz / 3.5 kHz).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "powerRmsW": 200
+      }
+    },
+    {
+      "id": "dynaudio-esotec-system-362",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotec System 362",
+      "series": "Esotec",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "3-way: MW 172 + MD 142 + MD 102 + X 362 passive crossover (900 Hz / 3.5 kHz).",
+      "driver": {
+        "sizeInches": 7,
+        "nominalOhms": 4,
+        "powerRmsW": 200
+      }
+    },
+    {
+      "id": "dynaudio-esotar2-ex2-430",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotar2 EX2-430",
+      "series": "Esotar2",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "2-way passive: Esotar 110 tweeter + Esotar 430 midrange, crossover 3000 Hz.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4
+      }
+    },
+    {
+      "id": "dynaudio-esotar2-ex2-650",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotar2 EX2-650",
+      "series": "Esotar2",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "2-way passive: Esotar 110 tweeter + Esotar 650 mid/woofer, crossover 2400 Hz.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4
+      }
+    },
+    {
+      "id": "dynaudio-esotar2-ex3-650",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotar2 EX3-650",
+      "series": "Esotar2",
+      "sourceUrl": "https://dynaudio.com/hubfs/Car%20Audio/Downloads/dyn_automotive_brochure_int_dp.pdf",
+      "verified": true,
+      "notes": "3-way passive: Esotar 110 + Esotar 430 + Esotar 650, crossover 650 Hz / 3000 Hz.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4
+      }
+    },
+    {
+      "id": "dynaudio-esotan-232-mkii",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotan 232 MKII",
+      "series": "Esotan MKII",
+      "sourceUrl": "https://dynaudio.com/car-audio/aftermarket/esotan-mkii",
+      "verified": true,
+      "notes": "2-way component system; tweeter level 0/-2 dB. Spec list on page is unlabeled; values mapped by position.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "powerPeakW": 120,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 67
+      }
+    },
+    {
+      "id": "dynaudio-esotan-236-mkii",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotan 236 MKII",
+      "series": "Esotan MKII",
+      "sourceUrl": "https://dynaudio.com/car-audio/aftermarket/esotan-mkii",
+      "verified": true,
+      "notes": "2-way component system; tweeter level 0/-2 dB. Spec list on page is unlabeled; values mapped by position.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 89,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 67
+      }
+    },
+    {
+      "id": "dynaudio-esotan-272-mkii",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotan 272 MKII",
+      "series": "Esotan MKII",
+      "sourceUrl": "https://dynaudio.com/car-audio/aftermarket/esotan-mkii",
+      "verified": true,
+      "notes": "2-way component system; tweeter level 0/-2 dB. Spec list on page is unlabeled; values mapped by position.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 150,
+        "powerPeakW": 400,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 67
+      }
+    },
+    {
+      "id": "dynaudio-esotan-372-mkii",
+      "category": "componentSet",
+      "brand": "Dynaudio",
+      "model": "Esotan 372 MKII",
+      "series": "Esotan MKII",
+      "sourceUrl": "https://dynaudio.com/car-audio/aftermarket/esotan-mkii",
+      "verified": true,
+      "notes": "3-way component system; tweeter level 0/-2 dB. Spec list on page is unlabeled; values mapped by position.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 150,
+        "powerPeakW": 400,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 67
+      }
+    }
+  ]
+}

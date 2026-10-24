@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "id": "skar-audio-spx-65c",
+      "category": "componentSet",
+      "brand": "Skar Audio",
+      "model": "SPX-65C",
+      "sourceUrl": "https://www.skaraudio.com/products/spx-65c-6-5-inch-component-speaker-system",
+      "verified": true,
+      "notes": "2-Way Component Speakers. Skar rates power per pair (200 Watts (Pair) RMS / 400 Watts (Pair) peak); values here are per speaker. Depth/cutout refer to the mid-woofer: depth 2.77\" (Mid-range Speaker) 0.61\" (Tweeter), cut-out 5.68\" (Mid-range Speaker) 1.84\" (Tweeter). Tweeter 1\". Magnet: Ferrite (Mid-range Speaker) / Neodymium (Tweeter).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 92.0,
+        "powerRmsW": 100.0,
+        "powerPeakW": 200.0,
+        "freqLowHz": 42.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 70.4,
+        "cutoutMm": 144.3
+      }
+    },
+    {
+      "id": "skar-audio-tx525c",
+      "category": "componentSet",
+      "brand": "Skar Audio",
+      "model": "TX525C",
+      "sourceUrl": "https://www.skaraudio.com/products/tx525c-5-25-inch-component-speaker-system",
+      "verified": true,
+      "notes": "2-Way Component Speakers. Skar rates power per pair (80 Watts (Pair) RMS / 160 Watts (Pair) peak); values here are per speaker. Depth/cutout refer to the mid-woofer: depth 2.17\" (Mid-range Speaker 0.96\" (Tweeter), cut-out 4.42\" (Mid-range Speaker 2.05\" (Tweeter). Tweeter 1\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 88.0,
+        "powerRmsW": 40.0,
+        "powerPeakW": 80.0,
+        "freqLowHz": 80.0,
+        "freqHighHz": 10000.0,
+        "mountingDepthMm": 55.1,
+        "cutoutMm": 112.3
+      }
+    },
+    {
+      "id": "skar-audio-tx65c",
+      "category": "componentSet",
+      "brand": "Skar Audio",
+      "model": "TX65C",
+      "sourceUrl": "https://www.skaraudio.com/products/tx65c-6-5-inch-component-speaker-system",
+      "verified": true,
+      "notes": "2-Way Component Speakers. Skar rates power per pair (100 Watts (Pair) RMS / 200 Watts (Pair) peak); values here are per speaker. Depth/cutout refer to the mid-woofer: depth 2.43\" (Mid-range Speaker 0.96\" (Tweeter), cut-out 5.73\" (Mid-range Speaker 2.05\" (Tweeter). Tweeter 1\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 89.0,
+        "powerRmsW": 50.0,
+        "powerPeakW": 100.0,
+        "freqLowHz": 50.0,
+        "freqHighHz": 25000.0,
+        "mountingDepthMm": 61.7,
+        "cutoutMm": 145.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "products": [
+    {
+      "id": "dls-rc25",
+      "category": "driverTweeter",
+      "brand": "DLS",
+      "model": "RC25",
+      "series": "Reference",
+      "sourceUrl": "https://dls.se/product/rc25/",
+      "verified": true,
+      "notes": "25 mm silk dome; supplied external crossover at 4 kHz. Impedance not stated on page.",
+      "driver": {
+        "sizeInches": 1,
+        "sensitivityDb": 93,
+        "powerRmsW": 50,
+        "powerPeakW": 80,
+        "freqLowHz": 1500,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 20,
+        "cutoutMm": 46,
+        "recommendedHpHz": 4000
+      }
+    },
+    {
+      "id": "dls-reference-rcs25",
+      "category": "driverTweeter",
+      "brand": "DLS",
+      "model": "Reference RCS25",
+      "series": "Reference",
+      "sourceUrl": "https://dls.se/product/reference-rcs25/",
+      "verified": true,
+      "notes": "25 mm silk dome. Impedance not stated on page.",
+      "driver": {
+        "sizeInches": 1,
+        "sensitivityDb": 93,
+        "powerRmsW": 50,
+        "powerPeakW": 80,
+        "freqLowHz": 2000,
+        "freqHighHz": 27000,
+        "mountingDepthMm": 18,
+        "cutoutMm": 46
+      }
+    },
+    {
+      "id": "dls-scandinavia-30",
+      "category": "driverTweeter",
+      "brand": "DLS",
+      "model": "Scandinavia 30",
+      "series": "Scandinavia",
+      "sourceUrl": "https://dls.se/product/scandinavia-30/",
+      "verified": true,
+      "notes": "30 mm textile dome; Fs 750 Hz from product description (description says 20 mm depth, spec table says 18 mm).",
+      "driver": {
+        "sizeInches": 1.2,
+        "nominalOhms": 4,
+        "fsHz": 750,
+        "sensitivityDb": 92.2,
+        "freqLowHz": 1000,
+        "freqHighHz": 30000,
+        "mountingDepthMm": 18,
+        "cutoutMm": 53
+      }
+    },
+    {
+      "id": "dls-cruise-crpp-ut25",
+      "category": "driverTweeter",
+      "brand": "DLS",
+      "model": "Cruise CRPP-UT25",
+      "series": "Cruise",
+      "sourceUrl": "https://dls.se/product/cruise-crpp-ut25/",
+      "verified": true,
+      "notes": "1\" silk dome universal tweeter; manufacturer crossover 4.8 kHz 12 dB/oct.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 94,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 2000,
+        "freqHighHz": 25000,
+        "recommendedHpHz": 4800
+      }
+    }
+  ]
+}

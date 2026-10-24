@@ -1,0 +1,201 @@
+{
+  "products": [
+    {
+      "id": "dls-m224",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "M224",
+      "series": "Performance",
+      "sourceUrl": "https://dls.se/product/m224/",
+      "verified": true,
+      "notes": "16 mm tweeter.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "powerRmsW": 50,
+        "powerPeakW": 75,
+        "freqLowHz": 75,
+        "freqHighHz": 18000,
+        "mountingDepthMm": 48,
+        "cutoutMm": 97
+      }
+    },
+    {
+      "id": "dls-m225",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "M225",
+      "series": "Performance",
+      "sourceUrl": "https://dls.se/product/m225/",
+      "verified": true,
+      "notes": "16 mm tweeter.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "powerRmsW": 50,
+        "powerPeakW": 75,
+        "freqLowHz": 75,
+        "freqHighHz": 18000,
+        "mountingDepthMm": 43,
+        "cutoutMm": 120
+      }
+    },
+    {
+      "id": "dls-m226",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "M226",
+      "series": "Performance",
+      "sourceUrl": "https://dls.se/product/m226/",
+      "verified": true,
+      "notes": "16 mm tweeter, polypropylene cone.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 70,
+        "freqHighHz": 18000,
+        "mountingDepthMm": 45,
+        "cutoutMm": 145
+      }
+    },
+    {
+      "id": "dls-m369",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "M369",
+      "series": "Performance",
+      "sourceUrl": "https://dls.se/product/m369/",
+      "verified": true,
+      "notes": "6x9\" 3-way (25 mm tweeter + 2\" mid). Oval cutout 155 x 221 mm.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 89.3,
+        "powerRmsW": 80,
+        "powerPeakW": 120,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 86
+      }
+    },
+    {
+      "id": "dls-m3710i",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "M3710i",
+      "series": "Performance",
+      "sourceUrl": "https://dls.se/product/m3710i/",
+      "verified": true,
+      "notes": "7x10\" for 6x9\" openings, external crossover, 2 dome tweeters. Oval cutout 170 x 240 mm.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "powerRmsW": 120,
+        "powerPeakW": 200,
+        "freqLowHz": 30,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 95
+      }
+    },
+    {
+      "id": "dls-m526i",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "M526i",
+      "series": "Performance",
+      "sourceUrl": "https://dls.se/product/m526i/",
+      "verified": true,
+      "notes": "20 mm tweeter.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "powerRmsW": 50,
+        "powerPeakW": 75,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 43,
+        "cutoutMm": 146
+      }
+    },
+    {
+      "id": "dls-performance-advantage-pa4",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "Performance Advantage PA4",
+      "series": "Performance Advantage",
+      "sourceUrl": "https://dls.se/product/performance-advantage-pa4/",
+      "verified": true,
+      "notes": "13 mm tweeter.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 3,
+        "sensitivityDb": 87,
+        "powerPeakW": 80,
+        "freqLowHz": 80,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "dls-performance-advantage-pa5",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "Performance Advantage PA5",
+      "series": "Performance Advantage",
+      "sourceUrl": "https://dls.se/product/performance-advantage-pa5/",
+      "verified": true,
+      "notes": "13 mm tweeter.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "sensitivityDb": 88,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 75,
+        "freqHighHz": 25000
+      }
+    },
+    {
+      "id": "dls-performance-advantage-pa6",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "Performance Advantage PA6",
+      "series": "Performance Advantage",
+      "sourceUrl": "https://dls.se/product/performance-advantage-pa6/",
+      "verified": true,
+      "notes": "13 mm tweeter.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 86,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 67,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "dls-cruise-crpp-u6cx",
+      "category": "driverCoax",
+      "brand": "DLS",
+      "model": "Cruise CRPP-U6CX",
+      "series": "Cruise",
+      "sourceUrl": "https://dls.se/product/cruise-crpp-u6cx/",
+      "verified": true,
+      "notes": "Universal coaxial; crossover 4.8 kHz 6 dB/oct.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "powerRmsW": 90,
+        "powerPeakW": 180,
+        "freqLowHz": 59,
+        "freqHighHz": 23000
+      }
+    }
+  ]
+}

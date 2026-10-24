@@ -1,0 +1,236 @@
+{
+  "products": [
+    {
+      "id": "skar-audio-rpx4",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "RPX4",
+      "sourceUrl": "https://www.skaraudio.com/products/rpx4-4-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Skar rates power per pair (30 Watts (Pair) RMS / 120 Watts (Pair) peak); values here are per speaker. Tweeter 0.8\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 4.0,
+        "nominalOhms": 4,
+        "sensitivityDb": 89.0,
+        "powerRmsW": 15.0,
+        "powerPeakW": 60.0,
+        "freqLowHz": 50.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 50.5,
+        "cutoutMm": 81.3
+      }
+    },
+    {
+      "id": "skar-audio-rpx525",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "RPX525",
+      "sourceUrl": "https://www.skaraudio.com/products/rpx525-5-25-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Skar rates power per pair (45 Watts (Pair) RMS / 150 Watts (Pair) peak); values here are per speaker. Tweeter 0.8\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 90.0,
+        "powerRmsW": 22.5,
+        "powerPeakW": 75.0,
+        "freqLowHz": 45.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 45.7,
+        "cutoutMm": 115.6
+      }
+    },
+    {
+      "id": "skar-audio-rpx65",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "RPX65",
+      "sourceUrl": "https://www.skaraudio.com/products/rpx65-6-5-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Skar rates power per pair (60 Watts (Pair) RMS / 200 Watts (Pair) peak); values here are per speaker. Tweeter 0.8\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 89.0,
+        "powerRmsW": 30.0,
+        "powerPeakW": 100.0,
+        "freqLowHz": 40.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 56.1,
+        "cutoutMm": 139.7
+      }
+    },
+    {
+      "id": "skar-audio-rpx68",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "RPX68",
+      "sourceUrl": "https://www.skaraudio.com/products/rpx68-6-8-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Size 6\" x 8\". Skar rates power per pair (70 Watts (Pair) RMS / 210 Watts (Pair) peak); values here are per speaker. Cut-out 7.42\" x 5.09\". Tweeter 0.8\". Magnet: Ferrite.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92.0,
+        "powerRmsW": 35.0,
+        "powerPeakW": 105.0,
+        "freqLowHz": 32.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 63.2
+      }
+    },
+    {
+      "id": "skar-audio-rpx69",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "RPX69",
+      "sourceUrl": "https://www.skaraudio.com/products/rpx69-6-9-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "3-Way Coaxial Speakers. Size 6\" x 9\". Skar rates power per pair (90 Watts (Pair) RMS / 270 Watts (Pair) peak); values here are per speaker. Cut-out 8.56\" x 5.99\". Tweeter 0.8\" Tweeter & 1.63\" Mid-range Tweeter. Magnet: Ferrite.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92.0,
+        "powerRmsW": 45.0,
+        "powerPeakW": 135.0,
+        "freqLowHz": 32.0,
+        "freqHighHz": 24000.0,
+        "mountingDepthMm": 73.9
+      }
+    },
+    {
+      "id": "skar-audio-tx275",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "TX275",
+      "sourceUrl": "https://www.skaraudio.com/products/tx275-2-75-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Skar rates power per pair (40 Watts (Pair) RMS / 80 Watts (Pair) peak); values here are per speaker. Tweeter 0.6\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 2.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 82.2,
+        "powerRmsW": 20.0,
+        "powerPeakW": 40.0,
+        "freqLowHz": 120.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 31.2,
+        "cutoutMm": 61.0
+      }
+    },
+    {
+      "id": "skar-audio-tx35",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "TX35",
+      "sourceUrl": "https://www.skaraudio.com/products/tx35-3-5-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Skar rates power per pair (60 Watts (Pair) RMS / 120 Watts (Pair) peak); values here are per speaker. Tweeter 0.8\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 84.0,
+        "powerRmsW": 30.0,
+        "powerPeakW": 60.0,
+        "freqLowHz": 145.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 42.7,
+        "cutoutMm": 77.2
+      }
+    },
+    {
+      "id": "skar-audio-tx4",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "TX4",
+      "sourceUrl": "https://www.skaraudio.com/products/tx4-4-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Skar rates power per pair (60 Watts (Pair) RMS / 120 Watts (Pair) peak); values here are per speaker. Tweeter 1\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 4.0,
+        "nominalOhms": 4,
+        "sensitivityDb": 87.0,
+        "powerRmsW": 30.0,
+        "powerPeakW": 60.0,
+        "freqLowHz": 60.0,
+        "freqHighHz": 21000.0,
+        "mountingDepthMm": 48.0,
+        "cutoutMm": 92.5
+      }
+    },
+    {
+      "id": "skar-audio-tx525",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "TX525",
+      "sourceUrl": "https://www.skaraudio.com/products/tx525-5-25-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Skar rates power per pair (80 Watts (Pair) RMS / 160 Watts (Pair) peak); values here are per speaker. Tweeter 1\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 88.0,
+        "powerRmsW": 40.0,
+        "powerPeakW": 80.0,
+        "freqLowHz": 50.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 51.8,
+        "cutoutMm": 113.3
+      }
+    },
+    {
+      "id": "skar-audio-tx65",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "TX65",
+      "sourceUrl": "https://www.skaraudio.com/products/tx65-6-5-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Skar rates power per pair (100 Watts (Pair) RMS / 200 Watts (Pair) peak); values here are per speaker. Tweeter 1\". Magnet: Ferrite.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 89.0,
+        "powerRmsW": 50.0,
+        "powerPeakW": 100.0,
+        "freqLowHz": 45.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 62.5,
+        "cutoutMm": 143.0
+      }
+    },
+    {
+      "id": "skar-audio-tx68",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "TX68",
+      "sourceUrl": "https://www.skaraudio.com/products/tx68-6-8-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Size 6\" x 8\". Skar rates power per pair (100 Watts (Pair) RMS / 200 Watts (Pair) peak); values here are per speaker. Cut-out 7.50\" x 5.11\". Tweeter 1\". Magnet: Ferrite.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 89.0,
+        "powerRmsW": 50.0,
+        "powerPeakW": 100.0,
+        "freqLowHz": 60.0,
+        "freqHighHz": 20000.0,
+        "mountingDepthMm": 66.5
+      }
+    },
+    {
+      "id": "skar-audio-tx69",
+      "category": "driverCoax",
+      "brand": "Skar Audio",
+      "model": "TX69",
+      "sourceUrl": "https://www.skaraudio.com/products/tx69-6-9-inch-coaxial-car-speakers",
+      "verified": true,
+      "notes": "2-Way Coaxial Speakers. Size 6\" x 9\". Skar rates power per pair (120 Watts (Pair) RMS / 240 Watts (Pair) peak); values here are per speaker. Cut-out 8.64\" x 5.91\". Tweeter 1\". Magnet: Ferrite.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 90.0,
+        "powerRmsW": 60.0,
+        "powerPeakW": 120.0,
+        "freqLowHz": 40.0,
+        "freqHighHz": 25000.0,
+        "mountingDepthMm": 86.4
+      }
+    }
+  ]
+}
