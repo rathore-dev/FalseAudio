@@ -1,0 +1,328 @@
+{
+  "products": [
+    {
+      "id": "helix-cb-k100-2-s3",
+      "category": "componentSet",
+      "brand": "Helix",
+      "model": "CB K100.2-S3",
+      "series": "Compose Basic",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/basic/cb-k100-2-s3",
+      "verified": true,
+      "notes": "Set-level specs; T/S in driver block are the kit midbass's.",
+      "driver": {
+        "nominalOhms": 3,
+        "powerRmsW": 60,
+        "powerPeakW": 90,
+        "sensitivityDb": 88,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 100,
+        "freqHighHz": 22000,
+        "sizeInches": 4
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "CB K100.2-S3 woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "CB K100.2-S3 tweeter"
+        }
+      ]
+    },
+    {
+      "id": "helix-cb-k130-2-s3",
+      "category": "componentSet",
+      "brand": "Helix",
+      "model": "CB K130.2-S3",
+      "series": "Compose Basic",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/basic/cb-k130-2-s3",
+      "verified": true,
+      "notes": "Set-level specs; T/S in driver block are the kit midbass's.",
+      "driver": {
+        "nominalOhms": 3,
+        "reOhms": 3,
+        "fsHz": 88,
+        "qms": 4.1,
+        "qes": 1.12,
+        "qts": 0.88,
+        "vasLitres": 4.2,
+        "bl": 3.9,
+        "sdCm2": 97,
+        "mmsGrams": 10.1,
+        "xmaxMm": 2.5,
+        "powerRmsW": 70,
+        "powerPeakW": 105,
+        "sensitivityDb": 90,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 80,
+        "freqHighHz": 22000,
+        "sizeInches": 5.25
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "CB K130.2-S3 woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "CB K130.2-S3 tweeter"
+        }
+      ]
+    },
+    {
+      "id": "helix-cb-k165-2-s3",
+      "category": "componentSet",
+      "brand": "Helix",
+      "model": "CB K165.2-S3",
+      "series": "Compose Basic",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/basic/cb-k165-2-s3",
+      "verified": true,
+      "notes": "Set-level specs; T/S in driver block are the kit midbass's.",
+      "driver": {
+        "nominalOhms": 3,
+        "reOhms": 3,
+        "fsHz": 62,
+        "qms": 4.5,
+        "qes": 0.9,
+        "qts": 0.75,
+        "vasLitres": 14.5,
+        "bl": 4.1,
+        "sdCm2": 141,
+        "mmsGrams": 13.2,
+        "xmaxMm": 2.5,
+        "powerRmsW": 80,
+        "powerPeakW": 120,
+        "sensitivityDb": 92,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 60,
+        "freqHighHz": 22000,
+        "sizeInches": 6.5
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "CB W165-S3",
+          "id": "helix-cb-w165-s3"
+        },
+        {
+          "role": "tweeter",
+          "model": "CB K165.2-S3 tweeter"
+        }
+      ]
+    },
+    {
+      "id": "helix-ci3-k100-2fm-s3-mk2",
+      "category": "componentSet",
+      "brand": "Helix",
+      "model": "Ci3 K100.2FM-S3 MK2",
+      "series": "Compose Ci3",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/i3/ci3-k100-2fm-s3-mk2",
+      "verified": true,
+      "notes": "Set-level specs; T/S in driver block are the kit midbass's.",
+      "driver": {
+        "nominalOhms": 3,
+        "powerRmsW": 80,
+        "powerPeakW": 120,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 120,
+        "freqHighHz": 25000,
+        "sizeInches": 4
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "Ci3 K100.2FM-S3 MK2 woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "Ci3 K100.2FM-S3 MK2 tweeter"
+        }
+      ]
+    },
+    {
+      "id": "helix-ci3-k130-2-s3-mk2",
+      "category": "componentSet",
+      "brand": "Helix",
+      "model": "Ci3 K130.2-S3 MK2",
+      "series": "Compose Ci3",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/i3/ci3-k130-2-s3-mk2",
+      "verified": true,
+      "notes": "Set-level specs; T/S in driver block are the kit midbass's.",
+      "driver": {
+        "nominalOhms": 3,
+        "reOhms": 3.1,
+        "fsHz": 89,
+        "qms": 3.11,
+        "qes": 0.97,
+        "qts": 0.74,
+        "vasLitres": 4.6,
+        "bl": 4,
+        "sdCm2": 98,
+        "mmsGrams": 9.1,
+        "xmaxMm": 3.2,
+        "powerRmsW": 90,
+        "powerPeakW": 135,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 80,
+        "freqHighHz": 25000,
+        "sizeInches": 5.25
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "Ci3 W130-S3",
+          "id": "helix-ci3-w130-s3"
+        },
+        {
+          "role": "tweeter",
+          "model": "Ci3 K130.2-S3 MK2 tweeter"
+        }
+      ]
+    },
+    {
+      "id": "helix-ci3-k165-2fm-s2-mk2",
+      "category": "componentSet",
+      "brand": "Helix",
+      "model": "Ci3 K165.2FM-S2 MK2",
+      "series": "Compose Ci3",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/i3/ci3-k165-2fm-s2-mk2",
+      "verified": true,
+      "notes": "Set-level specs; T/S in driver block are the kit midbass's.",
+      "driver": {
+        "nominalOhms": 2,
+        "reOhms": 1.8,
+        "fsHz": 74,
+        "qms": 3.92,
+        "qes": 0.92,
+        "qts": 0.74,
+        "vasLitres": 8.8,
+        "bl": 3.4,
+        "sdCm2": 133,
+        "mmsGrams": 12.5,
+        "xmaxMm": 3.7,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "sensitivityDb": 94,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 60,
+        "freqHighHz": 25000,
+        "sizeInches": 6.5
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "Ci3 W165FM-S2",
+          "id": "helix-ci3-w165fm-s2"
+        },
+        {
+          "role": "tweeter",
+          "model": "Ci3 K165.2FM-S2 MK2 tweeter"
+        }
+      ]
+    },
+    {
+      "id": "helix-ci3-k165-2fm-s3-mk2",
+      "category": "componentSet",
+      "brand": "Helix",
+      "model": "Ci3 K165.2FM-S3 MK2",
+      "series": "Compose Ci3",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/i3/ci3-k165-2fm-s3-mk2",
+      "verified": true,
+      "notes": "Set-level specs; T/S in driver block are the kit midbass's.",
+      "driver": {
+        "nominalOhms": 3,
+        "reOhms": 3,
+        "fsHz": 70,
+        "qms": 4.17,
+        "qes": 1.05,
+        "qts": 0.84,
+        "vasLitres": 11.2,
+        "bl": 4,
+        "sdCm2": 133,
+        "mmsGrams": 11.3,
+        "xmaxMm": 3.2,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "sensitivityDb": 92,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 60,
+        "freqHighHz": 25000,
+        "sizeInches": 6.5
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "Ci3 W165FM-S3",
+          "id": "helix-ci3-w165fm-s3"
+        },
+        {
+          "role": "tweeter",
+          "model": "Ci3 K165.2FM-S3 MK2 tweeter"
+        }
+      ]
+    },
+    {
+      "id": "helix-ci3-k200-2fm-s3-mk2",
+      "category": "componentSet",
+      "brand": "Helix",
+      "model": "Ci3 K200.2FM-S3 MK2",
+      "series": "Compose Ci3",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/i3/ci3-k200-2fm-s3-mk2",
+      "verified": true,
+      "notes": "Set-level specs; T/S in driver block are the kit midbass's.",
+      "driver": {
+        "nominalOhms": 3,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "sensitivityDb": 94,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 50,
+        "freqHighHz": 25000,
+        "sizeInches": 8
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "Ci3 K200.2FM-S3 MK2 woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "Ci3 K200.2FM-S3 MK2 tweeter"
+        }
+      ]
+    },
+    {
+      "id": "helix-pr-k165-2",
+      "category": "componentSet",
+      "brand": "Helix",
+      "model": "PR K165.2",
+      "series": "Pure Reference",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/pure/pr-k165-2",
+      "verified": true,
+      "notes": "Set-level specs; T/S in driver block are the kit midbass's.",
+      "driver": {
+        "nominalOhms": 4,
+        "powerRmsW": 100,
+        "powerPeakW": 200,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 40,
+        "freqHighHz": 25000,
+        "sizeInches": 6.5
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "PR K165.2 woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "PR K165.2 tweeter"
+        }
+      ]
+    }
+  ]
+}

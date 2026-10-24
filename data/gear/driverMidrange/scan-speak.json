@@ -1,0 +1,130 @@
+{
+  "products": [
+    {
+      "id": "scan-speak-10f-4424g00",
+      "category": "driverMidrange",
+      "brand": "Scan-Speak",
+      "model": "10F/4424G00",
+      "series": "Discovery",
+      "sourceUrl": "https://www.scan-speak.dk/product/10f-4424g00/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Fullrange; listed size 10 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/10f-4424g00.pdf",
+      "driver": {
+        "fsHz": 90,
+        "reOhms": 3.2,
+        "qts": 0.29,
+        "sensitivityDb": 90,
+        "vasLitres": 2,
+        "sdCm2": 36,
+        "bl": 3.9,
+        "nominalOhms": 4,
+        "sizeInches": 3.5
+      }
+    },
+    {
+      "id": "scan-speak-12mu-4731t00",
+      "category": "driverMidrange",
+      "brand": "Scan-Speak",
+      "model": "12MU/4731T00",
+      "series": "Illuminator",
+      "sourceUrl": "https://www.scan-speak.dk/product/12mu-4731t00/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Midrange; listed size 12 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/12mu-4731t00.pdf",
+      "driver": {
+        "fsHz": 64,
+        "reOhms": 3.1,
+        "qts": 0.24,
+        "sensitivityDb": 90,
+        "vasLitres": 5.4,
+        "sdCm2": 58,
+        "bl": 5.1,
+        "nominalOhms": 4,
+        "sizeInches": 4.5
+      }
+    },
+    {
+      "id": "scan-speak-12mu-8731t00",
+      "category": "driverMidrange",
+      "brand": "Scan-Speak",
+      "model": "12MU/8731T00",
+      "series": "Illuminator",
+      "sourceUrl": "https://www.scan-speak.dk/product/12mu-8731t00/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Midrange; listed size 12 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/12mu-8731t00.pdf",
+      "driver": {
+        "fsHz": 66,
+        "reOhms": 5.9,
+        "qts": 0.29,
+        "sensitivityDb": 87,
+        "vasLitres": 5.8,
+        "sdCm2": 58,
+        "bl": 6.1,
+        "nominalOhms": 8,
+        "sizeInches": 4.5
+      }
+    },
+    {
+      "id": "scan-speak-15m-4531k00",
+      "category": "driverMidrange",
+      "brand": "Scan-Speak",
+      "model": "15M/4531K00",
+      "series": "Revelator",
+      "sourceUrl": "https://www.scan-speak.dk/product/15m-4531k00/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Midrange; listed size 15 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/15m-4531k00.pdf",
+      "driver": {
+        "fsHz": 42,
+        "reOhms": 3.5,
+        "qts": 0.27,
+        "sensitivityDb": 89.5,
+        "vasLitres": 16,
+        "sdCm2": 95,
+        "bl": 6,
+        "nominalOhms": 4,
+        "sizeInches": 5.25
+      }
+    },
+    {
+      "id": "scan-speak-15m-4624g00",
+      "category": "driverMidrange",
+      "brand": "Scan-Speak",
+      "model": "15M/4624G00",
+      "series": "Discovery",
+      "sourceUrl": "https://www.scan-speak.dk/product/15m-4624g00/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Midrange; listed size 15 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/15m-4624g00.pdf",
+      "driver": {
+        "fsHz": 100,
+        "reOhms": 3.2,
+        "qts": 0.43,
+        "sensitivityDb": 92.5,
+        "vasLitres": 3.7,
+        "sdCm2": 75,
+        "bl": 5.3,
+        "nominalOhms": 4,
+        "sizeInches": 5.25
+      }
+    },
+    {
+      "id": "scan-speak-18m-4631t00",
+      "category": "driverMidrange",
+      "brand": "Scan-Speak",
+      "model": "18M/4631T00",
+      "series": "Revelator",
+      "sourceUrl": "https://www.scan-speak.dk/product/18m-4631t00/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Midrange; listed size 18 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/18m-4631t00.pdf",
+      "driver": {
+        "fsHz": 65,
+        "reOhms": 3.5,
+        "qts": 0.6,
+        "sensitivityDb": 92,
+        "vasLitres": 14,
+        "sdCm2": 154,
+        "bl": 5.6,
+        "nominalOhms": 4,
+        "sizeInches": 6.5
+      }
+    }
+  ]
+}

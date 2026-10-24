@@ -1,0 +1,81 @@
+{
+  "products": [
+    {
+      "id": "audiofrog-gb10",
+      "category": "driverTweeter",
+      "brand": "Audiofrog",
+      "model": "GB10",
+      "series": "GB",
+      "sourceUrl": "https://www.audiofrog.com/gb10-1-25-mm-audiophile-grade-automotive-tweeter/",
+      "verified": true,
+      "notes": "Power ratings with recommended crossover. HP >=2.5 kHz, >=12 dB/oct. Recommended amp 20-100 W RMS. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 1800,
+        "freqHighHz": 24000,
+        "recommendedHpHz": 2500
+      }
+    },
+    {
+      "id": "audiofrog-gb10cf",
+      "category": "driverTweeter",
+      "brand": "Audiofrog",
+      "model": "GB10CF",
+      "series": "GB",
+      "sourceUrl": "https://www.audiofrog.com/introducing-the-new-gb10cf-carbon-fiber-tweeter/",
+      "verified": true,
+      "notes": "Carbon fiber dome + acoustic lens version of GB10. Maker recommends 2 kHz 24 dB/oct Linkwitz-Riley HP or higher. Other specs not stated on the announcement page.",
+      "driver": {
+        "sizeInches": 1,
+        "recommendedHpHz": 2000
+      }
+    },
+    {
+      "id": "audiofrog-gb15",
+      "category": "driverTweeter",
+      "brand": "Audiofrog",
+      "model": "GB15",
+      "series": "GB",
+      "sourceUrl": "https://www.audiofrog.com/gb15-1-12-38-mm-audiophile-grade-automotive-tweeter/",
+      "verified": true,
+      "notes": "Power ratings with recommended crossover. HP >=1.8 kHz, >=12 dB/oct. Recommended amp 20-100 W RMS. No T/S published.",
+      "driver": {
+        "sizeInches": 1.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 1300,
+        "freqHighHz": 20000,
+        "recommendedHpHz": 1800
+      }
+    },
+    {
+      "id": "audiofrog-gs10",
+      "category": "driverTweeter",
+      "brand": "Audiofrog",
+      "model": "GS10",
+      "series": "GS",
+      "sourceUrl": "https://www.audiofrog.com/gs10-1-25mm-premium-grade-automotive-tweeter/",
+      "verified": true,
+      "notes": "HP >=3.5 kHz, >=12 dB/oct. Recommended amp 15-75 W RMS.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 70,
+        "powerPeakW": 200,
+        "freqLowHz": 1800,
+        "freqHighHz": 20000,
+        "recommendedHpHz": 3500
+      }
+    }
+  ]
+}

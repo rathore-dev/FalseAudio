@@ -1,0 +1,91 @@
+{
+  "products": [
+    {
+      "id": "helix-ci3-t20fm-al-mk2",
+      "category": "driverTweeter",
+      "brand": "Helix",
+      "model": "Ci3 T20FM-AL MK2",
+      "series": "Compose Ci3",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/i3/ci3-t20fm-al-mk2",
+      "verified": true,
+      "notes": "Maker min. HP: 12 dB/Octave > 3,500 Hz; 24 dB/Octave > 3,000 Hz.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.2,
+        "fsHz": 1800,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 2000,
+        "freqHighHz": 25000,
+        "cutoutMm": 28,
+        "mountingDepthMm": 9.8,
+        "recommendedHpHz": 3500.0
+      }
+    },
+    {
+      "id": "helix-ci5-t25fm-ca",
+      "category": "driverTweeter",
+      "brand": "Helix",
+      "model": "Ci5 T25FM-CA",
+      "series": "Compose Ci5",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/i5/ci5-t25fm-ca",
+      "verified": true,
+      "notes": "Maker min. HP: 12 dB/Octave > 3,000 Hz; 24 dB/Octave > 2,500 Hz.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.2,
+        "fsHz": 1800,
+        "sensitivityDb": 94,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 2000,
+        "freqHighHz": 25000,
+        "cutoutMm": 38,
+        "mountingDepthMm": 11.7,
+        "recommendedHpHz": 3000.0
+      }
+    },
+    {
+      "id": "helix-ci7-t20fm-sc",
+      "category": "driverTweeter",
+      "brand": "Helix",
+      "model": "Ci7 T20FM-SC",
+      "series": "Compose Ci7",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/compose/i7/ci7-t20fm-sc",
+      "verified": true,
+      "notes": "Maker min. HP: 12 dB/Octave > 3,000 Hz; 24 dB/Octave > 2,500 Hz.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 950,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 1500,
+        "freqHighHz": 30000,
+        "cutoutMm": 27.2,
+        "mountingDepthMm": 19,
+        "recommendedHpHz": 3000.0
+      }
+    },
+    {
+      "id": "helix-pr-t25-s",
+      "category": "driverTweeter",
+      "brand": "Helix",
+      "model": "PR T25-S",
+      "series": "Pure Reference",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/speakers/pure/pr-t25-s",
+      "verified": true,
+      "notes": "Maker min. HP: 6 dB/Octave ; 12 dB/Octave ; 24 dB/Octave .",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 1400,
+        "sdCm2": 4.9,
+        "mmsGrams": 0.3,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 2500,
+        "freqHighHz": 25000
+      }
+    }
+  ]
+}

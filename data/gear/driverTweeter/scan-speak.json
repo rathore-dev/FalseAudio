@@ -1,0 +1,163 @@
+{
+  "products": [
+    {
+      "id": "scan-speak-d2604-833000",
+      "category": "driverTweeter",
+      "brand": "Scan-Speak",
+      "model": "D2604/833000",
+      "series": "Discovery",
+      "sourceUrl": "https://www.scan-speak.dk/product/d2604-833000/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Tweeter; listed size 2.6 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/d2604-833000.pdf",
+      "driver": {
+        "fsHz": 475,
+        "reOhms": 2.8,
+        "qts": 0.55,
+        "sensitivityDb": 93,
+        "vasLitres": 0.02,
+        "sdCm2": 8,
+        "bl": 2.2,
+        "nominalOhms": 4
+      }
+    },
+    {
+      "id": "scan-speak-d2606-920000",
+      "category": "driverTweeter",
+      "brand": "Scan-Speak",
+      "model": "D2606/920000",
+      "series": "Discovery",
+      "sourceUrl": "https://www.scan-speak.dk/product/d2606-920000/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Tweeter; listed size 2.6 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/d2606-920000.pdf",
+      "driver": {
+        "fsHz": 1100,
+        "reOhms": 4.6,
+        "qts": 0.84,
+        "sensitivityDb": 91.5,
+        "vasLitres": 0.01,
+        "sdCm2": 7.1,
+        "bl": 2.7,
+        "nominalOhms": 6
+      }
+    },
+    {
+      "id": "scan-speak-d2608-913000",
+      "category": "driverTweeter",
+      "brand": "Scan-Speak",
+      "model": "D2608/913000",
+      "series": "Discovery",
+      "sourceUrl": "https://www.scan-speak.dk/product/d2608-913000/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Tweeter; listed size 2.6 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/d2608-913000.pdf",
+      "driver": {
+        "fsHz": 700,
+        "reOhms": 5.6,
+        "qts": 0.29,
+        "sensitivityDb": 91.5,
+        "vasLitres": 0.02,
+        "sdCm2": 7,
+        "bl": 2.6,
+        "nominalOhms": 8
+      }
+    },
+    {
+      "id": "scan-speak-d2904-710003",
+      "category": "driverTweeter",
+      "brand": "Scan-Speak",
+      "model": "D2904/710003",
+      "series": "Revelator",
+      "sourceUrl": "https://www.scan-speak.dk/product/d2904-710003/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Tweeter; listed size 2.6 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/d2904-710003.pdf",
+      "driver": {
+        "fsHz": 520,
+        "reOhms": 3,
+        "qts": 0.44,
+        "sensitivityDb": 94.5,
+        "vasLitres": 0.02,
+        "sdCm2": 7,
+        "bl": 2.8,
+        "nominalOhms": 4
+      }
+    },
+    {
+      "id": "scan-speak-d2905-990000",
+      "category": "driverTweeter",
+      "brand": "Scan-Speak",
+      "model": "D2905/990000",
+      "series": "Revelator",
+      "sourceUrl": "https://www.scan-speak.dk/product/d2905-990000/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Tweeter; listed size 2.8 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/d2905-990000.pdf",
+      "driver": {
+        "fsHz": 500,
+        "reOhms": 4.7,
+        "qts": 0.63,
+        "sensitivityDb": 91,
+        "vasLitres": 0.02,
+        "sdCm2": 8.5,
+        "bl": 3.5
+      }
+    },
+    {
+      "id": "scan-speak-r2604-833000",
+      "category": "driverTweeter",
+      "brand": "Scan-Speak",
+      "model": "R2604/833000",
+      "series": "Discovery",
+      "sourceUrl": "https://www.scan-speak.dk/product/r2604-833000/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Tweeter; listed size 2.6 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/r2604-833000.pdf",
+      "driver": {
+        "fsHz": 440,
+        "reOhms": 2.9,
+        "qts": 0.38,
+        "sensitivityDb": 92,
+        "vasLitres": 0.02,
+        "sdCm2": 5.4,
+        "bl": 2.3,
+        "nominalOhms": 4
+      }
+    },
+    {
+      "id": "scan-speak-r2904-700000",
+      "category": "driverTweeter",
+      "brand": "Scan-Speak",
+      "model": "R2904/700000",
+      "series": "Revelator",
+      "sourceUrl": "https://www.scan-speak.dk/product/r2904-700000/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Tweeter; listed size 2.6 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/r2904-700000.pdf",
+      "driver": {
+        "fsHz": 520,
+        "reOhms": 3,
+        "qts": 0.33,
+        "sensitivityDb": 94.5,
+        "vasLitres": 0.01,
+        "sdCm2": 5.6,
+        "bl": 2.8,
+        "nominalOhms": 4
+      }
+    },
+    {
+      "id": "scan-speak-r2904-700009",
+      "category": "driverTweeter",
+      "brand": "Scan-Speak",
+      "model": "R2904/700009",
+      "series": "Revelator",
+      "sourceUrl": "https://www.scan-speak.dk/product/r2904-700009/",
+      "verified": true,
+      "notes": "Summary specs from scan-speak.dk product page (category: Tweeter; listed size 2.6 cm). Sensitivity reference not stated on page (Scan-Speak datasheets normally use 2.83V/1m). nominalOhms inferred from Scan-Speak model code. Full datasheet: https://www.scan-speak.dk/datasheet/pdf/r2904-700009.pdf",
+      "driver": {
+        "fsHz": 520,
+        "reOhms": 3,
+        "qts": 0.33,
+        "sensitivityDb": 94.5,
+        "vasLitres": 0.01,
+        "sdCm2": 5.6,
+        "bl": 2.8,
+        "nominalOhms": 4
+      }
+    }
+  ]
+}

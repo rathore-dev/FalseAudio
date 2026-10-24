@@ -1,0 +1,55 @@
+{
+  "products": [
+    {
+      "id": "audison-th-1-5-ii-violino",
+      "category": "driverTweeter",
+      "brand": "Audison",
+      "model": "TH 1.5 II Violino",
+      "series": "Thesis II",
+      "sourceUrl": "https://audison.com/product/th-1-5-ii-violino/",
+      "verified": true,
+      "notes": "audison.com product page. Sensitivity reference not stated. Sd from maker's 'D' (cm2) field. Maker's tweeter Q values internally inconsistent; omitted. Power rating with HP @ 1.8 kHz 12 dB/oct. 34 mm VC.",
+      "driver": {
+        "sizeInches": 1.5,
+        "nominalOhms": 6,
+        "reOhms": 6.1,
+        "fsHz": 780,
+        "leMh": 0.025,
+        "vasLitres": 0.019,
+        "mmsGrams": 0.43,
+        "bl": 3.32,
+        "sdCm2": 38,
+        "sensitivityDb": 92.5,
+        "powerPeakW": 200,
+        "freqLowHz": 800,
+        "freqHighHz": 26000,
+        "recommendedHpHz": 1800
+      }
+    },
+    {
+      "id": "audison-av-1-1-ii",
+      "category": "driverTweeter",
+      "brand": "Audison",
+      "model": "AV 1.1 II",
+      "series": "Voce II",
+      "sourceUrl": "https://audison.com/product/av-1-1-ii/",
+      "verified": true,
+      "notes": "audison.com product page. Sensitivity reference not stated. Sd from maker's 'D' (cm2) field. Maker's tweeter Q values internally inconsistent; omitted. Maker lists continuous power 10 W (likely unfiltered); min impedance 3.9 ohm.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "reOhms": 3.2,
+        "fsHz": 900,
+        "leMh": 0.02,
+        "mmsGrams": 0.38,
+        "bl": 2.15,
+        "sdCm2": 8.55,
+        "sensitivityDb": 91,
+        "powerRmsW": 10,
+        "powerPeakW": 180,
+        "freqLowHz": 1000,
+        "freqHighHz": 40000
+      }
+    }
+  ]
+}

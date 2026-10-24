@@ -1,0 +1,62 @@
+{
+  "products": [
+    {
+      "id": "audison-th-6-5-ii-sax",
+      "category": "driverMidbass",
+      "brand": "Audison",
+      "model": "TH 6.5 II Sax",
+      "series": "Thesis II",
+      "sourceUrl": "https://audison.com/product/th-6-5-ii-sax/",
+      "verified": true,
+      "notes": "audison.com product page. Sensitivity reference not stated. Sd from maker's 'D' (cm2) field. 50 mm VC, TPX cone.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "reOhms": 3.8,
+        "fsHz": 55,
+        "qts": 0.43,
+        "qes": 0.47,
+        "qms": 5.3,
+        "vasLitres": 8.6,
+        "xmaxMm": 5.4,
+        "bl": 8.2,
+        "mmsGrams": 24.2,
+        "leMh": 0.43,
+        "sensitivityDb": 87,
+        "powerRmsW": 150,
+        "powerPeakW": 300,
+        "freqLowHz": 40,
+        "freqHighHz": 4500
+      }
+    },
+    {
+      "id": "audison-av-6-5-s-ii",
+      "category": "driverMidbass",
+      "brand": "Audison",
+      "model": "AV 6.5 S II",
+      "series": "Voce II",
+      "sourceUrl": "https://audison.com/product/av-6-5-s-ii/",
+      "verified": true,
+      "notes": "audison.com product page. Sensitivity reference not stated. Sd from maker's 'D' (cm2) field. Xmech 6.7 mm.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "reOhms": 2.9,
+        "fsHz": 67,
+        "qts": 0.61,
+        "qes": 0.67,
+        "qms": 6.76,
+        "vasLitres": 10.28,
+        "xmaxMm": 4.2,
+        "bl": 4.9,
+        "mmsGrams": 13.2,
+        "leMh": 0.3,
+        "sdCm2": 128.3,
+        "sensitivityDb": 91,
+        "powerPeakW": 250,
+        "freqLowHz": 50,
+        "freqHighHz": 5500
+      }
+    }
+  ]
+}

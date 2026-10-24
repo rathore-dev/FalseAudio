@@ -1,0 +1,88 @@
+{
+  "products": [
+    {
+      "id": "sb-acoustics-sb12pacr25-4-coax",
+      "category": "driverCoax",
+      "brand": "SB Acoustics",
+      "model": "SB12PACR25-4-COAX",
+      "series": "Coaxial",
+      "sourceUrl": "https://sbacoustics.com/product/4-sb12pacr25-4-coax/",
+      "verified": true,
+      "notes": "Coaxial; driver block = woofer. Xmax = half of woofer linear coil travel p-p. Tweeter: Re 3 ohm, Fs 1300 Hz, sens 87.5 dB 2.83V/1m, rated 10 W.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.1,
+        "leMh": 0.25,
+        "sdCm2": 45,
+        "xmaxMm": 5,
+        "fsHz": 55,
+        "sensitivityDb": 87.5,
+        "sensitivityRef": "2.83V/1m",
+        "qms": 4.84,
+        "qes": 0.38,
+        "qts": 0.35,
+        "mmsGrams": 5.6,
+        "bl": 4,
+        "vasLitres": 4.3,
+        "powerRmsW": 30,
+        "sizeInches": 4
+      }
+    },
+    {
+      "id": "sb-acoustics-sb13pfcr25-4-coax",
+      "category": "driverCoax",
+      "brand": "SB Acoustics",
+      "model": "SB13PFCR25-4-COAX",
+      "series": "Coaxial",
+      "sourceUrl": "https://sbacoustics.com/product/5-sb13pfcr25-4-coax/",
+      "verified": true,
+      "notes": "Coaxial; driver block = woofer. Xmax = half of woofer linear coil travel p-p. Tweeter: Re 3 ohm, Fs 1300 Hz, sens 89 dB 2.83V/1m, rated 10 W.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.2,
+        "leMh": 0.3,
+        "sdCm2": 82,
+        "xmaxMm": 4.65,
+        "fsHz": 43,
+        "sensitivityDb": 90,
+        "sensitivityRef": "2.83V/1m",
+        "qms": 2.26,
+        "qes": 0.3,
+        "qts": 0.27,
+        "mmsGrams": 9.1,
+        "bl": 5.1,
+        "vasLitres": 14.4,
+        "powerRmsW": 40,
+        "sizeInches": 5.25
+      }
+    },
+    {
+      "id": "sb-acoustics-sb16pfcr25-4-coax",
+      "category": "driverCoax",
+      "brand": "SB Acoustics",
+      "model": "SB16PFCR25-4-COAX",
+      "series": "Coaxial",
+      "sourceUrl": "https://sbacoustics.com/product/6-sb16pfcr25-4-coax/",
+      "verified": true,
+      "notes": "Coaxial; driver block = woofer. Xmax = half of woofer linear coil travel p-p. Tweeter: Re 3 ohm, Fs 1300 Hz, sens 89 dB 2.83V/1m, rated 10 W.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.2,
+        "leMh": 0.31,
+        "sdCm2": 119,
+        "xmaxMm": 4.65,
+        "fsHz": 36,
+        "sensitivityDb": 90,
+        "sensitivityRef": "2.83V/1m",
+        "qms": 2.6,
+        "qes": 0.35,
+        "qts": 0.31,
+        "mmsGrams": 12.5,
+        "bl": 5.1,
+        "vasLitres": 31.3,
+        "powerRmsW": 40,
+        "sizeInches": 6.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "products": [
+    {
+      "id": "focal-tam",
+      "category": "driverTweeter",
+      "brand": "Focal",
+      "model": "TAM",
+      "series": "Flax EVO",
+      "sourceUrl": "https://pdf.ampire.de/focal/FT_TAM.pdf",
+      "verified": false,
+      "notes": "Focal technical sheet (Focal-JMLab document) hosted on a distributor/retailer mirror, not focal.com; verified=false. Al-Mg inverted dome, 23 mm VC. sizeInches approximate class (1in). Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 1200,
+        "sensitivityDb": 92,
+        "powerRmsW": 20,
+        "powerPeakW": 150
+      }
+    },
+    {
+      "id": "focal-tnp",
+      "category": "driverTweeter",
+      "brand": "Focal",
+      "model": "TNP",
+      "series": "Auditor/Access",
+      "sourceUrl": "https://pdf.ampire.de/focal/FT_TNK.pdf",
+      "verified": false,
+      "notes": "Focal technical sheet (Focal-JMLab document) hosted on a distributor/retailer mirror, not focal.com; verified=false. Aluminium inverted dome, 20 mm VC. Sheet also lists SPL 91dB/W/m; 94dB headline reference not stated. File name on mirror is FT_TNK but document is titled TNP.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.7,
+        "fsHz": 2950,
+        "sdCm2": 4.9,
+        "sensitivityDb": 94,
+        "powerRmsW": 15,
+        "powerPeakW": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "products": [
+    {
+      "id": "brax-graphic-gl2",
+      "category": "driverMidrange",
+      "brand": "Brax",
+      "model": "GRAPHIC GL2",
+      "series": "Graphic",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/brax/speakers/graphic-gl2",
+      "verified": true,
+      "notes": "",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.1,
+        "fsHz": 165,
+        "qms": 8.9,
+        "qes": 0.55,
+        "qts": 0.52,
+        "vasLitres": 0.24,
+        "bl": 2.6,
+        "sdCm2": 15,
+        "mmsGrams": 1.6,
+        "xmaxMm": 1,
+        "powerRmsW": 80,
+        "powerPeakW": 120,
+        "freqLowHz": 400,
+        "freqHighHz": 20000,
+        "cutoutMm": 53,
+        "mountingDepthMm": 26.8
+      }
+    },
+    {
+      "id": "brax-matrix-ml80-pro",
+      "category": "driverMidrange",
+      "brand": "Brax",
+      "model": "MATRIX ML80 PRO",
+      "series": "Matrix",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/brax/speakers/matrix-ml80-pro",
+      "verified": true,
+      "notes": "",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 114,
+        "qms": 1.71,
+        "qes": 0.46,
+        "qts": 0.36,
+        "vasLitres": 1.15,
+        "bl": 4,
+        "sdCm2": 35,
+        "mmsGrams": 3,
+        "xmaxMm": 1.5,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 250,
+        "freqHighHz": 6000,
+        "cutoutMm": 76,
+        "mountingDepthMm": 34,
+        "sizeInches": 3
+      }
+    }
+  ]
+}

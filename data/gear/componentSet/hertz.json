@@ -1,0 +1,42 @@
+{
+  "products": [
+    {
+      "id": "hertz-dsk-165-3",
+      "category": "componentSet",
+      "brand": "Hertz",
+      "model": "DSK 165.3",
+      "series": "Dieci",
+      "sourceUrl": "https://hertz-audio.com/product/dsk-165-3/",
+      "verified": true,
+      "notes": "hertz-audio.com product page. Sensitivity reference not stated. Set-level specs; T/S are the kit woofer's. Passive crossover cut-off 3.5 kHz @ 12 dB/oct.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "fsHz": 67,
+        "qts": 0.81,
+        "qms": 7.59,
+        "vasLitres": 14.6,
+        "xmaxMm": 2,
+        "bl": 4.2,
+        "mmsGrams": 11.3,
+        "leMh": 0.26,
+        "sensitivityDb": 93,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 50,
+        "freqHighHz": 23000
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "DSK 165.3 woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "DSK 165.3 tweeter (24 mm PEI)"
+        }
+      ]
+    }
+  ]
+}

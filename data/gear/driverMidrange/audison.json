@@ -1,0 +1,62 @@
+{
+  "products": [
+    {
+      "id": "audison-th-3-0-ii-voce",
+      "category": "driverMidrange",
+      "brand": "Audison",
+      "model": "TH 3.0 II Voce",
+      "series": "Thesis II",
+      "sourceUrl": "https://audison.com/product/th-3-0-ii-voce/",
+      "verified": true,
+      "notes": "audison.com product page. Sensitivity reference not stated. Sd from maker's 'D' (cm2) field. ",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 100,
+        "qts": 0.48,
+        "qes": 0.52,
+        "qms": 5.5,
+        "vasLitres": 1.01,
+        "xmaxMm": 3.3,
+        "bl": 4.2,
+        "mmsGrams": 4.3,
+        "leMh": 0.18,
+        "sensitivityDb": 85.6,
+        "powerRmsW": 55,
+        "powerPeakW": 110,
+        "freqLowHz": 110,
+        "freqHighHz": 5700
+      }
+    },
+    {
+      "id": "audison-av-3-0-ii",
+      "category": "driverMidrange",
+      "brand": "Audison",
+      "model": "AV 3.0 II",
+      "series": "Voce II",
+      "sourceUrl": "https://audison.com/product/av-3-0-ii/",
+      "verified": true,
+      "notes": "audison.com product page. Sensitivity reference not stated. Sd from maker's 'D' (cm2) field. Min impedance 3.2 ohm (nominal not stated). Xmech 3.2 mm.",
+      "driver": {
+        "sizeInches": 3,
+        "reOhms": 2.9,
+        "fsHz": 150,
+        "qts": 0.58,
+        "qes": 0.65,
+        "qms": 5.45,
+        "vasLitres": 0.61,
+        "xmaxMm": 1.4,
+        "bl": 3.5,
+        "mmsGrams": 2.9,
+        "leMh": 0.1,
+        "sdCm2": 35.6,
+        "sensitivityDb": 90,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 160,
+        "freqHighHz": 13000
+      }
+    }
+  ]
+}

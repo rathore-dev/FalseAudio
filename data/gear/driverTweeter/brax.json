@@ -1,0 +1,56 @@
+{
+  "products": [
+    {
+      "id": "brax-graphic-gl1-mk2",
+      "category": "driverTweeter",
+      "brand": "Brax",
+      "model": "GRAPHIC GL1 MK2",
+      "series": "Graphic",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/brax/speakers/graphic-gl1-mk2",
+      "verified": true,
+      "notes": "Maker min. HP: 6 dB/Octave 4,000 Hz; 12 dB/Octave > 3,000 Hz; 24 dB/Octave > 2,000 Hz.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 900,
+        "sdCm2": 4.9,
+        "mmsGrams": 0.36,
+        "powerRmsW": 100,
+        "powerPeakW": 150,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 2000,
+        "freqHighHz": 25000,
+        "cutoutMm": 52,
+        "mountingDepthMm": 21.5,
+        "recommendedHpHz": 3000.0
+      }
+    },
+    {
+      "id": "brax-matrix-ml28-pro",
+      "category": "driverTweeter",
+      "brand": "Brax",
+      "model": "MATRIX ML28 PRO",
+      "series": "Matrix",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/brax/speakers/matrix-ml28-pro",
+      "verified": true,
+      "notes": "Maker min. HP: 6 dB/Octave 3,500 Hz; 12 dB/Octave > 2,500 Hz; 24 dB/Octave > 1,800 Hz.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "fsHz": 760,
+        "sdCm2": 6.2,
+        "mmsGrams": 0.32,
+        "powerRmsW": 120,
+        "powerPeakW": 170,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "freqLowHz": 1800,
+        "freqHighHz": 25000,
+        "cutoutMm": 52,
+        "mountingDepthMm": 25,
+        "recommendedHpHz": 2500.0
+      }
+    }
+  ]
+}

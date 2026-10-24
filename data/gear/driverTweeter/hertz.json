@@ -1,0 +1,127 @@
+{
+  "products": [
+    {
+      "id": "hertz-mp-25-3",
+      "category": "driverTweeter",
+      "brand": "Hertz",
+      "model": "MP 25.3",
+      "series": "Mille Pro",
+      "sourceUrl": "https://hertz-audio.com/product/mp-25-3/",
+      "verified": true,
+      "notes": "hertz-audio.com product page. Sensitivity reference not stated. Maker's tweeter Q values are internally inconsistent, so omitted. Power rating with HP @ 2.5 kHz 12 dB/oct. 25 mm VC, 29 mm nominal.",
+      "driver": {
+        "sizeInches": 1.14,
+        "nominalOhms": 4,
+        "reOhms": 3.9,
+        "fsHz": 1200,
+        "leMh": 0.02,
+        "mmsGrams": 0.17,
+        "bl": 1.6,
+        "sensitivityDb": 91,
+        "powerPeakW": 120,
+        "freqLowHz": 1400,
+        "freqHighHz": 22500,
+        "mountingDepthMm": 27,
+        "recommendedHpHz": 2500
+      }
+    },
+    {
+      "id": "hertz-mp-28-3",
+      "category": "driverTweeter",
+      "brand": "Hertz",
+      "model": "MP 28.3",
+      "series": "Mille Pro",
+      "sourceUrl": "https://hertz-audio.com/product/mp-28-3/",
+      "verified": true,
+      "notes": "hertz-audio.com product page. Sensitivity reference not stated. Maker's tweeter Q values are internally inconsistent, so omitted. Power rating with HP @ 1.8 kHz 12 dB/oct (MPCX 2T.3 crossover). 28 mm VC.",
+      "driver": {
+        "sizeInches": 1.4,
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "fsHz": 900,
+        "leMh": 0.024,
+        "mmsGrams": 0.4,
+        "bl": 2,
+        "sensitivityDb": 91,
+        "powerPeakW": 180,
+        "freqLowHz": 1000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 13.5,
+        "recommendedHpHz": 1800
+      }
+    },
+    {
+      "id": "hertz-ml-280-3",
+      "category": "driverTweeter",
+      "brand": "Hertz",
+      "model": "ML 280.3",
+      "series": "Mille Legend",
+      "sourceUrl": "https://hertz-audio.com/product/ml-280-3/",
+      "verified": true,
+      "notes": "hertz-audio.com product page. Sensitivity reference not stated. Maker's tweeter Q values are internally inconsistent, so omitted. Power rating with HP @ 1.8 kHz 12 dB/oct. 28 mm VC.",
+      "driver": {
+        "sizeInches": 1.4,
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "fsHz": 900,
+        "leMh": 0.013,
+        "mmsGrams": 0.4,
+        "bl": 1.9,
+        "sensitivityDb": 92,
+        "powerPeakW": 180,
+        "freqLowHz": 1000,
+        "freqHighHz": 28000,
+        "mountingDepthMm": 13.5,
+        "recommendedHpHz": 1800
+      }
+    },
+    {
+      "id": "hertz-c-26",
+      "category": "driverTweeter",
+      "brand": "Hertz",
+      "model": "C 26",
+      "series": "Cento",
+      "sourceUrl": "https://hertz-audio.com/product/c-26/",
+      "verified": true,
+      "notes": "hertz-audio.com product page. Sensitivity reference not stated. Maker's tweeter Q values are internally inconsistent, so omitted. Power rating with HP @ 2.5 kHz 12 dB/oct. 20 mm VC.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "reOhms": 3.7,
+        "fsHz": 1500,
+        "leMh": 0.02,
+        "mmsGrams": 0.17,
+        "bl": 1.3,
+        "sensitivityDb": 92,
+        "powerPeakW": 120,
+        "freqLowHz": 1800,
+        "freqHighHz": 22500,
+        "mountingDepthMm": 9.1,
+        "recommendedHpHz": 2500
+      }
+    },
+    {
+      "id": "hertz-dt-24-3",
+      "category": "driverTweeter",
+      "brand": "Hertz",
+      "model": "DT 24.3",
+      "series": "Dieci",
+      "sourceUrl": "https://hertz-audio.com/product/dt-24-3/",
+      "verified": true,
+      "notes": "hertz-audio.com product page. Sensitivity reference not stated. Power rating with HP @ 3.5 kHz 6 dB/oct.",
+      "driver": {
+        "sizeInches": 0.9,
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "fsHz": 2800,
+        "leMh": 0.3,
+        "sensitivityDb": 94,
+        "powerPeakW": 80,
+        "freqLowHz": 3000,
+        "freqHighHz": 23000,
+        "mountingDepthMm": 13,
+        "recommendedHpHz": 3500
+      }
+    }
+  ]
+}

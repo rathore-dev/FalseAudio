@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "id": "hertz-mille-ml-700-3-legend",
+      "category": "driverMidrange",
+      "brand": "Hertz",
+      "model": "Mille ML 700.3 LEGEND",
+      "sourceUrl": "https://loudspeakerdatabase.com/Hertz/ML_700.3_LEGEND",
+      "verified": false,
+      "notes": "Specs from loudspeakerdatabase.com (third-party compilation of the maker datasheet mirrored at https://loudspeakerdatabase.com/Hertz/ML_700.3_LEGEND/Hertz_ML_700.3_LEGEND.pdf). Sensitivity 1W/1m is LSDB's normalised figure. Kit entries (MPK) are the kit's woofer.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.8,
+        "fsHz": 110,
+        "qms": 4,
+        "qes": 0.67,
+        "qts": 0.57,
+        "vasLitres": 1.1,
+        "xmaxMm": 1.1,
+        "sdCm2": 33.3,
+        "bl": 3.3,
+        "mmsGrams": 2.7,
+        "leMh": 0.05,
+        "sensitivityDb": 85.7,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 200,
+        "freqHighHz": 20000,
+        "cutoutMm": 74,
+        "mountingDepthMm": 41,
+        "sizeInches": 3
+      }
+    },
+    {
+      "id": "hertz-mp-70-3",
+      "category": "driverMidrange",
+      "brand": "Hertz",
+      "model": "MP 70.3",
+      "series": "Mille Pro",
+      "sourceUrl": "https://hertz-audio.com/product/mp-70-3/",
+      "verified": true,
+      "notes": "hertz-audio.com product page. Sensitivity reference not stated. Page lists Impedance 2 Ohm but Re 3.7 Ohm (inconsistent; verify).",
+      "driver": {
+        "sizeInches": 3,
+        "nominalOhms": 2,
+        "reOhms": 3.7,
+        "fsHz": 110,
+        "qts": 0.82,
+        "qes": 1,
+        "qms": 4.6,
+        "vasLitres": 1,
+        "xmaxMm": 1.5,
+        "bl": 2.8,
+        "mmsGrams": 2.9,
+        "leMh": 0.12,
+        "sensitivityDb": 88,
+        "powerPeakW": 100,
+        "freqLowHz": 180,
+        "freqHighHz": 18000
+      }
+    }
+  ]
+}
