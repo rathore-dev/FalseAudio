@@ -28,6 +28,23 @@ const std::vector<Category>& allCategories();
 /** Stable id: lowercase "<brand>-<model>", non-alphanumerics replaced by single dashes. */
 juce::String makeProductId (const juce::String& brand, const juce::String& model);
 
+/** Generic numeric range (e.g. delay range). JSON: [min, max], {"min":..,"max":..} or a single number (= max). */
+struct ValueRange
+{
+    double min = 0, max = 0;
+    bool isSet() const noexcept { return min != 0.0 || max != 0.0; }
+    bool operator== (const ValueRange& o) const noexcept { return min == o.min && max == o.max; }
+};
+
+/** Manufacturer enclosure recommendation for a driver. */
+struct BoxRecommendation
+{
+    juce::String type;                  // "sealed" | "ported" (also "bandpass", "infinite baffle")
+    double litres = 0;                  // net internal volume
+    double tuningHz = 0;                // port tuning (ported only)
+    bool operator== (const BoxRecommendation& o) const { return type == o.type && litres == o.litres && tuningHz == o.tuningHz; }
+};
+
 /** Thiele/Small and mechanical parameters of a driver (SI-ish units noted). */
 struct DriverSpecs
 {
@@ -41,14 +58,43 @@ struct DriverSpecs
     double coilOhms = 0;           // per coil
     double mountingDepthMm = 0, cutoutMm = 0;
     double recommendedHpHz = 0, recommendedLpHz = 0;  // manufacturer recommendation, if published
+    // reOhms is ONE coil's DC resistance. tsWiring says how the coils were wired when the published
+    // Re / Le / BL were measured: "single" (one coil / SVC), "series" or "parallel" (DVC, both coils).
+    juce::String tsWiring;
+    juce::String switchableImpedance;   // e.g. "2 or 4 ohm (JBL SSI)" - informational
+    juce::String cutoutShape;           // "round" (default) | "square"; cutoutMm = diameter or side length
+    double secondarySensitivityDb = 0;  // a second published sensitivity figure ...
+    juce::String secondarySensitivityRef; // ... and its reference ("1W/1m" | "2.83V/1m")
+    std::vector<BoxRecommendation> boxRecommendations;
+};
+
+/** Extra group of identical amp channels with their own ratings (e.g. the sub channel of a 5-channel amp). */
+struct AmpChannelGroup
+{
+    int channels = 0;
+    std::map<juce::String, double> rmsPerChannelW;   // same keys as AmpSpecs::rmsPerChannelW
+    double minStableOhms = 0;
+    juce::String label;                              // e.g. "sub", "mains"
+    bool operator== (const AmpChannelGroup& o) const
+    {
+        return channels == o.channels && rmsPerChannelW == o.rmsPerChannelW && minStableOhms == o.minStableOhms && label == o.label;
+    }
+};
+
+/** One input sensitivity (gain knob) range, e.g. low-level vs high-level on dual-range amps. */
+struct InputSensitivityRange
+{
+    double minV = 0, maxV = 0;
+    juce::String label;                 // e.g. "low", "high", "RCA", "speaker"
+    bool operator== (const InputSensitivityRange& o) const { return minV == o.minV && maxV == o.maxV && label == o.label; }
 };
 
 /** Amplifier (or amplified DSP) specs. */
 struct AmpSpecs
 {
-    int channels = 0;
-    std::map<juce::String, double> rmsPerChannelW;   // keys "4ohm", "2ohm", "1ohm", "bridged4ohm" ...
-    double inputSensitivityMinV = 0, inputSensitivityMaxV = 0;   // gain range (RCA)
+    int channels = 0;                                // TOTAL channels (including channelGroups)
+    std::map<juce::String, double> rmsPerChannelW;   // MAIN group: "4ohm", "3ohm", "2ohm", "1ohm", "0.5ohm", "bridged4ohm" ...
+    double inputSensitivityMinV = 0, inputSensitivityMaxV = 0;   // gain range (RCA / low-level)
     double highLevelInputMaxV = 0;
     double snrDb = 0, thdPercent = 0, dampingFactor = 0;
     double fuseRatingA = 0;
@@ -57,6 +103,13 @@ struct AmpSpecs
     double minStableOhms = 0;
     bool   hasBassBoost = false, hasLpf = false, hasHpf = false, hasSubsonic = false;
     double bassBoostMaxDb = 0;
+    // rmsPerChannelW / minStableOhms describe the MAIN group (output channels 0..n-1); channelGroups lists
+    // the OTHER groups in output order after it (see ampChannelLayout()).
+    std::vector<AmpChannelGroup> channelGroups;
+    double ratedVoltageV = 0;           // supply voltage the power ratings were measured at (e.g. 14.4)
+    double recommendedFuseA = 0;        // external (in-line, at the battery) fuse the manual recommends
+    int    fuseCount = 0;               // number of on-board fuses (fuseRatingA = total)
+    std::vector<InputSensitivityRange> inputSensitivityRanges;   // dual-range / high-level inputs
 };
 
 /** Source / processor specs (head unit, DSP, DAC, DSP amp). */
@@ -66,8 +119,8 @@ struct SourceSpecs
     int    preoutChannels = 0;
     double outputImpedanceOhms = 0;
     int    maxVolumeStep = 0;           // e.g. 40, 50, 62 steps
-    int    cleanVolumeStep = 0;         // last step before clipping with 0 dBFS content, if known
-    double snrDb = 0;
+    int    cleanVolumeStep = 0;         // last step before pre-out clipping with a 0 dBFS signal, EQ flat, if known
+    double snrDb = 0;                   // manufacturer analog / USB source figure
     bool   timeAlignment = false, crossovers = false;
     int    eqBands = 0;
     juce::String eqType;                // "graphic" | "parametric"
@@ -79,6 +132,25 @@ struct SourceSpecs
     double maxInputVoltageV = 0;        // RCA/high-level input clip point
     juce::String software;              // vendor PC tool name (for DSP profiles)
     juce::String softwareExe;           // usual executable name
+
+    // additions (all optional)
+    struct PeqBandsByStage
+    {
+        int input = 0, output = 0, virtualChannel = 0;   // JSON keys "input", "output", "virtual"
+        bool isSet() const noexcept { return input != 0 || output != 0 || virtualChannel != 0; }
+        bool operator== (const PeqBandsByStage& o) const noexcept
+        {
+            return input == o.input && output == o.output && virtualChannel == o.virtualChannel;
+        }
+    };
+    PeqBandsByStage peqBandsByStage;    // peqBandsPerChannel stays = output stage (filled from it when absent)
+    int    digitalInputs = 0;           // number of digital inputs (optical / coax / USB audio)
+    juce::StringArray digitalInputTypes;// e.g. "optical", "coax", "USB"
+    int    highLevelInputs = 0;         // speaker-level input channels
+    double snrDigitalDb = 0;            // SNR via the digital input
+    double preoutRatedLoadOhms = 0;     // load the preoutVoltageV figure was rated into (e.g. 10000)
+    bool   outputImpedanceIsUpperBound = false;   // outputImpedanceOhms is a "max" / "<" figure
+    ValueRange delayRangeMs;            // published per-channel delay range (maxDelayMs filled from max when absent)
 };
 
 /** Wire (power or speaker), RCA cables and other conductors. */
@@ -103,12 +175,38 @@ struct InterfaceSpecs
 
 struct MicSpecs
 {
-    juce::String type;                  // "USB" | "XLR"
+    juce::String type;                  // "USB" | "XLR" | "TRRS"
     bool needsPhantom = false;
     double sensitivityMvPa = 0;
+    double sensitivityDbfs = 0;         // USB mics: dBFS at 94 dB SPL (negative, e.g. -18)
     bool calFileAvailable = false;
     juce::String calFileUrl;
     double maxSplDb = 0;
+};
+
+/** Battery (category battery). */
+struct BatterySpecs
+{
+    double ah = 0;                      // capacity (20 h rate)
+    double cca = 0, ca = 0;             // cold cranking amps (0 F) / cranking amps (32 F)
+    double reserveMin = 0;              // reserve capacity, minutes
+    double maxAmps = 0;                 // max current the maker publishes
+    juce::String chemistry;             // "AGM" | "flooded" | "LiFePO4" | "LTO" ...
+};
+
+/** Alternator (category alternator). */
+struct AlternatorSpecs
+{
+    double ratedA = 0;                  // headline rating
+    double idleA = 0;                   // at engine idle
+    double hotRatedA = 0;               // hot-rated output
+};
+
+/** Fuse (fuseHolder, or the fuse included in a wiring kit). */
+struct FuseSpecs
+{
+    double ratingA = 0;
+    juce::String type;                  // "ANL" | "mini-ANL" | "MIDI" | "MAXI" | "AGU" | "ATC" | "breaker"
 };
 
 /** One product. Only the spec block matching its category is meaningful. */
@@ -129,6 +227,9 @@ struct Product
     std::optional<WireSpecs> wire;
     std::optional<InterfaceSpecs> audioInterface;
     std::optional<MicSpecs> mic;
+    std::optional<BatterySpecs> battery;
+    std::optional<AlternatorSpecs> alternator;
+    std::optional<FuseSpecs> fuse;
 
     juce::String displayName() const { return brand + " " + model; }
 
@@ -139,6 +240,52 @@ struct Product
 /** Human readable key specs for list rows, e.g. { "Fs 32 Hz", "Xmax 6.5 mm", "90 W RMS" }.
     Join with joinIntoString (" · ") for a one-line summary. */
 juce::StringArray specsSummary (const Product& p);
+
+//==============================================================================
+// Amplifier channel groups (5/6/7-channel amps whose sub channel has its own ratings)
+//==============================================================================
+/** One group of an amp's output channels, resolved. */
+struct AmpGroupInfo
+{
+    int groupIndex = -1;                // -1 = main group (AmpSpecs::rmsPerChannelW), else index into channelGroups
+    int firstChannel = 0;               // first 0-based output channel of the group
+    AmpChannelGroup group;              // channels / ratings / min load / label of the group
+};
+
+/** All channel groups in output order: the main group first (channels = channels - sum of channelGroups,
+    or all channels when there are no groups), then each channelGroups entry. A main group with 0 channels
+    is left out when channelGroups already cover every channel. */
+std::vector<AmpGroupInfo> ampChannelLayout (const AmpSpecs& a);
+
+/** Group that drives a 0-based output channel: -1 = main, >= 0 = channelGroups index.
+    Channels outside the known layout map to the main group. */
+int ampGroupIndexForChannel (const AmpSpecs& a, int channelIndex);
+
+/** A copy of the amp whose channels / rmsPerChannelW / minStableOhms are those of the channel's group
+    (amp-wide fields - gain range, class, efficiency, fuses - are kept; channelGroups is cleared). Lets code
+    written for single-group amps work per channel unchanged. */
+AmpSpecs ampSpecsForChannel (const AmpSpecs& a, int channelIndex);
+
+/** RMS watts per channel from a ratings map (keys "<ohms>ohm" / "bridged<ohms>ohm") into a load.
+    Exact rating (+-2 %) wins; between ratings: log-log interpolation; above the highest rated load:
+    P = P(Rmax) * Rmax / R (voltage limited); below the lowest rated load: that rating (no extra power assumed).
+    bridged without a bridged rating: 2 x the per-channel power at half the load. 0 when nothing applies.
+    note (optional) explains any estimate. Same rules as install::calc::ampPowerAtLoad. */
+double rmsAtLoad (const std::map<juce::String, double>& ratings, double loadOhms, bool bridged = false,
+                  juce::String* note = nullptr);
+
+/** RMS watts per channel for output channel channelIndex (0-based) into loadOhms, using that channel's
+    group ratings (bridged: the pair starting at channelIndex). Does NOT check the minimum load; use
+    ampMinStableOhmsForChannel for that. */
+double ampPowerForGroup (const AmpSpecs& a, int channelIndex, double loadOhms, bool bridged = false,
+                         juce::String* note = nullptr);
+
+/** Minimum stable load of the channel's group (an extra group with no value falls back to the amp's). */
+double ampMinStableOhmsForChannel (const AmpSpecs& a, int channelIndex);
+
+/** Sum over every channel of its group's highest published non-bridged rating (normally the lowest load) -
+    worst-case output power for current-draw estimates. */
+double ampTotalMaxRmsW (const AmpSpecs& a);
 
 //==============================================================================
 /** Describes one editable spec for the custom-product form.

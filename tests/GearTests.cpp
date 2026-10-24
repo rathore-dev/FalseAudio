@@ -2,6 +2,7 @@
 #include "core/gear/Gear.h"
 
 #include <chrono>
+#include <cmath>
 
 using fa::test::check;
 using namespace fa::gear;
@@ -378,10 +379,275 @@ FA_TEST (gearRealDataLoads)
     const auto repo = findRepoGear();
     GearDatabase db;
     const int n = repo.isDirectory() ? db.loadFolder (repo) : 0;
-    check (true, "Gear: real data/gear loads without crashing",
+    check (! repo.isDirectory() || db.getLoadWarnings().isEmpty(), "Gear: real data/gear loads with 0 warnings",
            juce::String (n) + " products, " + juce::String (db.getLoadWarnings().size()) + " warnings, from "
                + repo.getFullPathName());
 
     for (int i = 0; i < juce::jmin (10, db.getLoadWarnings().size()); ++i)
         std::cout << "    warning: " << db.getLoadWarnings()[i] << "\n";
+
+    // every real product survives toVar -> JSON -> fromVar unchanged (no field lost or invented)
+    int mismatches = 0;
+    juce::String first;
+    for (auto* p : db.search ({}, std::nullopt, 0))
+    {
+        const auto a = juce::JSON::toString (p->toVar(), true);
+        const auto b = juce::JSON::toString (Product::fromVar (juce::JSON::parse (a)).toVar(), true);
+        if (a != b)
+        {
+            if (mismatches++ == 0)
+                first = p->id;
+        }
+    }
+    check (mismatches == 0, "Gear: real products round-trip stably", juce::String (mismatches) + " " + first);
+}
+
+//==============================================================================
+namespace
+{
+Product parseJson (const juce::String& json)
+{
+    return Product::fromVar (juce::JSON::parse (json));
+}
+
+Product roundTrip (const Product& p)
+{
+    return Product::fromVar (juce::JSON::parse (juce::JSON::toString (p.toVar())));
+}
+} // namespace
+
+FA_TEST (gearSchemaAdditionsRoundTrip)
+{
+    // amp: channel groups, extra loads, ranges, fuses
+    Product amp;
+    amp.category = Category::ampMulti;
+    amp.brand = "T";
+    amp.model = "5ch";
+    AmpSpecs a;
+    a.channels = 5;
+    a.rmsPerChannelW = { { "4ohm", 75.0 }, { "3ohm", 85.0 }, { "2ohm", 100.0 } };
+    a.minStableOhms = 2;
+    AmpChannelGroup sub;
+    sub.channels = 1;
+    sub.label = "sub";
+    sub.rmsPerChannelW = { { "2ohm", 500.0 }, { "1ohm", 650.0 }, { "0.5ohm", 700.0 } };
+    sub.minStableOhms = 0.5;
+    a.channelGroups.push_back (sub);
+    a.ratedVoltageV = 14.4;
+    a.recommendedFuseA = 100;
+    a.fuseCount = 2;
+    a.inputSensitivityRanges = { { 0.2, 4.0, "low" }, { 2.0, 16.0, "high" } };
+    amp.amp = a;
+
+    const auto qa = roundTrip (amp);
+    check (qa.amp && qa.amp->channelGroups == a.channelGroups && qa.amp->rmsPerChannelW == a.rmsPerChannelW
+               && qa.amp->ratedVoltageV == 14.4 && qa.amp->recommendedFuseA == 100.0 && qa.amp->fuseCount == 2
+               && qa.amp->inputSensitivityRanges == a.inputSensitivityRanges,
+           "Gear: amp additions round trip", juce::JSON::toString (amp.toVar(), true));
+
+    // driver additions
+    Product drv;
+    drv.category = Category::subwoofer;
+    drv.brand = "T";
+    drv.model = "Sub";
+    DriverSpecs d;
+    d.voiceCoils = 2;
+    d.reOhms = 1.8;
+    d.tsWiring = "parallel";
+    d.switchableImpedance = "2 or 4 ohm (SSI)";
+    d.cutoutShape = "square";
+    d.cutoutMm = 280;
+    d.sensitivityDb = 88;
+    d.sensitivityRef = "1W/1m";
+    d.secondarySensitivityDb = 91;
+    d.secondarySensitivityRef = "2.83V/1m";
+    d.boxRecommendations = { { "sealed", 28.0, 0.0 }, { "ported", 42.0, 32.0 } };
+    drv.driver = d;
+
+    const auto qd = roundTrip (drv);
+    check (qd.driver && qd.driver->tsWiring == "parallel" && qd.driver->switchableImpedance == d.switchableImpedance
+               && qd.driver->cutoutShape == "square" && qd.driver->secondarySensitivityDb == 91.0
+               && qd.driver->secondarySensitivityRef == "2.83V/1m" && qd.driver->boxRecommendations == d.boxRecommendations,
+           "Gear: driver additions round trip");
+
+    // source additions
+    Product dsp;
+    dsp.category = Category::dsp;
+    dsp.brand = "T";
+    dsp.model = "DSP";
+    SourceSpecs s;
+    s.peqBandsPerChannel = 31;
+    s.peqBandsByStage = { 10, 31, 15 };
+    s.digitalInputs = 2;
+    s.digitalInputTypes = juce::StringArray ("optical", "coax");
+    s.highLevelInputs = 6;
+    s.snrDb = 105;
+    s.snrDigitalDb = 112;
+    s.preoutRatedLoadOhms = 10000;
+    s.outputImpedanceOhms = 200;
+    s.outputImpedanceIsUpperBound = true;
+    s.maxDelayMs = 20;
+    s.delayRangeMs = { 0.02, 20.0 };
+    dsp.source = s;
+
+    const auto dspVar = dsp.toVar();
+    const auto qs = roundTrip (dsp);
+    check (qs.source && qs.source->peqBandsByStage == s.peqBandsByStage && qs.source->digitalInputs == 2
+               && qs.source->digitalInputTypes == s.digitalInputTypes && qs.source->highLevelInputs == 6
+               && qs.source->snrDigitalDb == 112.0 && qs.source->preoutRatedLoadOhms == 10000.0
+               && qs.source->outputImpedanceIsUpperBound && qs.source->delayRangeMs == s.delayRangeMs
+               && dspVar.getProperty ("source", {}).getProperty ("peqBandsByStage", {}).hasProperty ("virtual"),
+           "Gear: source additions round trip", juce::JSON::toString (dspVar, true));
+
+    // new blocks + mic
+    Product bat;
+    bat.category = Category::battery;
+    bat.brand = "T";
+    bat.model = "B";
+    bat.battery = BatterySpecs { 100.0, 1150.0, 1400.0, 200.0, 3000.0, "AGM" };
+    const auto qb = roundTrip (bat);
+    check (qb.battery && qb.battery->ah == 100.0 && qb.battery->cca == 1150.0 && qb.battery->ca == 1400.0
+               && qb.battery->reserveMin == 200.0 && qb.battery->maxAmps == 3000.0 && qb.battery->chemistry == "AGM"
+               && ! qb.driver && specsSummary (qb).contains ("100 Ah"),
+           "Gear: battery block round trip", specsSummary (qb).joinIntoString (" | "));
+
+    Product alt;
+    alt.category = Category::alternator;
+    alt.brand = "T";
+    alt.model = "A";
+    alt.alternator = AlternatorSpecs { 250.0, 180.0, 220.0 };
+    const auto qal = roundTrip (alt);
+    check (qal.alternator && qal.alternator->ratedA == 250.0 && qal.alternator->idleA == 180.0
+               && qal.alternator->hotRatedA == 220.0,
+           "Gear: alternator block round trip");
+
+    Product kit;
+    kit.category = Category::powerWire;
+    kit.brand = "T";
+    kit.model = "4ga kit";
+    kit.wire = WireSpecs { 4.0, 0.0, "OFC", 0.0, 0.0 };
+    kit.fuse = FuseSpecs { 80.0, "ANL" };
+    const auto qk = roundTrip (kit);
+    check (qk.fuse && qk.fuse->ratingA == 80.0 && qk.fuse->type == "ANL" && qk.wire && qk.wire->awg == 4.0
+               && specsSummary (qk).contains ("80 A ANL fuse"),
+           "Gear: fuse block round trip (kit)", specsSummary (qk).joinIntoString (" | "));
+
+    Product mic;
+    mic.category = Category::measurementMic;
+    mic.brand = "T";
+    mic.model = "UMIK";
+    MicSpecs m;
+    m.type = "TRRS";
+    m.sensitivityDbfs = -18;
+    mic.mic = m;
+    const auto qm = roundTrip (mic);
+    check (qm.mic && qm.mic->type == "TRRS" && qm.mic->sensitivityDbfs == -18.0, "Gear: mic dBFS / TRRS round trip");
+
+    // dotted keys with a dot in the map key ("0.5ohm") and nested stage objects
+    setSpecValue (amp, "amp.rmsPerChannelW.0.5ohm", 40.0);
+    check (amp.amp->rmsPerChannelW["0.5ohm"] == 40.0 && (double) getSpecValue (amp, "amp.rmsPerChannelW.0.5ohm") == 40.0
+               && amp.amp->channelGroups == a.channelGroups,
+           "Gear: setSpecValue / getSpecValue with '0.5ohm' key; arrays survive the edit");
+    setSpecValue (dsp, "source.peqBandsByStage.input", 12);
+    check (dsp.source->peqBandsByStage.input == 12 && (int) getSpecValue (dsp, "source.peqBandsByStage.virtual") == 15,
+           "Gear: setSpecValue on peqBandsByStage");
+}
+
+FA_TEST (gearSchemaBackwardCompatible)
+{
+    // a file written in the original schema loads exactly as before and writes back without new keys
+    const juce::String legacy = R"({ "id": "old-amp", "category": "ampMulti", "brand": "Old", "model": "Amp",
+        "verified": true, "amp": { "channels": 4, "rmsPerChannelW": { "4ohm": 50, "2ohm": 75, "bridged4ohm": 150 },
+        "inputSensitivityMinV": 0.2, "inputSensitivityMaxV": 6, "minStableOhms": 2, "fuseRatingA": 40 },
+        "source": { "preoutVoltageV": 4, "preoutChannels": 6, "maxVolumeStep": 40, "peqBandsPerChannel": 10, "maxDelayMs": 10 },
+        "driver": { "sizeInches": 6.5, "reOhms": 3.2, "fsHz": 55 },
+        "mic": { "type": "USB", "sensitivityMvPa": 12 } })";
+    const auto p = parseJson (legacy);
+    const auto v = p.toVar();
+
+    check (p.amp && p.amp->channels == 4 && p.amp->rmsPerChannelW.size() == 3 && p.amp->channelGroups.empty()
+               && p.amp->inputSensitivityRanges.empty() && p.amp->recommendedFuseA == 0.0 && p.amp->fuseCount == 0,
+           "Gear: legacy amp loads unchanged");
+    check (p.source && p.source->peqBandsPerChannel == 10 && ! p.source->peqBandsByStage.isSet()
+               && p.source->maxDelayMs == 10.0 && ! p.source->delayRangeMs.isSet() && p.source->digitalInputs == 0,
+           "Gear: legacy source loads unchanged");
+    check (p.driver && p.driver->tsWiring.isEmpty() && p.driver->boxRecommendations.empty() && ! p.battery && ! p.fuse,
+           "Gear: legacy driver loads unchanged, no new blocks");
+
+    const auto json = juce::JSON::toString (v);
+    bool noNewKeys = true;
+    for (auto* k : { "channelGroups", "inputSensitivityRanges", "recommendedFuseA", "fuseCount", "ratedVoltageV",
+                     "peqBandsByStage", "digitalInputs", "highLevelInputs", "delayRangeMs", "outputImpedanceIsUpperBound",
+                     "tsWiring", "cutoutShape", "boxRecommendations", "sensitivityDbfs", "\"battery\"", "\"fuse\"" })
+        noNewKeys = noNewKeys && ! json.contains (k);
+    check (noNewKeys, "Gear: legacy product writes no new keys", json);
+
+    // tolerant forms researchers may write
+    const auto t = parseJson (R"({ "category": "dsp", "brand": "X", "model": "Y",
+        "source": { "peqBandsByStage": { "input": 10, "output": 30, "virtual": 10 }, "digitalInputs": ["optical", "coax"],
+                    "delayRangeMs": 15, "outputImpedanceIsUpperBound": "yes" },
+        "amp": { "channelGroups": [ 5, { "channels": "1", "rmsPerChannelW": { "2ohm": "400" } } ] } })");
+    check (t.source && t.source->peqBandsPerChannel == 30 && t.source->maxDelayMs == 15.0
+               && t.source->delayRangeMs.max == 15.0 && t.source->digitalInputs == 2
+               && t.source->digitalInputTypes == juce::StringArray ("optical", "coax") && t.source->outputImpedanceIsUpperBound,
+           "Gear: peqBandsPerChannel / maxDelayMs filled from new fields; digitalInputs array accepted");
+    check (t.amp && t.amp->channelGroups.size() == 1 && t.amp->channelGroups[0].channels == 1
+               && t.amp->channelGroups[0].rmsPerChannelW.at ("2ohm") == 400.0,
+           "Gear: channelGroups skips non-object entries, accepts numeric strings");
+
+    const auto r = parseJson (R"({ "category": "dsp", "brand": "X", "model": "Z", "source": { "delayRangeMs": { "min": 0, "max": 8.5 } } })");
+    check (r.source && r.source->delayRangeMs.max == 8.5 && r.source->maxDelayMs == 8.5, "Gear: delayRangeMs object form");
+}
+
+FA_TEST (gearAmpChannelGroups)
+{
+    AmpSpecs a;
+    a.channels = 5;
+    a.rmsPerChannelW = { { "4ohm", 75.0 }, { "2ohm", 100.0 } };
+    a.minStableOhms = 2;
+    a.inputSensitivityMaxV = 4;
+    AmpChannelGroup sub;
+    sub.channels = 1;
+    sub.label = "sub";
+    sub.rmsPerChannelW = { { "4ohm", 300.0 }, { "2ohm", 500.0 }, { "1ohm", 600.0 } };
+    sub.minStableOhms = 1;
+    a.channelGroups.push_back (sub);
+
+    const auto layout = ampChannelLayout (a);
+    check (layout.size() == 2 && layout[0].groupIndex == -1 && layout[0].group.channels == 4 && layout[0].firstChannel == 0
+               && layout[1].groupIndex == 0 && layout[1].firstChannel == 4 && layout[1].group.label == "sub",
+           "Gear: ampChannelLayout main + sub");
+    check (ampGroupIndexForChannel (a, 0) == -1 && ampGroupIndexForChannel (a, 3) == -1 && ampGroupIndexForChannel (a, 4) == 0
+               && ampGroupIndexForChannel (a, 9) == -1,
+           "Gear: ampGroupIndexForChannel");
+    check (ampPowerForGroup (a, 0, 4.0) == 75.0 && ampPowerForGroup (a, 4, 2.0) == 500.0 && ampPowerForGroup (a, 4, 1.0) == 600.0,
+           "Gear: ampPowerForGroup picks the group's ratings");
+
+    juce::String note;
+    const double p3 = ampPowerForGroup (a, 1, 3.0, false, &note);
+    check (p3 > 75.0 && p3 < 100.0 && note.isNotEmpty(), "Gear: ampPowerForGroup interpolates", juce::String (p3) + " " + note);
+    check (ampPowerForGroup (a, 0, 8.0) == 37.5, "Gear: above highest rated load is voltage limited");
+    check (std::abs (ampPowerForGroup (a, 0, 4.0, true) - 200.0) < 1e-9, "Gear: bridged estimate = 2 x P(R/2)");
+    check (ampMinStableOhmsForChannel (a, 0) == 2.0 && ampMinStableOhmsForChannel (a, 4) == 1.0, "Gear: min stable per group");
+
+    const auto subView = ampSpecsForChannel (a, 4);
+    const auto mainView = ampSpecsForChannel (a, 2);
+    check (subView.channels == 1 && subView.rmsPerChannelW == sub.rmsPerChannelW && subView.minStableOhms == 1.0
+               && subView.inputSensitivityMaxV == 4.0 && subView.channelGroups.empty()
+               && mainView.channels == 4 && mainView.rmsPerChannelW == a.rmsPerChannelW,
+           "Gear: ampSpecsForChannel views");
+    check (ampTotalMaxRmsW (a) == 4 * 100.0 + 600.0, "Gear: ampTotalMaxRmsW", juce::String (ampTotalMaxRmsW (a)));
+
+    // amp without groups behaves as before
+    AmpSpecs plain;
+    plain.channels = 4;
+    plain.rmsPerChannelW = { { "4ohm", 50.0 } };
+    check (ampChannelLayout (plain).size() == 1 && ampPowerForGroup (plain, 3, 4.0) == 50.0 && ampTotalMaxRmsW (plain) == 200.0,
+           "Gear: single-group amp");
+
+    Product prod;
+    prod.category = Category::ampMulti;
+    prod.amp = a;
+    const auto summary = specsSummary (prod).joinIntoString (" | ");
+    check (summary.contains ("x 4") && summary.contains ("(sub)"), "Gear: specsSummary shows channel groups", summary);
 }

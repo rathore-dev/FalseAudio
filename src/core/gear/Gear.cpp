@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <type_traits>
 
 namespace fa::gear
 {
@@ -124,6 +125,35 @@ bool toNumber (const juce::var& v, double& out)
     return false;
 }
 
+// Fields of objects that appear inside arrays (amp.channelGroups etc.)
+template <typename S, typename V>
+void visitItem (S& x, V& v)
+{
+    using T = std::remove_const_t<S>;
+
+    if constexpr (std::is_same_v<T, AmpChannelGroup>)
+    {
+        v ("channels", x.channels);             v ("rmsPerChannelW", x.rmsPerChannelW);
+        v ("minStableOhms", x.minStableOhms);   v ("label", x.label);
+    }
+    else if constexpr (std::is_same_v<T, InputSensitivityRange>)
+    {
+        v ("minV", x.minV);     v ("maxV", x.maxV);     v ("label", x.label);
+    }
+    else if constexpr (std::is_same_v<T, BoxRecommendation>)
+    {
+        v ("type", x.type);     v ("litres", x.litres); v ("tuningHz", x.tuningHz);
+    }
+    else if constexpr (std::is_same_v<T, SourceSpecs::PeqBandsByStage>)
+    {
+        v ("input", x.input);   v ("output", x.output); v ("virtual", x.virtualChannel);
+    }
+    else
+    {
+        static_assert (! std::is_same_v<T, T>, "no field list for this type");
+    }
+}
+
 /** Reads fields from a JSON object; unknown / mistyped fields keep their defaults. */
 struct Reader
 {
@@ -192,6 +222,57 @@ struct Reader
             x.removeEmptyStrings();
         }
     }
+
+    /** Array of objects; non-object entries are ignored. */
+    template <typename T>
+    void operator() (const char* key, std::vector<T>& x) const
+    {
+        if (auto* arr = get (key).getArray())
+        {
+            for (auto& e : *arr)
+            {
+                if (! e.isObject())
+                    continue;
+                T item;
+                Reader r { e };
+                visitItem (item, r);
+                x.push_back (std::move (item));
+            }
+        }
+    }
+
+    void operator() (const char* key, SourceSpecs::PeqBandsByStage& x) const
+    {
+        const auto v = get (key);
+        if (v.isObject())
+        {
+            Reader r { v };
+            visitItem (x, r);
+        }
+    }
+
+    /** [min, max], {"min":..,"max":..} or a single number (= max). */
+    void operator() (const char* key, ValueRange& x) const
+    {
+        const auto v = get (key);
+        double d;
+        if (auto* arr = v.getArray())
+        {
+            if (arr->size() >= 2 && toNumber (arr->getReference (0), d))   x.min = d;
+            if (arr->size() >= 2 && toNumber (arr->getReference (1), d))   x.max = d;
+            if (arr->size() == 1 && toNumber (arr->getReference (0), d))   x.max = d;
+        }
+        else if (v.isObject())
+        {
+            Reader r { v };
+            r ("min", x.min);
+            r ("max", x.max);
+        }
+        else if (toNumber (v, d))
+        {
+            x.max = d;
+        }
+    }
 };
 
 /** Writes fields to a JSON object, omitting defaults (0 / false / empty). */
@@ -225,6 +306,43 @@ struct Writer
             arr.add (s);
         obj->setProperty (key, arr);
     }
+
+    template <typename T>
+    void operator() (const char* key, const std::vector<T>& x) const
+    {
+        if (x.empty())
+            return;
+
+        juce::Array<juce::var> arr;
+        for (auto& item : x)
+        {
+            Writer w;
+            visitItem (item, w);
+            arr.add (juce::var (w.obj.get()));
+        }
+        obj->setProperty (key, arr);
+    }
+
+    void operator() (const char* key, const SourceSpecs::PeqBandsByStage& x) const
+    {
+        if (! x.isSet())
+            return;
+
+        Writer w;
+        visitItem (x, w);
+        obj->setProperty (key, juce::var (w.obj.get()));
+    }
+
+    void operator() (const char* key, const ValueRange& x) const
+    {
+        if (! x.isSet())
+            return;
+
+        juce::Array<juce::var> arr;
+        arr.add (x.min);
+        arr.add (x.max);
+        obj->setProperty (key, arr);
+    }
 };
 
 template <typename S, typename V>
@@ -241,6 +359,11 @@ void visitDriver (S& d, V& v)
     v ("voiceCoils", d.voiceCoils);     v ("coilOhms", d.coilOhms);
     v ("mountingDepthMm", d.mountingDepthMm);   v ("cutoutMm", d.cutoutMm);
     v ("recommendedHpHz", d.recommendedHpHz);   v ("recommendedLpHz", d.recommendedLpHz);
+    v ("tsWiring", d.tsWiring);                 v ("switchableImpedance", d.switchableImpedance);
+    v ("cutoutShape", d.cutoutShape);
+    v ("secondarySensitivityDb", d.secondarySensitivityDb);
+    v ("secondarySensitivityRef", d.secondarySensitivityRef);
+    v ("boxRecommendations", d.boxRecommendations);
 }
 
 template <typename S, typename V>
@@ -257,6 +380,9 @@ void visitAmp (S& a, V& v)
     v ("hasBassBoost", a.hasBassBoost);         v ("hasLpf", a.hasLpf);
     v ("hasHpf", a.hasHpf);                     v ("hasSubsonic", a.hasSubsonic);
     v ("bassBoostMaxDb", a.bassBoostMaxDb);
+    v ("channelGroups", a.channelGroups);       v ("ratedVoltageV", a.ratedVoltageV);
+    v ("recommendedFuseA", a.recommendedFuseA); v ("fuseCount", a.fuseCount);
+    v ("inputSensitivityRanges", a.inputSensitivityRanges);
 }
 
 template <typename S, typename V>
@@ -272,6 +398,12 @@ void visitSource (S& s, V& v)
     v ("maxDelayMs", s.maxDelayMs);             v ("sampleRateHz", s.sampleRateHz);
     v ("maxInputVoltageV", s.maxInputVoltageV); v ("software", s.software);
     v ("softwareExe", s.softwareExe);
+    v ("peqBandsByStage", s.peqBandsByStage);   v ("digitalInputs", s.digitalInputs);
+    v ("digitalInputTypes", s.digitalInputTypes);
+    v ("highLevelInputs", s.highLevelInputs);   v ("snrDigitalDb", s.snrDigitalDb);
+    v ("preoutRatedLoadOhms", s.preoutRatedLoadOhms);
+    v ("outputImpedanceIsUpperBound", s.outputImpedanceIsUpperBound);
+    v ("delayRangeMs", s.delayRangeMs);
 }
 
 template <typename S, typename V>
@@ -296,6 +428,61 @@ void visitMic (S& m, V& v)
     v ("type", m.type);                         v ("needsPhantom", m.needsPhantom);
     v ("sensitivityMvPa", m.sensitivityMvPa);   v ("calFileAvailable", m.calFileAvailable);
     v ("calFileUrl", m.calFileUrl);             v ("maxSplDb", m.maxSplDb);
+    v ("sensitivityDbfs", m.sensitivityDbfs);
+}
+
+template <typename S, typename V>
+void visitBattery (S& b, V& v)
+{
+    v ("ah", b.ah);                 v ("cca", b.cca);               v ("ca", b.ca);
+    v ("reserveMin", b.reserveMin); v ("maxAmps", b.maxAmps);       v ("chemistry", b.chemistry);
+}
+
+template <typename S, typename V>
+void visitAlternator (S& a, V& v)
+{
+    v ("ratedA", a.ratedA);         v ("idleA", a.idleA);           v ("hotRatedA", a.hotRatedA);
+}
+
+template <typename S, typename V>
+void visitFuse (S& f, V& v)
+{
+    v ("ratingA", f.ratingA);       v ("type", f.type);
+}
+
+/** Derived / tolerant fields after reading the source block (keeps older consumers working). */
+void finishSource (SourceSpecs& s, const juce::var& raw)
+{
+    // peqBandsPerChannel is the output stage; fill it from peqBandsByStage when only that was given
+    if (s.peqBandsPerChannel == 0 && s.peqBandsByStage.output > 0)
+        s.peqBandsPerChannel = s.peqBandsByStage.output;
+
+    if (s.maxDelayMs == 0.0 && s.delayRangeMs.max > 0.0)
+        s.maxDelayMs = s.delayRangeMs.max;
+
+    // "digitalInputs": ["optical", "coax"] or "optical, coax" -> count + types
+    const auto di = raw.getProperty ("digitalInputs", {});
+    juce::StringArray types;
+    if (auto* arr = di.getArray())
+    {
+        for (auto& e : *arr)
+            if (e.isString() && e.toString().trim().isNotEmpty())
+                types.add (e.toString().trim());
+    }
+    else if (di.isString() && ! di.toString().trim().containsOnly ("0123456789.-+eE"))
+    {
+        types.addTokens (di.toString(), ",/", "\"");
+        types.trim();
+        types.removeEmptyStrings();
+    }
+
+    if (! types.isEmpty())
+    {
+        if (s.digitalInputs == 0)
+            s.digitalInputs = types.size();
+        if (s.digitalInputTypes.isEmpty())
+            s.digitalInputTypes = types;
+    }
 }
 
 template <typename Spec, typename VisitFn>
@@ -364,6 +551,12 @@ bool parseProduct (const juce::var& v, std::optional<Category> fallbackCategory,
     readBlock (v, "wire", p.wire, [] (auto& s, auto& vis) { visitWire (s, vis); });
     readBlock (v, "audioInterface", p.audioInterface, [] (auto& s, auto& vis) { visitInterface (s, vis); });
     readBlock (v, "mic", p.mic, [] (auto& s, auto& vis) { visitMic (s, vis); });
+    readBlock (v, "battery", p.battery, [] (auto& s, auto& vis) { visitBattery (s, vis); });
+    readBlock (v, "alternator", p.alternator, [] (auto& s, auto& vis) { visitAlternator (s, vis); });
+    readBlock (v, "fuse", p.fuse, [] (auto& s, auto& vis) { visitFuse (s, vis); });
+
+    if (p.source.has_value())
+        finishSource (*p.source, v.getProperty ("source", {}));
 
     if (ok && (p.brand.isEmpty() || p.model.isEmpty()))
     {
@@ -428,6 +621,9 @@ juce::var Product::toVar() const
     writeBlock (*o, "wire", wire, [] (auto& s, auto& vis) { visitWire (s, vis); });
     writeBlock (*o, "audioInterface", audioInterface, [] (auto& s, auto& vis) { visitInterface (s, vis); });
     writeBlock (*o, "mic", mic, [] (auto& s, auto& vis) { visitMic (s, vis); });
+    writeBlock (*o, "battery", battery, [] (auto& s, auto& vis) { visitBattery (s, vis); });
+    writeBlock (*o, "alternator", alternator, [] (auto& s, auto& vis) { visitAlternator (s, vis); });
+    writeBlock (*o, "fuse", fuse, [] (auto& s, auto& vis) { visitFuse (s, vis); });
 
     // awg 0 means 1/0, so keep it explicitly when no mm2 size is given
     if (wire.has_value() && wire->awg == 0.0 && wire->mm2 == 0.0)
@@ -491,6 +687,39 @@ void addDriverSummary (const DriverSpecs& d, juce::StringArray& out)
     if (d.sensitivityDb > 0) out.add (num (d.sensitivityDb, 1) + " dB");
     if (d.powerRmsW > 0)     out.add (num (d.powerRmsW, 0) + " W RMS");
     if (d.mountingDepthMm > 0) out.add ("Depth " + num (d.mountingDepthMm, 1) + " mm");
+    if (! d.boxRecommendations.empty())
+    {
+        const auto& b = d.boxRecommendations.front();
+        juce::String s = b.type.isNotEmpty() ? b.type.substring (0, 1).toUpperCase() + b.type.substring (1) : juce::String ("Box");
+        if (b.litres > 0)   s << " " << num (b.litres, 1) << " L";
+        if (b.tuningHz > 0) s << " @ " << num (b.tuningHz, 1) << " Hz";
+        out.add (s);
+    }
+}
+
+void addRatings (const std::map<juce::String, double>& rms, int channels, int maxShown, const juce::String& suffix,
+                 juce::StringArray& out)
+{
+    static const char* order[] = { "4ohm", "3ohm", "2ohm", "1ohm", "0.5ohm", "bridged4ohm", "bridged2ohm" };
+    int shown = 0;
+    for (auto* key : order)
+    {
+        auto it = rms.find (key);
+        if (it == rms.end() || it->second <= 0 || shown >= maxShown)
+            continue;
+
+        const juce::String k (key);
+        const bool bridged = k.startsWith ("bridged");
+        const auto load = k.fromLastOccurrenceOf ("bridged", false, false).upToFirstOccurrenceOf ("ohm", false, false);
+        juce::String s = num (it->second, 0) + " W";
+        if (! bridged && channels > 1)
+            s << " x " << channels;
+        s << " @ " << load << " " << ohm();
+        if (bridged)
+            s << " bridged";
+        out.add (s + suffix);
+        ++shown;
+    }
 }
 
 void addAmpSummary (const AmpSpecs& a, juce::StringArray& out)
@@ -498,31 +727,27 @@ void addAmpSummary (const AmpSpecs& a, juce::StringArray& out)
     if (a.channels > 0)
         out.add (juce::String (a.channels) + " ch");
 
-    static const char* order[] = { "4ohm", "2ohm", "1ohm", "bridged4ohm", "bridged2ohm" };
-    int shown = 0;
-    for (auto* key : order)
+    const auto layout = ampChannelLayout (a);
+    if (a.channelGroups.empty())
     {
-        auto it = a.rmsPerChannelW.find (key);
-        if (it == a.rmsPerChannelW.end() || it->second <= 0 || shown >= 2)
-            continue;
+        addRatings (a.rmsPerChannelW, a.channels, 2, {}, out);
+    }
+    else
+    {
+        const bool mainListed = ! layout.empty() && layout.front().groupIndex == -1;
+        if (! mainListed)   // channel count missing / groups cover everything: still show the main ratings
+            addRatings (a.rmsPerChannelW, 0, 1, {}, out);
 
-        const juce::String k (key);
-        const bool bridged = k.startsWith ("bridged");
-        const auto load = k.fromLastOccurrenceOf ("bridged", false, false).upToFirstOccurrenceOf ("ohm", false, false);
-        juce::String s = num (it->second, 0) + " W";
-        if (! bridged && a.channels > 1)
-            s << " x " << a.channels;
-        s << " @ " << load << " " << ohm();
-        if (bridged)
-            s << " bridged";
-        out.add (s);
-        ++shown;
+        for (auto& g : layout)
+            addRatings (g.group.rmsPerChannelW, g.group.channels, 1,
+                        g.group.label.isNotEmpty() ? " (" + g.group.label + ")" : juce::String(), out);
     }
 
     if (a.amplifierClass.isNotEmpty())  out.add ("Class " + a.amplifierClass);
     if (a.minStableOhms > 0)            out.add (num (a.minStableOhms, 1) + " " + ohm() + " stable");
     if (a.inputSensitivityMaxV > 0)
         out.add ("Gain " + num (a.inputSensitivityMinV, 2) + "-" + num (a.inputSensitivityMaxV, 1) + " V");
+    if (a.recommendedFuseA > 0)         out.add (num (a.recommendedFuseA, 0) + " A fuse");
 }
 
 void addSourceSummary (const SourceSpecs& s, Category c, juce::StringArray& out)
@@ -539,6 +764,9 @@ void addSourceSummary (const SourceSpecs& s, Category c, juce::StringArray& out)
     if (s.timeAlignment && ! isProcessor) out.add ("Time alignment");
     if (s.maxDelayMs > 0)          out.add ("Delay " + num (s.maxDelayMs, 1) + " ms");
     if (s.sampleRateHz > 0)        out.add (num (s.sampleRateHz / 1000.0, 1) + " kHz");
+    if (s.digitalInputs > 0)
+        out.add (s.digitalInputTypes.isEmpty() ? juce::String (s.digitalInputs) + " digital in"
+                                                : s.digitalInputTypes.joinIntoString ("/") + " in");
     if (s.maxVolumeStep > 0)       out.add ("Vol 0-" + juce::String (s.maxVolumeStep));
     if (s.software.isNotEmpty())   out.add (s.software);
 }
@@ -568,7 +796,32 @@ void addMicSummary (const MicSpecs& m, juce::StringArray& out)
     if (m.needsPhantom)          out.add ("Needs phantom");
     if (m.calFileAvailable)      out.add ("Cal file");
     if (m.sensitivityMvPa > 0)   out.add (num (m.sensitivityMvPa, 1) + " mV/Pa");
+    if (m.sensitivityDbfs != 0)  out.add (num (m.sensitivityDbfs, 1) + " dBFS");
     if (m.maxSplDb > 0)          out.add ("Max " + num (m.maxSplDb, 0) + " dB SPL");
+}
+
+void addBatterySummary (const BatterySpecs& b, juce::StringArray& out)
+{
+    if (b.chemistry.isNotEmpty())   out.add (b.chemistry);
+    if (b.ah > 0)                   out.add (num (b.ah, 1) + " Ah");
+    if (b.cca > 0)                  out.add (num (b.cca, 0) + " CCA");
+    if (b.reserveMin > 0)           out.add ("RC " + num (b.reserveMin, 0) + " min");
+    if (b.maxAmps > 0)              out.add ("Max " + num (b.maxAmps, 0) + " A");
+}
+
+void addAlternatorSummary (const AlternatorSpecs& a, juce::StringArray& out)
+{
+    if (a.ratedA > 0)               out.add (num (a.ratedA, 0) + " A");
+    if (a.hotRatedA > 0)            out.add (num (a.hotRatedA, 0) + " A hot");
+    if (a.idleA > 0)                out.add (num (a.idleA, 0) + " A idle");
+}
+
+void addFuseSummary (const FuseSpecs& f, juce::StringArray& out)
+{
+    if (f.ratingA > 0)
+        out.add (num (f.ratingA, 0) + " A" + (f.type.isNotEmpty() ? " " + f.type : juce::String()) + " fuse");
+    else if (f.type.isNotEmpty())
+        out.add (f.type + " fuse");
 }
 } // namespace
 
@@ -582,9 +835,177 @@ juce::StringArray specsSummary (const Product& p)
     if (p.wire)           addWireSummary (*p.wire, out);
     if (p.audioInterface) addInterfaceSummary (*p.audioInterface, out);
     if (p.mic)            addMicSummary (*p.mic, out);
+    if (p.battery)        addBatterySummary (*p.battery, out);
+    if (p.alternator)     addAlternatorSummary (*p.alternator, out);
+    if (p.fuse)           addFuseSummary (*p.fuse, out);
 
     out.removeDuplicates (false);
     return out;
+}
+
+//==============================================================================
+// Amplifier channel groups
+//==============================================================================
+std::vector<AmpGroupInfo> ampChannelLayout (const AmpSpecs& a)
+{
+    int extra = 0;
+    for (auto& g : a.channelGroups)
+        extra += std::max (0, g.channels);
+
+    std::vector<AmpGroupInfo> out;
+
+    AmpGroupInfo main;
+    main.groupIndex = -1;
+    main.group.channels = a.channelGroups.empty() ? a.channels : std::max (0, a.channels - extra);
+    main.group.rmsPerChannelW = a.rmsPerChannelW;
+    main.group.minStableOhms = a.minStableOhms;
+    if (main.group.channels > 0 || a.channelGroups.empty())
+        out.push_back (main);
+
+    int next = main.group.channels;
+    for (size_t i = 0; i < a.channelGroups.size(); ++i)
+    {
+        const auto& g = a.channelGroups[i];
+        if (g.channels <= 0)
+            continue;
+
+        AmpGroupInfo info;
+        info.groupIndex = (int) i;
+        info.firstChannel = next;
+        info.group = g;
+        out.push_back (info);
+        next += g.channels;
+    }
+
+    return out;
+}
+
+int ampGroupIndexForChannel (const AmpSpecs& a, int channelIndex)
+{
+    if (a.channelGroups.empty() || channelIndex < 0)
+        return -1;
+
+    for (auto& g : ampChannelLayout (a))
+        if (channelIndex >= g.firstChannel && channelIndex < g.firstChannel + g.group.channels)
+            return g.groupIndex;
+
+    return -1;
+}
+
+AmpSpecs ampSpecsForChannel (const AmpSpecs& a, int channelIndex)
+{
+    AmpSpecs out = a;
+    out.channelGroups.clear();
+
+    const int gi = ampGroupIndexForChannel (a, channelIndex);
+    if (gi < 0)
+    {
+        if (! a.channelGroups.empty())
+            for (auto& g : ampChannelLayout (a))
+                if (g.groupIndex == -1)
+                    out.channels = g.group.channels;
+        return out;
+    }
+
+    const auto& g = a.channelGroups[(size_t) gi];
+    out.channels = g.channels;
+    out.rmsPerChannelW = g.rmsPerChannelW;
+    out.minStableOhms = g.minStableOhms > 0 ? g.minStableOhms : a.minStableOhms;
+    return out;
+}
+
+double rmsAtLoad (const std::map<juce::String, double>& ratings, double loadOhms, bool bridged, juce::String* note)
+{
+    if (loadOhms <= 0 || ! std::isfinite (loadOhms))
+        return 0;
+
+    std::vector<std::pair<double, double>> pts;   // (ohms, watts)
+    for (auto& [key, watts] : ratings)
+    {
+        auto k = key.toLowerCase().removeCharacters (" _-");
+        const bool isBridged = k.startsWith ("bridge");
+        if (isBridged != bridged)
+            continue;
+        if (isBridged)
+            k = k.replace ("bridged", "").replace ("bridge", "");
+        if (! k.contains ("ohm"))
+            continue;
+        const double ohms = k.upToFirstOccurrenceOf ("ohm", false, true).getDoubleValue();
+        if (ohms > 0 && watts > 0)
+            pts.push_back ({ ohms, watts });
+    }
+
+    if (pts.empty() && bridged)
+    {
+        const double p = 2.0 * rmsAtLoad (ratings, loadOhms / 2.0, false);
+        if (note != nullptr && p > 0)
+            *note = "bridged power estimated as 2 x the per-channel rating at half the load";
+        return p;
+    }
+    if (pts.empty())
+        return 0;
+
+    std::sort (pts.begin(), pts.end());
+    for (auto& pt : pts)
+        if (std::abs (pt.first - loadOhms) / loadOhms < 0.02)
+            return pt.second;
+
+    if (loadOhms > pts.back().first)
+    {
+        if (note != nullptr)
+            *note = "extrapolated (constant output voltage) above the highest rated load";
+        return pts.back().second * pts.back().first / loadOhms;
+    }
+    if (loadOhms < pts.front().first)
+    {
+        if (note != nullptr)
+            *note = "below the lowest rated load - using that rating (no more power is assumed)";
+        return pts.front().second;
+    }
+
+    for (size_t i = 1; i < pts.size(); ++i)
+    {
+        if (loadOhms < pts[i].first)
+        {
+            const auto& lo = pts[i - 1];
+            const auto& hi = pts[i];
+            const double t = std::log (loadOhms / lo.first) / std::log (hi.first / lo.first);
+            if (note != nullptr)
+                *note = "interpolated between the " + num (lo.first, 1) + " and " + num (hi.first, 1) + " ohm ratings";
+            return std::exp (std::log (lo.second) + t * (std::log (hi.second) - std::log (lo.second)));
+        }
+    }
+
+    return pts.back().second;
+}
+
+double ampPowerForGroup (const AmpSpecs& a, int channelIndex, double loadOhms, bool bridged, juce::String* note)
+{
+    const int gi = ampGroupIndexForChannel (a, channelIndex);
+    const auto& ratings = gi < 0 ? a.rmsPerChannelW : a.channelGroups[(size_t) gi].rmsPerChannelW;
+    return rmsAtLoad (ratings, loadOhms, bridged, note);
+}
+
+double ampMinStableOhmsForChannel (const AmpSpecs& a, int channelIndex)
+{
+    const int gi = ampGroupIndexForChannel (a, channelIndex);
+    if (gi >= 0 && a.channelGroups[(size_t) gi].minStableOhms > 0)
+        return a.channelGroups[(size_t) gi].minStableOhms;
+    return a.minStableOhms;
+}
+
+double ampTotalMaxRmsW (const AmpSpecs& a)
+{
+    double total = 0;
+    for (auto& g : ampChannelLayout (a))
+    {
+        double best = 0;
+        for (auto& [key, watts] : g.group.rmsPerChannelW)
+            if (! key.toLowerCase().startsWith ("bridge"))
+                best = std::max (best, watts);
+        total += best * std::max (0, g.group.channels);
+    }
+    return total;
 }
 
 //==============================================================================

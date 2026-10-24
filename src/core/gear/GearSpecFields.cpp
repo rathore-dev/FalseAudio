@@ -48,11 +48,15 @@ void addHeadUnit (std::vector<SpecField>& f)
     f.push_back (number ("source.maxVolumeStep", "Max volume step", "", "Gain setting volume position",
                          "Highest number on the volume display, e.g. 40, 50, 62", true, 1, 100));
     f.push_back (number ("source.cleanVolumeStep", "Clean volume step", "", "Gain setting volume position",
-                         "Last step before clipping with 0 dBFS content, if known", false, 1, 100));
+                         "Last step before pre-out clipping with a 0 dBFS signal, EQ flat, if known", false, 1, 100));
     f.push_back (number ("source.preoutChannels", "Pre-out channels", "ch", "System layout",
-                         "Number of RCA outputs (front/rear/sub = 6)", false, 1, 16));
+                         "Total RCA output channels (front/rear/sub pairs = 6)", false, 1, 16));
+    f.push_back (number ("source.preoutRatedLoadOhms", "Pre-out rated load", FA_OHM, "Amp gain matching",
+                         "Load the pre-out voltage was rated into, e.g. 10000", false, 100, 1000000));
     f.push_back (number ("source.outputImpedanceOhms", "Output impedance", FA_OHM, "Noise / cable advice", "", false, 1, 10000));
-    f.push_back (number ("source.snrDb", "SNR", "dB", "Noise floor estimate", "", false, 50, 140));
+    f.push_back (flag ("source.outputImpedanceIsUpperBound", "Output impedance is a maximum", "Noise / cable advice",
+                       "Manual says \"max\" or \"<\""));
+    f.push_back (number ("source.snrDb", "SNR", "dB", "Noise floor estimate", "Manufacturer analog / USB figure", false, 50, 140));
     f.push_back (flag ("source.timeAlignment", "Time alignment", "Tuning: delay per channel"));
     f.push_back (flag ("source.crossovers", "Crossovers", "Tuning: crossover in head unit"));
     f.push_back (number ("source.eqBands", "EQ bands", "", "Tuning: EQ", "", false, 1, 64));
@@ -68,10 +72,17 @@ void addDsp (std::vector<SpecField>& f, bool requiredCore)
     f.push_back (number ("source.maxDelayMs", "Max delay", "ms", "Time alignment range", "", requiredCore, 0.1, 100));
     f.push_back (number ("source.sampleRateHz", "Sample rate", "Hz", "Filter design", "e.g. 48000 or 96000",
                          requiredCore, 8000, 384000));
+    f.push_back (number ("source.peqBandsByStage.input", "PEQ bands per input", "", "Auto-EQ band budget",
+                         "Input-stage bands, if the DSP has them", false, 1, 64));
+    f.push_back (number ("source.peqBandsByStage.virtual", "PEQ bands per virtual channel", "", "Auto-EQ band budget",
+                         "", false, 1, 64));
     f.push_back (number ("source.maxInputVoltageV", "Max input voltage", "V", "Input gain staging",
                          "RCA / high-level input clip point", false, 0.1, 40));
+    f.push_back (number ("source.highLevelInputs", "High-level inputs", "ch", "Routing (speaker-level input)", "", false, 1, 32));
+    f.push_back (number ("source.digitalInputs", "Digital inputs", "", "Routing (optical / coax / USB)", "", false, 1, 8));
     f.push_back (number ("source.preoutVoltageV", "Max output voltage", "V", "Amp gain matching", "", false, 0.1, 15));
-    f.push_back (number ("source.snrDb", "SNR", "dB", "Noise floor estimate", "", false, 50, 140));
+    f.push_back (number ("source.snrDb", "SNR", "dB", "Noise floor estimate", "Analog input figure", false, 50, 140));
+    f.push_back (number ("source.snrDigitalDb", "SNR (digital input)", "dB", "Noise floor estimate", "", false, 50, 140));
     f.push_back (text ("source.software", "PC software", "DSP profile", "Vendor tuning tool name", false));
     f.push_back (text ("source.softwareExe", "Software exe", "DSP profile", "e.g. TuN.exe", false));
 }
@@ -91,8 +102,10 @@ void addAmp (std::vector<SpecField>& f)
     f.push_back (number ("amp.channels", "Channels", "ch", "Channel assignment", "", true, 1, 16));
     f.push_back (number ("amp.rmsPerChannelW.4ohm", "RMS per channel @ 4 " FA_OHM, "W", rmsUse,
                          "At least one RMS rating is required", true, 1, 10000, "rms"));
+    f.push_back (number ("amp.rmsPerChannelW.3ohm", "RMS per channel @ 3 " FA_OHM, "W", rmsUse, "", false, 1, 10000));
     f.push_back (number ("amp.rmsPerChannelW.2ohm", "RMS per channel @ 2 " FA_OHM, "W", rmsUse, "", true, 1, 10000, "rms"));
     f.push_back (number ("amp.rmsPerChannelW.1ohm", "RMS per channel @ 1 " FA_OHM, "W", rmsUse, "", true, 1, 20000, "rms"));
+    f.push_back (number ("amp.rmsPerChannelW.0.5ohm", "RMS per channel @ 0.5 " FA_OHM, "W", rmsUse, "", false, 1, 40000));
     f.push_back (number ("amp.rmsPerChannelW.bridged4ohm", "RMS bridged @ 4 " FA_OHM, "W", rmsUse, "", true, 1, 20000, "rms"));
     f.push_back (number ("amp.rmsPerChannelW.bridged2ohm", "RMS bridged @ 2 " FA_OHM, "W", rmsUse, "", false, 1, 20000));
     f.push_back (number ("amp.inputSensitivityMinV", "Input sensitivity min", "V", "Gain setting (gain knob range)",
@@ -103,6 +116,11 @@ void addAmp (std::vector<SpecField>& f)
                          "e.g. 2 or 1", true, 0.25, 16));
     f.push_back (number ("amp.highLevelInputMaxV", "High-level input max", "V", "Speaker-level input gain staging", "", false, 0.5, 50));
     f.push_back (number ("amp.fuseRatingA", "Fuse rating", "A", "Power wire and fuse sizing", "Total on-board fuse amps", false, 1, 1000));
+    f.push_back (number ("amp.fuseCount", "On-board fuses", "", "Info", "Number of fuses (fuse rating = total)", false, 1, 16));
+    f.push_back (number ("amp.recommendedFuseA", "Recommended external fuse", "A", "Power wire and fuse sizing",
+                         "In-line fuse at the battery from the manual", false, 1, 2000));
+    f.push_back (number ("amp.ratedVoltageV", "Rated at supply voltage", "V", "Power at your system voltage",
+                         "Voltage the RMS ratings were measured at, e.g. 14.4", false, 9, 18));
     f.push_back (number ("amp.efficiencyPercent", "Efficiency", "%", "Current draw estimate",
                          "If unknown, class D is estimated at 80 %, AB at 55 %", false, 20, 99));
     f.push_back (text ("amp.amplifierClass", "Amplifier class", "Current draw estimate", "", false, { "D", "AB", "G/H" }));
@@ -130,8 +148,14 @@ void addDriverOptional (std::vector<SpecField>& f, bool isSub)
     f.push_back (number ("driver.bl", "BL", "T\xc2\xb7m", "Excursion modelling", "", false, 0.5, 50));
     f.push_back (number ("driver.mmsGrams", "Mms", "g", "Excursion modelling", "", false, 0.1, 1000));
     f.push_back (number ("driver.leMh", "Le", "mH", "Impedance modelling", "", false, 0.001, 20));
+    f.push_back (text ("driver.tsWiring", "T/S measured with coils", "Modelling (which coil wiring Re/Le/BL refer to)",
+                       "Re is always ONE coil", false, { "single", "series", "parallel" }));
     f.push_back (number ("driver.sensitivityDb", "Sensitivity", "dB", "Level matching between ways", "", false, 70, 110));
     f.push_back (text ("driver.sensitivityRef", "Sensitivity reference", "Level matching", "", false, { "1W/1m", "2.83V/1m" }));
+    f.push_back (number ("driver.secondarySensitivityDb", "Second sensitivity", "dB", "Level matching",
+                         "Other published figure, e.g. at 2.83 V", false, 70, 110));
+    f.push_back (text ("driver.secondarySensitivityRef", "Second sensitivity reference", "Level matching", "", false,
+                       { "1W/1m", "2.83V/1m" }));
     f.push_back (number ("driver.powerPeakW", "Peak power", "W", "Info", "", false, 1, 20000));
     f.push_back (number ("driver.freqLowHz", "Frequency range low", "Hz", "Crossover plan", "", false, 5, 20000));
     f.push_back (number ("driver.freqHighHz", "Frequency range high", "Hz", "Crossover plan", "", false, 20, 60000));
@@ -139,7 +163,10 @@ void addDriverOptional (std::vector<SpecField>& f, bool isSub)
                          "Manufacturer recommendation, if published", false, 5, 20000));
     f.push_back (number ("driver.recommendedLpHz", "Recommended low-pass", "Hz", "Crossover plan", "", false, 20, 40000));
     f.push_back (number ("driver.mountingDepthMm", "Mounting depth", "mm", "Install fit", "", false, 5, 500));
-    f.push_back (number ("driver.cutoutMm", "Cut-out diameter", "mm", "Install fit", "", false, 10, 600));
+    f.push_back (number ("driver.cutoutMm", "Cut-out diameter", "mm", "Install fit", "Side length for square cut-outs", false, 10, 600));
+    f.push_back (text ("driver.cutoutShape", "Cut-out shape", "Install fit", "", false, { "round", "square" }));
+    f.push_back (text ("driver.switchableImpedance", "Switchable impedance", "Amp load / wiring",
+                       "e.g. \"2 or 4 " FA_OHM " (SSI)\"", false));
 }
 
 void addDriver (std::vector<SpecField>& f)
@@ -189,15 +216,59 @@ void addInterface (std::vector<SpecField>& f)
 
 void addMic (std::vector<SpecField>& f)
 {
-    f.push_back (text ("mic.type", "Mic type", "Connection setup", "", true, { "USB", "XLR" }));
+    f.push_back (text ("mic.type", "Mic type", "Connection setup", "", true, { "USB", "XLR", "TRRS" }));
     f.push_back (flag ("mic.needsPhantom", "Needs phantom power", "Interface setup"));
     f.push_back (number ("mic.sensitivityMvPa", "Sensitivity", "mV/Pa", "Absolute SPL", "", false, 0.1, 200));
+    f.push_back (number ("mic.sensitivityDbfs", "Sensitivity (digital)", "dBFS", "Absolute SPL",
+                         "USB mics: level at 94 dB SPL, e.g. -18", false, -80, -0.01));
     f.push_back (flag ("mic.calFileAvailable", "Calibration file available", "Measurement accuracy"));
     f.push_back (text ("mic.calFileUrl", "Calibration file URL", "Measurement accuracy", "", false));
     f.push_back (number ("mic.maxSplDb", "Max SPL", "dB", "Measurement level limit", "", false, 80, 180));
 }
 
+void addFuse (std::vector<SpecField>& f, bool required)
+{
+    f.push_back (number ("fuse.ratingA", "Fuse rating", "A", "Fuse sizing", "", required, 1, 2000));
+    f.push_back (text ("fuse.type", "Fuse type", "Fuse sizing / holder match", "", false,
+                       { "ANL", "mini-ANL", "MIDI", "MAXI", "AGU", "ATC", "breaker" }));
+}
+
+void addBattery (std::vector<SpecField>& f)
+{
+    f.push_back (number ("battery.ah", "Capacity", "Ah", "Reserve / play time with engine off", "20 h rate", false, 1, 2000));
+    f.push_back (number ("battery.cca", "Cold cranking amps", "A", "Info", "", false, 50, 10000));
+    f.push_back (number ("battery.ca", "Cranking amps", "A", "Info", "", false, 50, 10000));
+    f.push_back (number ("battery.reserveMin", "Reserve capacity", "min", "Reserve / play time", "", false, 1, 2000));
+    f.push_back (number ("battery.maxAmps", "Max current", "A", "Current budget", "", false, 10, 20000));
+    f.push_back (text ("battery.chemistry", "Chemistry", "Charging voltage advice", "", false,
+                       { "AGM", "flooded", "LiFePO4", "LTO" }));
+}
+
+void addAlternator (std::vector<SpecField>& f)
+{
+    f.push_back (number ("alternator.ratedA", "Rated output", "A", "Current budget", "", false, 10, 1000));
+    f.push_back (number ("alternator.idleA", "Output at idle", "A", "Current budget at idle", "", false, 5, 1000));
+    f.push_back (number ("alternator.hotRatedA", "Hot-rated output", "A", "Current budget", "", false, 10, 1000));
+}
+
 #undef FA_OHM
+
+/** Splits "<block>.<field>.<rest>" into at most 3 parts; the last part keeps any further dots (map keys like "0.5ohm"). */
+juce::StringArray splitKey (const juce::String& key)
+{
+    juce::StringArray path;
+    auto rest = key.trim();
+    while (rest.isNotEmpty() && path.size() < 2 && rest.containsChar ('.'))
+    {
+        const auto part = rest.upToFirstOccurrenceOf (".", false, false);
+        if (part.isNotEmpty())
+            path.add (part);
+        rest = rest.fromFirstOccurrenceOf (".", false, false);
+    }
+    if (rest.isNotEmpty())
+        path.add (rest);
+    return path;
+}
 
 bool isPresent (const Product& p, const juce::String& key)
 {
@@ -223,16 +294,14 @@ std::vector<SpecField> specFields (Category c)
         case Category::driverCoax:
         case Category::componentSet:    addDriver (f); break;
         case Category::subwoofer:       addSubwoofer (f); break;
-        case Category::powerWire:
+        case Category::powerWire:       addWire (f, true); addFuse (f, false); break;   // kits may include a fuse
         case Category::speakerWire:     addWire (f, true); break;
         case Category::rca:             addWire (f, false); break;
-        case Category::fuseHolder:
-            f.push_back (number ("wire.ampacityA", "Fuse rating", "A", "Fuse sizing", "", false, 1, 1000));
-            break;
+        case Category::fuseHolder:      addFuse (f, false); break;
         case Category::audioInterface:  addInterface (f); break;
         case Category::measurementMic:  addMic (f); break;
-        case Category::battery:
-        case Category::alternator:
+        case Category::battery:         addBattery (f); break;
+        case Category::alternator:      addAlternator (f); break;
         default: break;
     }
 
@@ -316,9 +385,7 @@ juce::var getSpecValue (const Product& p, const juce::String& key)
     if (key == "wire.awg")
         return p.wire.has_value() ? juce::var (p.wire->awg) : juce::var();
 
-    juce::StringArray path;
-    path.addTokens (key, ".", "");
-    path.removeEmptyStrings();
+    const auto path = splitKey (key);
     if (path.isEmpty())
         return {};
 
@@ -339,9 +406,7 @@ juce::var getSpecValue (const Product& p, const juce::String& key)
 
 void setSpecValue (Product& p, const juce::String& key, const juce::var& value)
 {
-    juce::StringArray path;
-    path.addTokens (key, ".", "");
-    path.removeEmptyStrings();
+    const auto path = splitKey (key);
     if (path.isEmpty())
         return;
 
