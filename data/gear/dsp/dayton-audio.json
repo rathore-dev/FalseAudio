@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "dayton-audio-dsp-408",
+      "category": "dsp",
+      "brand": "Dayton Audio",
+      "model": "DSP-408",
+      "sourceUrl": "https://www.audiophonics.fr/en/dsp-av-processors/dayton-audio-dsp-408-4x8-digital-audio-processor-dsp-adau1701-sigmadsp-2556bit-4-to-8-channels-p-13043.html",
+      "verified": false,
+      "notes": "Retailer data (daytonaudio.com and Parts Express block automated fetch). 4 RCA + 4 high-level in (signal-sense turn-on); 8 RCA out. 10-band parametric EQ per output (80 total) + high/low shelf. Delay 0-277 cm = 0-8.1471 ms in 1 cm steps. Max input >=3.2 V (1% THD); RCA output 3.5 V RMS (manual reportedly says 4 V). ADAU1701 SigmaDSP. Windows 'DSP-408' software + optional Android app via Bluetooth.",
+      "source": {
+        "inputs": 4,
+        "outputs": 8,
+        "peqBandsPerChannel": 10,
+        "maxDelayMs": 8.1471,
+        "maxInputVoltageV": 3.2,
+        "preoutVoltageV": 3.5,
+        "software": "Dayton Audio DSP-408 software"
+      }
+    }
+  ]
+}

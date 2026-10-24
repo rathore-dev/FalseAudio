@@ -1,0 +1,31 @@
+{
+  "products": [
+    {
+      "id": "alpine-pxe-c80-88",
+      "category": "dspAmp",
+      "brand": "Alpine",
+      "model": "PXE-C80-88",
+      "series": "OPTIM8",
+      "sourceUrl": "https://www.autogarsas.lt/products/alpine-pxe-c80-88-automobilinis-garso-stiprintuvas-su-dsp",
+      "verified": false,
+      "notes": "Distributor copy of Alpine spec. RMS @14.4 V 1% THD: CH1-6 35 W @4 / 70 W @2; CH7-8 130 W @4 / 260 W @2 (US retailers also quote 50 W x6 + 150 W x2 @4 ohm at 10% THD). 8 RCA pre outs. Spec lists max input High level 26 Vpp / RCA 11 Vpp and RCA output 4 Vpp (some retailers say 4 Vrms) - unit ambiguity, so voltages not put in fields. 31-band EQ on every channel; delay per channel (range not confirmed). S/N RCA >=95 dB, high-level >=80 dB. System sampling 192 kHz/32 bit; USB-A DAC to 96k/24 + coax in. Tuning: OPTIM iPhone app (auto-EQ, Eilex PRISM) or PC app with KTX-CSP1 mic kit.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 35,
+          "2ohm": 70
+        },
+        "snrDb": 95,
+        "thdPercent": 0.1,
+        "minStableOhms": 2
+      },
+      "source": {
+        "outputs": 8,
+        "eqBands": 31,
+        "sampleRateHz": 192000,
+        "snrDb": 95,
+        "software": "Alpine OPTIM (app / PC)"
+      }
+    }
+  ]
+}

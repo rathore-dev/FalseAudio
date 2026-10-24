@@ -1,0 +1,371 @@
+{
+  "products": [
+    {
+      "id": "helix-v-eight-dsp-ultimate",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "V EIGHT DSP ULTIMATE",
+      "series": "NEXT",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/next/v-eight-dsp-ultimate",
+      "verified": true,
+      "notes": "Power RMS <=1% THD+N @14.4V per mfr. 8x110 W @4 ohm (ch 1-8); ch 5-8: 4x220 W @2 ohm (ch 1-4 not rated at 2 ohm). 14-channel DSP; 6 RCA + 12 highlevel in (4-32 V), optical SPDIF, USB PerfectStream, Extension Card 2.0; 6 RCA out (3 V). Fuse 2 x 40 A. SNR digital 107 dB.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 110
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 32,
+        "snrDb": 102,
+        "thdPercent": 0.007,
+        "dampingFactor": 100,
+        "fuseRatingA": 80,
+        "amplifierClass": "HD"
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 14,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 3,
+        "snrDb": 102,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-p-six-dsp-ultimate",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "P SIX DSP ULTIMATE",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/p-six-dsp-ultimate",
+      "verified": true,
+      "notes": "Power RMS <=1% THD+N @14.4V per mfr. 6x120 W @4 ohm (A-F); C-F 4x230 W @2 ohm. 12-channel DSP (TwinDSP, 96 kHz). RCA sens 1-4 or 4-8 V, highlevel 4-16 or 8-32 V. Optical + coax SPDIF in, 4 RCA + optical out. 12/24 V operation. Fuse 3 x 20 A. Ultra HD Class D. SNR digital 108 dB.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 120
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 32,
+        "snrDb": 102,
+        "thdPercent": 0.004,
+        "dampingFactor": 100,
+        "fuseRatingA": 60,
+        "amplifierClass": "D"
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 12,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 3,
+        "snrDb": 102,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-v-eighteen-dsp",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "V EIGHTEEN DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/v-eighteen-dsp",
+      "verified": true,
+      "notes": "Power RMS <=1% THD+N @14.4V per mfr. Ch 1-12: 70 W @4 ohm; ch 13-18: 75 W @4 ohm / 120 W @2 ohm. 20-channel DSP. RCA max 4 or 8 V, highlevel max 16 or 32 V; 18 highlevel in, optical in, 2 RCA out. Fuse 3 x 30 A. Pure Class GD.",
+      "amp": {
+        "channels": 18,
+        "rmsPerChannelW": {
+          "4ohm": 70
+        },
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 32,
+        "snrDb": 102,
+        "thdPercent": 0.015,
+        "dampingFactor": 50,
+        "fuseRatingA": 90,
+        "amplifierClass": "GD"
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 20,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 3,
+        "snrDb": 102,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-v-twelve-dsp-mk2",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "V TWELVE DSP MK2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/v-twelve-dsp-mk2",
+      "verified": true,
+      "notes": "Power RMS <=1% THD+N @14.4V per mfr. 14-channel DSP, 6 RCA + 12 highlevel in, optical SPDIF, HEC slot. RCA max 4 or 8 V. Fuse 2 x 30 A. SNR digital 107 dB.",
+      "amp": {
+        "channels": 12,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 120
+        },
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 32,
+        "snrDb": 102,
+        "thdPercent": 0.015,
+        "dampingFactor": 70,
+        "fuseRatingA": 60,
+        "amplifierClass": "GD",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 14,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 3,
+        "snrDb": 102,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-amplify-206-dsp",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "AMPLIFY 206 DSP",
+      "series": "AMPLIFY 2-Series",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/amplify/2-series/206-dsp",
+      "verified": true,
+      "notes": "Power RMS <=1% THD+N @14.4V per mfr. 8-channel DSP. 6 RCA or 6 highlevel (2-16 V) in, optical SPDIF; 2 RCA out (8 V). SNR at full power: analog 99 / digital 102 dB. Fuse 3 x 25 A.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 190,
+          "bridged4ohm": 380
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 16,
+        "snrDb": 99,
+        "thdPercent": 0.005,
+        "dampingFactor": 70,
+        "fuseRatingA": 75,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 8,
+        "snrDb": 99,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-ism-400-2dsp",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "ISM 400.2DSP",
+      "series": "IMPACT",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/impact/ism-400-2dsp",
+      "verified": true,
+      "notes": "Power RMS <=1% THD+N @50 Hz. Subwoofer module with 1-channel DSP for IMPACT 2x2 ohm enclosures. RCA 0.4-4 / 0.8-8 V, highlevel 1.6-16 / 3.2-32 V. Fuse 1 x 40 A.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 130,
+          "2ohm": 200
+        },
+        "inputSensitivityMinV": 0.4,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 32,
+        "snrDb": 102,
+        "thdPercent": 0.005,
+        "dampingFactor": 85,
+        "fuseRatingA": 40,
+        "amplifierClass": "HD",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 2,
+        "outputs": 1,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 8,
+        "snrDb": 102,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-m-four-dsp",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "M FOUR DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/m-four-dsp",
+      "verified": true,
+      "notes": "Discontinued (archive). Power RMS <=1% THD+N @14.4V per mfr. 10-channel DSP; 6 RCA + 6 highlevel (5-20 V) in, optical; 6 RCA out (6 V). Fuse 2 x 30 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 20,
+        "snrDb": 102,
+        "thdPercent": 0.03,
+        "dampingFactor": 100,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 10,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 6,
+        "snrDb": 102,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-m-six-dsp",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "M SIX DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/m-six-dsp",
+      "verified": true,
+      "notes": "Discontinued (archive). Power RMS <=1% THD+N @14.4V per mfr. 10-channel DSP; 6 RCA + 6 highlevel (5-20 V) in, optical; 4 RCA out (6 V). Fuse 2 x 35 A.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 4,
+        "highLevelInputMaxV": 20,
+        "snrDb": 102,
+        "thdPercent": 0.03,
+        "dampingFactor": 100,
+        "fuseRatingA": 70,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 10,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 6,
+        "snrDb": 102,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-p-six-dsp-mk2",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "P SIX DSP MK2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/p-six-dsp-mk2",
+      "verified": true,
+      "notes": "Discontinued (archive). Power RMS <=1% THD+N @14.4V per mfr. A-F 120 W @4 ohm; C-F 230 W @2 ohm. 8-channel DSP. RCA 2-4 / 4-8 V, highlevel 5-10 / 10-20 V. Fuse 3 x 20 A. 12/24 V.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 120
+        },
+        "inputSensitivityMinV": 2,
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 20,
+        "snrDb": 100,
+        "thdPercent": 0.008,
+        "dampingFactor": 100,
+        "fuseRatingA": 60,
+        "amplifierClass": "D"
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 3,
+        "snrDb": 100,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-v-eight-dsp-mk2",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "V EIGHT DSP MK2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/v-eight-dsp-mk2",
+      "verified": true,
+      "notes": "Discontinued (archive). Power RMS <=1% THD+N @14.4V per mfr. 10-channel DSP; 6 RCA + 8 highlevel in, optical. RCA max 4 or 8 V. Fuse 2 x 30 A.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 120
+        },
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 32,
+        "snrDb": 102,
+        "thdPercent": 0.015,
+        "dampingFactor": 70,
+        "fuseRatingA": 60,
+        "amplifierClass": "GD",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 10,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 3,
+        "snrDb": 102,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-v-twelve-dsp",
+      "category": "dspAmp",
+      "brand": "Helix",
+      "model": "V TWELVE DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/amplifiers/v-twelve-dsp",
+      "verified": true,
+      "notes": "Discontinued (archive). Power RMS <=1% THD+N @14.4V per mfr. 14-channel DSP; 6 RCA + 12 highlevel in, optical. Fuse 2 x 30 A.",
+      "amp": {
+        "channels": 12,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 120
+        },
+        "inputSensitivityMaxV": 8,
+        "highLevelInputMaxV": 32,
+        "snrDb": 102,
+        "thdPercent": 0.015,
+        "dampingFactor": 70,
+        "fuseRatingA": 60,
+        "amplifierClass": "GD",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 14,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 3,
+        "snrDb": 102,
+        "software": "DSP PC-Tool"
+      }
+    }
+  ]
+}

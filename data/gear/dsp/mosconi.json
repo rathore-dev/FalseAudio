@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": "mosconi-dsp-6to8-pro",
+      "category": "dsp",
+      "brand": "Mosconi",
+      "model": "DSP 6to8 PRO",
+      "sourceUrl": "https://frankiesautoelectrics.com.au/products/mosconi-dsp-6-8-pro",
+      "verified": false,
+      "notes": "Retailer copy of Mosconi/Gladen spec. 6 inputs low level 2-8 Vrms (>10k) or high level 5-20 Vrms (47 ohm) with auto-sense, plus AUX; 8 RCA out, max 8 Vrms, 50 ohm. 48 kHz/24 bit. Delay step 0.02 ms; other retailers state 0-12 ms range and 30-band fully parametric EQ (+/-12 dB, Q 0.5-40) - not on this page, treat as unverified. THD <0.003%. 4 presets. USB + optional MOS-BTM Bluetooth.",
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 8,
+        "outputImpedanceOhms": 50,
+        "software": "Mosconi DSP GUI"
+      }
+    },
+    {
+      "id": "mosconi-dsp-8to12-aerospace",
+      "category": "dsp",
+      "brand": "Mosconi",
+      "model": "DSP 8to12 Aerospace",
+      "sourceUrl": "https://pasmag.com/technology/digital-signal-processors/mosconi-8to12-aerospace-dsp",
+      "verified": false,
+      "notes": "Press/retailer data only: 8 in / 12 out at 8 Vrms max (600 ohm). Input sensitivity 1.2-8 Vrms low level / 3-20 Vrms high level. Sample rate conflict: 96 kHz/24 (spec list) vs 192 kHz (PASMAG, Car Toys) - omitted. 31-band 'para-graphic' EQ per PASMAG; delay step 0.02 ms (range unconfirmed). Superseded by AERO 8|12 DSP.",
+      "source": {
+        "inputs": 8,
+        "outputs": 12,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 8,
+        "outputImpedanceOhms": 600,
+        "software": "Mosconi DSP GUI"
+      }
+    }
+  ]
+}

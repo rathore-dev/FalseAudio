@@ -1,0 +1,38 @@
+{
+  "products": [
+    {
+      "id": "zapco-adsp-z8-iv-6at",
+      "category": "dspAmp",
+      "brand": "Zapco",
+      "model": "ADSP-Z8 IV-6AT",
+      "series": "DSP-IV",
+      "sourceUrl": "https://rapidradio.co.nz/products/zapco-adsp-z8-iv-6at",
+      "verified": false,
+      "notes": "Retailer copy of Zapco spec. 8-ch DSP (Cirrus CS47048, 32-bit/192 kHz) + 6-ch amp. 8 analog in: low level 1-5 Vrms, speaker level 2-20 V; optical + coax digital in (24/192). EQ graphic & parametric: ch 1-6 31 poles, ch 7-8 11 poles (field = ch 1-6). Time alignment 0-15 ms. SNR DSP analog 106 dBA / digital 110; amp+DSP 95 dBA. AutoTune with optional mic. Zapco Series IV GUI (PC).",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 120,
+          "bridged4ohm": 240
+        },
+        "inputSensitivityMinV": 1,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 95,
+        "thdPercent": 0.07,
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 8,
+        "peqBandsPerChannel": 31,
+        "maxDelayMs": 15,
+        "sampleRateHz": 192000,
+        "maxInputVoltageV": 5,
+        "snrDb": 106,
+        "software": "Zapco Series IV GUI"
+      }
+    }
+  ]
+}

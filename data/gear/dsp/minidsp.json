@@ -1,0 +1,59 @@
+{
+  "products": [
+    {
+      "id": "minidsp-c-dsp-8x12-dl",
+      "category": "dsp",
+      "brand": "miniDSP",
+      "model": "C-DSP 8x12 DL",
+      "sourceUrl": "https://www.avnirvana.com/threads/minidsp-c-dsp-8x12-dl-processor-%E2%80%93-review-and-setup-tuning-guide.16912/",
+      "verified": false,
+      "notes": "minidsp.com blocks automated fetch (Cloudflare); specs from AVNirvana review. 8 in (high-level max 8 or 12 Vrms, low-level 4 or 2 Vrms, jumper) + SPDIF coax/Toslink (ASRC 44.1-192k); 12 RCA out. 10 PEQ per channel; Dirac Live on 8 channels, remaining 4 outputs post-Dirac matrix. Max output 4.5 Vrms per review (Parts Express lists 6 Vrms - conflict). SNR 115 dB, THD+N 0.0007%. 48 kHz processing. Max delay not confirmed.",
+      "source": {
+        "inputs": 8,
+        "outputs": 12,
+        "peqBandsPerChannel": 10,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 4.5,
+        "snrDb": 115,
+        "software": "miniDSP C-DSP 8x12 DL plugin + Dirac Live"
+      }
+    },
+    {
+      "id": "minidsp-c-dsp-6x8",
+      "category": "dsp",
+      "brand": "miniDSP",
+      "model": "C-DSP 6x8",
+      "sourceUrl": "https://www.audiophonics.fr/en/dsp-modules/minidsp-c-dsp-6x8-audio-processor-usb-2856bit-6-to-8-channels-p-10368.html",
+      "verified": false,
+      "notes": "Discontinued. Retailer (Audiophonics) copy of spec: 4 analog in (RCA max 2 Vrms; terminal blocks 4 Vrms unbalanced / 8 Vrms balanced) + SPDIF coax; 8 RCA out max 2 Vrms. ADAU1445, 48 kHz internal. Retailer describes '6-band parametric equalizer' (per channel, unconfirmed). Max delay not confirmed. Configured via miniDSP plugin over USB.",
+      "source": {
+        "inputs": 4,
+        "outputs": 8,
+        "peqBandsPerChannel": 6,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 2,
+        "preoutVoltageV": 2,
+        "software": "miniDSP C-DSP 6x8 plugin"
+      }
+    },
+    {
+      "id": "minidsp-2x4-hd",
+      "category": "dsp",
+      "brand": "miniDSP",
+      "model": "2x4 HD",
+      "sourceUrl": "https://homemovie.hu/wp-content/uploads/2021/04/Product-Brief-miniDSP-2x4-HD.pdf",
+      "verified": false,
+      "notes": "miniDSP product brief (hosted by dealer). 2ch analog RCA in (max 2 or 4 Vrms, jumper; 10k), Toslink, USB audio (XMOS, to 192k); 4 RCA out max 2 Vrms (560 ohm). 400 MHz SHARC, 96 kHz internal processing (plugin dependent); PEQ + delay + FIR per output (band count/delay not in brief). THD+N 0.001% USB->RCA. 12 VDC. Not automotive-specific but common in car installs.",
+      "source": {
+        "inputs": 2,
+        "outputs": 4,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 2,
+        "outputImpedanceOhms": 560,
+        "software": "miniDSP 2x4 HD plugin"
+      }
+    }
+  ]
+}

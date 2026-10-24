@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": "rockford-fosgate-dsr1",
+      "category": "dsp",
+      "brand": "Rockford Fosgate",
+      "model": "DSR1",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/dsr1/",
+      "verified": true,
+      "notes": "8-ch processor with integrated iDatalink Maestro (3Sixty.3-based). 4 balanced RCA in (up to 4 V), 4 high-level in (up to 12.5 V, signal-sense turn-on 4-16 V), 2 AUX RCA (up to 2 V), SPDIF coax. 8 RCA out up to 4 V RMS, 200 ohm. EQ: 31 bands per channel group (Front/Spare/Rear/Sub), Q 0.01-10; 245 EQ bands total. Up to 10 ms delay per channel. SNR >100 dBA. 32-bit 147 MIPS DSP, 24-bit DAC (108 dB DR). Tuning via Rockford Fosgate PerfectTune PC software or iOS/Android app.",
+      "source": {
+        "inputs": 4,
+        "outputs": 8,
+        "eqBands": 31,
+        "eqType": "31 fixed centers, selectable Q",
+        "maxDelayMs": 10,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 4,
+        "outputImpedanceOhms": 200,
+        "snrDb": 100,
+        "software": "PerfectTune"
+      }
+    }
+  ]
+}

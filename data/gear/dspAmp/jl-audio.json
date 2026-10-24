@@ -1,0 +1,272 @@
+{
+  "products": [
+    {
+      "id": "jl-audio-vx800-8i",
+      "category": "dspAmp",
+      "brand": "JL Audio",
+      "model": "VX800/8i",
+      "series": "VXi",
+      "sourceUrl": "http://www.caraudio-image.ru/manuals/JL%20Audio/VX800_8i_MAN.pdf",
+      "verified": false,
+      "notes": "JL owner's manual (third-party mirror). RMS @14.4 V <1% THD+N. @12.5 V: 60/90/180 W. SNR 99 dB re rated power (80 dB re 1 W); digital in 101 dB. Input voltage range 200 mV - 16 V RMS (differential-balanced, accepts speaker level). AKM AK7738 DSP at 24/96; optical S/PDIF in (to 192k) + optical out; 2 RCA line outs (4 V RMS). PEQ count/delay range not in manual specs (configured in TüN).",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 16,
+        "highLevelInputMaxV": 16,
+        "snrDb": 99,
+        "dampingFactor": 100,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 16,
+        "preoutVoltageV": 4,
+        "snrDb": 99,
+        "software": "TüN"
+      }
+    },
+    {
+      "id": "jl-audio-vx600-6i",
+      "category": "dspAmp",
+      "brand": "JL Audio",
+      "model": "VX600/6i",
+      "series": "VXi",
+      "sourceUrl": "http://www.caraudio-image.ru/manuals/JL%20Audio/VX600_6i_MAN.pdf",
+      "verified": false,
+      "notes": "JL owner's manual (third-party mirror). RMS @14.4 V <1% THD+N. @12.5 V: 60/90/180 W. SNR 99 dB re rated (80 re 1 W). Input voltage range 200 mV - 16 V RMS (differential-balanced, accepts speaker level). AKM AK7738 DSP at 24/96; optical S/PDIF in (to 192k) + optical out; 2 RCA line outs (4 V RMS). PEQ count/delay range not in manual specs (configured in TüN).",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 16,
+        "highLevelInputMaxV": 16,
+        "snrDb": 99,
+        "dampingFactor": 100,
+        "fuseRatingA": 50,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 16,
+        "preoutVoltageV": 4,
+        "snrDb": 99,
+        "software": "TüN"
+      }
+    },
+    {
+      "id": "jl-audio-vx1000-5i",
+      "category": "dspAmp",
+      "brand": "JL Audio",
+      "model": "VX1000/5i",
+      "series": "VXi",
+      "sourceUrl": "http://www.caraudio-image.ru/manuals/JL%20Audio/VX1000_5i_MAN.pdf",
+      "verified": false,
+      "notes": "JL owner's manual (third-party mirror). RMS @14.4 V <1% THD+N. Main ch 1-4 values shown; sub ch: 400 W @4 / 500 W @3 / 600 W @2 ohm. SNR main 99 dB re rated. Input voltage range 200 mV - 16 V RMS (differential-balanced, accepts speaker level). AKM AK7738 DSP at 24/96; optical S/PDIF in (to 192k) + optical out; 2 RCA line outs (4 V RMS). PEQ count/delay range not in manual specs (configured in TüN).",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 16,
+        "highLevelInputMaxV": 16,
+        "snrDb": 99,
+        "dampingFactor": 100,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 16,
+        "preoutVoltageV": 4,
+        "snrDb": 99,
+        "software": "TüN"
+      }
+    },
+    {
+      "id": "jl-audio-vx700-5i",
+      "category": "dspAmp",
+      "brand": "JL Audio",
+      "model": "VX700/5i",
+      "series": "VXi",
+      "sourceUrl": "http://www.caraudio-image.ru/manuals/JL%20Audio/VX700_5i_MAN.pdf",
+      "verified": false,
+      "notes": "JL owner's manual (third-party mirror). RMS @14.4 V <1% THD+N. Main ch 1-4 values shown; sub ch: 180 W @4 / 240 W @3 / 300 W @2 ohm. Input voltage range 200 mV - 16 V RMS (differential-balanced, accepts speaker level). AKM AK7738 DSP at 24/96; optical S/PDIF in (to 192k) + optical out; 2 RCA line outs (4 V RMS). PEQ count/delay range not in manual specs (configured in TüN).",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 16,
+        "highLevelInputMaxV": 16,
+        "dampingFactor": 100,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 16,
+        "preoutVoltageV": 4,
+        "software": "TüN"
+      }
+    },
+    {
+      "id": "jl-audio-vx400-4i",
+      "category": "dspAmp",
+      "brand": "JL Audio",
+      "model": "VX400/4i",
+      "series": "VXi",
+      "sourceUrl": "http://www.caraudio-image.ru/manuals/JL%20Audio/VX400_4i_MAN.pdf",
+      "verified": false,
+      "notes": "JL owner's manual (third-party mirror). RMS @14.4 V <1% THD+N. SNR 99 dB re rated power. Input voltage range 200 mV - 16 V RMS (differential-balanced, accepts speaker level). AKM AK7738 DSP at 24/96; optical S/PDIF in (to 192k) + optical out; 2 RCA line outs (4 V RMS). PEQ count/delay range not in manual specs (configured in TüN).",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 16,
+        "highLevelInputMaxV": 16,
+        "snrDb": 99,
+        "dampingFactor": 100,
+        "fuseRatingA": 40,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 4,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 16,
+        "preoutVoltageV": 4,
+        "snrDb": 99,
+        "software": "TüN"
+      }
+    },
+    {
+      "id": "jl-audio-vx600-2i",
+      "category": "dspAmp",
+      "brand": "JL Audio",
+      "model": "VX600/2i",
+      "series": "VXi",
+      "sourceUrl": "http://www.caraudio-image.ru/manuals/JL%20Audio/VX600_2i_MAN.pdf",
+      "verified": false,
+      "notes": "JL owner's manual (third-party mirror). RMS @14.4 V <1% THD+N. SNR 99 dB re rated power. Input voltage range 200 mV - 16 V RMS (differential-balanced, accepts speaker level). AKM AK7738 DSP at 24/96; optical S/PDIF in (to 192k) + optical out; 2 RCA line outs (4 V RMS). PEQ count/delay range not in manual specs (configured in TüN).",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 180,
+          "2ohm": 300,
+          "bridged4ohm": 600
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 16,
+        "highLevelInputMaxV": 16,
+        "snrDb": 99,
+        "dampingFactor": 100,
+        "fuseRatingA": 50,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 2,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 16,
+        "preoutVoltageV": 4,
+        "snrDb": 99,
+        "software": "TüN"
+      }
+    },
+    {
+      "id": "jl-audio-vx1000-1i",
+      "category": "dspAmp",
+      "brand": "JL Audio",
+      "model": "VX1000/1i",
+      "series": "VXi",
+      "sourceUrl": "http://www.caraudio-image.ru/manuals/JL%20Audio/VX1000_1i_MAN.pdf",
+      "verified": false,
+      "notes": "JL owner's manual (third-party mirror). RMS @14.4 V <1% THD+N. Mono: 600 W @4 / 800 W @3 / 1000 W @2 ohm. SNR 87 dB re rated. Input voltage range 200 mV - 16 V RMS (differential-balanced, accepts speaker level). AKM AK7738 DSP at 24/96; optical S/PDIF in (to 192k) + optical out; 2 RCA line outs (4 V RMS). PEQ count/delay range not in manual specs (configured in TüN).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1000
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 16,
+        "highLevelInputMaxV": 16,
+        "snrDb": 87,
+        "dampingFactor": 400,
+        "fuseRatingA": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 2,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 16,
+        "preoutVoltageV": 4,
+        "snrDb": 87,
+        "software": "TüN"
+      }
+    },
+    {
+      "id": "jl-audio-vx600-1i",
+      "category": "dspAmp",
+      "brand": "JL Audio",
+      "model": "VX600/1i",
+      "series": "VXi",
+      "sourceUrl": "http://www.caraudio-image.ru/manuals/JL%20Audio/VX600_1i_MAN.pdf",
+      "verified": false,
+      "notes": "JL owner's manual (third-party mirror). RMS @14.4 V <1% THD+N. Mono: 400 W @4 / 500 W @3 / 600 W @2 ohm. SNR 90 dB re rated. Input voltage range 200 mV - 16 V RMS (differential-balanced, accepts speaker level). AKM AK7738 DSP at 24/96; optical S/PDIF in (to 192k) + optical out; 2 RCA line outs (4 V RMS). PEQ count/delay range not in manual specs (configured in TüN).",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 600
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 16,
+        "highLevelInputMaxV": 16,
+        "snrDb": 90,
+        "dampingFactor": 125,
+        "fuseRatingA": 50,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 2,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 16,
+        "preoutVoltageV": 4,
+        "snrDb": 90,
+        "software": "TüN"
+      }
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "products": [
+    {
+      "id": "audison-af-m8-14-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AF M8.14 bit",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-m8-14-bit/",
+      "verified": true,
+      "notes": "RMS @14.4 V, 1% THD. 8 pre in (0.6-6 V) / 8 highlevel in (2.2-22 V), optical S/PDIF (192k) + optional F2O card. Output EQ 15 parametric/graphic biquads per ch; input EQ 12 biquads; delay 0-15 ms. ADAU1467 @96 kHz. SNR master/optical: 98.5/105 dBA. 6 pre outs (sub out 5 V). Fuse 2 x 30 A.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 90,
+          "2ohm": 140,
+          "bridged4ohm": 280
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 98.5,
+        "thdPercent": 0.05,
+        "dampingFactor": 100,
+        "fuseRatingA": 60,
+        "efficiencyPercent": 82,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 14,
+        "peqBandsPerChannel": 15,
+        "maxDelayMs": 15,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 6,
+        "snrDb": 98.5,
+        "software": "bit Drive"
+      }
+    },
+    {
+      "id": "audison-af-m12-14-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AF M12.14 bit",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-m12-14-bit/",
+      "verified": true,
+      "notes": "RMS @14.4 V, 1% THD. 8 pre in (0.6-6 V) / 8 highlevel in (2.2-22 V), optical S/PDIF (192k) + optional F2O card. Output EQ 15 parametric/graphic biquads per ch; input EQ 12 biquads; delay 0-15 ms. ADAU1467 @96 kHz. SNR master/optical: 98/105 dBA. 2 pre outs. Fuse 2 x 30 A.",
+      "amp": {
+        "channels": 12,
+        "rmsPerChannelW": {
+          "4ohm": 60,
+          "2ohm": 90,
+          "bridged4ohm": 180
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 98,
+        "thdPercent": 0.03,
+        "dampingFactor": 80,
+        "fuseRatingA": 60,
+        "efficiencyPercent": 80,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 14,
+        "peqBandsPerChannel": 15,
+        "maxDelayMs": 15,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 6,
+        "snrDb": 98,
+        "software": "bit Drive"
+      }
+    },
+    {
+      "id": "audison-af-c8-14-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AF C8.14 bit",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-c8-14-bit/",
+      "verified": true,
+      "notes": "RMS @14.4 V, 1% THD. 8 pre in (0.6-6 V) / 8 highlevel in (2.2-22 V), optical S/PDIF (192k) + optional F2O card. Output EQ 15 parametric/graphic biquads per ch; input EQ 12 biquads; delay 0-15 ms. ADAU1467 @96 kHz. SNR master/optical: 98.5/105 dBA. 6 pre outs. Fuse 1 x 35 A.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 65,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 98.5,
+        "thdPercent": 0.05,
+        "dampingFactor": 85,
+        "fuseRatingA": 35,
+        "efficiencyPercent": 81,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 14,
+        "peqBandsPerChannel": 15,
+        "maxDelayMs": 15,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 6,
+        "snrDb": 98.5,
+        "software": "bit Drive"
+      }
+    },
+    {
+      "id": "audison-af-m5-11-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AF M5.11 bit",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-m5-11-bit/",
+      "verified": true,
+      "notes": "RMS @14.4 V, 1% THD. 8 pre in (0.6-6 V) / 8 highlevel in (2.2-22 V), optical S/PDIF (192k) + optional F2O card. Output EQ 15 parametric/graphic biquads per ch; input EQ 12 biquads; delay 0-15 ms. ADAU1467 @96 kHz. SNR master/optical: 98/105 dBA. Ch 1-4 values shown; sub ch 5: 400 W @4 / 600 W @2 ohm. 6 pre outs. Fuse 2 x 30 A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 98,
+        "thdPercent": 0.02,
+        "dampingFactor": 140,
+        "fuseRatingA": 60,
+        "efficiencyPercent": 80.5,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 11,
+        "peqBandsPerChannel": 15,
+        "maxDelayMs": 15,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 6,
+        "snrDb": 98,
+        "software": "bit Drive"
+      }
+    },
+    {
+      "id": "audison-af-c4-10-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AF C4.10 bit",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-c4-10-bit/",
+      "verified": true,
+      "notes": "RMS @14.4 V, 1% THD. 8 pre in (0.6-6 V) / 8 highlevel in (2.2-22 V), optical S/PDIF (192k) + optional F2O card. Output EQ 15 parametric/graphic biquads per ch; input EQ 12 biquads; delay 0-15 ms. ADAU1467 @96 kHz. SNR master/optical: 98/105 dBA. 6 pre outs. Fuse 1 x 30 A.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 90,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 98,
+        "thdPercent": 0.03,
+        "dampingFactor": 95,
+        "fuseRatingA": 30,
+        "efficiencyPercent": 81,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 10,
+        "peqBandsPerChannel": 15,
+        "maxDelayMs": 15,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 6,
+        "snrDb": 98,
+        "software": "bit Drive"
+      }
+    },
+    {
+      "id": "audison-af-m1-7-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AF M1.7 bit",
+      "series": "Forza",
+      "sourceUrl": "https://audison.com/product/af-m1-7-bit/",
+      "verified": true,
+      "notes": "Mono sub DSP amp. RMS @14.4 V 1% THD. 8 pre in (0.6-6 V) / 8 highlevel (2.2-22 V), optical in. Input EQ 12 biquads; output EQ count not listed on page; delay 0-15 ms. 6 pre outs. Fuse 2 x 35 A.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 600,
+          "2ohm": 1000,
+          "1ohm": 1200
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 105,
+        "thdPercent": 0.03,
+        "dampingFactor": 140,
+        "fuseRatingA": 70,
+        "efficiencyPercent": 84,
+        "amplifierClass": "D",
+        "minStableOhms": 1
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 7,
+        "maxDelayMs": 15,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 6,
+        "snrDb": 105,
+        "software": "bit Drive"
+      }
+    },
+    {
+      "id": "audison-ap-f8-9-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AP F8.9 bit",
+      "series": "Prima",
+      "sourceUrl": "https://www.brl.se/bilder/artiklar/pdf/541APF89BIT.pdf",
+      "verified": false,
+      "notes": "Audison tech sheet (rev 18.A) hosted by retailer brl.se. RMS @14.4 V 1% THD. 6 pre-in (0.6-6 V) / 6 speaker-in (2.2-22 V), optical S/PDIF 192k. 9 DSP channels (ch 9 = sub pre out 4 V). Output EQ: 10 parametric bands/ch +/-12 dB; delay 0-15 ms (0.08 / 0.02 ms fine). SNR 100 dBA master / 105 optical. Fuse 2 x 30 A. 7 rotary presets. PC software name not stated on sheet (micro USB to PC).",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 85,
+          "2ohm": 130,
+          "bridged4ohm": 260
+        },
+        "inputSensitivityMinV": 0.6,
+        "inputSensitivityMaxV": 6,
+        "highLevelInputMaxV": 22,
+        "snrDb": 100,
+        "thdPercent": 0.06,
+        "dampingFactor": 110,
+        "fuseRatingA": 60,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 9,
+        "peqBandsPerChannel": 10,
+        "maxDelayMs": 15,
+        "maxInputVoltageV": 6,
+        "preoutVoltageV": 4,
+        "snrDb": 100
+      }
+    }
+  ]
+}

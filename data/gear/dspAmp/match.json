@@ -1,0 +1,381 @@
+{
+  "products": [
+    {
+      "id": "match-m-5-4dsp",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "M 5.4DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/m-54dsp",
+      "verified": true,
+      "notes": "Ch 1-4: HighPower 4x60 W / MidPower 4x35 W @4 ohm (min 3 ohm); sub ch: 90 W @4 / 160 W @2 ohm. 9-channel DSP. 4 highlevel in (5-11 V), optical SPDIF; 4 RCA out. Fuse 30 A.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 60
+        },
+        "highLevelInputMaxV": 11,
+        "snrDb": 99,
+        "thdPercent": 0.03,
+        "dampingFactor": 50,
+        "fuseRatingA": 30,
+        "amplifierClass": "GD"
+      },
+      "source": {
+        "inputs": 4,
+        "outputs": 9,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 99,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-pp-62dsp",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "PP 62DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/pp-62dsp",
+      "verified": true,
+      "notes": "RMS (max 70/100 W). Front/rear 4x35 W @4 / 4x50 W @2; sub output 1x160 W @2 ohm (4 channels x 40 W). 56-bit DSP, 4 highlevel in (5-11 V), MEC slot, 2 RCA out.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 35,
+          "2ohm": 50
+        },
+        "highLevelInputMaxV": 11,
+        "snrDb": 103,
+        "thdPercent": 0.01,
+        "dampingFactor": 100,
+        "fuseRatingA": 20,
+        "amplifierClass": "AB"
+      },
+      "source": {
+        "inputs": 4,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 103,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-pp-86dsp-mk2",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "PP 86DSP MK2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/pp-86dsp-mk2",
+      "verified": true,
+      "notes": "9-channel DSP, 6 highlevel in (5-11 V), optical, MEC slot; 2 RCA (mono) out. Fuse 2 x 25 A. SNR digital 105 dB.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 55,
+          "2ohm": 70
+        },
+        "highLevelInputMaxV": 11,
+        "snrDb": 103,
+        "thdPercent": 0.015,
+        "dampingFactor": 100,
+        "fuseRatingA": 50,
+        "amplifierClass": "HD",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 9,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 103,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-up-10dsp-mk2",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "UP 10DSP MK2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/up-10dsp-mk2",
+      "verified": true,
+      "notes": "Power RMS <=1% THD+N @14.4V per mfr. A-H 65 W @4 ohm (min 3 ohm DCR); I-J 75 W @4 / 125 W @2 ohm. 11-channel DSP. Highlevel A-F 4-16 V, G-H 4-32 V; optical, Extension Card 2.0; 1 RCA out. Fuse 2 x 25 A.",
+      "amp": {
+        "channels": 10,
+        "rmsPerChannelW": {
+          "4ohm": 65
+        },
+        "highLevelInputMaxV": 32,
+        "snrDb": 103,
+        "thdPercent": 0.015,
+        "fuseRatingA": 50,
+        "amplifierClass": "GD"
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 11,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 103,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-up-8dsp-mk2",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "UP 8DSP MK2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/up-8dsp-mk2",
+      "verified": true,
+      "notes": "Power RMS <=1% THD+N @14.4V per mfr. A-F 65 W @4 ohm (min 3 ohm DCR); G-H 75 W @4 / 125 W @2 ohm. 9-channel DSP. 6 highlevel in (2.8-11 V), optical, Extension Card 2.0. Fuse 2 x 25 A.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 65
+        },
+        "highLevelInputMaxV": 11,
+        "snrDb": 100,
+        "thdPercent": 0.015,
+        "fuseRatingA": 50,
+        "amplifierClass": "GD"
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 9,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 100,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-up-6dsp-mk2",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "UP 6DSP MK2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/up-6dsp-mk2",
+      "verified": true,
+      "notes": "Power RMS <=1% THD+N @14.4V per mfr. A-D 65 W @4 ohm (min 3 ohm DCR); E-F 75 W @4 / 125 W @2 ohm. 7-channel DSP. 6 highlevel in (2.8-11 V), optical, Extension Card 2.0. Fuse 1 x 30 A.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 65
+        },
+        "highLevelInputMaxV": 11,
+        "snrDb": 100,
+        "thdPercent": 0.015,
+        "fuseRatingA": 30,
+        "amplifierClass": "GD"
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 7,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 100,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-up-7bmw",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "UP 7BMW",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/up-7bmw",
+      "verified": true,
+      "notes": "Plug&Play for BMW HiFi (option 676), excludes RAM-module cars from 09/2019. 5x65 W @4 ohm (front/rear/center) + 2x160 W @2 ohm sub. 8-channel DSP, 4 highlevel in (2.0-8.3 V), optical, MEC.",
+      "amp": {
+        "channels": 7,
+        "rmsPerChannelW": {
+          "4ohm": 65
+        },
+        "highLevelInputMaxV": 8.3,
+        "snrDb": 103,
+        "thdPercent": 0.03,
+        "dampingFactor": 100,
+        "fuseRatingA": 50,
+        "amplifierClass": "HD"
+      },
+      "source": {
+        "inputs": 4,
+        "outputs": 8,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 103,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-m-5dsp-mk2",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "M 5DSP MK2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/m-5dsp-mk2",
+      "verified": true,
+      "notes": "HighPower 4x60 W / MidPower 4x35 W @4 ohm; sub 90 W @4 / 160 W @2 ohm. 7-channel DSP. 4 highlevel in (11.2 V), optical; 3.5 mm line out.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 60
+        },
+        "highLevelInputMaxV": 11.2,
+        "snrDb": 99,
+        "thdPercent": 0.03,
+        "dampingFactor": 50,
+        "fuseRatingA": 30,
+        "amplifierClass": "HD"
+      },
+      "source": {
+        "inputs": 4,
+        "outputs": 7,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 99,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-pp-86dsp",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "PP 86DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/pp-86dsp",
+      "verified": true,
+      "notes": "Predecessor of MK2. 9-channel DSP; 6 highlevel (5-11 V), optical, MEC.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 55,
+          "2ohm": 70
+        },
+        "highLevelInputMaxV": 11,
+        "snrDb": 103,
+        "thdPercent": 0.015,
+        "dampingFactor": 100,
+        "fuseRatingA": 50,
+        "amplifierClass": "HD",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 9,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 103,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-up-10dsp",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "UP 10DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/up-10dsp",
+      "verified": true,
+      "notes": "Predecessor of MK2. A-H 8x65 W @4 ohm (min 3 ohm); I-J 2x90 W @4 / 2x160 W @2. 11-channel DSP. Highlevel 4-16 V (G-H 8-32 V).",
+      "amp": {
+        "channels": 10,
+        "rmsPerChannelW": {
+          "4ohm": 65
+        },
+        "highLevelInputMaxV": 32,
+        "snrDb": 103,
+        "thdPercent": 0.03,
+        "dampingFactor": 100,
+        "fuseRatingA": 50,
+        "amplifierClass": "GD"
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 11,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 103,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-up-6dsp",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "UP 6DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/up-6dsp",
+      "verified": true,
+      "notes": "Predecessor of MK2. A-D 4x65 W @4 ohm; E-F 2x90 W @4 / 2x160 W @2. 7-channel DSP. Highlevel 2.8-11 V.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 65
+        },
+        "highLevelInputMaxV": 11,
+        "snrDb": 104,
+        "thdPercent": 0.03,
+        "dampingFactor": 100,
+        "fuseRatingA": 30,
+        "amplifierClass": "GD"
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 7,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 104,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-up-7dsp",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "UP 7DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/match/amplifiers/up-7dsp",
+      "verified": true,
+      "notes": "5x65 W @4 ohm + 2x160 W @2 ohm sub. 8-channel DSP, 4 highlevel (5-11 V), optical, MEC.",
+      "amp": {
+        "channels": 7,
+        "rmsPerChannelW": {
+          "4ohm": 65
+        },
+        "highLevelInputMaxV": 11,
+        "snrDb": 103,
+        "thdPercent": 0.03,
+        "dampingFactor": 100,
+        "fuseRatingA": 50,
+        "amplifierClass": "HD"
+      },
+      "source": {
+        "inputs": 4,
+        "outputs": 8,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 103,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "match-m-5dsp",
+      "category": "dspAmp",
+      "brand": "Match",
+      "model": "M 5DSP",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/product-archive/amplifiers/m-5dsp",
+      "verified": true,
+      "notes": "Archived (German page). 56-bit DSP. HighPower 4x60 W / MidPower 4x35 W @4 ohm; sub 90 W @4 / 160 W @2.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 60
+        },
+        "highLevelInputMaxV": 11.2,
+        "snrDb": 99,
+        "thdPercent": 0.03,
+        "dampingFactor": 50,
+        "fuseRatingA": 30,
+        "amplifierClass": "GD"
+      },
+      "source": {
+        "inputs": 4,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 3,
+        "snrDb": 99,
+        "software": "DSP PC-Tool"
+      }
+    }
+  ]
+}

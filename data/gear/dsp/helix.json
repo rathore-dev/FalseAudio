@@ -1,0 +1,197 @@
+{
+  "products": [
+    {
+      "id": "helix-dsp-ultra-s",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "DSP ULTRA S",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/processors/dsp-ultra-s",
+      "verified": true,
+      "notes": "8 RCA + 8 highlevel in, optical SPDIF (12-96k) + coax SPDIF (12-192k), HEC slot. RCA sens 1-8 V, highlevel 4-32 V. 8 input / 8 virtual / 12 output processed channels, input EQ. Up to 20 ms delay per channel (mfr). Bands: 30 PEQ bands/channel per Car&HiFi test (PC-Tool 'default 30 parametric bands per channel', switchable EQ/allpass; +6/-15 dB, Q 0.5-15). (measured on predecessor DSP ULTRA). SNR analog 111 dB / digital 117 dB (A-wtd). Highlevel input max 32 V.",
+      "source": {
+        "inputs": 8,
+        "outputs": 12,
+        "peqBandsPerChannel": 30,
+        "maxDelayMs": 20,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 8,
+        "snrDb": 111,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-next-dsp-ultra-xt",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "NEXT DSP ULTRA XT",
+      "series": "NEXT",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/processors/next/dsp-ultra-xt",
+      "verified": true,
+      "notes": "8 RCA + 12 highlevel in, optical (24-96k) + coax (24-192k) SPDIF, USB PerfectStream (44.1-192k), Extension Card 2.0; 16 RCA out + optical out. ESS ES9841Q ADC / ES9081Q DAC. Configured with DSP PC-Tool 6. PEQ band count/delay not stated on product page. SNR analog 116 dB / digital 128 dB (A-wtd). Highlevel input max 32 V.",
+      "source": {
+        "inputs": 8,
+        "outputs": 16,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 8,
+        "snrDb": 116,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-dsp-pro-mk3",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "DSP PRO MK3",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/processors/dsp-pro-mk3",
+      "verified": true,
+      "notes": "8 RCA + 8 highlevel in, optical + coax SPDIF. RCA sens 2/3/4 V steps, highlevel 4/7/11 or 12/22/32 V. Up to 20 ms delay per channel (mfr). PEQ band count not stated on product page (PC-Tool default is 30). SNR analog 111 dB / digital 116 dB (A-wtd). Highlevel input max 32 V.",
+      "source": {
+        "inputs": 8,
+        "outputs": 10,
+        "maxDelayMs": 20,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 8,
+        "snrDb": 111,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-dsp-3s",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "DSP.3S",
+      "year": 2021,
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/processors/dsp3s",
+      "verified": true,
+      "notes": "6 RCA + 6 highlevel in, optical + coax SPDIF, HEC slot. RCA sens 2-4 V, highlevel 5-11 V. 30 PEQ bands/channel per Car&HiFi test (PC-Tool 'default 30 parametric bands per channel', switchable EQ/allpass; +6/-15 dB, Q 0.5-15). Output delay 0-20.82 ms (708 cm, 2048 samples) and input delay 0-5.20 ms per Car&HiFi 04/2021 test. SNR analog 107 dB / digital 112 dB (A-wtd). Highlevel input max 11 V.",
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "peqBandsPerChannel": 30,
+        "maxDelayMs": 20.82,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 6,
+        "snrDb": 107,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-dsp-mini-mk2",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "DSP MINI MK2",
+      "year": 2021,
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/processors/dsp-mini-mk2",
+      "verified": true,
+      "notes": "4 RCA + 4 highlevel in, optical SPDIF, HEC slot. RCA sens 2-4 V, highlevel 5-11 V. 30 PEQ bands/channel per Car&HiFi test (PC-Tool 'default 30 parametric bands per channel', switchable EQ/allpass; +6/-15 dB, Q 0.5-15). Output delay 0-15.61 ms (531 cm) per Car&HiFi 04/2021 test. SNR analog 107 dB / digital 112 dB (A-wtd). Highlevel input max 11 V.",
+      "source": {
+        "inputs": 4,
+        "outputs": 6,
+        "peqBandsPerChannel": 30,
+        "maxDelayMs": 15.61,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 6,
+        "snrDb": 107,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-dsp-ultra",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "DSP ULTRA",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/processors/dsp-ultra",
+      "verified": true,
+      "notes": "Discontinued (product archive). 8 RCA + 8 highlevel in, optical + coax SPDIF. 30 PEQ bands/channel per Car&HiFi test (PC-Tool 'default 30 parametric bands per channel', switchable EQ/allpass; +6/-15 dB, Q 0.5-15). Car&HiFi 02/2020 test: output/virtual delay 0-20.82 ms (708 cm), input delay 0-10.41 ms; 8 virtual channels. SNR analog 111 dB / digital 117 dB (A-wtd). Highlevel input max 32 V.",
+      "source": {
+        "inputs": 8,
+        "outputs": 12,
+        "peqBandsPerChannel": 30,
+        "maxDelayMs": 20.82,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 8,
+        "snrDb": 111,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-dsp-pro-mk2",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "DSP PRO MK2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/processors/dsp-pro-mk2",
+      "verified": true,
+      "notes": "Discontinued (product archive). Highlevel 5-10 or 10-20 V. Up to 20 ms delay per channel (mfr). Band count not on page. SNR analog 110 dB / digital 116 dB (A-wtd). Highlevel input max 20 V.",
+      "source": {
+        "inputs": 8,
+        "outputs": 10,
+        "maxDelayMs": 20,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 8,
+        "snrDb": 110,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-dsp-3",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "DSP.3",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/processors/dsp.3",
+      "verified": true,
+      "notes": "Discontinued (product archive). 6 RCA + 6 highlevel in, optical SPDIF. RCA sens 2-4 V. Band count/delay not on page. SNR analog 110 dB / digital 114 dB (A-wtd). Highlevel input max 11 V.",
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 6,
+        "snrDb": 110,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-dsp-mini",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "DSP MINI",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/helix/processors/dsp-mini",
+      "verified": true,
+      "notes": "Discontinued (product archive). 4 RCA + 4 highlevel in, optical SPDIF. Band count/delay not on page. SNR analog 103 dB / digital 106 dB (A-wtd). Highlevel input max 11 V.",
+      "source": {
+        "inputs": 4,
+        "outputs": 6,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 4,
+        "snrDb": 103,
+        "software": "DSP PC-Tool"
+      }
+    },
+    {
+      "id": "helix-dsp-2",
+      "category": "dsp",
+      "brand": "Helix",
+      "model": "DSP.2",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/product-archive/processors/dsp.2",
+      "verified": true,
+      "notes": "Discontinued (product archive, German page). 6 RCA + 6 highlevel (3.5-11 V) in, optical SPDIF. Band count/delay not on page. SNR analog 107 dB / digital 112 dB (A-wtd). Highlevel input max 11 V.",
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 6,
+        "snrDb": 107,
+        "software": "DSP PC-Tool"
+      }
+    }
+  ]
+}

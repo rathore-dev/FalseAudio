@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "brax-dsp-core-model",
+      "category": "dsp",
+      "brand": "Brax",
+      "model": "DSP CORE Model",
+      "sourceUrl": "https://www.audiotec-fischer.de/en/brax/processors/dsp-core-model",
+      "verified": true,
+      "notes": "Modular: up to 8 RCA + 8 highlevel in (analog AKM module) or up to 4 stereo SPDIF in; up to 12 RCA out (ESS or AKM output modules) or up to 6 stereo SPDIF out. Built-in stereo SPDIF in (optical 12-96k / coax 12-192k). RCA sens 1-8 V, highlevel 3.5-30 V. Output voltage adjustable 2/4/8 V RMS. SNR analog: ESS 130 dB / AKM 116 dB; digital 122 dB. 3 x ADI DSP. Counts assume fully populated modules. PEQ bands/delay not on page.",
+      "source": {
+        "inputs": 8,
+        "outputs": 12,
+        "sampleRateHz": 192000,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 8,
+        "snrDb": 116,
+        "software": "DSP PC-Tool"
+      }
+    }
+  ]
+}

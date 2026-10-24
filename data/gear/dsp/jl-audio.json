@@ -1,0 +1,66 @@
+{
+  "products": [
+    {
+      "id": "jl-audio-twk-88",
+      "category": "dsp",
+      "brand": "JL Audio",
+      "model": "TwK-88",
+      "series": "TwK",
+      "sourceUrl": "https://static.garmin.com/pumac/TwK_MAN.pdf",
+      "verified": true,
+      "notes": "Official manual (Garmin CDN). 8 differential-balanced RCA in, full-scale sensitivity selectable 250 mV ... 7.1 V RMS (11 steps, default 1.0 V); optical + coax S/PDIF in (44.1-96k). 8 RCA out, 4 V RMS max, 450 ohm. 80 EQ bands total: 8 assignable 10-band EQs (graphic octave or parametric) - effectively 10 per output if one EQ per output. Delay per output (range not stated in manual). SNR 98 dB A-wtd re 4 V; THD+N 0.02%. D2Audio DAE-6, 24/48. Fuse 1 A. Includes DRC-200.",
+      "source": {
+        "inputs": 8,
+        "outputs": 8,
+        "peqBandsPerChannel": 10,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 7.1,
+        "preoutVoltageV": 4,
+        "outputImpedanceOhms": 450,
+        "snrDb": 98,
+        "software": "TüN"
+      }
+    },
+    {
+      "id": "jl-audio-twk-d8",
+      "category": "dsp",
+      "brand": "JL Audio",
+      "model": "TwK-D8",
+      "series": "TwK",
+      "sourceUrl": "https://static.garmin.com/pumac/TwK_MAN.pdf",
+      "verified": true,
+      "notes": "Same manual as TwK-88. Digital-only version: sole input is optical (Toslink) S/PDIF (e.g. from FiX 82). 8 RCA out 4 V RMS; 8 assignable 10-band EQs. 24/48 processing.",
+      "source": {
+        "inputs": 0,
+        "outputs": 8,
+        "peqBandsPerChannel": 10,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 4,
+        "outputImpedanceOhms": 450,
+        "snrDb": 98,
+        "software": "TüN"
+      }
+    },
+    {
+      "id": "jl-audio-fix-86",
+      "category": "dsp",
+      "brand": "JL Audio",
+      "model": "FiX 86",
+      "series": "FiX",
+      "sourceUrl": "https://static.garmin.com/pumac/FiX_86_MAN.pdf",
+      "verified": true,
+      "notes": "OEM integration processor (automatic setup with test signal, auto input level, auto delay/EQ correction). 8 differential-balanced inputs, range 250 mV - 30 V RMS (accepts speaker level). 6 RCA out (front/rear/sub pairs), 4 V RMS, 450 ohm. EQ: 30 bands x 2 channels at 1/3 octave (automatic correction, not user PEQ). SNR 96 dB re 4 V. D2Audio DAE-6 24/48. Fuse 1 A.",
+      "source": {
+        "inputs": 8,
+        "outputs": 6,
+        "eqBands": 30,
+        "eqType": "graphic 1/3-oct (auto)",
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 30,
+        "preoutVoltageV": 4,
+        "outputImpedanceOhms": 450,
+        "snrDb": 96
+      }
+    }
+  ]
+}

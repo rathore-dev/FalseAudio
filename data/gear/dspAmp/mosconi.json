@@ -1,0 +1,66 @@
+{
+  "products": [
+    {
+      "id": "mosconi-one-90-8-dsp",
+      "category": "dspAmp",
+      "brand": "Mosconi",
+      "model": "ONE 90.8 DSP",
+      "series": "ONE",
+      "sourceUrl": "https://frankiesautoelectrics.com.au/products/mosconi-1-90-8-dsp",
+      "verified": false,
+      "notes": "Retailer copy of Mosconi spec. Class AB MOSFET, unregulated. 90 W x8 @4, 120 W x8 @2 (BTL not allowed at 2 ohm), 240 W x4 bridged @4. Input range (low + high level) 0.8-17 V. 8 DSP channels; 2 processed RCA pre outs (ch 7-8). PEQ bands: ch1-2 30, ch3-4 25, ch5-8 9 (field = minimum). Delay 0-15 ms, 0.02 ms steps. Fuse 2 x 40 A internal. Efficiency >60%.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 90,
+          "2ohm": 120,
+          "bridged4ohm": 240
+        },
+        "inputSensitivityMinV": 0.8,
+        "inputSensitivityMaxV": 17,
+        "highLevelInputMaxV": 17,
+        "fuseRatingA": 80,
+        "amplifierClass": "AB",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 8,
+        "peqBandsPerChannel": 9,
+        "maxDelayMs": 15,
+        "maxInputVoltageV": 17,
+        "software": "Mosconi DSP GUI"
+      }
+    },
+    {
+      "id": "mosconi-one-6-10-dsp",
+      "category": "dspAmp",
+      "brand": "Mosconi",
+      "model": "ONE 6|10 DSP",
+      "series": "ONE",
+      "sourceUrl": "https://frankiesautoelectrics.com.au/products/mosconi-1-6-10-dsp",
+      "verified": false,
+      "notes": "Retailer copy of Mosconi spec. Class AB. 6x100 W @4, 6x120 W @2, 3x240 W bridged @4. Input sensitivity 0.35-16 V. 10-channel DSP, 4 x 2 Vrms DSP outputs, optical in. Fuse 2 x 40 A. Compatible with GUI 3.xx. PEQ/delay not listed.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 120,
+          "bridged4ohm": 240
+        },
+        "inputSensitivityMinV": 0.35,
+        "inputSensitivityMaxV": 16,
+        "highLevelInputMaxV": 16,
+        "fuseRatingA": 80,
+        "amplifierClass": "AB",
+        "minStableOhms": 2
+      },
+      "source": {
+        "outputs": 10,
+        "maxInputVoltageV": 16,
+        "preoutVoltageV": 2,
+        "software": "Mosconi DSP GUI"
+      }
+    }
+  ]
+}
