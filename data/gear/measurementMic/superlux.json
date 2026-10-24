@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": "superlux-ecm999",
+      "category": "measurementMic",
+      "brand": "Superlux",
+      "model": "ECM999",
+      "sourceUrl": "https://images.static-thomann.de/pics//atg/atgdata/document/specs/212647_datasheet_en_online.pdf",
+      "verified": false,
+      "notes": "Superlux datasheet (retailer-hosted): -37 dBV/Pa (14 mV/Pa), 200 ohm, max SPL 132 dB (some listings 128 dB), phantom 12-52 V 2 mA. No individual calibration file.",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "sensitivityMvPa": 14,
+        "calFileAvailable": false,
+        "maxSplDb": 132
+      }
+    }
+  ]
+}

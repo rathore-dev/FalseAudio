@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": "minidsp-mchstreamer",
+      "category": "audioInterface",
+      "brand": "miniDSP",
+      "model": "MCHStreamer",
+      "sourceUrl": "https://www.minidsp.com/products/usb-audio-interface/mchstreamer",
+      "verified": true,
+      "notes": "Digital-only USB bridge: I2S up to 8 ch in/out 32-bit/384 kHz, TDM8 up to 24 ch (44.1-96 kHz), S/PDIF stereo to 192 kHz, ADAT 8 ch @48 kHz, PDM mic input up to 16 ch. No analog mic preamps - not usable directly with XLR measurement mics; useful for digital-domain loopback into DSPs. Free Windows ASIO driver.",
+      "audioInterface": {
+        "micPreamps": 0,
+        "phantomPower": false,
+        "asio": true,
+        "connection": "USB Audio Class 2.0 (XMOS)"
+      }
+    }
+  ]
+}

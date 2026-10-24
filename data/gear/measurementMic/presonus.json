@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": "presonus-prm1",
+      "category": "measurementMic",
+      "brand": "PreSonus",
+      "model": "PRM1",
+      "sourceUrl": "https://www.fullcompass.com/prod/229459-presonus-prm1-precision-reference-microphone-for-audio-analysis",
+      "verified": false,
+      "notes": "1/4-inch pre-polarized electret omni; -37 dB/Pa (14 mV/Pa) @1 kHz; max SPL 132 dB (THD<=1%, 1 kHz, 1k load); 200 ohm; phantom 9-52 V; 20 Hz-20 kHz.",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "sensitivityMvPa": 14,
+        "maxSplDb": 132
+      }
+    }
+  ]
+}

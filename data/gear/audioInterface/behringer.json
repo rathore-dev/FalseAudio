@@ -1,0 +1,105 @@
+{
+  "products": [
+    {
+      "id": "behringer-umc22",
+      "category": "audioInterface",
+      "brand": "Behringer",
+      "model": "UMC22",
+      "series": "U-PHORIA",
+      "sourceUrl": "https://www.behringer.com/en/products/0805-AAJ",
+      "verified": true,
+      "notes": "Specs from Behringer U-PHORIA Quick Start Guide spec table (copy: https://www.adorama.com/col/productManuals/BEUMC404HD.pdf). Gain range not published. 1 MIDAS-design mic/line combo + 1 instrument input; 2x 1/4 inch TRS line out, max output 0 dBu; mic max input +2 dBu. Max 48 kHz. No loopback; no dedicated ASIO listed. Very low output level - may not drive a DSP/amp input fully for test signals.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 1,
+        "phantomPower": true,
+        "maxOutputDbu": 0,
+        "sampleRates": [
+          32000,
+          44100,
+          48000
+        ],
+        "connection": "USB 1.1, type B, bus-powered"
+      }
+    },
+    {
+      "id": "behringer-umc202hd",
+      "category": "audioInterface",
+      "brand": "Behringer",
+      "model": "UMC202HD",
+      "series": "U-PHORIA",
+      "sourceUrl": "https://www.behringer.com/en/products/0805-AAR",
+      "verified": true,
+      "notes": "Specs from Behringer U-PHORIA Quick Start Guide spec table (copy: https://www.adorama.com/col/productManuals/BEUMC404HD.pdf). Gain range not published. 2 MIDAS-design XLR/TRS combo inputs with pad; max input mic -4 dBu / line +20 dBu / inst -3 dBu; line out max +3 dBu. No hardware loopback (use analog loop cable on input 2 as timing reference).",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "maxOutputDbu": 3,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB 2.0, type B, bus-powered"
+      }
+    },
+    {
+      "id": "behringer-umc204hd",
+      "category": "audioInterface",
+      "brand": "Behringer",
+      "model": "UMC204HD",
+      "series": "U-PHORIA",
+      "sourceUrl": "https://www.behringer.com/en/products/0805-AAS",
+      "verified": true,
+      "notes": "Specs from Behringer U-PHORIA Quick Start Guide spec table (copy: https://www.adorama.com/col/productManuals/BEUMC404HD.pdf). Gain range not published. 2 MIDAS-design combo inputs; outputs: 2 main (1/4 inch) + playback A/B 1-4 on RCA; main/playback max +3 dBu; MIDI I/O; 2 inserts. No loopback.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 4,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "maxOutputDbu": 3,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB 2.0, type B, bus-powered"
+      }
+    },
+    {
+      "id": "behringer-umc404hd",
+      "category": "audioInterface",
+      "brand": "Behringer",
+      "model": "UMC404HD",
+      "series": "U-PHORIA",
+      "sourceUrl": "https://www.behringer.com/en/products/0805-AAM",
+      "verified": true,
+      "notes": "Specs from Behringer U-PHORIA Quick Start Guide spec table (copy: https://www.adorama.com/col/productManuals/BEUMC404HD.pdf). Gain range not published. 4 MIDAS-design combo inputs; outputs: 2 XLR + 2 TRS main, 4 TRS + 4 RCA playback; max output +3 dBu; 4 inserts; MIDI. No loopback. 4 preamps = up to 4 measurement mics (or 3 mics + analog reference loop).",
+      "audioInterface": {
+        "inputs": 4,
+        "outputs": 4,
+        "micPreamps": 4,
+        "phantomPower": true,
+        "maxOutputDbu": 3,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB 2.0, type B, USB bus power plus DC adapter"
+      }
+    }
+  ]
+}

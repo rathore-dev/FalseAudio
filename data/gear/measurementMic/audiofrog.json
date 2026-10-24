@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": "audiofrog-umi-1",
+      "category": "measurementMic",
+      "brand": "Audiofrog",
+      "model": "UMI-1",
+      "year": 2017,
+      "sourceUrl": "https://me-mag.com/product/itemlist/tag/audiofrog%20um1",
+      "verified": false,
+      "notes": "2017 car-tuning kit: USB measurement interface + TM-1 6 mm omni mic (20 Hz-20 kHz) with headrest stand; per-serial cal file from Audiofrog (testgear.audiofrog.com). Current availability unconfirmed; sensitivity/max SPL not published in sources found.",
+      "mic": {
+        "type": "USB",
+        "needsPhantom": false,
+        "calFileAvailable": true
+      }
+    }
+  ]
+}

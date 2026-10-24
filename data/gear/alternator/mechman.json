@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "id": "mechman-250a-elite-series-gm-truck-suv-2014-2025",
+      "category": "alternator",
+      "brand": "Mechman",
+      "model": "250A Elite Series (GM truck/SUV 2014-2025)",
+      "sourceUrl": "https://www.michiganmotorsports.com/ignition-and-electrical/mechman-250-amp-alternator-2014-18-gm-truck-2015-20-suv-elite-series-silverado-sierra-tahoe-yukon-escalade-suburban/",
+      "verified": false,
+      "notes": "Hot rated: 180 A at engine idle, 250 A at cruise (seller data). Plug-and-play 2-pin regulator. Marketed for 2,000-2,500 W audio. Fitment is vehicle-specific."
+    }
+  ]
+}

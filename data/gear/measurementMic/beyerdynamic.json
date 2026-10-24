@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": "beyerdynamic-mm-1",
+      "category": "measurementMic",
+      "brand": "Beyerdynamic",
+      "model": "MM 1",
+      "sourceUrl": "https://www.fullcompass.com/prod/021270-beyerdynamic-mm-1-omnidirectional-condenser-measurement-microphone",
+      "verified": false,
+      "notes": "Electret omni, 15 mV/Pa (-36.5 dBV) +/-1 dB @1 kHz; max SPL 128 dB (older version; 2023 revision listed at 122 dB @1% THD). Diffuse-field calibrated; individual 0/90 degree free-field calibration data available on request from Beyerdynamic (no downloadable file).",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "sensitivityMvPa": 15,
+        "maxSplDb": 128
+      }
+    }
+  ]
+}

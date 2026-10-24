@@ -1,0 +1,31 @@
+{
+  "products": [
+    {
+      "id": "behringer-ecm8000",
+      "category": "measurementMic",
+      "brand": "Behringer",
+      "model": "ECM8000",
+      "sourceUrl": "https://www.behringer.com/en/products/0506-AAA",
+      "verified": true,
+      "notes": "Electret condenser omni, 600 ohm, frequency response 15 Hz-20 kHz, phantom +15 to +48 V, gold XLR. Spec sheet (v1.2, 2000) lists sensitivity '-60 dB' with no reference (if re 1 V/Pa that is ~1 mV/Pa - very low output, needs high preamp gain), so sensitivityMvPa omitted. No factory calibration file; uncalibrated - third-party calibration (e.g. Cross-Spectrum Labs) or a reference mic needed. Has a noticeable HF rise above ~8-10 kHz uncalibrated. NOTE: no product named 'UCM8000' could be found from any manufacturer/retailer; it is almost certainly ECM8000 (XLR) or ECM8000-U (USB) or an unbranded clone of the ECM8000. Spec sheet: https://lclark.edu/live/files/14600-behringer-ecm8000-manual",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "calFileAvailable": false
+      }
+    },
+    {
+      "id": "behringer-ecm8000-u",
+      "category": "measurementMic",
+      "brand": "Behringer",
+      "model": "ECM8000-U",
+      "sourceUrl": "https://www.behringer.com/en/products/0506-ABU",
+      "verified": true,
+      "notes": "USB version: 6 mm omni electret, 20 Hz-20 kHz, deviation <2 dB, direct USB (no interface/phantom). Retailers (Sweetwater) cite 24-bit/48 kHz. Sold as 'calibrated' by some retailers; cal-file source/URL not confirmed from manufacturer page, so calFileAvailable omitted.",
+      "mic": {
+        "type": "USB",
+        "needsPhantom": false
+      }
+    }
+  ]
+}

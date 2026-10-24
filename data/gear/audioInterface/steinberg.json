@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": "steinberg-ur22c",
+      "category": "audioInterface",
+      "brand": "Steinberg",
+      "model": "UR22C",
+      "series": "UR-C",
+      "sourceUrl": "https://download.steinberg.net/downloads_hardware/UR-C/Manuals/UR22C_Operation_Manual_English.pdf",
+      "verified": true,
+      "notes": "Mic gain +6 to +60 dB, mic max input +6 dBu; line input max +22 dBu; main out max +12 dBu (150 ohm). Loopback via dspMixFx/Control Panel (mixes inputs + DAW playback). Yamaha Steinberg USB Driver (ASIO).",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "asio": true,
+        "maxGainDb": 60,
+        "maxOutputDbu": 12,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 3.0), 32-bit; bus power or 5V DC"
+      }
+    },
+    {
+      "id": "steinberg-ur12",
+      "category": "audioInterface",
+      "brand": "Steinberg",
+      "model": "UR12",
+      "series": "UR",
+      "sourceUrl": "https://download.steinberg.net/downloads_hardware/UR12/UR12_documentation/Manual/ur12_en_om_a0.pdf",
+      "verified": true,
+      "notes": "1 D-PRE mic XLR + 1 Hi-Z input; loopback checkbox in control panel. Gain range / max output not in manual extract found.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 1,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "asio": true,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB 2.0"
+      }
+    }
+  ]
+}

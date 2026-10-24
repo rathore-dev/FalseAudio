@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": "audiocontrol-cm-10",
+      "category": "measurementMic",
+      "brand": "AudioControl",
+      "model": "CM-10",
+      "sourceUrl": "https://www.crutchfield.ca/p_161CM10/AudioControl-CM-10.html",
+      "verified": false,
+      "notes": "Back-electret measurement mic with calibrated internal preamp; 20 Hz-20 kHz; max SPL 136 dB. Sensitivity not published. FOH guide lists 12 VDC phantom; a user report describes damage with 48 V - confirm phantom voltage with AudioControl before use.",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "maxSplDb": 136
+      }
+    }
+  ]
+}

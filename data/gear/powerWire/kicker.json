@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "id": "kicker-pk4",
+      "category": "powerWire",
+      "brand": "Kicker",
+      "model": "PK4",
+      "sourceUrl": "https://www.crutchfield.ca/p_206PK4/Kicker-PK4.html",
+      "verified": false,
+      "notes": "4 AWG power kit: 17 ft 4 AWG OFC power with loom, 2 ft ground, 17 ft 16 AWG turn-on; 100 A AFS fuse; for amps fused up to 100 A. Kicker states true AWG spec. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "kicker-ck4",
+      "category": "powerWire",
+      "brand": "Kicker",
+      "model": "CK4",
+      "sourceUrl": "https://www.crutchfield.ca/p_206PK4/Kicker-PK4.html",
+      "verified": false,
+      "notes": "Complete 4 AWG kit (power, ground, turn-on, signal); 100% OFC with tin plating, true 4 AWG; for amps fused up to 100 A. Source is retailer copy (Crutchfield PK4 page / related listings). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    }
+  ]
+}

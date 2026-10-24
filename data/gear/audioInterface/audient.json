@@ -1,0 +1,93 @@
+{
+  "products": [
+    {
+      "id": "audient-id4",
+      "category": "audioInterface",
+      "brand": "Audient",
+      "model": "iD4",
+      "series": "iD",
+      "sourceUrl": "https://audient.com/products/audio-interfaces/id4/tech-specs/",
+      "verified": true,
+      "notes": "Gain range 58 dB; mic max input 12 dBu; line output lineup 12 dBu = 0 dBFS (used as maxOutputDbu). DSP mixer at 44.1-96 kHz. Loopback available on iD4 MkII only (dedicated Loopback 1+2), not MkI - set hasLoopback per revision.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 1,
+        "phantomPower": true,
+        "maxGainDb": 58,
+        "maxOutputDbu": 12,
+        "connection": "USB-C High Speed (bus power min 0.9 A)"
+      }
+    },
+    {
+      "id": "audient-id14",
+      "category": "audioInterface",
+      "brand": "Audient",
+      "model": "iD14",
+      "series": "iD",
+      "sourceUrl": "https://audient.com/products/audio-interfaces/id14/tech-specs/",
+      "verified": true,
+      "notes": "10 input channels incl. ADAT; 6 outputs; line out lineup 12 dBu = 0 dBFS. Loopback only on iD14 MkII (Audient: MkI hardware does not support it). Audient iD driver supports ASIO on Windows.",
+      "audioInterface": {
+        "inputs": 10,
+        "outputs": 6,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "maxGainDb": 58,
+        "maxOutputDbu": 12,
+        "connection": "USB-C High Speed (bus power min 0.9 A, 1.5 A recommended)"
+      }
+    },
+    {
+      "id": "audient-evo-4",
+      "category": "audioInterface",
+      "brand": "Audient",
+      "model": "EVO 4",
+      "series": "EVO",
+      "sourceUrl": "https://audient.com/products/audio-interfaces/evo-4/tech-specs/",
+      "verified": true,
+      "notes": "Mic gain range 58 dB, mic max input +16 dBu; DAC out max +11 dBu. Loopback per Audient EVO 4 loopback page (https://audient.com/landing-pages/evo-4-audio-loopback/).",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "maxGainDb": 58,
+        "maxOutputDbu": 11,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000
+        ],
+        "connection": "USB-C (USB 2.0 High Speed)"
+      }
+    },
+    {
+      "id": "audient-evo-8",
+      "category": "audioInterface",
+      "brand": "Audient",
+      "model": "EVO 8",
+      "series": "EVO",
+      "sourceUrl": "https://audient.com/products/audio-interfaces/evo-8/tech-specs/",
+      "verified": true,
+      "notes": "4 mic/line inputs, 58 dB gain; DAC out max +11 dBu. Phantom only on 2 channels when powered from USB-A host. Loopback not confirmed from manufacturer page.",
+      "audioInterface": {
+        "inputs": 4,
+        "outputs": 4,
+        "micPreamps": 4,
+        "phantomPower": true,
+        "maxGainDb": 58,
+        "maxOutputDbu": 11,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000
+        ],
+        "connection": "USB-C (USB 2.0 High Speed)"
+      }
+    }
+  ]
+}

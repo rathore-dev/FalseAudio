@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": "xs-power-d3400",
+      "category": "battery",
+      "brand": "XS Power",
+      "model": "D3400",
+      "sourceUrl": "https://racetoolsdirect.com/product/xs-power-d3400-group-34-agm-battery/",
+      "verified": false,
+      "notes": "Type AGM, 12 V, BCI Group 34. 80 Ah; CA 1,150 A (32 F); CCA 1,012 A (0 F); max amps 3,300 A; reserve capacity 160 min; ~50 lb. Retailer data (XS Power site unreachable)."
+    },
+    {
+      "id": "xs-power-d3100",
+      "category": "battery",
+      "brand": "XS Power",
+      "model": "D3100",
+      "sourceUrl": "https://www.crutchfield.com/p_122D3100/XS-Power-D3100.html",
+      "verified": false,
+      "notes": "Type AGM, 12 V, BCI Group 31. CONFLICTING retailer data: Crutchfield 127 Ah / 1,565 CA / 5,000 A max; Sonic Electronix 110 Ah / 1,360 CA / 1,170 CCA / RC 200 min. Verify label."
+    },
+    {
+      "id": "xs-power-d6500",
+      "category": "battery",
+      "brand": "XS Power",
+      "model": "D6500",
+      "sourceUrl": "https://www.opticsplanet.com/xs-power-d6500-agm-deep-cycle-12-volt-battery-3-900a-1070ca-75ah-3000w-4000w.html",
+      "verified": false,
+      "notes": "Type AGM, 12 V, BCI Group 65. 75 Ah; 1,070 CA; max 3,900 A; ~58 lb. CCA not stated."
+    },
+    {
+      "id": "xs-power-d1200",
+      "category": "battery",
+      "brand": "XS Power",
+      "model": "D1200",
+      "sourceUrl": "https://www.crutchfield.com/p_122D1200/XS-Power-D1200.html",
+      "verified": false,
+      "notes": "Type AGM, 12 V. Crutchfield: 55 Ah, 740 CA (32 F), 2,600 A max, RC 95 min; OnlineCarStereo adds 651 CCA. Speedway lists 44 Ah / 725 CA - conflict."
+    },
+    {
+      "id": "xs-power-d680",
+      "category": "battery",
+      "brand": "XS Power",
+      "model": "D680",
+      "sourceUrl": "https://www.speedwaymotors.com/XS-Power-D680-12-Volt-Deep-Cycle-AGM-Battery-7-28-x-6-67-x-3-19-Inch%2C22646.html",
+      "verified": false,
+      "notes": "Type AGM, 12 V, small form factor. 20 Ah; 320 CA (32 F); 1,000 A max; RC 28 min."
+    }
+  ]
+}

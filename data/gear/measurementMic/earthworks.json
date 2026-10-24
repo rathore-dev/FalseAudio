@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": "earthworks-m23",
+      "category": "measurementMic",
+      "brand": "Earthworks",
+      "model": "M23",
+      "sourceUrl": "https://moon-audio.com/cdn/shop/files/Earthworks-Audio-M23-Data-Sheet-V1-1.pdf",
+      "verified": false,
+      "notes": "Earthworks datasheet (retailer-hosted): 34 mV/Pa typical (-29 dBV/Pa; exact value on individual calibration chart); max 140 dB SPL; 3 Hz-23 kHz +1/-3 dB; phantom 24-48 V, 10 mA; 600 ohm min load. High sensitivity - can overload low-headroom interface inputs at very high SPL.",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "sensitivityMvPa": 34,
+        "calFileAvailable": true,
+        "maxSplDb": 140
+      }
+    },
+    {
+      "id": "earthworks-m30",
+      "category": "measurementMic",
+      "brand": "Earthworks",
+      "model": "M30",
+      "sourceUrl": "https://www.moon-audio.com/products/m30-measurement-mic",
+      "verified": false,
+      "notes": "34 mV/Pa (-29 dBV/Pa); max 140 dB SPL; 3 Hz-30 kHz; phantom 24-48 V, 10 mA. Newer M30 G2 reportedly 10 mV/Pa (-40 dBV/Pa) - check unit generation.",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "sensitivityMvPa": 34,
+        "calFileAvailable": true,
+        "maxSplDb": 140
+      }
+    }
+  ]
+}

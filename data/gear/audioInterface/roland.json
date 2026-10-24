@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "roland-rubix22",
+      "category": "audioInterface",
+      "brand": "Roland",
+      "model": "Rubix22",
+      "series": "Rubix",
+      "sourceUrl": "https://www.roland.com/global/products/rubix22/specifications/",
+      "verified": true,
+      "notes": "XLR nominal input level -60 to -12 dBu (48 dB range), XLR max input +2 dBu; line out max +8 dBu (nominal -6 dBu); phantom +48 V 6 mA/ch; MIDI I/O. Loopback not listed.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "maxOutputDbu": 8,
+        "sampleRates": [
+          44100,
+          48000,
+          96000,
+          192000
+        ],
+        "connection": "USB Hi-Speed, type B"
+      }
+    }
+  ]
+}

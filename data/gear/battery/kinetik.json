@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "kinetik-hc2400-pro",
+      "category": "battery",
+      "brand": "Kinetik",
+      "model": "HC2400-PRO",
+      "sourceUrl": "https://www.sonicelectronix.com/item-77860-Kinetik-HC2400-PRO.html",
+      "verified": false,
+      "notes": "Type AGM, 12 V. Rated for 2,400 W RMS systems; 101 Ah (20 h rate); 1,150 CCA (0 F). Older non-PRO HC2400 listed ~128 Ah - different generation."
+    },
+    {
+      "id": "kinetik-hc1200-blu",
+      "category": "battery",
+      "brand": "Kinetik",
+      "model": "HC1200-BLU",
+      "sourceUrl": "https://www.ebay.de/itm/126301525655",
+      "verified": false,
+      "notes": "Type AGM, 12 V, 'Blu' series, marketed for 1,200 W systems; 3/8 inch threaded terminals; ~27.9 lb. Ah/CCA not found."
+    }
+  ]
+}

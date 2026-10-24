@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "id": "m-audio-air-192-4",
+      "category": "audioInterface",
+      "brand": "M-Audio",
+      "model": "AIR 192|4",
+      "series": "AIR",
+      "sourceUrl": "https://www.long-mcquade.com/GearHunter/1087977/M-Audio-AIR192X4.htm",
+      "verified": false,
+      "notes": "1 XLR/TRS mic/line + 1 instrument input; mic gain range 55 dB, mic max +1.5 dBu; main outs +7 dBu (1 kHz, -1 dBFS). 24-bit/192 kHz max (full rate list not confirmed).",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 1,
+        "phantomPower": true,
+        "maxGainDb": 55,
+        "maxOutputDbu": 7,
+        "connection": "USB-C (USB 2.0)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "products": [
+    {
+      "id": "focusrite-scarlett-solo-4th-gen",
+      "category": "audioInterface",
+      "brand": "Focusrite",
+      "model": "Scarlett Solo 4th Gen",
+      "series": "Scarlett 4th Gen",
+      "year": 2023,
+      "sourceUrl": "https://focusrite.com/products/scarlett-solo",
+      "verified": true,
+      "notes": "1 mic XLR + 1 instrument/line jack. maxGainDb is the published mic gain range (57 dB); mic max input 9.5 dBu. Line outs balanced 200 ohm. Simultaneous I/O 4x2 including 2 loopback inputs.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 1,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "asio": true,
+        "maxGainDb": 57,
+        "maxOutputDbu": 16,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0), bus-powered 900 mA"
+      }
+    },
+    {
+      "id": "focusrite-scarlett-2i2-4th-gen",
+      "category": "audioInterface",
+      "brand": "Focusrite",
+      "model": "Scarlett 2i2 4th Gen",
+      "series": "Scarlett 4th Gen",
+      "year": 2023,
+      "sourceUrl": "https://focusrite.com/products/scarlett-2i2",
+      "verified": true,
+      "notes": "2 combo mic/line/inst inputs. Gain range 69 dB (mic/line), 62 dB instrument; mic max input 16 dBu, line 22 dBu. Line outs balanced, 100 ohm. Simultaneous I/O 4x2 incl. loopback. Good choice for dual-mic + loopback reference measurement.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "asio": true,
+        "maxGainDb": 69,
+        "maxOutputDbu": 16,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0)"
+      }
+    },
+    {
+      "id": "focusrite-scarlett-4i4-4th-gen",
+      "category": "audioInterface",
+      "brand": "Focusrite",
+      "model": "Scarlett 4i4 4th Gen",
+      "series": "Scarlett 4th Gen",
+      "year": 2023,
+      "sourceUrl": "https://us.focusrite.com/en/usb-audio-interface/scarlett/scarlett-4i4",
+      "verified": true,
+      "notes": "2 mic/inst combo + 2 rear line inputs; 4 balanced line outs; MIDI I/O. Simultaneous I/O 6x6 incl. loopback.",
+      "audioInterface": {
+        "inputs": 4,
+        "outputs": 4,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "asio": true,
+        "maxGainDb": 69,
+        "maxOutputDbu": 16,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0), bus-powered 1.5 A, optional external power"
+      }
+    },
+    {
+      "id": "focusrite-scarlett-solo-3rd-gen",
+      "category": "audioInterface",
+      "brand": "Focusrite",
+      "model": "Scarlett Solo 3rd Gen",
+      "series": "Scarlett 3rd Gen",
+      "year": 2019,
+      "sourceUrl": "https://us.focusrite.com/products/scarlett-solo-3rd-gen",
+      "verified": true,
+      "notes": "Gain range 56 dB; mic max input 9 dBu at min gain. Line out max 15.5 dBu @0 dBFS (430 ohm). No loopback on 3rd Gen Solo (loopback only on 4i4 and above in 3rd Gen) - use an analog reference loop (output -> line input) for timing reference.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 1,
+        "phantomPower": true,
+        "hasLoopback": false,
+        "asio": true,
+        "maxGainDb": 56,
+        "maxOutputDbu": 15.5,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0), bus-powered"
+      }
+    },
+    {
+      "id": "focusrite-scarlett-2i2-3rd-gen",
+      "category": "audioInterface",
+      "brand": "Focusrite",
+      "model": "Scarlett 2i2 3rd Gen",
+      "series": "Scarlett 3rd Gen",
+      "year": 2019,
+      "sourceUrl": "https://us.focusrite.com/products/scarlett-2i2-3rd-gen",
+      "verified": true,
+      "notes": "Gain range 56 dB; line/monitor out max 15.5 dBu @0 dBFS; headphone max 7 dBu. No loopback on 3rd Gen 2i2 - use analog loopback cable on input 2 for timing reference (costs one mic channel).",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": false,
+        "asio": true,
+        "maxGainDb": 56,
+        "maxOutputDbu": 15.5,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0), bus-powered 500 mA"
+      }
+    },
+    {
+      "id": "focusrite-scarlett-4i4-3rd-gen",
+      "category": "audioInterface",
+      "brand": "Focusrite",
+      "model": "Scarlett 4i4 3rd Gen",
+      "series": "Scarlett 3rd Gen",
+      "year": 2019,
+      "sourceUrl": "https://focusrite.com/products/scarlett-4i4-3rd-gen",
+      "verified": true,
+      "notes": "Loopback 1/2 appear as input channels 5/6. Gain range 56 dB.",
+      "audioInterface": {
+        "inputs": 4,
+        "outputs": 4,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "asio": true,
+        "maxGainDb": 56,
+        "maxOutputDbu": 15.5,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0), bus-powered (900 mA port required)"
+      }
+    },
+    {
+      "id": "focusrite-scarlett-8i6-3rd-gen",
+      "category": "audioInterface",
+      "brand": "Focusrite",
+      "model": "Scarlett 8i6 3rd Gen",
+      "series": "Scarlett 3rd Gen",
+      "year": 2019,
+      "sourceUrl": "https://focusrite.com/products/scarlett-8i6-3rd-gen",
+      "verified": true,
+      "notes": "6 analog inputs (2 mic/inst + 4 line), 4 analog line outs + 2 headphone outs, S/PDIF; simultaneous I/O 8x6. Loopback 1/2 on input channels 9/10. Needs mains/DC power - consider in-car power source.",
+      "audioInterface": {
+        "inputs": 6,
+        "outputs": 4,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "asio": true,
+        "maxGainDb": 56,
+        "maxOutputDbu": 15.5,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0), external power supply (not bus powered)"
+      }
+    }
+  ]
+}

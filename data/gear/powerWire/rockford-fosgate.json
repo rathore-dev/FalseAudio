@@ -1,0 +1,158 @@
+{
+  "products": [
+    {
+      "id": "rockford-fosgate-rfw1b-51",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFW1B-51",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfw1b-51/",
+      "verified": true,
+      "notes": "51 ft spool 1/0 AWG frosted black (negative) cable, 4,704 strands, PC-OFC, full AWG spec (CTA-2015). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "mm2": 53.5,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfw4b",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFW4B",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfw4b/",
+      "verified": true,
+      "notes": "100 ft spool 4 AWG frosted black, 1,862 strands, PC-OFC, full AWG spec. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "mm2": 21.1,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfw4r",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFW4R",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfw4r/",
+      "verified": true,
+      "notes": "100 ft spool 4 AWG frosted red, 1,862 strands, PC-OFC, full AWG spec. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "mm2": 21.1,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfw8r",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFW8R",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfw8r/",
+      "verified": true,
+      "notes": "250 ft spool 8 AWG frosted red, 735 strands, PC-OFC, full AWG spec. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 8,
+        "mm2": 8.36,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfk1",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFK1",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfk1/",
+      "verified": true,
+      "notes": "Power-only kit: 17 ft 1/0 AWG power, 1/0 ground, 20 ft remote; 4,704 strands PC-OFC. Spec table: 300 A ANL fuse (overview text says 100 A - table value 300 A used). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "mm2": 53.5,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfk1d",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFK1D",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfk1d/",
+      "verified": true,
+      "notes": "Dual-amp kit: 17 ft 1/0 power + 3 ft 1/0 ground (53.5 mm2, 4,704 strands); 4 ft 4 AWG amp power/ground (21.1 mm2, 1,862 strands); 30 ft 16 AWG speaker (1.31 mm2, 65 strands); 3 pairs 16 ft RCA; 2 distribution blocks; 300 A ANL fuse with ANL/MAXI holder. PC-OFC. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "mm2": 53.5,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfk4",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFK4",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfk4/",
+      "verified": true,
+      "notes": "Power-only kit: 4 AWG power/ground (1,862 strands PC-OFC), 100 A MAXI fuse + holder. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "mm2": 21.1,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfk4x",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFK4X",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfk4x/",
+      "verified": true,
+      "notes": "Complete 2-ch kit: 17 ft 4 AWG power, 3 ft 4 AWG ground (1,862 strands), 30 ft 16 AWG speaker (1.31 mm2, 65 strands), 16 ft twisted-pair RCA, 20 ft remote, 100 A MAXI fuse + holder. PC-OFC. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "mm2": 21.1,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfk4d",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFK4D",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfk4d/",
+      "verified": true,
+      "notes": "Dual-amp kit: 17 ft 4 AWG power + 3 ft 4 AWG ground; 6 ft 8 AWG amp power/ground (8.36 mm2, 735 strands); 30 ft 16 AWG speaker; 2x 16 ft RCA; 2 distribution blocks; 100 A MAXI fuse. PC-OFC. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "mm2": 21.1,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfk8",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFK8",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfk8/",
+      "verified": true,
+      "notes": "Power-only kit: 8 AWG (735 strands PC-OFC), AGU fuse. Fuse conflict on page: overview 40 A, spec table 60 A - size fuse to amp draw, not kit. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 8,
+        "mm2": 8.36,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "rockford-fosgate-rfk8x",
+      "category": "powerWire",
+      "brand": "Rockford Fosgate",
+      "model": "RFK8X",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfk8x/",
+      "verified": true,
+      "notes": "Complete kit: 17 ft 8 AWG power, 3 ft 8 AWG ground, 30 ft 16 AWG speaker, 16 ft RCA, 20 ft remote, AGU fuse (overview 40 A vs table 60 A conflict). PC-OFC. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 8,
+        "mm2": 8.36,
+        "material": "OFC"
+      }
+    }
+  ]
+}

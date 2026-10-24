@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": "presonus-studio-24c",
+      "category": "audioInterface",
+      "brand": "PreSonus",
+      "model": "Studio 24c",
+      "series": "Studio",
+      "sourceUrl": "https://www.adorama.com/presonus-studio-24c-usb-audio-interface/p/prsst24ca",
+      "verified": false,
+      "notes": "Mic gain range 50 dB, mic max input +10 dBu; main out max +10 dBu (balanced). Loopback not documented. Discontinued per some retailers.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "maxGainDb": 50,
+        "maxOutputDbu": 10,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0)"
+      }
+    },
+    {
+      "id": "presonus-audiobox-usb-96",
+      "category": "audioInterface",
+      "brand": "PreSonus",
+      "model": "AudioBox USB 96",
+      "series": "AudioBox",
+      "sourceUrl": "https://markertek.com/product/pre-audbox-usb96/presonus-audiobox-usb-96-2x2-usb-2-0-96khz-audio-interface",
+      "verified": false,
+      "notes": "Retailers disagree on gain range (35/45/46 dB); mic max input -3 dBu; +4 dBu = 0 dBFS reference for line outs (max output not stated). No loopback documented.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000
+        ],
+        "connection": "USB 2.0"
+      }
+    }
+  ]
+}

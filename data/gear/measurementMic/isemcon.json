@@ -1,0 +1,21 @@
+{
+  "products": [
+    {
+      "id": "isemcon-emx-7150",
+      "category": "measurementMic",
+      "brand": "iSEMcon",
+      "model": "EMX-7150",
+      "sourceUrl": "https://www.rationalacoustics.com/products/isemcon-emx-7150",
+      "verified": false,
+      "notes": "6 mV/Pa typical (exact value in cal file); 145 dB SPL typical @3% THD (about 140 dB at 12 V phantom); phantom 9-52 V. Individually serialized calibration data downloadable by serial.",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "sensitivityMvPa": 6,
+        "calFileAvailable": true,
+        "calFileUrl": "https://my.isemcon.com/CalFile/request4cal.html",
+        "maxSplDb": 145
+      }
+    }
+  ]
+}

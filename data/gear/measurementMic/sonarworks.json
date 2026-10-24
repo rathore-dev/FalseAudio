@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": "sonarworks-xref20",
+      "category": "measurementMic",
+      "brand": "Sonarworks",
+      "model": "XREF20",
+      "sourceUrl": "https://www.sonarworks.com/legal/soundid-reference/measurement-microphone-user-manual-2015",
+      "verified": true,
+      "notes": "Pre-polarized electret, omni, 48 V phantom required; open-circuit sensitivity 14 mV/Pa; max 128 dB SPL per 2015 manual (retailers list 132 dB). Individual calibration profile by Profile ID via Sonarworks/SoundID Reference. 2024 revision has a new capsule - specs may differ.",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "sensitivityMvPa": 14,
+        "calFileAvailable": true,
+        "maxSplDb": 128
+      }
+    }
+  ]
+}

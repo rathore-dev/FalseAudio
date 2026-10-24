@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "id": "stinger-spw10tr",
+      "category": "powerWire",
+      "brand": "Stinger",
+      "model": "SPW10TR",
+      "sourceUrl": "https://www.carcommunications.co.uk/stinger-1-0ga-ultra-flexible-pro-power-wire-matte-red-50-ft",
+      "verified": false,
+      "notes": "HPM series 1/0 AWG Hyper-Flex power cable, matte red, 50 ft; True-Spec tinned 100% OFC, 4,214 strands (retailer data). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "stinger-spw10tb",
+      "category": "powerWire",
+      "brand": "Stinger",
+      "model": "SPW10TB",
+      "sourceUrl": "https://www.carcommunications.co.uk/stinger-1-0ga-ultra-flexible-pro-power-wire-matte-black-50-ft",
+      "verified": false,
+      "notes": "HPM series 1/0 AWG Hyper-Flex ground cable, matte black, 50 ft; True-Spec tinned 100% OFC, 4,214 strands (retailer data). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    }
+  ]
+}

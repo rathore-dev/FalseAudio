@@ -1,0 +1,43 @@
+{
+  "products": [
+    {
+      "id": "knukonceptz-kolossus-fleks-4-awg",
+      "category": "powerWire",
+      "brand": "KnuKonceptz",
+      "model": "Kolossus Fleks 4 AWG",
+      "sourceUrl": "https://www.caraudio.com/threads/knu-8-4-gauge-pwr-wire.131070/",
+      "verified": false,
+      "notes": "Retailer/forum data: 2,058 strands of 36 AWG tinned OFC (forum calculation: equivalent to ~2.97 AWG, i.e. larger than nominal 4 AWG), marketed 150 A. Official spec sheet (knukonceptz.com/assets/Tech/powerwirespec.pdf) not reachable - verify. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "knukonceptz-kolossus-fleks-1-0-awg",
+      "category": "powerWire",
+      "brand": "KnuKonceptz",
+      "model": "Kolossus Fleks 1/0 AWG",
+      "sourceUrl": "https://www.caraudio.com/threads/knuconceptz-wire.400429/",
+      "verified": false,
+      "notes": "Forum/retailer: 5,145 tinned OFC strands, marketed 300 A. Unverified. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "knukonceptz-kca-k4",
+      "category": "powerWire",
+      "brand": "KnuKonceptz",
+      "model": "KCA-K4",
+      "sourceUrl": "https://www.desertcart.ma/products/47874553",
+      "verified": false,
+      "notes": "Karbon CCA 4 AWG kit: 18 ft power, 80 A fuse holder, RCA and speaker wire. Knu claims CCA cable is made physically larger (>=40% more area) to compensate - real resistance unknown; use generic-cca-4awg as worst case.",
+      "wire": {
+        "awg": 4,
+        "material": "CCA"
+      }
+    }
+  ]
+}

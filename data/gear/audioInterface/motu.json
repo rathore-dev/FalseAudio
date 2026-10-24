@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": "motu-m2",
+      "category": "audioInterface",
+      "brand": "MOTU",
+      "model": "M2",
+      "series": "M Series",
+      "sourceUrl": "https://motu.com/en-us/products/m-series/m2/specs/",
+      "verified": true,
+      "notes": "2 combo mic/line/Hi-Z inputs, individual +48V per input; 2 balanced TRS line outs + mirrored RCA; mic max input +10 dBu at min gain. Gain range not published. Driver loopback for capturing host output (Mac needs optional driver).",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "asio": true,
+        "maxOutputDbu": 16,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0 audio class compliant)"
+      }
+    },
+    {
+      "id": "motu-m4",
+      "category": "audioInterface",
+      "brand": "MOTU",
+      "model": "M4",
+      "series": "M Series",
+      "sourceUrl": "https://motu.com/en-us/products/m-series/m4/specs/",
+      "verified": true,
+      "notes": "2 combo mic inputs + 2 x 1/4 inch line in; 4 balanced TRS outs + 4 RCA mirrored; driver loopback. Gain range not published.",
+      "audioInterface": {
+        "inputs": 4,
+        "outputs": 4,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "asio": true,
+        "maxOutputDbu": 16,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0 audio class compliant)"
+      }
+    }
+  ]
+}

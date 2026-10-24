@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": "dayton-audio-emm-6",
+      "category": "measurementMic",
+      "brand": "Dayton Audio",
+      "model": "EMM-6",
+      "sourceUrl": "https://daytonaudio.com/product/911/emm-6-electret-measurement-microphone",
+      "verified": true,
+      "notes": "10 mV/Pa (-40 dBV re 1 V/Pa); max SPL 127 dB @1% THD 1 kHz; 18 Hz-20 kHz; S/N 70 dB A; phantom +15 to +48 V, 4 mA. Cal .txt file by serial number from daytonaudio.com. Some users report factory cal files inaccurate; third-party calibration (Cross-Spectrum Labs) available.",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "sensitivityMvPa": 10,
+        "calFileAvailable": true,
+        "calFileUrl": "https://daytonaudio.com/product/911/emm-6-electret-measurement-microphone",
+        "maxSplDb": 127
+      }
+    },
+    {
+      "id": "dayton-audio-umm-6",
+      "category": "measurementMic",
+      "brand": "Dayton Audio",
+      "model": "UMM-6",
+      "sourceUrl": "https://daytonaudio.com/product/1116/umm-6-usb-measurement-microphone",
+      "verified": true,
+      "notes": "USB-powered 6 mm electret omni; manual lists capsule sensitivity 10 mV/Pa @1 kHz into 1k (-40 dBV); max SPL 127 dB @1% THD 1 kHz; 18 Hz-20 kHz calibrated; S/N 70 dB A. Cal file by serial number from Dayton site.",
+      "mic": {
+        "type": "USB",
+        "needsPhantom": false,
+        "sensitivityMvPa": 10,
+        "calFileAvailable": true,
+        "calFileUrl": "https://daytonaudio.com/product/1116/umm-6-usb-measurement-microphone",
+        "maxSplDb": 127
+      }
+    },
+    {
+      "id": "dayton-audio-imm-6",
+      "category": "measurementMic",
+      "brand": "Dayton Audio",
+      "model": "iMM-6",
+      "sourceUrl": "https://daytonaudio.com/product/1117/imm-6-idevice-calibrated-measurement-microphone",
+      "verified": true,
+      "notes": "3.5 mm TRRS mic for phones/tablets (not USB/XLR, so 'type' omitted). 10 mV/Pa @1 kHz into 1k; 127 dB max SPL @1% THD; 18 Hz-20 kHz +/-0.5 dB calibrated; 200 ohm. Serialized cal file. iMM-6S (straight) and iMM-6C (USB-C) variants exist.",
+      "mic": {
+        "needsPhantom": false,
+        "sensitivityMvPa": 10,
+        "calFileAvailable": true,
+        "calFileUrl": "https://daytonaudio.com/product/1117/imm-6-idevice-calibrated-measurement-microphone",
+        "maxSplDb": 127
+      }
+    },
+    {
+      "id": "dayton-audio-omnimic-v2",
+      "category": "measurementMic",
+      "brand": "Dayton Audio",
+      "model": "OmniMic V2",
+      "sourceUrl": "https://www.parts-express.com/Dayton-Audio-OmniMic-V2-Acoustic-Measurement-System-390-792",
+      "verified": false,
+      "notes": "USB measurement mic + Windows software package; cal file downloaded by serial number from Dayton site and loaded via Mic ID. Max SPL not published in sources found.",
+      "mic": {
+        "type": "USB",
+        "needsPhantom": false,
+        "calFileAvailable": true
+      }
+    }
+  ]
+}

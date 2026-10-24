@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": "native-instruments-komplete-audio-2",
+      "category": "audioInterface",
+      "brand": "Native Instruments",
+      "model": "Komplete Audio 2",
+      "sourceUrl": "https://www.adorama.com/ni26148.html",
+      "verified": false,
+      "notes": "2 combo XLR/jack inputs with 48V; balanced out max +12 dBu, headphone +4.2 dBu. Gain range not published in sources found.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "maxOutputDbu": 12,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB 2.0"
+      }
+    },
+    {
+      "id": "native-instruments-komplete-audio-6-mk2",
+      "category": "audioInterface",
+      "brand": "Native Instruments",
+      "model": "Komplete Audio 6 MK2",
+      "sourceUrl": "https://www.soundhouse.co.jp/en/products/detail/item/264303/",
+      "verified": false,
+      "notes": "2 combo mic/line/Hi-Z + 2 line inputs; 4 balanced line outs (+ S/PDIF). Retailer states no loopback function. Levels not published in sources found.",
+      "audioInterface": {
+        "inputs": 4,
+        "outputs": 6,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "hasLoopback": false,
+        "connection": "USB 2.0"
+      }
+    }
+  ]
+}

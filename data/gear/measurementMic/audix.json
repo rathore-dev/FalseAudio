@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": "audix-tm1",
+      "category": "measurementMic",
+      "brand": "Audix",
+      "model": "TM1",
+      "sourceUrl": "https://www.fullcompass.com/prod/164165-audix-tm1-omnidirectional-test-and-measurement-microphone",
+      "verified": false,
+      "notes": "Pre-polarized condenser omni; sensitivity 6.5 mV/Pa per Audix spec sheet (retailers 6 mV/Pa); 130 dB SPL at <1% distortion (140 dB max); phantom 18-52 V. Standard TM1 ships without cal data; TM1 PLUS includes individual calibration data file.",
+      "mic": {
+        "type": "XLR",
+        "needsPhantom": true,
+        "sensitivityMvPa": 6.5,
+        "calFileAvailable": false,
+        "maxSplDb": 130
+      }
+    }
+  ]
+}

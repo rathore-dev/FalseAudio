@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "jl-audio-xd-pcs4-1b",
+      "category": "powerWire",
+      "brand": "JL Audio",
+      "model": "XD-PCS4-1B",
+      "sourceUrl": "https://www.sonicelectronix.com/item-29468-JL-Audio-XD-PCS4-1B-4-Gauge-Amp-Kit.html",
+      "verified": false,
+      "notes": "Single-amp kit: 19 ft (5.8 m) blue 4 AWG true-spec pure OFC power wire, XD-MFBW-MAXI holder with 80 A MAXI fuse; retailer says for systems up to 800 W. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "jl-audio-xd-pcs4-2b",
+      "category": "powerWire",
+      "brand": "JL Audio",
+      "model": "XD-PCS4-2B",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_28715_JL_Audio_XD-PCS4-2B.aspx",
+      "verified": false,
+      "notes": "Dual-amp kit: 20 ft (6.1 m) blue 4 AWG power, ANL-style holder with 100 A fuse. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "jl-audio-xd-cpw4",
+      "category": "powerWire",
+      "brand": "JL Audio",
+      "model": "XD-CPW4",
+      "sourceUrl": "https://www.abt.com/JL-Audio-Clear-4-AWG-Power-Wire-Price-Per-Foot-0101363800/p/194464.html",
+      "verified": false,
+      "notes": "Clear 4 AWG, 1,862 strands pure OFC, tinned (marine-ready); retailer: rated 100 A in typical automotive/marine installation. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC",
+        "ampacityA": 100
+      }
+    }
+  ]
+}

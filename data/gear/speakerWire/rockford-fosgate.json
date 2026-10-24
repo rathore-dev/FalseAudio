@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": "rockford-fosgate-16-awg-speaker-wire-kit-rfk4x",
+      "category": "speakerWire",
+      "brand": "Rockford Fosgate",
+      "model": "16 AWG speaker wire (kit RFK4X)",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/rfk4x/",
+      "verified": true,
+      "notes": "16 AWG, 1.31 mm2, 65 strands PC-OFC, supplied as 30 ft in RFK4X/RFK4D/RFK1D/RFK8X kits. ohmsPerMetre not published; copper 16 AWG = 0.01317 ohm/m per conductor at 20 C.",
+      "wire": {
+        "awg": 16,
+        "mm2": 1.31,
+        "material": "OFC"
+      }
+    }
+  ]
+}

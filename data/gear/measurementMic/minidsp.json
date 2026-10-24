@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": "minidsp-umik-1",
+      "category": "measurementMic",
+      "brand": "miniDSP",
+      "model": "UMIK-1",
+      "sourceUrl": "https://www.minidsp.com/products/acoustic-measurement/umik-1",
+      "verified": true,
+      "notes": "6 mm electret omni; USB Audio Class 1, 24-bit ADC @ 44.1/48 kHz; max SPL 133 dB for 1% THD @1 kHz at 0 dB gain; output noise -74 dBFS. Unique .txt cal file per serial (download from miniDSP site by serial; header contains 'Sens Factor' in dB used for calibrated SPL in REW). 0-degree file for on-axis, 90-degree file for pointing at roof/ceiling (use 90-degree in a car). Connector miniUSB (v1, before Jan 2021), USB-C later. Sensitivity is digital (dBFS), not mV/Pa. Specs from miniDSP product brief PDF (mirror: https://www.audiophonics.fr/images2/8269/8269_Product%20BriefUmik_UMIK-1.pdf).",
+      "mic": {
+        "type": "USB",
+        "needsPhantom": false,
+        "calFileAvailable": true,
+        "calFileUrl": "https://www.minidsp.com/products/acoustic-measurement/umik-1",
+        "maxSplDb": 133
+      }
+    },
+    {
+      "id": "minidsp-umik-2",
+      "category": "measurementMic",
+      "brand": "miniDSP",
+      "model": "UMIK-2",
+      "sourceUrl": "https://www.minidsp.com/products/acoustic-measurement/umik-2",
+      "verified": true,
+      "notes": "32-bit ADC, 44.1-192 kHz, up to 60 dB analog PGA gain; max 125 dB SPL @ 0 dBFS; sensitivity -34 dBFS @ 0 dB gain (94 dB SPL, 1 kHz) per product page (datasheet says -31.9 dBFS - conflict); EIN 20 dB SPL @ 0 dB gain. Lower max SPL than UMIK-1 - watch clipping near loud car subwoofers. Per-serial cal file (0/90 degree). Page not directly fetchable (bot protection); values via manufacturer page/datasheet search snippets.",
+      "mic": {
+        "type": "USB",
+        "needsPhantom": false,
+        "calFileAvailable": true,
+        "calFileUrl": "https://www.minidsp.com/products/acoustic-measurement/umik-2",
+        "maxSplDb": 125
+      }
+    }
+  ]
+}

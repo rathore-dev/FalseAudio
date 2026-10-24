@@ -1,0 +1,356 @@
+{
+  "products": [
+    {
+      "id": "generic-ofc-0awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 1/0 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 1/0 AWG copper conductor: area 53.5 mm2 (ASTM B258 nominal), resistance 0.3224 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '1/0 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 0,
+        "mm2": 53.5,
+        "material": "OFC",
+        "ohmsPerMetre": 0.0003224
+      }
+    },
+    {
+      "id": "generic-ofc-1awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 1 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 1 AWG copper conductor: area 42.4 mm2 (ASTM B258 nominal), resistance 0.4066 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '1 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 1,
+        "mm2": 42.4,
+        "material": "OFC",
+        "ohmsPerMetre": 0.0004066
+      }
+    },
+    {
+      "id": "generic-ofc-2awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 2 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 2 AWG copper conductor: area 33.6 mm2 (ASTM B258 nominal), resistance 0.5127 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '2 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 2,
+        "mm2": 33.6,
+        "material": "OFC",
+        "ohmsPerMetre": 0.0005127
+      }
+    },
+    {
+      "id": "generic-ofc-4awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 4 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 4 AWG copper conductor: area 21.2 mm2 (ASTM B258 nominal), resistance 0.8152 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '4 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 4,
+        "mm2": 21.2,
+        "material": "OFC",
+        "ohmsPerMetre": 0.0008152
+      }
+    },
+    {
+      "id": "generic-ofc-6awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 6 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 6 AWG copper conductor: area 13.3 mm2 (ASTM B258 nominal), resistance 1.296 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '6 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 6,
+        "mm2": 13.3,
+        "material": "OFC",
+        "ohmsPerMetre": 0.001296
+      }
+    },
+    {
+      "id": "generic-ofc-8awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 8 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 8 AWG copper conductor: area 8.37 mm2 (ASTM B258 nominal), resistance 2.061 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '8 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 8,
+        "mm2": 8.37,
+        "material": "OFC",
+        "ohmsPerMetre": 0.002061
+      }
+    },
+    {
+      "id": "generic-ofc-10awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 10 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 10 AWG copper conductor: area 5.26 mm2 (ASTM B258 nominal), resistance 3.277 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '10 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 10,
+        "mm2": 5.26,
+        "material": "OFC",
+        "ohmsPerMetre": 0.003277
+      }
+    },
+    {
+      "id": "generic-ofc-12awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 12 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 12 AWG copper conductor: area 3.31 mm2 (ASTM B258 nominal), resistance 5.211 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '12 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 12,
+        "mm2": 3.31,
+        "material": "OFC",
+        "ohmsPerMetre": 0.005211
+      }
+    },
+    {
+      "id": "generic-ofc-14awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 14 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 14 AWG copper conductor: area 2.08 mm2 (ASTM B258 nominal), resistance 8.286 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '14 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 14,
+        "mm2": 2.08,
+        "material": "OFC",
+        "ohmsPerMetre": 0.008286
+      }
+    },
+    {
+      "id": "generic-ofc-16awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 16 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 16 AWG copper conductor: area 1.31 mm2 (ASTM B258 nominal), resistance 13.17 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '16 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 16,
+        "mm2": 1.31,
+        "material": "OFC",
+        "ohmsPerMetre": 0.01317
+      }
+    },
+    {
+      "id": "generic-ofc-18awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "OFC 18 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Reference values for a full-spec 18 AWG copper conductor: area 0.823 mm2 (ASTM B258 nominal), resistance 20.95 mOhm/m solid copper at 20 C (conductivity 58.0 MS/m = 100% IACS annealed copper). Stranded cable is ~2-3% higher. Copper tempco +0.393%/C: multiply by (1+0.00393*(T-20)). Ampacity omitted: depends on insulation rating, bundling, length and allowed voltage drop. Many car-audio cables labelled '18 AWG' are undersized - measure strand area when possible.",
+      "wire": {
+        "awg": 18,
+        "mm2": 0.823,
+        "material": "OFC",
+        "ohmsPerMetre": 0.02095
+      }
+    },
+    {
+      "id": "generic-cca-0awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 1/0 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 1/0 AWG at full 53.5 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 0,
+        "mm2": 53.5,
+        "material": "CCA",
+        "ohmsPerMetre": 0.0005158
+      }
+    },
+    {
+      "id": "generic-cca-1awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 1 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 1 AWG at full 42.4 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 1,
+        "mm2": 42.4,
+        "material": "CCA",
+        "ohmsPerMetre": 0.0006506
+      }
+    },
+    {
+      "id": "generic-cca-2awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 2 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 2 AWG at full 33.6 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 2,
+        "mm2": 33.6,
+        "material": "CCA",
+        "ohmsPerMetre": 0.0008203
+      }
+    },
+    {
+      "id": "generic-cca-4awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 4 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 4 AWG at full 21.2 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 4,
+        "mm2": 21.2,
+        "material": "CCA",
+        "ohmsPerMetre": 0.001304
+      }
+    },
+    {
+      "id": "generic-cca-6awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 6 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 6 AWG at full 13.3 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 6,
+        "mm2": 13.3,
+        "material": "CCA",
+        "ohmsPerMetre": 0.002074
+      }
+    },
+    {
+      "id": "generic-cca-8awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 8 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 8 AWG at full 8.37 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 8,
+        "mm2": 8.37,
+        "material": "CCA",
+        "ohmsPerMetre": 0.003298
+      }
+    },
+    {
+      "id": "generic-cca-10awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 10 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 10 AWG at full 5.26 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 10,
+        "mm2": 5.26,
+        "material": "CCA",
+        "ohmsPerMetre": 0.005243
+      }
+    },
+    {
+      "id": "generic-cca-12awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 12 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 12 AWG at full 3.31 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 12,
+        "mm2": 3.31,
+        "material": "CCA",
+        "ohmsPerMetre": 0.008338
+      }
+    },
+    {
+      "id": "generic-cca-14awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 14 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 14 AWG at full 2.08 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 14,
+        "mm2": 2.08,
+        "material": "CCA",
+        "ohmsPerMetre": 0.01326
+      }
+    },
+    {
+      "id": "generic-cca-16awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 16 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 16 AWG at full 1.31 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 16,
+        "mm2": 1.31,
+        "material": "CCA",
+        "ohmsPerMetre": 0.02107
+      }
+    },
+    {
+      "id": "generic-cca-18awg",
+      "category": "powerWire",
+      "brand": "Generic",
+      "model": "CCA 18 AWG (reference)",
+      "series": "ANSI/ASTM AWG reference",
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_wire_gauge",
+      "verified": true,
+      "notes": "Generic copper-clad aluminium 18 AWG at full 0.823 mm2: resistance = copper value x 1.6 (aluminium core ~61% IACS; CCA typically 1.5-1.65x copper). Approximation for voltage-drop estimates only; real CCA kits are often also undersized vs. the AWG label. Tempco ~ +0.40%/C.",
+      "wire": {
+        "awg": 18,
+        "mm2": 0.823,
+        "material": "CCA",
+        "ohmsPerMetre": 0.03352
+      }
+    }
+  ]
+}

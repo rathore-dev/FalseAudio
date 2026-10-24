@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "id": "universal-audio-volt-1",
+      "category": "audioInterface",
+      "brand": "Universal Audio",
+      "model": "Volt 1",
+      "series": "Volt",
+      "sourceUrl": "https://www.uaudio.com/products/volt-1",
+      "verified": true,
+      "notes": "Original Volt 1 (not Gen 2): 1 combo input, 55 dB gain, mic max 9 dBu. Loopback not listed for original; Volt 1 Gen 2 (60 dB gain, mic max 14.5 dBu, 32-bit) adds loopback.",
+      "audioInterface": {
+        "inputs": 1,
+        "outputs": 2,
+        "micPreamps": 1,
+        "phantomPower": true,
+        "maxGainDb": 55,
+        "maxOutputDbu": 15,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0)"
+      }
+    },
+    {
+      "id": "universal-audio-volt-2",
+      "category": "audioInterface",
+      "brand": "Universal Audio",
+      "model": "Volt 2",
+      "series": "Volt",
+      "sourceUrl": "https://www.uaudio.com/products/volt-2",
+      "verified": true,
+      "notes": "Original Volt 2: 2 combo inputs, 55 dB gain; mic max 9 dBu, line max 22 dBu; monitor out max 15 dBu. Volt 2 Gen 2 (retailer data): 60 dB gain, monitor out 20.2 dBu.",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 2,
+        "phantomPower": true,
+        "maxGainDb": 55,
+        "maxOutputDbu": 15,
+        "sampleRates": [
+          44100,
+          48000,
+          88200,
+          96000,
+          176400,
+          192000
+        ],
+        "connection": "USB-C (USB 2.0)"
+      }
+    }
+  ]
+}

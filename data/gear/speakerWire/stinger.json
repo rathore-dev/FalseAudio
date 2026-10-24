@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "stinger-shw510g",
+      "category": "speakerWire",
+      "brand": "Stinger",
+      "model": "SHW510G",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_85742_Stinger_SHW510G.aspx",
+      "verified": false,
+      "notes": "10 AWG gray Hyper-flex speaker wire, 50 ft roll (HPM series). Material not stated in listing.",
+      "wire": {
+        "awg": 10
+      }
+    },
+    {
+      "id": "stinger-shw512g",
+      "category": "speakerWire",
+      "brand": "Stinger",
+      "model": "SHW512G",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_85746_Stinger_SHW512G.aspx",
+      "verified": false,
+      "notes": "12 AWG matte gray Hyper-flex speaker wire, 100 ft roll. Material not stated in listing.",
+      "wire": {
+        "awg": 12
+      }
+    }
+  ]
+}

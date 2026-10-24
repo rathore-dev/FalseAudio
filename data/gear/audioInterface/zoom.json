@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "id": "zoom-ams-22",
+      "category": "audioInterface",
+      "brand": "Zoom",
+      "model": "AMS-22",
+      "sourceUrl": "https://www.markertek.com/product/zoom-ams-22/zoom-ams-22-usb-audio-interface-for-music-and-streaming",
+      "verified": false,
+      "notes": "1 mic/inst combo + 3.5 mm stereo line in; max gain +54 dB; line out max -2 dBu @0 dBFS (very low); switchable loopback. 24-bit, up to 96 kHz (full rate list not confirmed).",
+      "audioInterface": {
+        "inputs": 2,
+        "outputs": 2,
+        "micPreamps": 1,
+        "phantomPower": true,
+        "hasLoopback": true,
+        "maxGainDb": 54,
+        "maxOutputDbu": -2,
+        "connection": "USB-C"
+      }
+    }
+  ]
+}
