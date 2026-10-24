@@ -38,25 +38,46 @@ namespace
     ExcursionModel makeModel (const gear::DriverSpecs& d, double powerW)
     {
         ExcursionModel m;
-        const double qts = d.qts > 0 ? d.qts
-                         : (d.qes > 0 && d.qms > 0 ? d.qes * d.qms / (d.qes + d.qms) : 0.0);
+        // T/S measured on ONE coil of a DVC ("single"): with both coils driven Qes halves (Bl^2 / Re doubles).
+        const bool oneCoilTs = d.voiceCoils > 1 && d.tsWiring.equalsIgnoreCase ("single");
+        const double qes = d.qes > 0 ? (oneCoilTs ? 0.5 * d.qes : d.qes) : 0.0;
+        double qts = d.qts > 0 ? d.qts : (qes > 0 && d.qms > 0 ? qes * d.qms / (qes + d.qms) : 0.0);
+        if (oneCoilTs && qes > 0 && d.qms > 0)
+            qts = qes * d.qms / (qes + d.qms);
         if (d.fsHz <= 0 || qts <= 0 || powerW <= 0)
             return m;
 
         // Power ratings refer to the nominal impedance: V = sqrt(P * Znom). Xmax is a peak value,
         // so the sine's peak voltage (sqrt 2 * Vrms) is used.
-        const double zNom = d.nominalOhms > 0 ? d.nominalOhms : (d.coilOhms > 0 ? d.coilOhms : 4.0);
-        const double vRms = std::sqrt (powerW * zNom);
-        const double vPk  = std::sqrt (2.0) * vRms;
+        // DVC: reOhms is ONE coil's DC resistance (schema), so work per coil: Zc = coilOhms. In the car both coils
+        // are always driven (series or parallel); either way the force per sqrt(watt) is sqrt 2 x one coil's.
+        const bool dvc   = d.voiceCoils > 1;
+        const double zNom = dvc && d.coilOhms > 0 ? d.coilOhms
+                          : (d.nominalOhms > 0 ? d.nominalOhms : (d.coilOhms > 0 ? d.coilOhms : 4.0));
         const double re   = d.reOhms > 0 ? d.reOhms : 0.85 * zNom;   // typical Re/Znom when Re is unpublished
+        // Re can never exceed the nominal impedance (Re ~ 0.7..0.95 Znom). If it does, Re/Bl were published for
+        // a different coil configuration than the nominal impedance (e.g. DVC: nominal per coil, Re for coils in
+        // series). Re-derive the nominal for the T/S configuration so the drive voltage is not under-estimated.
+        const double zDrive = std::max (zNom, re / 0.85);
         const double sd   = d.sdCm2 * 1.0e-4;
         const double ws   = 2.0 * pi * d.fsHz;
+
+        const double vRms = std::sqrt (powerW * zDrive);
+        const double vPk  = std::sqrt (2.0) * vRms;
 
         double accel = 0;
         if (d.bl > 0 && d.mmsGrams > 0)
         {
             // 1) Motor: F = Bl * V / Re  ->  a = Bl V / (Re Mms)
-            accel = d.bl * vPk / (re * d.mmsGrams * 1.0e-3);
+            if (dvc)
+            {
+                // One coil's Bl: published Bl is for coils in series (2 x Blc), in parallel / one coil (Blc).
+                // Unknown wiring -> assume Bl is one coil's (the larger, conservative force estimate).
+                const double blc = d.tsWiring.equalsIgnoreCase ("series") ? 0.5 * d.bl : d.bl;
+                accel = std::sqrt ((double) d.voiceCoils) * blc * vPk / (re * d.mmsGrams * 1.0e-3);
+            }
+            else
+                accel = d.bl * vPk / (re * d.mmsGrams * 1.0e-3);
         }
         else if (sd > 0 && d.sensitivityDb > 0)
         {
@@ -67,12 +88,12 @@ namespace
             const double pRms = pRef * std::pow (10.0, spl / 20.0);
             accel = std::sqrt (2.0) * 2.0 * pi * 1.0 * pRms / (airDensity * sd);
         }
-        else if (sd > 0 && d.vasLitres > 0 && d.qes > 0)
+        else if (sd > 0 && d.vasLitres > 0 && qes > 0)
         {
             // 3) From Vas & Qes: Kms = rho c^2 Sd^2 / Vas, Mms = Kms / ws^2, Bl^2 = ws Mms Re / Qes.
             const double kms = airDensity * speedOfSound * speedOfSound * sd * sd / (d.vasLitres * 1.0e-3);
             const double mms = kms / (ws * ws);
-            const double bl  = std::sqrt (ws * mms * re / d.qes);
+            const double bl  = std::sqrt (ws * mms * re / qes);
             accel = bl * vPk / (re * mms);
         }
 
@@ -126,7 +147,8 @@ double wireAmpacityA (double awg, const juce::String& material)
     static const Row rows[] = { { 18, 10 }, { 16, 15 }, { 14, 20 }, { 12, 30 }, { 10, 50 }, { 8, 80 },
                                 { 6, 100 }, { 4, 150 }, { 2, 200 }, { 1, 225 }, { 0, 250 }, { -1, 300 },
                                 { -2, 350 }, { -3, 400 } };
-    double amps = rows[0].amps;
+    // Thinner than 18 AWG: scale the 18 AWG rating by copper area (never more than 18 AWG's rating).
+    double amps = awg > rows[0].awg ? rows[0].amps * mm2FromAwg (awg) / mm2FromAwg (rows[0].awg) : rows[0].amps;
     for (auto& r : rows)
         if (awg <= r.awg + 1.0e-9)
             amps = r.amps;   // thicker (smaller number) -> larger rating
@@ -148,7 +170,9 @@ double recommendedAwg (double currentA, double roundTripM, const juce::String& m
     for (auto g : standardGauges)
     {
         const double drop = currentA * copperResistancePerMetre (g, material) * roundTripM;
-        if (drop <= maxDropV && wireAmpacityA (g, material) >= 1.25 * currentA)
+        // The fuse actually installed is 1.25 x I rounded UP to a standard size, and that fuse must not exceed the
+        // wire's rating (the fuse protects the wire) - so compare the rounded fuse, not 1.25 x I.
+        if (drop <= maxDropV && wireAmpacityA (g, material) >= standardFuseA (1.25 * currentA) - 1.0e-9)
             return g;
     }
     return standardGauges[std::size (standardGauges) - 1];
@@ -161,6 +185,37 @@ double ampCurrentDraw (double totalRmsW, double efficiencyPercent, double supply
         return 0;
     const double eff = juce::jlimit (0.2, 0.98, (efficiencyPercent > 0 ? efficiencyPercent : 60.0) / 100.0);
     return totalRmsW / eff / supplyV;
+}
+
+double ampSupplyCurrent (double outputW, double efficiencyPercent, double supplyV, double wireOhms,
+                         double* voltageAtAmp, bool* collapsed)
+{
+    // The amp draws constant input power Pin = Pout / eff, so I = Pin / (Vs - I R)  ->  R I^2 - Vs I + Pin = 0.
+    // Physical (low-current) root: I = (Vs - sqrt(Vs^2 - 4 R Pin)) / (2 R). No real root means the wire cannot
+    // deliver Pin at all (the supply would collapse below Vs / 2): report the maximum-transfer point instead.
+    if (collapsed != nullptr) *collapsed = false;
+    if (supplyV <= 0)
+    {
+        if (voltageAtAmp != nullptr) *voltageAtAmp = 0;
+        return 0;
+    }
+    const double pin = ampCurrentDraw (outputW, efficiencyPercent, 1.0);   // W (I at 1 V == watts)
+    double i = 0;
+    if (wireOhms <= 1.0e-12)
+        i = pin / supplyV;
+    else
+    {
+        const double disc = supplyV * supplyV - 4.0 * wireOhms * pin;
+        if (disc >= 0)
+            i = (supplyV - std::sqrt (disc)) / (2.0 * wireOhms);
+        else
+        {
+            i = supplyV / (2.0 * wireOhms);
+            if (collapsed != nullptr) *collapsed = true;
+        }
+    }
+    if (voltageAtAmp != nullptr) *voltageAtAmp = supplyV - i * wireOhms;
+    return i;
 }
 
 double defaultEfficiencyPercent (const gear::AmpSpecs& amp)

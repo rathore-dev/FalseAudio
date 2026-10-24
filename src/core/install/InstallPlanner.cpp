@@ -144,6 +144,8 @@ juce::var Installation::toVar() const
     o->setProperty ("batteryVoltage", batteryVoltageEngineOn);
     o->setProperty ("alternatorA", alternatorA);
     o->setProperty ("batteryAh", batteryAh);
+    o->setProperty ("alternator", alternatorId);
+    o->setProperty ("battery", batteryId);
     o->setProperty ("headroom", ampToDriverPowerHeadroom);
     return juce::var (o);
 }
@@ -188,6 +190,8 @@ Installation Installation::fromVar (const juce::var& v)
     i.batteryVoltageEngineOn   = v.getProperty ("batteryVoltage", 14.2);
     i.alternatorA              = v.getProperty ("alternatorA", 0.0);
     i.batteryAh                = v.getProperty ("batteryAh", 0.0);
+    i.alternatorId             = v.getProperty ("alternator", {}).toString();
+    i.batteryId                = v.getProperty ("battery", {}).toString();
     i.ampToDriverPowerHeadroom = v.getProperty ("headroom", 1.25);
     return i;
 }
@@ -289,7 +293,12 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
         const int count = std::max (1, du.count);
         const auto slot = findAmpSlot (inst, du.channelId);
         const auto* ampProd = slot.ampIndex >= 0 ? find (inst.amps[(size_t) slot.ampIndex].ampId) : nullptr;
-        const gear::AmpSpecs* amp = ampProd != nullptr && ampProd->amp ? &*ampProd->amp : nullptr;
+        // Ratings of the amp channel group this channel is on (e.g. the sub channel of a 5-channel amp has its
+        // own power / minimum load). Bridged slot k uses output channels 2k / 2k+1.
+        std::optional<gear::AmpSpecs> groupAmp;
+        if (ampProd != nullptr && ampProd->amp)
+            groupAmp = gear::ampSpecsForChannel (*ampProd->amp, slot.bridged ? 2 * slot.slot : slot.slot);
+        const gear::AmpSpecs* amp = groupAmp ? &*groupAmp : nullptr;
 
         double coilOhms = 4.0;
         int coils = 1;
@@ -402,6 +411,10 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
                 auto& cp = plan.channels[i];
                 const double lp = frontHp / std::sqrt (2.0);
                 cp.recommendedLpHz = cp.recommendedLpHz > 0 ? std::min (cp.recommendedLpHz, lp) : lp;
+                if (cp.recommendedHpHz > 0 && cp.recommendedHpHz >= cp.recommendedLpHz)
+                    cp.warnings.add ("The safe high-pass (" + num (cp.recommendedHpHz, 0) + " Hz) is at or above the sub's low-pass ("
+                                     + num (cp.recommendedLpHz, 0) + " Hz): this sub cannot take the gain-target power here. "
+                                     "Lower the sub channel's gain/power or use a sub with more Xmax.");
             }
     }
 
@@ -425,15 +438,20 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
         const juce::String ampName = "Amp " + juce::String ((int) a + 1) + (ap != nullptr ? " (" + ap->displayName() + ")" : juce::String());
         const bool internal = hasDsp && use.ampId == inst.dspId;
 
+        // Output power = each used channel's rated power at its real load (its own channel group's ratings).
+        // Channels without a driver entry count at their group's 4 ohm rating; with no usable channel data at all
+        // the amp's worst-case total (every channel at its highest rating) is used.
         double outW = 0;
-        for (auto& id : use.channelIds)
+        for (size_t k = 0; k < use.channelIds.size(); ++k)
         {
             bool found = false;
             for (auto& cp : plan.channels)
-                if (cp.channelId == id) { outW += cp.ampPowerAtLoadW; found = true; break; }
+                if (cp.channelId == use.channelIds[k]) { outW += cp.ampPowerAtLoadW; found = true; break; }
             if (! found && amp != nullptr)
-                outW += calc::ampPowerAtLoad (*amp, 4.0, use.bridged);
+                outW += calc::ampPowerAtLoad (gear::ampSpecsForChannel (*amp, use.bridged ? 2 * (int) k : (int) k), 4.0, use.bridged);
         }
+        if (outW <= 0 && amp != nullptr)
+            outW = gear::ampTotalMaxRmsW (*amp);
         const double eff = amp != nullptr ? calc::defaultEfficiencyPercent (*amp) : 60.0;
         const bool effEstimated = amp == nullptr || amp->efficiencyPercent <= 0;
         bool currentFromFuse = false;
@@ -470,13 +488,17 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
         const double rWire = ohmsPerM * roundTrip;
         longestRun = std::max (longestRun, roundTrip);
 
-        // Class-D/AB input power is ~constant for a given output, so I rises as V at the amp sags: iterate.
+        // Class-D/AB input power is ~constant for a given output, so I rises as V at the amp sags: solved exactly
+        // (a fixed-point iteration diverges / goes negative when the wire is far too thin).
         double vAmp = supplyV, current = 0;
-        for (int it = 0; it < 8; ++it)
+        bool collapsed = false;
+        if (currentFromFuse)
         {
-            current = currentFromFuse ? amp->fuseRatingA : calc::ampCurrentDraw (outW, eff, vAmp);
+            current = amp->fuseRatingA;
             vAmp = supplyV - current * rWire;
         }
+        else
+            current = calc::ampSupplyCurrent (outW, eff, supplyV, rWire, &vAmp, &collapsed);
 
         WireCheck wc;
         wc.what = ampName + " power wire";
@@ -485,8 +507,38 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
         wc.voltageAtLoadV = vAmp;
         wc.powerLossW = current * current * rWire;
         wc.recommendedAwg = calc::recommendedAwg (current, roundTrip, material);
-        const double fuse = calc::standardFuseA (1.25 * current);
-        wc.ok = wc.voltageDropV <= 0.5 && fuse <= ampacity;
+        // Battery fuse: the manual's recommended external fuse when published, else 1.25 x the full-power draw rounded
+        // up to a standard size. Either way it protects the WIRE, so the wire must be rated for it.
+        const bool manualFuse = amp != nullptr && amp->recommendedFuseA > 0;
+        const double fuse = manualFuse ? amp->recommendedFuseA : calc::standardFuseA (1.25 * current);
+        const bool fuseTooBig = ! manualFuse && 1.25 * current > 500.0;   // beyond the largest single standard fuse
+        wc.ok = ! collapsed && ! fuseTooBig && wc.voltageDropV <= 0.5 && fuse <= ampacity;
+        while (wc.recommendedAwg > -3.0 + 1.0e-9 && calc::wireAmpacityA (wc.recommendedAwg, material) < fuse - 1.0e-9)
+        {
+            // thicker until the wire can carry the fuse actually used (e.g. the manual's)
+            double next = -3.0;
+            for (double g : { 16.0, 14.0, 12.0, 10.0, 8.0, 6.0, 4.0, 2.0, 1.0, 0.0, -1.0, -2.0, -3.0 })
+                if (g < wc.recommendedAwg - 1.0e-9) { next = g; break; }
+            wc.recommendedAwg = next;
+        }
+        if (! wc.ok && wc.recommendedAwg >= awg - 1.0e-9)
+        {
+            // Published wire data (resistance / ampacity) can fail where the generic gauge passes: never tell the
+            // user to "use" the gauge that just failed - go at least one standard size thicker.
+            for (double g : { 16.0, 14.0, 12.0, 10.0, 8.0, 6.0, 4.0, 2.0, 1.0, 0.0, -1.0, -2.0, -3.0 })
+                if (g < awg - 1.0e-9)
+                { wc.recommendedAwg = g; break; }
+        }
+        const bool noSingleRun = fuseTooBig
+                                 || fuse > calc::wireAmpacityA (wc.recommendedAwg, material) + 1.0e-9
+                                 || current * calc::copperResistancePerMetre (wc.recommendedAwg, material) * roundTrip > 0.5 + 1.0e-9;
+        if (collapsed)
+            plan.warnings.add ("DANGER: " + ampName + " cannot get " + num (outW, 0) + " W through " + awgName (awg) + " " + material
+                               + " over " + num (roundTrip, 1) + " m - the supply would collapse (amp shuts down / wire overheats). Use much thicker wire.");
+        if (noSingleRun)
+            plan.warnings.add (ampName + " draws about " + num (current, 0) + " A at full power: no single " + material
+                               + " run up to 4/0 AWG meets the 0.5 V drop and fuse rules. Use two parallel runs (each fused at the battery) "
+                               "or shorten the run, and keep gains below full power.");
         plan.wires.push_back (wc);
         plan.totalCurrentA += current;
 
@@ -516,14 +568,24 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
                                     why, fuse > ampacity ? Sev::danger : Sev::important, wc.recommendedAwg, "AWG"));
 
         const double runFuse = fuse;   // if this exceeds the wire's rating the instruction above says to use thicker wire
-        wiring.push_back (make ("Wiring", ampName + ": fuse " + num (runFuse, 0) + " A within 45 cm (18 in) of the battery",
+        const bool fuseNeedsThickerWire = fuse > ampacity;
+        const double fuseWireAwg = fuseNeedsThickerWire ? wc.recommendedAwg : awg;
+        const double fuseWireAmpacity = fuseNeedsThickerWire ? calc::wireAmpacityA (wc.recommendedAwg, material) : ampacity;
+        wiring.push_back (make ("Wiring", ampName + ": fuse " + num (runFuse, 0) + " A within 45 cm (18 in) of the battery"
+                                    + (fuseNeedsThickerWire ? " - ONLY on " + awgName (wc.recommendedAwg) + " wire" : juce::String()),
                                 "Install the fuse holder on the power wire no more than 45 cm from the battery + terminal. "
                                 "Leave the fuse OUT until all wiring is finished."
                                 + (amp != nullptr && amp->fuseRatingA > 0
                                        ? " The amp's own fuse(s) total " + num (amp->fuseRatingA, 0) + " A - replace only with the same rating."
                                        : juce::String()),
-                                "Fuse = 1.25 x " + num (current, 1) + " A rounded up to a standard size; it protects the WIRE ("
-                                + awgName (awg) + " " + material + " ~ " + num (ampacity, 0) + " A), so it must never exceed the wire's rating.",
+                                (manualFuse ? "Fuse = the " + num (fuse, 0) + " A external fuse the amp's manual recommends (full-power draw ~"
+                                              + num (current, 1) + " A)"
+                                            : "Fuse = 1.25 x " + num (current, 1) + " A rounded up to a standard size")
+                                + "; it protects the WIRE ("
+                                + awgName (fuseWireAwg) + " " + material + " ~ " + num (fuseWireAmpacity, 0) + " A), so it must never exceed the wire's rating."
+                                + (fuseNeedsThickerWire ? " NEVER put this fuse on your " + awgName (awg) + " wire (rated ~" + num (ampacity, 0)
+                                                              + " A): a fuse larger than the wire's rating lets the wire overheat before it blows."
+                                                        : juce::String()),
                                 fuse > ampacity ? Sev::danger : Sev::important, runFuse, "A"));
     }
 
@@ -539,11 +601,33 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
                                 + " A -> next standard fuse; gauge chosen for <= 0.5 V drop over " + num (longestRun, 1) + " m.",
                                 Sev::important, plan.recommendedMainFuseA, "A"));
     }
+    // Charging system: typed values win, else the selected alternator / battery products. A hot rating (what the
+    // alternator really makes once warm) is preferred over the headline cold rating.
+    double alternatorA = inst.alternatorA, alternatorIdleA = 0, batteryAh = inst.batteryAh;
+    if (const auto* alt = find (inst.alternatorId); alt != nullptr && alt->alternator)
+    {
+        if (alternatorA <= 0)
+            alternatorA = alt->alternator->hotRatedA > 0 ? alt->alternator->hotRatedA : alt->alternator->ratedA;
+        alternatorIdleA = alt->alternator->idleA;
+    }
+    if (const auto* bat = find (inst.batteryId); bat != nullptr && bat->battery && batteryAh <= 0)
+        batteryAh = bat->battery->ah;
+
     if (plan.totalCurrentA > 0)
     {
-        if (inst.alternatorA > 0 && plan.totalCurrentA + 50.0 > inst.alternatorA)
+        const double musicA = plan.totalCurrentA / 8.0;   // music averages ~1/8 of rated power (-9 dB)
+        if (alternatorIdleA > 0 && musicA + 50.0 > alternatorIdleA)
+            plan.warnings.add ("At idle the alternator makes only ~" + num (alternatorIdleA, 0) + " A: loud music (~" + num (musicA, 0)
+                               + " A average) plus ~50 A for the car will drain the battery while idling.");
+        if (batteryAh > 0)
+            wiring.push_back (make ("Wiring", "Engine-off listening: about " + num (0.5 * batteryAh / std::max (musicA, 1.0), 1) + " h at loud levels",
+                                    "With the engine off the amps run from the " + num (batteryAh, 0) + " Ah battery. Do not discharge a "
+                                    "starting battery below ~50 % or the car may not start.",
+                                    "50 % of " + num (batteryAh, 0) + " Ah / ~" + num (musicA, 0) + " A average music draw (1/8 of the "
+                                    + num (plan.totalCurrentA, 0) + " A full-power draw).", Sev::info));
+        if (alternatorA > 0 && plan.totalCurrentA + 50.0 > alternatorA)
             plan.warnings.add ("Amps can draw " + num (plan.totalCurrentA, 0) + " A at full power; with ~50 A for the car itself that exceeds the "
-                               + num (inst.alternatorA, 0) + " A alternator. Do the 'Big 3' upgrade and/or a higher-output alternator, "
+                               + num (alternatorA, 0) + " A alternator. Do the 'Big 3' upgrade and/or a higher-output alternator, "
                                "or keep listening levels moderate (music averages ~1/8 of rated power).");
         else if (plan.totalCurrentA > 100.0)
             wiring.push_back (make ("Wiring", "Consider the 'Big 3' upgrade",
@@ -729,8 +813,9 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
                                     use.bridged ? "Feed the input pair as the manual says for bridged mode (usually the left input, or both "
                                                   "inputs with the mono switch) and connect the speaker to the left (+) and right (-) terminals."
                                                 : "Use the RCA inputs from " + sourceName + ".",
-                                    use.bridged ? "Bridged load must be at least " + num (amp != nullptr ? 2.0 * amp->minStableOhms : 4.0, 1)
-                                                  + " ohm (2 x per-channel minimum)."
+                                    use.bridged ? (amp != nullptr && amp->minStableOhms > 0
+                                                       ? "Bridged load must be at least " + num (2.0 * amp->minStableOhms, 1) + " ohm (2 x per-channel minimum)."
+                                                       : juce::String ("Bridged load must be at least 2 x the per-channel minimum load (usually 4 ohm) - check the manual."))
                                                 : juce::String ("Low-level inputs give the best noise performance."),
                                     use.bridged ? Sev::important : Sev::recommended));
         }
@@ -794,10 +879,18 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
                    << "3. Play a 0 dB " << num (tone, 0) << " Hz sine (use <= 400 Hz unless your meter is true-RMS at higher frequencies).\n"
                    << "4. DMM on AC volts across this channel's speaker terminals; turn the gain up slowly until it reads "
                    << num (cp.targetVoltageRms, 1) << " V. Stop - do not go higher.\n"
-                   << "5. Stop the tone, reconnect the speaker.\n"
+                   << "5. Stop the tone. " << (hasDsp ? "RE-ENABLE this channel's DSP high-pass / low-pass filters BEFORE reconnecting the "
+                                                        "speaker (a tweeter or midrange on a full-range signal can be destroyed in seconds). "
+                                                      : "")
+                   << "Then reconnect the speaker.\n"
                    << "Alternative: oscilloscope on the terminals - raise gain until the sine just starts to flatten, back off slightly, "
                    << "and never exceed " << num (cp.targetVoltageRms, 1) << " V; or let FalseAudio's mic distortion check confirm "
                    << "no clipping at the clean maximum.";
+            if (amp != nullptr && amp->ratedVoltageV > supplyV + 0.05)
+                detail << "\nNote: the power ratings are at " << num (amp->ratedVoltageV, 1) << " V; at your " << num (supplyV, 1)
+                       << " V an unregulated amp makes up to " << num (100.0 * (1.0 - std::pow (supplyV / amp->ratedVoltageV, 2.0)), 0)
+                       << " % less. If the sine flattens (clips) before " << num (cp.targetVoltageRms, 1)
+                       << " V, stop at the last clean reading - never set the gain into clipping.";
             if (! cp.warnings.isEmpty())
                 detail << "\nNote: " << cp.warnings.joinIntoString ("\nNote: ");
 
@@ -838,7 +931,7 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
             wc.powerLossW = wc.currentA * wc.currentA * rw;
             const double lossDb = -20.0 * std::log10 (cp.loadOhms / (cp.loadOhms + rw));
             // Recommend the thinnest gauge losing <= 0.5 dB (keeps damping factor reasonable too).
-            wc.recommendedAwg = du.speakerWireAwg;
+            wc.recommendedAwg = 8.0;   // thickest offered if nothing thinner meets 0.5 dB
             for (double g : { 18.0, 16.0, 14.0, 12.0, 10.0, 8.0 })
             {
                 const double r = calc::copperResistancePerMetre (g, "OFC") * 2.0 * du.speakerWireLengthM;

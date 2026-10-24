@@ -2,6 +2,7 @@
 
 #include "TestRegistry.h"
 #include "core/install/InstallPlanner.h"
+#include <cmath>
 #include <map>
 
 using namespace fa;
@@ -336,4 +337,276 @@ FA_TEST (installPartialUserGear)
     const auto* tw = planFor (plan, "FL.tweeter");
     check (tw != nullptr && tw->recommendedHpHz >= 2.0 * 900.0 - 1e-6, "Tweeter without Xmax: HP >= 2 x Fs",
            tw != nullptr ? juce::String (tw->recommendedHpHz, 0) : juce::String());
+}
+
+//==============================================================================
+// Review Q1 regressions
+FA_TEST (installQ1SupplySagSolver)
+{
+    // 1500 W @ 80 % = 1875 W in, 14.2 V, 5.5 m round trip of 4 AWG CCA (1.304 mohm/m -> 7.17 mohm).
+    const double r = calc::copperResistancePerMetre (4, "CCA") * 5.5;
+    double v = 0;
+    bool collapsed = true;
+    const double i = calc::ampSupplyCurrent (1500.0, 80.0, 14.2, r, &v, &collapsed);
+    check (! collapsed && near (i * v, 1875.0, 1.0e-9) && near (v, 14.2 - i * r, 1.0e-12), "Sag solver: I x V_amp = P_in exactly",
+           juce::String (i, 1) + " A @ " + juce::String (v, 2) + " V");
+    check (near (i, 142.2, 0.01), "1500 W class D through 4 AWG CCA draws ~142 A", juce::String (i, 1));
+
+    // 18 AWG over 5.5 m cannot deliver 1875 W at all: the old 8-step iteration went negative / oscillated.
+    const double r18 = calc::copperResistancePerMetre (18, "OFC") * 5.5;
+    const double i18 = calc::ampSupplyCurrent (1500.0, 80.0, 14.2, r18, &v, &collapsed);
+    check (collapsed && i18 > 0 && v > 0 && std::isfinite (i18), "Hopelessly thin wire reports collapse, finite positive numbers",
+           juce::String (i18, 1) + " A, " + juce::String (v, 2) + " V");
+}
+
+FA_TEST (installQ1FuseAwareGauge)
+{
+    // 82 A on 1 m of CCA: 1.25 x 82 = 102.5 A -> a 125 A fuse. 4 AWG CCA is rated ~105 A, so 4 AWG is NOT enough
+    // (the fuse would exceed the wire). Previously recommendedAwg compared 102.5 <= 105 and returned 4 AWG.
+    check (calc::standardFuseA (1.25 * 82.0) == 125.0, "Fuse for 82 A is 125 A");
+    check (calc::recommendedAwg (82.0, 1.0, "CCA") < 4.0, "Gauge chosen so the ROUNDED fuse fits the wire",
+           juce::String (calc::recommendedAwg (82.0, 1.0, "CCA")));
+    check (calc::wireAmpacityA (20, "OFC") < calc::wireAmpacityA (18, "OFC"), "Thinner than 18 AWG gets a lower rating",
+           juce::String (calc::wireAmpacityA (20, "OFC"), 1) + " A");
+}
+
+namespace
+{
+    Rig makeMono1500Rig (double awg, const juce::String& material)
+    {
+        Rig r;
+        r.config = SystemConfig::makeLayout (2, true);
+        r.add (makeSource ("dsp", gear::Category::dsp, 4.0, 0, 4.0));
+        auto amp = makeAmp ("mono1500", 1, { { "1ohm", 1500.0 }, { "2ohm", 1000.0 }, { "4ohm", 600.0 } }, 1.0);
+        amp.amp->fuseRatingA = 150;
+        r.add (amp);
+        auto d = dvcSub();                 // DVC 2 ohm, coils in parallel -> 1 ohm
+        d.powerRmsW = 1500;
+        r.add (driverProduct ("sub", gear::Category::subwoofer, d));
+        r.inst.dspId = "dsp";
+        Installation::AmpUse m;
+        m.ampId = "mono1500"; m.channelIds = { "SUB" }; m.powerWireAwg = awg; m.powerWireMaterial = material;
+        m.powerWireLengthM = 5.0; m.groundWireLengthM = 0.5;
+        r.inst.amps = { m };
+        r.inst.drivers.push_back ({ "SUB", "sub", 1, "parallel" });
+        return r;
+    }
+
+    const Instruction* findInstr (const Plan& p, const juce::String& titlePart)
+    {
+        for (auto& i : p.instructions)
+            if (i.title.contains (titlePart))
+                return &i;
+        return nullptr;
+    }
+}
+
+FA_TEST (installQ1WorkedMono1500)
+{
+    // Worked example: 1500 W RMS @ 1 ohm mono class D, 5 m power + 0.5 m ground, 4 AWG CCA vs 1/0 OFC.
+    for (int pass = 0; pass < 2; ++pass)
+    {
+        const bool cca = pass == 0;
+        auto rig = makeMono1500Rig (cca ? 4.0 : 0.0, cca ? "CCA" : "OFC");
+        const auto plan = buildPlan (rig.inst, rig.config, rig.lookup());
+        const auto* sub = planFor (plan, "SUB");
+        check (sub != nullptr && near (sub->loadOhms, 1.0, 1e-9) && near (sub->ampPowerAtLoadW, 1500, 1e-9), "1500 W @ 1 ohm");
+        check (sub != nullptr && near (sub->targetVoltageRms, std::sqrt (1500.0), 1e-6), "Gain target 38.7 V");
+        check (! plan.wires.empty(), "Power wire checked");
+        if (plan.wires.empty())
+            continue;
+        const auto& w = plan.wires.front();
+        const auto* fuseI = findInstr (plan, "within 45 cm");
+        if (cca)
+        {
+            check (near (w.currentA, 142.2, 0.01) && ! w.ok && w.voltageDropV > 0.9, "4 AWG CCA: ~142 A, ~1.0 V drop -> NOT ok",
+                   juce::String (w.currentA, 1) + " A, " + juce::String (w.voltageDropV, 2) + " V");
+            check (w.recommendedAwg <= -1.0, "-> 2/0 CCA or thicker (200 A fuse > 1/0 CCA ~175 A)", juce::String (w.recommendedAwg));
+            check (fuseI != nullptr && near (fuseI->value, 200, 1e-9) && fuseI->title.contains ("ONLY on")
+                   && fuseI->why.contains ("NEVER put this fuse on your 4 AWG"), "Fuse text never tells the user to fuse 4 AWG CCA at 200 A",
+                   fuseI != nullptr ? fuseI->title : juce::String());
+        }
+        else
+        {
+            check (near (w.currentA, 134.3, 0.01) && w.ok && w.voltageDropV < 0.3, "1/0 OFC: ~134 A, ~0.24 V drop -> ok",
+                   juce::String (w.currentA, 1) + " A, " + juce::String (w.voltageDropV, 2) + " V");
+            check (fuseI != nullptr && near (fuseI->value, 175, 1e-9) && ! fuseI->title.contains ("ONLY"), "1/0 OFC fused at 175 A",
+                   fuseI != nullptr ? fuseI->title : juce::String());
+        }
+    }
+}
+
+FA_TEST (installQ1WorkedDrivers)
+{
+    // 6.5" midbass at 100 W (sensitivity path).
+    const double hp = calc::excursionLimitedHighPass (midbass(), 100.0);
+    check (hp > 60 && hp < 200, "6.5in midbass 100 W excursion HP plausible", juce::String (hp, 0) + " Hz");
+
+    // 1" tweeter, Fs 900 Hz, 50 W.
+    auto tw = tweeter();
+    tw.fsHz = 900; tw.powerRmsW = 50;
+    const double hpTw = calc::excursionLimitedHighPass (tw, 50.0);
+    check (hpTw > 900 && hpTw < 6000, "1in tweeter Fs 900 Hz 50 W: excursion HP plausible", juce::String (hpTw, 0) + " Hz");
+
+    // DVC data published inconsistently: nominal per coil (2 ohm) but Re/Bl for coils in series (3.4 ohm).
+    // The drive voltage must come from the T/S configuration's impedance (else excursion is under-estimated).
+    auto a = dvcSub();
+    a.nominalOhms = 4; a.reOhms = 3.4; a.bl = 25;
+    auto b = a;
+    b.nominalOhms = 2;
+    const double xa = calc::excursionMm (a, 300, 25), xb = calc::excursionMm (b, 300, 25);
+    check (xb >= xa * 0.999, "Inconsistent DVC nominal does not under-estimate excursion",
+           juce::String (xa, 2) + " vs " + juce::String (xb, 2) + " mm");
+}
+
+FA_TEST (installQ1GainProcedureSafety)
+{
+    auto rig = makeFullRig();
+    const auto plan = buildPlan (rig.inst, rig.config, rig.lookup());
+    bool reEnable = true, anyGain = false;
+    for (auto& i : plan.instructions)
+        if (i.title.contains ("set gain to"))
+        {
+            anyGain = true;
+            reEnable = reEnable && i.detail.contains ("RE-ENABLE");
+        }
+    check (anyGain && reEnable, "DMM procedure: re-enable DSP filters before reconnecting speakers");
+
+    // Bridged amp with unknown min load must not print "at least 0.0 ohm".
+    auto br = rig;
+    br.products["amp6"].amp->minStableOhms = 0;
+    br.inst.amps[0].bridged = true;
+    const auto bp = buildPlan (br.inst, br.config, br.lookup());
+    bool zeroOhm = false;
+    for (auto& i : bp.instructions)
+        zeroOhm = zeroOhm || i.why.contains ("at least 0.0 ohm");
+    check (! zeroOhm, "Bridged minimum load text never says 0.0 ohm");
+}
+
+FA_TEST (installQ1FiveChannelSubGroup)
+{
+    // 5-channel amp: 4 x 75 W @ 4 ohm / 100 W @ 2 ohm (min 2 ohm) + 1 sub channel 300 W @ 4 / 500 W @ 2 / 600 W @ 1 (min 1 ohm).
+    Rig r;
+    r.config = SystemConfig::makeLayout (2, true);
+    r.add (makeSource ("dsp", gear::Category::dsp, 4.0, 0, 4.0));
+    auto amp5 = makeAmp ("amp5", 5, { { "4ohm", 75.0 }, { "2ohm", 100.0 } }, 2.0);
+    gear::AmpChannelGroup subGroup;
+    subGroup.channels = 1; subGroup.label = "sub"; subGroup.minStableOhms = 1.0;
+    subGroup.rmsPerChannelW = { { "4ohm", 300.0 }, { "2ohm", 500.0 }, { "1ohm", 600.0 } };
+    amp5.amp->channelGroups = { subGroup };
+    amp5.amp->recommendedFuseA = 100;
+    amp5.amp->ratedVoltageV = 14.4;
+    r.add (amp5);
+    r.add (driverProduct ("mb", gear::Category::driverMidbass, midbass()));
+    r.add (driverProduct ("tw", gear::Category::driverTweeter, tweeter()));
+    auto sub = dvcSub();
+    sub.powerRmsW = 600;
+    r.add (driverProduct ("sub", gear::Category::subwoofer, sub));
+    r.inst.dspId = "dsp";
+    Installation::AmpUse u;
+    u.ampId = "amp5"; u.channelIds = { "FL.tweeter", "FR.tweeter", "FL.midbass", "FR.midbass", "SUB" };
+    u.powerWireAwg = 4; u.powerWireMaterial = "OFC";
+    r.inst.amps = { u };
+    r.inst.drivers = { { "FL.tweeter", "tw" }, { "FR.tweeter", "tw" }, { "FL.midbass", "mb" }, { "FR.midbass", "mb" },
+                       { "SUB", "sub", 1, "parallel" } };   // DVC 2 ohm coils parallel -> 1 ohm
+
+    const auto plan = buildPlan (r.inst, r.config, r.lookup());
+    const auto* sp = planFor (plan, "SUB");
+    check (sp != nullptr && near (sp->loadOhms, 1.0, 1e-9) && near (sp->ampPowerAtLoadW, 600.0, 1e-9),
+           "5-ch amp: sub channel uses its own group's rating (600 W @ 1 ohm, not the mains' 100 W)",
+           sp != nullptr ? juce::String (sp->ampPowerAtLoadW, 0) : juce::String());
+    bool loadDanger = false;
+    for (auto& w : plan.warnings)
+        loadDanger = loadDanger || (w.startsWith ("SUB") && w.contains ("DANGER"));
+    check (! loadDanger, "1 ohm on the 1-ohm-stable sub group is NOT flagged against the mains' 2 ohm minimum");
+    check (sp != nullptr && near (sp->targetVoltageRms, std::sqrt (600.0 * 1.0), 1e-6), "Sub gain target sqrt(600 x 1) = 24.5 V");
+    const auto* mp = planFor (plan, "FL.midbass");
+    check (mp != nullptr && near (mp->ampPowerAtLoadW, 75.0, 1e-9), "Mains still use the main group (75 W @ 4 ohm)");
+
+    // Current: 2 x 75 + 2 x 75 + 600 = 900 W out
+    check (! plan.wires.empty() && plan.wires.front().currentA > 900.0 / 0.8 / 14.2, "Current draw includes the sub group's 600 W",
+           plan.wires.empty() ? juce::String() : juce::String (plan.wires.front().currentA, 1) + " A");
+
+    const auto* fuseI = findInstr (plan, "within 45 cm");
+    check (fuseI != nullptr && near (fuseI->value, 100.0, 1e-9) && fuseI->why.contains ("manual recommends"),
+           "Manual's recommended external fuse (100 A) is used", fuseI != nullptr ? fuseI->title : juce::String());
+
+    bool ratedNote = false;
+    for (auto& i : plan.instructions)
+        ratedNote = ratedNote || (i.title.contains ("set gain to") && i.detail.contains ("ratings are at 14.4 V"));
+    check (ratedNote, "Gain instruction warns that ratings are at 14.4 V (car runs 14.2 V)");
+
+    // Same amp, the mains' 2 ohm minimum still applies to the main group.
+    auto low = r;
+    low.inst.drivers[2].count = 4; low.inst.drivers[2].wiring = "parallel";   // 4 x 4 ohm parallel = 1 ohm on a main channel
+    const auto lp = buildPlan (low.inst, low.config, low.lookup());
+    bool mainDanger = false;
+    for (auto& w : lp.warnings)
+        mainDanger = mainDanger || (w.startsWith ("FL.midbass") && w.contains ("DANGER"));
+    check (mainDanger, "1 ohm on a 2-ohm-stable MAIN channel is still flagged");
+}
+
+FA_TEST (installQ1ManualFuseNeedsWire)
+{
+    // Manual says 250 A but the run is 4 AWG OFC (~150 A): the plan must demand thicker wire, never a 250 A fuse on 4 AWG.
+    auto rig = makeMono1500Rig (4.0, "OFC");
+    rig.products["mono1500"].amp->recommendedFuseA = 250;
+    rig.inst.amps[0].powerWireLengthM = 1.0;
+    const auto plan = buildPlan (rig.inst, rig.config, rig.lookup());
+    check (! plan.wires.empty() && ! plan.wires.front().ok && plan.wires.front().recommendedAwg <= 0.0,
+           "250 A manual fuse -> 1/0 or thicker required", plan.wires.empty() ? juce::String() : juce::String (plan.wires.front().recommendedAwg));
+    const auto* fuseI = findInstr (plan, "within 45 cm");
+    check (fuseI != nullptr && fuseI->title.contains ("ONLY on") && fuseI->severity == Instruction::Severity::danger,
+           "Fuse instruction is danger + tied to the thicker wire", fuseI != nullptr ? fuseI->title : juce::String());
+}
+
+FA_TEST (installQ1ChargingProducts)
+{
+    auto rig = makeMono1500Rig (0.0, "OFC");
+    gear::Product alt;
+    alt.id = "alt"; alt.category = gear::Category::alternator; alt.brand = "Test"; alt.model = "alt";
+    gear::AlternatorSpecs as;
+    as.ratedA = 150; as.idleA = 60;
+    alt.alternator = as;
+    rig.add (alt);
+    gear::Product bat;
+    bat.id = "bat"; bat.category = gear::Category::battery; bat.brand = "Test"; bat.model = "bat";
+    gear::BatterySpecs bs;
+    bs.ah = 70;
+    bat.battery = bs;
+    rig.add (bat);
+    rig.inst.alternatorId = "alt";
+    rig.inst.batteryId = "bat";
+    const auto plan = buildPlan (rig.inst, rig.config, rig.lookup());
+    bool overAlt = false, idle = false, engineOff = false;
+    for (auto& w : plan.warnings)
+    {
+        overAlt = overAlt || w.contains ("150 A alternator");
+        idle = idle || w.contains ("At idle");
+    }
+    for (auto& i : plan.instructions)
+        engineOff = engineOff || (i.title.contains ("Engine-off") && i.why.contains ("70 Ah"));
+    check (overAlt, "Alternator product rating used for the current budget (134 A + 50 A > 150 A)");
+    check (idle, "Idle output warning (17 A music + 50 A > 60 A idle)");
+    check (engineOff, "Battery product Ah used for engine-off runtime");
+    const auto back = Installation::fromVar (rig.inst.toVar());
+    check (back.alternatorId == "alt" && back.batteryId == "bat", "alternator/battery ids round trip");
+}
+
+FA_TEST (installQ1DvcTsWiring)
+{
+    // Same physical DVC sub described three ways must give the same excursion.
+    auto par = dvcSub();          // Bl 18 = one coil's (parallel / per-coil)
+    par.tsWiring = "parallel";
+    auto ser = par;
+    ser.tsWiring = "series"; ser.bl = 36;   // coils in series: Bl doubles
+    const double xp = calc::excursionMm (par, 300, 25), xs = calc::excursionMm (ser, 300, 25);
+    check (near (xs, xp, 1e-9), "DVC: series-measured and parallel-measured T/S agree", juce::String (xp, 2) + " / " + juce::String (xs, 2) + " mm");
+
+    // Both coils driven: force per sqrt(W) is sqrt 2 x one coil's -> excursion well above the single-coil formula.
+    auto svcEquivalent = par;
+    svcEquivalent.voiceCoils = 1; svcEquivalent.nominalOhms = 2; svcEquivalent.coilOhms = 2;
+    const double x1 = calc::excursionMm (svcEquivalent, 300, 25);
+    check (near (xp, std::sqrt (2.0) * x1, 1e-6), "DVC both coils = sqrt 2 x one coil at the same power",
+           juce::String (xp, 2) + " vs " + juce::String (x1, 2) + " mm");
 }

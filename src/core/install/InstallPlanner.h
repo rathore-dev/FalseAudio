@@ -37,7 +37,8 @@ struct Installation
     std::vector<DriverUse> drivers;
 
     double batteryVoltageEngineOn = 14.2;       // alternator voltage
-    double alternatorA = 0, batteryAh = 0;
+    double alternatorA = 0, batteryAh = 0;      // typed values win; else taken from the products below
+    juce::String alternatorId, batteryId;       // optional alternator / battery products
 
     /** Acceptable amp-power / driver-RMS ratio (1.0 .. 1.25) before the plan warns that the amp is
         larger than the driver. Gains are ALWAYS set so a driver never gets more than its RMS rating. */
@@ -111,6 +112,11 @@ namespace calc
     double standardFuseA (double amps);                                 // next standard fuse size >= amps
     double recommendedAwg (double currentA, double roundTripM, const juce::String& material,
                            double maxDropV = 0.5);                      // thinnest gauge meeting drop + ampacity
+    /** Supply current of an amp delivering outputW through a wire of wireOhms (round trip) from supplyV, solving
+        the constant-input-power sag exactly. voltageAtAmp / collapsed (no operating point: wire far too thin)
+        are optional outputs. */
+    double ampSupplyCurrent (double outputW, double efficiencyPercent, double supplyV, double wireOhms,
+                             double* voltageAtAmp = nullptr, bool* collapsed = nullptr);
     double defaultEfficiencyPercent (const gear::AmpSpecs& amp);        // spec, else D 80 / AB 55 / G-H 65 / ? 60
     /** Rated RMS power per channel (or per bridged pair) at a load; log-log interpolation between rated
         points, constant-voltage extrapolation above, never more than the lowest-load rating below. */
