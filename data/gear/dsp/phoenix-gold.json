@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": "phoenix-gold-dsp8-8",
+      "category": "dsp",
+      "brand": "Phoenix Gold",
+      "model": "DSP8.8",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0357/6584/6153/files/dspmanual.pdf",
+      "verified": true,
+      "notes": "Phoenix Gold manual. Inputs: 6 RCA (max 4 Vrms at 0 dB attenuation, 8 Vrms at max attenuation) + 8 high-level (33 ohm load, max 20 Vrms) + 3.5 mm aux + phone/nav + micro-USB + Wi-Fi + Toslink (24/96). Outputs: 8 RCA (max 5 Vrms, 50 ohm) + Toslink out. 30-band 1/3-oct parametric EQ per channel (240 total). Delay 0-5 m / 14.6 ms in 0.01 ms steps. Crossover HP/LP/BP 0-30 dB/oct BW/Bessel/LR. S/N >103 dBA RCA/AUX, >110 digital; THD 0.01% analog. ADI 64-bit Sigma DSP; internal rate not stated. DSP8.8 configurator (iOS/Android/Mac/Windows) + DSP RC app; DRC remote.",
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "peqBandsPerChannel": 30,
+        "maxDelayMs": 14.6,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 5,
+        "outputImpedanceOhms": 50,
+        "snrDb": 103,
+        "software": "DSP8.8 configurator"
+      }
+    }
+  ]
+}

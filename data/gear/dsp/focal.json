@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "id": "focal-fsp-8",
+      "category": "dsp",
+      "brand": "Focal",
+      "model": "FSP-8",
+      "sourceUrl": "https://www.autogarsas.lt/en/products/8-kanalu-skaitmeninis-signalu-procesorius-focal-fsp-8",
+      "verified": false,
+      "notes": "Distributor copy of Focal spec. 6 selectable high/low-level inputs (low 1.2-4.9 V, high 4.8-20.6 V) + 2 RCA AUX + optical (24/192). 8 outputs, max 3.4 V into 10 kohm. 10-band EQ per channel (filter type not stated; some retailers say graphic). Delay 0-22 ms per channel in 0.1 ms steps. HP/LP/BP 16 Hz-20 kHz. S/N 90 dBA analog / 99 dBA optical, THD 0.02%. 4 presets; Windows PC application; remote optional. Internal sample rate not stated.",
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "eqBands": 10,
+        "maxDelayMs": 22,
+        "maxInputVoltageV": 4.9,
+        "preoutVoltageV": 3.4,
+        "snrDb": 90,
+        "software": "Focal FSP-8 PC application"
+      }
+    }
+  ]
+}

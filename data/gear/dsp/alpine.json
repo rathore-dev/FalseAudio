@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "id": "alpine-pxe-c60-60",
+      "category": "dsp",
+      "brand": "Alpine",
+      "model": "PXE-C60-60",
+      "series": "OPTIM",
+      "sourceUrl": "https://www.alpine.com.au/product/pxe-c60-60",
+      "verified": true,
+      "notes": "Alpine Australia page. OPTIM6: 6-ch high-level in (features: up to 26 V; spec: 27 V) + 6-ch RCA in + coax and USB-DAC digital in (to 192k/32). 6 RCA outs, 4 V. 31-band parametric & graphic EQ (per-channel count not explicitly stated), multi-channel digital time alignment (range not stated). Processing 96 kHz/24-bit. Tuning: OPTIM app (iOS/Android, auto-tune) or PC app with KTX-CSP1 mic kit.",
+      "source": {
+        "inputs": 6,
+        "outputs": 6,
+        "eqBands": 31,
+        "sampleRateHz": 96000,
+        "preoutVoltageV": 4,
+        "timeAlignment": true,
+        "software": "Alpine OPTIM (app / PC)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "products": [
+    {
+      "id": "musway-m6v4-512k",
+      "category": "dspAmp",
+      "brand": "Musway",
+      "model": "M6v4-512K",
+      "sourceUrl": "https://www.musway.de/m6v4-512k.html",
+      "verified": true,
+      "notes": "6 x 80/130 W RMS @4/2 ohm, 3 x 260 W bridged @4. 6 high-level in (EPS) + 6 RCA (optional cable) + 2 AUX RCA + optical PCM. 6 amplified outs + 2 RCA pre outs (DSP-configurable). 10-band input EQ with shelf/allpass. Musway DE product page. ADAU1452/ADAU1466 DSP (page names both). PC 'DSP Software' + smartphone app; output EQ band count, delay range, sample rate not stated.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 130,
+          "bridged4ohm": 260
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "software": "Musway DSP Software / app"
+      }
+    },
+    {
+      "id": "musway-d8v4",
+      "category": "dspAmp",
+      "brand": "Musway",
+      "model": "D8v4",
+      "sourceUrl": "https://www.musway.de/d8v4.html",
+      "verified": true,
+      "notes": "8 x 70/100 W RMS @4/2 ohm, 4 x 200 W bridged @4. 8 high-level in (EPS, up to 18 V) + 2 AUX RCA + optical PCM. 8 amplified outs + 2 RCA pre outs. S/N 95 dB, THD 0.01%. Musway DE product page. ADAU1452/ADAU1466 DSP (page names both). PC 'DSP Software' + smartphone app; output EQ band count, delay range, sample rate not stated.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "highLevelInputMaxV": 18,
+        "snrDb": 95,
+        "thdPercent": 0.01,
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 10,
+        "snrDb": 95,
+        "software": "Musway DSP Software / app"
+      }
+    },
+    {
+      "id": "musway-m8",
+      "category": "dspAmp",
+      "brand": "Musway",
+      "model": "M8",
+      "sourceUrl": "https://www.musway.de/m8.html",
+      "verified": true,
+      "notes": "512K. Ch1-6: 80/135 W @4/2 ohm; ch7-8: 120/220 W @4/2; 1 x 440 W bridged @4 (ch7-8). rmsPerChannelW = ch1-6. 8 high-level in (EPS) + 6 RCA (adapter) + 2 AUX + optical + REV IN. 8 amplified + 4 RCA pre outs. Input & output EQ with shelf/allpass; 10-band input EQ. Musway DE product page. ADAU1452/ADAU1466 DSP (page names both). PC 'DSP Software' + smartphone app; output EQ band count, delay range, sample rate not stated.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 80,
+          "2ohm": 135
+        },
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 12,
+        "software": "Musway DSP Software / app"
+      }
+    },
+    {
+      "id": "musway-m4nano",
+      "category": "dspAmp",
+      "brand": "Musway",
+      "model": "M4nano",
+      "sourceUrl": "https://www.musway.de/m4nano.html",
+      "verified": true,
+      "notes": "Micro DSP amp. 4 x 55/95 W @4/2 ohm; 190 W bridged @4. 6 high-level in (EPS, up to 24 Vrms) + 4 RCA pre in + 2 AUX. 4 amplified + 4 RCA pre outs. S/N 100 dB, THD 0.01% (1 kHz, 4 ohm, 5 W). Musway DE product page. ADAU1452/ADAU1466 DSP (page names both). PC 'DSP Software' + smartphone app; output EQ band count, delay range, sample rate not stated.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 55,
+          "2ohm": 95,
+          "bridged4ohm": 190
+        },
+        "highLevelInputMaxV": 24,
+        "snrDb": 100,
+        "thdPercent": 0.01,
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "snrDb": 100,
+        "software": "Musway DSP Software / app"
+      }
+    }
+  ]
+}

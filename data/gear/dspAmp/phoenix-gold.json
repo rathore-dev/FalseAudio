@@ -1,0 +1,106 @@
+{
+  "products": [
+    {
+      "id": "phoenix-gold-zda4-8",
+      "category": "dspAmp",
+      "brand": "Phoenix Gold",
+      "model": "ZDA4.8",
+      "sourceUrl": "https://bilstereohornan.se/wp-content/uploads/PDF/ZDA4.8-6.8-8.8-Product-Manual-V1.0.pdf",
+      "verified": false,
+      "notes": "4 amplified ch: 4 x 70 W RMS @4 ohm (2 ohm rating N/A per spec). Phoenix Gold ZDA4.8/6.8/8.8 product manual V1.0 (2024). Class A/B, 8 DSP channels, 8 RCA outs (4 V). Inputs 6 high-level (0.2-20 V) + 2 low-level (0.2-5 V) + Bluetooth/coax/USB/SPDIF. 31-band EQ per channel (graphic or parametric, +/-12 dB, Q 0.1-12, 20 Hz-20 kHz). Time alignment 0-48 ms (0-1632 cm). HP/LP: Bessel/BW 6-48 dB/oct, LR 12/24/48. 24-bit/48 kHz, Burr Brown PCM1681 DAC. SNR 90 dB, THD 0.1%, damping 120, 30 A max draw. PC software (Win 10/11); app announced. OIS OEM impedance simulation; plug & play ZDT/ZDC harnesses.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "dampingFactor": 120,
+        "amplifierClass": "AB",
+        "minStableOhms": 4
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "peqBandsPerChannel": 31,
+        "maxDelayMs": 48,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 5,
+        "preoutVoltageV": 4,
+        "snrDb": 90,
+        "software": "Phoenix Gold ZDA PC software"
+      }
+    },
+    {
+      "id": "phoenix-gold-zda6-8",
+      "category": "dspAmp",
+      "brand": "Phoenix Gold",
+      "model": "ZDA6.8",
+      "sourceUrl": "https://bilstereohornan.se/wp-content/uploads/PDF/ZDA4.8-6.8-8.8-Product-Manual-V1.0.pdf",
+      "verified": false,
+      "notes": "6 amplified ch: 2 x 70 W + 4 x 30 W RMS @4 ohm (rmsPerChannelW = the 30 W channels). Phoenix Gold ZDA4.8/6.8/8.8 product manual V1.0 (2024). Class A/B, 8 DSP channels, 8 RCA outs (4 V). Inputs 6 high-level (0.2-20 V) + 2 low-level (0.2-5 V) + Bluetooth/coax/USB/SPDIF. 31-band EQ per channel (graphic or parametric, +/-12 dB, Q 0.1-12, 20 Hz-20 kHz). Time alignment 0-48 ms (0-1632 cm). HP/LP: Bessel/BW 6-48 dB/oct, LR 12/24/48. 24-bit/48 kHz, Burr Brown PCM1681 DAC. SNR 90 dB, THD 0.1%, damping 120, 30 A max draw. PC software (Win 10/11); app announced. OIS OEM impedance simulation; plug & play ZDT/ZDC harnesses.",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 30
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "dampingFactor": 120,
+        "amplifierClass": "AB",
+        "minStableOhms": 4
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "peqBandsPerChannel": 31,
+        "maxDelayMs": 48,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 5,
+        "preoutVoltageV": 4,
+        "snrDb": 90,
+        "software": "Phoenix Gold ZDA PC software"
+      }
+    },
+    {
+      "id": "phoenix-gold-zda8-8",
+      "category": "dspAmp",
+      "brand": "Phoenix Gold",
+      "model": "ZDA8.8",
+      "sourceUrl": "https://bilstereohornan.se/wp-content/uploads/PDF/ZDA4.8-6.8-8.8-Product-Manual-V1.0.pdf",
+      "verified": false,
+      "notes": "8 amplified ch: 8 x 30 W RMS @4 ohm. Phoenix Gold ZDA4.8/6.8/8.8 product manual V1.0 (2024). Class A/B, 8 DSP channels, 8 RCA outs (4 V). Inputs 6 high-level (0.2-20 V) + 2 low-level (0.2-5 V) + Bluetooth/coax/USB/SPDIF. 31-band EQ per channel (graphic or parametric, +/-12 dB, Q 0.1-12, 20 Hz-20 kHz). Time alignment 0-48 ms (0-1632 cm). HP/LP: Bessel/BW 6-48 dB/oct, LR 12/24/48. 24-bit/48 kHz, Burr Brown PCM1681 DAC. SNR 90 dB, THD 0.1%, damping 120, 30 A max draw. PC software (Win 10/11); app announced. OIS OEM impedance simulation; plug & play ZDT/ZDC harnesses.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 30
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 5,
+        "highLevelInputMaxV": 20,
+        "snrDb": 90,
+        "thdPercent": 0.1,
+        "dampingFactor": 120,
+        "amplifierClass": "AB",
+        "minStableOhms": 4
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "peqBandsPerChannel": 31,
+        "maxDelayMs": 48,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 5,
+        "preoutVoltageV": 4,
+        "snrDb": 90,
+        "software": "Phoenix Gold ZDA PC software"
+      }
+    }
+  ]
+}

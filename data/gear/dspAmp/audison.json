@@ -262,6 +262,97 @@
         "preoutVoltageV": 4,
         "snrDb": 100
       }
+    },
+    {
+      "id": "audison-ap8-9-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AP8.9 bit",
+      "series": "Prima",
+      "sourceUrl": "https://rapidradio.co.nz/products/audison-ap8-9-bit-adsp-amp-processor",
+      "verified": false,
+      "notes": "Retailer copy of Audison spec. 8 amplified ch + 9th RCA pre out. RMS @12-14.4 V 1% THD: 35 W x8 @4, 65 W x8 @2, 130 W x4 bridged @4 (10% THD: 45/85/170). Input sensitivity 2-15 Vrms (15 kohm). DSP: 32-bit Cirrus Logic 147 MHz; 9 PEQ x 10 poles +/-12 dB; time alignment 0-15 ms (0.08 ms step, 0.02 fine); LR 12/24, BW 6/12/18/24, 68 steps; auto de-EQ; 7 drive presets + 2 DSP memories. S/N 95 dBA, THD 0.05%, damping >70. Fuse/high-level max not on page; 24-bit/48 kHz digital transfer per retailers.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 35,
+          "2ohm": 65,
+          "bridged4ohm": 130
+        },
+        "inputSensitivityMinV": 2,
+        "inputSensitivityMaxV": 15,
+        "snrDb": 95,
+        "thdPercent": 0.05,
+        "dampingFactor": 70,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 9,
+        "peqBandsPerChannel": 10,
+        "maxDelayMs": 15,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 15,
+        "snrDb": 95,
+        "software": "Audison bit Tune / AP bit PC software"
+      }
+    },
+    {
+      "id": "audison-ap4-9-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AP4.9 bit",
+      "series": "Prima",
+      "sourceUrl": "https://autogarsas.lt/en/products/audison-ap-4-9-bit-automobilinis-garso-stiprintuvas",
+      "verified": false,
+      "notes": "Distributor copy. 4 amplified ch: 70 W x4 @4, 130 W x4 @2, 260 W x2 bridged @4. Class D, 30 A fuse, 7.5-15 VDC (retailers). Built-in 9-channel DSP shared with AP8.9 bit (per Audison/retailer copy): 9 parametric EQ x 10 poles +/-12 dB, time alignment 0-15 ms, LR 12/24 & BW 6-24 dB/oct, de-EQ, 24-bit/48 kHz digital transfer, bit Tune auto-tuning; pre outs feed AP1 D / AP4 D expansion amps. PEQ/delay values are from the shared AP8.9 bit processor, not separately confirmed for this model.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 70,
+          "2ohm": 130,
+          "bridged4ohm": 260
+        },
+        "fuseRatingA": 30,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "outputs": 9,
+        "peqBandsPerChannel": 10,
+        "maxDelayMs": 15,
+        "sampleRateHz": 48000,
+        "software": "Audison bit Tune / AP bit PC software"
+      }
+    },
+    {
+      "id": "audison-ap5-9-bit",
+      "category": "dspAmp",
+      "brand": "Audison",
+      "model": "AP5.9 bit",
+      "series": "Prima",
+      "sourceUrl": "https://www.autogarsas.lt/products/audison-ap-5-9-bit-automobilinis-garso-stiprintuvas",
+      "verified": false,
+      "notes": "Distributor/retailer copy. 5 ch, unequal power: @4 ohm 20 W x2 + 50 W x2 + 150 W x1; @2 ohm 40 W x2 + 90 W x2 + 270 W x1 (1% THD 14.4 V). rmsPerChannelW holds the ch3-4 pair (50/90 W); sub ch 150 W @4 / 270 W @2; ch1-2 20/40 W. S/N 95 dBA, fuse 30 A, min load 2 ohm. Built-in 9-channel DSP shared with AP8.9 bit (per Audison/retailer copy): 9 parametric EQ x 10 poles +/-12 dB, time alignment 0-15 ms, LR 12/24 & BW 6-24 dB/oct, de-EQ, 24-bit/48 kHz digital transfer, bit Tune auto-tuning; pre outs feed AP1 D / AP4 D expansion amps.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 90
+        },
+        "snrDb": 95,
+        "fuseRatingA": 30,
+        "amplifierClass": "D",
+        "minStableOhms": 2
+      },
+      "source": {
+        "outputs": 9,
+        "peqBandsPerChannel": 10,
+        "maxDelayMs": 15,
+        "sampleRateHz": 48000,
+        "software": "Audison bit Tune / AP bit PC software"
+      }
     }
   ]
 }

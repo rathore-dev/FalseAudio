@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": "taramps-pro-2-6s",
+      "category": "dsp",
+      "brand": "Taramps",
+      "model": "PRO 2.6S",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/pro-2-6s/",
+      "verified": true,
+      "notes": "Taramps product page. 2 in / 6 out. Max input 6 Vpp (2.1 Vrms), max output 10.2 Vpp (3.6 Vrms). Parametric EQ 3 bands per output (20 Hz-20 kHz, +/-12 dB, Q 0.4-10). Alignment up to 5.7 ms (194 cm). S/N >90 dB. Sample rate not listed. Front-panel control. Manual: https://www.taramps.com.br/wp-content/uploads/2020/01/MN_017629_R05_Pro-2.6S_ENG.pdf",
+      "source": {
+        "inputs": 2,
+        "outputs": 6,
+        "peqBandsPerChannel": 3,
+        "maxDelayMs": 5.7,
+        "maxInputVoltageV": 2.1,
+        "preoutVoltageV": 3.6,
+        "snrDb": 90
+      }
+    },
+    {
+      "id": "taramps-pro-2-8s",
+      "category": "dsp",
+      "brand": "Taramps",
+      "model": "PRO 2.8S",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/pro-2-8s/",
+      "verified": true,
+      "notes": "Taramps product page + manual. 2 in (RCA: 2 Vrms at max gain / 9 Vrms at min gain; WIRED high-level 28 Vpp = 10 Vrms, auto turn-on) / 8 out, max out 5.6 Vpp (2 Vrms). Input 15-band graphic EQ (2/3 oct, Standard mode) + input PEQ (1 band Standard / 5 bands DYNAMIC PEAK mode). Output parametric EQ per channel (band count not stated). Delay per output (max not stated). RMS/peak limiters. 24-bit/48 kHz, S/N >90 dB.",
+      "source": {
+        "inputs": 2,
+        "outputs": 8,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 9,
+        "preoutVoltageV": 2,
+        "snrDb": 90
+      }
+    },
+    {
+      "id": "taramps-pro-2-4bt",
+      "category": "dsp",
+      "brand": "Taramps",
+      "model": "PRO 2.4BT",
+      "sourceUrl": "https://www.taramps.com.br/wp-content/uploads/2025/06/MN_PRO-2.4BT_ENG.pdf",
+      "verified": true,
+      "notes": "Taramps manual. 2 in / 4 out, Bluetooth 5.4 BLE app control (Android 8.1/iOS 16+, up to 4 units). RCA max 9 Vrms (gain min) / 2 Vrms (gain max); high-level max 10 Vrms; max output 2.1 Vrms (47 ohm). Input 15-band graphic EQ (2/3 oct) + input PEQ; output PEQ (10 Hz-22 kHz, +/-12 dB, Q 0.4-10; band count not stated). Crossover LR/BW 12-48 dB/oct. Delay up to 8.0 ms (272 cm). Limiter. 24-bit/48 kHz, THD 0.01%, S/N >90 dB.",
+      "source": {
+        "inputs": 2,
+        "outputs": 4,
+        "maxDelayMs": 8,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 9,
+        "preoutVoltageV": 2.1,
+        "outputImpedanceOhms": 47,
+        "snrDb": 90,
+        "crossovers": "LR/BW 12-48 dB/oct",
+        "software": "Taramps PRO 2.4BT app"
+      }
+    }
+  ]
+}

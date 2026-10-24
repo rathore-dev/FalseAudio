@@ -26,6 +26,85 @@
         "snrDb": 95,
         "software": "Alpine OPTIM (app / PC)"
       }
+    },
+    {
+      "id": "alpine-pdp-e802dsp",
+      "category": "dspAmp",
+      "brand": "Alpine",
+      "model": "PDP-E802DSP",
+      "sourceUrl": "https://autogarsas.lt/en/products/alpine-pdp-e802dsp-skaitmeninis-stiprintuvas-su-dsp",
+      "verified": false,
+      "notes": "Distributor copy of Alpine spec. 8 ch: 100 W @4 / 120 W @2 per ch, 200 W @2 with two channels paralleled (not bridged); total 700 W @4. Inputs: 6 RCA (0.5-4 Vrms, 10 kohm), 6 speaker-level (2-18 Vrms), Toslink (24/96). Up to 8 speaker outs + 1 pre out (copy of ch8). DSP: 30-band PEQ per channel (240 total), gain -30/+10 dB, Q 1-15; delay up to 13.53 ms in 0.01 ms steps; HP/LP/BP 6-30 dB/oct, Butterworth/Bessel/Chebyshev/LR. S/N 110 dB (digital in). Alpine Sound Lab PC software (USB/Wi-Fi) + Alpine Remote Control app.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 120
+        },
+        "highLevelInputMaxV": 18,
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 4,
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 9,
+        "peqBandsPerChannel": 30,
+        "maxDelayMs": 13.53,
+        "maxInputVoltageV": 4,
+        "snrDb": 110,
+        "software": "Alpine Sound Lab for PDP-E802DSP"
+      }
+    },
+    {
+      "id": "alpine-pdp-e800dsp",
+      "category": "dspAmp",
+      "brand": "Alpine",
+      "model": "PDP-E800DSP",
+      "sourceUrl": "https://www.autogarsas.lt/en/products/alpine-pdp-e800dsp-skaitmeninis-dsp-stiprintuvas",
+      "verified": false,
+      "notes": "Distributor copy (predecessor of E802DSP). 8 ch 100 W @4 / 120 W @2; 200 W @2 two ch paralleled; total 700 W @4. 6 high-level + 6 RCA + Toslink in; up to 8 speaker outs + pre out (copy of ch8). EQ: page says 30-band graphic per channel and also '240-band parametric' (type unclear). Delay up to 14.57 ms (0.01 ms steps). X-over HP/LP/BP 6-30 dB/oct Butterworth/Bessel/Chebyshev. ADAU1452. S/N 110 dB (digital). Alpine PC software + Alpine Remote Control app.",
+      "amp": {
+        "channels": 8,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 120
+        },
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 9,
+        "eqBands": 30,
+        "maxDelayMs": 14.57,
+        "snrDb": 110,
+        "software": "Alpine PC software / Alpine Remote Control app"
+      }
+    },
+    {
+      "id": "alpine-pwd-x5",
+      "category": "dspAmp",
+      "brand": "Alpine",
+      "model": "PWD-X5",
+      "sourceUrl": "https://www.autogarsas.lt/products/alpine-pwd-x5-4-1-kanalo-skaitmeninis-signalo-procesorius",
+      "verified": false,
+      "notes": "Distributor copy. Powered 8-inch subwoofer enclosure with built-in 4.1 DSP amp: 25 W x4 @4 ohm (4 ohm min, not bridgeable) + internal sub 165 W (peak 50 W x4 + 240 W). Inputs: 4 high-level (100 ohm) + 4 RCA (20 kohm) + Bluetooth (USB dongle). 10-band PEQ (Q 0.404-28.85), delay 0-5.4 ms (0-187 cm), crossover 6/12 dB/oct ch1-4, 6-24 dB/oct ch5; phase 0/180. S/N >=80 dB. Free Alpine PC software (USB) + smartphone app. Discontinued.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 25
+        },
+        "snrDb": 80,
+        "minStableOhms": 4
+      },
+      "source": {
+        "inputs": 4,
+        "outputs": 5,
+        "peqBandsPerChannel": 10,
+        "maxDelayMs": 5.4,
+        "snrDb": 80,
+        "software": "Alpine PWD-X5 PC software / app"
+      }
     }
   ]
 }

@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": "kenwood-xr600-6dsp",
+      "category": "dspAmp",
+      "brand": "Kenwood",
+      "model": "XR600-6DSP",
+      "series": "Excelon",
+      "sourceUrl": "https://www.pasmag.com/technology/test-reports-reviews/kenwood-xr600-6dsp-amplifier-review",
+      "verified": false,
+      "notes": "Excelon OEM-integration DSP amp (PASMAG review + Kenwood spec as quoted by retailers). 6 ch: 75 W @4 (<=1% THD+N), 100 W @2, 200 W x3 bridged @4. 10-channel 32-bit/192 kHz DSP: 6 amplified + 2 pairs DSP RCA outs. Input via 18-pin line-in / vehicle harness with iDatalink Maestro AR (no RCA inputs); input sensitivity 2.0-4.0 V. EQ: 13-band graphic or 3-band parametric per channel (PEQ 44 Hz-19.9 kHz, Q 0.4-8, -20/+6 dB). Delay up to 20 ft in 0.36 in steps (maxDelayMs 17.8 derived @343 m/s). X-over 6/12/18/24 dB/oct. S/N 95 dB (Kenwood page also shows 81 dBA CTA-2006). KENWOOD DSP CONTROL app (Bluetooth).",
+      "amp": {
+        "channels": 6,
+        "rmsPerChannelW": {
+          "4ohm": 75,
+          "2ohm": 100,
+          "bridged4ohm": 200
+        },
+        "inputSensitivityMinV": 2,
+        "inputSensitivityMaxV": 4,
+        "snrDb": 95,
+        "minStableOhms": 2
+      },
+      "source": {
+        "inputs": 6,
+        "outputs": 10,
+        "peqBandsPerChannel": 3,
+        "eqBands": 13,
+        "maxDelayMs": 17.8,
+        "sampleRateHz": 192000,
+        "snrDb": 95,
+        "software": "KENWOOD DSP CONTROL app"
+      }
+    }
+  ]
+}

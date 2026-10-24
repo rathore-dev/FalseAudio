@@ -1,0 +1,47 @@
+{
+  "products": [
+    {
+      "id": "audiocontrol-dm-608",
+      "category": "dsp",
+      "brand": "AudioControl",
+      "model": "DM-608",
+      "series": "DM",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0581/2240/3900/files/dm-series-manual.pdf",
+      "verified": true,
+      "notes": "6 pre in (+ speaker-level), 8 pre out. AudioControl DM-series manual (2016) spec table: max input 8 V line / 40 V speaker, input impedance 14k, max output 10 V, THD+N 0.01%, 20 Hz-24 kHz, digital in (Toslink+coax) 32-96 kHz 16/24-bit. EQ is GRAPHIC per output: 30-band 1/3-oct mode (also 10-band and 14-band modes) - no parametric bands; AutoEQ with pink noise. Input and output delay max 21.3 ms. Crossover LR 12/24 dB, 20 Hz-20 kHz. Fuse 3 A. Software: DM Smart DSP (PC/Mac/iOS/Android). Manual: https://cdn.shopify.com/s/files/1/0581/2240/3900/files/dm-series-manual.pdf",
+      "source": {
+        "inputs": 6,
+        "outputs": 8,
+        "eqBands": 30,
+        "eqType": "graphic",
+        "maxDelayMs": 21.3,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 10,
+        "crossovers": "LR 12/24 dB/oct",
+        "software": "DM Smart DSP"
+      }
+    },
+    {
+      "id": "audiocontrol-dm-810",
+      "category": "dsp",
+      "brand": "AudioControl",
+      "model": "DM-810",
+      "series": "DM",
+      "sourceUrl": "https://audiocontrol.com/products/dm-810-channel-dsp-matrix-processor",
+      "verified": true,
+      "notes": "8 pre in (+ speaker-level), 10 pre out, output impedance 150 ohm (product page). AudioControl DM-series manual (2016) spec table: max input 8 V line / 40 V speaker, input impedance 14k, max output 10 V, THD+N 0.01%, 20 Hz-24 kHz, digital in (Toslink+coax) 32-96 kHz 16/24-bit. EQ is GRAPHIC per output: 30-band 1/3-oct mode (also 10-band and 14-band modes) - no parametric bands; AutoEQ with pink noise. Input and output delay max 21.3 ms. Crossover LR 12/24 dB, 20 Hz-20 kHz. Fuse 3 A. Software: DM Smart DSP (PC/Mac/iOS/Android). Manual: https://cdn.shopify.com/s/files/1/0581/2240/3900/files/dm-series-manual.pdf",
+      "source": {
+        "inputs": 8,
+        "outputs": 10,
+        "eqBands": 30,
+        "eqType": "graphic",
+        "maxDelayMs": 21.3,
+        "maxInputVoltageV": 8,
+        "preoutVoltageV": 10,
+        "outputImpedanceOhms": 150,
+        "crossovers": "LR 12/24 dB/oct",
+        "software": "DM Smart DSP"
+      }
+    }
+  ]
+}

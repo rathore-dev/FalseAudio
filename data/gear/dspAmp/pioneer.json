@@ -1,0 +1,63 @@
+{
+  "products": [
+    {
+      "id": "pioneer-deq-s1000a2",
+      "category": "dspAmp",
+      "brand": "Pioneer",
+      "model": "DEQ-S1000A2",
+      "sourceUrl": "https://www.autogarsas.lt/en/products/pioneer-deq-s1000a2",
+      "verified": false,
+      "notes": "Distributor copy of Pioneer spec. Sound processor + 4-ch amp: max 50 W x4 (or 50 W x2 @4 + 70 W x1 @2 for sub); continuous 22 W x4 @4 ohm 5% THD 50 Hz-15 kHz. Inputs: RCA + speaker-level (with sensing) + USB. 13-band graphic EQ (50 Hz-12.5 kHz, +/-12 dB, 0.1 dB steps; 31-band via Sound Tune app) - not per-channel parametric. Time alignment 0-350 cm in 2.5 cm steps (maxDelayMs 10.2 derived from 350 cm @343 m/s). Crossover std: HPF/LPF 50-200 Hz 0/-6..-24 dB/oct; network mode HPF 1.25-12.5 kHz, mid 25-250 Hz, sub LPF 25-250 Hz up to -36 dB/oct. 3 RCA pre outs (front/rear/sub) max 4.0 V, 250 ohm. S/N 105 dB, THD 0.01%. Supply 14.4 V (10.8-15.1), fuse 10 A. Pioneer Sound Tune app. Archived/discontinued.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 22
+        },
+        "thdPercent": 0.01,
+        "fuseRatingA": 10,
+        "minStableOhms": 4
+      },
+      "source": {
+        "outputs": 3,
+        "preoutChannels": 3,
+        "preoutVoltageV": 4,
+        "outputImpedanceOhms": 250,
+        "eqBands": 13,
+        "eqType": "graphic",
+        "maxDelayMs": 10.2,
+        "timeAlignment": true,
+        "snrDb": 105,
+        "software": "Pioneer Sound Tune app"
+      }
+    },
+    {
+      "id": "pioneer-deq-s1000a",
+      "category": "dspAmp",
+      "brand": "Pioneer",
+      "model": "DEQ-S1000A",
+      "sourceUrl": "https://pioneer-india.in/buy/car-entertainment-car-amplifiers-sound-processor/deq-s1000a/",
+      "verified": true,
+      "notes": "Pioneer India page. Predecessor of DEQ-S1000A2, same core spec: max 50 W x4 (50 W x2 @4 + 70 W x1 @2 sub); continuous 22 W x4 @4 ohm 5% THD. 13-band graphic EQ (50 Hz-12.5 kHz, +/-12 dB, 0.1 dB steps; 31-band via Sound Tune app) - not per-channel parametric. Time alignment 0-350 cm in 2.5 cm steps (maxDelayMs 10.2 derived from 350 cm @343 m/s). Crossover std: HPF/LPF 50-200 Hz 0/-6..-24 dB/oct; network mode HPF 1.25-12.5 kHz, mid 25-250 Hz, sub LPF 25-250 Hz up to -36 dB/oct. 3 RCA pre outs (front/rear/sub) max 4.0 V, 250 ohm. S/N 105 dB, THD 0.01%. Sound Tune app (Android/iPhone). Discontinued.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 22
+        },
+        "thdPercent": 0.01,
+        "minStableOhms": 4
+      },
+      "source": {
+        "outputs": 3,
+        "preoutChannels": 3,
+        "preoutVoltageV": 4,
+        "outputImpedanceOhms": 250,
+        "eqBands": 13,
+        "eqType": "graphic",
+        "maxDelayMs": 10.2,
+        "timeAlignment": true,
+        "snrDb": 105,
+        "software": "Pioneer Sound Tune app"
+      }
+    }
+  ]
+}

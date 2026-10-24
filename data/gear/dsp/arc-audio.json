@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": "arc-audio-ps8-pro",
+      "category": "dsp",
+      "brand": "ARC Audio",
+      "model": "PS8-Pro",
+      "series": "PS",
+      "sourceUrl": "https://creativeaudio.net/ps8-pro/",
+      "verified": false,
+      "notes": "Retailer copy of ARC spec. 8 differential inputs (RCA or speaker level, sensitivity 0.5-32 Vrms, 10 kohm) + TOSLink. 8 RCA outs up to 8 V. Output EQ: 248 bands 1/3-oct (linkable) or 248 bands variable parametric (= 31 per channel); input EQ 12-band parametric per channel with allpass. Output delay up to 30 ms per channel (0.01 ms steps); input delay up to 11.04 ms. Crossover BW/LR/Bessel/variable Q/Chebyshev 6-48 dB/oct, 10 Hz-20 kHz. 96/192 kHz. S/N 107.1 dB @1 V, 108 dB @4 V (PASMAG test: >88 dBA @8 V out, THD ~0.05%). Windows PC (8/10).",
+      "source": {
+        "inputs": 8,
+        "outputs": 8,
+        "peqBandsPerChannel": 31,
+        "maxDelayMs": 30,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 32,
+        "preoutVoltageV": 8,
+        "snrDb": 107,
+        "software": "ARC Audio PS8-Pro PC software (Windows)"
+      }
+    }
+  ]
+}

@@ -20,6 +20,26 @@
         "snrDb": 100,
         "software": "PerfectTune"
       }
+    },
+    {
+      "id": "rockford-fosgate-3sixty-3",
+      "category": "dsp",
+      "brand": "Rockford Fosgate",
+      "model": "3SIXTY.3",
+      "sourceUrl": "https://www.abt.com/Rockford-Fosgate-8-Channel-Interactive-Signal-Processor-3SIXTY.3/p/67438.html",
+      "verified": false,
+      "notes": "Retailer copy of RF spec. Inputs: 8 balanced differential RCA (0.1-2 V) + 8 high-level (0.1-28 V, signal-sense turn-on) + 2 AUX RCA (0.1-1 V) + optical. 8 RCA outs (balanced/unbalanced), 8 V @0.1% THD, 100 ohm. EQ 31 bands per channel (248 total), Q 0.1-6, 20 Hz-20 kHz. Delay 0-10 ms. X-over AP/HP/LP/BP/shelf, LR/Bessel/BW/Chebychev 12/24/36/48 dB/oct. S/N >105 dBA RCA/AUX, >110 optical; THD+N <0.01%. Windows PC GUI. Discontinued. (Same power-processor platform as DSR1.)",
+      "source": {
+        "inputs": 8,
+        "outputs": 8,
+        "peqBandsPerChannel": 31,
+        "maxDelayMs": 10,
+        "maxInputVoltageV": 2,
+        "preoutVoltageV": 8,
+        "outputImpedanceOhms": 100,
+        "snrDb": 105,
+        "software": "3SIXTY.3 PC interface"
+      }
     }
   ]
 }

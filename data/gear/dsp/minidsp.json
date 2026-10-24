@@ -54,6 +54,111 @@
         "outputImpedanceOhms": 560,
         "software": "miniDSP 2x4 HD plugin"
       }
+    },
+    {
+      "id": "minidsp-flex",
+      "category": "dsp",
+      "brand": "miniDSP",
+      "model": "Flex",
+      "sourceUrl": "https://www.audiophonics.fr/en/dsp-av-processors/minidsp-flex-audio-processor-dsp-sharc-adsp21489-xmos-bluetooth-p-15884.html",
+      "verified": false,
+      "notes": "Retailer (Audiophonics) copy; minidsp.com blocks fetch. 2-in/4-out (3rd gen 2x4). RCA version: 1 stereo RCA in (100 kohm, max 2 Vrms) + Bluetooth, USB, coax, Toslink; 4 RCA out max 2 Vrms, 200 ohm (Balanced version: 4 Vrms in/out). SHARC ADSP21489; processing 32-bit/96 kHz (48 kHz with Dirac Live licence). 10 PEQ per output (docs.minidsp.com Flex manual, via search snippet), IIR+FIR, delay per output (max not officially confirmed; forum reports 80 ms on Flex Balanced). SNR 115 dB(A) analog-analog / 120 D-A, THD+N -106 dB. 12 V DC.",
+      "source": {
+        "inputs": 2,
+        "outputs": 4,
+        "peqBandsPerChannel": 10,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 2,
+        "preoutVoltageV": 2,
+        "outputImpedanceOhms": 200,
+        "snrDb": 115,
+        "software": "miniDSP Device Console"
+      }
+    },
+    {
+      "id": "minidsp-flex-ht",
+      "category": "dsp",
+      "brand": "miniDSP",
+      "model": "Flex HT",
+      "sourceUrl": "https://www.minidsp.com/products/ht-series/flex-ht",
+      "verified": false,
+      "notes": "Specs via search snippets of miniDSP/Audiophonics pages (minidsp.com blocks automated fetch). 8-ch processor: 8 ch from USB/HDMI eARC (LPCM), 2 ch from Toslink/SPDIF (20-216 kHz ASRC); 8 RCA outs, 200 ohm, max 2 Vrms. SHARC ADSP21489, processing 32-bit/48 kHz. Optional multichannel Dirac Live. Analog input count, PEQ count, max delay not confirmed (forum: up to 30 ms).",
+      "source": {
+        "outputs": 8,
+        "sampleRateHz": 48000,
+        "preoutVoltageV": 2,
+        "outputImpedanceOhms": 200,
+        "software": "miniDSP Device Console + Dirac Live"
+      }
+    },
+    {
+      "id": "minidsp-shd",
+      "category": "dsp",
+      "brand": "miniDSP",
+      "model": "SHD",
+      "sourceUrl": "https://www.audiophonics.fr/en/network-audio-players/minidsp-shd-digital-signal-processor-dsp-sharc-adsp21489-dirac-live-dac-adc-volumio-streamer-p-13782.html",
+      "verified": false,
+      "notes": "Retailer copy. Streaming 2-in/4-out processor: analog in RCA (2 Vrms) / XLR (4 Vrms), digital USB, Ethernet, USB host, coax, Toslink, AES/EBU (to 192k); 4 analog outs on XLR (4 Vrms) and RCA (2 Vrms) + 2 S/PDIF out. 10-band parametric EQ (description), 48 dB/oct crossovers, compressor/limiter, Dirac Live. Internal 96 kHz. SNR 120 dB, THD+N 0.0003%. AC mains powered (110-240 V) - home unit, rarely used in cars. Max delay not stated.",
+      "source": {
+        "inputs": 2,
+        "outputs": 4,
+        "peqBandsPerChannel": 10,
+        "sampleRateHz": 96000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 4,
+        "snrDb": 120,
+        "software": "miniDSP Device Console + Dirac Live"
+      }
+    },
+    {
+      "id": "minidsp-ddrc-24",
+      "category": "dsp",
+      "brand": "miniDSP",
+      "model": "DDRC-24",
+      "sourceUrl": "https://www.audiophonics.fr/en/dsp-processor/minidsp-ddrc-24-interface-dac-dsp-processor-sharc-adsp21489-dirac-live-p-14310.html",
+      "verified": false,
+      "notes": "Retailer copy. 2 ch RCA in (2/4 Vrms switchable, 10 kohm) + Toslink + USB (XMOS, ASRC); 4 RCA out 2 Vrms. SHARC ADSP21489, 32-bit/48 kHz processing, Dirac Live licence included; crossover/matrix on outputs. PEQ count and max delay not stated. 12 VDC.",
+      "source": {
+        "inputs": 2,
+        "outputs": 4,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 4,
+        "preoutVoltageV": 2,
+        "software": "miniDSP DDRC-24 plugin + Dirac Live"
+      }
+    },
+    {
+      "id": "minidsp-ddrc-88a",
+      "category": "dsp",
+      "brand": "miniDSP",
+      "model": "DDRC-88A",
+      "sourceUrl": "https://www.audiophonics.fr/en/dsp-processor/minidsp-dirac-series-ddrc-88a-processor-71-analogue-balanced-p-9489.html",
+      "verified": false,
+      "notes": "Retailer copy (discontinued). 8 analog in (RCA unbalanced + balanced terminals) / 8 analog out (RCA + balanced, both active). 32-bit DSP, 24-bit I/O, 48 kHz internal. Dirac Live licence included; DDRC-88BM plugin adds bass management/crossovers. miniDSP staff (forum): RCA input 2 Vrms max (jumper-adjustable). PEQ count, max delay, SNR not stated. 12 V 3.3 A adapter.",
+      "source": {
+        "inputs": 8,
+        "outputs": 8,
+        "sampleRateHz": 48000,
+        "maxInputVoltageV": 2,
+        "software": "Dirac Live / DDRC-88BM plugin"
+      }
+    },
+    {
+      "id": "minidsp-nanodigi-2x8",
+      "category": "dsp",
+      "brand": "miniDSP",
+      "model": "nanoDIGI 2x8",
+      "sourceUrl": "https://www.audiophonics.fr/images2/8451/ProductBrief-2x8nanoDIGIplug-in.pdf",
+      "verified": false,
+      "notes": "miniDSP product briefs (dealer-hosted). All-digital: SPDIF coax or Toslink in (ASRC to 192k) -> 4 SPDIF coax outs (8 ch); needs external DACs/digital amps. 28/56-bit DSP. 2x8 Xover plug-in: 96 kHz, 5 PEQ per input + 5 PEQ per output (peak/shelf, Q 0.5-50), LR/BW/Bessel up to 48 dB/oct, delay up to 9 ms per output in 0.02 ms steps. Other plug-ins change rate/features. 5-24 VDC.",
+      "source": {
+        "inputs": 2,
+        "outputs": 8,
+        "peqBandsPerChannel": 5,
+        "maxDelayMs": 9,
+        "sampleRateHz": 96000,
+        "software": "miniDSP nanoDIGI 2x8 Xover plugin"
+      }
     }
   ]
 }

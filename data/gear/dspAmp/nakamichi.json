@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "nakamichi-ndsr-260a",
+      "category": "dspAmp",
+      "brand": "Nakamichi",
+      "model": "NDSR-260A",
+      "sourceUrl": "https://masori.de/en/products/ndsr-260a-en",
+      "verified": false,
+      "notes": "Retailer (Masori) copy; page offline at time of research, values via search snippets - verify. 8 amplified ch: 2 x 80 W (bridged 1 x 200 W) + 6 x 50 W (rmsPerChannelW = 50 W ch, load not stated); 10 low-level outs (gain mute/-59..+6 dB). Inputs: 6 high-level (26 Vpp, 51 ohm) + 2 RCA (7.5 Vpp) + Bluetooth + USB disk + optical. 31-band EQ (20 Hz-20 kHz 1 Hz res, +/-20 dB 0.1 dB). BW/Bessel/LR filters. One listing gives delay 0-20 ms (0-692 cm) - not confirmed. Dynamic range >=100 dB, S/N >=98 dB (RCA), THD <=0.05%. 9-15 VDC. 6 presets.",
+      "amp": {
+        "channels": 8,
+        "snrDb": 98,
+        "thdPercent": 0.05,
+        "amplifierClass": "D"
+      },
+      "source": {
+        "inputs": 8,
+        "outputs": 10,
+        "eqBands": 31,
+        "snrDb": 98
+      }
+    },
+    {
+      "id": "nakamichi-ndsk4285au",
+      "category": "dspAmp",
+      "brand": "Nakamichi",
+      "model": "NDSK4285AU",
+      "sourceUrl": "https://masori.de/en/collections/nakamichi/products/ndsk4285au",
+      "verified": false,
+      "notes": "Retailer copy via search snippets - verify. 4 x 80 W amplified (load not stated) + 8-ch low-level output; Bluetooth, app-controlled. Inputs RCA 8 V, high-level 26 V (240 ohm). 31-band EQ per output (adjustable Q/gain); delay 0-20 ms (up to 692 cm); crossover 6-48 dB/oct. Dynamic range >=100 dB (S/N figure on page garbled). 9-16 VDC.",
+      "amp": {
+        "channels": 4,
+        "highLevelInputMaxV": 26
+      },
+      "source": {
+        "outputs": 8,
+        "eqBands": 31,
+        "maxDelayMs": 20,
+        "maxInputVoltageV": 8
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "zapco-dsp-z8-iv-at",
+      "category": "dsp",
+      "brand": "Zapco",
+      "model": "DSP-Z8 IV AT",
+      "series": "DSP-IV",
+      "sourceUrl": "https://www.worldwidestereo.com/products/zapco-dsp-z8-iv-at-8-channel-dsp-with-autotune-and-lcd-remote-control",
+      "verified": false,
+      "notes": "Retailer copy. DSP-only member of Zapco DSP-IV series: 8 in (high and low level) / 8 out, Cirrus Logic CS47048 32-bit/192 kHz, LCD remote included, AutoTune with optional mic. DSP-IV platform spec lists: low-level 1-5 Vrms, high-level 2-20 V, optical + coax 24/192, S/N DSP-only 106 dBA analog / 110 dBA digital. EQ per channel (ADSP-Z8 IV-6AT sibling: ch1-6 31 poles, ch7-8 11) and 0-15 ms alignment NOT separately confirmed for this model - fields omitted. Zapco Series IV GUI (PC).",
+      "source": {
+        "inputs": 8,
+        "outputs": 8,
+        "sampleRateHz": 192000,
+        "maxInputVoltageV": 5,
+        "snrDb": 106,
+        "software": "Zapco Series IV GUI"
+      }
+    }
+  ]
+}
