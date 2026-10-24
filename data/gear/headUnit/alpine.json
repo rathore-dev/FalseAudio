@@ -1,0 +1,410 @@
+{
+  "products": [
+    {
+      "id": "alpine-ilx-w670-m",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-W670-M",
+      "sourceUrl": "https://www.alpine-usa.com/product/ilxw670m-alpine-7-inch-ultra-shallow-multimedia-receiver",
+      "verified": true,
+      "notes": "Product page: 3 x 4V pre-outs (front, rear, sub), 13-band graphic EQ, 6-channel time correction, crossovers on front/rear/sub.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Front, rear and subwoofer crossovers",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "alpine-ilx-w770-m",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-W770-M",
+      "sourceUrl": "https://www.alpine-usa.com/product/ilxw770m-alpine-7-inch-ultra-shallow-multimedia-receiver",
+      "verified": true,
+      "notes": "Owner manual (OM_iLX-W770M.pdf): preout 4V/10k ohms (rated into 10k load; output impedance not published), volume 0-35, USB section S/N 85 dB.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "snrDb": 85,
+        "timeAlignment": true,
+        "crossovers": "Front, rear and subwoofer crossovers",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "alpine-ilx-f509",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-F509",
+      "series": "Halo",
+      "sourceUrl": "https://www.alpine-usa.com/product/ilxf509-alpine-halo9-hi-res-multimedia-receiver",
+      "verified": true,
+      "notes": "Product page: 3 x 4V pre-outs, 13-band parametric EQ, 6-channel time correction, HPF/LPF. Manual OM_507-509-511_EN.pdf: preout 4V/10k ohms, volume 0-35.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "timeAlignment": true,
+        "crossovers": "High pass / low pass",
+        "eqBands": 13,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "alpine-ilx-f511",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-F511",
+      "series": "Halo",
+      "sourceUrl": "https://www.alpine-usa.com/product/ilxf511-alpine-halo11-hi-res-multimedia-receiver",
+      "verified": true,
+      "notes": "Product page: 3 x 4V pre-outs, 13-band parametric EQ, 6-channel time correction, HPF/LPF. Manual OM_507-509-511_EN.pdf: preout 4V/10k ohms, volume 0-35.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "timeAlignment": true,
+        "crossovers": "High pass / low pass",
+        "eqBands": 13,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "alpine-ilx-507",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-507",
+      "sourceUrl": "https://www.alpine-usa.com/product/ilx507-alpine-7-inch-hi-res-multimedia-receiver",
+      "verified": true,
+      "notes": "Product page: 3 x 4V pre-outs, 13-band parametric EQ, 6-channel time correction, HPF/LPF. Manual OM_507-509-511_EN.pdf: preout 4V/10k ohms, volume 0-35.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "timeAlignment": true,
+        "crossovers": "High pass / low pass",
+        "eqBands": 13,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "alpine-i509-wra-jl",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "i509-WRA-JL",
+      "sourceUrl": "https://www.alpine-usa.com/product/i509-wra-jl-9-inch-hi-res-multimedia-receiver-jeep-wrangler-jl",
+      "verified": true,
+      "notes": "Product page: 3 x 4V pre-outs, 13-band parametric EQ, 6-channel time correction, HPF/LPF. Manual OM_507-509-511_EN.pdf: preout 4V/10k ohms, volume 0-35.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "timeAlignment": true,
+        "crossovers": "High pass / low pass",
+        "eqBands": 13,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "alpine-i509-wra-jk",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "i509-WRA-JK",
+      "sourceUrl": "https://www.alpine-usa.com/product/i509-wra-jk-9-inch-hi-res-multimedia-receiver-jeep-wrangler-jk",
+      "verified": true,
+      "notes": "Product page: 3 x 4V pre-outs, 13-band parametric EQ, 6-channel time correction, HPF/LPF. Manual OM_507-509-511_EN.pdf: preout 4V/10k ohms, volume 0-35.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "timeAlignment": true,
+        "crossovers": "High pass / low pass",
+        "eqBands": 13,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "alpine-ilx-407",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-407",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_iLX-407_ENGLISH.pdf",
+      "verified": true,
+      "notes": "Owner manual: preout front/rear/sub 4V/10k ohms, volume 0-35, USB section S/N 100 dB.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "snrDb": 100
+      }
+    },
+    {
+      "id": "alpine-ilx-w670",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-W670",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_iLX-W670_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: preout front/rear 4V/10k ohms, subwoofer 4V/10k ohms, volume 0-35, USB section S/N 85 dB.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "snrDb": 85
+      }
+    },
+    {
+      "id": "alpine-ilx-w650",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-W650",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_iLX-W650_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: preout front/rear 4V/10k ohms, subwoofer 4V/10k ohms, volume 0-35, USB section S/N 100 dB.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "snrDb": 100
+      }
+    },
+    {
+      "id": "alpine-ilx-f309",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-F309",
+      "series": "Halo",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_iLX-F309_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: preout front/rear 4V/10k ohms, subwoofer 4V/10k ohms, volume 0-35, USB section S/N 100 dB.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "snrDb": 100
+      }
+    },
+    {
+      "id": "alpine-ilx-f259",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-F259",
+      "series": "Halo",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_iLX-F259_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: preout front/rear 4V/10k ohms, subwoofer 4V/10k ohms, volume 0-35, USB section S/N 100 dB.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "snrDb": 100
+      }
+    },
+    {
+      "id": "alpine-ilx-f411",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-F411",
+      "series": "Halo",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_iLX-F411_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: preout front/rear 4V/10k ohms, subwoofer 4V/10k ohms, volume 0-35, USB section S/N 100 dB.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35,
+        "snrDb": 100
+      }
+    },
+    {
+      "id": "alpine-ilx-107",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "iLX-107",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_iLX-107_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: preout front/rear 2V/10k ohms (max), front/rear/sub RCA outputs, volume 0-35.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35
+      }
+    },
+    {
+      "id": "alpine-ine-w970hd",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "INE-W970HD",
+      "sourceUrl": "https://www.alpine-usa.com/product/ine-w970hd",
+      "verified": true,
+      "notes": "Product page: 3 RCA preouts. Owner manual: preout 4V/10k ohms (max), volume 0-35.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35
+      }
+    },
+    {
+      "id": "alpine-ute-63bt",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "UTE-63BT",
+      "sourceUrl": "https://www.alpine-usa.com/product/ute-63bt-single-din-bluetooth-receiver",
+      "verified": true,
+      "notes": "Product page: pre-out 3 channel x 2V (front/rear/subwoofer), 3-band parametric EQ, HPF/LPF.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "crossovers": "High-pass / low-pass filters",
+        "eqBands": 3,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "alpine-ute-83bt",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "UTE-83BT",
+      "sourceUrl": "https://www.alpine-usa.com/product/ute-83bt-single-din-bluetooth-receiver",
+      "verified": true,
+      "notes": "Product page: pre-out 3 channel x 4V (front/rear/subwoofer), 3-band parametric EQ, HPF/LPF.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "crossovers": "High-pass / low-pass filters",
+        "eqBands": 3,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "alpine-ute-m701",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "UTE-M701",
+      "sourceUrl": "https://www.alpine-usa.com/product/waterproof_marine_receiver_ute-m701",
+      "verified": true,
+      "notes": "Marine receiver. Product page: pre-out 6 channel x 4V (RCA), 6-band parametric EQ.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "eqBands": 6,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "alpine-ute-mn801",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "UTE-MN801",
+      "sourceUrl": "https://www.alpine-usa.com/product/waterproof_marine_receiver_ute-mn801",
+      "verified": true,
+      "notes": "Marine receiver. Product page: pre-out 6 channel x 4V (RCA), 6-band parametric EQ.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "eqBands": 6,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "alpine-cde-163bt",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "CDE-163BT",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_CDE-163BT_UTE-62BT_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: maximum pre-output voltage 4 V/10k ohms; front, rear and subwoofer RCA outputs; volume 0-35.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35
+      }
+    },
+    {
+      "id": "alpine-ute-62bt",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "UTE-62BT",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_CDE-163BT_UTE-62BT_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: maximum pre-output voltage 4 V/10k ohms; front, rear and subwoofer RCA outputs; volume 0-35.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35
+      }
+    },
+    {
+      "id": "alpine-cde-153bt",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "CDE-153BT",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_UTE-52BT_CDE-153BT_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: maximum pre-output voltage 2 V/10k ohms; front, rear and subwoofer RCA outputs; volume 0-35.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35
+      }
+    },
+    {
+      "id": "alpine-ute-52bt",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "UTE-52BT",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_UTE-52BT_CDE-153BT_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: maximum pre-output voltage 2 V/10k ohms; front, rear and subwoofer RCA outputs; volume 0-35.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "maxVolumeStep": 35
+      }
+    },
+    {
+      "id": "alpine-ute-42bt",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "UTE-42BT",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_UTE-42BT_CDE-SXM145BT_CDE-143BT_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: maximum pre-output voltage 2 V/10k ohms; front RCA pair plus one switchable rear/subwoofer RCA pair.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 4
+      }
+    },
+    {
+      "id": "alpine-cde-143bt",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "CDE-143BT",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_UTE-42BT_CDE-SXM145BT_CDE-143BT_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: maximum pre-output voltage 2 V/10k ohms; front RCA pair plus one switchable rear/subwoofer RCA pair.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 4
+      }
+    },
+    {
+      "id": "alpine-cde-sxm145bt",
+      "category": "headUnit",
+      "brand": "Alpine",
+      "model": "CDE-SXM145BT",
+      "sourceUrl": "https://manuals.alpine-usa.com/products/documents/OM_UTE-42BT_CDE-SXM145BT_CDE-143BT_EN.pdf",
+      "verified": true,
+      "notes": "Owner manual: maximum pre-output voltage 2 V/10k ohms; front RCA pair plus one switchable rear/subwoofer RCA pair.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 4
+      }
+    }
+  ]
+}

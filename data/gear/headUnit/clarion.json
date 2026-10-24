@@ -1,0 +1,3 @@
+{"products":[
+{"id":"clarion-nx702","category":"headUnit","brand":"Clarion","model":"NX702","sourceUrl":"http://www.sonicelectronix.com/item-43934-Clarion-NX702.html","verified":false,"notes":"Retailer listing: 4V preamp, 3 sets of RCA preouts incl. subwoofer, digital time alignment control, HPF/LPF (ranges not stated), 3-band parametric Beat EQ.","source":{"preoutVoltageV":4,"preoutChannels":6,"timeAlignment":true,"crossovers":true,"eqBands":3,"eqType":"parametric"}}
+]}

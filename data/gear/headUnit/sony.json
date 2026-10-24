@@ -1,0 +1,322 @@
+{
+  "products": [
+    {
+      "id": "sony-xav-ax6000",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX6000",
+      "sourceUrl": "https://www.bestcaraudio.com/test-drive-review-sony-xav-ax6000-multimedia-receiver/",
+      "verified": false,
+      "notes": "Spec (retailer table): 5V 3 pre (front LR / rear LR / sub), 14-band EQ, time alignment. BestCarAudio bench test: 5.101 V on preouts with 0 dBFS at full volume (no clipping with flat EQ; ~6.17 V with EQ boost); internal amp clips at volume 45 of 50; measured preout SNR ~80.7 dB at ~1 V. cleanVolumeStep refers to the RCA preouts with flat EQ and a 0 dBFS track.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 5,
+        "maxVolumeStep": 50,
+        "cleanVolumeStep": 50,
+        "timeAlignment": true,
+        "eqBands": 14,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-xav-ax8500",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX8500",
+      "sourceUrl": "https://www.bestcaraudio.com/test-drive-review-sony-xav-ax8500/",
+      "verified": false,
+      "notes": "Spec: 5V 3-pre (front LR / rear LR / sub), 14-band EQ, time alignment, front/rear HPF + sub LPF. BestCarAudio bench test: 5.078 V RMS at maximum volume with 0 dBFS, no visible clipping with flat EQ; measured preout output impedance 469 ohms.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 5,
+        "outputImpedanceOhms": 469,
+        "timeAlignment": true,
+        "crossovers": "Front/rear HPF, subwoofer LPF (adjustable frequency/slope)",
+        "eqBands": 14,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-xav-ax4000",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX4000",
+      "sourceUrl": "https://www.bestcaraudio.com/test-drive-review-sony-xav-ax4000-6-95-multimedia-receiver/",
+      "verified": false,
+      "notes": "Spec: 3 pre (front LR / rear LR / sub), 14-band EQ, time alignment (listening position). BestCarAudio bench test: 2.032 V RMS preout with 0 dBFS, no clipping at full volume (~2.5 V with EQ boost before 1% THD); measured output impedance ~310 ohms; SNR 86.4 dB at 1 V.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 5,
+        "outputImpedanceOhms": 310,
+        "timeAlignment": true,
+        "eqBands": 14,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-xav-ax3700",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX3700",
+      "sourceUrl": "https://www.bestcaraudio.com/test-drive-review-sony-xav-ax3700/",
+      "verified": false,
+      "notes": "Spec: pre-out output level 2 Vrms, 3 pre (front LR / rear LR / sub), 14-band EQ, time alignment, HPF/LPF 50-250 Hz with -12 to -48 dB/oct slopes. BestCarAudio bench test: max preout 1.959 V RMS, measured output impedance 316.8 ohms, preout SNR 88.4 dBA.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 5,
+        "outputImpedanceOhms": 317,
+        "timeAlignment": true,
+        "crossovers": "HPF (front/rear) and LPF (sub), 50-250 Hz, -12/-24/-36/-48 dB/oct",
+        "eqBands": 14,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-xav-9000es",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-9000ES",
+      "series": "Mobile ES",
+      "sourceUrl": "https://www.bestcaraudio.com/test-drive-review-sony-xav-9000es/",
+      "verified": false,
+      "notes": "Six 5.0 V preouts; 2-way (front/rear/sub) or 3-way (high/mid/sub) crossover up to -48 dB/oct; 14-band global graphic EQ plus 8-band parametric EQ per output; per-output delay. BestCarAudio bench test: 5.365 V at full volume with 0 dBFS, no clipping with flat EQ.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "2-way HPF/LPF or 3-way HPF/BPF/LPF, up to -48 dB/oct",
+        "eqBands": 14,
+        "eqType": "graphic",
+        "peqBandsPerChannel": 8
+      }
+    },
+    {
+      "id": "sony-xav-9500es",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-9500ES",
+      "series": "Mobile ES",
+      "sourceUrl": "https://www.bestcaraudio.com/test-drive-review-sony-xav-9500es-mobile-es-hi-res-receiver/",
+      "verified": false,
+      "notes": "Front, rear and sub preouts rated 5 V; 14-band global graphic EQ plus 8-band parametric EQ per output (6 outputs); delay in 1 cm steps. BestCarAudio bench test: output impedance 224.9 ohms; RCA outputs did not clip at full volume (0 dBFS, flat EQ); speaker outputs clipped at volume 44 of 50; preout SNR 91.75 dB.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 225,
+        "maxVolumeStep": 50,
+        "cleanVolumeStep": 50,
+        "timeAlignment": true,
+        "crossovers": "Front/rear HPF, sub LPF, adjustable frequency and slope",
+        "eqBands": 14,
+        "eqType": "graphic",
+        "peqBandsPerChannel": 8
+      }
+    },
+    {
+      "id": "sony-xav-ax7000",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX7000",
+      "sourceUrl": "https://www.bestcaraudio.com/test-drive-review-sony-xav-ax7000-multimedia-receiver/",
+      "verified": false,
+      "notes": "Preouts rated 5 V (front, rear, sub; channel count not confirmed). EQ10 10-band graphic EQ, Dynamic Stage Organizer (preset delay, not custom time alignment). BestCarAudio bench test: 5.01 V at volume 49 with 0 dBFS; slight clipping at volume 50; RCA output impedance 170 ohms.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "outputImpedanceOhms": 170,
+        "maxVolumeStep": 50,
+        "cleanVolumeStep": 49,
+        "eqBands": 10,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-xav-ax8100",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX8100",
+      "sourceUrl": "https://www.worldwidestereo.com/products/sony-mobile-xav-ax8100-8-95-media-receiver-with-carplay-android-auto-weblink-cast",
+      "verified": false,
+      "notes": "Retailer spec table: 3 pre (front / rear / sub x1), 10-band graphic EQ, DSO. Preouts rated 5 V per BestCarAudio product spotlight and OnlineCarStereo.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 5,
+        "eqBands": 10,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-xav-ax3200",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX3200",
+      "sourceUrl": "https://www.worldwidestereo.com/products/sony-mobile-xav-ax3200-6-95-bluetooth-media-receiver-with-apple-carplay-and-android-auto",
+      "verified": false,
+      "notes": "Retailer spec table (Sony format): 3 pre (front / rear / sub x1), high-voltage pre out: No, 10-band graphic EQ, time alignment: No, DSO, HPF/LPF. Preout voltage not stated.",
+      "source": {
+        "preoutChannels": 5,
+        "timeAlignment": false,
+        "crossovers": "HPF/LPF",
+        "eqBands": 10,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-xav-ax5500",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX5500",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_71955_Sony_XAV-AX5500.aspx",
+      "verified": false,
+      "notes": "Retailer listing: 3 x 5 V pre-outs. BestCarAudio spotlight notes the extra voltage vs. the 2 V AX5000. Dynamic Stage Organizer.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "sony-xav-ax1000",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX1000",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_52205_Sony_XAV-AX1000.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 2 V, 5 preout channels (front/rear stereo + mono sub). BestCarAudio spotlight confirms 2.0 V front, rear and sub outputs with HPF/LPF.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 5,
+        "crossovers": "HPF/LPF"
+      }
+    },
+    {
+      "id": "sony-xav-ax5000",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX5000",
+      "sourceUrl": "https://www.bestcaraudio.com/product-spotlight-sony-xav-ax5000/",
+      "verified": false,
+      "notes": "BestCarAudio product spotlight: front, rear and subwoofer preamp outputs rated at 2 V.",
+      "source": {
+        "preoutVoltageV": 2.0
+      }
+    },
+    {
+      "id": "sony-xav-ax210sxm",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX210SXM",
+      "sourceUrl": "https://www.bestcaraudio.com/product-spotlight-sony-xav-ax210sxm/",
+      "verified": false,
+      "notes": "BestCarAudio product spotlight: 4.0 V front, rear and subwoofer preamp outputs, HPF/LPF.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "crossovers": "HPF/LPF"
+      }
+    },
+    {
+      "id": "sony-xav-ax200sxm",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX200SXM",
+      "sourceUrl": "https://www.bestcaraudio.com/product-spotlight-sony-xav-ax200sxm/",
+      "verified": false,
+      "notes": "BestCarAudio product spotlight: three pairs of 4 V preamp outputs, HPF/LPF, 10-band graphic EQ, DSO (preset delay).",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "crossovers": "HPF/LPF",
+        "eqBands": 10,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-xav-ax8000",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "XAV-AX8000",
+      "sourceUrl": "https://www.bestcaraudio.com/product-spotlight-sony-xav-ax8000/",
+      "verified": false,
+      "notes": "BestCarAudio product spotlight: five-volt preamp outputs for front, rear and subwoofer; 10-band EQ; HPF/LPF; DSO (preset delay).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "crossovers": "HPF/LPF",
+        "eqBands": 10,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-mex-gs620bt",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "MEX-GS620BT",
+      "sourceUrl": "https://www.bestcaraudio.com/product-spotlight-sony-mex-gs620bt/",
+      "verified": false,
+      "notes": "BestCarAudio product spotlight: preamp outputs up to 5 V with 220 ohm output impedance.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "outputImpedanceOhms": 220
+      }
+    },
+    {
+      "id": "sony-mex-m72bt",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "MEX-M72BT",
+      "sourceUrl": "https://www.bestcaraudio.com/product-spotlight-sony-mex-m72bt/",
+      "verified": false,
+      "notes": "BestCarAudio product spotlight: front, rear and subwoofer preamp outputs up to 2 V; HPF/LPF at 80/100/120 Hz; 10-band graphic EQ.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "crossovers": "HPF/LPF 80/100/120 Hz",
+        "eqBands": 10,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-mex-n5300bt",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "MEX-N5300BT",
+      "sourceUrl": "https://www.worldwidestereo.com/products/sony-mobile-mex-n5300bt-cd-receiver-w-bluetooth-usb-aux-inputs",
+      "verified": false,
+      "notes": "Retailer spec table: pre out x3, high-voltage pre out: No, EQ10, HPF/LPF 80/100/120 Hz, time alignment: No. BestCarAudio spotlight: 2-volt front, rear and sub preamp outputs.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "timeAlignment": false,
+        "crossovers": "HPF/LPF 80/100/120 Hz",
+        "eqBands": 10,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-dsx-b700",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "DSX-B700",
+      "sourceUrl": "https://www.worldwidestereo.com/products/sony-mobile-dsx-b700-double-din-digital-media-receiver-w-bluetooth",
+      "verified": false,
+      "notes": "Retailer spec table: pre out x3, EQ10, HPF/LPF 80/100/120 Hz. Preout voltage not stated.",
+      "source": {
+        "preoutChannels": 6,
+        "crossovers": "HPF/LPF 80/100/120 Hz",
+        "eqBands": 10,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "sony-dsx-m55bt",
+      "category": "headUnit",
+      "brand": "Sony",
+      "model": "DSX-M55BT",
+      "sourceUrl": "https://www.worldwidestereo.com/products/sony-mobile-dsx-m55bt-marine-digital-media-receiver-with-bluetooth",
+      "verified": false,
+      "notes": "Marine receiver. Retailer spec table: pre out x2 (rear + sub), LPF yes / HPF no, preset EQ5. Preout voltage not stated.",
+      "source": {
+        "preoutChannels": 4,
+        "crossovers": "LPF only",
+        "eqBands": 5,
+        "eqType": "preset"
+      }
+    }
+  ]
+}

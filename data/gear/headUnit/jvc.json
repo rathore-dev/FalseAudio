@@ -1,0 +1,128 @@
+{
+  "products": [
+    {
+      "id": "jvc-kw-m795bw",
+      "category": "headUnit",
+      "brand": "JVC",
+      "model": "KW-M795BW",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_96992_JVC_KW-M795BW.aspx",
+      "verified": false,
+      "notes": "Retailer listing: 3.0V high-voltage pre-outs, front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 3.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "jvc-kw-m590bt",
+      "category": "headUnit",
+      "brand": "JVC",
+      "model": "KW-M590BT",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_93722_JVC_KW-M590BT.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 2.5 V, front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 2.5,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "jvc-kw-m650bt",
+      "category": "headUnit",
+      "brand": "JVC",
+      "model": "KW-M650BT",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_52890_JVC_KW-M650BT.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 4 V. Preout count not stated.",
+      "source": {
+        "preoutVoltageV": 4.0
+      }
+    },
+    {
+      "id": "jvc-kw-m875bw",
+      "category": "headUnit",
+      "brand": "JVC",
+      "model": "KW-M875BW",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_84658_JVC_KW-M875BW.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 5 V, front, rear & sub; 13-band EQ and digital time alignment (also stated on JVC USA page per search snippet).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "jvc-kw-m56bt",
+      "category": "headUnit",
+      "brand": "JVC",
+      "model": "KW-M56BT",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_56126_JVC_KW-M56BT.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 2 V, front, rear & sub; 13-band EQ.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "jvc-kd-xd28bt",
+      "category": "headUnit",
+      "brand": "JVC",
+      "model": "KD-XD28BT",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_89526_JVC_KD-XD28BT.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 2.5 V, front, rear & sub; 13-band EQ.",
+      "source": {
+        "preoutVoltageV": 2.5,
+        "preoutChannels": 6,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "jvc-kd-x380bts",
+      "category": "headUnit",
+      "brand": "JVC",
+      "model": "KD-X380BTS",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_89527_JVC_KD-X380BTS.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 4 V, front, rear & sub; 13-band EQ.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "jvc-kd-x480bhs",
+      "category": "headUnit",
+      "brand": "JVC",
+      "model": "KD-X480BHS",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_89528_JVC_KD-X480BHS.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 4 V, front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "jvc-kw-v660bt",
+      "category": "headUnit",
+      "brand": "JVC",
+      "model": "KW-V660BT",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_78650_JVC_KW-V660BT.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp outputs front, rear & sub; preout voltage not stated.",
+      "source": {
+        "preoutChannels": 6
+      }
+    }
+  ]
+}

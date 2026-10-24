@@ -1,0 +1,607 @@
+{
+  "products": [
+    {
+      "id": "kenwood-dmx8710s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX8710S",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx8710s-6-92-bluetooth-digital-multimedia-receiver",
+      "verified": false,
+      "notes": "Retailer spec table: preout typ. 3 V/10k ohms, impedance <= 600 ohms, 3 preouts, delay 0-20.01 ft. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 3.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "timeAlignment": true,
+        "crossovers": "2-way (HPF/LPF) or 3-way (HPF/BPF/LPF)",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-kmr-xm500",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "KMR-XM500",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-kmr-xm500-excelon-marine-motorsport-digital-media-receiver-with-ip66-waterproof-rating-corrosion-resistance-and-bluetooth",
+      "verified": false,
+      "notes": "Marine/motorsport receiver. Retailer spec table: preout 5000 mV/10k ohms, impedance < 500 ohms, 3 pre-outs. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 500,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-kmr-m332bt",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "KMR-M332BT",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-kmr-m332bt-marine-digital-media-receiver-with-bluetooth",
+      "verified": false,
+      "notes": "Marine receiver. Retailer spec table: preout 4000 mV/10k ohms, impedance <= 600 ohms, USB S/N 98 dB, 3 preouts, digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-kmr-m300bt",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "KMR-M300BT",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-kmr-m300bt-marine-motorsport-digital-media-receiver-with-ip66-waterproof-rating-corrosion-resistance-and-bluetooth",
+      "verified": false,
+      "notes": "Marine/motorsport receiver. Retailer spec table: preout 2000 mV/10k ohms, impedance < 500 ohms, 3 pre-outs. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 500,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-kmr-d382bt",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "KMR-D382BT",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-kmr-d382bt-marine-cd-receiver-with-bluetooth-conformal-coating",
+      "verified": false,
+      "notes": "Marine CD receiver. Retailer spec table: preout 4000 mV/10k ohms, impedance <= 600 ohms, USB S/N 98 dB (CD 94 dB), 3 preouts. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-kmm-x705",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "KMM-X705",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-kmm-x705-excelon-digital-media-receiver-with-bluetooth-hd-radio-and-amazon-alexa",
+      "verified": false,
+      "notes": "Retailer spec table (Kenwood format): preout 5 V/10k ohms, impedance <= 600 ohms, USB S/N 98 dB; 3 preouts; 13-band EQ and digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-kdc-x705",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "KDC-X705",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-kdc-x705-cd-receiver-with-bluetooth-hd-radio",
+      "verified": false,
+      "notes": "Retailer spec table (Kenwood format): preout 5 V/10k ohms, impedance <= 600 ohms, USB S/N 98 dB, CD S/N 97 dB; 3 preouts; 13-band EQ and digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-kdc-x305",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "KDC-X305",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-kdc-x305-excelon-cd-bluetooth-receiver-with-amazon-alexa",
+      "verified": false,
+      "notes": "Retailer spec table (Kenwood format): preout 5 V/10k ohms, impedance <= 600 ohms, USB S/N 98 dB, CD S/N 94 dB; 3 preouts; 13-band EQ and digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-kdc-bt782hd",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "KDC-BT782HD",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-kdc-bt782hd-cd-receiver-with-bluetooth-hd-radio-amazon-alexa-built-in",
+      "verified": false,
+      "notes": "Retailer spec table (Kenwood format): preout 4 V/10k ohms, impedance <= 600 ohms, USB S/N 98 dB, CD S/N 97 dB; 3 preouts; 13-band EQ and digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dpx505bt",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DPX505BT",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dpx505bt-cd-receiver-with-bluetooth-and-amazon-alexa-built-in",
+      "verified": false,
+      "notes": "Retailer spec table (Kenwood format): preout 2.5 V/10k ohms, impedance <= 600 ohms, USB S/N 98 dB, CD S/N 97 dB; 3 preouts; 13-band EQ and digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 2.5,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dpx395mbt",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DPX395MBT",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dpx395mbt-excelon-digital-media-receiver-with-bluetooth-and-amazon-alexa-built-in",
+      "verified": false,
+      "notes": "Retailer spec table (Kenwood format): preout 5 V/10k ohms, impedance <= 600 ohms, USB S/N 98 dB; 3 preouts; 13-band EQ and digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dpx305mbt",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DPX305MBT",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dpx305mbt-digital-media-receiver-with-bluetooth-amazon-alexa-built-in",
+      "verified": false,
+      "notes": "Retailer spec table (Kenwood format): preout 2.5 V/10k ohms, impedance <= 600 ohms, USB S/N 98 dB; 3 preouts; 13-band EQ and digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 2.5,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-kmm-bt732hd",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "KMM-BT732HD",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-kmm-bt732hd-digital-media-receiver-with-bluetooth-hd-radio-amazon-alexa-built-in",
+      "verified": false,
+      "notes": "Retailer spec table: preout 4000 mV/10k ohms, impedance <= 600 ohms, USB S/N 98 dB; 13-band EQ and digital time alignment. Preout count not stated. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "outputImpedanceOhms": 600,
+        "snrDb": 98,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx9708s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX9708S",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx9708s-digital-multimedia-receiver-with-bluetooth-apple-carplay-android-auto",
+      "verified": false,
+      "notes": "Retailer spec table: preout 4 V/10k ohms, impedance <= 300 ohms, USB S/N 98.5 dB, delay 0-20.01 ft per channel. Front/rear/sub preouts per OnlineCarStereo. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 300,
+        "snrDb": 98.5,
+        "timeAlignment": true,
+        "crossovers": "HPF/LPF (-6 to -24 dB/oct)",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx958xr",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX958XR",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx958xr-excelon-6-8-digital-multimedia-bluetooth-touchscreen-receiver-with-android-auto-apple-car-play-hd-radio",
+      "verified": false,
+      "notes": "Retailer spec table: preout 5 V/10k ohms, impedance <= 300 ohms, 3 preouts, delay 0-20.01 ft per channel. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 300,
+        "timeAlignment": true,
+        "crossovers": "2-way (HPF/LPF) or 3-way (HPF/BPF/LPF)",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx908s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX908S",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx908s-excelon-6-95-digital-multimedia-bluetooth-touchscreen-receiver-with-android-auto-apple-car-play-hd-radio",
+      "verified": false,
+      "notes": "Retailer spec table: preout 5 V/10k ohms, impedance <= 300 ohms, USB S/N 98.5 dB, delay 0-20.01 ft per channel. Preout count not stated. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "outputImpedanceOhms": 300,
+        "snrDb": 98.5,
+        "timeAlignment": true,
+        "crossovers": "2-way (HPF/LPF) or 3-way (HPF/BPF/LPF)",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx809s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX809S",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx809s-digital-multimedia-touchscreen-receiver-with-bluetooth-hd-radio",
+      "verified": false,
+      "notes": "Retailer spec table: preout 5 V/10k ohms, impedance <= 600 ohms, 3 preouts, 13-band EQ and digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "timeAlignment": true,
+        "crossovers": "2-way (HPF/LPF) or 3-way (tweeter HPF / mid BPF / sub LPF)",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx709s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX709S",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx709s-excelon-6-8-digital-multimedia-bluetooth-touchscreen-receiver-with-apple-carplay-andriod-auto-and-hd-radio",
+      "verified": false,
+      "notes": "Retailer spec table: preout 5 V/10k ohms, impedance <= 600 ohms, 3 preouts, 13-band EQ and digital time alignment. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 600,
+        "timeAlignment": true,
+        "crossovers": "2-way (HPF/LPF) or 3-way (tweeter HPF / mid BPF / sub LPF)",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx5710s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX5710S",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx5710s-6-8-rdquo-digital-multimedia-receiver",
+      "verified": false,
+      "notes": "CONFLICT: retailer spec table says preout 3.7 V/10k ohms, impedance 100 ohms, but the same listing's feature text says \"2 Preouts 2.5V & Subwoofer Out\". Voltage/impedance left out until confirmed from Kenwood.",
+      "source": {
+        "timeAlignment": true,
+        "crossovers": "HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx50s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX50S",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx50s-6-8-rdquo-digital-multimedia-receiver",
+      "verified": false,
+      "notes": "Retailer spec table: preout 3.7 V/10k ohms, impedance 100 ohms; \"2 Preouts 3.7V & Subwoofer Out\" (front, rear + sub out).",
+      "source": {
+        "preoutVoltageV": 3.7,
+        "outputImpedanceOhms": 100,
+        "timeAlignment": true,
+        "crossovers": "HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx4710s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX4710S",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx4710s-6-8-digital-multimedia-receiver",
+      "verified": false,
+      "notes": "Retailer spec table: preout 2.5 V/10k ohms, impedance 1.4k ohms; front, rear, sub preouts.",
+      "source": {
+        "preoutVoltageV": 2.5,
+        "preoutChannels": 6,
+        "outputImpedanceOhms": 1400,
+        "timeAlignment": true,
+        "crossovers": "HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx1058xr",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX1058XR",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx1058xr-excelon-reference-10-1-inch-touchscreen-digital-multimedia-receiver",
+      "verified": false,
+      "notes": "Retailer (re-written) spec table: 3 sets of preamp outputs at 5V/10k ohms, S/N 98.5 dB, 13-band graphic EQ plus parametric EQ, 3-way crossover, delay 0-20.01 ft, optical digital output.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "snrDb": 98.5,
+        "timeAlignment": true,
+        "crossovers": "3-way support",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx1038s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX1038S",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dmx1038s-10-1-inch-floating-panel-digital-multimedia-receiver",
+      "verified": false,
+      "notes": "Retailer (re-written) spec table: 3 sets of preamp outputs at 4V/10k ohms, S/N 98.5 dB, 13-band graphic EQ plus parametric EQ, 3-way crossover, delay 0-20.01 ft.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "snrDb": 98.5,
+        "timeAlignment": true,
+        "crossovers": "3-way support",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-ddx9907xr",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DDX9907XR",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-ddx9907xr-6-8-cd-dvd-receiver-w-apple-carplay-and-android-auto",
+      "verified": false,
+      "notes": "Retailer spec table: preout 5 V/10k ohms, impedance <= 300 ohms; S/N 90.5 dB listed for DVD-Video only. Preout impedance listed as an upper bound (<= value).",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "outputImpedanceOhms": 300
+      }
+    },
+    {
+      "id": "kenwood-ddx5707s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DDX5707S",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-ddx5707s-double-din-dvd-car-stereo-with-apple-carplay-and-android-auto-6-8-inch-touchscreen-bluetooth-backup-camera-input-subwoofer-out-usb-port-a-v-input-fm-am-car-radio",
+      "verified": false,
+      "notes": "Retailer spec table: preout 2.0 V/10k ohms, impedance 1.4k ohms; \"2 Preouts 2V & Subwoofer Out\"; delay 0-6.1 m per channel.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "outputImpedanceOhms": 1400,
+        "timeAlignment": true,
+        "crossovers": "2-way HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dax800xr",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DAX800XR",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.worldwidestereo.com/products/kenwood-dax800xr-excelon-8-inch-oem-replacement-touchscreen-digital-multimedia-receiver",
+      "verified": false,
+      "notes": "Retailer spec table: 3 preouts (front, rear, sub) at 5V; 13-band graphic EQ plus 14-band parametric EQ; time alignment; 3-way crossover; optical output.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "3-way",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dmx47s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX47S",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_55977_Kenwood_DMX47S.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 2 V, preamp outputs front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "kenwood-dmx4707s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX4707S",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_55976_Kenwood_DMX4707S.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 2 V, preamp outputs front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "kenwood-dmx9707s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX9707S",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_55973_Kenwood_DMX9707S.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 4 V, preamp outputs front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "kenwood-dmx1037s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX1037S",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_76752_Kenwood_DMX1037S.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 4 V, preamp outputs front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "kenwood-dmx907s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX907S",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_55969_Kenwood_Excelon_DMX907S.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 5 V, preamp outputs front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "kenwood-dmx957xr",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX957XR",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_55967_Kenwood_DMX957XR.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 5 V, preamp outputs front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "kenwood-dmx1057xr",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DMX1057XR",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_76750_Kenwood_Excelon_DMX1057XR.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 5 V, preamp outputs front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 5.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dnr476s",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DNR476S",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_53677_Kenwood_DNR476S.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 4 V, preamp outputs front, rear & sub.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "kenwood-dnx997xr",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DNX997XR",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_55826_Kenwood_DNX997XR.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 5 V. Preout count not stated.",
+      "source": {
+        "preoutVoltageV": 5.0
+      }
+    },
+    {
+      "id": "kenwood-ddx9906xr",
+      "category": "headUnit",
+      "brand": "Kenwood",
+      "model": "DDX9906XR",
+      "series": "eXcelon",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_53770_Kenwood_Excelon_DDX9906XR.aspx",
+      "verified": false,
+      "notes": "Retailer listing: preamp voltage 5 V. Preout count not stated.",
+      "source": {
+        "preoutVoltageV": 5.0
+      }
+    }
+  ]
+}

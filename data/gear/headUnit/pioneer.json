@@ -1,0 +1,1006 @@
+{
+  "products": [
+    {
+      "id": "pioneer-dmh-w3000nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-W3000NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-w3000nex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN L-Shaped Chassis.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-1800nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-1800NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-1800nex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-mvh-s322bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "MVH-S322BT",
+      "sourceUrl": "https://usa.pioneer/products/mvh-s322bt",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 4,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-deh-s4220bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DEH-S4220BT",
+      "sourceUrl": "https://usa.pioneer/products/deh-s4220bt",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 4,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-w3050nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-W3050NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-w3050nex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN L-Shaped Chassis.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-mvh-s622bs",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "MVH-S622BS",
+      "sourceUrl": "https://usa.pioneer/products/mvh-s622bs",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-w2770nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-W2770NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-w2770nex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-241ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-241EX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-241ex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 5,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-mvh-s230bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "MVH-S230BT",
+      "sourceUrl": "https://usa.pioneer/products/mvh-s230bt",
+      "verified": true,
+      "notes": "Chassis: -. Preout channel count not published on product page.",
+      "source": {
+        "preoutVoltageV": 2.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-342ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-342EX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-342ex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 5,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-wt6000nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-WT6000NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-wt6000nex",
+      "verified": true,
+      "notes": "Time alignment: Manual. Chassis: 1-DIN, Floating.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-sph-10bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "SPH-10BT",
+      "sourceUrl": "https://usa.pioneer/products/sph-10bt",
+      "verified": true,
+      "notes": "Time alignment: Manual, With Pioneer Smart Sync. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 4,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-mvh-s522bs",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "MVH-S522BS",
+      "sourceUrl": "https://usa.pioneer/products/mvh-s522bs",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-wt5000nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-WT5000NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-wt5000nex",
+      "verified": true,
+      "notes": "Time alignment: Manual. Chassis: 1-DIN, Floating.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-deh-s7200bhs",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DEH-S7200BHS",
+      "sourceUrl": "https://usa.pioneer/products/deh-s7200bhs",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-mvh-s110bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "MVH-S110BT",
+      "sourceUrl": "https://usa.pioneer/products/mvh-s110bt",
+      "verified": true,
+      "notes": "Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 1.0,
+        "preoutChannels": 2
+      }
+    },
+    {
+      "id": "pioneer-dmh-w4660nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-W4660NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-w4660nex",
+      "verified": true,
+      "notes": "Time alignment: Manual. Chassis: 2-DIN, Short Chassis.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-fh-s722bs",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "FH-S722BS",
+      "sourceUrl": "https://usa.pioneer/products/fh-s722bs",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-2000nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-2000NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-2000nex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN L-Shaped Chassis.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avh-521ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-521EX",
+      "sourceUrl": "https://usa.pioneer/products/avh-521ex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-deh-s1200ub",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DEH-S1200UB",
+      "sourceUrl": "https://usa.pioneer/products/deh-s1200ub",
+      "verified": true,
+      "notes": "Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 2,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 5,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-deh-s6220bs",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DEH-S6220BS",
+      "sourceUrl": "https://usa.pioneer/products/deh-s6220bs",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-mvh-s720bhs",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "MVH-S720BHS",
+      "sourceUrl": "https://usa.pioneer/products/mvh-s720bhs",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avh-3500nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-3500NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/avh-3500nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-2660nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-2660NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-2660nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-130bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-130BT",
+      "sourceUrl": "https://usa.pioneer/products/dmh-130bt",
+      "verified": true,
+      "notes": "Chassis: -.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 5,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-t450ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-T450EX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-t450ex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 5,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-mvh-ms512bs",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "MVH-MS512BS",
+      "sourceUrl": "https://usa.pioneer/products/mvh-ms512bs",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-1600nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-1600NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-1600nex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "pioneer-fh-s520bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "FH-S520BT",
+      "sourceUrl": "https://usa.pioneer/products/fh-s520bt",
+      "verified": true,
+      "notes": "Time alignment: Manual. EQ: 13 Band, 31 Band with Pioneer Smart Sync app. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 4,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-1500nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-1500NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-1500nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avh-241ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-241EX",
+      "sourceUrl": "https://usa.pioneer/products/avh-241ex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 5,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avh-2550nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-2550NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/avh-2550nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-c5500nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-C5500NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-c5500nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: Modular, Non-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avic-w8600nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVIC-W8600NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/avic-w8600nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-wc6600nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-WC6600NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-wc6600nex",
+      "verified": true,
+      "notes": "Time alignment: Manual. Chassis: Modular, Non-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-sxt-c10ps",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "SXT-C10PS",
+      "sourceUrl": "https://usa.pioneer/products/sxt-c10ps",
+      "verified": true,
+      "notes": "Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "pioneer-dmh-wt8000nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-WT8000NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-wt8000nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Chassis: 1-DIN, Floating.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avh-w4500nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-W4500NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/avh-w4500nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-wt8600nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-WT8600NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-wt8600nex",
+      "verified": true,
+      "notes": "Time alignment: Manual. Chassis: 1-DIN, Floating.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-c2550nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-C2550NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-c2550nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: Modular, Non-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-wc5700nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-WC5700NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-wc5700nex",
+      "verified": true,
+      "notes": "Time alignment: Manual. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-470ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-470EX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-470ex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN, Short Chassis.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 3
+      }
+    },
+    {
+      "id": "pioneer-dmh-s110ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-S110EX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-s110ex",
+      "verified": true,
+      "notes": "Chassis: 2-DIN, Short Chassis.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 3
+      }
+    },
+    {
+      "id": "pioneer-mvh-s14bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "MVH-S14BT",
+      "sourceUrl": "https://usa.pioneer/products/mvh-s14bt",
+      "verified": true,
+      "notes": "Chassis: 1-DIN. Preout channel count not published on product page.",
+      "source": {
+        "preoutVoltageV": 1.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-260bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-260BT",
+      "sourceUrl": "https://usa.pioneer/products/dmh-260bt",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6
+      }
+    },
+    {
+      "id": "pioneer-mvh-s23bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "MVH-S23BT",
+      "sourceUrl": "https://usa.pioneer/products/mvh-s23bt",
+      "verified": true,
+      "notes": "Chassis: -. Preout channel count not published on product page.",
+      "source": {
+        "preoutVoltageV": 2.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-160bt-ii",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-160BT-II",
+      "sourceUrl": "https://usa.pioneer/products/dmh-160bt-ii",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 6,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avh-1500nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-1500NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/avh-1500nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avh-1550nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-1550NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/avh-1550nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avh-2500nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-2500NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/avh-2500nex",
+      "verified": true,
+      "notes": "Time alignment: Auto, Manual. Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 4.0,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF; Network (3-way) mode: HPF/Band Pass/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-avh-120bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-120BT",
+      "sourceUrl": "https://usa.pioneer/products/avh-120bt",
+      "verified": true,
+      "notes": "Auto EQ / auto TA with optional CD-MC20 mic. Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 4,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 7,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-deh-s31bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DEH-S31BT",
+      "sourceUrl": "https://usa.pioneer/products/deh-s31bt",
+      "verified": true,
+      "notes": "Time alignment: Manual. Chassis: 1-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 4,
+        "timeAlignment": true,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 13,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-100bt",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-100BT",
+      "sourceUrl": "https://usa.pioneer/products/dmh-100bt",
+      "verified": true,
+      "notes": "Chassis: 2-DIN.",
+      "source": {
+        "preoutVoltageV": 2.0,
+        "preoutChannels": 4,
+        "crossovers": "Standard mode: HPF/LPF",
+        "eqBands": 7,
+        "eqType": "graphic"
+      }
+    },
+    {
+      "id": "pioneer-dmh-341ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-341EX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-341ex-b",
+      "verified": true,
+      "notes": "Chassis: 2-DIN. Discontinued model; specs from Pioneer USA reconditioned-unit listing (only preout voltage published there).",
+      "source": {
+        "preoutVoltageV": 2.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-wt3800nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-WT3800NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-wt3800nex-b",
+      "verified": true,
+      "notes": "Chassis: 1-DIN, Floating. Discontinued model; specs from Pioneer USA reconditioned-unit listing (only preout voltage published there).",
+      "source": {
+        "preoutVoltageV": 2.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-1770nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-1770NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-1770nex-b",
+      "verified": true,
+      "notes": "Chassis: 2-DIN. Discontinued model; specs from Pioneer USA reconditioned-unit listing (only preout voltage published there).",
+      "source": {
+        "preoutVoltageV": 2.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-wt86nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-WT86NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-wt86nex-b",
+      "verified": true,
+      "notes": "Chassis: 1-DIN, Floating. Discontinued model; specs from Pioneer USA reconditioned-unit listing (only preout voltage published there).",
+      "source": {
+        "preoutVoltageV": 4.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-w4600nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-W4600NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-w4600nex-b",
+      "verified": true,
+      "notes": "Chassis: 2-DIN, Short Chassis. Discontinued model; specs from Pioneer USA reconditioned-unit listing (only preout voltage published there).",
+      "source": {
+        "preoutVoltageV": 4.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-wt7600nex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-WT7600NEX",
+      "series": "NEX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-wt7600nex-b",
+      "verified": true,
+      "notes": "Chassis: 1-DIN, Floating. Discontinued model; specs from Pioneer USA reconditioned-unit listing (only preout voltage published there).",
+      "source": {
+        "preoutVoltageV": 4.0
+      }
+    },
+    {
+      "id": "pioneer-avh-240ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "AVH-240EX",
+      "sourceUrl": "https://usa.pioneer/products/avh-240ex-b",
+      "verified": true,
+      "notes": "Chassis: 2-DIN. Discontinued model; specs from Pioneer USA reconditioned-unit listing (only preout voltage published there).",
+      "source": {
+        "preoutVoltageV": 2.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-340ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-340EX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-340ex-b",
+      "verified": true,
+      "notes": "Chassis: 2-DIN. Discontinued model; specs from Pioneer USA reconditioned-unit listing (only preout voltage published there).",
+      "source": {
+        "preoutVoltageV": 2.0
+      }
+    },
+    {
+      "id": "pioneer-dmh-240ex",
+      "category": "headUnit",
+      "brand": "Pioneer",
+      "model": "DMH-240EX",
+      "sourceUrl": "https://usa.pioneer/products/dmh-240ex-b",
+      "verified": true,
+      "notes": "Chassis: 2-DIN. Discontinued model; specs from Pioneer USA reconditioned-unit listing (only preout voltage published there).",
+      "source": {
+        "preoutVoltageV": 2.0
+      }
+    }
+  ]
+}
