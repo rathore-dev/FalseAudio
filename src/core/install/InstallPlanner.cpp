@@ -1010,6 +1010,24 @@ void applyToConfig (const Plan& plan, const Installation& inst, const ProductLoo
         if (s.peqBandsPerChannel > 0) config.caps.peqBandsPerChannel = s.peqBandsPerChannel;
         if (s.maxDelayMs > 0)         config.caps.maxDelayMs = s.maxDelayMs;
         if (s.sampleRateHz > 0)       config.caps.sampleRate = s.sampleRateHz;
+
+        // Graphic-EQ processors: the data uses several spellings ("graphic", "graphic 1/3-oct (auto)",
+        // "31 fixed centers, selectable Q"), so match loosely.
+        const bool graphicEq = s.eqType.startsWithIgnoreCase ("graphic") || s.eqType.containsIgnoreCase ("fixed cent");
+        if (graphicEq && s.eqBands > 0)
+        {
+            const bool headUnit = dsp->category == gear::Category::headUnit;
+            config.caps.eqType = DspCapabilities::EqType::graphic;
+            config.caps.graphicBandsHz = DspCapabilities::standardGraphicBands (s.eqBands);
+            config.caps.graphicQ = 0.0;                 // proportional-Q model (no Q data in the gear DB)
+            config.caps.graphicPerChannel = ! headUnit; // head units: one GEQ per side
+            if (headUnit)
+                config.caps.graphicGainStepDb = 1.0;    // head-unit GEQs step in 1 dB
+        }
+        else if (s.eqType.equalsIgnoreCase ("parametric"))
+        {
+            config.caps.eqType = DspCapabilities::EqType::parametric;
+        }
     }
 
     double minMidbassHp = 0, minMidrangeHp = 0, minTweeterHp = 0, minTweeterFactor = 0;

@@ -1,0 +1,1134 @@
+{
+  "products": [
+    {
+      "id": "audiopipe-txx-bdd4-12",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDD4-12",
+      "series": "TXX-BDD",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdd4-12",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 86 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerRmsW": 1200,
+        "powerPeakW": 2400,
+        "freqLowHz": 28,
+        "freqHighHz": 1200
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc4-6",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC4-6",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdc4-6-subwoofer-quad-stack",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 84 dB (reference not stated). Size taken from model number.",
+      "driver": {
+        "sizeInches": 6,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "freqLowHz": 50,
+        "freqHighHz": 1500,
+        "mountingDepthMm": 120
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-i-12",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-I-12",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdc-i-12",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 600
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-ii-15",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-II-15",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/15-double-stack-composite-cone-subwoofer-txx-bdc-ii-15",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 90 dB (reference not stated). Size taken from model number.",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 900,
+        "powerPeakW": 1800,
+        "freqLowHz": 18,
+        "freqHighHz": 800,
+        "mountingDepthMm": 209
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iii-12d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-III-12D2",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdc-iii-12d2",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 90 dB (reference not stated). Size taken from model number.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 900,
+        "powerPeakW": 1800,
+        "freqLowHz": 20,
+        "freqHighHz": 900,
+        "mountingDepthMm": 193
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-10-s4",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-10-S4",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdc-iv-10-s4",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 85 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerRmsW": 900,
+        "powerPeakW": 1800,
+        "freqLowHz": 30,
+        "freqHighHz": 1300,
+        "mountingDepthMm": 175
+      }
+    },
+    {
+      "id": "audiopipe-ts-px-1250-s4",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-PX-1250-S4",
+      "series": "TS-PX",
+      "sourceUrl": "https://audiopipe.com/products/ts-px-1250-s4",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 87 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 800,
+        "freqLowHz": 30,
+        "freqHighHz": 1400,
+        "mountingDepthMm": 154
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-18d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-18D2",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdc-iv-18d2",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 90 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 18,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 1700,
+        "powerPeakW": 3400,
+        "freqLowHz": 15,
+        "freqHighHz": 800,
+        "mountingDepthMm": 245
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-10d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-10D2",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdc-iv-10d2",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 85 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 900,
+        "powerPeakW": 1800,
+        "freqLowHz": 30,
+        "freqHighHz": 1300,
+        "mountingDepthMm": 175
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-8-s4",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-8-S4",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdc-iv-8-s4",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 85 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerRmsW": 500,
+        "powerPeakW": 1000,
+        "freqLowHz": 40,
+        "freqHighHz": 1500,
+        "mountingDepthMm": 148
+      }
+    },
+    {
+      "id": "audiopipe-txx-fb1000-s4",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-FB1000-S4",
+      "series": "TXX-FB",
+      "sourceUrl": "https://audiopipe.com/products/12-shallow-mount-subwoofer-single-4-ohms-woofer-txx-fb1000-s4",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil (from model suffix). Manufacturer product page lists no Thiele-Small parameters. Sensitivity 88 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerRmsW": 300,
+        "powerPeakW": 600,
+        "freqLowHz": 40,
+        "freqHighHz": 1600,
+        "mountingDepthMm": 94
+      }
+    },
+    {
+      "id": "audiopipe-txx-fb1200-s4",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-FB1200-S4",
+      "series": "TXX-FB",
+      "sourceUrl": "https://audiopipe.com/products/12-shallow-mount-subwoofer-single-4-ohms-woofer-txx-fb1200-s4",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil (from model suffix). Manufacturer product page lists no Thiele-Small parameters. Sensitivity 89 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerRmsW": 400,
+        "powerPeakW": 800,
+        "freqLowHz": 35,
+        "freqHighHz": 1500,
+        "mountingDepthMm": 100
+      }
+    },
+    {
+      "id": "audiopipe-ts-pp3-12-d4",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-PP3-12-D4",
+      "series": "TS-PP",
+      "sourceUrl": "https://audiopipe.com/products/ts-pp3-12-d4-subwoofer",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 88 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerPeakW": 1600,
+        "freqLowHz": 25,
+        "freqHighHz": 1000
+      }
+    },
+    {
+      "id": "audiopipe-ts-pp2-10-d4",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-PP2-10-D4",
+      "series": "TS-PP",
+      "sourceUrl": "https://audiopipe.com/products/ts-pp2-10-d4-subwoofer",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils (from model suffix). Manufacturer product page lists no Thiele-Small parameters. Sensitivity 85 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerPeakW": 800,
+        "freqLowHz": 35,
+        "freqHighHz": 2000
+      }
+    },
+    {
+      "id": "audiopipe-ts-pp2-12",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-PP2-12",
+      "series": "TS-PP",
+      "sourceUrl": "https://audiopipe.com/products/ts-pp2-12-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 86 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 1000,
+        "freqLowHz": 29,
+        "freqHighHz": 1500
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdx-15",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDX-15",
+      "series": "TXX-BDX",
+      "sourceUrl": "https://audiopipe.com/products/15-competition-subwoofer-txx-bdx-15",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 87 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 2000,
+        "powerPeakW": 4000,
+        "freqLowHz": 28,
+        "freqHighHz": 1100,
+        "mountingDepthMm": 242
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdx-15d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDX-15D2",
+      "series": "TXX-BDX",
+      "sourceUrl": "https://audiopipe.com/products/15-competition-subwoofer-txx-bdx-15d2",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 87 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 2000,
+        "powerPeakW": 4000,
+        "freqLowHz": 28,
+        "freqHighHz": 1100,
+        "mountingDepthMm": 242
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iii-10",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-III-10",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/10-triple-stack-composite-cone-subwoofer-txx-bdc-iii-10",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 700
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iii-15",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-III-15",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/15-triple-stack-composite-cone-subwoofer-txx-bdc-iii-15",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1200
+      }
+    },
+    {
+      "id": "audiopipe-ts-fa1000",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-FA1000",
+      "series": "TS-FA",
+      "sourceUrl": "https://audiopipe.com/products/10-shallow-mount-subwoofer-ts-fa1000",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerPeakW": 400,
+        "freqLowHz": 50,
+        "freqHighHz": 2000,
+        "mountingDepthMm": 71
+      }
+    },
+    {
+      "id": "audiopipe-ts-pp2-15",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-PP2-15",
+      "series": "TS-PP",
+      "sourceUrl": "https://audiopipe.com/products/ts-pp2-15-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 88 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 1500,
+        "freqLowHz": 25,
+        "freqHighHz": 1000
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-18",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-18",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/18-quad-stack-composite-cone-subwoofer-txx-bdc-iv-18",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 90 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 18,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1700,
+        "powerPeakW": 3400,
+        "freqLowHz": 15,
+        "freqHighHz": 800,
+        "mountingDepthMm": 239
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-v-18",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-V-18",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/18-quinta-stack-composite-cone-subwoofer-txx-bdc-v-18",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 18,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1900
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-6",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-6",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/6-quad-stack-composite-cone-subwoofer-txx-bdc-iv-6",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 6,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 250
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdx-8d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDX-8D2",
+      "series": "TXX-BDX",
+      "sourceUrl": "https://audiopipe.com/products/8-competition-subwoofer-txx-bdx-8d2",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils (from model suffix). Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 500
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdx-8",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDX-8",
+      "series": "TXX-BDX",
+      "sourceUrl": "https://audiopipe.com/products/8-composite-cone-subwoofer-txx-bdx-8",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 500
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-ii-12",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-II-12",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdc-ii-12",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 88 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 750
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iii-12",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-III-12",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/12-triple-stack-composite-cone-subwoofer-txx-bdc-iii-12",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 900
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-12d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-12D2",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/10-quad-stack-composite-cone-subwoofer-txx-bdc-iv-10",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 88 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 1100,
+        "powerPeakW": 2200,
+        "freqLowHz": 20,
+        "freqHighHz": 900,
+        "mountingDepthMm": 200
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-10",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-10",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/10-powerful-1800-watt-quad-stack-composite-cone-subwoofer-txx-bdc-iv-10",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 85 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 900,
+        "powerPeakW": 1800,
+        "freqLowHz": 30,
+        "freqHighHz": 1200,
+        "mountingDepthMm": 175
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-ii-10",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-II-10",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/8-quad-stack-composite-cone-subwoofer-txx-bdc-ii-10",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 86 dB (reference not stated). Size taken from model number.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-v-12d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-V-12D2",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/12-quinta-stack-composite-cone-subwoofer-txx-bdc-v-12d2",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-15d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-15D2",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/15-quad-stack-composite-cone-subwoofertxx-bdc-iv-15d2",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 90 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 1400,
+        "powerPeakW": 2800,
+        "freqLowHz": 23,
+        "freqHighHz": 1000,
+        "mountingDepthMm": 225
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-15",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-15",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/15-quad-stack-composite-cone-subwoofer-txx-bdc-iv-15",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 87 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1400,
+        "powerPeakW": 2800,
+        "freqLowHz": 25,
+        "freqHighHz": 1000,
+        "mountingDepthMm": 225
+      }
+    },
+    {
+      "id": "audiopipe-txx-fb1200",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-FB1200",
+      "series": "TXX-FB",
+      "sourceUrl": "https://audiopipe.com/products/12-shallow-mount-subwoofer-txx-fb1200",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 89 dB (reference not stated). Peak power on page garbled; omitted.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "freqLowHz": 35,
+        "freqHighHz": 1500,
+        "mountingDepthMm": 100
+      }
+    },
+    {
+      "id": "audiopipe-txx-fb1000",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-FB1000",
+      "series": "TXX-FB",
+      "sourceUrl": "https://audiopipe.com/products/10-shallow-mount-subwoofer-txx-fb1000",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 88 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerPeakW": 600,
+        "freqLowHz": 40,
+        "freqHighHz": 1600,
+        "mountingDepthMm": 94
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-v-15d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-V-15D2",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/15-quinta-stack-composite-cone-subwoofer-txx-bdc-v-15d2",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 87 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 1500,
+        "powerPeakW": 3000,
+        "freqLowHz": 20,
+        "freqHighHz": 1000,
+        "mountingDepthMm": 242
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-v-15",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-V-15",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/15-quinta-stack-composite-cone-subwoofer-txx-bdc-v-15",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1500
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdx-12d2",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDX-12D2",
+      "series": "TXX-BDX",
+      "sourceUrl": "https://audiopipe.com/products/12-3000-watt-high-performance-powerful-composite-cone-subwoofer-txx-bdx-12d2",
+      "verified": true,
+      "notes": "Dual 2-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 1500
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdx-12",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDX-12",
+      "series": "TXX-BDX",
+      "sourceUrl": "https://audiopipe.com/products/12-3000-watt-high-performance-powerful-4-ohm-composite-cone-subwoofer-txx-bdx-12",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1500
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-8",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-8",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/8-quad-stack-composite-cone-subwoofer-txx-bdc-iv-8",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 500
+      }
+    },
+    {
+      "id": "audiopipe-ts-fa800",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-FA800",
+      "series": "TS-FA",
+      "sourceUrl": "https://audiopipe.com/products/8-shallow-mount-subwoofer-ts-fa800",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerPeakW": 300,
+        "freqLowHz": 70,
+        "freqHighHz": 2500,
+        "mountingDepthMm": 65
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-v-12",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-V-12",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/12-quinta-stack-composite-cone-subwoofer-txx-bdc-v-12",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1200
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iv-12",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-IV-12",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/12-quad-stack-composite-cone-subwoofer-txx-bdc-iv-12",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1100
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc-iii-8",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC-III-8",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/8-triple-stack-composite-cone-subwoofer-txx-bdc-iii-8",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 250
+      }
+    },
+    {
+      "id": "audiopipe-txx-apd-12rd",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-APD-12RD",
+      "series": "TXX-APD",
+      "sourceUrl": "https://audiopipe.com/products/txx-apd-12rd",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 96 dB (reference not stated). Peak power on page garbled; omitted.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "freqLowHz": 25,
+        "freqHighHz": 800,
+        "mountingDepthMm": 178
+      }
+    },
+    {
+      "id": "audiopipe-txx-apd-12bl",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-APD-12BL",
+      "series": "TXX-APD",
+      "sourceUrl": "https://audiopipe.com/products/12-eye-candy-subwoofer",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 96 dB (reference not stated). Peak power on page garbled; omitted.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "freqLowHz": 25,
+        "freqHighHz": 800,
+        "mountingDepthMm": 178
+      }
+    },
+    {
+      "id": "audiopipe-ts-px-1550",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-PX-1550",
+      "series": "TS-PX",
+      "sourceUrl": "https://audiopipe.com/products/ts-px-1550-edge-extension-technology-pp-cone-woofer",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "audiopipe-ts-px-1050",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-PX-1050",
+      "series": "TS-PX",
+      "sourceUrl": "https://audiopipe.com/products/ts-px-1050-edge-extension-technology-pp-cone-woofer",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "audiopipe-ts-pp2-12-d4",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-PP2-12-D4",
+      "series": "TS-PP",
+      "sourceUrl": "https://audiopipe.com/products/ts-pp2-12-d4-subwoofer",
+      "verified": true,
+      "notes": "Dual 4-ohm voice coils. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 86 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerPeakW": 1000,
+        "freqLowHz": 29,
+        "freqHighHz": 1500
+      }
+    },
+    {
+      "id": "audiopipe-ts-cvr8",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-CVR8",
+      "series": "TS-CVR",
+      "sourceUrl": "https://audiopipe.com/products/ts-cvr8-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 87 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 350,
+        "freqLowHz": 30,
+        "freqHighHz": 2000
+      }
+    },
+    {
+      "id": "audiopipe-ts-cvr6",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-CVR6",
+      "series": "TS-CVR",
+      "sourceUrl": "https://audiopipe.com/products/ts-cvr6-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 86 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 6,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 150,
+        "freqLowHz": 50,
+        "freqHighHz": 2500
+      }
+    },
+    {
+      "id": "audiopipe-ts-cvr15",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-CVR15",
+      "series": "TS-CVR",
+      "sourceUrl": "https://audiopipe.com/products/ts-cvr15-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 91 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 1000,
+        "freqLowHz": 20,
+        "freqHighHz": 1000
+      }
+    },
+    {
+      "id": "audiopipe-ts-cvr12",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-CVR12",
+      "series": "TS-CVR",
+      "sourceUrl": "https://audiopipe.com/products/ts-cvr12-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 89 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 750,
+        "freqLowHz": 25,
+        "freqHighHz": 1200
+      }
+    },
+    {
+      "id": "audiopipe-ts-cvr10",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-CVR10",
+      "series": "TS-CVR",
+      "sourceUrl": "https://audiopipe.com/products/ts-cvr10-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 87 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 600,
+        "freqLowHz": 28,
+        "freqHighHz": 1500
+      }
+    },
+    {
+      "id": "audiopipe-ts-car8",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-CAR8",
+      "series": "TS-CAR",
+      "sourceUrl": "https://audiopipe.com/products/ts-car8-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 85 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 300,
+        "freqLowHz": 30,
+        "freqHighHz": 2000
+      }
+    },
+    {
+      "id": "audiopipe-ts-car6",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-CAR6",
+      "series": "TS-CAR",
+      "sourceUrl": "https://audiopipe.com/products/ts-car6-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 86 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 6,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 150,
+        "freqLowHz": 50,
+        "freqHighHz": 2500
+      }
+    },
+    {
+      "id": "audiopipe-ts-car15",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-CAR15",
+      "series": "TS-CAR",
+      "sourceUrl": "https://audiopipe.com/products/ts-car15-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 91 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 15,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 1000,
+        "freqLowHz": 20,
+        "freqHighHz": 1000
+      }
+    },
+    {
+      "id": "audiopipe-ts-car10",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TS-CAR10",
+      "series": "TS-CAR",
+      "sourceUrl": "https://audiopipe.com/products/ts-car10-subwoofer",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 87 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4,
+        "powerPeakW": 600,
+        "freqLowHz": 28,
+        "freqHighHz": 1500
+      }
+    },
+    {
+      "id": "audiopipe-txx-bdc3-8",
+      "category": "subwoofer",
+      "brand": "Audiopipe",
+      "model": "TXX-BDC3-8",
+      "series": "TXX-BDC",
+      "sourceUrl": "https://audiopipe.com/products/txx-bdc3-8-subwoofer-triple-stack",
+      "verified": true,
+      "notes": "Single 4-ohm voice coil. Manufacturer product page lists no Thiele-Small parameters. Sensitivity 85 dB (reference not stated).",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "coilOhms": 4
+      }
+    }
+  ]
+}
