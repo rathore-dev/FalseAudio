@@ -77,6 +77,28 @@ struct DspCapabilities
     bool   hasBessel        = true;
     bool   hasAllPass       = false;
 
+    /** Graphic-EQ DSPs (fixed centres, fixed or proportional Q, fixed gain step) instead of
+        parametric bands. In graphic mode ChannelSettings::peq holds one peaking FilterSpec per
+        centre (see GraphicEQ), so prediction and exports keep working unchanged. */
+    enum class EqType { parametric, graphic };
+    EqType eqType = EqType::parametric;
+    std::vector<double> graphicBandsHz;   // centres; empty = standardGraphicBands (31)
+    double graphicQ           = 0.0;      // fixed Q, or 0 = proportional-Q model (GraphicEQ::bandQ)
+    double graphicGainStepDb  = 0.5;
+    double graphicMaxBoostDb  = 12.0;
+    double graphicMaxCutDb    = -12.0;
+    bool   graphicPerChannel  = true;     // each output has its own GEQ; false = one GEQ per side
+
+    bool isGraphic() const noexcept { return eqType == EqType::graphic; }
+
+    /** The graphic centres in use (graphicBandsHz, or the 31-band ISO layout when empty). */
+    std::vector<double> graphicCentres() const;
+
+    /** Nominal centres for a band count: 31 = ISO 1/3 oct 20 Hz..20 kHz, 30 = 25 Hz..20 kHz,
+        15 = ISO 2/3 oct 25 Hz..16 kHz, 13 = car head-unit 50 Hz..12.5 kHz, 10 = ISO octaves
+        31.5 Hz..16 kHz, 20/21 = 1/2 oct; other counts are log-spaced 40 Hz..16 kHz. */
+    static std::vector<double> standardGraphicBands (int count);
+
     juce::var toVar() const;
     static DspCapabilities fromVar (const juce::var& v);
 };

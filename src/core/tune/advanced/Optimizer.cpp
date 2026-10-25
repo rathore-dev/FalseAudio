@@ -1,6 +1,7 @@
 #include "Optimizer.h"
 #include "PredictionModel.h"
 #include "../CrossoverPlanner.h"
+#include "../GraphicEQ.h"
 #include <array>
 
 namespace fa::advanced
@@ -352,6 +353,22 @@ private:
         const double st = std::max (1e-3, cfg.caps.gainStepDb);
         return std::round (v / st) * st;
     }
+    double quantGraphic (double v) const
+    {
+        const double st = std::max (1e-3, cfg.caps.graphicGainStepDb);
+        return std::round (v / st) * st;
+    }
+
+    /** Q of the graphic band centred at `freq` for gain `g` (rounded like GraphicEQ::makeGraphic). */
+    double graphicQ (double freq, double g) const
+    {
+        const auto c = cfg.caps.graphicCentres();
+        size_t idx = 0;
+        for (size_t j = 1; j < c.size(); ++j)
+            if (std::abs (std::log2 (freq / c[j])) < std::abs (std::log2 (freq / c[idx])))
+                idx = j;
+        return std::round (GraphicEQ::bandQ (cfg.caps, idx, g) * 100.0) / 100.0;
+    }
 
     double delayLo (size_t k) const
     {
@@ -368,7 +385,7 @@ private:
 
     double bandBoostLimit (size_t k, double freq) const
     {
-        double lim = std::min (cfg.safety.maxBoostDb, cfg.caps.peqMaxGainDb);
+        double lim = std::min (cfg.safety.maxBoostDb, cfg.caps.isGraphic() ? cfg.caps.graphicMaxBoostDb : cfg.caps.peqMaxGainDb);
         const auto& s = pr.init[k];
         if (pr.getModel().channels()[k].role != DriverRole::subwoofer && s.highPass.enabled && freq < 2.0 * s.highPass.freq)
             lim = std::min (lim, cfg.safety.maxLowFreqBoostDb);   // excursion protection
@@ -466,10 +483,13 @@ private:
             params.push_back (p);
         }
 
-        // 4) EQ band gains (redistribution happens through these plus discrete band moves)
+        // 4) EQ band gains (redistribution happens through these plus discrete band moves).
+        //    Graphic EQ: only the gains move, on the DSP's gain grid (centres and the Q model are
+        //    fixed); a GEQ shared by a whole side is never re-balanced per channel.
+        const bool graphic = cfg.caps.isGraphic();
         for (size_t k = 0; k < mch.size(); ++k)
         {
-            if (! subAllowed (k) || pr.state[k].muted)
+            if (! subAllowed (k) || pr.state[k].muted || (graphic && ! cfg.caps.graphicPerChannel))
                 continue;
             for (int b = 0; b < (int) pr.state[k].peq.size(); ++b)
             {
@@ -477,12 +497,21 @@ private:
                 if (! band.enabled || ! (band.type == FilterType::peaking || band.type == FilterType::lowShelf
                                          || band.type == FilterType::highShelf))
                     continue;
+                if (graphic)
+                {
+                    // Bands far outside the driver's passband do nothing audible; don't spend evaluations there.
+                    const auto& st = pr.state[k];
+                    const double plo = st.highPass.enabled && mch[k].role != DriverRole::subwoofer ? st.highPass.freq / 1.5 : 0.0;
+                    const double phi = st.lowPass.enabled ? st.lowPass.freq * 1.5 : 1.0e6;
+                    if (band.freq < plo || band.freq > phi)
+                        continue;
+                }
                 Param p { Kind::bandGain, k };
                 p.band = b;
                 p.cur = band.gainDb;
-                p.lo = std::min (p.cur, std::max (cfg.caps.peqMinGainDb, p.cur - 6.0));
+                p.lo = std::min (p.cur, std::max (graphic ? cfg.caps.graphicMaxCutDb : cfg.caps.peqMinGainDb, p.cur - 6.0));
                 p.hi = std::max (p.cur, std::min (bandBoostLimit (k, band.freq), p.cur + 6.0));
-                p.minStep = std::max (1e-3, cfg.caps.gainStepDb);
+                p.minStep = std::max (1e-3, graphic ? cfg.caps.graphicGainStepDb : cfg.caps.gainStepDb);
                 p.step = std::max (p.minStep, 1.0);
                 params.push_back (p);
             }
@@ -529,6 +558,8 @@ private:
             {
                 auto& band = pr.state[p.k].peq[(size_t) p.band];
                 band.gainDb = v;
+                if (cfg.caps.isGraphic())
+                    band.q = graphicQ (band.freq, v);
                 pr.cache[p.k].parts[(size_t) p.band + 2] = pr.partOf (band);
                 pr.product (p.k);
                 touched.push_back (p.k);
@@ -641,8 +672,8 @@ private:
         switch (p.kind)
         {
             case Kind::delay:    return quantDelay (v);
-            case Kind::gain:
-            case Kind::bandGain: return quantGain (v);
+            case Kind::gain:     return quantGain (v);
+            case Kind::bandGain: return cfg.caps.isGraphic() ? quantGraphic (v) : quantGain (v);
             default:             return std::round (v);
         }
     }
@@ -702,6 +733,8 @@ private:
     bool tryDiscreteMoves()
     {
         bool any = false;
+        if (cfg.caps.isGraphic())
+            return false;   // fixed centres: no bands to hand over, no free slots for all-passes
         const auto& mch = pr.getModel().channels();
         const int slots = cfg.caps.peqBandsPerChannel;
 
@@ -817,6 +850,32 @@ Outcome refine (SystemConfig& config, const DriverDataMap& data, const Options& 
 
     Search search (pr, config, options);
     search.run();
+
+    if (config.caps.isGraphic())
+    {
+        const auto& caps = config.caps;
+        for (size_t k = 0; k < pr.numChannels(); ++k)
+        {
+            auto& st = pr.state[k];
+            const auto& in = pr.init[k];
+            bool sameLayout = st.peq.size() == in.peq.size();
+            for (size_t b = 0; sameLayout && b < st.peq.size(); ++b)
+                sameLayout = st.peq[b].type == in.peq[b].type && st.peq[b].freq == in.peq[b].freq;
+
+            if (! caps.graphicPerChannel || ! sameLayout)
+            {
+                st.peq = in.peq;
+                continue;
+            }
+            if (in.peq.size() == caps.graphicCentres().size())
+            {
+                auto g = GraphicEQ::gainsOf (caps, st.peq);
+                for (auto& x : g)
+                    x = GraphicEQ::quantise (caps, x, caps.graphicMaxCutDb, caps.graphicMaxBoostDb);
+                st.peq = GraphicEQ::makeGraphic (caps, g);
+            }
+        }
+    }
 
     // Rebuild every cache from the settings and recompute from scratch, so the decision below
     // is made on exactly what will be written to the DSP.

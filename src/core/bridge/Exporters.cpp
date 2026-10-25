@@ -12,7 +12,7 @@ juce::String toText (const SystemConfig& cfg)
 
     for (auto& ch : cfg.channels)
     {
-        for (auto& line : ManualDspController::describeChannel (ch))
+        for (auto& line : ManualDspController::describeChannel (ch, &cfg.caps))
             s << line << "\n";
         s << "\n";
     }

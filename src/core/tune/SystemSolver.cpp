@@ -1,9 +1,35 @@
 #include "SystemSolver.h"
 #include "CrossoverPlanner.h"
+#include "GraphicEQ.h"
 #include "../dsp/Spectrum.h"
 
 namespace fa
 {
+namespace
+{
+    GraphicEQ::Settings graphicSettings (const SystemConfig& cfg, double lo, double hi, double lfLimitBelowHz)
+    {
+        GraphicEQ::Settings s;
+        s.fLow = lo;
+        s.fHigh = hi;
+        s.maxBoostDb = std::min (cfg.safety.maxBoostDb, cfg.caps.graphicMaxBoostDb);
+        s.maxCutDb = cfg.caps.graphicMaxCutDb;
+        s.lfBoostLimitBelowHz = lfLimitBelowHz;
+        s.lfBoostLimitDb = cfg.safety.maxLowFreqBoostDb;
+        return s;
+    }
+
+    juce::String describeGraphicFit (const GraphicEQ::Result& r)
+    {
+        int used = 0;
+        for (auto g : r.gainsDb)
+            if (std::abs (g) > 1e-9)
+                ++used;
+        return juce::String ((int) r.gainsDb.size()) + "-band GEQ (" + juce::String (used) + " bands moved), error "
+             + juce::String (r.rmsErrorBeforeDb, 1) + " -> " + juce::String (r.rmsErrorAfterDb, 1) + " dB";
+    }
+}
+
 SystemSolver::SystemSolver (SystemConfig& config, const DriverDataMap& d, Options o)
     : cfg (config), data (d), opts (o), freqs (analysisFrequencies())
 {
@@ -369,9 +395,85 @@ void SystemSolver::equaliseSide (Side side, const std::vector<double>& targetDb,
             chain.push_back (&c);
     std::sort (chain.begin(), chain.end(), [] (auto* a, auto* b) { return a->settings.highPass.freq < b->settings.highPass.freq; });
 
+    const bool graphic = cfg.caps.isGraphic();
+    if (graphic && ! cfg.caps.graphicPerChannel)
+    {
+        // One graphic EQ per side (input/side GEQ, head units): fit it once on the side's summed
+        // response over every driver it feeds, then give the same gains to all of that side's
+        // channels. Least-wrong choice: such a GEQ sits before the crossovers, so this is what the
+        // hardware does; per-driver errors it cannot separate are left to level and phase.
+        std::vector<OutputChannel*> sideOuts;
+        bool subAudible = false;
+        double lo = 20000.0, hi = 20.0, lowestHp = 0.0;
+        for (auto& c : cfg.channels)
+        {
+            if (data.count (c.id) == 0 || ! (c.side == side || c.side == Side::mono))
+                continue;
+            if (c.role == DriverRole::subwoofer)
+                subAudible = true;
+            const auto [l, h] = dominantBand (c);
+            lo = std::min (lo, l);
+            hi = std::max (hi, h);
+            if (c.role != DriverRole::subwoofer && c.settings.highPass.enabled)
+                lowestHp = lowestHp > 0.0 ? std::min (lowestHp, c.settings.highPass.freq) : c.settings.highPass.freq;
+            if (c.side == side || (side == Side::left && c.side == Side::mono))
+                sideOuts.push_back (&c);
+        }
+
+        if (! sideOuts.empty() && hi > lo)
+        {
+            // Fit from a flat GEQ (a mono sub keeps the left gains while the right side is fitted).
+            for (auto* c : sideOuts)
+                c->settings.peq = GraphicEQ::makeGraphic (cfg.caps, {});
+
+            std::vector<FrequencyResponse> sums;
+            for (int p = 0; p < numPositions(); ++p)
+                sums.push_back (predictSum (sideChannels (side), p));
+
+            const auto res = GraphicEQ::solve (powerAverage (sums), targetDb, cfg.caps,
+                                               graphicSettings (cfg, lo, std::min (hi, 16000.0),
+                                                                subAudible ? 0.0 : lowestHp * 2.0),
+                                               AutoEQ::spatialWeights (sums));
+            for (auto* c : sideOuts)
+                c->settings.peq = res.filters;
+
+            // A mono sub hears both sides' GEQs: give it the mean of the two (quantised).
+            if (side == Side::right)
+            {
+                for (auto& c : cfg.channels)
+                {
+                    if (c.side != Side::mono || data.count (c.id) == 0)
+                        continue;
+                    auto g = GraphicEQ::gainsOf (cfg.caps, c.settings.peq);
+                    for (size_t j = 0; j < g.size() && j < res.gainsDb.size(); ++j)
+                        g[j] = GraphicEQ::quantise (cfg.caps, 0.5 * (g[j] + res.gainsDb[j]),
+                                                    cfg.caps.graphicMaxCutDb, cfg.caps.graphicMaxBoostDb);
+                    c.settings.peq = GraphicEQ::makeGraphic (cfg.caps, g);
+                }
+            }
+            report.notes.add (toString (side) + " side: shared " + describeGraphicFit (res));
+        }
+        chain.clear();   // nothing left to do per channel
+    }
+
     for (auto* ch : chain)
     {
         auto [lo, hi] = dominantBand (*ch);
+
+        if (graphic)
+        {
+            // Per-output graphic EQ: fit this driver's GEQ to the side sum within its own band
+            // (bands outside it stay at 0 dB; they only see the filtered-off part of the driver).
+            ch->settings.peq = GraphicEQ::makeGraphic (cfg.caps, {});
+            std::vector<FrequencyResponse> sums;
+            for (int p = 0; p < numPositions(); ++p)
+                sums.push_back (predictSum (sideChannels (side), p));
+            const auto res = GraphicEQ::solve (powerAverage (sums), targetDb, cfg.caps,
+                                               graphicSettings (cfg, lo, hi, lo * 2.0), AutoEQ::spatialWeights (sums));
+            ch->settings.peq = res.filters;
+            report.notes.add (ch->label + ": " + describeGraphicFit (res));
+            continue;
+        }
 
         std::vector<FrequencyResponse> sums;
         for (int p = 0; p < numPositions(); ++p)
@@ -437,12 +539,26 @@ void SystemSolver::equalise()
     {
         if (sub.role != DriverRole::subwoofer || data.count (sub.id) == 0)
             continue;
+        if (cfg.caps.isGraphic() && ! cfg.caps.graphicPerChannel)
+            continue;   // shared per-side GEQ: the sub is fitted with its side(s) in equaliseSide()
 
         std::vector<FrequencyResponse> sums;
+        if (cfg.caps.isGraphic())
+            sub.settings.peq = GraphicEQ::makeGraphic (cfg.caps, {});
         for (int p = 0; p < numPositions(); ++p)
             for (auto side : { Side::left, Side::right })
                 if (sub.side == Side::mono || sub.side == side)
                     sums.push_back (predictSum (sideChannels (side), p));
+
+        if (cfg.caps.isGraphic())
+        {
+            const double lp = sub.settings.lowPass.enabled ? sub.settings.lowPass.freq : 80.0;
+            const auto res = GraphicEQ::solve (powerAverage (sums), leftTarget, cfg.caps,
+                                               graphicSettings (cfg, 20.0, lp, 0.0), AutoEQ::spatialWeights (sums));
+            sub.settings.peq = res.filters;
+            report.notes.add (sub.label + ": " + describeGraphicFit (res));
+            continue;
+        }
 
         AutoEQ::Settings s;
         s.sampleRate = cfg.caps.sampleRate;

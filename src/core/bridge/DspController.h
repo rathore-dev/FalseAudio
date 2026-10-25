@@ -63,8 +63,10 @@ public:
     bool beginBatch (juce::String&) override;
     bool endBatch (juce::String& error) override;
 
-    /** Formats one channel's settings exactly as they should be typed into a DSP. */
-    static juce::StringArray describeChannel (const OutputChannel& ch);
+    /** Formats one channel's settings exactly as they should be typed into a DSP.
+        A graphic EQ (caps->isGraphic(), or - without caps - a peq list that is exactly a
+        standard graphic layout) is printed as one "31-band GEQ: 20 Hz 0.0, 25 Hz -1.5, ..." line. */
+    static juce::StringArray describeChannel (const OutputChannel& ch, const DspCapabilities* caps = nullptr);
 
 private:
     DspCapabilities caps;

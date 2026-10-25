@@ -114,6 +114,19 @@ juce::var DspCapabilities::toVar() const
     o->setProperty ("lr", hasLinkwitzRiley);
     o->setProperty ("bessel", hasBessel);
     o->setProperty ("allpass", hasAllPass);
+    o->setProperty ("eqType", isGraphic() ? "graphic" : "parametric");
+    if (isGraphic())
+    {
+        juce::Array<juce::var> bands;
+        for (auto f : graphicBandsHz)
+            bands.add (f);
+        o->setProperty ("geqBands", bands);
+        o->setProperty ("geqQ", graphicQ);
+        o->setProperty ("geqStep", graphicGainStepDb);
+        o->setProperty ("geqMaxBoost", graphicMaxBoostDb);
+        o->setProperty ("geqMaxCut", graphicMaxCutDb);
+        o->setProperty ("geqPerChannel", graphicPerChannel);
+    }
     return juce::var (o);
 }
 
@@ -141,7 +154,60 @@ DspCapabilities DspCapabilities::fromVar (const juce::var& v)
     c.hasLinkwitzRiley = v.getProperty ("lr", c.hasLinkwitzRiley);
     c.hasBessel        = v.getProperty ("bessel", c.hasBessel);
     c.hasAllPass       = v.getProperty ("allpass", c.hasAllPass);
+    c.eqType = v.getProperty ("eqType", "parametric").toString() == "graphic" ? EqType::graphic : EqType::parametric;
+    if (auto* b = v.getProperty ("geqBands", {}).getArray())
+        for (auto& x : *b)
+            c.graphicBandsHz.push_back ((double) x);
+    c.graphicQ          = v.getProperty ("geqQ", c.graphicQ);
+    c.graphicGainStepDb = v.getProperty ("geqStep", c.graphicGainStepDb);
+    c.graphicMaxBoostDb = v.getProperty ("geqMaxBoost", c.graphicMaxBoostDb);
+    c.graphicMaxCutDb   = v.getProperty ("geqMaxCut", c.graphicMaxCutDb);
+    c.graphicPerChannel = v.getProperty ("geqPerChannel", c.graphicPerChannel);
     return c;
+}
+
+std::vector<double> DspCapabilities::graphicCentres() const
+{
+    return graphicBandsHz.empty() ? standardGraphicBands (31) : graphicBandsHz;
+}
+
+std::vector<double> DspCapabilities::standardGraphicBands (int count)
+{
+    // ISO 266 nominal 1/3-octave centres 20 Hz..20 kHz.
+    static const std::vector<double> iso31 { 20, 25, 31.5, 40, 50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500,
+                                             630, 800, 1000, 1250, 1600, 2000, 2500, 3150, 4000, 5000, 6300, 8000,
+                                             10000, 12500, 16000, 20000 };
+    auto every = [] (size_t first, size_t step, size_t last)
+    {
+        std::vector<double> out;
+        for (size_t i = first; i <= last && i < iso31.size(); i += step)
+            out.push_back (iso31[i]);
+        return out;
+    };
+
+    switch (count)
+    {
+        case 31: return iso31;
+        case 30: return every (1, 1, 30);                    // 25 Hz..20 kHz (AudioControl, JL FiX)
+        case 15: return every (1, 2, 29);                    // 25 Hz..16 kHz, 2/3 oct
+        case 13: return every (4, 2, 28);                    // 50 Hz..12.5 kHz (Pioneer/Kenwood/JVC/Alpine)
+        case 10: return every (2, 3, 29);                    // 31.5 Hz..16 kHz octaves
+        case 20: return { 20, 28, 40, 56, 80, 112, 160, 225, 315, 450, 630, 900, 1250, 1800, 2500, 3550, 5000,
+                          7100, 10000, 14000 };
+        case 21: return { 20, 28, 40, 56, 80, 112, 160, 225, 315, 450, 630, 900, 1250, 1800, 2500, 3550, 5000,
+                          7100, 10000, 14000, 20000 };
+        default: break;
+    }
+
+    std::vector<double> out;
+    count = juce::jlimit (1, 64, count);
+    for (int i = 0; i < count; ++i)
+    {
+        const double f = count == 1 ? 1000.0 : 40.0 * std::pow (16000.0 / 40.0, (double) i / (count - 1));
+        const double mag = std::pow (10.0, std::floor (std::log10 (f)) - 1.0);   // two significant digits
+        out.push_back (std::round (f / mag) * mag);
+    }
+    return out;
 }
 
 //==============================================================================

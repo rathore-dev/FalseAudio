@@ -1,4 +1,5 @@
 #include "AutoTuneEngine.h"
+#include "GraphicEQ.h"
 #include "../dsp/Spectrum.h"
 #include "TargetLibrary.h"
 
@@ -509,6 +510,61 @@ bool AutoTuneEngine::runStages (Result& result)
             off /= std::max (1, n);
             for (auto& t : rel)
                 t += off;
+
+            if (config.caps.isGraphic())
+            {
+                // Graphic EQ: no bands can be added - fit a small correction on the same fixed
+                // centres and add it to the existing gains of the driver that owns each centre
+                // (or of every channel on the side when the GEQ is shared per side).
+                GraphicEQ::Settings gs;
+                gs.fLow = s.fLow;
+                gs.fHigh = s.fHigh;
+                gs.maxBoostDb = s.maxBoostDb;
+                gs.maxCutDb = s.maxCutDb;
+                gs.smoothness = 0.03;
+                const auto fix = GraphicEQ::solve (measured, rel, config.caps, gs);
+                const auto centres = config.caps.graphicCentres();
+                const double maxBoost = std::min (config.safety.maxBoostDb, config.caps.graphicMaxBoostDb);
+
+                auto adjust = [&] (OutputChannel& c, size_t j, double delta)
+                {
+                    if (c.settings.peq.size() != centres.size())
+                        return;
+                    auto g = GraphicEQ::gainsOf (config.caps, c.settings.peq);
+                    const double ng = GraphicEQ::quantise (config.caps, g[j] + delta, config.caps.graphicMaxCutDb, maxBoost);
+                    if (std::abs (ng - g[j]) < 1e-9)
+                        return;
+                    g[j] = ng;
+                    c.settings.peq = GraphicEQ::makeGraphic (config.caps, g);
+                    changed = true;
+                };
+
+                for (size_t j = 0; j < centres.size() && j < fix.gainsDb.size(); ++j)
+                {
+                    if (std::abs (fix.gainsDb[j]) < 1e-9)
+                        continue;
+                    if (! config.caps.graphicPerChannel)
+                    {
+                        for (auto& c : config.channels)
+                            if (c.side == side)
+                                adjust (c, j, fix.gainsDb[j]);
+                        continue;
+                    }
+                    OutputChannel* owner = nullptr;
+                    for (auto& c : config.channels)
+                    {
+                        if (! (c.side == side || (c.side == Side::mono && centres[j] < 100.0)))
+                            continue;
+                        const double lo = (c.settings.highPass.enabled && c.role != DriverRole::subwoofer) ? c.settings.highPass.freq : 0.0;
+                        const double hi = c.settings.lowPass.enabled ? c.settings.lowPass.freq : 1.0e6;
+                        if (centres[j] >= lo && centres[j] < hi)
+                            owner = &c;
+                    }
+                    if (owner != nullptr)
+                        adjust (*owner, j, fix.gainsDb[j]);
+                }
+                continue;
+            }
 
             const auto fix = AutoEQ::solve (measured, rel, s);
             for (auto& band : fix.filters)

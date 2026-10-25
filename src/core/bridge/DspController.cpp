@@ -28,7 +28,31 @@ ManualDspController::ManualDspController (DspCapabilities c, AskUser a)
 {
 }
 
-juce::StringArray ManualDspController::describeChannel (const OutputChannel& ch)
+namespace
+{
+    /** True when `peq` is a graphic EQ setting: exactly one peaking band per centre, in order. */
+    bool isGraphicLayout (const std::vector<FilterSpec>& peq, const std::vector<double>& centres)
+    {
+        if (peq.empty() || peq.size() != centres.size())
+            return false;
+        for (size_t i = 0; i < peq.size(); ++i)
+            if (peq[i].type != FilterType::peaking || std::abs (std::log2 (peq[i].freq / centres[i])) > 1.0 / 48.0)
+                return false;
+        return true;
+    }
+
+    juce::String graphicFreq (double f)
+    {
+        auto num = [] (double v)
+        {
+            auto t = juce::String (v, 2);
+            return t.trimCharactersAtEnd ("0").trimCharactersAtEnd (".");
+        };
+        return f >= 1000.0 ? num (f / 1000.0) + " kHz" : num (f) + " Hz";
+    }
+}
+
+juce::StringArray ManualDspController::describeChannel (const OutputChannel& ch, const DspCapabilities* caps)
 {
     const auto& s = ch.settings;
     juce::StringArray lines;
@@ -44,6 +68,17 @@ juce::StringArray ManualDspController::describeChannel (const OutputChannel& ch)
     if (s.lowPass.enabled)
         lines.add ("    LP: " + juce::String (s.lowPass.freq, 0) + " Hz, " + juce::String (s.lowPass.slopeDbPerOct)
                    + " dB/oct " + toString (s.lowPass.alignment));
+
+    const bool graphic = caps != nullptr ? (caps->isGraphic() && isGraphicLayout (s.peq, caps->graphicCentres()))
+                                         : (s.peq.size() >= 5 && isGraphicLayout (s.peq, DspCapabilities::standardGraphicBands ((int) s.peq.size())));
+    if (graphic)
+    {
+        juce::StringArray bands;
+        for (auto& f : s.peq)
+            bands.add (graphicFreq (f.freq) + " " + juce::String (f.gainDb, 1));
+        lines.add ("    " + juce::String ((int) s.peq.size()) + "-band GEQ: " + bands.joinIntoString (", "));
+        return lines;
+    }
 
     for (size_t i = 0; i < s.peq.size(); ++i)
         lines.add ("    EQ " + juce::String ((int) i + 1) + ": " + s.peq[i].describe());
@@ -83,7 +118,7 @@ bool ManualDspController::flush (const juce::String& title, juce::String& error)
 
 bool ManualDspController::applyChannel (const OutputChannel& ch, juce::String& error)
 {
-    pending.addArray (describeChannel (ch));
+    pending.addArray (describeChannel (ch, &caps));
     return batching ? true : flush ("Update " + ch.label, error);
 }
 
