@@ -27,7 +27,7 @@ void SummaryHeader::setPlan (const install::Plan& plan, const install::Installat
     if (auto* hu = db.find (inst.headUnitId))
         if (hu->source && hu->source->maxVolumeStep > 0)
             volFoot = "of " + juce::String (hu->source->maxVolumeStep) + " on the " + hu->model;
-    tiles.push_back ({ "Head unit max", juce::String (juce::roundToInt (plan.headUnitMaxCleanVolume)), "", volFoot, theme::roleMidrange, icons::Id::radio });
+    tiles.push_back ({ "Head unit max", (inst.headUnitId.isEmpty() ? juce::String ("-") : juce::String (juce::roundToInt (plan.headUnitMaxCleanVolume))), "", volFoot, theme::roleMidrange, icons::Id::radio });
 
     for (auto& w : plan.wires)
     {

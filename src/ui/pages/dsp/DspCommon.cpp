@@ -53,9 +53,9 @@ juce::StringArray methodNames()
 juce::String describeCaps (const DspCapabilities& c)
 {
     juce::String s;
-    s << c.peqBandsPerChannel << " PEQ" << " · " << juce::String (c.sampleRate / 1000.0, 1) << " kHz"
-      << " · " << theme::formatDb (c.peqMinGainDb, 0) << ".." << theme::formatDb (c.peqMaxGainDb, 0)
-      << " · " << juce::String (c.maxDelayMs, 0) << " ms";
+    s << c.peqBandsPerChannel << " PEQ" << juce::String (juce::CharPointer_UTF8 (" · ")) << juce::String (c.sampleRate / 1000.0, 1) << " kHz"
+      << juce::String (juce::CharPointer_UTF8 (" · ")) << theme::formatDb (c.peqMinGainDb, 0) << ".." << theme::formatDb (c.peqMaxGainDb, 0)
+      << juce::String (juce::CharPointer_UTF8 (" · ")) << juce::String (juce::roundToInt (c.maxDelayMs)) << " ms";
     return s;
 }
 

@@ -97,6 +97,8 @@ private:
 
     // ---- electrical
     gearkit::SectionHeader elecHeader { "Step 5", "Electrical", "Used for current draw, wire gauge and fuse recommendations." };
+    SlotCard alternatorSlot { "Alternator (optional)", { gear::Category::alternator } };
+    SlotCard batterySlot { "Battery (optional)", { gear::Category::battery } };
     Card elecCard { "Supply", "" };
     ValueField altVoltage { "Voltage, engine on", "V", 11.0, 16.0, 0.1, 1 };
     ValueField altAmps { "Alternator", "A", 0, 600, 5, 0 };

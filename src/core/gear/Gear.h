@@ -238,7 +238,7 @@ struct Product
 };
 
 /** Human readable key specs for list rows, e.g. { "Fs 32 Hz", "Xmax 6.5 mm", "90 W RMS" }.
-    Join with joinIntoString (" · ") for a one-line summary. */
+    Join with joinIntoString (juce::String (juce::CharPointer_UTF8 (" · "))) for a one-line summary. */
 juce::StringArray specsSummary (const Product& p);
 
 //==============================================================================

@@ -129,7 +129,7 @@ void DriverCard::paint (juce::Graphics& g)
     insightsui::drawStat (g, stats.removeFromLeft (sw), "ARRIVAL",
                           theme::formatMs (diag.arrivalMs, 2), theme::text, "at the listening seat");
     insightsui::drawStat (g, stats.removeFromLeft (sw), "SNR",
-                          juce::String (diag.snrDb, 0) + " dB", insightsui::snrColour (diag.snrDb),
+                          juce::String (juce::roundToInt (diag.snrDb)) + " dB", insightsui::snrColour (diag.snrDb),
                           diag.snrDb >= 45.0 ? "clean capture" : diag.snrDb >= 30.0 ? "usable" : "noisy");
     insightsui::drawStat (g, stats, "PEAK THD",
                           diag.thdCurve.empty() ? juce::String ("-") : insightsui::formatPercent (diag.peakThdPercent),

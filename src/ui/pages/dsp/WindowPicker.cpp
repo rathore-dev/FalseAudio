@@ -22,7 +22,7 @@ void showWindowPicker (juce::Component& anchor, std::function<void (const DspWin
         {
             const auto& w = (*windows)[i];
             juce::String title = w.title.length() > 60 ? w.title.substring (0, 57) + "..." : w.title;
-            menu.addItem ((int) i + 1, w.processName + "   —   " + title);
+            menu.addItem ((int) i + 1, w.processName + juce::String (juce::CharPointer_UTF8 ("   —   ")) + title);
         }
     }
 

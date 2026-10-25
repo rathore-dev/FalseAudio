@@ -113,7 +113,7 @@ LivePage::LivePage (Session& s) : Page (s)
     // ---- Transfer function ------------------------------------------------
     tfMagnitude.setUnits (FrequencyPlot::Units::dB);
     tfMagnitude.setRanges (20.0, 20000.0, -30.0, 30.0);
-    tfMagnitude.setTitle ("Magnitude  \xC2\xB7  opacity = coherence");
+    tfMagnitude.setTitle (juce::String (juce::CharPointer_UTF8 ("Magnitude  \xC2\xB7  opacity = coherence")));
     addChildComponent (tfMagnitude);
 
     tfPhase.setUnits (FrequencyPlot::Units::degrees);
@@ -134,7 +134,7 @@ LivePage::LivePage (Session& s) : Page (s)
         if (! liveAvailable) return;
         delayMs = session.getAnalyzer().findDelay (micIndex);
         haveDelay = true;
-        delayChip.set ("Delay " + theme::formatMs (delayMs) + " ms  \xC2\xB7  " + juce::String (juce::roundToInt (msToMetres (delayMs) * 100.0)) + " cm", theme::accent);
+        delayChip.set ("Delay " + theme::formatMs (delayMs) + juce::String (juce::CharPointer_UTF8 (" ms  \xC2\xB7  ")) + juce::String (juce::roundToInt (msToMetres (delayMs) * 100.0)) + " cm", theme::accent);
         resized();
         if (shell != nullptr) shell->toast ("Delay compensation set to " + theme::formatMs (delayMs) + " ms", AppShell::ToastKind::good);
     };
@@ -503,7 +503,7 @@ void LivePage::tickTransfer()
     {
         haveDelay = true;
         delayMs = tf.delayMs;
-        delayChip.set ("Delay " + theme::formatMs (delayMs) + " ms  \xC2\xB7  " + juce::String (juce::roundToInt (msToMetres (delayMs) * 100.0)) + " cm", theme::accent);
+        delayChip.set ("Delay " + theme::formatMs (delayMs) + juce::String (juce::CharPointer_UTF8 (" ms  \xC2\xB7  ")) + juce::String (juce::roundToInt (msToMetres (delayMs) * 100.0)) + " cm", theme::accent);
         layoutMode();
     }
 }

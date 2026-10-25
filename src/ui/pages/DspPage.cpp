@@ -505,7 +505,7 @@ void DspPage::refreshChips()
     consentChip.setVisible (uiMode == modeAutomatic || uiMode == modeNative);
     attachChip.setVisible (uiMode != modeNative);
 
-    hostCard.setTitle ("DSP software", host.isAttached() ? host.getAttached().processName + "  ·  " + host.getAttached().title
+    hostCard.setTitle ("DSP software", host.isAttached() ? host.getAttached().processName + juce::String (juce::CharPointer_UTF8 ("  ·  ")) + host.getAttached().title
                                                            : juce::String ("Attach a running window or launch your vendor tool"));
     hostCard.setHighlight (uia && controlAllowed ? theme::good.withAlpha (0.6f) : juce::Colours::transparentBlack);
 
@@ -520,7 +520,7 @@ void DspPage::refreshChips()
     profilePicker.setCanTeach (host.isAttached(), host.isAttached() ? juce::String() : "Attach your DSP software to teach or use a profile.");
 
     nativeCard.setHighlight (isNativeKind() ? theme::good.withAlpha (0.6f) : juce::Colours::transparentBlack);
-    nativeCard.setTitle ("Direct USB", isNativeKind() ? session.getDsp().getName() + "  ·  connected"
+    nativeCard.setTitle ("Direct USB", isNativeKind() ? session.getDsp().getName() + juce::String (juce::CharPointer_UTF8 ("  ·  connected"))
                                                       : juce::String ("Writes the tune straight into the DSP - no vendor software"));
 
     modeCard.repaint();

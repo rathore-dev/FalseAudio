@@ -36,7 +36,7 @@ public:
         g.setFont (theme::fontMedium (13.0f));
         g.drawFittedText ("Graphic EQ  -  " + juce::String ((int) centres.size()) + " bands, step "
                               + juce::String (caps.graphicGainStepDb, 1) + " dB, "
-                              + juce::String (caps.graphicMaxCutDb, 0) + " / +" + juce::String (caps.graphicMaxBoostDb, 0) + " dB",
+                              + juce::String (juce::roundToInt (caps.graphicMaxCutDb)) + " / +" + juce::String (juce::roundToInt (caps.graphicMaxBoostDb)) + " dB",
                           head.withTrimmedRight (110), juce::Justification::centredLeft, 1);
 
         const auto area = faderArea();

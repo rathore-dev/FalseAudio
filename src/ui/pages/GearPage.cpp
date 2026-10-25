@@ -218,6 +218,7 @@ public:
             loadText = a.channelIds.empty() ? "Tap the channels this amp powers" : juce::String (a.channelIds.size()) + " channels assigned";
         if (! a.channelIds.empty() && ampCh > 0 && used <= ampCh)
             loadColour = theme::good;
+        resized();      // chips were rebuilt
         repaint();
     }
 
@@ -378,7 +379,7 @@ public:
                 const double load = install::calc::combineLoad (coil, juce::jmax (1, ds.voiceCoils), d != nullptr ? juce::jmax (1, d->count) : 1,
                                                                 d != nullptr ? d->wiring : "single");
                 if (load > 0)
-                    loadText = "Amp sees " + num (load, 2) + " Ω";
+                    loadText = "Amp sees " + num (load, 2) + juce::String (juce::CharPointer_UTF8 (" Ω"));
                 if (ds.powerRmsW > 0 && d != nullptr)
                     loadText << "  |  " << num (ds.powerRmsW * juce::jmax (1, d->count), 0) << " W RMS total";
             }
@@ -481,7 +482,7 @@ GearPage::GearPage (Session& s) : Page (s)
                                                              &ampHeader, &addAmpBtn, &ampEmpty,
                                                              &speakerHeader, &carCard,
                                                              &rigHeader, &interfaceSlot, &mic1Slot, &mic2Slot,
-                                                             &elecHeader, &elecCard })
+                                                             &elecHeader, &alternatorSlot, &batterySlot, &elecCard })
         c.addAndMakeVisible (w);
 
     auto bindSlot = [this] (SlotCard& slot, const juce::String& title, std::function<juce::String& (install::Installation&)> field)
@@ -497,6 +498,10 @@ GearPage::GearPage (Session& s) : Page (s)
     bindSlot (headUnitSlot, "Head unit", [] (install::Installation& i) -> juce::String& { return i.headUnitId; });
     bindSlot (dspSlot, "DSP / processor", [] (install::Installation& i) -> juce::String& { return i.dspId; });
     bindSlot (dacSlot, "DAC", [] (install::Installation& i) -> juce::String& { return i.dacId; });
+    bindSlot (alternatorSlot, "Alternator", [] (install::Installation& i) -> juce::String& { return i.alternatorId; });
+    bindSlot (batterySlot, "Battery", [] (install::Installation& i) -> juce::String& { return i.batteryId; });
+    alternatorSlot.setHint ("Rated output sets the current budget when no amps value is typed");
+    batterySlot.setHint ("Capacity (Ah) is taken from the product when not typed below");
     bindSlot (interfaceSlot, "Audio interface", [] (install::Installation& i) -> juce::String& { return i.audioInterfaceId; });
     bindSlot (mic1Slot, "Microphone 1", [] (install::Installation& i) -> juce::String& { if (i.micIds.empty()) i.micIds.push_back ({}); return i.micIds[0]; });
     bindSlot (mic2Slot, "Microphone 2", [] (install::Installation& i) -> juce::String& { while (i.micIds.size() < 2) i.micIds.push_back ({}); return i.micIds[1]; });
@@ -586,7 +591,7 @@ void GearPage::setLoadingState (bool loading)
 void GearPage::timerCallback()
 {
     shimmer = std::fmod (shimmer + 0.02f, 1.0f);
-    for (auto* s : { &headUnitSlot, &dspSlot, &dacSlot, &interfaceSlot, &mic1Slot, &mic2Slot })
+    for (auto* s : { &headUnitSlot, &dspSlot, &dacSlot, &interfaceSlot, &mic1Slot, &mic2Slot, &alternatorSlot, &batterySlot })
         s->setLoading (s->getProductId().isNotEmpty(), shimmer);
     for (auto& a : ampCards) a->setLoading (true, shimmer);
     for (auto& d : driverRows) d->setLoading (true, shimmer);
@@ -641,7 +646,9 @@ void GearPage::refreshFromStore()
     interfaceSlot.setProductId (inst.audioInterfaceId);
     mic1Slot.setProductId (inst.micIds.size() > 0 ? inst.micIds[0] : juce::String());
     mic2Slot.setProductId (inst.micIds.size() > 1 ? inst.micIds[1] : juce::String());
-    for (auto* s : { &headUnitSlot, &dspSlot, &dacSlot, &interfaceSlot, &mic1Slot, &mic2Slot })
+    alternatorSlot.setProductId (inst.alternatorId);
+    batterySlot.setProductId (inst.batteryId);
+    for (auto* s : { &headUnitSlot, &dspSlot, &dacSlot, &interfaceSlot, &mic1Slot, &mic2Slot, &alternatorSlot, &batterySlot })
         s->setLoading (dbLoading && s->getProductId().isNotEmpty(), shimmer);
     for (auto& a : ampCards) a->update (inst, cfg, dbLoading, shimmer);
     for (auto& d : driverRows) d->update (inst, dbLoading, shimmer);
@@ -679,7 +686,7 @@ void GearPage::updateSummary()
     parts.add (juce::String (chosenDrivers) + " of " + juce::String (cfg.channels.size()) + " speakers");
     parts.add (hasMic ? "Mic ready" : "No measurement mic");
     if (dbLoading)
-        parts.add ("Loading database…");
+        parts.add (juce::String (juce::CharPointer_UTF8 ("Loading database…")));
     else
         parts.add (juce::String (gear::GearDatabase::instance().size()) + " products in the database");
     summaryText.setText (parts.joinIntoString ("   |   "));
@@ -932,6 +939,17 @@ int GearPage::layoutContent (int width)
 
     // ---- electrical
     section (elecHeader);
+    {
+        const int cols = w >= 900 ? 2 : 1;
+        const int cw = (w - gap2 * (cols - 1)) / cols;
+        int x = x0, col = 0;
+        for (auto* s : { &alternatorSlot, &batterySlot })
+        {
+            s->setBounds (x, y, cw, SlotCard::height);
+            if (++col == cols) { col = 0; x = x0; y += SlotCard::height + gap2; } else x += cw + gap2;
+        }
+        if (col != 0) y += SlotCard::height + gap2;
+    }
     {
         const int hintW = w - theme::pad * 2;
         const int hintH = elecHint.heightFor (hintW);

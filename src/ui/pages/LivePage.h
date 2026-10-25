@@ -36,7 +36,7 @@ private:
     // ---- top row ----
     SegmentedControl modeSelector { { "RTA", "Transfer function" } };
     SegmentedControl micSelector;
-    DemoBanner banner { "Live analysis needs real hardware \xE2\x80\x94 switch to Live mode in the header.", "Switch to Live" };
+    DemoBanner banner { juce::String (juce::CharPointer_UTF8 ("Live analysis needs real hardware \xE2\x80\x94 switch to Live mode in the header.")), "Switch to Live" };
 
     // ---- RTA ----
     SegmentedControl rtaDisplay { { "Bars", "Line" } };

@@ -79,7 +79,7 @@ void MeasurementSetup::refresh (const gear::Product* mic, const gear::Product* a
 
     juce::String text = diagram.placement.orientation;
     for (auto& ins : diagram.placement.instructions)
-        text << juce::newLine << "• " << ins;
+        text << juce::newLine << juce::String (juce::CharPointer_UTF8 ("• ")) << ins;
     orientation.setText (text);
 
     steps.steps = guide::interfaceSetup (audioInterface, mic, session.getAudio().getRouting());
@@ -273,7 +273,7 @@ void MeasurementSetup::MicDiagram::drawView (juce::Graphics& g, juce::Rectangle<
         auto p = topView ? px (pos.xCm, pos.yCm) : px (pos.yCm, pos.zCm);
         bool merged = false;
         for (auto& s : spots)
-            if (s.p.getDistanceFrom (p) < 1.0f) { s.nums << "·" << juce::String ((int) i + 1); merged = true; break; }
+            if (s.p.getDistanceFrom (p) < 1.0f) { s.nums << juce::String (juce::CharPointer_UTF8 ("·")) << juce::String ((int) i + 1); merged = true; break; }
         if (! merged)
             spots.push_back ({ p, juce::String ((int) i + 1) });
     }

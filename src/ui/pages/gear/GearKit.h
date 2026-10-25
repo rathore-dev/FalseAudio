@@ -117,7 +117,7 @@ inline juce::String awgLabel (double awg)
     return num (awg, 0) + " AWG";
 }
 
-inline juce::String ohms (double v) { return num (v, 1) + " Ω"; }
+inline juce::String ohms (double v) { return num (v, 1) + juce::String (juce::CharPointer_UTF8 (" Ω")); }
 
 /** The amp's headline power claim: prefers 4 ohm, then 2, then 1. */
 inline juce::String ampPowerLine (const gear::AmpSpecs& a)
@@ -128,8 +128,8 @@ inline juce::String ampPowerLine (const gear::AmpSpecs& a)
         if (it != a.rmsPerChannelW.end() && it->second > 0)
         {
             juce::String s = num (it->second, 0) + " W";
-            if (a.channels > 1) s << " × " << a.channels;
-            s << " @ " << juce::String (key).replace ("ohm", " Ω");
+            if (a.channels > 1) s << juce::String (juce::CharPointer_UTF8 (" × ")) << a.channels;
+            s << " @ " << juce::String (key).replace ("ohm", juce::String (juce::CharPointer_UTF8 (" Ω")));
             return s;
         }
     }
@@ -149,7 +149,7 @@ inline juce::StringArray specChips (const gear::Product& p)
     {
         const auto& d = *p.driver;
         if (d.sizeInches > 0)  add (num (d.sizeInches) + "\"");
-        if (d.voiceCoils > 1)  add ("DVC " + (d.coilOhms > 0 ? num (d.coilOhms) : juce::String()) + " Ω");
+        if (d.voiceCoils > 1)  add ("DVC " + (d.coilOhms > 0 ? num (d.coilOhms) : juce::String()) + juce::String (juce::CharPointer_UTF8 (" Ω")));
         else if (d.nominalOhms > 0) add (ohms (d.nominalOhms));
         if (d.powerRmsW > 0)   add (num (d.powerRmsW, 0) + " W RMS");
         if (d.fsHz > 0)        add ("Fs " + num (d.fsHz, 0) + " Hz");
@@ -160,11 +160,11 @@ inline juce::StringArray specChips (const gear::Product& p)
     {
         const auto& a = *p.amp;
         if (a.channels > 0) add (juce::String (a.channels) + " ch");
-        add (ampPowerLine (a).upToFirstOccurrenceOf (" ×", false, false)
+        add (ampPowerLine (a).upToFirstOccurrenceOf (juce::String (juce::CharPointer_UTF8 (" ×")), false, false)
                  + (a.rmsPerChannelW.empty() ? "" : " /ch"));
         if (a.amplifierClass.isNotEmpty()) add ("Class " + a.amplifierClass);
         if (a.minStableOhms > 0) add (ohms (a.minStableOhms) + " stable");
-        if (a.inputSensitivityMaxV > 0) add (num (a.inputSensitivityMinV) + "–" + num (a.inputSensitivityMaxV) + " V in");
+        if (a.inputSensitivityMaxV > 0) add (num (a.inputSensitivityMinV) + juce::String (juce::CharPointer_UTF8 ("–")) + num (a.inputSensitivityMaxV) + " V in");
     }
     if (p.source)
     {
@@ -182,7 +182,7 @@ inline juce::StringArray specChips (const gear::Product& p)
     {
         const auto& w = *p.wire;
         if (w.awg != 0 || w.mm2 == 0) add (awgLabel (w.awg));
-        else add (num (w.mm2) + " mm²");
+        else add (num (w.mm2) + juce::String (juce::CharPointer_UTF8 (" mm²")));
         if (w.material.isNotEmpty()) add (w.material);
         if (w.ampacityA > 0) add (num (w.ampacityA, 0) + " A");
     }
@@ -235,12 +235,12 @@ inline std::vector<SpecRow> specSheet (const gear::Product& p)
         const auto& d = *p.driver;
         group ("Driver");
         row ("Size", n (d.sizeInches, "\""));
-        row ("Impedance", d.voiceCoils > 1 ? "DVC " + n (d.coilOhms, " Ω") : n (d.nominalOhms, " Ω"));
-        row ("Re", n (d.reOhms, " Ω", 2));
+        row ("Impedance", d.voiceCoils > 1 ? "DVC " + n (d.coilOhms, juce::String (juce::CharPointer_UTF8 (" Ω"))) : n (d.nominalOhms, juce::String (juce::CharPointer_UTF8 (" Ω"))));
+        row ("Re", n (d.reOhms, juce::String (juce::CharPointer_UTF8 (" Ω")), 2));
         row ("Power RMS", n (d.powerRmsW, " W", 0));
         row ("Power peak", n (d.powerPeakW, " W", 0));
         row ("Sensitivity", d.sensitivityDb > 0 ? num (d.sensitivityDb) + " dB " + d.sensitivityRef : juce::String());
-        row ("Response", d.freqLowHz > 0 ? num (d.freqLowHz, 0) + " – " + num (d.freqHighHz, 0) + " Hz" : juce::String());
+        row ("Response", d.freqLowHz > 0 ? num (d.freqLowHz, 0) + juce::String (juce::CharPointer_UTF8 (" – ")) + num (d.freqHighHz, 0) + " Hz" : juce::String());
         row ("Recommended HP", n (d.recommendedHpHz, " Hz", 0));
         row ("Recommended LP", n (d.recommendedLpHz, " Hz", 0));
         group ("Thiele / Small");
@@ -250,7 +250,7 @@ inline std::vector<SpecRow> specSheet (const gear::Product& p)
         row ("Qms", n (d.qms, "", 2));
         row ("Vas", n (d.vasLitres, " L"));
         row ("Xmax", n (d.xmaxMm, " mm"));
-        row ("Sd", n (d.sdCm2, " cm²"));
+        row ("Sd", n (d.sdCm2, juce::String (juce::CharPointer_UTF8 (" cm²"))));
         row ("BL", n (d.bl, " T.m"));
         row ("Mms", n (d.mmsGrams, " g"));
         row ("Le", n (d.leMh, " mH", 2));
@@ -265,9 +265,9 @@ inline std::vector<SpecRow> specSheet (const gear::Product& p)
         row ("Channels", a.channels > 0 ? juce::String (a.channels) : juce::String());
         row ("Class", a.amplifierClass);
         for (auto& [k, w] : a.rmsPerChannelW)
-            row ("RMS @ " + juce::String (k).replace ("bridged", "bridged ").replace ("ohm", " Ω"), n (w, " W", 0));
-        row ("Min load", n (a.minStableOhms, " Ω"));
-        row ("Input sensitivity", a.inputSensitivityMaxV > 0 ? num (a.inputSensitivityMinV, 2) + " – " + num (a.inputSensitivityMaxV) + " V" : juce::String());
+            row ("RMS @ " + juce::String (k).replace ("bridged", "bridged ").replace ("ohm", juce::String (juce::CharPointer_UTF8 (" Ω"))), n (w, " W", 0));
+        row ("Min load", n (a.minStableOhms, juce::String (juce::CharPointer_UTF8 (" Ω"))));
+        row ("Input sensitivity", a.inputSensitivityMaxV > 0 ? num (a.inputSensitivityMinV, 2) + juce::String (juce::CharPointer_UTF8 (" – ")) + num (a.inputSensitivityMaxV) + " V" : juce::String());
         row ("High-level input", n (a.highLevelInputMaxV, " V max"));
         row ("S/N", n (a.snrDb, " dB", 0));
         row ("THD", n (a.thdPercent, " %", 3));
@@ -287,7 +287,7 @@ inline std::vector<SpecRow> specSheet (const gear::Product& p)
         group (p.category == gear::Category::headUnit ? "Source" : "Processor");
         row ("Pre-out voltage", n (s.preoutVoltageV, " V"));
         row ("Pre-out channels", s.preoutChannels > 0 ? juce::String (s.preoutChannels) : juce::String());
-        row ("Output impedance", n (s.outputImpedanceOhms, " Ω", 0));
+        row ("Output impedance", n (s.outputImpedanceOhms, juce::String (juce::CharPointer_UTF8 (" Ω")), 0));
         row ("Volume steps", s.maxVolumeStep > 0 ? juce::String (s.maxVolumeStep) : juce::String());
         row ("Clean up to step", s.cleanVolumeStep > 0 ? juce::String (s.cleanVolumeStep) : juce::String());
         row ("S/N", n (s.snrDb, " dB", 0));
@@ -307,9 +307,9 @@ inline std::vector<SpecRow> specSheet (const gear::Product& p)
         const auto& w = *p.wire;
         group ("Conductor");
         row ("Gauge", (w.awg != 0 || w.mm2 == 0) ? awgLabel (w.awg) : juce::String());
-        row ("Cross-section", n (w.mm2, " mm²"));
+        row ("Cross-section", n (w.mm2, juce::String (juce::CharPointer_UTF8 (" mm²"))));
         row ("Material", w.material);
-        row ("Resistance", w.ohmsPerMetre > 0 ? juce::String (w.ohmsPerMetre * 1000.0, 2) + " mΩ/m" : juce::String());
+        row ("Resistance", w.ohmsPerMetre > 0 ? juce::String (w.ohmsPerMetre * 1000.0, 2) + juce::String (juce::CharPointer_UTF8 (" mΩ/m")) : juce::String());
         row ("Ampacity", n (w.ampacityA, " A", 0));
     }
     if (p.audioInterface)

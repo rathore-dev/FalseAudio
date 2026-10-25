@@ -212,7 +212,7 @@ ProductPicker::ProductPicker (const juce::String& title, std::vector<gear::Categ
     if (categories.empty())
         categories.push_back (gear::Category::headUnit);
 
-    styleEditor (search, "Search brand, model or series…");
+    styleEditor (search, juce::String (juce::CharPointer_UTF8 ("Search brand, model or series…")));
     search.setFont (theme::font (14.0f));
     search.setIndents (36, 8);
     search.onTextChange = [this] { brands->clearSelection(); runSearch(); };
@@ -499,7 +499,7 @@ void ProductPicker::paint (juce::Graphics& g)
         }
         g.setColour (theme::textMuted);
         g.setFont (theme::font (12.0f));
-        g.drawText ("Loading the equipment database…", listArea.removeFromBottom (28), juce::Justification::centred, false);
+        g.drawText (juce::String (juce::CharPointer_UTF8 ("Loading the equipment database…")), listArea.removeFromBottom (28), juce::Justification::centred, false);
     }
     else if (results.empty())
     {

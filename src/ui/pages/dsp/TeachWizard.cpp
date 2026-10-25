@@ -349,8 +349,8 @@ void TeachWizard::buildSteps()
                 st.band = b;
                 st.key = DspProfile::keyFor (slot.key, c, b);
                 st.title = slot.label;
-                if (c >= 0) st.title << "  —  " << channelLabel (c);
-                if (b >= 0) st.title << "  —  band " << (b + 1);
+                if (c >= 0) st.title << juce::String (juce::CharPointer_UTF8 ("  —  ")) << channelLabel (c);
+                if (b >= 0) st.title << juce::String (juce::CharPointer_UTF8 ("  —  band ")) << (b + 1);
                 steps.push_back (st);
             }
     }
@@ -764,7 +764,7 @@ void TeachWizard::paint (juce::Graphics& g)
     switch (stage)
     {
         case Stage::setup:   title = profileFile != juce::File() ? "Re-teach profile" : "Teach a new profile"; sub = "Step 1 - how your DSP software is laid out"; break;
-        case Stage::capture: title = "Teach controls"; sub = "Step " + juce::String (stepIndex + 1) + " of " + juce::String ((int) steps.size()) + "  ·  " + juce::String (countTaught()) + " taught"; break;
+        case Stage::capture: title = "Teach controls"; sub = "Step " + juce::String (stepIndex + 1) + " of " + juce::String ((int) steps.size()) + juce::String (juce::CharPointer_UTF8 ("  ·  ")) + juce::String (countTaught()) + " taught"; break;
         case Stage::caps:    title = "DSP capabilities"; sub = "What the optimiser may use"; break;
         case Stage::finish:  title = "Save profile"; sub = juce::String (countTaught()) + " controls taught"; break;
     }
@@ -834,7 +834,7 @@ void TeachWizard::paintSetup (juce::Graphics& g)
     g.fillEllipse ((float) 2, (float) y + 10, 7.0f, 7.0f);
     g.setColour (theme::textDim);
     g.setFont (theme::font (12.5f));
-    g.drawText (host.isAttached() ? "Teaching " + w.processName + "  ·  " + w.title : juce::String ("Attach your DSP software first"),
+    g.drawText (host.isAttached() ? "Teaching " + w.processName + juce::String (juce::CharPointer_UTF8 ("  ·  ")) + w.title : juce::String ("Attach your DSP software first"),
                 14, y, width - 14, 28, juce::Justification::centredLeft, true);
     y += 28;
 
@@ -916,7 +916,7 @@ void TeachWizard::paintCapture (juce::Graphics& g)
         g.setFont (theme::font (12.5f));
         juce::String desc = captured ? captured->capturedDescription : juce::String ("Nothing yet - click the control in the DSP window.");
         if (captured && ! captured->path.isEmpty())
-            desc << "   ·   " << captured->path.describe();
+            desc << juce::String (juce::CharPointer_UTF8 ("   ·   ")) << captured->path.describe();
         g.drawFittedText (desc, inner.removeFromTop (captured ? 22 : 30), juce::Justification::centredLeft, captured ? 1 : 2);
     }
 

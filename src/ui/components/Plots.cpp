@@ -237,7 +237,7 @@ struct FrequencyPlot::Impl
         switch (units)
         {
             case Units::dB:        return theme::formatDb (v, 1);
-            case Units::degrees:   return juce::String (v, 0) + juce::String (juce::CharPointer_UTF8 ("\xc2\xb0"));
+            case Units::degrees:   return juce::String (juce::roundToInt (v)) + juce::String (juce::CharPointer_UTF8 ("\xc2\xb0"));
             case Units::ms:        return theme::formatMs (v, 2);
             case Units::coherence: return juce::String (v, 2);
         }

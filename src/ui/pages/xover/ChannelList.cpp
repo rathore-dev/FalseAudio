@@ -28,7 +28,7 @@ public:
         int active = 0;
         for (const auto& b : s.peq) if (b.enabled) ++active;
         parts.add (juce::String (active) + (active == 1 ? " band" : " bands"));
-        summary = parts.joinIntoString ("  \xC2\xB7  ");
+        summary = parts.joinIntoString (juce::String (juce::CharPointer_UTF8 ("  \xC2\xB7  ")));
         repaint();
     }
 

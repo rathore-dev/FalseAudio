@@ -112,7 +112,7 @@ public:
         g.setColour (theme::textDim);
 
         juce::String meta = item.channel;
-        meta << "  \xC2\xB7  mic " << (item.micPosition + 1);
+        meta << juce::String (juce::CharPointer_UTF8 ("  \xC2\xB7  mic ")) << (item.micPosition + 1);
         g.drawFittedText (meta, line2.removeFromLeft (juce::jmax (60, line2.getWidth() - 72)), juce::Justification::centredLeft, 1);
 
         const auto snrColour = item.clipped ? theme::bad : (item.snrDb >= 40.0 ? theme::good : (item.snrDb >= 25.0 ? theme::warn : theme::bad));

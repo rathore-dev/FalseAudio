@@ -216,7 +216,7 @@ void ProfilePicker::paintListBoxItem (int row, juce::Graphics& g, int width, int
     g.drawText (e.profile.name, inner.removeFromTop (20), juce::Justification::centredLeft, true);
 
     juce::String sub = e.profile.processName.isNotEmpty() ? e.profile.processName : juce::String ("any process");
-    sub << " · " << (int) e.profile.bindings.size() << " controls · " << describeCaps (e.profile.caps);
+    sub << juce::String (juce::CharPointer_UTF8 (" · ")) << (int) e.profile.bindings.size() << " controls · " << describeCaps (e.profile.caps);
     g.setColour (theme::textDim);
     g.setFont (theme::font (11.5f));
     g.drawText (sub, inner, juce::Justification::centredLeft, true);

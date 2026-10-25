@@ -617,11 +617,33 @@ bool AutoTuneEngine::runStages (Result& result)
         if (d >= 9.0)
             ++bigDips;
 
-    const double avgErr = 0.5 * (result.leftErrorDb + result.rightErrorDb);
-    result.score = juce::jlimit (0, 100, (int) std::round (100.0 - 9.0 * std::max (0.0, avgErr - 0.5)
-                                                                 - 8.0 * std::max (0.0, result.matchDb - 0.5)
-                                                                 - 5.0 * bigDips
-                                                                 - 1.0 * result.report.warnings.size()));
+    // Score error: 1/6-oct below 1 kHz, 1/3-oct above (comb/reflection ripple up high is not tonal error).
+    auto scoreError = [&] (const FrequencyResponse& r)
+    {
+        if (r.isEmpty())
+            return 99.0;
+        const auto lo = smoothFractionalOctave (r, 6.0);
+        const auto hi = smoothFractionalOctave (r, 3.0);
+        double ref = 0.0, acc = 0.0;
+        int n = 0;
+        for (size_t i = 0; i < lo.size(); ++i)
+            if (lo.freqs[i] >= 200.0 && lo.freqs[i] <= 2000.0)
+                { ref += (lo.freqs[i] < 1000.0 ? lo : hi).magnitudeDb (i) - targetDb[i]; ++n; }
+        ref /= std::max (1, n);
+        n = 0;
+        for (size_t i = 0; i < lo.size(); ++i)
+            if (lo.freqs[i] >= 40.0 && lo.freqs[i] <= 12000.0)
+                { acc += std::pow ((lo.freqs[i] < 1000.0 ? lo : hi).magnitudeDb (i) - targetDb[i] - ref, 2.0); ++n; }
+        return std::sqrt (acc / std::max (1, n));
+    };
+    const double avgErr = 0.5 * (scoreError (result.leftAfter) + scoreError (result.rightAfter));
+    const double measuredScore = 100.0 - 9.0 * std::max (0.0, avgErr - 0.5)
+                                       - 8.0 * std::max (0.0, result.matchDb - 0.5)
+                                       - 5.0 * bigDips
+                                       - 1.0 * result.report.warnings.size();
+    // Blend with the simulated SQ judge so the headline number and the judge agree.
+    const double blended = result.sqScore.total > 0.0 ? 0.5 * measuredScore + 0.5 * result.sqScore.total : measuredScore;
+    result.score = juce::jlimit (0, 100, (int) std::round (blended));
     result.targetDb = targetDb;
     result.tunedConfig = config;
     progress (1.0, "Score " + juce::String (result.score) + " / 100");

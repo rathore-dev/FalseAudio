@@ -81,10 +81,21 @@ MainShell::MainShell (Session& s)
     session.getAutoTune().addListener (this);
 
     showPage (PageId::autoTune);
+
+    {
+        auto args = JUCEApplication::getCommandLineParameterArray();
+        const int i = args.indexOf ("--qa-script");
+        if (i >= 0 && i + 1 < args.size())
+        {
+            qaLines.addLines (File (args[i + 1]).loadFileAsString());
+            startTimer (50);
+        }
+    }
 }
 
 MainShell::~MainShell()
 {
+    stopTimer();
     session.getAutoTune().removeListener (this);
     session.removeChangeListener (this);
     overlay.closeSheet();
@@ -232,15 +243,15 @@ void MainShell::autoTuneStageChanged (AutoTuneEngine::Stage stage)
         return;
     }
     const double overall = ((double) ((int) stage - 1)) / (double) AutoTuneEngine::numWorkStages;
-    header.setTuneStatus ("Auto Tune  ·  " + AutoTuneEngine::stageName (stage), overall);
+    header.setTuneStatus (juce::String (juce::CharPointer_UTF8 ("Auto Tune  ·  ")) + AutoTuneEngine::stageName (stage), overall);
 }
 
 void MainShell::autoTuneProgress (AutoTuneEngine::Stage stage, double fraction, const String& message)
 {
     const double overall = ((double) ((int) stage - 1) + jlimit (0.0, 1.0, fraction)) / (double) AutoTuneEngine::numWorkStages;
-    String text = "Auto Tune  ·  " + AutoTuneEngine::stageName (stage);
+    String text = juce::String (juce::CharPointer_UTF8 ("Auto Tune  ·  ")) + AutoTuneEngine::stageName (stage);
     if (message.isNotEmpty())
-        text << "  ·  " << message;
+        text << juce::String (juce::CharPointer_UTF8 ("  ·  ")) << message;
     header.setTuneStatus (text, overall);
 }
 
@@ -286,9 +297,105 @@ void MainShell::autoTuneNeedsUser (const AutoTuneEngine::UserAction& action)
 void MainShell::autoTuneFinished (const AutoTuneEngine::Result& r)
 {
     header.setTuneStatus ({}, 0.0);
-    if (r.success)
-        toast ("Auto Tune complete  ·  score " + String (r.score) + "/100", ToastKind::good);
-    else if (r.error.isNotEmpty())
+    if (! r.success && r.error.isNotEmpty())
         toast ("Auto Tune stopped: " + r.error, ToastKind::bad);
+}
+
+// ---- DEV-ONLY QA automation -------------------------------------------------------
+Component* MainShell::findQa (Component& root, const String& key)
+{
+    for (auto* c : root.getChildren())
+    {
+        if (! c->isVisible())
+            continue;
+        if (c->getComponentID() == key)
+            return c;
+        if (auto* b = dynamic_cast<Button*> (c))
+            if (b->getButtonText().equalsIgnoreCase (key) || b->getName().equalsIgnoreCase (key))
+                return c;
+        if (auto* f = findQa (*c, key))
+            return f;
+    }
+    return nullptr;
+}
+
+bool MainShell::runQaLine (const String& raw)
+{
+    const auto line = raw.trim();
+    if (line.isEmpty() || line.startsWith ("#"))
+        return true;
+    const auto cmd = line.upToFirstOccurrenceOf (" ", false, false).toLowerCase();
+    const auto arg = line.fromFirstOccurrenceOf (" ", false, false).trim();
+
+    if (cmd == "page")
+    {
+        static const std::pair<const char*, PageId> names[] = {
+            { "autotune", PageId::autoTune }, { "system", PageId::system }, { "hardware", PageId::hardware },
+            { "measure", PageId::measure }, { "live", PageId::live }, { "alignment", PageId::alignment },
+            { "crossover", PageId::crossoverEq }, { "dsp", PageId::dsp }, { "report", PageId::report },
+            { "gear", PageId::gear }, { "install", PageId::install }, { "insights", PageId::insights } };
+        for (auto& n : names)
+            if (arg.equalsIgnoreCase (n.first)) { showPage (n.second); return true; }
+        return true;
+    }
+    if (cmd == "wait")      { qaWaitMs = arg.getIntValue(); return true; }
+    if (cmd == "click")
+    {
+        if (auto* c = findQa (*this, arg))
+            if (auto* b = dynamic_cast<Button*> (c)) { b->triggerClick(); return true; }
+        Logger::writeToLog ("QA: click target not found: " + arg);
+        return true;
+    }
+    if (cmd == "scroll")
+    {
+        std::function<Viewport* (Component&)> findVp = [&] (Component& r) -> Viewport*
+        {
+            for (auto* c : r.getChildren())
+            {
+                if (! c->isVisible()) continue;
+                if (auto* v = dynamic_cast<Viewport*> (c)) return v;
+                if (auto* f = findVp (*c)) return f;
+            }
+            return nullptr;
+        };
+        if (auto* v = findVp (*this)) v->setViewPosition (0, arg.getIntValue());
+        return true;
+    }
+    if (cmd == "mode")      { setMode (arg.equalsIgnoreCase ("live") ? Session::Mode::live : Session::Mode::demo); return true; }
+    if (cmd == "autotune")  { String e; if (! session.startAutoTune (e)) Logger::writeToLog ("QA: autotune: " + e); return true; }
+    if (cmd == "size")
+    {
+        if (auto* top = getTopLevelComponent())
+        {
+            StringArray wh; wh.addTokens (arg, " x", "");
+            wh.removeEmptyStrings();
+            if (wh.size() >= 2)
+                top->setSize (wh[0].getIntValue() + top->getWidth() - getWidth(),
+                              wh[1].getIntValue() + top->getHeight() - getHeight());
+        }
+        return true;
+    }
+    if (cmd == "snap")
+    {
+        File f (arg);
+        f.getParentDirectory().createDirectory();
+        auto img = createComponentSnapshot (getLocalBounds(), true, 1.0f);
+        f.deleteFile();
+        FileOutputStream os (f);
+        if (os.openedOk()) PNGImageFormat().writeImageToStream (img, os);
+        return true;
+    }
+    if (cmd == "quit")      { JUCEApplication::getInstance()->quit(); return false; }
+    return true;
+}
+
+void MainShell::timerCallback()
+{
+    if (qaWaitMs > 0) { qaWaitMs -= getTimerInterval(); return; }
+    while (qaIndex < qaLines.size() && qaWaitMs <= 0)
+        if (! runQaLine (qaLines[qaIndex++]))
+            { stopTimer(); return; }
+    if (qaIndex >= qaLines.size())
+        stopTimer();
 }
 } // namespace fa::ui

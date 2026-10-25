@@ -12,7 +12,8 @@ namespace fa::ui
     (move the mic / apply settings on a manual DSP / confirm) with a MessageSheet. */
 class MainShell : public AppShell,
                   private juce::ChangeListener,
-                  private AutoTuneEngine::Listener
+                  private AutoTuneEngine::Listener,
+                  private juce::Timer
 {
 public:
     explicit MainShell (Session& session);
@@ -42,6 +43,14 @@ private:
     void autoTuneProgress (AutoTuneEngine::Stage, double, const juce::String&) override;
     void autoTuneNeedsUser (const AutoTuneEngine::UserAction&) override;
     void autoTuneFinished (const AutoTuneEngine::Result&) override;
+
+    // DEV-ONLY automation (inert unless launched with --qa-script <file>)
+    void timerCallback() override;
+    bool runQaLine (const juce::String& line);
+    juce::Component* findQa (juce::Component& root, const juce::String& key);
+    juce::StringArray qaLines;
+    int qaIndex = 0;
+    int qaWaitMs = 0;
 
     void buildPages();
     void setMode (Session::Mode m);

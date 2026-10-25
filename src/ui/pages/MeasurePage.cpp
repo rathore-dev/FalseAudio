@@ -252,7 +252,7 @@ void MeasurePage::timerCallback()
     const double elapsed = (juce::Time::getMillisecondCounter() - measureStarted) * 0.001;
     const double total = session.getAutoTuneOptions().sweepSeconds + 1.6;   // sweep + tail + processing
     progress.setProgress (juce::jlimit (0.02, 0.97, elapsed / total));
-    statusText = "Sweeping " + feedLabel (feedSelector.getSelected()) + "  \xC2\xB7  " + juce::String (elapsed, 1) + " s";
+    statusText = "Sweeping " + feedLabel (feedSelector.getSelected()) + juce::String (juce::CharPointer_UTF8 ("  \xC2\xB7  ")) + juce::String (elapsed, 1) + " s";
     statusColour = theme::accent;
     repaint (statusArea);
 }
@@ -276,7 +276,7 @@ void MeasurePage::startMeasurement()
     measuring = true;
     measureStarted = juce::Time::getMillisecondCounter();
     measureButton.setEnabled (false);
-    measureButton.setButtonText ("Measuring\xE2\x80\xA6");
+    measureButton.setButtonText (juce::String (juce::CharPointer_UTF8 ("Measuring\xE2\x80\xA6")));
     progress.setProgress (0.0);
     progress.setVisible (true);
     startTimerHz (20);
@@ -310,8 +310,8 @@ void MeasurePage::startMeasurement()
         {
             const auto& m = ms.back();
             self.selectedId = m.id;
-            self.statusText = "Captured  \xC2\xB7  SNR " + juce::String (juce::roundToInt (m.snrDb)) + " dB  \xC2\xB7  peak "
-                            + juce::String (m.peakDbFS, 1) + " dBFS" + (m.clipped ? "  \xC2\xB7  CLIPPED" : "");
+            self.statusText = juce::String (juce::CharPointer_UTF8 ("Captured  \xC2\xB7  SNR ")) + juce::String (juce::roundToInt (m.snrDb)) + juce::String (juce::CharPointer_UTF8 (" dB  \xC2\xB7  peak "))
+                            + juce::String (m.peakDbFS, 1) + " dBFS" + (m.clipped ? juce::String (juce::CharPointer_UTF8 ("  \xC2\xB7  CLIPPED")) : "");
             self.statusColour = m.clipped ? theme::bad : (m.snrDb < 25.0 ? theme::warn : theme::good);
             if (self.shell != nullptr)
             {
@@ -511,7 +511,7 @@ void MeasurePage::rebuildView()
         if (view == View::distortion)
         {
             freqPlot.setUnits (FrequencyPlot::Units::dB);
-            freqPlot.setTitle (sel != nullptr ? "Harmonic distortion  \xC2\xB7  " + displayName (*sel) : juce::String ("Harmonic distortion"));
+            freqPlot.setTitle (sel != nullptr ? juce::String (juce::CharPointer_UTF8 ("Harmonic distortion  \xC2\xB7  ")) + displayName (*sel) : juce::String ("Harmonic distortion"));
             if (sel != nullptr)
             {
                 ensureCache (*sel);
@@ -536,7 +536,7 @@ void MeasurePage::rebuildView()
                 }
                 else
                 {
-                    freqPlot.setTitle ("Harmonic distortion  \xC2\xB7  not available for this measurement");
+                    freqPlot.setTitle (juce::String (juce::CharPointer_UTF8 ("Harmonic distortion  \xC2\xB7  not available for this measurement")));
                 }
             }
             rangeKey << ":dist";
@@ -695,7 +695,7 @@ void MeasurePage::rebuildView()
         {
             ensureCache (*sel);
             waterfall.setData (cache.waterfall, itemStates[sel->id].colour,
-                               "Spectral decay  \xC2\xB7  " + displayName (*sel) + "  \xC2\xB7  0-300 ms");
+                               juce::String (juce::CharPointer_UTF8 ("Spectral decay  \xC2\xB7  ")) + displayName (*sel) + juce::String (juce::CharPointer_UTF8 ("  \xC2\xB7  0-300 ms")));
         }
         else
             waterfall.clear();
@@ -715,7 +715,7 @@ void MeasurePage::rebuildDetails()
         return;
     }
 
-    details.setTitle (displayName (*m) + "  \xC2\xB7  " + m->channelId, itemStates[m->id].colour);
+    details.setTitle (displayName (*m) + juce::String (juce::CharPointer_UTF8 ("  \xC2\xB7  ")) + m->channelId, itemStates[m->id].colour);
 
     std::vector<StatStrip::Stat> stats;
     stats.push_back ({ "Onset", juce::String (m->onsetMs, 2), "ms" });

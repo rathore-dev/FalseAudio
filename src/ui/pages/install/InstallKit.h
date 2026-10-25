@@ -36,7 +36,7 @@ inline juce::String fmtValue (double v, const juce::String& unit)
 inline juce::String fmtWatts (double w)   { return w >= 1000.0 ? juce::String (w / 1000.0, 2) + " kW" : juce::String (juce::roundToInt (w)) + " W"; }
 inline juce::String fmtVolts (double v)   { return juce::String (v, v >= 10.0 ? 1 : 2) + " V"; }
 inline juce::String fmtAmps (double a)    { return juce::String (a, a >= 100.0 ? 0 : 1) + " A"; }
-inline juce::String fmtOhms (double o)    { return juce::String (o, o >= 10.0 ? 1 : 2) + " Ω"; }
+inline juce::String fmtOhms (double o)    { return juce::String (o, o >= 10.0 ? 1 : 2) + juce::String (juce::CharPointer_UTF8 (" Ω")); }
 inline juce::String fmtAwg (double awg)   { return fmtValue (awg, "AWG") + " AWG"; }
 
 /** "250 Hz", "2.5 kHz" - frequencies without stray decimals. */

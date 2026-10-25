@@ -115,10 +115,10 @@ void NativePanel::scan()
             u.reason = d.error;
             u.detail = "miniDSP";
             if (d.identity.hwId >= 0)
-                u.detail << " · hw " << d.identity.hwId << " · fw " << d.identity.fwMajor << "." << d.identity.fwMinor;
+                u.detail << juce::String (juce::CharPointer_UTF8 (" · hw ")) << d.identity.hwId << juce::String (juce::CharPointer_UTF8 (" · fw ")) << d.identity.fwMajor << "." << d.identity.fwMinor;
             if (d.kind.isNotEmpty())
             {
-                u.detail << " · " << d.kind;
+                u.detail << juce::String (juce::CharPointer_UTF8 (" · ")) << d.kind;
                 if (auto* spec = minidsp::byKind (d.kind))
                     u.needsSampleRate = spec->sampleRate <= 0.0;
             }
@@ -134,7 +134,7 @@ void NativePanel::scan()
             u.serial = d.serial;
             u.supported = true;
             u.detail = "USB HID";
-            if (d.identity.isNotEmpty()) u.detail << " · " << d.identity;
+            if (d.identity.isNotEmpty()) u.detail << juce::String (juce::CharPointer_UTF8 (" · ")) << d.identity;
             found.push_back (u);
         }
 
@@ -237,10 +237,10 @@ void NativePanel::updateReport()
         const auto id = mini->getIdentity();
         statusTitle = mini->getName();
         statusLines << "Serial " << (id.serial != 0 ? juce::String (id.serial) : juce::String ("-"))
-                    << "  ·  firmware " << id.fwMajor << "." << id.fwMinor
-                    << "  ·  " << mini->getWritesSent() << " writes sent";
+                    << juce::String (juce::CharPointer_UTF8 ("  ·  firmware ")) << id.fwMajor << "." << id.fwMinor
+                    << juce::String (juce::CharPointer_UTF8 ("  ·  ")) << mini->getWritesSent() << " writes sent";
         if (auto* dev = mini->getDevice())
-            statusLines << "  ·  " << dev->productName << " (" << mini->getCapabilities().sampleRate / 1000.0 << " kHz)";
+            statusLines << juce::String (juce::CharPointer_UTF8 ("  ·  ")) << dev->productName << " (" << mini->getCapabilities().sampleRate / 1000.0 << " kHz)";
         warnings = mini->getWarnings();
         snapshot = mini->getSnapshotFile();
         statusNote = "miniDSP limitation: the vendor plugin keeps its own copy of the settings and will not display "
@@ -250,7 +250,7 @@ void NativePanel::updateReport()
     {
         statusTitle = d408->getName();
         statusLines << (d408->getIdentity().isNotEmpty() ? d408->getIdentity() : juce::String ("DSP-408"))
-                    << "  ·  " << d408->getBlocksWritten() << " blocks written";
+                    << juce::String (juce::CharPointer_UTF8 ("  ·  ")) << d408->getBlocksWritten() << " blocks written";
         mapping = d408->getMappingReport();
         snapshot = d408->getSnapshotFile();
         statusNote = "DSP-408 writes are permanent on the device (there is no undo). A backup is taken before the "
@@ -380,7 +380,7 @@ void NativePanel::paintListBoxItem (int row, juce::Graphics& g, int width, int h
     g.drawText (d.name, inner.removeFromTop (20), juce::Justification::centredLeft, true);
 
     juce::String sub = d.detail;
-    if (d.serial.isNotEmpty()) sub << " · serial " << d.serial;
+    if (d.serial.isNotEmpty()) sub << juce::String (juce::CharPointer_UTF8 (" · serial ")) << d.serial;
     if (! d.supported && d.reason.isNotEmpty()) sub = d.reason;
     g.setColour (d.supported ? theme::textDim : theme::warn);
     g.setFont (theme::font (11.5f));

@@ -149,7 +149,7 @@ void WiringCard::Table::paint (juce::Graphics& g)
         if (cols.showLoss)
         {
             g.setColour (theme::textDim);
-            g.drawText (juce::String (w.powerLossW, w.powerLossW >= 10 ? 0 : 1) + " W", r.removeFromLeft (cols.loss), juce::Justification::centredRight, false);
+            g.drawText ((w.powerLossW >= 10 ? juce::String (juce::roundToInt (w.powerLossW)) : juce::String (w.powerLossW, 1)) + " W", r.removeFromLeft (cols.loss), juce::Justification::centredRight, false);
         }
         g.setColour (w.ok ? theme::text : theme::bad);
         g.setFont (theme::fontBold (13.0f));

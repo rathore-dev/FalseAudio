@@ -8,6 +8,11 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 add_subdirectory(external/JUCE)
 
+# Source files and string literals are UTF-8 (juce::CharPointer_UTF8 wraps non-ASCII literals).
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
+
 # ---------------------------------------------------------------------------
 # Embedded data: the HouseCurves target collection (full curves + per-band sums).
 # ---------------------------------------------------------------------------

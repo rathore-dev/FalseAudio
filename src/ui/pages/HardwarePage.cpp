@@ -608,7 +608,7 @@ void HardwarePage::finishLevelCheck()
             worst = col;
 
         text << "Mic " << juce::String (i + 1) << ": peak " << theme::formatDb (sig, 1, false) << " dBFS, floor "
-             << theme::formatDb (noise, 1, false) << " dBFS, SNR " << juce::String (snr, 0) << " dB - " << advice << "\n";
+             << theme::formatDb (noise, 1, false) << " dBFS, SNR " << juce::String (juce::roundToInt (snr)) << " dB - " << advice << "\n";
     }
     text << "Output peaked at " << theme::formatDb (lastOutPeak, 1, false) << " dBFS. Aim for mic peaks between -30 and -12 dBFS with SNR above 30 dB.";
     levelAdvice.setTextColour (worst == theme::good ? theme::textDim : worst);
