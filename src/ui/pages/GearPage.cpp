@@ -1,4 +1,4 @@
-#include "GearPage.h"
+﻿#include "GearPage.h"
 #include "gear/ProductPicker.h"
 
 namespace fa::ui
@@ -186,7 +186,7 @@ public:
                     otherAmp = (int) k;
 
             auto label = shortChannelName (ch);
-            if (otherAmp >= 0) label << "  ·  Amp " << (otherAmp + 1);
+            if (otherAmp >= 0) label << "  |  Amp " << (otherAmp + 1);
             auto chip = std::make_unique<Chip> (label, mine ? theme::roleColour (ch.role) : theme::textMuted);
             const auto id = ch.id;
             chip->onClick = [this, id]
@@ -380,7 +380,7 @@ public:
                 if (load > 0)
                     loadText = "Amp sees " + num (load, 2) + " Ω";
                 if (ds.powerRmsW > 0 && d != nullptr)
-                    loadText << "  ·  " << num (ds.powerRmsW * juce::jmax (1, d->count), 0) << " W RMS total";
+                    loadText << "  |  " << num (ds.powerRmsW * juce::jmax (1, d->count), 0) << " W RMS total";
             }
         }
         repaint();
@@ -682,7 +682,7 @@ void GearPage::updateSummary()
         parts.add ("Loading database…");
     else
         parts.add (juce::String (gear::GearDatabase::instance().size()) + " products in the database");
-    summaryText.setText (parts.joinIntoString ("   ·   "));
+    summaryText.setText (parts.joinIntoString ("   |   "));
     applyBtn.setEnabled (chosenDrivers > 0 && ! dbLoading);
 }
 
@@ -767,7 +767,7 @@ void GearPage::applyToTuning()
 
     juce::String msg = "Driver specs applied to the tuning config";
     if (! plan.warnings.isEmpty())
-        msg << "  ·  " << plan.warnings.size() << (plan.warnings.size() == 1 ? " warning" : " warnings") << " - see Install & gains";
+        msg << "  |  " << plan.warnings.size() << (plan.warnings.size() == 1 ? " warning" : " warnings") << " - see Install & gains";
     toast (msg, plan.warnings.isEmpty() ? AppShell::ToastKind::good : AppShell::ToastKind::warn);
 }
 
