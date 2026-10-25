@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "jbl-club-602c",
+      "category": "componentSet",
+      "brand": "JBL",
+      "model": "Club 602C",
+      "series": "Club",
+      "sourceUrl": "https://id.jbl.com/car-speakers/CLUB602C-.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6.5 in 2-way component set. SKU SPKCB602C. No T/S published. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 92,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 70,
+        "powerPeakW": 210,
+        "freqLowHz": 55,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "jbl-stage2-604c",
+      "category": "componentSet",
+      "brand": "JBL",
+      "model": "Stage2 604C",
+      "series": "Stage2",
+      "sourceUrl": "https://id.jbl.com/car-speakers/STAGE2+604C.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6-1/2 in (160 mm) 2-way component system (SKU STAGE2604C-Z). No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 45,
+        "powerPeakW": 270,
+        "freqLowHz": 55,
+        "freqHighHz": 20000
+      }
+    }
+  ]
+}

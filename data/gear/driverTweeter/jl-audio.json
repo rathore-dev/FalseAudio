@@ -1,0 +1,50 @@
+{
+  "products": [
+    {
+      "id": "jl-audio-c2-075ct",
+      "category": "driverTweeter",
+      "brand": "JL Audio",
+      "model": "C2-075ct",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_075ct_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). 0.75 in (19 mm) silk dome, NOTE 8 ohm nominal. Continuous power handling 60 W (with C2 crossover); recommended amp 15-100 W RMS. Efficiency also given as 91.5 dB @ 1W/0.5m. No T/S published. Flush fixture mounting depth 9.1 mm.",
+      "driver": {
+        "sizeInches": 0.75,
+        "nominalOhms": 8,
+        "sensitivityDb": 91.0,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 93.5,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 4000,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 9.1
+      }
+    },
+    {
+      "id": "jl-audio-c7-100ct",
+      "category": "driverTweeter",
+      "brand": "JL Audio",
+      "model": "C7-100ct",
+      "series": "C7",
+      "sourceUrl": "https://static.garmin.com/pumac/C7100ct_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). 1 in (25 mm) alloy-dome tweeter. Continuous power 100 W; recommended amp 50-150 W RMS. Usable range: 3-30 kHz (48 dB/oct), 4-30 kHz (24 dB/oct), 5-30 kHz (12 dB/oct). Supplied 15 uF protection capacitor is not a substitute for a high-pass filter. JL C7 manuals' suggested 3-way starting points: woofer LP 400 Hz LR24; midrange HP 480 Hz / LP 3500 Hz LR24; tweeter HP 4500 Hz LR24 (-1 dB). 2-way: woofer LP 2700 Hz, tweeter HP 4000 Hz LR24. Passive crossovers not recommended (active/DSP only).",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "reOhms": 3.2,
+        "fsHz": 1450,
+        "sensitivityDb": 86.5,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 89.5,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 100,
+        "freqLowHz": 3000,
+        "freqHighHz": 30000,
+        "recommendedHpHz": 4000
+      }
+    }
+  ]
+}

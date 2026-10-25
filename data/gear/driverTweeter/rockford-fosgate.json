@@ -1,0 +1,212 @@
+{
+  "products": [
+    {
+      "id": "rockford-fosgate-p1t-s",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "P1T-S",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p1t-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Crossover: High-Pass (HP): 3.5KHz @ 12dB/octave Butterworth.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "freqLowHz": 3500,
+        "freqHighHz": 22000,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 60,
+        "powerPeakW": 120,
+        "mountingDepthMm": 13
+      }
+    },
+    {
+      "id": "rockford-fosgate-p2v2-ts",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "P2V2-TS",
+      "series": "Punch P2",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p2v2-ts/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Published Fs 3.5 kHz. Mounting diameter Flush Mount: 1.54\" (39 mm); Surface Mount: 1.22\" (31.1 mm). Crossover: Tweeter High-Pass: 9kHz @ 12dB/octave Tweeter Attenuation: 0dB or -3dB. Voice coil 0.75\" (19 mm).",
+      "driver": {
+        "sizeInches": 0.75,
+        "nominalOhms": 4,
+        "freqLowHz": 3500,
+        "freqHighHz": 25000,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 93,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150
+      }
+    },
+    {
+      "id": "rockford-fosgate-pp4-nt",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "PP4-NT",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pp4-nt/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Crossover: 4kHz @ 6dB/Octave. Voice coil 1\" (25 mm).",
+      "driver": {
+        "sizeInches": 1,
+        "mountingDepthMm": 65.8,
+        "recommendedHpHz": 4000
+      }
+    },
+    {
+      "id": "rockford-fosgate-pp4-t",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "PP4-T",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pp4-t/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Crossover: 4.5kHz @ 6dB/Octave. Voice coil 1.475\" (37.5 mm).",
+      "driver": {
+        "sizeInches": 1.5,
+        "freqLowHz": 4000,
+        "freqHighHz": 20000,
+        "sensitivityDb": 105,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "mountingDepthMm": 65.8,
+        "recommendedHpHz": 4500
+      }
+    },
+    {
+      "id": "rockford-fosgate-pprov2-bt",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "PPROV2-BT",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pprov2-bt/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Published Fs 3.6 kHz. Crossover: 6dB/octave. Voice coil 1\" (25.4 mm).",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "freqLowHz": 3000,
+        "freqHighHz": 23000,
+        "sensitivityDb": 102,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 105,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 38,
+        "cutoutMm": 48.25
+      }
+    },
+    {
+      "id": "rockford-fosgate-pprov2-ht",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "PPROV2-HT",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pprov2-ht/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Published Fs 3.6 kHz. Crossover: 12kHz High-Pass 6dB/Octave. Voice coil 1\" (25.4 mm).",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "freqLowHz": 3000,
+        "freqHighHz": 20000,
+        "sensitivityDb": 105,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 108,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 75,
+        "cutoutMm": 45.5
+      }
+    },
+    {
+      "id": "rockford-fosgate-pprov2-t",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "PPROV2-T",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pprov2-t/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Published Fs 3 kHz. Crossover: Hz 12kHz High-Pass 6dB/Octave. Voice coil 1.5\" (38 mm).",
+      "driver": {
+        "sizeInches": 1.5,
+        "nominalOhms": 4,
+        "freqLowHz": 3000,
+        "freqHighHz": 22000,
+        "sensitivityDb": 105,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 108,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 66.35,
+        "cutoutMm": 110.5
+      }
+    },
+    {
+      "id": "rockford-fosgate-r1t-s",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "R1T-S",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r1t-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Crossover: Tweeter High-Pass (HP): 4.5kHz @ 6dB/octave. Page lists sensitivity 72.5 dB @ 1W/1m, implausible for a tweeter (likely typo) - omitted.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "freqLowHz": 2500,
+        "freqHighHz": 22000,
+        "powerRmsW": 40,
+        "powerPeakW": 80,
+        "recommendedHpHz": 4500
+      }
+    },
+    {
+      "id": "rockford-fosgate-t1t-s",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "T1T-S",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t1t-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Crossover: High-Pass (HP): 3.0kHz @ 18dB/octave Butterworth.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "freqLowHz": 3000,
+        "freqHighHz": 22000,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 23,
+        "recommendedHpHz": 3000
+      }
+    },
+    {
+      "id": "rockford-fosgate-t2t-s",
+      "category": "driverTweeter",
+      "brand": "Rockford Fosgate",
+      "model": "T2T-S",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t2t-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Crossover: High-Pass (HP): 3.0kHz @ 18dB/octave Butterworth.",
+      "driver": {
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 23,
+        "recommendedHpHz": 3000
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": "rockford-fosgate-pprov2-8",
+      "category": "driverMidbass",
+      "brand": "Rockford Fosgate",
+      "model": "PPROV2-8",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pprov2-8/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Full T/S not published beyond Fs/Qts/Vas/Xmax. Xmax10 (10% distortion) 2.5 mm. Mounting depth without motor cover 2.8\" (71.7 mm). Voice coil 2.0\" (51 mm).",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "freqLowHz": 60,
+        "freqHighHz": 7000,
+        "fsHz": 80,
+        "qts": 0.4,
+        "vasLitres": 10.5,
+        "xmaxMm": 1.0,
+        "sensitivityDb": 94.5,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 97.5,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 76.3,
+        "cutoutMm": 178.5
+      }
+    }
+  ]
+}

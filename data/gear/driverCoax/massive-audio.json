@@ -1,0 +1,612 @@
+{
+  "products": [
+    {
+      "id": "massive-audio-mx2",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "MX2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mx2-coaxial-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 2 in full-range (2.25 in mounting). Max power 40 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "sensitivityDb": 90.1,
+        "powerRmsW": 20,
+        "powerPeakW": 100,
+        "freqLowHz": 200,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 28.4,
+        "cutoutMm": 57.1
+      }
+    },
+    {
+      "id": "massive-audio-mx3",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "MX3",
+      "sourceUrl": "https://www.massiveaudio.com/products/mx3-coaxial-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 13 mm PEI tweeter. Title says 30 W RMS; spec table 25 W (table used). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91.2,
+        "powerRmsW": 25,
+        "powerPeakW": 120,
+        "freqLowHz": 160,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 38.6,
+        "cutoutMm": 80.0
+      }
+    },
+    {
+      "id": "massive-audio-mx4",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "MX4",
+      "sourceUrl": "https://www.massiveaudio.com/products/mx4-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 13 mm PEI tweeter. Title says 40 W RMS; spec table 30 W (table used). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 91.5,
+        "powerRmsW": 30,
+        "powerPeakW": 150,
+        "freqLowHz": 120,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 41.4,
+        "cutoutMm": 95.0
+      }
+    },
+    {
+      "id": "massive-audio-mx46",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "MX46",
+      "sourceUrl": "https://www.massiveaudio.com/products/mx46-coaxial-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 4x6 in oval, 13 mm PEI tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 90.1,
+        "powerRmsW": 40,
+        "powerPeakW": 180,
+        "freqLowHz": 95,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 54.1
+      }
+    },
+    {
+      "id": "massive-audio-mx5v2",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "MX5V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mx5-coaxial-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 13 mm PEI tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 90.5,
+        "powerRmsW": 40,
+        "powerPeakW": 180,
+        "freqLowHz": 80,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 49.5
+      }
+    },
+    {
+      "id": "massive-audio-mx57v2",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "MX57V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mx57v2-5x7-6x8-2-way-50-watts-rms-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 5x7/6x8 in oval, 13 mm PEI tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92.5,
+        "powerRmsW": 50,
+        "powerPeakW": 220,
+        "freqLowHz": 65,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 55.1
+      }
+    },
+    {
+      "id": "massive-audio-mx65v2",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "MX65V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mx65v2-6-5-2-way-60-watts-rms-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 13 mm PEI tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "powerRmsW": 60,
+        "powerPeakW": 250,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 63.0
+      }
+    },
+    {
+      "id": "massive-audio-mx65sv2",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "MX65SV2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mx65sv2-6-5-2-way-50-watts-rms-shallow-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Shallow mount, 13 mm PEI tweeter. Max power 100 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "powerRmsW": 50,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 48.0
+      }
+    },
+    {
+      "id": "massive-audio-mx693",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "MX693",
+      "sourceUrl": "https://www.massiveaudio.com/products/mx693-3-way-60-watts-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 6x9 in 3-way (13 mm PEI tweeter + 66 mm mid). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 93.6,
+        "powerRmsW": 60,
+        "powerPeakW": 250,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 74.9
+      }
+    },
+    {
+      "id": "massive-audio-fx4",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "FX4",
+      "sourceUrl": "https://www.massiveaudio.com/products/fx4-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 20 mm aluminum dome tweeter, 6 dB outboard crossover. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 87,
+        "powerRmsW": 50,
+        "powerPeakW": 200,
+        "freqLowHz": 70,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 50.8,
+        "cutoutMm": 100.8
+      }
+    },
+    {
+      "id": "massive-audio-fx5",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "FX5",
+      "sourceUrl": "https://www.massiveaudio.com/products/fx5-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 20 mm aluminum dome tweeter, 6 dB outboard crossover. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "powerRmsW": 60,
+        "powerPeakW": 240,
+        "freqLowHz": 70,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 52.3,
+        "cutoutMm": 119.9
+      }
+    },
+    {
+      "id": "massive-audio-fx6",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "FX6",
+      "sourceUrl": "https://www.massiveaudio.com/products/fx6-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 20 mm aluminum dome tweeter, 6 dB outboard crossover. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "powerRmsW": 75,
+        "powerPeakW": 300,
+        "freqLowHz": 58,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 62.5,
+        "cutoutMm": 142.2
+      }
+    },
+    {
+      "id": "massive-audio-fx57",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "FX57",
+      "sourceUrl": "https://www.massiveaudio.com/products/fx57-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 5x7 in oval (cutout 4.96 x 7.1 in), 20 mm aluminum tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "powerRmsW": 70,
+        "powerPeakW": 280,
+        "freqLowHz": 58,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 56.9
+      }
+    },
+    {
+      "id": "massive-audio-fx69",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "FX69",
+      "sourceUrl": "https://www.massiveaudio.com/products/fx69-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 6x9 in oval (cutout 6.25 x 8.58 in), 20 mm aluminum tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "powerRmsW": 80,
+        "powerPeakW": 320,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 83.8
+      }
+    },
+    {
+      "id": "massive-audio-fc6x",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "FC6X",
+      "sourceUrl": "https://www.massiveaudio.com/products/fc6x-6-5-100-watts-rms-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 20 mm silk tweeter. Page lists frequency 58-10KHz (upper limit looks like a typo) - freqHighHz omitted. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "freqLowHz": 58,
+        "mountingDepthMm": 61.0,
+        "cutoutMm": 143.5
+      }
+    },
+    {
+      "id": "massive-audio-gt6sp",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "GT6SP",
+      "sourceUrl": "https://www.massiveaudio.com/products/gt6sp-6-5-2-way-150-watts-rms-coaxial-pro-car-audio-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio style coax. RMS 50 W each (title says 100 W RMS per pair). Max power 200 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "powerRmsW": 50,
+        "powerPeakW": 200,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 62.0,
+        "cutoutMm": 140.7
+      }
+    },
+    {
+      "id": "massive-audio-gt69sp",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "GT69SP",
+      "sourceUrl": "https://www.massiveaudio.com/products/gt69sp-6x9-2-way-120-watts-rms-coaxial-pro-car-audio-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 6x9 in pro-audio style coax. RMS 60 W each. Max power 240 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "powerRmsW": 60,
+        "powerPeakW": 240,
+        "freqLowHz": 80,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 74.9
+      }
+    },
+    {
+      "id": "massive-audio-p65xv2",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "P65XV2",
+      "sourceUrl": "https://www.massiveaudio.com/products/p65xv2-pro-audio-co-axial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio coax with bullet tweeter. Max 240 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 96,
+        "powerRmsW": 120,
+        "powerPeakW": 280,
+        "freqLowHz": 100,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 77.5
+      }
+    },
+    {
+      "id": "massive-audio-p69xv2",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "P69XV2",
+      "sourceUrl": "https://www.massiveaudio.com/products/p69xv2-6x-9-2-way-140-watts-rms-coaxial-pro-audio-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 6x9 in pro-audio coax with bullet tweeter. Max 280 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 96,
+        "powerRmsW": 140,
+        "powerPeakW": 300,
+        "freqLowHz": 80,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 87.9
+      }
+    },
+    {
+      "id": "massive-audio-p65z",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "P65Z",
+      "sourceUrl": "https://www.massiveaudio.com/products/p65z-6-5-4-ohm-mid-range-pro-audio-coaxial-speaker-with-grill-120-watts-rms",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio coax, horn-loaded tweeter, crossover 3.5 kHz. RMS 100-120 W (upper used). Sold as each. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 95,
+        "powerRmsW": 120,
+        "powerPeakW": 240,
+        "freqLowHz": 100,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 70.4,
+        "cutoutMm": 142.5
+      }
+    },
+    {
+      "id": "massive-audio-p8z",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "P8Z",
+      "sourceUrl": "https://www.massiveaudio.com/products/p8z-8-4-ohm-mid-bass-pro-audio-coaxial-speaker-with-grill-140-watts-rms",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio coax, horn-loaded tweeter, crossover 3.5 kHz. RMS 120-140 W (upper used). Sold as each. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "sensitivityDb": 95,
+        "powerRmsW": 140,
+        "powerPeakW": 280,
+        "freqLowHz": 80,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 79.5,
+        "cutoutMm": 179.1
+      }
+    },
+    {
+      "id": "massive-audio-p65nti",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "P65NTI",
+      "sourceUrl": "https://www.massiveaudio.com/products/p65nti-6-5-4-ohm-mid-range-pro-audio-coaxial-water-resistant-speaker-140-watts-rms",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Neodymium pro-audio coax, bullet tweeter, on-board 12 dB crossover + polyswitch. RMS 120-140 W (upper used). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "powerRmsW": 140,
+        "powerPeakW": 280,
+        "freqLowHz": 100,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 77.5,
+        "cutoutMm": 147.1
+      }
+    },
+    {
+      "id": "massive-audio-p8nti",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "P8NTI",
+      "sourceUrl": "https://www.massiveaudio.com/products/p8nti-8-4-ohm-mid-range-pro-audio-coaxial-neodymium-weatherproof-speaker-160-watts-rms",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Neodymium pro-audio coax, bullet tweeter, on-board 12 dB crossover. RMS 140-160 W (upper used). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "powerRmsW": 160,
+        "powerPeakW": 320,
+        "freqLowHz": 80,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 85.1,
+        "cutoutMm": 180.1
+      }
+    },
+    {
+      "id": "massive-audio-p69nti",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "P69NTI",
+      "sourceUrl": "https://www.massiveaudio.com/products/p69nti-6x9-4-ohm-mid-range-pro-audio-coaxial-neodymium-weatherproof-speaker-160-watts-rms",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 6x9 in neodymium pro-audio coax (cutout 8.66 x 5.94 in). RMS 140-160 W (upper used). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "powerRmsW": 160,
+        "powerPeakW": 320,
+        "freqLowHz": 80,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 87.4
+      }
+    },
+    {
+      "id": "massive-audio-pnx6",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "PNX6",
+      "sourceUrl": "https://www.massiveaudio.com/products/pnx6-6-5-4-ohm-mid-range-pro-audio-coaxial-water-repellent-speaker-160-watts-rms",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio coax, 36 mm polyester tweeter, crossover 3.5 kHz. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 96,
+        "powerRmsW": 160,
+        "powerPeakW": 350,
+        "freqLowHz": 80,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 91.7,
+        "cutoutMm": 143.3
+      }
+    },
+    {
+      "id": "massive-audio-pnx69",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "PNX69",
+      "sourceUrl": "https://www.massiveaudio.com/products/copy-of-pnx69-6x9-4-ohm-mid-range-pro-audio-coaxial-water-repellent-speaker-180-watts-rms",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 6x9 in pro-audio coax (cutout 8.87 x 6.04 in), 36 mm tweeter, crossover 3.5 kHz. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 99,
+        "powerRmsW": 180,
+        "powerPeakW": 400,
+        "freqLowHz": 70,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 107.4
+      }
+    },
+    {
+      "id": "massive-audio-hnx6",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "HNX6",
+      "sourceUrl": "https://www.massiveaudio.com/products/hnx6-6-5-4-ohm-mid-range-car-audio-coaxial-water-repellent-speaker-120-watts-rms",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio coax, 20 mm PEI tweeter, crossover 3.5 kHz. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "powerRmsW": 120,
+        "powerPeakW": 280,
+        "freqLowHz": 80,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 60.5,
+        "cutoutMm": 144.0
+      }
+    },
+    {
+      "id": "massive-audio-nis6x",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "NIS6X",
+      "sourceUrl": "https://www.massiveaudio.com/products/nis6x-6-5-nissan-oem-drop-in-80-watts-rms-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Nissan OEM drop-in coax (frame 7.05 x 6.75 in). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 59,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 59.7
+      }
+    },
+    {
+      "id": "massive-audio-kia6x",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "KIA6X",
+      "sourceUrl": "https://www.massiveaudio.com/products/kia6x-6-5-nissan-oem-drop-in-80-watts-rms-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Kia OEM drop-in coax. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 59,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-hyun6x",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "HYUN6X",
+      "sourceUrl": "https://www.massiveaudio.com/products/hyun6x-6-5-oem-drop-in-80-watts-rms-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Hyundai OEM drop-in coax. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 59,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-toy6x",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "TOY6X",
+      "sourceUrl": "https://www.massiveaudio.com/products/toy-6x-6-5-inch-toyota-drop-in-oem-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Toyota OEM drop-in coax. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 59,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-hon6x",
+      "category": "driverCoax",
+      "brand": "Massive Audio",
+      "model": "HON6X",
+      "sourceUrl": "https://www.massiveaudio.com/products/hon6x-6-5-inch-honda-80-watts-rms-coaxial-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Honda OEM drop-in coax (frame 7.05 x 6.75 in). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 59,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 59.7
+      }
+    }
+  ]
+}

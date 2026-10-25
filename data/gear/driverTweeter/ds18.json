@@ -1,0 +1,334 @@
+{
+  "products": [
+    {
+      "id": "ds18-zxi-t1",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "ZXI-T1",
+      "sourceUrl": "https://www.ds18.com/products/1-7-pei-dome-tweeter-with-1-aluminum-voice-coil-100-watts-max",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'.",
+      "driver": {
+        "sizeInches": 1.7,
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 1000,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 20,
+        "cutoutMm": 48,
+        "recommendedHpHz": 3500
+      }
+    },
+    {
+      "id": "ds18-dtx",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "DTX",
+      "sourceUrl": "https://www.ds18.com/products/2-2-sound-quality-titanium-dome-tweeter-with-aluminum-body",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'.",
+      "driver": {
+        "sizeInches": 2.2,
+        "nominalOhms": 4,
+        "sensitivityDb": 95.2,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 900,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 16.5,
+        "cutoutMm": 47,
+        "recommendedHpHz": 3800
+      }
+    },
+    {
+      "id": "ds18-pro-twx5",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TWX5",
+      "sourceUrl": "https://www.ds18.com/products/aluminum-super-bullet-tweeter-500-watts-with-built-in-crossover-single-new-edition",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. Cutout 3\" x 4\" / 77 x 104mm; sold as single",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 107,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 3000,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 75,
+        "recommendedHpHz": 3000
+      }
+    },
+    {
+      "id": "ds18-pro-twx1-bk",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TWX1/BK",
+      "sourceUrl": "https://www.ds18.com/products/ds18-pro-twx1-1-pro-aluminum-super-bullet-tweeter-vc-240-watts-capacitor-crossover-pair",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. sold as pair",
+      "driver": {
+        "sizeInches": 3.8,
+        "nominalOhms": 4,
+        "sensitivityDb": 103,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 3500,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 40,
+        "cutoutMm": 70,
+        "recommendedHpHz": 2000
+      }
+    },
+    {
+      "id": "ds18-pro-twx1",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TWX1",
+      "sourceUrl": "https://www.ds18.com/products/ds18-pro-twx1-1-pro-aluminum-super-bullet-tweeter-vc-240-watts-with-capacitor-crossover-pair-silver",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. sold as pair",
+      "driver": {
+        "sizeInches": 3.8,
+        "nominalOhms": 4,
+        "sensitivityDb": 103,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 3500,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 40,
+        "cutoutMm": 70,
+        "recommendedHpHz": 2000
+      }
+    },
+    {
+      "id": "ds18-pro-twx3",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TWX3",
+      "sourceUrl": "https://www.ds18.com/products/ds18-pro-twx3-4-super-bullet-tweeter-480-watts-1-5-aluminum-4-ohm-voice-coil",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. sold as single",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 106,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 3000,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 60,
+        "cutoutMm": 92,
+        "recommendedHpHz": 3000
+      }
+    },
+    {
+      "id": "ds18-pro-twx3-8ti",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TWX3.8Ti",
+      "sourceUrl": "https://www.ds18.com/products/ds18-pro-twx3-8ti-pro-3-8-super-bullet-tweeter-500-watts-1-5-aluminum-8-ohm-vc",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. sold as single",
+      "driver": {
+        "sizeInches": 3.8,
+        "nominalOhms": 8,
+        "sensitivityDb": 108,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 1600,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 55.8,
+        "cutoutMm": 92,
+        "recommendedHpHz": 2500
+      }
+    },
+    {
+      "id": "ds18-pro-twx3ti",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TWX3Ti",
+      "sourceUrl": "https://www.ds18.com/products/ds18-pro-twx3ti-pro-3-8-super-bullet-tweeter-500-watts-1-5-aluminum-4-ohm-vc",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. sold as single",
+      "driver": {
+        "sizeInches": 3.8,
+        "nominalOhms": 4,
+        "sensitivityDb": 108,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 1600,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 55.8,
+        "cutoutMm": 92,
+        "recommendedHpHz": 2500
+      }
+    },
+    {
+      "id": "ds18-pro-tw1l",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TW1L",
+      "sourceUrl": "https://www.ds18.com/products/ds18-rgb-pro-tw1l-1-pro-aluminum-super-bullet-tweeter-vc-240-watts",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'.",
+      "driver": {
+        "sizeInches": 3.8,
+        "nominalOhms": 4,
+        "sensitivityDb": 103,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 3500,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 40,
+        "cutoutMm": 72,
+        "recommendedHpHz": 4000
+      }
+    },
+    {
+      "id": "ds18-dxtc",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "DXTC",
+      "sourceUrl": "https://www.ds18.com/products/dxtc",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. sold as pair",
+      "driver": {
+        "sizeInches": 2,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 250,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 36,
+        "cutoutMm": 52,
+        "recommendedHpHz": 500
+      }
+    },
+    {
+      "id": "ds18-cxt",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "CXT",
+      "sourceUrl": "https://www.ds18.com/products/high-quality-4-ohm-1-inch-voice-coil-drop-in-tweeter-pair",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'.",
+      "driver": {
+        "sizeInches": 1.92,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 1500,
+        "freqHighHz": 20000,
+        "cutoutMm": 18,
+        "recommendedHpHz": 3000
+      }
+    },
+    {
+      "id": "ds18-pro-twx6",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TWX6",
+      "sourceUrl": "https://www.ds18.com/products/pro-1-5-vc-aluminum-super-bullet-tweeter-480-watts-4-ohm",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. sold as single",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 8,
+        "sensitivityDb": 112,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 1700,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 65,
+        "cutoutMm": 92,
+        "recommendedHpHz": 2500
+      }
+    },
+    {
+      "id": "ds18-pro-st",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-ST",
+      "sourceUrl": "https://www.ds18.com/products/pro-1-9-oem-replacemenet-perfect-for-some-toyota-and-subaru-models-120-watts-1-aluminum-4-ohm-vc",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 1000,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 34,
+        "cutoutMm": 54.5,
+        "recommendedHpHz": 4000
+      }
+    },
+    {
+      "id": "ds18-tw2-5",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "TW2.5",
+      "sourceUrl": "https://www.ds18.com/products/pro-2-5_-silk-dome-tweeter-100-watts",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. Peak = DS18 'MAX Power Handling'.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 93.5,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 1800,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "ds18-pro-twx2",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TWX2",
+      "sourceUrl": "https://www.ds18.com/products/pro-3-8-super-bullet-tweeter-240-watts-1-aluminum-4-ohm-vc",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. sold as pair",
+      "driver": {
+        "sizeInches": 3.8,
+        "nominalOhms": 4,
+        "sensitivityDb": 103.5,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 3500,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 65,
+        "cutoutMm": 72,
+        "recommendedHpHz": 3500
+      }
+    },
+    {
+      "id": "ds18-pro-twx4",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "PRO-TWX4",
+      "sourceUrl": "https://www.ds18.com/products/pro-4-5-super-bullet-tweeter-560-watts-1-75-titanium-4-ohm-vc",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. sold as single",
+      "driver": {
+        "sizeInches": 4.53,
+        "nominalOhms": 4,
+        "sensitivityDb": 108,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 1500,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 70,
+        "cutoutMm": 92,
+        "recommendedHpHz": 2000
+      }
+    },
+    {
+      "id": "ds18-twpz",
+      "category": "driverTweeter",
+      "brand": "DS18",
+      "model": "TWPZ",
+      "sourceUrl": "https://www.ds18.com/products/pro-piezo-super-tweeter-80-watts",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. Peak = DS18 'MAX Power Handling'.",
+      "driver": {
+        "sensitivityDb": 101,
+        "powerRmsW": 40,
+        "powerPeakW": 80,
+        "freqLowHz": 3500,
+        "freqHighHz": 20000
+      }
+    }
+  ]
+}

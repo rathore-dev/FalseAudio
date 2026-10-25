@@ -1,0 +1,339 @@
+{
+  "products": [
+    {
+      "id": "kicker-kss504",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "KSS504",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSS504",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 15-100 W RMS. Passive crossover: tweeter 12 dB/oct high-pass at 4 kHz, woofer no low-pass; tweeter attenuation 0/-4.5/-9 dB. 1 in silk tweeter, flush cutout 45 mm, depth 17 mm.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 38,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 45,
+        "cutoutMm": 115
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "KSS504 5.25 in woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "KST2504 1 in tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-kss6504",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "KSS6504",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSS6504",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 15-125 W RMS. Passive crossover: tweeter 12 dB/oct high-pass at 4 kHz, woofer no low-pass; tweeter attenuation 0/-4.5/-9 dB. 1 in silk tweeter, flush cutout 45 mm, depth 17 mm.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 35,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 46,
+        "cutoutMm": 123
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "KSS6504 6.5 in woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "KST2504 1 in tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-kss6704",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "KSS6704",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSS6704",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 15-125 W RMS. Passive crossover: tweeter 12 dB/oct high-pass at 4 kHz, woofer no low-pass; tweeter attenuation 0/-4.5/-9 dB. 1 in silk tweeter, flush cutout 45 mm, depth 17 mm.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 35,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 46,
+        "cutoutMm": 141
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "KSS6704 6.75 in woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "KST2504 1 in tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-kss6804",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "KSS6804",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSS6804",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 15-125 W RMS. 6x8 in woofer, cutout 127 x 182 mm. Passive crossover: tweeter 12 dB/oct high-pass at 4 kHz, woofer no low-pass; tweeter attenuation 0/-4.5/-9 dB. 1 in silk tweeter, flush cutout 45 mm, depth 17 mm.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 35,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 58
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "KSS6804 6x8 in woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "KST2504 1 in tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-kss6904",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "KSS6904",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSS6904",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 15-150 W RMS. 6x9 in woofer, cutout 143 x 215 mm; top-mount depth 75 mm, bottom-mount 81 mm. Passive crossover: tweeter 12 dB/oct high-pass at 4 kHz, woofer no low-pass; tweeter attenuation 0/-4.5/-9 dB. 1 in silk tweeter, flush cutout 45 mm, depth 17 mm.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 35,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 75
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "KSS6904 6x9 in woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "KST2504 1 in tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-kss269",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "KSS269",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSS269",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 100 W RMS. 6x9 in woofer (cutout 144 x 215 mm) + 2.75 in midrange/tweeter (flush cutout 67 mm, depth 32 mm). Crossover 12 dB/oct at 4 kHz (per page), attenuation 0/4.5/9 dB.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 30,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 81
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "6x9 in woofer"
+        },
+        {
+          "role": "midrange",
+          "model": "KSC2704 2.75 in mid/tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-kss365",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "KSS365",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSS365",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 15-80 W RMS. 3-way: 6.5 in woofer, 2.75 in KSC2704 midrange, 1 in KST tweeter, separate passive crossovers.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 160,
+        "freqLowHz": 35,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 46,
+        "cutoutMm": 115
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "KSS 6.5 in woofer"
+        },
+        {
+          "role": "midrange",
+          "model": "KSC2704"
+        },
+        {
+          "role": "tweeter",
+          "model": "KST 1 in tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-kss369",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "KSS369",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSS369",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 15-100 W RMS. 3-way: 6x9 in woofer (cutout 144 x 215 mm), 2.75 in KSC2704 midrange, 1 in KST tweeter, separate passive crossovers.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 200,
+        "freqLowHz": 30,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 81
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "KSS 6x9 in woofer"
+        },
+        {
+          "role": "midrange",
+          "model": "KSC2704"
+        },
+        {
+          "role": "tweeter",
+          "model": "KST 1 in tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-qss654",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "QSS654",
+      "series": "QS",
+      "sourceUrl": "https://www.kicker.com/41QSS654",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 90 W RMS. Passive crossover: tweeter 24 dB/oct high-pass at 2.8 kHz, woofer 12 dB/oct low-pass at 2.8 kHz; tweeter level 0/+3/+6 dB. 1-3/16 in (30 mm) Tetoron tweeter, flush cutout 46 mm, depth 29 mm.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 180,
+        "freqLowHz": 50,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 63.5,
+        "cutoutMm": 129,
+        "recommendedLpHz": 2800
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "QS 6.5 in woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "QS 30 mm tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-qss674",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "QSS674",
+      "series": "QS",
+      "sourceUrl": "https://www.kicker.com/41QSS674",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 100 W RMS. Passive crossover: tweeter 24 dB/oct high-pass at 2.8 kHz, woofer 12 dB/oct low-pass at 2.8 kHz; tweeter level 0/+3/+6 dB. 1-3/16 in (30 mm) Tetoron tweeter, flush cutout 46 mm, depth 29 mm.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 200,
+        "freqLowHz": 40,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 63.5,
+        "cutoutMm": 138,
+        "recommendedLpHz": 2800
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "QS 6.75 in woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "QS 30 mm tweeter"
+        }
+      ]
+    },
+    {
+      "id": "kicker-ksmt2504",
+      "category": "componentSet",
+      "brand": "Kicker",
+      "model": "KSMT2504",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/47KSMT2504-dual-pod-component-system",
+      "verified": true,
+      "notes": "kicker.com product page. Set-level specs; no T/S published. Recommended amplifier power 50 W RMS. Dual-pod 2.5 in mid + 1 in silk tweeter (pod-mount; page lists woofer mounting hole 15 mm, i.e. screw/pod mount). Crossover 12 dB/oct at 4 kHz, attenuation 0/4.5/9 dB.",
+      "driver": {
+        "sizeInches": 2.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 80,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 400,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 26.3
+      },
+      "components": [
+        {
+          "role": "midrange",
+          "model": "2.5 in mid"
+        },
+        {
+          "role": "tweeter",
+          "model": "1 in silk tweeter"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "products": [
+    {
+      "id": "rockford-fosgate-p152-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "P152-S",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p152-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: High-Pass (HP): 3.5KHz @ 12dB/octave Butterworth Low-Pass (LP): midrange has natural acoustic 12dB/octave roll-off.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "freqLowHz": 70,
+        "freqHighHz": 22000,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "mountingDepthMm": 47
+      }
+    },
+    {
+      "id": "rockford-fosgate-p16-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "P16-S",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p16-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: Tweeter crossover built into midrange basket 12dB/octave.",
+      "driver": {
+        "sizeInches": 6,
+        "nominalOhms": 4,
+        "freqLowHz": 60,
+        "freqHighHz": 22000,
+        "sensitivityDb": 87.2,
+        "sensitivityRef": "1W/1m",
+        "mountingDepthMm": 49
+      }
+    },
+    {
+      "id": "rockford-fosgate-p165-se",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "P165-SE",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p165-se/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: External tweeter crossover 12dB/octave.",
+      "driver": {
+        "sizeInches": 6.5,
+        "freqLowHz": 43,
+        "freqHighHz": 20000,
+        "powerRmsW": 60,
+        "powerPeakW": 120
+      }
+    },
+    {
+      "id": "rockford-fosgate-p165-si",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "P165-SI",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p165-si/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: Tweeter crossover built into midrange basket 12dB/octave.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "freqLowHz": 44,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 57
+      }
+    },
+    {
+      "id": "rockford-fosgate-p1675-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "P1675-S",
+      "series": "Punch",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p1675-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: Tweeter crossover built into midrange basket 12dB/octave.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "freqLowHz": 55,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 57
+      }
+    },
+    {
+      "id": "rockford-fosgate-p3v2-65",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "P3V2-65",
+      "series": "Punch P3",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p3v2-65/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. Only Fs published (no full T/S). Page lists second power figure as '150 Watts RMS' (likely peak) - not used. Mounting depth without motor cover 2.26\" (57.3 mm). Crossover: TWEETER: • HP 9kHz @ 12dB/octave (external) • Attenuation: 0dB or -3dB  (external) MIDRANGE: • BP 600Hz - 6kHz @ 6dB/octave (external) MIDRANGE BASS BLOCKER: • — WOOFER: • LP 1.2kHz @ 6dB/octave (external). Voice coil 1.25\" (32.5 mm).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "freqLowHz": 49,
+        "freqHighHz": 25000,
+        "fsHz": 65,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 90,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "mountingDepthMm": 63.5,
+        "cutoutMm": 137.6
+      }
+    },
+    {
+      "id": "rockford-fosgate-p3v2-69",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "P3V2-69",
+      "series": "Punch P3",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p3v2-69/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. Only Fs published (no full T/S). 6\"x9\" oval. Mounting depth without motor cover 2.76\" (70 mm). Cutout 8.41\" x 5.71\" (213.5 mm x 145 mm). Crossover: TWEETER: • HP 9kHz @ 12dB/octave (external) • Attenuation: 0dB or -3dB  (external) MIDRANGE: • BP 600Hz - 6kHz @ 6dB/octave (external) MIDRANGE BASS BLOCKER: • — WOOFER: • LP 1.2kHz @ 6dB/octave (external). Voice coil 1.25\" (32.5 mm).",
+      "driver": {
+        "nominalOhms": 4,
+        "freqLowHz": 49,
+        "freqHighHz": 25000,
+        "fsHz": 65,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 92,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 79.4
+      }
+    },
+    {
+      "id": "rockford-fosgate-p3v2-69c2",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "P3V2-69C2",
+      "series": "Punch P3",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p3v2-69c2/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. Only Fs published (no full T/S). 6\"x9\" oval. Mounting depth without motor cover 2.76\" (70 mm). Cutout 8.41\" x 5.71\" (213.5 mm x 145 mm). Crossover: TWEETER: • HP 9kHz @ 6dB/octave (internal) MIDRANGE BASS BLOCKER: • HP 1,200Hz @ 6 dB/Octave (33µF) WOOFER: • LP 1.2kHz @ 6dB/octave (external). Voice coil 1.25\" (32.5 mm).",
+      "driver": {
+        "nominalOhms": 4,
+        "freqLowHz": 49,
+        "freqHighHz": 25000,
+        "fsHz": 65,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 92,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 79.4
+      }
+    },
+    {
+      "id": "rockford-fosgate-p3v2-69c3",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "P3V2-69C3",
+      "series": "Punch P3",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p3v2-69c3/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. Only Fs published (no full T/S). 6\"x9\" oval. Mounting depth without motor cover 2.76\" (70 mm). Cutout 8.41\" x 5.71\" (213.5 mm x 145 mm). Crossover: TWEETER: • HP 9kHz @ 6dB/octave (internal) MIDRANGE BASS BLOCKER: • HP 1,200Hz @ 6 dB/Octave (33µF) WOOFER: • LP 1.2kHz @ 6dB/octave (external). Voice coil 1.25\" (32.5 mm).",
+      "driver": {
+        "nominalOhms": 4,
+        "freqLowHz": 49,
+        "freqHighHz": 25000,
+        "fsHz": 65,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 92,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 79.4
+      }
+    },
+    {
+      "id": "rockford-fosgate-r152-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "R152-S",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r152-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: Tweeter High-Pass (HP): 12kHz @ 6dB/octave.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "freqLowHz": 58,
+        "freqHighHz": 20000,
+        "sensitivityDb": 85,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 40,
+        "powerPeakW": 80,
+        "mountingDepthMm": 48.5
+      }
+    },
+    {
+      "id": "rockford-fosgate-r165-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "R165-S",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r165-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "powerRmsW": 40,
+        "powerPeakW": 80,
+        "mountingDepthMm": 50.1
+      }
+    },
+    {
+      "id": "rockford-fosgate-r1675-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "R1675-S",
+      "series": "Prime",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/r1675-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: Tweeter High-Pass (HP): 12kHz @ 6dB/octave.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "freqLowHz": 55,
+        "freqHighHz": 20000,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 40,
+        "powerPeakW": 80,
+        "mountingDepthMm": 51.2
+      }
+    },
+    {
+      "id": "rockford-fosgate-t1650-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "T1650-S",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t1650-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: 18dB/Octave High Pass 12dB/Octave Low Pass.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "freqLowHz": 47,
+        "freqHighHz": 20000,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "mountingDepthMm": 64
+      }
+    },
+    {
+      "id": "rockford-fosgate-t1675-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "T1675-S",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t1675-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: 12dB/Octave.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "freqLowHz": 55,
+        "freqHighHz": 22000,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "mountingDepthMm": 64
+      }
+    },
+    {
+      "id": "rockford-fosgate-t2652-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "T2652-S",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t2652-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: High-Pass (HP): 3.0kHz @ 18dB/octave Butterworth Low-Pass (LP): 3.0kHz @ 12dB/octave Butterworth.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "freqLowHz": 55,
+        "freqHighHz": 22000,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 200,
+        "mountingDepthMm": 64
+      }
+    },
+    {
+      "id": "rockford-fosgate-t3652-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "T3652-S",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t3652-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: 3kHz 18dB/Octave High-Pass 12dB/octave Low-Pass.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "freqLowHz": 40,
+        "freqHighHz": 30000,
+        "sensitivityDb": 87.5,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 125,
+        "powerPeakW": 250,
+        "mountingDepthMm": 71
+      }
+    },
+    {
+      "id": "rockford-fosgate-t4652-s",
+      "category": "componentSet",
+      "brand": "Rockford Fosgate",
+      "model": "T4652-S",
+      "series": "Power",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/t4652-s/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Set-level specs; T/S (where given) are the woofer's. No T/S published. Crossover: 3kHz 12dB/Octave High-Pass 12dB/octave Low-Pass.",
+      "driver": {
+        "sizeInches": 6.5,
+        "freqLowHz": 40,
+        "freqHighHz": 30000,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 150,
+        "powerPeakW": 300,
+        "mountingDepthMm": 71
+      }
+    }
+  ]
+}

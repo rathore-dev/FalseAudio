@@ -1,0 +1,135 @@
+{
+  "products": [
+    {
+      "id": "ds18-deluxe-dx-6-5-2-way-sound-quality-component-speaker-system-460-watts",
+      "category": "componentSet",
+      "brand": "DS18",
+      "model": "DELUXE DX 6.5\" 2-Way Sound Quality Component Speaker System 460 Watts ",
+      "sourceUrl": "https://www.ds18.com/products/deluxe-dx-6-5-2-way-sound-quality-component-speaker-system-460-watts-4-ohm",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published.",
+      "driver": {
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 50,
+        "freqHighHz": 12000
+      }
+    },
+    {
+      "id": "ds18-dx3n",
+      "category": "componentSet",
+      "brand": "DS18",
+      "model": "DX3N",
+      "sourceUrl": "https://www.ds18.com/products/deluxe-dx-6-5-3-way-neodymium-sound-quality-component-speaker-system-580-watts-4-ohm",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published.",
+      "driver": {
+        "sensitivityDb": 91,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 50,
+        "freqHighHz": 12000
+      }
+    },
+    {
+      "id": "ds18-deluxe-dx-6-5-3-way-sound-quality-component-speaker-system-580-watts",
+      "category": "componentSet",
+      "brand": "DS18",
+      "model": "DELUXE DX 6.5\" 3- Way Sound Quality Component Speaker System 580 Watts",
+      "sourceUrl": "https://www.ds18.com/products/deluxe-dx-6-5-3-way-sound-quality-component-speaker-system-580-watts-4-ohm",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published.",
+      "driver": {
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "freqLowHz": 50,
+        "freqHighHz": 12000
+      }
+    },
+    {
+      "id": "ds18-g6-5xc",
+      "category": "componentSet",
+      "brand": "DS18",
+      "model": "G6.5XC",
+      "sourceUrl": "https://www.ds18.com/products/ds18-g6-5xc-gen-x-6-5-2-way-component-set-speaker-system-150-watts-4-ohm",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. Peak = DS18 'MAX Power Handling'. 2-way",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 150,
+        "freqLowHz": 35,
+        "freqHighHz": 20000,
+        "recommendedHpHz": 60
+      }
+    },
+    {
+      "id": "ds18-dxq6c3n",
+      "category": "componentSet",
+      "brand": "DS18",
+      "model": "DXQ6C3N",
+      "sourceUrl": "https://www.ds18.com/products/dxq6c3n",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. T/S from the page. T/S are the woofer's. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. Peak = DS18 'MAX Power Handling'. 3-way; sold as pair",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 180,
+        "powerPeakW": 360,
+        "freqLowHz": 35,
+        "freqHighHz": 20000,
+        "qts": 0.414,
+        "tsWiring": "single",
+        "recommendedHpHz": 60
+      }
+    },
+    {
+      "id": "ds18-zxi-62c",
+      "category": "componentSet",
+      "brand": "DS18",
+      "model": "ZXI-62C",
+      "sourceUrl": "https://www.ds18.com/products/elite-6-5-2-way-component-speaker-system-with-glass-fiber-cone-240-watts-4-ohm",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. No T/S published. Nominal size 6.5 Inches / 165 mm",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "freqLowHz": 40,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "ds18-exl-sq6-5cx",
+      "category": "componentSet",
+      "brand": "DS18",
+      "model": "EXL-SQ6.5CX",
+      "sourceUrl": "https://www.ds18.com/products/high-volume-6-5-inch-4-ohm-component-set-with-added-tweeter-and-passive-crossover-pair",
+      "verified": true,
+      "notes": "ds18.com product page Technical Details. T/S from the page. T/S are the woofer's. recommendedHpHz = DS18 'Recommended HI Pass Crossover'. Peak = DS18 'MAX Power Handling'. 2 way-way",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 150,
+        "powerPeakW": 500,
+        "freqLowHz": 45,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 62,
+        "cutoutMm": 143,
+        "fsHz": 62,
+        "qts": 0.63,
+        "qes": 0.76,
+        "qms": 3.72,
+        "vasLitres": 8.62,
+        "xmaxMm": 9,
+        "tsWiring": "single",
+        "recommendedHpHz": 40
+      }
+    }
+  ]
+}

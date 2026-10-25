@@ -1,0 +1,135 @@
+{
+  "products": [
+    {
+      "id": "rockford-fosgate-p3v2-25",
+      "category": "driverMidrange",
+      "brand": "Rockford Fosgate",
+      "model": "P3V2-25",
+      "series": "Punch P3",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/p3v2-25/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Only Fs published (no full T/S). Crossover: MIDRANGE: • BP 600Hz - 6kHz @ 6dB/octave (external) MIDRANGE BASS BLOCKER: • HP 1,200Hz @ 6 dB/Octave (33µF). Voice coil 1.00\" (25.4 mm).",
+      "driver": {
+        "sizeInches": 2.5,
+        "nominalOhms": 4,
+        "freqLowHz": 135,
+        "freqHighHz": 15000,
+        "fsHz": 180,
+        "sensitivityDb": 82,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 85,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 40.6,
+        "cutoutMm": 64.5
+      }
+    },
+    {
+      "id": "rockford-fosgate-pprov2-65",
+      "category": "driverMidrange",
+      "brand": "Rockford Fosgate",
+      "model": "PPROV2-65",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pprov2-65/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Full T/S not published beyond Fs/Qts/Vas/Xmax. Xmax10 (10% distortion) 2.5 mm. Mounting depth without motor cover 1.2\" (54.15 mm). Voice coil 1.5\" (38 mm).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "freqLowHz": 64,
+        "freqHighHz": 7300,
+        "fsHz": 85,
+        "qts": 0.42,
+        "vasLitres": 5.7,
+        "xmaxMm": 1.0,
+        "sensitivityDb": 92.5,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 95.5,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 59.1,
+        "cutoutMm": 144
+      }
+    },
+    {
+      "id": "rockford-fosgate-pprov2-69",
+      "category": "driverMidrange",
+      "brand": "Rockford Fosgate",
+      "model": "PPROV2-69",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pprov2-69/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. Full T/S not published beyond Fs/Qts/Vas/Xmax. 6x9\" (152.4 x 228.6 mm) oval. Xmax10 (10% distortion) 2.5 mm. Mounting depth without motor cover 3.29” (83.46 mm). Cutout 5.53 x 8.3\" (140.5 x 210.6 mm). Voice coil 1.5\" (38 mm).",
+      "driver": {
+        "nominalOhms": 4,
+        "freqLowHz": 60,
+        "freqHighHz": 8500,
+        "fsHz": 80,
+        "qts": 0.43,
+        "vasLitres": 10.6,
+        "xmaxMm": 1.0,
+        "sensitivityDb": 93.5,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 96.5,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 150,
+        "mountingDepthMm": 89.2
+      }
+    },
+    {
+      "id": "rockford-fosgate-pps4-6",
+      "category": "driverMidrange",
+      "brand": "Rockford Fosgate",
+      "model": "PPS4-6",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pps4-6/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "freqLowHz": 85,
+        "freqHighHz": 5000,
+        "sensitivityDb": 92.5,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 200,
+        "mountingDepthMm": 56.8
+      }
+    },
+    {
+      "id": "rockford-fosgate-pps4-8",
+      "category": "driverMidrange",
+      "brand": "Rockford Fosgate",
+      "model": "PPS4-8",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pps4-8/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published. Size from product title.",
+      "driver": {
+        "powerRmsW": 125,
+        "powerPeakW": 250,
+        "mountingDepthMm": 74,
+        "sizeInches": 8
+      }
+    },
+    {
+      "id": "rockford-fosgate-pps4-10",
+      "category": "driverMidrange",
+      "brand": "Rockford Fosgate",
+      "model": "PPS4-10",
+      "series": "Punch Pro",
+      "sourceUrl": "https://rockfordfosgate.com/products/details/pps4-10/",
+      "verified": true,
+      "notes": "rockfordfosgate.com product page spec table. No T/S published.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 4,
+        "mountingDepthMm": 106
+      }
+    }
+  ]
+}

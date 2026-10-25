@@ -1,0 +1,37 @@
+{
+  "products": [
+    {
+      "id": "jl-audio-c7-650cw",
+      "category": "driverMidbass",
+      "brand": "JL Audio",
+      "model": "C7-650cw",
+      "series": "C7",
+      "sourceUrl": "https://static.garmin.com/pumac/C7650cw_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Continuous power 125 W; recommended amp 50-175 W RMS. Usable range: 50 Hz-5 kHz (48 dB/oct), 60 Hz-5 kHz (24 dB/oct), 70 Hz-5 kHz (12 dB/oct). Min. recommended sealed enclosure 12 L (0.424 cu ft). Rear displacement 0.382 L. Reference efficiency 0.304%. Le not published. JL C7 manuals' suggested 3-way starting points: woofer LP 400 Hz LR24; midrange HP 480 Hz / LP 3500 Hz LR24; tweeter HP 4500 Hz LR24 (-1 dB). 2-way: woofer LP 2700 Hz, tweeter HP 4000 Hz LR24. Passive crossovers not recommended (active/DSP only).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "reOhms": 3.114,
+        "fsHz": 54.5,
+        "qts": 0.605,
+        "qes": 0.669,
+        "qms": 6.265,
+        "vasLitres": 13.05,
+        "xmaxMm": 5,
+        "sdCm2": 138.07,
+        "bl": 5.31,
+        "mmsGrams": 17.679,
+        "sensitivityDb": 87.0,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 90.0,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 125,
+        "freqLowHz": 50,
+        "freqHighHz": 5000,
+        "recommendedHpHz": 60,
+        "tsWiring": "single"
+      }
+    }
+  ]
+}

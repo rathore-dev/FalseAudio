@@ -1,0 +1,251 @@
+{
+  "products": [
+    {
+      "id": "jbl-club-5020",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "Club 5020",
+      "series": "Club",
+      "sourceUrl": "https://th.jbl.com/car-speakers/CLUB5020-.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 5-1/4 in 2-way coax (size from model name). No T/S published. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 40,
+        "powerPeakW": 120,
+        "freqLowHz": 75,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "jbl-club-622",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "Club 622",
+      "series": "Club",
+      "sourceUrl": "https://id.jbl.com/car-speakers/CLUB622-.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6.5 in 2-way coax. SKU SPKCB622. No T/S published. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "powerPeakW": 180,
+        "freqLowHz": 48,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "jbl-club-6520",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "Club 6520",
+      "series": "Club",
+      "sourceUrl": "https://th.jbl.com/car-speakers/CLUB6520-.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6.5 in 2-way coax. No T/S published. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 92,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 150,
+        "freqLowHz": 55,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "jbl-club-8620",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "Club 8620",
+      "series": "Club",
+      "sourceUrl": "https://th.jbl.com/car-speakers/CLUB8620-.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6x8 in 2-way coax. No T/S published. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "nominalOhms": 3,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 55,
+        "powerPeakW": 165,
+        "freqLowHz": 65,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "jbl-club-9630",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "Club 9630",
+      "series": "Club",
+      "sourceUrl": "https://th.jbl.com/car-speakers/CLUB9630-.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6x9 in 3-way coax. No T/S published. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "nominalOhms": 3,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 240,
+        "freqLowHz": 50,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "jbl-gx302",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "GX302",
+      "series": "GX",
+      "sourceUrl": "https://th.jbl.com/car-speakers/GX302_.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 3-1/2 in 2-way coax. Only peak power published. No T/S published. Sensitivity reference not stated. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 2.3,
+        "sensitivityDb": 89,
+        "powerPeakW": 75,
+        "freqLowHz": 90,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "jbl-gx502",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "GX502",
+      "series": "GX",
+      "sourceUrl": "https://th.jbl.com/car-speakers/GX502_.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 5-1/4 in 2-way coax. Only peak power published. No T/S published. Sensitivity reference not stated. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 2.3,
+        "sensitivityDb": 91,
+        "powerPeakW": 135,
+        "freqLowHz": 65,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "jbl-gx602",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "GX602",
+      "series": "GX",
+      "sourceUrl": "https://th.jbl.com/car-speakers/GX602_.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6-1/2 in 2-way coax. Only peak power published. No T/S published. Sensitivity reference not stated. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2.3,
+        "sensitivityDb": 92,
+        "powerPeakW": 180,
+        "freqLowHz": 50,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "jbl-gx642",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "GX642",
+      "series": "GX",
+      "sourceUrl": "https://th.jbl.com/car-speakers/GX642_.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 4x6 in 2-way coax. Only peak power published. No T/S published. Sensitivity reference not stated. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "nominalOhms": 2.3,
+        "sensitivityDb": 91,
+        "powerPeakW": 120,
+        "freqLowHz": 75,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "jbl-stage-6402",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "Stage 6402",
+      "series": "Stage",
+      "sourceUrl": "https://id.jbl.com/car-speakers/STAGE+6402_.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 4x6 in (101 x 152 mm) coax. No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 35,
+        "powerPeakW": 105,
+        "freqLowHz": 75,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "jbl-stage1-621",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "Stage1 621",
+      "series": "Stage1",
+      "sourceUrl": "https://id.jbl.com/car-speakers/STAGE1+621.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6.5 in 2-way coax. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 35,
+        "powerPeakW": 175,
+        "freqLowHz": 55,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "jbl-stadium-gto620",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "Stadium GTO620",
+      "series": "Stadium",
+      "sourceUrl": "https://th.jbl.com/car-speakers/Stadium+GTO620_.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6.5 in 2-way coax, 30 mm voice coil. No T/S published. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2.5,
+        "sensitivityDb": 95,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 225,
+        "freqLowHz": 45,
+        "freqHighHz": 25000
+      }
+    },
+    {
+      "id": "jbl-stadium-gto860",
+      "category": "driverCoax",
+      "brand": "JBL",
+      "model": "Stadium GTO860",
+      "series": "Stadium",
+      "sourceUrl": "https://th.jbl.com/car-speakers/Stadium+GTO860-.html",
+      "verified": true,
+      "notes": "JBL regional site (jbl.com returns 403) spec table. 6x8 in 2-way coax, 30 mm voice coil. No T/S published. Low nominal impedance - check amp minimum load.",
+      "driver": {
+        "nominalOhms": 2.5,
+        "sensitivityDb": 94,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 40,
+        "freqHighHz": 23000
+      }
+    }
+  ]
+}

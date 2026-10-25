@@ -1,0 +1,548 @@
+{
+  "products": [
+    {
+      "id": "massive-audio-mm6ax",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MM6AX",
+      "sourceUrl": "https://www.massiveaudio.com/products/mm6ax-6-5-200-watt-4-ohm-mid-range-mid-bass-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange/midbass, cast basket. Ideal RMS range 200-250 W (upper used). Fs/Xmax/Le not published. Sold as each. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "powerRmsW": 250,
+        "powerPeakW": 500,
+        "freqLowHz": 100,
+        "freqHighHz": 18000,
+        "mountingDepthMm": 79.8,
+        "reOhms": 3.2,
+        "sdCm2": 158,
+        "mmsGrams": 11.3,
+        "vasLitres": 8.0,
+        "qms": 3.44,
+        "qes": 0.37,
+        "qts": 0.34,
+        "bl": 7.6,
+        "tsWiring": "single"
+      }
+    },
+    {
+      "id": "massive-audio-mm6",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MM6",
+      "sourceUrl": "https://www.massiveaudio.com/products/mm6-6-5-120-watt-4-ohm-mid-range-mid-bass-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. RMS 100-120 W (upper used). Page frequency '10Hz-15KHz' (typo); usable range from 107 Hz used. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 95.6,
+        "powerRmsW": 120,
+        "powerPeakW": 240,
+        "freqLowHz": 107,
+        "freqHighHz": 15000,
+        "mountingDepthMm": 63.5,
+        "cutoutMm": 151.9
+      }
+    },
+    {
+      "id": "massive-audio-mm6a",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MM6A",
+      "sourceUrl": "https://www.massiveaudio.com/products/mm6a-6-5-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. RMS 140-160 W (upper used). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 94.5,
+        "powerRmsW": 160,
+        "powerPeakW": 320,
+        "freqLowHz": 100,
+        "freqHighHz": 18000,
+        "mountingDepthMm": 81.5,
+        "cutoutMm": 151.9
+      }
+    },
+    {
+      "id": "massive-audio-mm6h",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MM6H",
+      "sourceUrl": "https://www.massiveaudio.com/products/mm6h-6-5-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. RMS 120-140 W (upper used). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 92.6,
+        "powerRmsW": 140,
+        "powerPeakW": 280,
+        "freqLowHz": 90,
+        "freqHighHz": 15000,
+        "mountingDepthMm": 68.6,
+        "cutoutMm": 151.9
+      }
+    },
+    {
+      "id": "massive-audio-mm8a",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MM8A",
+      "sourceUrl": "https://www.massiveaudio.com/products/mm8a-8-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. RMS 150-170 W (upper used). Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "sensitivityDb": 92.4,
+        "powerRmsW": 170,
+        "powerPeakW": 340,
+        "freqLowHz": 90,
+        "freqHighHz": 15000,
+        "mountingDepthMm": 89.4,
+        "cutoutMm": 188.0
+      }
+    },
+    {
+      "id": "massive-audio-mc6r",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MC6R",
+      "sourceUrl": "https://www.massiveaudio.com/products/mc6r-6-5-400-watt-rms-8-ohm-mid-range-speaker-cast-basket",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Cast-basket pro midrange. Music program 800 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 8,
+        "sensitivityDb": 98,
+        "powerRmsW": 400,
+        "freqLowHz": 100,
+        "freqHighHz": 10000,
+        "mountingDepthMm": 77,
+        "cutoutMm": 146
+      }
+    },
+    {
+      "id": "massive-audio-mc8r",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MC8R",
+      "sourceUrl": "https://www.massiveaudio.com/products/mc8r-8-500-watt-8-ohm-mid-range-speaker-cast-basket",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Cast-basket pro midrange. Music program 1000 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 8,
+        "sensitivityDb": 98,
+        "powerRmsW": 500,
+        "freqLowHz": 100,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 83.5,
+        "cutoutMm": 187
+      }
+    },
+    {
+      "id": "massive-audio-mc10r",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MC10R",
+      "sourceUrl": "https://www.massiveaudio.com/products/mc10r-8-1000-watt-8-ohm-mid-range-speaker-cast-basket",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Cast-basket pro midrange. Music program 2000 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 8,
+        "sensitivityDb": 99,
+        "powerRmsW": 1000,
+        "freqLowHz": 100,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 107.5,
+        "cutoutMm": 230
+      }
+    },
+    {
+      "id": "massive-audio-mc8iiv2",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MC8IIV2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mc8ii-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Cast-basket pro midrange. Music program 600 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 8,
+        "sensitivityDb": 98.1,
+        "powerRmsW": 200,
+        "freqLowHz": 90,
+        "freqHighHz": 5000
+      }
+    },
+    {
+      "id": "massive-audio-mc10iiv2",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MC10IIV2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mc10ii-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Cast-basket pro midrange. Music program 800 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 8,
+        "sensitivityDb": 99.2,
+        "powerRmsW": 400,
+        "freqLowHz": 80,
+        "freqHighHz": 4000,
+        "qms": 4.8
+      }
+    },
+    {
+      "id": "massive-audio-mc12ii",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MC12II",
+      "sourceUrl": "https://www.massiveaudio.com/products/mc12ii-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Cast-basket pro midrange. Music program 800 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 12,
+        "nominalOhms": 8,
+        "sensitivityDb": 99.4,
+        "powerRmsW": 400,
+        "freqLowHz": 50,
+        "freqHighHz": 4000,
+        "qms": 5.2
+      }
+    },
+    {
+      "id": "massive-audio-m10v2",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M10V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/m10v2-10-150-watt-8-ohm-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. Resonance listed as 54 Hz and Fs as 53 Hz (53 used). Max 300 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 10,
+        "nominalOhms": 8,
+        "sensitivityDb": 95,
+        "powerRmsW": 150,
+        "freqLowHz": 54,
+        "freqHighHz": 7000,
+        "mountingDepthMm": 114.3,
+        "reOhms": 5.2,
+        "fsHz": 53
+      }
+    },
+    {
+      "id": "massive-audio-m6",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M6",
+      "sourceUrl": "https://www.massiveaudio.com/products/m6-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange (higher SQ frequencies). Music program 300 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 8,
+        "sensitivityDb": 96,
+        "powerRmsW": 140,
+        "freqLowHz": 270,
+        "freqHighHz": 10000,
+        "mountingDepthMm": 84,
+        "fsHz": 270
+      }
+    },
+    {
+      "id": "massive-audio-m6e",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M6E",
+      "sourceUrl": "https://www.massiveaudio.com/products/m6e-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. Page lists resonance 167.3 Hz and Fs 270 Hz (conflicting) - Fs omitted. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 8,
+        "sensitivityDb": 96,
+        "powerRmsW": 60,
+        "powerPeakW": 120,
+        "freqLowHz": 150,
+        "freqHighHz": 10000
+      }
+    },
+    {
+      "id": "massive-audio-ma6",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MA6",
+      "sourceUrl": "https://www.massiveaudio.com/products/ma6-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange (lower SQ frequencies). Page frequency '115Hz-10000 KHz' read as 10 kHz. Max 280 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 8,
+        "sensitivityDb": 96,
+        "powerRmsW": 140,
+        "powerPeakW": 300,
+        "freqLowHz": 115,
+        "freqHighHz": 10000,
+        "fsHz": 115
+      }
+    },
+    {
+      "id": "massive-audio-ma6e",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MA6E",
+      "sourceUrl": "https://www.massiveaudio.com/products/ma6e-6-5-140-watt-8-ohm-mid-range-speaker-lower-sq-frequencies",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. Page frequency '140Hz-10000 KHz' read as 10 kHz. Max 100 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 8,
+        "sensitivityDb": 96,
+        "powerRmsW": 50,
+        "powerPeakW": 120,
+        "freqLowHz": 140,
+        "freqHighHz": 10000,
+        "fsHz": 158.8
+      }
+    },
+    {
+      "id": "massive-audio-m6xl",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M6XL",
+      "sourceUrl": "https://www.massiveaudio.com/products/m6xl-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 8,
+        "sensitivityDb": 97,
+        "powerRmsW": 200,
+        "powerPeakW": 400,
+        "freqLowHz": 100,
+        "freqHighHz": 15000,
+        "fsHz": 120
+      }
+    },
+    {
+      "id": "massive-audio-m8xl",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M8XL",
+      "sourceUrl": "https://www.massiveaudio.com/products/m8xl-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 8,
+        "sensitivityDb": 97,
+        "powerRmsW": 250,
+        "powerPeakW": 500,
+        "freqLowHz": 90,
+        "freqHighHz": 10000,
+        "fsHz": 99.2
+      }
+    },
+    {
+      "id": "massive-audio-m8",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M8",
+      "sourceUrl": "https://www.massiveaudio.com/products/m8-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. Music program 280 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 8,
+        "sensitivityDb": 96,
+        "powerRmsW": 150,
+        "freqLowHz": 100,
+        "freqHighHz": 7000,
+        "mountingDepthMm": 92,
+        "cutoutMm": 184,
+        "fsHz": 100,
+        "reOhms": 5.2
+      }
+    },
+    {
+      "id": "massive-audio-ma8",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MA8",
+      "sourceUrl": "https://www.massiveaudio.com/products/ma8-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro midrange. Page frequency '90Hz-8000 KHz' read as 8 kHz. Max 300 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 8,
+        "sensitivityDb": 96,
+        "powerRmsW": 150,
+        "powerPeakW": 350,
+        "freqLowHz": 90,
+        "freqHighHz": 8000,
+        "fsHz": 90
+      }
+    },
+    {
+      "id": "massive-audio-m6c",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M6C",
+      "sourceUrl": "https://www.massiveaudio.com/products/m6c-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Closed-back midrange. Max program 140 W. Depth listed 2.9 in / 71 mm (mm used). Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 8,
+        "sensitivityDb": 98,
+        "powerRmsW": 70,
+        "freqLowHz": 570,
+        "freqHighHz": 7000,
+        "mountingDepthMm": 71,
+        "fsHz": 570,
+        "reOhms": 7.2,
+        "qms": 3.88
+      }
+    },
+    {
+      "id": "massive-audio-m8c",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M8C",
+      "sourceUrl": "https://www.massiveaudio.com/products/m8c-closed-back-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Closed-back midrange. Max program 160 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 8,
+        "sensitivityDb": 98,
+        "powerRmsW": 80,
+        "freqLowHz": 550,
+        "freqHighHz": 6000,
+        "mountingDepthMm": 71,
+        "cutoutMm": 149,
+        "fsHz": 550,
+        "reOhms": 7.2,
+        "qms": 6.3
+      }
+    },
+    {
+      "id": "massive-audio-m57c",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M57C",
+      "sourceUrl": "https://www.massiveaudio.com/products/m57c-closed-back-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 5x7 in closed-back midrange (cutout 170 x 117 mm). Max 140 W. Sd given as 0.023 m2. Sensitivity reference not stated.",
+      "driver": {
+        "nominalOhms": 8,
+        "sensitivityDb": 98,
+        "powerRmsW": 70,
+        "freqLowHz": 600,
+        "freqHighHz": 6000,
+        "mountingDepthMm": 65,
+        "qms": 6.1,
+        "qes": 8.2,
+        "qts": 3.5,
+        "vasLitres": 0.326,
+        "bl": 4.4,
+        "sdCm2": 230
+      }
+    },
+    {
+      "id": "massive-audio-m69c",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M69C",
+      "sourceUrl": "https://www.massiveaudio.com/products/m69c-closed-back-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 6x9 in closed-back midrange (cutout 218 x 152 mm). Max 160 W. Sd given as 0.013 m2. Sensitivity reference not stated.",
+      "driver": {
+        "nominalOhms": 8,
+        "sensitivityDb": 97,
+        "powerRmsW": 80,
+        "freqLowHz": 448,
+        "freqHighHz": 7000,
+        "mountingDepthMm": 87,
+        "qms": 7.1,
+        "qes": 10.7,
+        "qts": 4.2,
+        "vasLitres": 0.322,
+        "bl": 7.1,
+        "sdCm2": 130
+      }
+    },
+    {
+      "id": "massive-audio-mb6c",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "MB6C",
+      "sourceUrl": "https://www.massiveaudio.com/products/mb6c-pro-closed-back-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Closed-back pro midrange. Max 300 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 8,
+        "sensitivityDb": 98,
+        "powerRmsW": 150,
+        "powerPeakW": 350,
+        "freqLowHz": 450,
+        "freqHighHz": 6000,
+        "mountingDepthMm": 71.12,
+        "qms": 7.65
+      }
+    },
+    {
+      "id": "massive-audio-m6s",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M6S",
+      "sourceUrl": "https://www.massiveaudio.com/products/m6s-mid-range-shallow-mount-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Shallow-mount midrange. Resonance listed 270 Hz and Fs 242 Hz (242 used). Music program 300 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "powerRmsW": 130,
+        "freqLowHz": 270,
+        "freqHighHz": 10000,
+        "mountingDepthMm": 48,
+        "fsHz": 242,
+        "reOhms": 2.6,
+        "qms": 0.785
+      }
+    },
+    {
+      "id": "massive-audio-m8s",
+      "category": "driverMidrange",
+      "brand": "Massive Audio",
+      "model": "M8S",
+      "sourceUrl": "https://www.massiveaudio.com/products/m8s-mid-range-shallow-mount-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Shallow-mount midrange, cast basket. Reference efficiency 1.78%. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "powerRmsW": 140,
+        "powerPeakW": 300,
+        "freqLowHz": 100,
+        "freqHighHz": 7000,
+        "mountingDepthMm": 61,
+        "cutoutMm": 182,
+        "fsHz": 122,
+        "reOhms": 2.6,
+        "qms": 1.162
+      }
+    }
+  ]
+}

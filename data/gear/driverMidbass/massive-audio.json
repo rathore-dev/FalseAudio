@@ -1,0 +1,78 @@
+{
+  "products": [
+    {
+      "id": "massive-audio-cw65",
+      "category": "driverMidbass",
+      "brand": "Massive Audio",
+      "model": "CW65",
+      "sourceUrl": "https://www.massiveaudio.com/products/cw65-6-5-140-watt-rms-4-ohm-component-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Carbon series woofer pair (title 140 W RMS; spec table 280 W RMS, likely per pair). Max 500 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 93,
+        "powerRmsW": 280,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 69.1
+      }
+    },
+    {
+      "id": "massive-audio-aw65",
+      "category": "driverMidbass",
+      "brand": "Massive Audio",
+      "model": "AW65",
+      "sourceUrl": "https://www.massiveaudio.com/products/aw65",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Aluma series 2-ohm woofer pair (title 150 W RMS; spec table 300 W, likely per pair). Max 500 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "sensitivityDb": 93,
+        "powerRmsW": 300,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 69.1
+      }
+    },
+    {
+      "id": "massive-audio-mb6v2",
+      "category": "driverMidbass",
+      "brand": "Massive Audio",
+      "model": "MB6V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mb6v2-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio mid-bass. RMS/AEC 150 W; max 300 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 97,
+        "powerRmsW": 150,
+        "powerPeakW": 350,
+        "freqLowHz": 115,
+        "freqHighHz": 10000,
+        "fsHz": 120
+      }
+    },
+    {
+      "id": "massive-audio-mb8v2",
+      "category": "driverMidbass",
+      "brand": "Massive Audio",
+      "model": "MB8V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mb8v2-mid-range-speaker",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio mid-bass. Page frequency '90Hz - 8000 KHz' read as 8 kHz. Max 350 W. Sensitivity reference not stated.",
+      "driver": {
+        "sizeInches": 8,
+        "nominalOhms": 4,
+        "sensitivityDb": 97,
+        "powerRmsW": 175,
+        "powerPeakW": 400,
+        "freqLowHz": 90,
+        "freqHighHz": 8000,
+        "fsHz": 90
+      }
+    }
+  ]
+}

@@ -1,0 +1,364 @@
+{
+  "products": [
+    {
+      "id": "massive-audio-t35v2",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "T35V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/t35-power-bullet-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 25.5 mm power bullet tweeter, ferrite. Max 60 W. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 30,
+        "powerPeakW": 120,
+        "freqLowHz": 4000,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "massive-audio-t38",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "T38",
+      "sourceUrl": "https://www.massiveaudio.com/products/t38-30-watts-rms-4-ohm-25-5mm-power-bullet-tweeter-pair",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 25.5 mm power bullet tweeter, ferrite. Max 60 W. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 30,
+        "powerPeakW": 120,
+        "freqLowHz": 4000,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "massive-audio-mt1",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "MT1",
+      "sourceUrl": "https://www.massiveaudio.com/products/mt1-power-bullet-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 1 in power bullet tweeter. Max 120 W. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 108,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "powerPeakW": 300,
+        "freqLowHz": 3000,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "massive-audio-mt1v2",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "MT1V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/mt1v2-60-watts-rms-4-ohm-1-power-bullet-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 3.5 in body power bullet tweeter. Max 120 W. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 108,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "powerPeakW": 300,
+        "freqLowHz": 3000,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 102,
+        "cutoutMm": 90,
+        "recommendedHpHz": 3000
+      }
+    },
+    {
+      "id": "massive-audio-mt4",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "MT4",
+      "sourceUrl": "https://www.massiveaudio.com/products/mt4-30-watts-rms-4-ohm-1-power-bullet-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Power super tweeter, sold as pair; 60 W RMS / 120 W max per driver. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 30,
+        "cutoutMm": 58
+      }
+    },
+    {
+      "id": "massive-audio-mt6",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "MT6",
+      "sourceUrl": "https://www.massiveaudio.com/products/mt6-75-watts-rms-8-ohm-1-5-power-super-tweeter-sold-as-each",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Power super tweeter with 1.5 in voice coil. Max 150 W. Cut diameter listed 2.25 in / 64 mm (mm used). No T/S published.",
+      "driver": {
+        "nominalOhms": 8,
+        "sensitivityDb": 100,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 75,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 49.5,
+        "cutoutMm": 64
+      }
+    },
+    {
+      "id": "massive-audio-ct4",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT4",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct4-30-watts-4-ohm-super-bullet-titanium-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Titanium super bullet, AMS rated, 2.2 uF filter capacitor. Max 120 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "powerRmsW": 30,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 71.12,
+        "reOhms": 3.7
+      }
+    },
+    {
+      "id": "massive-audio-ct4x",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT4X",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct4x-30-watts-rms-4-ohm-57mm-power-bullet-titanium-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Titanium power bullet, 2.2 uF filter capacitor. Max 120 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "powerRmsW": 30,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 71.12,
+        "reOhms": 3.7
+      }
+    },
+    {
+      "id": "massive-audio-ct4xv2",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT4XV2",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct4xv2-4-ohm-25mm-power-bullet-titanium-tweeter-ams-rated",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Titanium power bullet, 2.2 uF filter capacitor. Max 120 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "powerRmsW": 30,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 71.12,
+        "reOhms": 3.7
+      }
+    },
+    {
+      "id": "massive-audio-ct5",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT5",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct5-35-watts-4-ohm-57mm-super-bullet-titanium-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 57 mm super bullet, titanium, neodymium. Max 70 W. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 102,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 35,
+        "freqLowHz": 3000,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 55,
+        "cutoutMm": 35,
+        "reOhms": 3.6
+      }
+    },
+    {
+      "id": "massive-audio-ct6",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT6",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct6-power-bullet-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Titanium super bullet, 44.4 mm voice coil. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 8,
+        "sensitivityDb": 107,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 4000,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 48.26,
+        "reOhms": 5.8
+      }
+    },
+    {
+      "id": "massive-audio-t40",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "T40",
+      "sourceUrl": "https://www.massiveaudio.com/products/t40-super-bullet-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Super bullet tweeter, 18 dB crossover (as published). Max 120 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "powerRmsW": 60,
+        "powerPeakW": 200,
+        "freqLowHz": 4000,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "massive-audio-t50",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "T50",
+      "sourceUrl": "https://www.massiveaudio.com/products/t50-super-bullet-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Super bullet tweeter, 44.4 mm voice coil. Max 120 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "nominalOhms": 8,
+        "sensitivityDb": 107,
+        "powerRmsW": 60,
+        "powerPeakW": 300,
+        "freqLowHz": 3000,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "massive-audio-ct1x",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT1X",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct1x-multi-mounting-25mm-silk-dome-chrome-tweeters",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 25 mm silk dome, 12 dB crossover. Flush-mount depth 1-1/4 in. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 1300,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 31.8
+      }
+    },
+    {
+      "id": "massive-audio-ct1",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT1",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct-1-silk-dome-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 25 mm silk dome, 12 dB crossover with polyswitch. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "powerRmsW": 60,
+        "powerPeakW": 120,
+        "freqLowHz": 1200,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-ct1a",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT1A",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct-1a-aluminumtweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 25 mm aluminum dome, 12 dB crossover with polyswitch. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "powerRmsW": 60,
+        "powerPeakW": 120,
+        "freqLowHz": 1300,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-ct2",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT2",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct2-60-watts-28mm-silk-dome-tweeters",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 28 mm silk dome, 6 dB crossover. Max 120 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 1.1,
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "powerRmsW": 60,
+        "freqLowHz": 1400,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-ft1",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "FT1",
+      "sourceUrl": "https://www.massiveaudio.com/products/ft1-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 20 mm inverted aluminum dome, 6 dB in-line crossover. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 0.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 96,
+        "powerRmsW": 50,
+        "powerPeakW": 100,
+        "freqLowHz": 1500,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 22.4
+      }
+    },
+    {
+      "id": "massive-audio-ct30",
+      "category": "driverTweeter",
+      "brand": "Massive Audio",
+      "model": "CT30",
+      "sourceUrl": "https://www.massiveaudio.com/products/ct-30-silk-dome-tweeter",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 30 mm silk dome, flush mount, 3.3 uF capacitor. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 1.2,
+        "nominalOhms": 4,
+        "sensitivityDb": 93.5,
+        "powerRmsW": 60,
+        "powerPeakW": 300,
+        "freqLowHz": 3000,
+        "freqHighHz": 22000
+      }
+    }
+  ]
+}

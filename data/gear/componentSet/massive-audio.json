@@ -1,0 +1,267 @@
+{
+  "products": [
+    {
+      "id": "massive-audio-gt6kp",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "GT6KP",
+      "sourceUrl": "https://www.massiveaudio.com/products/gt6kp-6-5-2-way-150-watts-rms-component-kit-pro-audio-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio component kit, 25 mm aluminum tweeter, crossover 2.5 kHz. RMS 75 W each; max 300 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 98,
+        "powerRmsW": 75,
+        "freqLowHz": 120,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 62.0,
+        "recommendedLpHz": 2500
+      }
+    },
+    {
+      "id": "massive-audio-carbon6",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "CARBON6",
+      "sourceUrl": "https://www.massiveaudio.com/products/carbon6-280-watts-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Carbon series: carbon-fiber cone woofer + 25 mm silk tweeter (CT25), CX02 crossover. RMS 280 W (as published); max 500 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 93,
+        "powerRmsW": 280,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 69.1
+      }
+    },
+    {
+      "id": "massive-audio-aluma6",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "ALUMA6",
+      "sourceUrl": "https://www.massiveaudio.com/products/aluma6-300-watts-2-ohm-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Aluma series 2-ohm kit, 25 mm silk tweeter, AX02 crossover. RMS 300 W (as published); max 500 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "sensitivityDb": 93,
+        "powerRmsW": 300,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 69.1
+      }
+    },
+    {
+      "id": "massive-audio-emk6v2",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "EMK6V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/emk6-v2-6-5-inch-125-watts-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 20 mm silk tweeter, crossover 2.5 kHz. Max 250 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 93,
+        "powerRmsW": 125,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 63.0,
+        "recommendedLpHz": 2500
+      }
+    },
+    {
+      "id": "massive-audio-fc6-3",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "FC6.3",
+      "sourceUrl": "https://www.massiveaudio.com/products/fc6-3-150-watts-rms-component-speaker-kit",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 3-way: 6.5 in woofer, 3 in mid (cutout 2.71 in, depth 1.53 in), 25 mm silk tweeter; crossover ~700 Hz / ~2 kHz. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 93,
+        "powerRmsW": 150,
+        "powerPeakW": 600,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 61.0,
+        "cutoutMm": 143.3
+      }
+    },
+    {
+      "id": "massive-audio-fc6",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "FC6",
+      "sourceUrl": "https://www.massiveaudio.com/products/fc6-component-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 25 mm silk tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 93,
+        "powerRmsW": 150,
+        "powerPeakW": 600,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 61.0,
+        "cutoutMm": 143.5
+      }
+    },
+    {
+      "id": "massive-audio-fk6",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "FK6",
+      "sourceUrl": "https://www.massiveaudio.com/products/fk6-coaxial-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. 20 mm aluminum dome tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "powerRmsW": 80,
+        "powerPeakW": 320,
+        "freqLowHz": 58,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 62.5,
+        "cutoutMm": 142.2
+      }
+    },
+    {
+      "id": "massive-audio-fz6v2",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "FZ6V2",
+      "sourceUrl": "https://www.massiveaudio.com/products/fz6-6-5-component-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Glass-fiber cone, 25 mm silk tweeter. Max 400 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 93,
+        "powerRmsW": 200,
+        "powerPeakW": 800,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 67.1
+      }
+    },
+    {
+      "id": "massive-audio-pk6s",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "PK6S",
+      "sourceUrl": "https://www.massiveaudio.com/products/pk6s-component-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Pro-audio component kit, 25 mm aluminum tweeter, crossover 2.5 kHz. Max 500 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 100,
+        "powerRmsW": 250,
+        "freqLowHz": 100,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 50.5,
+        "recommendedLpHz": 2500
+      }
+    },
+    {
+      "id": "massive-audio-nis6k",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "NIS6K",
+      "sourceUrl": "https://www.massiveaudio.com/products/nis6k-6-5-nissan-oem-drop-in-80-watts-rms-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Nissan OEM drop-in component kit, 20 mm aluminum tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 59,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-kia6k",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "KIA6K",
+      "sourceUrl": "https://www.massiveaudio.com/products/kia6k-6-5-kia-oem-drop-in-80-watts-rms-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Kia OEM drop-in component kit, 20 mm aluminum tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 59,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-hyun6k",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "HYUN6K",
+      "sourceUrl": "https://www.massiveaudio.com/products/hyun6k-6-5-oem-drop-in-80-watts-rms-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Hyundai OEM drop-in component kit, 20 mm aluminum tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 59,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-toy6k",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "TOY6K",
+      "sourceUrl": "https://www.massiveaudio.com/products/toy-6k-6-5-component-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Toyota OEM drop-in component kit, 20 mm aluminum tweeter. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 160,
+        "freqLowHz": 59,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "massive-audio-hon6k",
+      "category": "componentSet",
+      "brand": "Massive Audio",
+      "model": "HON6K",
+      "sourceUrl": "https://www.massiveaudio.com/products/hon6k-honda-80-watts-rms-coaxial-kit-speakers",
+      "verified": true,
+      "notes": "massiveaudio.com product page spec table. Honda OEM drop-in component kit, 20 mm aluminum tweeter. Max 160 W. Sensitivity reference not stated. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "powerRmsW": 80,
+        "powerPeakW": 320,
+        "freqLowHz": 59,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 59.7
+      }
+    }
+  ]
+}

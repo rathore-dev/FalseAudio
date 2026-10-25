@@ -1,0 +1,138 @@
+{
+  "products": [
+    {
+      "id": "jl-audio-c2-400x",
+      "category": "driverCoax",
+      "brand": "JL Audio",
+      "model": "C2-400x",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_400x_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Continuous power handling 35 W; recommended amp 10-50 W RMS. Mounting depth is without magnet cover. 0.75 in silk-dome tweeter. No T/S published.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 84.5,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 87.5,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 35,
+        "freqLowHz": 71,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 46.0,
+        "cutoutMm": 96.8
+      }
+    },
+    {
+      "id": "jl-audio-c2-525x",
+      "category": "driverCoax",
+      "brand": "JL Audio",
+      "model": "C2-525x",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_525x_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Continuous power handling 60 W; recommended amp 15-100 W RMS. Mounting depth is without magnet cover. 0.75 in silk-dome tweeter. No T/S published.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 89.0,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 92.0,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 63,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 63.5,
+        "cutoutMm": 115.9
+      }
+    },
+    {
+      "id": "jl-audio-c2-600x",
+      "category": "driverCoax",
+      "brand": "JL Audio",
+      "model": "C2-600x",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_600x_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Continuous power handling 60 W; recommended amp 15-100 W RMS. Mounting depth is without magnet cover. 0.75 in silk-dome tweeter. No T/S published.",
+      "driver": {
+        "sizeInches": 6,
+        "nominalOhms": 4,
+        "sensitivityDb": 90.5,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 93.5,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 59,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 60.3,
+        "cutoutMm": 127.0
+      }
+    },
+    {
+      "id": "jl-audio-c2-650x",
+      "category": "driverCoax",
+      "brand": "JL Audio",
+      "model": "C2-650x",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_650x_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Continuous power handling 60 W; recommended amp 15-100 W RMS. Mounting depth is without magnet cover. 0.75 in silk-dome tweeter. No T/S published. Crossover: natural roll-off low-pass, 1st-order high-pass.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91.0,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 94.0,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 59,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 61.9,
+        "cutoutMm": 141.3
+      }
+    },
+    {
+      "id": "jl-audio-c2-570x",
+      "category": "driverCoax",
+      "brand": "JL Audio",
+      "model": "C2-570x",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_570x_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Continuous power handling 60 W; recommended amp 15-100 W RMS. Mounting depth is without magnet cover. 0.75 in silk-dome tweeter. No T/S published. 5x7 in oval (frame 139 x 195 mm; cutout not stated in text). Crossover: natural roll-off low-pass, 1st-order high-pass.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 90.5,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 93.5,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 53,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 61.9
+      }
+    },
+    {
+      "id": "jl-audio-c2-690tx",
+      "category": "driverCoax",
+      "brand": "JL Audio",
+      "model": "C2-690tx",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_690tx_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Continuous power handling 70 W; recommended amp 15-125 W RMS. Mounting depth is without magnet cover. 0.75 in silk-dome tweeter. No T/S published. 6x9 in 3-way (frame 162.6 x 237 mm; cutout not stated in text). Crossover: 1st-order low-pass, 1st-order band-pass, 1st-order high-pass.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 93.0,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 96.0,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 70,
+        "freqLowHz": 53,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 77.8
+      }
+    }
+  ]
+}

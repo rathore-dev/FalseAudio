@@ -1,0 +1,595 @@
+{
+  "products": [
+    {
+      "id": "kicker-ksc3504",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC3504",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC3504",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC3504). Recommended amplifier power 15-50 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 41.5 mm, bottom-mount depth 49 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 100,
+        "freqLowHz": 80,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 41.5,
+        "cutoutMm": 78
+      }
+    },
+    {
+      "id": "kicker-ksc404",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC404",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC404",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC404). Recommended amplifier power 15-75 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 46 mm, bottom-mount depth 51 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 150,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 46,
+        "cutoutMm": 94
+      }
+    },
+    {
+      "id": "kicker-ksc4604",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC4604",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC4604",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC4604). Recommended amplifier power 15-75 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 44 mm, bottom-mount depth 51 mm. Cutout 101 x 151 mm (non-round, cutoutMm omitted). No T/S published. 4x6 in oval.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 150,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 44
+      }
+    },
+    {
+      "id": "kicker-ksc41004",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC41004",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC41004",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC41004). Recommended amplifier power 15-75 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 61 mm, bottom-mount depth 71 mm. Cutout 99 x 238 mm (non-round, cutoutMm omitted). No T/S published. 4x10 in oval.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 150,
+        "freqLowHz": 45,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 61
+      }
+    },
+    {
+      "id": "kicker-ksc504",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC504",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC504",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC504). Recommended amplifier power 15-75 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 45 mm, bottom-mount depth 52 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 150,
+        "freqLowHz": 45,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 45,
+        "cutoutMm": 115
+      }
+    },
+    {
+      "id": "kicker-ksc6504",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC6504",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC6504",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC6504). Recommended amplifier power 15-100 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 46 mm, bottom-mount depth 54 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 200,
+        "freqLowHz": 43,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 46,
+        "cutoutMm": 123
+      }
+    },
+    {
+      "id": "kicker-ksc6704",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC6704",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC6704",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC6704). Recommended amplifier power 15-100 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 46 mm, bottom-mount depth 50 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 200,
+        "freqLowHz": 40,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 46,
+        "cutoutMm": 141
+      }
+    },
+    {
+      "id": "kicker-ksc6804",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC6804",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC6804",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC6804). Recommended amplifier power 15-75 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 58 mm, bottom-mount depth 67 mm. Cutout 127 x 182 mm (non-round, cutoutMm omitted). No T/S published. 6x8 in oval.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 150,
+        "freqLowHz": 45,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 58
+      }
+    },
+    {
+      "id": "kicker-ksc6904",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC6904",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC6904",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC6904). Recommended amplifier power 15-150 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 75 mm, bottom-mount depth 81 mm. Cutout 144 x 215 mm (non-round, cutoutMm omitted). No T/S published. 6x9 in oval, 1 in tweeter.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 300,
+        "freqLowHz": 30,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 75
+      }
+    },
+    {
+      "id": "kicker-ksc69304",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "KSC69304",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KSC69304",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KSC69304). Recommended amplifier power 15-150 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 75 mm, bottom-mount depth 81 mm. Cutout 144 x 215 mm (non-round, cutoutMm omitted). No T/S published. 6x9 in oval 3-way (1 in mid, 3/4 in tweeter).",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 300,
+        "freqLowHz": 30,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 75
+      }
+    },
+    {
+      "id": "kicker-csc354",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "CSC354",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CSC35-Coaxial-Speakers-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (part no. CSC35-Coaxial-Speakers-4-Ohm). Recommended amplifier power 30 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 42 mm, bottom-mount depth 48 mm. No T/S published. Woofer cone polypropylene, PEI tweeter.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4,
+        "reOhms": 3.2,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 90,
+        "freqLowHz": 80,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 42,
+        "cutoutMm": 78
+      }
+    },
+    {
+      "id": "kicker-csc44",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "CSC44",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CSC4-Coaxial-Speakers-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (part no. CSC4-Coaxial-Speakers-4-Ohm). Recommended amplifier power 50 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 46 mm, bottom-mount depth 52 mm. No T/S published. Woofer cone polypropylene, PEI tweeter.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "reOhms": 3.5,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 150,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 46,
+        "cutoutMm": 95
+      }
+    },
+    {
+      "id": "kicker-csc464",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "CSC464",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CSC46-Coaxial-Speakers-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (part no. CSC46-Coaxial-Speakers-4-Ohm). Recommended amplifier power 50 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 43 mm, bottom-mount depth 50 mm. Cutout 101 x 152 mm (non-round, cutoutMm omitted). No T/S published. Woofer cone polypropylene, PEI tweeter.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 150,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 43
+      }
+    },
+    {
+      "id": "kicker-csc4104",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "CSC4104",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CSC410-Coaxial-Speakers-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (part no. CSC410-Coaxial-Speakers-4-Ohm). Recommended amplifier power 75 W RMS (no RMS handling rating published, so powerRmsW omitted). No T/S published. 4x10 in oval. Page lists top-mount depth 2-3/8 in (80 mm) and bottom-mount 2 in (50 mm), which look inconsistent, so mountingDepthMm omitted. Woofer cone polypropylene, PEI tweeter.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 225,
+        "freqLowHz": 45,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "kicker-csc54",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "CSC54",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CSC5-Coaxial-Speakers-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (part no. CSC5-Coaxial-Speakers-4-Ohm). Recommended amplifier power 75 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 45 mm, bottom-mount depth 52 mm. No T/S published. Woofer cone polypropylene, PEI tweeter.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "reOhms": 3.4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 225,
+        "freqLowHz": 45,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 45,
+        "cutoutMm": 115
+      }
+    },
+    {
+      "id": "kicker-csc654",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "CSC654",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CSC65-Coaxial-Speakers-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (part no. CSC65-Coaxial-Speakers-4-Ohm). Recommended amplifier power 100 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 43 mm, bottom-mount depth 52 mm. No T/S published. Woofer cone polypropylene, PEI tweeter.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 300,
+        "freqLowHz": 40,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 43,
+        "cutoutMm": 123
+      }
+    },
+    {
+      "id": "kicker-csc674",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "CSC674",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CSC67-Coaxial-Speakers-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (part no. CSC67-Coaxial-Speakers-4-Ohm). Recommended amplifier power 100 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 47 mm, bottom-mount depth 51 mm. No T/S published. Woofer cone polypropylene, PEI tweeter.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "reOhms": 3.3,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 300,
+        "freqLowHz": 40,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 47,
+        "cutoutMm": 140
+      }
+    },
+    {
+      "id": "kicker-csc684",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "CSC684",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CSC68-Coaxial-Speakers-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (part no. CSC68-Coaxial-Speakers-4-Ohm). Recommended amplifier power 75 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 56 mm, bottom-mount depth 65 mm. Cutout 126 x 182 mm (non-round, cutoutMm omitted). No T/S published. Woofer cone polypropylene, PEI tweeter.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.5,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 225,
+        "freqLowHz": 45,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 56
+      }
+    },
+    {
+      "id": "kicker-csc6934",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "CSC6934",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CSC693-3-Way-Speakers-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (part no. CSC693-3-Way-Speakers-4-Ohm). Recommended amplifier power 150 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 81 mm, bottom-mount depth 93 mm. Cutout 143 x 215 mm (non-round, cutoutMm omitted). No T/S published. 6x9 in 3-way (2 in mid). Woofer cone polypropylene, PEI tweeter.",
+      "driver": {
+        "nominalOhms": 4,
+        "reOhms": 3.5,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 450,
+        "freqLowHz": 30,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 81
+      }
+    },
+    {
+      "id": "kicker-dsc350",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "DSC350",
+      "series": "DS",
+      "sourceUrl": "https://www.kicker.com/ds-coaxial-speakers-35",
+      "verified": true,
+      "notes": "kicker.com product page (part no. ds-coaxial-speakers-35). Recommended amplifier power 20 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 41 mm, bottom-mount depth 47 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 80,
+        "freqLowHz": 80,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 41,
+        "cutoutMm": 78
+      }
+    },
+    {
+      "id": "kicker-dsc40",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "DSC40",
+      "series": "DS",
+      "sourceUrl": "https://www.kicker.com/ds-coaxial-speakers-4",
+      "verified": true,
+      "notes": "kicker.com product page (part no. ds-coaxial-speakers-4). Recommended amplifier power 30 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 46 mm, bottom-mount depth 52 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 120,
+        "freqLowHz": 60,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 46,
+        "cutoutMm": 95
+      }
+    },
+    {
+      "id": "kicker-dsc460",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "DSC460",
+      "series": "DS",
+      "sourceUrl": "https://www.kicker.com/ds-coaxial-speakers-46",
+      "verified": true,
+      "notes": "kicker.com product page (part no. ds-coaxial-speakers-46). Recommended amplifier power 30 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 43 mm, bottom-mount depth 50 mm. Cutout 101 x 152 mm (non-round, cutoutMm omitted). No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 120,
+        "freqLowHz": 50,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 43
+      }
+    },
+    {
+      "id": "kicker-dsc50",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "DSC50",
+      "series": "DS",
+      "sourceUrl": "https://www.kicker.com/ds-coaxial-speakers-5",
+      "verified": true,
+      "notes": "kicker.com product page (part no. ds-coaxial-speakers-5). Recommended amplifier power 50 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 45 mm, bottom-mount depth 52 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 200,
+        "freqLowHz": 45,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 45,
+        "cutoutMm": 115
+      }
+    },
+    {
+      "id": "kicker-dsc650",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "DSC650",
+      "series": "DS",
+      "sourceUrl": "https://www.kicker.com/ds-coaxial-speakers-65",
+      "verified": true,
+      "notes": "kicker.com product page (part no. ds-coaxial-speakers-65). Recommended amplifier power 60 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 43 mm, bottom-mount depth 52 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 240,
+        "freqLowHz": 40,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 43,
+        "cutoutMm": 123
+      }
+    },
+    {
+      "id": "kicker-dsc670",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "DSC670",
+      "series": "DS",
+      "sourceUrl": "https://www.kicker.com/ds-coaxial-speakers-675",
+      "verified": true,
+      "notes": "kicker.com product page (part no. ds-coaxial-speakers-675). Recommended amplifier power 60 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 47 mm, bottom-mount depth 51 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 240,
+        "freqLowHz": 40,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 47,
+        "cutoutMm": 140
+      }
+    },
+    {
+      "id": "kicker-dsc680",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "DSC680",
+      "series": "DS",
+      "sourceUrl": "https://www.kicker.com/ds-coaxial-speakers-68",
+      "verified": true,
+      "notes": "kicker.com product page (part no. ds-coaxial-speakers-68). Recommended amplifier power 50 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 56 mm, bottom-mount depth 65 mm. Cutout 126 x 182 mm (non-round, cutoutMm omitted). No T/S published.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 200,
+        "freqLowHz": 45,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 56
+      }
+    },
+    {
+      "id": "kicker-dsc6930",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "DSC6930",
+      "series": "DS",
+      "sourceUrl": "https://www.kicker.com/ds-coaxial-speakers-693-3way",
+      "verified": true,
+      "notes": "kicker.com product page (part no. ds-coaxial-speakers-693-3way). Recommended amplifier power 90 W RMS (no RMS handling rating published, so powerRmsW omitted). Top-mount depth 81 mm, bottom-mount depth 94 mm. Cutout 143 x 215 mm (non-round, cutoutMm omitted). No T/S published. 6x9 in 3-way (1.75 in mid).",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 360,
+        "freqLowHz": 30,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 81
+      }
+    },
+    {
+      "id": "kicker-qsc674",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "QSC674",
+      "series": "QS",
+      "sourceUrl": "https://www.kicker.com/q-series-qs-coaxial-67-4ohm",
+      "verified": true,
+      "notes": "kicker.com product page. 1 in Tetoron tweeter. Recommended amplifier power 100 W RMS. Built-in crossover 18 dB/oct at 5.5 kHz, bi-amp capable. No T/S published.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 200,
+        "freqLowHz": 40,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 64.9,
+        "cutoutMm": 141
+      }
+    },
+    {
+      "id": "kicker-qsc694",
+      "category": "driverCoax",
+      "brand": "Kicker",
+      "model": "QSC694",
+      "series": "QS",
+      "sourceUrl": "https://www.kicker.com/q-series-qs-coaxial-69-4ohm",
+      "verified": true,
+      "notes": "kicker.com product page. 1 in Tetoron tweeter. Recommended amplifier power 100 W RMS. Built-in crossover 18 dB/oct at 5.5 kHz, bi-amp capable. No T/S published. 6x9 in oval, cutout 121.9 x 219 mm.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 200,
+        "freqLowHz": 30,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 76.2
+      }
+    }
+  ]
+}

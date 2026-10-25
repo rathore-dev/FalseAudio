@@ -1,0 +1,225 @@
+{
+  "products": [
+    {
+      "id": "jl-audio-c2-525",
+      "category": "componentSet",
+      "brand": "JL Audio",
+      "model": "C2-525",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_525_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Set-level specs; no T/S published. Continuous power handling 60 W; recommended amp 15-100 W RMS. Crossover: 1st-order low-pass (woofer), 2nd-order high-pass (tweeter), 3-position tweeter level. Woofer mounting depth without magnet cover. Kit tweeter is the C2-075ct (8 ohm).",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 89.0,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 92.0,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 63,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 63.5,
+        "cutoutMm": 115.9
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "C2-525cw"
+        },
+        {
+          "role": "tweeter",
+          "model": "C2-075ct"
+        }
+      ]
+    },
+    {
+      "id": "jl-audio-c2-600",
+      "category": "componentSet",
+      "brand": "JL Audio",
+      "model": "C2-600",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_600_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Set-level specs; no T/S published. Continuous power handling 60 W; recommended amp 15-100 W RMS. Crossover: 1st-order low-pass (woofer), 2nd-order high-pass (tweeter), 3-position tweeter level. Woofer mounting depth without magnet cover. Kit tweeter is the C2-075ct (8 ohm).",
+      "driver": {
+        "sizeInches": 6,
+        "nominalOhms": 4,
+        "sensitivityDb": 90.5,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 93.5,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 59,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 60.3,
+        "cutoutMm": 127.0
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "C2-600cw"
+        },
+        {
+          "role": "tweeter",
+          "model": "C2-075ct"
+        }
+      ]
+    },
+    {
+      "id": "jl-audio-c2-650",
+      "category": "componentSet",
+      "brand": "JL Audio",
+      "model": "C2-650",
+      "series": "C2",
+      "sourceUrl": "https://static.garmin.com/pumac/C2_650_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Set-level specs; no T/S published. Continuous power handling 60 W; recommended amp 15-100 W RMS. Crossover: 1st-order low-pass (woofer), 2nd-order high-pass (tweeter), 3-position tweeter level. Woofer mounting depth without magnet cover. Kit tweeter is the C2-075ct (8 ohm).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91.0,
+        "sensitivityRef": "1W/1m",
+        "secondarySensitivityDb": 94.0,
+        "secondarySensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "freqLowHz": 59,
+        "freqHighHz": 22000,
+        "mountingDepthMm": 61.9,
+        "cutoutMm": 141.3
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "C2-650cw"
+        },
+        {
+          "role": "tweeter",
+          "model": "C2-075ct"
+        }
+      ]
+    },
+    {
+      "id": "jl-audio-c3-525",
+      "category": "componentSet",
+      "brand": "JL Audio",
+      "model": "C3-525",
+      "series": "C3",
+      "sourceUrl": "https://static.garmin.com/pumac/C3_525_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Convertible 2-way (component or coaxial tweeter mount). Set-level specs; no T/S published. Continuous power handling 75 W (RMS method). Crossover: 1st-order low-pass, 2nd-order high-pass, 4-position tweeter level, 3-position midrange presence, Polyswitch tweeter protection. 1.00 in silk-dome C3-100ct tweeter. Dimension table in the PDF text is column-shifted; cutout/depth read from the value order.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 90.0,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 75,
+        "freqLowHz": 48,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 57.7,
+        "cutoutMm": 115.9
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "C3-525cw"
+        },
+        {
+          "role": "tweeter",
+          "model": "C3-100ct"
+        }
+      ]
+    },
+    {
+      "id": "jl-audio-c3-600",
+      "category": "componentSet",
+      "brand": "JL Audio",
+      "model": "C3-600",
+      "series": "C3",
+      "sourceUrl": "https://static.garmin.com/pumac/C3_600_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Convertible 2-way (component or coaxial tweeter mount). Set-level specs; no T/S published. Continuous power handling 75 W (RMS method). Crossover: 1st-order low-pass, 3rd-order high-pass, 4-position tweeter level, 3-position midrange presence, Polyswitch tweeter protection. 1.00 in silk-dome C3-100ct tweeter. Dimension table in the PDF text is column-shifted; cutout/depth read from the value order.",
+      "driver": {
+        "sizeInches": 6,
+        "nominalOhms": 4,
+        "sensitivityDb": 89.5,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 75,
+        "freqLowHz": 50,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 63.0,
+        "cutoutMm": 127.0
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "C3-600cw"
+        },
+        {
+          "role": "tweeter",
+          "model": "C3-100ct"
+        }
+      ]
+    },
+    {
+      "id": "jl-audio-c3-650",
+      "category": "componentSet",
+      "brand": "JL Audio",
+      "model": "C3-650",
+      "series": "C3",
+      "sourceUrl": "https://static.garmin.com/pumac/C3_650_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). Convertible 2-way (component or coaxial tweeter mount). Set-level specs; no T/S published. Continuous power handling 75 W (RMS method). Crossover: 1st-order low-pass, 2nd-order high-pass, 4-position tweeter level, 3-position midrange presence, Polyswitch tweeter protection. 1.00 in silk-dome C3-100ct tweeter. Dimension table in the PDF text is column-shifted; cutout/depth read from the value order.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90.0,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 75,
+        "freqLowHz": 48,
+        "freqHighHz": 25000,
+        "mountingDepthMm": 64.8,
+        "cutoutMm": 141.2
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "C3-650cw"
+        },
+        {
+          "role": "tweeter",
+          "model": "C3-100ct"
+        }
+      ]
+    },
+    {
+      "id": "jl-audio-c6-650",
+      "category": "componentSet",
+      "brand": "JL Audio",
+      "model": "C6-650",
+      "series": "C6",
+      "sourceUrl": "https://static.garmin.com/pumac/C6_650_MAN.pdf",
+      "verified": true,
+      "notes": "JL Audio owner's manual (Garmin download server). 2024 C6 6.5 in 2-way component system with 1 in tweeter and passive crossovers. Continuous power 100 W; recommended amp 25-150 W RMS. Multilingual manual dimension drawing is unlabeled in text, so cutout/depth omitted. No T/S published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 87.37,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "freqLowHz": 53,
+        "freqHighHz": 21000
+      },
+      "components": [
+        {
+          "role": "midbass",
+          "model": "C6-650 woofer"
+        },
+        {
+          "role": "tweeter",
+          "model": "C6 1 in tweeter"
+        }
+      ]
+    }
+  ]
+}

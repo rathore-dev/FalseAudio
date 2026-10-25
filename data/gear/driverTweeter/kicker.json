@@ -1,0 +1,112 @@
+{
+  "products": [
+    {
+      "id": "kicker-kst2004",
+      "category": "driverTweeter",
+      "brand": "Kicker",
+      "model": "KST2004",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KST2004-tweeter",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KST2004). 3/4 in silk dome. Supplied crossover: 12 dB/oct high-pass at 4.5 kHz. Recommended amplifier power 10-65 W RMS. Peak power per ANSI/CTA-2031-A. Flush-mount depth/hole given. No T/S published.",
+      "driver": {
+        "sizeInches": 0.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 195,
+        "freqLowHz": 4500,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 14,
+        "cutoutMm": 40,
+        "recommendedHpHz": 4500
+      }
+    },
+    {
+      "id": "kicker-kst2504",
+      "category": "driverTweeter",
+      "brand": "Kicker",
+      "model": "KST2504",
+      "series": "KS",
+      "sourceUrl": "https://www.kicker.com/51KST2504-tweeter",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 51KST2504). 1 in silk dome. Supplied crossover: 12 dB/oct high-pass at 3.5 kHz. Recommended amplifier power 10-75 W RMS. Peak power per ANSI/CTA-2031-A. Flush-mount depth/hole given. No T/S published. Same 1 in KST tweeter is used in the KSS component sets.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 94,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 225,
+        "freqLowHz": 3500,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 12,
+        "cutoutMm": 45,
+        "recommendedHpHz": 3500
+      }
+    },
+    {
+      "id": "kicker-cst204",
+      "category": "driverTweeter",
+      "brand": "Kicker",
+      "model": "CST204",
+      "series": "CS",
+      "sourceUrl": "https://www.kicker.com/CST20-Tweeter-Crossover-System-4-Ohm",
+      "verified": true,
+      "notes": "kicker.com product page (2019 CS tweeter, CST20). 3/4 in titanium dome. Supplied crossover: 6 dB/oct high-pass at 4.5 kHz. Recommended amplifier power 50 W RMS. Peak power per ANSI/CTA-2031-A. No T/S published.",
+      "driver": {
+        "sizeInches": 0.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 100,
+        "freqLowHz": 4500,
+        "freqHighHz": 21000,
+        "mountingDepthMm": 14.5,
+        "cutoutMm": 40,
+        "recommendedHpHz": 4500
+      }
+    },
+    {
+      "id": "kicker-st3tw",
+      "category": "driverTweeter",
+      "brand": "Kicker",
+      "model": "ST3TW",
+      "series": "ST",
+      "sourceUrl": "https://www.kicker.com/49ST3TW",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 49ST3TW). 1 in aluminum bullet tweeter (pro-audio style, very high sensitivity). Supplied in-line 6 dB/oct high-pass capacitor (value not stated). Recommended amplifier power 15-50 W RMS. Mounting diameter 58 mm; thread length 27 mm, thread diameter 43 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 1,
+        "nominalOhms": 4,
+        "sensitivityDb": 106,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 100,
+        "freqLowHz": 3500,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 30,
+        "cutoutMm": 58
+      }
+    },
+    {
+      "id": "kicker-st4tw",
+      "category": "driverTweeter",
+      "brand": "Kicker",
+      "model": "ST4TW",
+      "series": "ST",
+      "sourceUrl": "https://www.kicker.com/49ST4TW",
+      "verified": true,
+      "notes": "kicker.com product page (part no. 49ST4TW). 1.5 in aluminum bullet tweeter (pro-audio style, very high sensitivity). Supplied in-line 6 dB/oct high-pass capacitor (value not stated). Recommended amplifier power 15-50 W RMS. Mounting diameter 73 mm; thread length 30 mm, thread diameter 48 mm. No T/S published.",
+      "driver": {
+        "sizeInches": 1.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 108,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 100,
+        "freqLowHz": 3000,
+        "freqHighHz": 20000,
+        "mountingDepthMm": 31,
+        "cutoutMm": 73
+      }
+    }
+  ]
+}
