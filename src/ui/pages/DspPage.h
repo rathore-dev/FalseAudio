@@ -8,6 +8,7 @@
 #include "dsp/TeachWizard.h"
 #include "dsp/ManualPanel.h"
 #include "dsp/ExportPanel.h"
+#include "dsp/NativePanel.h"
 
 namespace fa::ui
 {
@@ -32,7 +33,7 @@ public:
     void resized() override;
 
 private:
-    enum UiMode { modeVirtual = 0, modeManual = 1, modeAutomatic = 2 };
+    enum UiMode { modeVirtual = 0, modeManual = 1, modeAutomatic = 2, modeNative = 3 };
 
     void timerCallback() override;
 
@@ -57,6 +58,13 @@ private:
     void startTeaching (const DspProfile& existing, const juce::File& file);
     void stopTeaching();
 
+    // direct USB (native controllers)
+    void connectNative (const dsp::UsbDevice& device);
+    void connectNativeWithRate (const dsp::UsbDevice& device, double sampleRate);
+    void disconnectNative();
+    void restoreNativeBackup();
+    bool isNativeKind() const;
+
     void notify (const juce::String& message, AppShell::ToastKind kind = AppShell::ToastKind::info);
     void confirm (const juce::String& title, const juce::String& message, const juce::String& okText,
                   std::function<void (bool)> answer, const juce::StringArray& steps = {},
@@ -66,6 +74,7 @@ private:
     dsp::PageSettings settings;
     int uiMode = modeVirtual;
     bool controlAllowed = false;
+    bool usbAllowed = false;
     bool teaching = false;
     DspProfile activeProfile;
     juce::File activeProfileFile;
@@ -77,7 +86,7 @@ private:
 
     // ---- top: mode
     Card modeCard { "Control mode" };
-    SegmentedControl modeControl { { "Virtual (demo)", "Manual guided", "Automatic (UI Automation)" } };
+    SegmentedControl modeControl { { "Virtual (demo)", "Manual guided", "Automatic (UI Automation)", "Direct USB (no clicking)" } };
     Chip modeChip, dspChip, attachChip, consentChip;
     juce::Label explanation;
 
@@ -95,9 +104,14 @@ private:
                            "Attach your DSP vendor software and it appears right here, inside FalseAudio.",
                            "Attach window..." };
 
+    // ---- main: direct USB (replaces the host card in that mode)
+    Card nativeCard { "Direct USB", "Writes the tune straight into the DSP" };
+    dsp::NativePanel nativePanel;
+
     // ---- side panel
     Card sideCard { "Virtual rig" };
     dsp::InfoPanel virtualInfo { icons::Id::car };
+    dsp::InfoPanel nativeInfo { icons::Id::plug };
     FaButton tryAutoTune { "Go to Auto Tune", FaButton::Style::primary, icons::Id::bolt };
     dsp::ManualPanel manualPanel;
     dsp::ProfilePicker profilePicker;

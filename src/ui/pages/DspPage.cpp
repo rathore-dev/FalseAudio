@@ -18,6 +18,9 @@ namespace
                            "so you can learn the whole workflow without hardware. Nothing to connect.";
             case 1: return "Works with every DSP ever made. FalseAudio measures and computes the tune, then shows each change as "
                            "a checklist - you type the values into your DSP software and press Done.";
+            case 3: return "Recommended when your DSP is supported: FalseAudio talks to it over USB directly - no vendor software, "
+                           "no clicking, every value lands exactly. Supported: miniDSP units (2x4 HD, C-DSP 8x12, DDRC, Flex, SHD...) "
+                           "and the Dayton Audio DSP-408. A backup of the DSP is saved before the first write.";
             default: return "FalseAudio drives your DSP vendor software itself through Windows UI Automation, using a profile you "
                             "teach once per DSP model. Attach the software below, pick or teach a profile, then allow control.";
         }
@@ -25,8 +28,16 @@ namespace
 }
 
 DspPage::DspPage (Session& s)
-    : Page (s), manualPanel (s), exportPanel (s), wizard (s, host)
+    : Page (s), nativePanel (s), manualPanel (s), exportPanel (s), wizard (s, host)
 {
+    // ---- direct USB card
+    addChildComponent (nativeCard);
+    nativeCard.addAndMakeVisible (nativePanel);
+    nativePanel.toast = [this] (const juce::String& m, AppShell::ToastKind k) { notify (m, k); };
+    nativePanel.onConnect = [this] (const dsp::UsbDevice& d) { connectNative (d); };
+    nativePanel.onDisconnect = [this] { disconnectNative(); };
+    nativePanel.onRestore = [this] { restoreNativeBackup(); };
+
     // ---- mode card
     addAndMakeVisible (modeCard);
     modeCard.addAndMakeVisible (modeControl);
@@ -82,6 +93,13 @@ DspPage::DspPage (Session& s)
                          "Switch to Manual or Automatic when your real DSP is connected.");
     sideCard.addChildComponent (virtualInfo);
     sideCard.addChildComponent (tryAutoTune);
+    nativeInfo.setAccent (theme::warn);
+    nativeInfo.setText ("Good to know",
+                        "miniDSP: the vendor plugin keeps its own copy of the settings, so it will not display values written "
+                        "this way - and pressing Sync in the plugin overwrites them. "
+                        "DSP-408: every write is permanent on the device; the backup taken before the first write is your undo "
+                        "(Restore backup). Close the vendor software while FalseAudio is connected.");
+    sideCard.addChildComponent (nativeInfo);
     tryAutoTune.onClick = [this] { if (shell != nullptr) shell->showPage (PageId::autoTune); };
 
     sideCard.addChildComponent (manualPanel);
@@ -112,7 +130,7 @@ DspPage::DspPage (Session& s)
     };
 
     // restore
-    uiMode = juce::jlimit (0, 2, settings.get (kUiModeKey, "0").getIntValue());
+    uiMode = juce::jlimit (0, 3, settings.get (kUiModeKey, "0").getIntValue());
     syncModeFromSession();
     const auto lastProfile = juce::File (settings.get (kLastProfileKey));
     if (lastProfile.existsAsFile())
@@ -205,22 +223,199 @@ void DspPage::sessionChanged()
 {
     syncModeFromSession();
     manualPanel.refresh();
+    nativePanel.refresh();          // picks up warnings / mapping report after a tune
     refreshChips();
     updateSidePanel();
 }
 
 //==============================================================================
+void DspPage::connectNative (const dsp::UsbDevice& device)
+{
+    if (nativePanel.isBusy() || session.getAutoTune().isRunning())
+        return;
+    if (! device.supported)
+    {
+        notify ("That device is not supported: " + device.reason, AppShell::ToastKind::warn);
+        return;
+    }
+
+    auto proceed = [this, device]
+    {
+        if (device.needsSampleRate)
+        {
+            if (shell == nullptr) { connectNativeWithRate (device, 48000.0); return; }
+            auto sheet = std::make_unique<dsp::SampleRateSheet> (device.name);
+            sheet->onResult = [this, device] (double rate)
+            {
+                if (shell != nullptr) shell->closeSheet();
+                if (rate > 0.0) connectNativeWithRate (device, rate);
+            };
+            shell->showSheet (std::move (sheet), dsp::SampleRateSheet::width, dsp::SampleRateSheet::height);
+        }
+        else
+            connectNativeWithRate (device, 0.0);
+    };
+
+    if (usbAllowed)
+    {
+        proceed();
+        return;
+    }
+
+    const bool is408 = device.kind == dsp::UsbDevice::Kind::dsp408;
+    juce::StringArray what {
+        "Read the current settings and save a backup to " + DspProfile::profilesFolder().getParentDirectory().getChildFile ("backups").getFullPathName() + " before the first write",
+        "Write gain, delay, polarity, crossovers, EQ and mute - only to documented addresses, never presets or firmware",
+        is408 ? juce::String ("DSP-408 writes are permanent on the device: Restore backup is the undo")
+              : juce::String ("The miniDSP plugin will not show these values (it keeps its own copy) - keep it closed"),
+        "Stop immediately when you cancel Auto Tune or press Disconnect"
+    };
+    confirm ("Allow FalseAudio to write to " + device.name + "?",
+             "Direct USB mode changes the DSP itself, with no vendor software in between. FalseAudio will:",
+             "Allow and connect",
+             [this, proceed] (bool yes)
+             {
+                 if (! yes) { notify ("Not connected - staying in manual guided mode.", AppShell::ToastKind::warn); return; }
+                 usbAllowed = true;
+                 proceed();
+             },
+             what, "Not now");
+}
+
+void DspPage::connectNativeWithRate (const dsp::UsbDevice& device, double sampleRate)
+{
+    if (session.getMode() != Session::Mode::live)
+        session.setMode (Session::Mode::live);
+
+    nativePanel.setBusy (true, "Connecting to " + device.name + " and taking a backup...");
+    refreshChips();
+
+    // The controllers block on USB IO (handshake + reading every output record), so build and
+    // connect them on a worker thread and hand the result to the Session on the message thread.
+    juce::Component::SafePointer<DspPage> safe (this);
+    const bool is408 = device.kind == dsp::UsbDevice::Kind::dsp408;
+    juce::Thread::launch ([safe, device, sampleRate, is408]
+    {
+        juce::String error;
+        std::unique_ptr<DspController> controller;
+        if (is408)
+        {
+            Dsp408Controller::Options o;
+            o.devicePath = device.path;
+            auto c = std::make_unique<Dsp408Controller> (o);
+            if (c->connect (error)) controller = std::move (c);
+        }
+        else
+        {
+            MiniDspController::Options o;
+            o.devicePath = device.path;
+            o.sampleRateOverride = sampleRate;
+            auto c = std::make_unique<MiniDspController> (o);
+            if (c->connect (error)) controller = std::move (c);
+        }
+
+        // unique_ptr is move-only; stash it in a shared_ptr for the std::function below
+        auto holder = std::make_shared<std::unique_ptr<DspController>> (std::move (controller));
+        juce::MessageManager::callAsync ([safe, holder, error, is408, device]
+        {
+            if (safe == nullptr)
+                return;
+            safe->nativePanel.setBusy (false, {});
+            if (*holder == nullptr)
+            {
+                safe->notify ("Could not connect to " + device.name + ": " + error, AppShell::ToastKind::bad);
+                safe->refreshChips();
+                return;
+            }
+            auto cfg = safe->session.getConfig();
+            cfg.caps = (*holder)->getCapabilities();
+            safe->session.setConfig (cfg);
+            safe->session.setDspController (std::move (*holder), is408 ? Session::DspKind::nativeDsp408 : Session::DspKind::nativeMiniDsp);
+            safe->uiMode = modeNative;
+            safe->settings.set (kUiModeKey, "3");
+            safe->notify ("Connected: " + device.name + " - backup taken, ready for Auto Tune.", AppShell::ToastKind::good);
+            safe->syncModeFromSession();
+            safe->nativePanel.refresh();
+            safe->refreshChips();
+            safe->updateSidePanel();
+        });
+    });
+}
+
+void DspPage::disconnectNative()
+{
+    if (! isNativeKind() || nativePanel.isBusy() || session.getAutoTune().isRunning())
+        return;
+    session.useManualDsp();     // destroys the controller (closes the USB handle)
+    notify ("Disconnected. Auto Tune will show a checklist until you connect again.");
+    nativePanel.refresh();
+    refreshChips();
+}
+
+void DspPage::restoreNativeBackup()
+{
+    if (! isNativeKind() || nativePanel.isBusy() || session.getAutoTune().isRunning())
+        return;
+
+    auto& dsp = session.getDsp();
+    auto* mini = dynamic_cast<MiniDspController*> (&dsp);
+    auto* d408 = dynamic_cast<Dsp408Controller*> (&dsp);
+    if (mini == nullptr && d408 == nullptr)
+        return;
+    const auto snapshot = mini != nullptr ? mini->getSnapshotFile() : d408->getSnapshotFile();
+
+    confirm ("Restore the backup?",
+             "This writes the settings captured when FalseAudio connected back into the DSP, replacing the tune." +
+                 juce::String (snapshot != juce::File() ? "\n\nBackup: " + snapshot.getFullPathName() : juce::String()),
+             "Restore backup",
+             [this] (bool yes)
+             {
+                 if (! yes || ! isNativeKind() || nativePanel.isBusy() || session.getAutoTune().isRunning())
+                     return;
+                 // re-fetch: the controller may have been swapped while the sheet was open
+                 auto* mini = dynamic_cast<MiniDspController*> (&session.getDsp());
+                 auto* d408 = dynamic_cast<Dsp408Controller*> (&session.getDsp());
+                 nativePanel.setBusy (true, "Restoring backup...");
+                 refreshChips();
+                 juce::Component::SafePointer<DspPage> safe (this);
+                 juce::Thread::launch ([safe, mini, d408]
+                 {
+                     juce::String error;
+                     bool ok = false;
+                     if (mini != nullptr)
+                     {
+                         const auto f = mini->getSnapshotFile();
+                         ok = f.existsAsFile() ? mini->restoreSnapshot (f, error) : (error = "No backup was taken yet (nothing has been written).", false);
+                     }
+                     else if (d408 != nullptr)
+                         ok = d408->restoreSnapshot (error);
+
+                     juce::MessageManager::callAsync ([safe, ok, error]
+                     {
+                         if (safe == nullptr) return;
+                         safe->nativePanel.setBusy (false, {});
+                         safe->notify (ok ? "Backup restored and verified." : "Restore failed: " + error,
+                                       ok ? AppShell::ToastKind::good : AppShell::ToastKind::bad);
+                         safe->nativePanel.refresh();
+                         safe->refreshChips();
+                     });
+                 });
+             });
+}
+
+//==============================================================================
 void DspPage::userChoseMode (int index)
 {
-    uiMode = index;
-    settings.set (kUiModeKey, juce::String (index));
-
-    if (session.getAutoTune().isRunning())
+    if (session.getAutoTune().isRunning() || nativePanel.isBusy())
     {
-        notify ("Finish or cancel Auto Tune before changing the DSP mode.", AppShell::ToastKind::warn);
+        notify (nativePanel.isBusy() ? "Wait for the USB operation to finish." : "Finish or cancel Auto Tune before changing the DSP mode.",
+                AppShell::ToastKind::warn);
         syncModeFromSession();
         return;
     }
+
+    uiMode = index;
+    settings.set (kUiModeKey, juce::String (index));
 
     switch (index)
     {
@@ -235,10 +430,23 @@ void DspPage::userChoseMode (int index)
             break;
         case modeAutomatic:
             session.setMode (Session::Mode::live);
+            if (isNativeKind())
+                session.useManualDsp();          // drop the USB controller; the profile takes over below
             if (controlAllowed && activeProfileFile != juce::File() && session.getDspKind() != Session::DspKind::uiAutomation)
                 activateProfile (activeProfile, activeProfileFile);
             else if (session.getDspKind() != Session::DspKind::uiAutomation && ! controlAllowed)
                 notify (host.isAttached() ? "Pick a profile and press Allow control." : "Attach your DSP software, then pick or teach a profile.");
+            break;
+        case modeNative:
+            if (teaching) stopTeaching();
+            session.setMode (Session::Mode::live);
+            if (! isNativeKind())
+            {
+                if (session.getDspKind() != Session::DspKind::manual)
+                    session.useManualDsp();      // until Connect succeeds, Auto Tune falls back to the checklist
+                notify ("Plug the DSP in over USB, scan, then press Connect.");
+                nativePanel.scan();
+            }
             break;
     }
     refreshChips();
@@ -251,9 +459,17 @@ void DspPage::syncModeFromSession()
     {
         case Session::DspKind::virtualDemo:  uiMode = modeVirtual; break;
         case Session::DspKind::uiAutomation: uiMode = modeAutomatic; break;
+        case Session::DspKind::nativeMiniDsp:
+        case Session::DspKind::nativeDsp408: uiMode = modeNative; break;
         case Session::DspKind::manual:       if (uiMode == modeVirtual) uiMode = modeManual; break;
     }
     modeControl.setSelected (uiMode, juce::dontSendNotification);
+}
+
+bool DspPage::isNativeKind() const
+{
+    const auto k = session.getDspKind();
+    return k == Session::DspKind::nativeMiniDsp || k == Session::DspKind::nativeDsp408;
 }
 
 void DspPage::refreshChips()
@@ -266,6 +482,8 @@ void DspPage::refreshChips()
         case Session::DspKind::virtualDemo:  dspChip.set ("Virtual rig", theme::accent); break;
         case Session::DspKind::manual:       dspChip.set ("Manual (guided)", theme::warn); break;
         case Session::DspKind::uiAutomation: dspChip.set ("Auto: " + session.getDsp().getName(), theme::good); break;
+        case Session::DspKind::nativeMiniDsp:
+        case Session::DspKind::nativeDsp408: dspChip.set ("USB: " + session.getDsp().getName(), theme::good); break;
     }
 
     if (host.isAttached())
@@ -278,9 +496,14 @@ void DspPage::refreshChips()
         attachChip.set ("Not attached", theme::textMuted);
 
     const bool uia = session.getDspKind() == Session::DspKind::uiAutomation;
-    consentChip.set (controlAllowed && uia ? "Control allowed" : activeProfileFile != juce::File() ? "Control not allowed" : "No profile",
-                     controlAllowed && uia ? theme::good : theme::textMuted);
-    consentChip.setVisible (uiMode == modeAutomatic);
+    if (uiMode == modeNative)
+        consentChip.set (isNativeKind() ? "Connected - backup taken" : nativePanel.isBusy() ? "Working..." : "Not connected",
+                         isNativeKind() ? theme::good : nativePanel.isBusy() ? theme::warn : theme::textMuted);
+    else
+        consentChip.set (controlAllowed && uia ? "Control allowed" : activeProfileFile != juce::File() ? "Control not allowed" : "No profile",
+                         controlAllowed && uia ? theme::good : theme::textMuted);
+    consentChip.setVisible (uiMode == modeAutomatic || uiMode == modeNative);
+    attachChip.setVisible (uiMode != modeNative);
 
     hostCard.setTitle ("DSP software", host.isAttached() ? host.getAttached().processName + "  ·  " + host.getAttached().title
                                                            : juce::String ("Attach a running window or launch your vendor tool"));
@@ -296,6 +519,10 @@ void DspPage::refreshChips()
     profilePicker.setActive (uia ? activeProfileFile : juce::File());
     profilePicker.setCanTeach (host.isAttached(), host.isAttached() ? juce::String() : "Attach your DSP software to teach or use a profile.");
 
+    nativeCard.setHighlight (isNativeKind() ? theme::good.withAlpha (0.6f) : juce::Colours::transparentBlack);
+    nativeCard.setTitle ("Direct USB", isNativeKind() ? session.getDsp().getName() + "  ·  connected"
+                                                      : juce::String ("Writes the tune straight into the DSP - no vendor software"));
+
     modeCard.repaint();
     resized();
 }
@@ -305,22 +532,31 @@ void DspPage::updateSidePanel()
     const bool v = uiMode == modeVirtual && ! teaching;
     const bool m = uiMode == modeManual && ! teaching;
     const bool a = uiMode == modeAutomatic && ! teaching;
+    const bool n = uiMode == modeNative && ! teaching;
 
     virtualInfo.setVisible (v);
     tryAutoTune.setVisible (v);
     manualPanel.setVisible (m);
     profilePicker.setVisible (a);
+    nativeInfo.setVisible (n);
     wizard.setVisible (teaching);
     exportPanel.setVisible (! teaching);
 
-    const bool wide = sidePanelHidden && ! teaching;      // the wizard always needs its panel
+    // Direct USB replaces the embedded-software card with the device panel
+    nativeCard.setVisible (n);
+    hostCard.setVisible (! n);
+    if (n) showHost (false);
+    else   showHost (host.isAttached() && isShowing());
+
+    const bool wide = sidePanelHidden && ! teaching && ! n;   // the wizard always needs its panel
     sideCard.setVisible (! wide);
     panelBtn.setButtonText (wide ? "Show panel" : "Hide panel");
     panelBtn.setIcon (wide ? icons::Id::restore : icons::Id::maximise);
     panelBtn.setEnabled (! teaching);
 
-    sideCard.setTitle (teaching ? "Teach wizard" : v ? "Virtual rig" : m ? "Manual guided" : "Automation profiles",
-                       teaching ? "Click controls inside the DSP software" : v ? "Demo mode" : m ? "Checklist during Auto Tune" : "One profile per DSP model");
+    sideCard.setTitle (teaching ? "Teach wizard" : v ? "Virtual rig" : m ? "Manual guided" : n ? "Direct USB" : "Automation profiles",
+                       teaching ? "Click controls inside the DSP software" : v ? "Demo mode" : m ? "Checklist during Auto Tune"
+                                : n ? "Limitations & backup" : "One profile per DSP model");
     explanation.setText (explanationFor (uiMode), juce::dontSendNotification);
     resized();
 }
@@ -554,6 +790,8 @@ void DspPage::resized()
                 c.removeFromTop (theme::pad);
                 tryAutoTune.setBounds (c.removeFromTop (40).withWidth (std::min (220, c.getWidth())));
             }
+            else if (uiMode == modeNative)
+                nativeInfo.setBounds (c.removeFromTop (std::min (nativeInfo.idealHeight (c.getWidth()), c.getHeight())));
             else if (uiMode == modeManual)
                 manualPanel.setBounds (c);
             else
@@ -561,7 +799,9 @@ void DspPage::resized()
         }
     }
 
-    // ---- host card
+    // ---- main card: direct USB panel or embedded DSP software
+    nativeCard.setBounds (r);
+    nativePanel.setBounds (nativeCard.getContentArea());
     hostCard.setBounds (r);
     {
         auto c = hostCard.getContentArea();
