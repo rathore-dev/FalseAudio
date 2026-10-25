@@ -1,0 +1,218 @@
+{
+  "products": [
+    {
+      "id": "audiopipe-cabv-12-100clr",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CABV-12-100CLR",
+      "sourceUrl": "https://www.audiopipe.com/products/speaker-cable-cabv-12-100clr",
+      "verified": true,
+      "notes": "Manufacturer spec: 12AWG nominal, each conductor 64 x 0.2 mm strands, 2 conductors, OD 4.0 mm per conductor, CCA, PVC jacket. mm2 computed from the published strand spec (64 x 0.0314 mm2) - well below true 12 AWG copper area; treat as undersized CCA. Also sold as 25/50/500 ft (CABV-12-25CLR, -50CLR, -500CLR/BLK).",
+      "wire": {
+        "awg": 12,
+        "mm2": 2.011,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "audiopipe-cabv-14-100clr",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CABV-14-100CLR",
+      "sourceUrl": "https://www.audiopipe.com/products/speaker-cable-cabv-14-100clr-1",
+      "verified": true,
+      "notes": "Manufacturer spec: 14AWG nominal, each conductor 27 x 0.2 mm strands, 2 conductors, OD 3.5 mm per conductor, CCA, PVC jacket. mm2 computed from the published strand spec (27 x 0.0314 mm2) - well below true 14 AWG copper area; treat as undersized CCA. Also 25/50/500 ft variants.",
+      "wire": {
+        "awg": 14,
+        "mm2": 0.848,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "audiopipe-cabv-16-100clr",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CABV-16-100CLR",
+      "sourceUrl": "https://www.audiopipe.com/products/speaker-cable-cabv-16-100clr",
+      "verified": true,
+      "notes": "Manufacturer spec: 16AWG nominal, each conductor 25 x 0.2 mm strands, 2 conductors, OD 3.0 mm per conductor, CCA, PVC jacket. mm2 computed from the published strand spec (25 x 0.0314 mm2) - well below true 16 AWG copper area; treat as undersized CCA. Also 25/50/1000 ft variants.",
+      "wire": {
+        "awg": 16,
+        "mm2": 0.785,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "audiopipe-cabv-18-1000clr",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CABV-18-1000CLR",
+      "sourceUrl": "https://www.audiopipe.com/products/speaker-cable-cabv-18-1000clr",
+      "verified": true,
+      "notes": "Manufacturer spec: 18AWG nominal, each conductor 16 x 0.2 mm strands, 2 conductors, OD 2.6 mm per conductor, CCA, PVC jacket. mm2 computed from the published strand spec (16 x 0.0314 mm2) - well below true 18 AWG copper area; treat as undersized CCA.",
+      "wire": {
+        "awg": 18,
+        "mm2": 0.503,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "audiopipe-cabv-10-300blk",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CABV-10-300BLK",
+      "sourceUrl": "https://www.audiopipe.com/products/cabv-10-300-blk",
+      "verified": true,
+      "notes": "300 ft 10AWG 2-conductor speaker cable, 'ECA-standard' copper-clad aluminum (CABV-10-300-BLS uses 'TECA-grade' CCA). Strand spec not published.",
+      "wire": {
+        "awg": 10,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "audiopipe-cabv-8-100blk",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CABV-8-100BLK",
+      "sourceUrl": "https://www.audiopipe.com/products/cabv-8-100-blk",
+      "verified": true,
+      "notes": "100 ft 8AWG 2-conductor speaker cable, ECA-standard copper-clad aluminum. Strand spec not published.",
+      "wire": {
+        "awg": 8,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "audiopipe-cblv-12-100rbc",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CBLV-12-100RBC",
+      "sourceUrl": "https://www.audiopipe.com/products/cblv-12-100-rbc",
+      "verified": true,
+      "notes": "100 ft 12AWG red/black OFC stranded speaker cable. Strand count not published.",
+      "wire": {
+        "awg": 12,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-cblv-14-100rbc",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CBLV-14-100RBC",
+      "sourceUrl": "https://www.audiopipe.com/products/cblv-14-100-rbc",
+      "verified": true,
+      "notes": "100 ft 14AWG red/black OFC stranded speaker cable. Strand count not published.",
+      "wire": {
+        "awg": 14,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-cblv-16-100rbc",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CBLV-16-100RBC",
+      "sourceUrl": "https://www.audiopipe.com/products/cblv-16-100-rbc",
+      "verified": true,
+      "notes": "100 ft 16AWG red/black OFC stranded speaker cable. Strand count not published.",
+      "wire": {
+        "awg": 16,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-cblv-214-250tcc",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CBLV-214-250TCC",
+      "sourceUrl": "https://www.audiopipe.com/products/cblv-214-250tcc",
+      "verified": true,
+      "notes": "250 ft 14 AWG 2-conductor speaker cable, 100% tinned copper conductors, PVC jacket. Strand count not published.",
+      "wire": {
+        "awg": 14,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "audiopipe-cblv-216-100tcc",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "CBLV-216-100TCC",
+      "sourceUrl": "https://www.audiopipe.com/products/cblv-216-100tcc",
+      "verified": true,
+      "notes": "100 ft 16 AWG 2-conductor speaker cable, 100% tinned copper, PVC jacket (also 250 ft CBLV-216-250TCC).",
+      "wire": {
+        "awg": 16,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "audiopipe-tcl23-14-2c-ul",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "TCL23-14-2C-UL",
+      "sourceUrl": "https://www.audiopipe.com/products/14-gauge-oxygen-free-copper-speaker-wire-cable-tcl23-14-2c-ul",
+      "verified": true,
+      "notes": "Premium 14 gauge OFC speaker wire, 2 conductors, UL CL3 rated (4-conductor version TCL23-14-4C-UL). Strand count not published.",
+      "wire": {
+        "awg": 14,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-tcl23-16-2c-ul",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "TCL23-16-2C-UL",
+      "sourceUrl": "https://www.audiopipe.com/products/oxygen-free-copper-speaker-wire-cable-tcl23-16-2c-ul",
+      "verified": true,
+      "notes": "Premium 16 gauge OFC speaker wire, 2 conductors, UL CL3 (4-conductor TCL23-16-4C-UL). Strand count not published.",
+      "wire": {
+        "awg": 16,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-msc-16-25tc",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "MSC-16-25TC",
+      "sourceUrl": "https://www.audiopipe.com/products/msc-16-25tc-flexible-pvc-tin-copper-plated-ofc-speaker-wire-16-awg",
+      "verified": true,
+      "notes": "Marine 16 gauge, 25 ft, tin-plated OFC; manufacturer construction '2x100 / 0.12 TC' (2 conductors of 100 x 0.12 mm strands), OD 3.5x7 mm. mm2 computed from strand spec.",
+      "wire": {
+        "awg": 16,
+        "mm2": 1.131,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "audiopipe-tmsc-12-250tcw",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "TMSC-12-250TCW",
+      "sourceUrl": "https://www.audiopipe.com/products/msc-12-250tc-flexible-pvc-tin-copper-plated-ofc-speaker-wire-12-awg",
+      "verified": true,
+      "notes": "Marine 12 gauge, 250 ft (25 ft = TMSC-12-25TCW), tin-plated OFC; construction '2x252 / 0.12 TC', OD 4.5x9 mm. mm2 computed from strand spec.",
+      "wire": {
+        "awg": 12,
+        "mm2": 2.85,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "audiopipe-tmsc-14-250tcw",
+      "category": "speakerWire",
+      "brand": "Audiopipe",
+      "model": "TMSC-14-250TCW",
+      "sourceUrl": "https://www.audiopipe.com/products/msc-14-250tc-tin-plated-ofc-speaker-cable",
+      "verified": true,
+      "notes": "Marine 14 AWG speaker cable, Type III class K tinned copper. Strand count not published.",
+      "wire": {
+        "awg": 14,
+        "material": "Tinned OFC"
+      }
+    }
+  ]
+}

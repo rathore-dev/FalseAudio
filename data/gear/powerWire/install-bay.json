@@ -1,0 +1,108 @@
+{
+  "products": [
+    {
+      "id": "install-bay-ibpc10-50",
+      "category": "powerWire",
+      "brand": "Install Bay",
+      "model": "IBPC10-50",
+      "sourceUrl": "https://www.metraonline.com/product/IBPC10-50",
+      "verified": true,
+      "notes": "CCA Value Line 1/0 gauge power cable, blue, 50 ft coil. Strand count and ohmsPerMetre not published - use data/gear/powerWire/_standards.json for copper; CCA has roughly 1.6x the resistance of copper of the same size. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 0,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ibpc04-125",
+      "category": "powerWire",
+      "brand": "Install Bay",
+      "model": "IBPC04-125",
+      "sourceUrl": "https://www.metraonline.com/product/IBPC04-125",
+      "verified": true,
+      "notes": "CCA Value Line 4 gauge power cable, blue, 125 ft coil (red = IBPC04R-125). Strand count and ohmsPerMetre not published - use data/gear/powerWire/_standards.json for copper; CCA has roughly 1.6x the resistance of copper of the same size. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 4,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ibpc08-250",
+      "category": "powerWire",
+      "brand": "Install Bay",
+      "model": "IBPC08-250",
+      "sourceUrl": "https://www.metraonline.com/product/IBPC08-250",
+      "verified": true,
+      "notes": "CCA Value Line 8 gauge power cable, blue, 250 ft coil (red = IBPC08R-250). Strand count and ohmsPerMetre not published - use data/gear/powerWire/_standards.json for copper; CCA has roughly 1.6x the resistance of copper of the same size. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 8,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ibgn10-50",
+      "category": "powerWire",
+      "brand": "Install Bay",
+      "model": "IBGN10-50",
+      "sourceUrl": "https://www.metraonline.com/product/IBGN10-50",
+      "verified": true,
+      "notes": "CCA Value Line 1/0 gauge power cable, 50 ft. Strand count and ohmsPerMetre not published - use data/gear/powerWire/_standards.json for copper; CCA has roughly 1.6x the resistance of copper of the same size. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 0,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ibgn04-125",
+      "category": "powerWire",
+      "brand": "Install Bay",
+      "model": "IBGN04-125",
+      "sourceUrl": "https://www.metraonline.com/product/IBGN04-125",
+      "verified": true,
+      "notes": "CCA Value Line 4 gauge power cable, 125 ft. Strand count and ohmsPerMetre not published - use data/gear/powerWire/_standards.json for copper; CCA has roughly 1.6x the resistance of copper of the same size. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 4,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ibgn08-250",
+      "category": "powerWire",
+      "brand": "Install Bay",
+      "model": "IBGN08-250",
+      "sourceUrl": "https://www.metraonline.com/product/IBGN08-250",
+      "verified": true,
+      "notes": "CCA Value Line 8 gauge power cable, 250 ft. Strand count and ohmsPerMetre not published - use data/gear/powerWire/_standards.json for copper; CCA has roughly 1.6x the resistance of copper of the same size. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 8,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ak4anl",
+      "category": "powerWire",
+      "brand": "Install Bay",
+      "model": "AK4ANL",
+      "sourceUrl": "https://www.metraonline.com/product/AK4ANL",
+      "verified": true,
+      "notes": "CCA 4 gauge Value amp kit, rated 1600 W, with ANL fuse (AK4 = same kit family, material not stated on its page). Strand count and ohmsPerMetre not published - use data/gear/powerWire/_standards.json for copper; CCA has roughly 1.6x the resistance of copper of the same size. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 4,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ak8",
+      "category": "powerWire",
+      "brand": "Install Bay",
+      "model": "AK8",
+      "sourceUrl": "https://www.metraonline.com/product/AK8",
+      "verified": true,
+      "notes": "CCA 8 gauge Value amp kit, rated 1000 W. Strand count and ohmsPerMetre not published - use data/gear/powerWire/_standards.json for copper; CCA has roughly 1.6x the resistance of copper of the same size. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 8,
+        "material": "CCA"
+      }
+    }
+  ]
+}

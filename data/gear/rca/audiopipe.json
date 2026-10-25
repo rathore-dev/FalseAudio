@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": "audiopipe-cpp-tw17",
+      "category": "rca",
+      "brand": "Audiopipe",
+      "model": "CPP-TW17",
+      "sourceUrl": "https://www.audiopipe.com/products/cpp-tw17",
+      "verified": true,
+      "notes": "Competition-rated 2-channel RCA, 17 ft (also CPP-TW3 3 ft, CPP-TW6 6 ft). Pure OFC conductors, double twisted-pair construction. Gauge and shield construction not published."
+    },
+    {
+      "id": "audiopipe-amfv-17",
+      "category": "rca",
+      "brand": "Audiopipe",
+      "model": "AMFV-17",
+      "sourceUrl": "https://www.audiopipe.com/products/oxygen-free-17-rca-audio-cable-amfv-17",
+      "verified": true,
+      "notes": "2-channel RCA, 17 ft (series 1.5/3/6/10/12/15/20/25 ft). Oxygen-free copper conductors, 24K gold-plated connectors, PVC jacket. Shielding/twist not stated; gauge not published."
+    },
+    {
+      "id": "audiopipe-ip-2rca-17",
+      "category": "rca",
+      "brand": "Audiopipe",
+      "model": "IP-2RCA-17",
+      "sourceUrl": "https://www.audiopipe.com/products/ip-2rca-17-oxygen-free-17-rca-audio-cable",
+      "verified": true,
+      "notes": "Marine-grade 2-channel RCA, 17 ft (also 3/6/12/25 ft). Oxygen-free conductors, twisted-pair arrangement, UV-protected white PVC jacket. Gauge not published."
+    },
+    {
+      "id": "audiopipe-bmv-g-6",
+      "category": "rca",
+      "brand": "Audiopipe",
+      "model": "BMV-G-6",
+      "sourceUrl": "https://www.audiopipe.com/products/rca-cable-bmv-g-6",
+      "verified": true,
+      "notes": "2-channel RCA, 6 ft, sold as 10-pack (series 1.5-25 ft). Oxygen-free conductor, 24KT gold-plated connectors, clear flexible jacket. Shield/twist and gauge not published."
+    }
+  ]
+}

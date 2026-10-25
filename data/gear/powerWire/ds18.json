@@ -1,0 +1,108 @@
+{
+  "products": [
+    {
+      "id": "ds18-pw-ofc1-0ga-5bk-20rd",
+      "category": "powerWire",
+      "brand": "DS18",
+      "model": "PW-OFC1/0GA-5BK/20RD",
+      "sourceUrl": "https://ds18.com/products/0-ga-ultra-flex-ofc-ground-power-cable-5-black-and-20-red-combo",
+      "verified": true,
+      "notes": "Ultra Flex OFC 1/0 AWG kit: 20 ft red power + 5 ft black ground; DS18 suggests for amplifiers 3000 W RMS+. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg); CCA has roughly 1.6x the resistance of copper of the same size. Strand count not published.",
+      "wire": {
+        "awg": 0,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "ds18-pw-1-0ga-5bk-20rd",
+      "category": "powerWire",
+      "brand": "DS18",
+      "model": "PW-1/0GA-5BK/20RD",
+      "sourceUrl": "https://ds18.com/products/0-ga-ultra-flex-cca-ground-power-cable-5-black-and-20-red-combo",
+      "verified": true,
+      "notes": "Ultra Flex CCA 1/0 AWG kit: 20 ft power + 5 ft ground. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg); CCA has roughly 1.6x the resistance of copper of the same size. Strand count not published.",
+      "wire": {
+        "awg": 0,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "ds18-pw-ofc4ga-5bk-20rd",
+      "category": "powerWire",
+      "brand": "DS18",
+      "model": "PW-OFC4GA-5BK/20RD",
+      "sourceUrl": "https://ds18.com/products/4-ga-ultra-flex-ofc-ground-power-cable-5-black-and-20-red-combo",
+      "verified": true,
+      "notes": "Ultra Flex OFC 4 AWG kit: 20 ft red power + 5 ft black ground. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg); CCA has roughly 1.6x the resistance of copper of the same size. Strand count not published.",
+      "wire": {
+        "awg": 4,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "ds18-pw-4ga-5bk-20rd",
+      "category": "powerWire",
+      "brand": "DS18",
+      "model": "PW-4GA-5BK/20RD",
+      "sourceUrl": "https://ds18.com/products/ds18-pw-4ga-5bk-20rd-4-ga-ultra-flex-power-wire-5ft-black-and-20ft-red",
+      "verified": true,
+      "notes": "Ultra Flex CCA 4 AWG kit: 20 ft power + 5 ft ground; DS18 suggests for amplifiers under 1000 W RMS. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg); CCA has roughly 1.6x the resistance of copper of the same size. Strand count not published.",
+      "wire": {
+        "awg": 4,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "ds18-pw-ofc8ga-5bk-20rd",
+      "category": "powerWire",
+      "brand": "DS18",
+      "model": "PW-OFC8GA-5BK/20RD",
+      "sourceUrl": "https://ds18.com/products/8-ga-ultra-flex-ofc-ground-power-cable-5-black-and-20-red-kit",
+      "verified": true,
+      "notes": "Ultra Flex OFC 8 AWG kit: 20 ft red power + 5 ft black ground; for amplifiers under 1000 W RMS. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg); CCA has roughly 1.6x the resistance of copper of the same size. Strand count not published.",
+      "wire": {
+        "awg": 8,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "ds18-pw-8ga-5bk-20rd",
+      "category": "powerWire",
+      "brand": "DS18",
+      "model": "PW-8GA-5BK/20RD",
+      "sourceUrl": "https://ds18.com/products/8-ga-ultra-flex-cca-ground-power-cable-5-black-and-20-red-combo",
+      "verified": true,
+      "notes": "Ultra Flex CCA 8 AWG kit: 20 ft power + 5 ft ground; for amplifiers under 1000 W RMS. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg); CCA has roughly 1.6x the resistance of copper of the same size. Strand count not published.",
+      "wire": {
+        "awg": 8,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "ds18-pw-ofc4ga-50",
+      "category": "powerWire",
+      "brand": "DS18",
+      "model": "PW-OFC4GA-50",
+      "sourceUrl": "https://ds18.com/products/ds18-pw-ofc4ga-50-ultra-flex-100-ofc-ground-power-cable-50-feet",
+      "verified": true,
+      "notes": "Ultra Flex 100% OFC 4 AWG power/ground cable, 50 ft spool, several jacket colors (suffix e.g. YL, SLV); DS18 suggests 500-1000 W RMS. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg); CCA has roughly 1.6x the resistance of copper of the same size. Strand count not published.",
+      "wire": {
+        "awg": 4,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "ds18-mofc4ga50p",
+      "category": "powerWire",
+      "brand": "DS18",
+      "model": "MOFC4GA50P",
+      "sourceUrl": "https://ds18.com/products/marine-grade-ofc-power-wire-4ga-25-ft-red",
+      "verified": true,
+      "notes": "HYDRO marine tinned 100% copper OFC 4 AWG power wire, 50 ft. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg); CCA has roughly 1.6x the resistance of copper of the same size. Strand count not published.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    }
+  ]
+}

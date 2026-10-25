@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "taramps-cabo-rca-1m-injetado-stereo",
+      "category": "rca",
+      "brand": "Taramps",
+      "model": "Injected RCA Cable 1 m (Stereo)",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/cabo-rca-1m-injetado-stereo/",
+      "verified": true,
+      "notes": "2 male RCA to 2 male RCA, 1 m (39.37 in), EAN 7898556842747. Twisted pair, two internal conductors per channel; inner conductor '10 wires of 0.172 mm2' (manufacturer wording, ambiguous whether per strand or total) of tinned 99.99% OFHC copper. No foil/braid shield coverage stated. Crystal flexible PVC jacket, nickel-plated brass tips."
+    },
+    {
+      "id": "taramps-cabo-rca-5m-injetado-stereo",
+      "category": "rca",
+      "brand": "Taramps",
+      "model": "Injected RCA Cable 5 m (Stereo)",
+      "sourceUrl": "https://www.taramps.com.br/en/produto/cabo-rca-5m-injetado-stereo/",
+      "verified": true,
+      "notes": "2 male RCA to 2 male RCA, 5 m (196.85 in), EAN 7898556841276. Twisted pair, two internal conductors per channel; inner conductor '10 wires of 0.172 mm2' (manufacturer wording) of tinned 99.99% OFHC copper. No shield coverage stated. Crystal flexible PVC jacket, nickel-plated brass tips."
+    }
+  ]
+}

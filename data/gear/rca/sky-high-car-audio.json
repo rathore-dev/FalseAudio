@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "sky-high-car-audio-shca-tsrca",
+      "category": "rca",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-TSRCA (Triple Shield 2-Channel RCA)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-2-channel-rca-1-5ft/",
+      "verified": true,
+      "notes": "2-channel RCA; lengths 1.5/3/6/9/12/16/18/20 ft. Conductor: oversized oxygen-free copper (gauge not published). Shielding: triple-layer with Mylar foil. Geometry: twisted. PVC inner insulation, woven nylon outer jacket, split-tip connectors."
+    },
+    {
+      "id": "sky-high-car-audio-shca-tsrca-4ch",
+      "category": "rca",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-TSRCA-4CH (Triple Shield 4-Channel RCA)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-4-channel-triple-shielded-rcas-12ft-20ft/",
+      "verified": true,
+      "notes": "4-channel RCA; lengths 12/18/20 ft. Oversized OFC conductors (gauge not published), triple-layer shielding, woven nylon jacket, PVC insulation, color-coded tips."
+    }
+  ]
+}

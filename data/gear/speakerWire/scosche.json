@@ -1,0 +1,43 @@
+{
+  "products": [
+    {
+      "id": "scosche-ks1218cs",
+      "category": "speakerWire",
+      "brand": "Scosche",
+      "model": "KS1218CS",
+      "sourceUrl": "https://www.scosche.com/products/ks1218cs-12-guage-cca-speaker-wire",
+      "verified": true,
+      "notes": "12-gauge copper-clad aluminum speaker wire, 18 ft spool, blue/gray. Strand count not published.",
+      "wire": {
+        "awg": 12,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "scosche-ks1650cs",
+      "category": "speakerWire",
+      "brand": "Scosche",
+      "model": "KS1650CS",
+      "sourceUrl": "https://www.scosche.com/products/ks1650cs-16-guage-cca-speaker-wire",
+      "verified": true,
+      "notes": "16-gauge CCA speaker wire, 50 ft spool, blue. Strand count not published.",
+      "wire": {
+        "awg": 16,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "scosche-ks18100cs",
+      "category": "speakerWire",
+      "brand": "Scosche",
+      "model": "KS18100CS",
+      "sourceUrl": "https://www.scosche.com/products/ks18100cs-18-guage-cca-speaker-wire",
+      "verified": true,
+      "notes": "18-gauge CCA speaker wire, 100 ft spool, blue/gray. Strand count not published.",
+      "wire": {
+        "awg": 18,
+        "material": "CCA"
+      }
+    }
+  ]
+}

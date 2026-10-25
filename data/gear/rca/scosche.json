@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "scosche-a12c4",
+      "category": "rca",
+      "brand": "Scosche",
+      "model": "A12C4",
+      "sourceUrl": "https://www.scosche.com/products/a12c4sd",
+      "verified": true,
+      "notes": "RCA interconnect (SKU 022A12C4-WM1SD): twisted-pair low-noise design, pure OFC conductors. Length, channel count, shield construction and gauge not stated in the manufacturer description."
+    },
+    {
+      "id": "scosche-a25c4",
+      "category": "rca",
+      "brand": "Scosche",
+      "model": "A25C4",
+      "sourceUrl": "https://www.scosche.com/products/a25c4sd",
+      "verified": true,
+      "notes": "RCA interconnect (SKU 022A25C4F): twisted-pair low-noise design, pure OFC conductors. Length, channel count, shielding and gauge not stated in the manufacturer description."
+    }
+  ]
+}

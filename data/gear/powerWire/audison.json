@@ -1,0 +1,37 @@
+{
+  "products": [
+    {
+      "id": "audison-pf-2-or-2",
+      "category": "powerWire",
+      "brand": "Audison",
+      "model": "PF 2 OR.2",
+      "series": "Connection Power Flow",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_87334_Audison_PF_2_OR2.aspx",
+      "verified": false,
+      "notes": "Retailer listing: Audison Connection Power Flow 2 AWG power cable, 30 m (98.4 ft) roll, orange (PF 2 BK.2 = black), 'seven strand multiple twist' construction. Conductor material not stated, so material omitted. ohmsPerMetre not published.",
+      "wire": { "awg": 2 }
+    },
+    {
+      "id": "audison-pf-4-or-2",
+      "category": "powerWire",
+      "brand": "Audison",
+      "model": "PF 4 OR.2",
+      "series": "Connection Power Flow",
+      "sourceUrl": "https://onlinecarstereo.com/CarAudio/p_87337_Audison_PF_4_OR2.aspx",
+      "verified": false,
+      "notes": "Retailer listing: Audison Connection Power Flow 4 AWG power cable, 50 m (164 ft) roll, orange (PF 4 BK.2 = black), 'seven strand multiple twist' construction, soft-touch abrasion/heat/chemical resistant jacket. Conductor material not stated. ohmsPerMetre not published.",
+      "wire": { "awg": 4 }
+    },
+    {
+      "id": "audison-pf-8-or-2",
+      "category": "powerWire",
+      "brand": "Audison",
+      "model": "PF 8 OR.2",
+      "series": "Connection Power Flow",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_87339_Audison_PF_8_OR2.aspx",
+      "verified": false,
+      "notes": "Retailer listing: Audison Connection Power Flow 8 AWG power cable, 75 m (246 ft) roll, orange, 'seven strand multiple twist' construction. Conductor material not stated. ohmsPerMetre not published.",
+      "wire": { "awg": 8 }
+    }
+  ]
+}

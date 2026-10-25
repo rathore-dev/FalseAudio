@@ -1,0 +1,147 @@
+{
+  "products": [
+    {
+      "id": "sky-high-car-audio-shca-ofc8sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFC8SW (OFC 8 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-ofc-8-gauge-speaker-wire-1ft-100ft/",
+      "verified": true,
+      "notes": "Manufacturer: 8 gauge oxygen-free copper 2-conductor speaker wire, PVC/silicone jacket. Manufacturer states 'True 8 Gauge', 100% OFC. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 8,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofc10sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFC10SW (OFC 10 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-ofc-10-gauge-speaker-wire-1ft-200ft/",
+      "verified": true,
+      "notes": "Manufacturer: 10 gauge oxygen-free copper 2-conductor speaker wire, PVC/silicone jacket. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 10,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofc12sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFC12SW (OFC 12 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-ofc-12-gauge-speaker-wire-25ft-300ft/",
+      "verified": true,
+      "notes": "Manufacturer: 12 gauge oxygen-free copper 2-conductor speaker wire, PVC/silicone jacket. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 12,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofc14sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFC14SW (OFC 14 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-ofc-14-gauge-speaker-wire-25ft-400ft/",
+      "verified": true,
+      "notes": "Manufacturer: 14 gauge oxygen-free copper 2-conductor speaker wire, PVC/silicone jacket. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 14,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofc16sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFC16SW (OFC 16 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-ofc-16-gauge-speaker-wire-50ft-600ft/",
+      "verified": true,
+      "notes": "Manufacturer: 16 gauge oxygen-free copper 2-conductor speaker wire, PVC/silicone jacket. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 16,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca10sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA10SW (CCA 10 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-10-gauge-speaker-wire-1ft-200ft/",
+      "verified": true,
+      "notes": "Manufacturer: 10 gauge copper-clad aluminum 2-conductor speaker wire, PVC/silicone jacket. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 10,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca12sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA12SW (CCA 12 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-12-gauge-speaker-wire-25ft-1000ft/",
+      "verified": true,
+      "notes": "Manufacturer: 12 gauge copper-clad aluminum 2-conductor speaker wire, PVC/silicone jacket. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 12,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca16sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA16SW (CCA 16 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-16-gauge-speaker-wire-25ft-1000ft/",
+      "verified": true,
+      "notes": "Manufacturer: 16 gauge copper-clad aluminum 2-conductor speaker wire, PVC/silicone jacket. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 16,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca14sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA14SW (CCA 14 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-14-gauge-speaker-wire-50ft-1000ft/",
+      "verified": true,
+      "notes": "Manufacturer listing title: CCA 14 gauge speaker wire, 50-1000 ft. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 14,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca18sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA18SW (CCA 18 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-18-gauge-speaker-wire-25ft-700ft/",
+      "verified": true,
+      "notes": "Manufacturer listing title: CCA 18 gauge speaker wire, 25-700 ft. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 18,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca8sw",
+      "category": "speakerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA8SW (CCA 8 ga speaker wire)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-8-gauge-speaker-wire-1ft-100ft/",
+      "verified": true,
+      "notes": "Manufacturer listing title: CCA 8 gauge speaker wire, 1-100 ft. Strand count not published. Copper 1x conductor resistance: use generic AWG tables; CCA ~1.6x copper.",
+      "wire": {
+        "awg": 8,
+        "material": "CCA"
+      }
+    }
+  ]
+}

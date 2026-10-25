@@ -1,4 +1,416 @@
-{"products":[
-{"id":"nakamichi-nq723bd","category":"headUnit","brand":"Nakamichi","model":"NQ723BD","sourceUrl":"https://frankiesautoelectrics.com.au/products/nakamichi-nq723bd-single-din-bluetooth-receiver","verified":false,"notes":"Retailer: 4V preamp outputs (from search snippet; page not fully read).","source":{"preoutVoltageV":4}},
-{"id":"nakamichi-nam3510-m7","category":"headUnit","brand":"Nakamichi","model":"NAM3510-M7","sourceUrl":"https://frankiesautoelectrics.com.au/products/nakamichi-nam3510-m7-double-din-am-fm-receiver","verified":false,"notes":"Retailer: 4V pre-output (from search snippet; page not fully read).","source":{"preoutVoltageV":4}}
-]}
+{
+  "products": [
+    {
+      "id": "nakamichi-nq723bd",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ723BD",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq723bd",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-output Level 4V (single-DIN CD/Bluetooth receiver). Channel count/impedance not listed.",
+      "source": {
+        "preoutVoltageV": 4
+      }
+    },
+    {
+      "id": "nakamichi-nam3510-m7",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM3510-M7",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5310-m7",
+      "verified": true,
+      "notes": "Manufacturer spec table: 'Pre-output(V) 4V/10K ohm' (4 V into 10 kohm load), pre-output impedance <=600 ohm (upper bound, recorded as 600).",
+      "source": {
+        "preoutVoltageV": 4,
+        "outputImpedanceOhms": 600
+      }
+    },
+    {
+      "id": "nakamichi-nam3510-m9-mx",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM3510-M9/MX",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam3510-m9-mx",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-output 4V/10K ohm, pre-output impedance <=600 ohm (upper bound).",
+      "source": {
+        "preoutVoltageV": 4,
+        "outputImpedanceOhms": 600
+      }
+    },
+    {
+      "id": "nakamichi-nam5420",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM5420",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5420",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-Output 8CH x 4V, pre-output impedance <=600 ohm (upper bound).",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 8,
+        "outputImpedanceOhms": 600
+      }
+    },
+    {
+      "id": "nakamichi-nam5950",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM5950",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5950",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-Output 4.1CH, pre-output impedance <=600 ohm (upper bound). Voltage not listed.",
+      "source": {
+        "preoutChannels": 5,
+        "outputImpedanceOhms": 600
+      }
+    },
+    {
+      "id": "nakamichi-nam5960-pro",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM5960 PRO",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5960-pro",
+      "verified": true,
+      "notes": "Manufacturer: 8-core HiFi Android receiver, 48-band EQ with 20 presets, 5.1CH pre-output (FL/FR/RL/RR/SUB/CEN). Voltage not listed.",
+      "source": {
+        "preoutChannels": 6,
+        "eqBands": 48
+      }
+    },
+    {
+      "id": "nakamichi-nam5980-pro-a13",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM5980 PRO-A13",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5980-pro-a13",
+      "verified": true,
+      "notes": "Manufacturer: 13in Android receiver, professional DSP, 36-band EQ, 5.1 audio pre-output plus subwoofer output. Voltage not listed.",
+      "source": {
+        "preoutChannels": 6,
+        "eqBands": 36
+      }
+    },
+    {
+      "id": "nakamichi-nam5540",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM5540",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5540",
+      "verified": true,
+      "notes": "Manufacturer: Android receiver, pre-output 4.1CH (FL/FR/RL/RR/SUB), 36-band EQ, 8 presets. Voltage not listed.",
+      "source": {
+        "preoutChannels": 5,
+        "eqBands": 36
+      }
+    },
+    {
+      "id": "nakamichi-nam5721",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM5721",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5721",
+      "verified": true,
+      "notes": "Manufacturer: 9/10.1in receiver, pre-output 4.1CH, 36-band EQ. Voltage not listed.",
+      "source": {
+        "preoutChannels": 5,
+        "eqBands": 36
+      }
+    },
+    {
+      "id": "nakamichi-nam5710",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM5710",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5710",
+      "verified": true,
+      "notes": "Manufacturer: 9/10.1in receiver, pre-output 4.1 (FL/FR/RL/RR/SUB), 32-band EQ. Voltage not listed.",
+      "source": {
+        "preoutChannels": 5,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "nakamichi-nam5850",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM5850",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5850",
+      "verified": true,
+      "notes": "Manufacturer: 8-core Android receiver, pre-output 4.1, 48-band EQ. Voltage not listed.",
+      "source": {
+        "preoutChannels": 5,
+        "eqBands": 48
+      }
+    },
+    {
+      "id": "nakamichi-nam5260",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NAM5260",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nam5260",
+      "verified": true,
+      "notes": "Manufacturer: pre-output 2.0 (T series) or 2.1 incl. subwoofer; 32-band EQ, 6 presets. Voltage not listed.",
+      "source": {
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "nakamichi-na3615-w7",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NA3615-W7",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-na3615-w7",
+      "verified": true,
+      "notes": "Manufacturer: built-in DSP with time alignment, 16-band EQ, 4V front and rear pre-output, 3V subwoofer output with sub level control.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 5,
+        "timeAlignment": true,
+        "eqBands": 16
+      }
+    },
+    {
+      "id": "nakamichi-na3615-w9-wx",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NA3615-W9/WX",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-na3615-w9-wx",
+      "verified": true,
+      "notes": "Manufacturer: DSP with time alignment, 16-band EQ, 4V front/rear pre-output, 3V subwoofer output.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 5,
+        "timeAlignment": true,
+        "eqBands": 16
+      }
+    },
+    {
+      "id": "nakamichi-na3615-g7",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NA3615-G7",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-na3615-g7",
+      "verified": true,
+      "notes": "Manufacturer: Pre-Output 4CH x 4V, Subwoofer Output 1CH x 3V.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 5
+      }
+    },
+    {
+      "id": "nakamichi-na3625",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NA3625",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-na3625",
+      "verified": true,
+      "notes": "Manufacturer: 10-band EQ, 4V front and rear pre-output, 3V subwoofer output.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 5,
+        "eqBands": 10
+      }
+    },
+    {
+      "id": "nakamichi-na3625-w6",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NA3625-W6",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-na3625-w6",
+      "verified": true,
+      "notes": "Manufacturer: 10-band EQ, 4V front/rear pre-output, 4V subwoofer output.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 5,
+        "eqBands": 10
+      }
+    },
+    {
+      "id": "nakamichi-nqe524b",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQE524B",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nqe524b",
+      "verified": true,
+      "notes": "Manufacturer: 32-band EQ, 9 presets, Pre-output 6CH x 4V.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 6,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "nakamichi-nqe514b",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQE514B",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nqe514b",
+      "verified": true,
+      "notes": "Manufacturer: 32-band EQ, 9 presets, Pre-output 4CH x 2V.",
+      "source": {
+        "preoutVoltageV": 2,
+        "preoutChannels": 4,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "nakamichi-nqe721b",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQE721B",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nqe721b",
+      "verified": true,
+      "notes": "Manufacturer: 20-band parametric EQ ('20 EQ Parametric'), 9 presets, front and rear pre-amp line outputs. Voltage not listed.",
+      "source": {
+        "preoutChannels": 4,
+        "eqBands": 20,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "nakamichi-nq537bd",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ537BD",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq537bd",
+      "verified": true,
+      "notes": "Manufacturer: built-in DSP, 30-band EQ, 8 presets, Pre-Output 7CH x 4V, time alignment 0-20 ms, subwoofer control.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 7,
+        "timeAlignment": true,
+        "eqBands": 30
+      }
+    },
+    {
+      "id": "nakamichi-nq517b",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ517B",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq517b",
+      "verified": true,
+      "notes": "Manufacturer: 32-band EQ, 8 presets, Pre-Output 6CH x 2V.",
+      "source": {
+        "preoutVoltageV": 2,
+        "preoutChannels": 6,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "nakamichi-nq512bg",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ512BG",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq512bg",
+      "verified": true,
+      "notes": "Manufacturer: 32-band EQ, 8 presets, Pre-output 4CH x 2V (also NQ512BW). Note NQ512B/BB/BR spec tables list S/N 60 dB (tuner/general) without preout voltage.",
+      "source": {
+        "preoutVoltageV": 2,
+        "preoutChannels": 4,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "nakamichi-nq722bd",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ722BD",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq722bd",
+      "verified": true,
+      "notes": "Manufacturer spec table: 4 pre-output channels, pre-output 4V, 25-band EQ, HPF: Yes.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 4,
+        "crossovers": true,
+        "eqBands": 25
+      }
+    },
+    {
+      "id": "nakamichi-nq721be",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ721BE",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq721be",
+      "verified": true,
+      "notes": "Manufacturer spec table: 4 pre-output channels, pre-output 4V, 10-band EQ.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 4,
+        "eqBands": 10
+      }
+    },
+    {
+      "id": "nakamichi-nq532bd",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ532BD",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq532bd",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-output Level 4V.",
+      "source": {
+        "preoutVoltageV": 4
+      }
+    },
+    {
+      "id": "nakamichi-nq533bd",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ533BD",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq533bd",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-output Level 4V.",
+      "source": {
+        "preoutVoltageV": 4
+      }
+    },
+    {
+      "id": "nakamichi-nq623bdt",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ623BDT",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq623bdt",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-output Level 4V.",
+      "source": {
+        "preoutVoltageV": 4
+      }
+    },
+    {
+      "id": "nakamichi-nq523bd",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ523BD",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq523bd",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-output Level 2V.",
+      "source": {
+        "preoutVoltageV": 2
+      }
+    },
+    {
+      "id": "nakamichi-nq811b",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ811B",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq811b",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-output 2V.",
+      "source": {
+        "preoutVoltageV": 2
+      }
+    },
+    {
+      "id": "nakamichi-nq911b",
+      "category": "headUnit",
+      "brand": "Nakamichi",
+      "model": "NQ911B",
+      "sourceUrl": "https://www.nakamichicaraudio.com/products/nakamichi-nq911b",
+      "verified": true,
+      "notes": "Manufacturer spec table: Pre-output 2V.",
+      "source": {
+        "preoutVoltageV": 2
+      }
+    }
+  ]
+}

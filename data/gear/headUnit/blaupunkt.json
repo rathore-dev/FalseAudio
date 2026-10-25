@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": "blaupunkt-bologna-200",
+      "category": "headUnit",
+      "brand": "Blaupunkt",
+      "model": "Bologna 200",
+      "sourceUrl": "https://www.soundstorexl.com/products/566849-blaupunkt-bpa-1124-car-radio-with-dab-and-bluetooth-3",
+      "verified": false,
+      "notes": "Retailer listing (SoundstoreXL; URL slug mentions BPA 1124 but page content identifies the Blaupunkt Bologna 200, SKU 2001020000000): 1-DIN radio, 2-channel RCA pre-out at 1.5 V, 4 x 40 W built-in amp, preset sound profiles + X-Bass (no band count).",
+      "source": {
+        "preoutVoltageV": 1.5,
+        "preoutChannels": 2
+      }
+    }
+  ]
+}

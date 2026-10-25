@@ -1,0 +1,147 @@
+{
+  "products": [
+    {
+      "id": "sky-high-car-audio-shca-ofc00-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFC00-BTF (OFC 2/0 XL, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-ofc-2-0-xl-gauge-by-the-foot/",
+      "verified": true,
+      "notes": "Manufacturer: 'True AWG 2/0' OFC power/ground wire, matte PVC jacket; conductor (inner) diameter 16 mm, outer diameter 20 mm. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": -1,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofc0-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFC0-BTF (OFC 1/0, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/shca-1-0-g-ofc-wire",
+      "verified": true,
+      "notes": "Manufacturer: 'Oversized True AWG 1/0' full OFC power/ground wire, PVC/polyurethane matte jacket; inner diameter 13 mm, outer 16 mm. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 0,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofct0-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFCT0-BTF (Tinned OFC 1/0, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-tinned-ofc-1-0-gauge-by-the-foot/",
+      "verified": true,
+      "notes": "Manufacturer: tinned OFC 1/0 gauge power wire. Dimensions and strand count not published on listing. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofc4-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFC4-BTF (OFC 4 ga, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-ofc-4-gauge-by-the-foot/",
+      "verified": true,
+      "notes": "Manufacturer: OFC 4 gauge, inner diameter 8.25 mm, outer 10.9 mm, PVC/polyurethane jacket. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 4,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofct4-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFCT4-BTF (Tinned OFC 4 ga, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/copy-of-sky-high-car-audio-tinned-ofc-4-gauge-100ft-spool/",
+      "verified": true,
+      "notes": "Manufacturer: tinned OFC 4 gauge, inner diameter 8.25 mm, outer 10.9 mm. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofc8-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFC8-BTF (OFC 8 ga, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-ofc-8-gauge-by-the-foot/",
+      "verified": true,
+      "notes": "Manufacturer: OFC 8 gauge, inner diameter 4.55 mm, outer 6.65 mm. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 8,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-ofct8-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-OFCT8-BTF (Tinned OFC 8 ga, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/copy-of-sky-high-car-audio-tinned-ofc-8-gauge-150ft-spool/",
+      "verified": true,
+      "notes": "Manufacturer listing title: tinned OFC 8 gauge; no further specs published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 8,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca00-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA00-BTF (CCA 2/0 XL, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-2-0-xl-gauge-by-the-foot/",
+      "verified": true,
+      "notes": "Manufacturer: 'True AWG 2/0' copper-clad aluminum; inner diameter 16 mm, outer 20 mm. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": -1,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca0-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA0-BTF (CCA 1/0, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-1-0-gauge-by-the-foot/",
+      "verified": true,
+      "notes": "Manufacturer: 'True AWG 1/0' copper-clad aluminum; inner diameter 13 mm, outer 16 mm. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 0,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca4-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA4-BTF (CCA 4 ga, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-4-gauge-by-the-foot/",
+      "verified": true,
+      "notes": "Manufacturer: CCA 4 gauge; inner diameter 8.25 mm, outer 10.9 mm. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 4,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "sky-high-car-audio-shca-cca8-btf",
+      "category": "powerWire",
+      "brand": "Sky High Car Audio",
+      "model": "SHCA-CCA8-BTF (CCA 8 ga, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/sky-high-car-audio-cca-8-gauge-by-the-foot/",
+      "verified": true,
+      "notes": "Manufacturer: CCA 8 gauge; inner diameter 4.55 mm, outer 6.65 mm. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 8,
+        "material": "CCA"
+      }
+    }
+  ]
+}

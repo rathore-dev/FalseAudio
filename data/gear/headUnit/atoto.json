@@ -1,0 +1,230 @@
+{
+  "products": [
+    {
+      "id": "atoto-s84g225p",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "S84G225P",
+      "series": "S8 Gen4",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-a7g225pkl-12-5-inch-double-din-car-stereo",
+      "verified": true,
+      "notes": "S8 Gen4 (A7) 12.5in Android head unit: '4V RCA pre-outs' plus optical and coaxial S/PDIF digital out; 32-band DSP with time alignment. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "timeAlignment": true,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "atoto-s84g209p",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "S84G209P",
+      "series": "S8 Gen4",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-s8-android-double-din-car-stereo",
+      "verified": true,
+      "notes": "S8 Gen4 9in: '4V RCA pre-outs' plus optical/coax S/PDIF out; 32-band DSP with time alignment. (Page comparison table also lists other models at 2V/3V - the 4V figure is the one stated for this model.) Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "timeAlignment": true,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "atoto-s84g211p",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "S84G211P",
+      "series": "S8 Gen4",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-a7g211pkl-10-1-inch-double-din-car-stereo",
+      "verified": true,
+      "notes": "S8 Gen4 / A7 10.1in: '4V RCA pre-outs' plus optical/coax S/PDIF out; 32-band DSP with time alignment. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "timeAlignment": true,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "atoto-s84g215pb",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "S84G215PB",
+      "series": "S8 Gen4",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-s84g215pb-11-5-inch-double-din-car-stereo",
+      "verified": true,
+      "notes": "S8 Gen4 11.5in 2K: '4V RCA pre-outs' plus optical/coax S/PDIF out; 32-band DSP with time alignment. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "timeAlignment": true,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "atoto-s84g2d7pb",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "S84G2D7PB",
+      "series": "S8 Gen4",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-s84g2d7pb-7inch-double-din-car-stereo",
+      "verified": true,
+      "notes": "S8 Gen4 7in: '4V RCA Pre-Out, Single-Channel Subwoofer Output, and High-Pass / Low-Pass Filtering'. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "crossovers": true
+      }
+    },
+    {
+      "id": "atoto-s8lg211sd",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "S8LG211SD",
+      "series": "S8L",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-s8l-10-1-ai-android-double-din-car-stereo-wireless-carplay-andro",
+      "verified": true,
+      "notes": "S8L 10.1in: '3V RCA Pre-Out'; DSP with 6 EQ presets, 32 adjustable bands, time alignment and adjustable crossovers. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 3,
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "atoto-s8lg2a7sd-s01",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "S8LG2A7SD-S01",
+      "series": "S8L",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-s8lg2a7sd-7inch-double-din-car-stereo-with-backup-cam",
+      "verified": true,
+      "notes": "S8L 7in with backup cam: '3V RCA Pre-Out'; 32 adjustable bands, time alignment, adjustable crossovers. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 3,
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "atoto-v10g211oc",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "V10G211OC",
+      "series": "V10",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-v10g211oc-10inch-double-din-car-stereo",
+      "verified": true,
+      "notes": "V10 10in: '4V high-voltage RCA preamp outputs'; 32-band EQ, time alignment, active 3-way crossover. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "atoto-v10g110oc",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "V10G110OC",
+      "series": "V10",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-v10g110oc-10-1-inch-single-din-car-stereo",
+      "verified": true,
+      "notes": "V10 10.1in floating single-DIN: '4V RCA Preamp Outputs'; 32-band EQ, time alignment, active 3-way crossover, 24-bit DAC. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 32
+      }
+    },
+    {
+      "id": "atoto-s8f1509adm",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "S8F1509ADM",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-s8f1509adm-9inch-double-din-car-stereo-for-ford",
+      "verified": true,
+      "notes": "Ford F150 (2009-2012) fit 9in: '4V RCA pre-outs', 36-band adjustable EQ, time correction. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "timeAlignment": true,
+        "eqBands": 36
+      }
+    },
+    {
+      "id": "atoto-f7g211we",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "F7G211WE",
+      "series": "F7",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-f7g211we-10-1inch-double-din-car-stereo",
+      "verified": true,
+      "notes": "F7 10.1in: '4-channel RCA audio output (4V)', 12-band EQ with 7 presets. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 4,
+        "eqBands": 12
+      }
+    },
+    {
+      "id": "atoto-f7g1a6we",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "F7G1A6WE",
+      "series": "F7",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-f7g1a6we-6-28inch-single-din-car-stereo-us",
+      "verified": true,
+      "notes": "F7 6.28in single-DIN: '4V RCA pre-outs', 12-band EQ with 7 presets. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "preoutVoltageV": 4,
+        "eqBands": 12
+      }
+    },
+    {
+      "id": "atoto-a6g2a7pf",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "A6G2A7PF",
+      "series": "A6 PF",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-a6g2a7pf-7-inch-double-din-car-stereo",
+      "verified": true,
+      "notes": "A6 PF 7in: DSP with time alignment, 36-band EQ, adjustable crossover (selectable cutoff points). Preout voltage not stated in a model-specific way. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 36
+      }
+    },
+    {
+      "id": "atoto-a6g209pf",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "A6G209PF",
+      "series": "A6 PF",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-a6g209pf-9-double-din-car-stereo",
+      "verified": true,
+      "notes": "A6 PF 9in: time alignment, 36-band EQ, adjustable crossover. Preout voltage not stated. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 36
+      }
+    },
+    {
+      "id": "atoto-a5lg110t",
+      "category": "headUnit",
+      "brand": "ATOTO",
+      "model": "A5LG110T",
+      "series": "A5L",
+      "sourceUrl": "https://www.atotodirect.com/products/atoto-a5lg110t-10inch-double-din-single-din-car-stereo",
+      "verified": true,
+      "notes": "A5L 10in floating: built-in DSP with 24-band customizable EQ, time correction, crossover tuning, HPF/LPF for front, rear and subwoofer channels. Preout voltage not stated. Manufacturer store copy (marketing text); per-channel preout count and output impedance not published.",
+      "source": {
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 24
+      }
+    }
+  ]
+}

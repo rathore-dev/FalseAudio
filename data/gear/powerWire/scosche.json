@@ -1,0 +1,65 @@
+{
+  "products": [
+    {
+      "id": "scosche-kpa5cc",
+      "category": "powerWire",
+      "brand": "Scosche",
+      "model": "KPA5CC",
+      "sourceUrl": "https://www.scosche.com/products/kp5ccsd-2-channel-amplifier-wiring-kit",
+      "verified": true,
+      "notes": "2-channel amp wiring kit (SKU 022KPA5CC-WM1SD): 16.5 ft 5-gauge CCA power cable with pre-installed 100 A MANL fuse holder, 16 ft twisted-pair RCA; rated 1600 W max / 925 W RMS. Strand count not published. ohmsPerMetre not published; CCA has roughly 1.6x the resistance of copper of the same size (see data/gear/powerWire/_standards.json for copper).",
+      "wire": {
+        "awg": 5,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "scosche-kpa6cc",
+      "category": "powerWire",
+      "brand": "Scosche",
+      "model": "KPA6CC",
+      "sourceUrl": "https://www.scosche.com/products/kpa6ccsd-2-channel-amplifier-wiring-kit",
+      "verified": true,
+      "notes": "2-channel amp wiring kit: 16.5 ft 6-gauge CCA power cable with 80 A MANL fuse holder, 16 ft twisted-pair RCA; 1200 W max / 680 W RMS. ohmsPerMetre not published; CCA has roughly 1.6x the resistance of copper of the same size (see data/gear/powerWire/_standards.json for copper).",
+      "wire": {
+        "awg": 6,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "scosche-kpa8cc",
+      "category": "powerWire",
+      "brand": "Scosche",
+      "model": "KPA8CC",
+      "sourceUrl": "https://www.scosche.com/products/kpa8ccsd-2-channel-amplifier-wiring-kit",
+      "verified": true,
+      "notes": "2-channel amp wiring kit: 16.5 ft 8-gauge CCA power cable with 50 A MANL fuse holder, 16 ft twisted-pair RCA; 680 W max / 400 W RMS. ohmsPerMetre not published; CCA has roughly 1.6x the resistance of copper of the same size (see data/gear/powerWire/_standards.json for copper).",
+      "wire": {
+        "awg": 8,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "scosche-kpa12cc",
+      "category": "powerWire",
+      "brand": "Scosche",
+      "model": "KPA12CC",
+      "sourceUrl": "https://www.scosche.com/products/kpa12cc-2-channel-amplifier-wiring-kit",
+      "verified": true,
+      "notes": "2-channel amp wiring kit: 16.5 ft 12-gauge CCA power cable with 20 A ATC fuse holder, 2 ft 4.5 mm ground, 16 ft twisted-pair RCA; 270 W max / 160 W RMS. ohmsPerMetre not published; CCA has roughly 1.6x the resistance of copper of the same size (see data/gear/powerWire/_standards.json for copper).",
+      "wire": {
+        "awg": 12,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "scosche-kdadccf",
+      "category": "powerWire",
+      "brand": "Scosche",
+      "model": "KDADCCF",
+      "sourceUrl": "https://www.scosche.com/products/kdadccf-2-channel-amplifier-wiring-kit",
+      "verified": true,
+      "notes": "2-channel amp wiring kit: 16 ft of '6.7 mm' power wire, 2 ft 6.7 mm ground, 16 ft twisted audio cable, distribution block. Gauge stated only as 6.7 mm (outer diameter presumably); AWG and conductor material not published, so no wire block."
+    }
+  ]
+}

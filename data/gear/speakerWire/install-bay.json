@@ -1,0 +1,160 @@
+{
+  "products": [
+    {
+      "id": "install-bay-swrb8100",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "SWRB8100",
+      "sourceUrl": "https://www.metraonline.com/product/SWRB8100",
+      "verified": true,
+      "notes": "Speaker wire 8 gauge, red/black, 100 ft coil. Manufacturer says 'All Copper' (OFC grade not stated) - recorded as OFC so copper resistivity is used. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 8,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "install-bay-swrb10100",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "SWRB10100",
+      "sourceUrl": "https://www.metraonline.com/product/SWRB10100",
+      "verified": true,
+      "notes": "Speaker wire 10 gauge, red/black, 100 ft coil. Manufacturer says 'All Copper' (OFC grade not stated) - recorded as OFC so copper resistivity is used. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 10,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "install-bay-swrb12100",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "SWRB12100",
+      "sourceUrl": "https://www.metraonline.com/product/SWRB12100",
+      "verified": true,
+      "notes": "Speaker wire 12 gauge, red/black, 100 ft (500 ft = SWRB12500). Manufacturer says 'All Copper' (OFC grade not stated) - recorded as OFC so copper resistivity is used. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 12,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "install-bay-swrb14100",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "SWRB14100",
+      "sourceUrl": "https://www.metraonline.com/product/SWRB14100",
+      "verified": true,
+      "notes": "Speaker wire 14 gauge, red/black, 100 ft (500 ft = SWRB14500). Manufacturer says 'All Copper' (OFC grade not stated) - recorded as OFC so copper resistivity is used. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 14,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "install-bay-swrb16-500",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "SWRB16-500",
+      "sourceUrl": "https://www.metraonline.com/product/SWRB16-500",
+      "verified": true,
+      "notes": "Speaker wire 16 gauge, red/black, 500 ft. Manufacturer says 'All Copper' (OFC grade not stated) - recorded as OFC so copper resistivity is used. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 16,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "install-bay-swrb18500",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "SWRB18500",
+      "sourceUrl": "https://www.metraonline.com/product/SWRB18500",
+      "verified": true,
+      "notes": "Speaker wire 18 gauge, red/black, 500 ft. Manufacturer says 'All Copper' (OFC grade not stated) - recorded as OFC so copper resistivity is used. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 18,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "install-bay-sw12-500",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "SW12-500",
+      "sourceUrl": "https://www.metraonline.com/product/SW12-500",
+      "verified": true,
+      "notes": "Speaker wire 12 gauge, clear, 500 ft. Manufacturer says 'All Copper' (OFC grade not stated) - recorded as OFC so copper resistivity is used. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 12,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "install-bay-sw16-500",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "SW16-500",
+      "sourceUrl": "https://www.metraonline.com/product/SW16-500",
+      "verified": true,
+      "notes": "Speaker wire 16 gauge, clear, 500 ft. Manufacturer says 'All Copper' (OFC grade not stated) - recorded as OFC so copper resistivity is used. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 16,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "install-bay-ibsw12-250",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "IBSW12-250",
+      "sourceUrl": "https://www.metraonline.com/product/IBSW12-250",
+      "verified": true,
+      "notes": "CCA Value Line speaker wire 12 gauge, clear, 250 ft. Strand count not published. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 12,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ibsw14-250",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "IBSW14-250",
+      "sourceUrl": "https://www.metraonline.com/product/IBSW14-250",
+      "verified": true,
+      "notes": "CCA Value Line speaker wire 14 gauge, clear, 250 ft. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 14,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ibsw16-500",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "IBSW16-500",
+      "sourceUrl": "https://www.metraonline.com/product/IBSW16-500",
+      "verified": true,
+      "notes": "CCA Value Line speaker wire 16 gauge, clear, 500 ft. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 16,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "install-bay-ibsw18-1000",
+      "category": "speakerWire",
+      "brand": "Install Bay",
+      "model": "IBSW18-1000",
+      "sourceUrl": "https://www.metraonline.com/product/IBSW18-1000",
+      "verified": true,
+      "notes": "CCA Value Line speaker wire 18 gauge, clear, 1000 ft. Install Bay is Metra Electronics' installation brand (listed on metraonline.com).",
+      "wire": {
+        "awg": 18,
+        "material": "CCA"
+      }
+    }
+  ]
+}

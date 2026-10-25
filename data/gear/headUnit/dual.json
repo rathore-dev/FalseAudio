@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": "dual-dcpa723w",
+      "category": "headUnit",
+      "brand": "Dual",
+      "model": "DCPA723W",
+      "sourceUrl": "https://www.dualav.com/wp-content/uploads/2026/08/DCPA723W-EN-OM-260425_crushed.pdf",
+      "verified": true,
+      "notes": "Owner's manual spec page: line output voltage 4 V RMS, line output impedance 200 ohms. Product page: 3 pair preamp outputs (front + rear + sub), 10-band EQ with 7 presets. CEA-2006 S/N 75 dBA is for the speaker outputs (1 W into 4 ohms), not the line outputs. 7in wireless CarPlay/Android Auto receiver.",
+      "source": { "preoutVoltageV": 4, "preoutChannels": 6, "outputImpedanceOhms": 200, "eqBands": 10, "eqType": "graphic" }
+    },
+    {
+      "id": "dual-dmcpa10fl",
+      "category": "headUnit",
+      "brand": "Dual",
+      "model": "DMCPA10FL",
+      "sourceUrl": "https://www.dualav.com/wp-content/uploads/2026/03/DMCPA10FL-OM-031026.pdf",
+      "verified": true,
+      "notes": "Owner's manual spec page: line output voltage 2 V RMS, line output impedance 200 ohms. Product page: 3 pair preamp outputs (front + rear + sub), 10-band EQ with 7 presets. CEA-2006 S/N 80 dBA refers to speaker outputs. 10.1in floating-screen mech-less receiver.",
+      "source": { "preoutVoltageV": 2, "preoutChannels": 6, "outputImpedanceOhms": 200, "eqBands": 10, "eqType": "graphic" }
+    },
+    {
+      "id": "dual-xdcpa10bt",
+      "category": "headUnit",
+      "brand": "Dual",
+      "model": "XDCPA10BT",
+      "sourceUrl": "https://www.dualav.com/wp-content/uploads/2026/03/xdcpa10bt-OM-031926.pdf",
+      "verified": true,
+      "notes": "Owner's manual (version B) spec page: line output voltage 2 V RMS, line output impedance 200 ohms. Product page: 3 pair preamp outputs (front + rear + sub), 8-band graphic EQ with 8 presets. Audio menu has Time Alignment (3 presets, distance-based), loudness, subwoofer on/off and sub gain -6..+6; no crossover frequency settings documented. CEA-2006 S/N 80 dBA refers to speaker outputs.",
+      "source": { "preoutVoltageV": 2, "preoutChannels": 6, "outputImpedanceOhms": 200, "timeAlignment": true, "eqBands": 8, "eqType": "graphic" }
+    },
+    {
+      "id": "dual-dcpa1013",
+      "category": "headUnit",
+      "brand": "Dual",
+      "model": "DCPA1013",
+      "sourceUrl": "https://www.dualav.com/wp-content/uploads/2026/03/DCPA1013-OM-031026.pdf",
+      "verified": true,
+      "notes": "Owner's manual spec page: line output voltage 2 V RMS, line output impedance 200 ohms. Product page: 3 pair preamp outputs (front + rear + sub), 10-band EQ, 7 presets, source level volume control. CEA-2006 S/N 80 dBA refers to speaker outputs.",
+      "source": { "preoutVoltageV": 2, "preoutChannels": 6, "outputImpedanceOhms": 200, "eqBands": 10, "eqType": "graphic" }
+    },
+    {
+      "id": "dual-dmcpa80fl",
+      "category": "headUnit",
+      "brand": "Dual",
+      "model": "DMCPA80FL",
+      "sourceUrl": "https://www.dualav.com/wp-content/uploads/2026/03/DMCPA80FL-OM-031126.pdf",
+      "verified": true,
+      "notes": "Owner's manual spec page: line output voltage 2 V RMS, line output impedance 200 ohms. Product page: 3 pair preamp outputs (front + rear + sub), 10-band EQ, 7 presets. CEA-2006 S/N 80 dBA refers to speaker outputs.",
+      "source": { "preoutVoltageV": 2, "preoutChannels": 6, "outputImpedanceOhms": 200, "eqBands": 10, "eqType": "graphic" }
+    },
+    {
+      "id": "dual-dcpa813",
+      "category": "headUnit",
+      "brand": "Dual",
+      "model": "DCPA813",
+      "sourceUrl": "https://www.dualav.com/wp-content/uploads/2026/03/DCPA813-OM-031026.pdf",
+      "verified": true,
+      "notes": "Owner's manual spec page: line output voltage 2 V RMS, line output impedance 200 ohms. Product page: 3 pair preamp outputs (front + rear + sub) plus A/V out, 10-band EQ, 7 presets. CEA-2006 S/N 80 dBA refers to speaker outputs.",
+      "source": { "preoutVoltageV": 2, "preoutChannels": 6, "outputImpedanceOhms": 200, "eqBands": 10, "eqType": "graphic" }
+    },
+    {
+      "id": "dual-dcpa701-4",
+      "category": "headUnit",
+      "brand": "Dual",
+      "model": "DCPA701-4",
+      "sourceUrl": "https://www.dualav.com/wp-content/uploads/2024/09/DCPA701-4-OM_V.01.pdf",
+      "verified": true,
+      "notes": "Owner's manual spec page: line output voltage 2 V RMS, line output impedance 200 ohms. 3 pair preamp outputs (front + rear + sub), 8-band graphic EQ with 8 presets, Time Alignment menu (distance-based presets). CEA-2006 S/N 80 dBA refers to speaker outputs.",
+      "source": { "preoutVoltageV": 2, "preoutChannels": 6, "outputImpedanceOhms": 200, "timeAlignment": true, "eqBands": 8, "eqType": "graphic" }
+    }
+  ]
+}

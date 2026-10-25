@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "ds18-hqrca-16ft",
+      "category": "rca",
+      "brand": "DS18",
+      "model": "HQRCA-16FT",
+      "sourceUrl": "https://ds18.com/products/dual-twist-rca-cable-16-long",
+      "verified": true,
+      "notes": "HQ Dual Twist 2-channel RCA, 16 ft (series also offered 3/6/12/20 ft). OFC conductors, twisted pair; core cable OD 7.3 mm with nylon braid sleeving; per-channel leads 2 x 4 mm OD with foil shield and PVC jacket; split-tip screw-down plugs, silver-plated tips. Conductor gauge not published."
+    },
+    {
+      "id": "ds18-r16",
+      "category": "rca",
+      "brand": "DS18",
+      "model": "R16",
+      "sourceUrl": "https://ds18.com/products/ds18-r16-ultra-flex-rca-cable-16-feet",
+      "verified": true,
+      "notes": "Ultra Flex 2-channel RCA, 16 ft (range also 1/3/6/12/20 ft); braided jacket. Conductor material, gauge and shielding construction not published."
+    }
+  ]
+}

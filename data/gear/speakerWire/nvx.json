@@ -1,0 +1,130 @@
+{
+  "products": [
+    {
+      "id": "nvx-xws0820",
+      "category": "speakerWire",
+      "brand": "NVX",
+      "model": "XWS0820",
+      "series": "EnvyFlex XWS",
+      "sourceUrl": "https://www.nvx.com/products/xws0820-20-ft-of-8-gauge-true-spec-100-100-oxygen-free-copper-envyflex-speaker-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 8 AWG twisted-pair speaker wire, silver-tinned 100% OFC, strand count 294 (as published by NVX), BC-5W2 compliant; 20 feet.",
+      "wire": {
+        "awg": 8,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xws12100",
+      "category": "speakerWire",
+      "brand": "NVX",
+      "model": "XWS12100",
+      "series": "EnvyFlex XWS",
+      "sourceUrl": "https://www.nvx.com/products/xws12100-100-ft-of-true-spec-12-gauge-100-oxygen-free-copper-envyflex-speaker-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 12 AWG twisted-pair speaker wire, silver-tinned 100% OFC, strand count 294 (as published by NVX), BC-5W2 compliant; 100 feet.",
+      "wire": {
+        "awg": 12,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xws1225",
+      "category": "speakerWire",
+      "brand": "NVX",
+      "model": "XWS1225",
+      "series": "EnvyFlex XWS",
+      "sourceUrl": "https://www.nvx.com/products/xws1225-25-ft-of-true-spec-12-gauge-100-oxygen-free-copper-envyflex-speaker-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 12 AWG twisted-pair speaker wire, silver-tinned 100% OFC, strand count 294 (as published by NVX), BC-5W2 compliant; 25 feet.",
+      "wire": {
+        "awg": 12,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xws1250",
+      "category": "speakerWire",
+      "brand": "NVX",
+      "model": "XWS1250",
+      "series": "EnvyFlex XWS",
+      "sourceUrl": "https://www.nvx.com/products/xws1250-50-ft-of-true-spec-12-gauge-100-oxygen-free-copper-envyflex-speaker-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 12 AWG twisted-pair speaker wire, silver-tinned 100% OFC, strand count 294 (as published by NVX), BC-5W2 compliant; 50 feet.",
+      "wire": {
+        "awg": 12,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xws1275",
+      "category": "speakerWire",
+      "brand": "NVX",
+      "model": "XWS1275",
+      "series": "EnvyFlex XWS",
+      "sourceUrl": "https://www.nvx.com/products/xws1275-75-ft-of-true-spec-12-gauge-100-oxygen-free-copper-envyflex-speaker-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 12 AWG twisted-pair speaker wire, silver-tinned 100% OFC, strand count 294 (as published by NVX), BC-5W2 compliant; 75 feet.",
+      "wire": {
+        "awg": 12,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xws16100",
+      "category": "speakerWire",
+      "brand": "NVX",
+      "model": "XWS16100",
+      "series": "EnvyFlex XWS",
+      "sourceUrl": "https://www.nvx.com/products/xws16100-100-ft-of-true-spec-16-gauge-100-oxygen-free-copper-envyflex-speaker-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 16 AWG twisted-pair speaker wire, silver-tinned 100% OFC, strand count 111 (as published by NVX), BC-5W2 compliant; 100 feet.",
+      "wire": {
+        "awg": 16,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xws1625",
+      "category": "speakerWire",
+      "brand": "NVX",
+      "model": "XWS1625",
+      "series": "EnvyFlex XWS",
+      "sourceUrl": "https://www.nvx.com/products/xws1625-25-ft-of-true-spec-16-gauge-100-oxygen-free-copper-envyflex-speaker-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 16 AWG twisted-pair speaker wire, silver-tinned 100% OFC, strand count 111 (as published by NVX), BC-5W2 compliant; 25 feet.",
+      "wire": {
+        "awg": 16,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xws1650",
+      "category": "speakerWire",
+      "brand": "NVX",
+      "model": "XWS1650",
+      "series": "EnvyFlex XWS",
+      "sourceUrl": "https://www.nvx.com/products/xws1650-50-ft-of-true-spec-16-gauge-100-oxygen-free-copper-envyflex-speaker-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 16 AWG twisted-pair speaker wire, silver-tinned 100% OFC, strand count 111 (as published by NVX), BC-5W2 compliant; 50 feet.",
+      "wire": {
+        "awg": 16,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xws1675",
+      "category": "speakerWire",
+      "brand": "NVX",
+      "model": "XWS1675",
+      "series": "EnvyFlex XWS",
+      "sourceUrl": "https://www.nvx.com/products/xws1675-75-ft-of-true-spec-16-gauge-100-oxygen-free-copper-envyflex-speaker-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 16 AWG twisted-pair speaker wire, silver-tinned 100% OFC, strand count 111 (as published by NVX), BC-5W2 compliant; 75 feet.",
+      "wire": {
+        "awg": 16,
+        "material": "Tinned OFC"
+      }
+    }
+  ]
+}

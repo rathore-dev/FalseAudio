@@ -1,3 +1,62 @@
-{"products":[
-{"id":"boss-audio-be10acp","category":"headUnit","brand":"Boss Audio","model":"BE10ACP","series":"Elite","sourceUrl":"https://www.onlinecarstereo.com/CarAudio/p_84594_Boss_Elite_BE10ACP-C-OB.aspx","verified":false,"notes":"Retailer listing: 4V preamp, 6-channel preouts (front, rear, sub), 10-band EQ. Listing marked no longer available.","source":{"preoutVoltageV":4,"preoutChannels":6,"eqBands":10}}
-]}
+{
+  "products": [
+    {
+      "id": "boss-audio-be10acp",
+      "category": "headUnit",
+      "brand": "Boss Audio",
+      "model": "BE10ACP",
+      "series": "Elite",
+      "sourceUrl": "https://www.onlinecarstereo.com/CarAudio/p_84594_Boss_Elite_BE10ACP-C-OB.aspx",
+      "verified": false,
+      "notes": "Retailer listing: 4V preamp, 6-channel preouts (front, rear, sub), 10-band EQ. Listing marked no longer available.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 6,
+        "eqBands": 10
+      }
+    },
+    {
+      "id": "boss-audio-bcpa12",
+      "category": "headUnit",
+      "brand": "Boss Audio",
+      "model": "BCPA12",
+      "sourceUrl": "https://bossaudio.com/products/791489134088",
+      "verified": true,
+      "notes": "12in single-DIN-chassis CarPlay/Android Auto receiver: 'Built-In DSP with 13-Band EQ, Crossover Settings and Time Alignment'; 85 W x 4 (max). Preout voltage/impedance are not in the manufacturer description (spec table not machine-readable); omitted.",
+      "source": {
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 13
+      }
+    },
+    {
+      "id": "boss-audio-bcpa14",
+      "category": "headUnit",
+      "brand": "Boss Audio",
+      "model": "BCPA14",
+      "sourceUrl": "https://bossaudio.com/products/791489134095",
+      "verified": true,
+      "notes": "14in CarPlay/Android Auto receiver: 'Built-In DSP with 13-Band EQ, Crossover Settings and Time Alignment'. Preout voltage/impedance are not in the manufacturer description (spec table not machine-readable); omitted.",
+      "source": {
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 13
+      }
+    },
+    {
+      "id": "boss-audio-bv9358b",
+      "category": "headUnit",
+      "brand": "Boss Audio",
+      "model": "BV9358B",
+      "sourceUrl": "https://bossaudio.com/products/791489124188",
+      "verified": true,
+      "notes": "Double-DIN DVD receiver: 'Built-In DSP with 13-Band EQ, Crossover Settings and Time Alignment'. Retailer listings (onlinecarstereo.com) state 3 preamp outputs: front, rear and sub (= 6 channels). Preout voltage/impedance are not in the manufacturer description (spec table not machine-readable); omitted.",
+      "source": {
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 13
+      }
+    }
+  ]
+}

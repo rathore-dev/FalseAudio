@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "install-bay-ibrca600-17",
+      "category": "rca",
+      "brand": "Install Bay",
+      "model": "IBRCA600-17",
+      "sourceUrl": "https://www.metraonline.com/product/IBRCA600-17",
+      "verified": true,
+      "notes": "RCA cable, red/black, 17 ft (series IBRCA600-3/-6/-10/-14/-17/-20). Conductor material, shielding and twist not published. Install Bay is Metra Electronics' installation brand (listed on metraonline.com)."
+    },
+    {
+      "id": "install-bay-ibrca5m",
+      "category": "rca",
+      "brand": "Install Bay",
+      "model": "IBRCA5M",
+      "sourceUrl": "https://www.metraonline.com/product/IBRCA5M",
+      "verified": true,
+      "notes": "Compact-end blue RCA cable, 5 m (series IBRCA1M..IBRCA5M). Conductor material, shielding and twist not published. Install Bay is Metra Electronics' installation brand (listed on metraonline.com)."
+    }
+  ]
+}

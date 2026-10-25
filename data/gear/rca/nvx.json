@@ -1,0 +1,264 @@
+{
+  "products": [
+    {
+      "id": "nvx-xin25",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIN25",
+      "series": "N-Series",
+      "sourceUrl": "https://www.nvx.com/products/xin25-5m-16-4-ft-n-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "N-Series 2-channel RCA interconnect, length 16.4 ft (5 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); coaxial, two conductors per channel, molded silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv2025",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV2025",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv2025-0-25m-0-82-ft-v-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 2-channel RCA interconnect, length 0.82 ft (0.25 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv205",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV205",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv205-0-5m-1-64-ft-v-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 2-channel RCA interconnect, length 1.64 ft (0.5 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv21",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV21",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv21-1m-3-28-ft-v-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 2-channel RCA interconnect, length 3.28 ft (1 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv22",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV22",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv22-2m-6-56-ft-v-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 2-channel RCA interconnect, length 6.56 ft (2 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv23",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV23",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv23-3m-9-84-ft-v-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 2-channel RCA interconnect, length 9.84 ft (3 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv24",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV24",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv24-4m-13-12-ft-v-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 2-channel RCA interconnect, length 13.12 ft (4 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv25",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV25",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv25-5m-16-40-ft-v-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 2-channel RCA interconnect, length 16.4 ft (5 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv26",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV26",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv26-6m-19-69-ft-v-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 2-channel RCA interconnect, length 19.69 ft (6 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv27",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV27",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv27-7m-22-97-ft-v-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 2-channel RCA interconnect, length 22.97 ft (7 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv43",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV43",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv43-3m-9-84-ft-v-series-4-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 4-channel RCA interconnect, length 9.84 ft (3 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv45",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV45",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv45-5m-16-40-ft-v-series-4-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 4-channel RCA interconnect, length 16.4 ft (5 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv46",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV46",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv46-6m-19-69-ft-v-series-4-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 4-channel RCA interconnect, length 19.69 ft (6 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xiv65",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIV65",
+      "series": "V-Series",
+      "sourceUrl": "https://www.nvx.com/products/xiv65-5m-16-40-ft-v-series-6-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "V-Series 6-channel RCA interconnect, length 16.4 ft (5 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); twisted-pair, two conductors per channel, molded split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix2025",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX2025",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix2025-0-25m-0-82-ft-x-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 2-channel RCA interconnect, length 0.82 ft (0.25 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix205",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX205",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix205-0-5m-1-64-ft-x-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 2-channel RCA interconnect, length 1.64 ft (0.5 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix21",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX21",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix21-1m-3-28-ft-x-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 2-channel RCA interconnect, length 3.28 ft (1 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix22",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX22",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix22-2m-6-56-ft-x-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 2-channel RCA interconnect, length 6.56 ft (2 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix23",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX23",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix23-3m-9-84-ft-x-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 2-channel RCA interconnect, length 9.84 ft (3 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix24",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX24",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix24-4m-13-12-ft-x-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 2-channel RCA interconnect, length 13.12 ft (4 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix25",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX25",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix25-5m-16-40-ft-x-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 2-channel RCA interconnect, length 16.4 ft (5 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix26",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX26",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix26-6m-19-69-ft-x-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 2-channel RCA interconnect, length 19.69 ft (6 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix27",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX27",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix27-7m-22-97-ft-x-series-2-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 2-channel RCA interconnect, length 22.97 ft (7 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix43",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX43",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix43-3m-9-84-ft-x-series-4-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 4-channel RCA interconnect, length 9.84 ft (3 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix45",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX45",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix45-5m-16-40-ft-x-series-4-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 4-channel RCA interconnect, length 16.4 ft (5 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    },
+    {
+      "id": "nvx-xix46",
+      "category": "rca",
+      "brand": "NVX",
+      "model": "XIX46",
+      "series": "X-Series",
+      "sourceUrl": "https://www.nvx.com/products/xix46-6m-19-69-ft-x-series-4-channel-rca-audio-interconnect-cable",
+      "verified": true,
+      "notes": "X-Series 4-channel RCA interconnect, length 19.69 ft (6 m). Shielded noise-rejecting coaxial construction; 'heavy gauge' OFC conductors (gauge not published); double twisted-pair, two conductors per channel, black nylon jacket, machined locking split-tip silver-plated ends."
+    }
+  ]
+}

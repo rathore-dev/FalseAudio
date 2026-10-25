@@ -1,3 +1,50 @@
-{"products":[
-{"id":"clarion-nx702","category":"headUnit","brand":"Clarion","model":"NX702","sourceUrl":"http://www.sonicelectronix.com/item-43934-Clarion-NX702.html","verified":false,"notes":"Retailer listing: 4V preamp, 3 sets of RCA preouts incl. subwoofer, digital time alignment control, HPF/LPF (ranges not stated), 3-band parametric Beat EQ.","source":{"preoutVoltageV":4,"preoutChannels":6,"timeAlignment":true,"crossovers":true,"eqBands":3,"eqType":"parametric"}}
-]}
+{
+  "products": [
+    {
+      "id": "clarion-nx702",
+      "category": "headUnit",
+      "brand": "Clarion",
+      "model": "NX702",
+      "sourceUrl": "http://www.sonicelectronix.com/item-43934-Clarion-NX702.html",
+      "verified": false,
+      "notes": "Retailer listing: 4V preamp, 3 sets of RCA preouts incl. subwoofer, digital time alignment control, HPF/LPF (ranges not stated), 3-band parametric Beat EQ.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 6,
+        "timeAlignment": true,
+        "crossovers": true,
+        "eqBands": 3,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "clarion-cz509",
+      "category": "headUnit",
+      "brand": "Clarion",
+      "model": "CZ509",
+      "sourceUrl": "https://pasmag.com/technology/test-reports-reviews/clarion-cz509?start=1",
+      "verified": false,
+      "notes": "PASmag bench test (independent measurement): pre-out output impedance 274 ohms, maximum usable pre-out voltage 1.9 V (volume step at which it was reached not reported, so cleanVolumeStep omitted; treat 1.9 V as measured clean max, not the rating). Built-in amp measured 19.1 W/ch (rated 22 W CEA-2006A), 0.07% THD at 1 W. DSP EQ with 3 selectable frequencies each for bass/mid/treble, adjustable Q, +/-15 steps; adjustable HPF/LPF.",
+      "source": {
+        "preoutVoltageV": 1.9,
+        "outputImpedanceOhms": 274,
+        "crossovers": true,
+        "eqBands": 3,
+        "eqType": "parametric"
+      }
+    },
+    {
+      "id": "clarion-cz505",
+      "category": "headUnit",
+      "brand": "Clarion",
+      "model": "CZ505",
+      "sourceUrl": "https://www.sonicelectronix.com/item-93378-Clarion-CZ505.html",
+      "verified": false,
+      "notes": "Retailer listing (seen via search snippet, page not fully read): '3 Sets of 4V Preamp Outputs' (front, rear, sub). Discontinued.",
+      "source": {
+        "preoutVoltageV": 4,
+        "preoutChannels": 6
+      }
+    }
+  ]
+}

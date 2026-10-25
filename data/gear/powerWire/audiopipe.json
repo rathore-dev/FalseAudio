@@ -1,0 +1,173 @@
+{
+  "products": [
+    {
+      "id": "audiopipe-pwk-0-25rb",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "PWK-0-25RB",
+      "sourceUrl": "https://www.audiopipe.com/products/25ft-0-gauge-black-and-red-primary-wire-pwk-0-25rb",
+      "verified": true,
+      "notes": "25 ft black + 25 ft red '0 gauge' power wire (also PWK-0-50RB, 50 ft each). Copper-clad aluminum; manufacturer states '25% oxygen-free copper (OFC) content'. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 0,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "audiopipe-pwk-4-25rb",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "PWK-4-25RB",
+      "sourceUrl": "https://www.audiopipe.com/products/25ft-4-gauge-black-and-25ft-04gauge-red-primary-wire-pwk-4-25rb",
+      "verified": true,
+      "notes": "25 ft black + 25 ft red '4 gauge' power wire (also PWK-4-50RB). CCA, '25% OFC content' per manufacturer. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 4,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "audiopipe-pwv-4cpr-100blk",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "PWV-4CPR-100BLK",
+      "sourceUrl": "https://www.audiopipe.com/products/pwr-4cpr-100-blk",
+      "verified": true,
+      "notes": "100 ft 4 gauge OFC primary/power wire. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 4,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-pwv-8cpr-100b",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "PWV-8CPR-100B",
+      "sourceUrl": "https://www.audiopipe.com/products/pwv-8cpr-100b",
+      "verified": true,
+      "notes": "100 ft 8 gauge OFC primary/power wire (also red PWV-8CPR-100R). Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 8,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-tps-4cpr-100b",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "TPS-4CPR-100B",
+      "sourceUrl": "https://www.audiopipe.com/products/tps-4cpr-100b-4-gauge-100-100-copper-flexible-primary-wire-black",
+      "verified": true,
+      "notes": "100 ft 4 gauge '100% pure copper' flexible primary wire, PVC jacket (also red TPS-4CPR-100R). Copper grade (OFC or not) not stated; recorded as pure copper. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 4,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-tps-8cpr-100b",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "TPS-8CPR-100B",
+      "sourceUrl": "https://www.audiopipe.com/products/tps-8cpr-100b-8-gauge-100-100-copper-flexible-primary-wire-black",
+      "verified": true,
+      "notes": "100 ft 8 gauge '100% pure copper' flexible primary wire, PVC jacket. Copper grade not stated; recorded as pure copper. Strand count not published. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 8,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-tmpc-0-50tcb",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "TMPC-0-50TCB",
+      "sourceUrl": "https://www.audiopipe.com/products/power-cable-tmpc-0-50tcb",
+      "verified": true,
+      "notes": "Marine 0 gauge power cable, 100% tinned copper, marine-grade PVC jacket, 50 ft (colors TCB/TCW/TCY). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "audiopipe-tmpc-4-100tcr",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "TMPC-4-100TCR",
+      "sourceUrl": "https://www.audiopipe.com/products/tmpc-4-100tcr-power-cable",
+      "verified": true,
+      "notes": "Marine 4 gauge power cable, 100% tinned copper, 100 ft (colors TCR/TCY/TCB/TCW). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "audiopipe-tmpc-8-100tcr",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "TMPC-8-100TCR",
+      "sourceUrl": "https://www.audiopipe.com/products/tmpc-8-100tcr-power-cable",
+      "verified": true,
+      "notes": "Marine 8 gauge power cable, 100% tinned copper, 100 ft (colors TCR/TCY/TCB/TCW). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 8,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "audiopipe-pkv-3000cpr",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "PKV-3000CPR",
+      "sourceUrl": "https://www.audiopipe.com/products/pkv-3000cpr",
+      "verified": true,
+      "notes": "0 AWG installation kit for amplifiers up to 3000 W; 100% copper 'Super Flex Twisted' power and ground cables. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 0,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-pkv-2100ps",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "PKV-2100PS",
+      "sourceUrl": "https://www.audiopipe.com/products/pkv-2100ps",
+      "verified": true,
+      "notes": "4 AWG installation kit for amplifiers up to 2100 W; 100% copper Super Flex Twisted power and ground (PKV-2100SX variant includes 80 A AFC fuse holder). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 4,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-pkv-1500ps",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "PKV-1500PS",
+      "sourceUrl": "https://www.audiopipe.com/products/pkv-1500ps",
+      "verified": true,
+      "notes": "8 AWG installation kit for amplifiers up to 1500 W; 100% copper Super Flex Twisted power and ground (also PKV-1500SX). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 8,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "audiopipe-pkv-2500ex",
+      "category": "powerWire",
+      "brand": "Audiopipe",
+      "model": "PKV-2500EX",
+      "sourceUrl": "https://www.audiopipe.com/products/pkv-2500ex",
+      "verified": true,
+      "notes": "4 gauge single-amp install kit, amplifiers up to 1200 W RMS; Super Flex Twisted power/ground cables in copper-clad aluminum. ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for copper; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 4,
+        "material": "CCA"
+      }
+    }
+  ]
+}

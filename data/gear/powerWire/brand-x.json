@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": "brand-x-brx-ofc0-btf",
+      "category": "powerWire",
+      "brand": "Brand X",
+      "model": "BRX-OFC0-BTF (OFC 1/0, by the foot)",
+      "sourceUrl": "https://skyhighcaraudio.com/brand-x-ofc-1-0-gauge-by-the-foot/",
+      "verified": false,
+      "notes": "Sold by Sky High Car Audio (house sub-brand listing): 100% OFC 1/0 power cable, 'high-strand construction' (count not published). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for OFC; CCA has roughly 1.6x the resistance of copper of the same size.",
+      "wire": {
+        "awg": 0,
+        "material": "OFC"
+      }
+    }
+  ]
+}

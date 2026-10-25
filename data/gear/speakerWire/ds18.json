@@ -1,0 +1,121 @@
+{
+  "products": [
+    {
+      "id": "ds18-sw-ofc8ga-100rb",
+      "category": "speakerWire",
+      "brand": "DS18",
+      "model": "SW-OFC8GA-100RB",
+      "sourceUrl": "https://ds18.com/products/ds18-sw-ofc8ga-100rb-ofc-8-ga-speaker-wire-100-feet",
+      "verified": true,
+      "notes": "OFC 8-gauge speaker wire, 100 ft, red/black. Strand count not published.",
+      "wire": {
+        "awg": 8,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "ds18-sw-ofc10ga-250rb",
+      "category": "speakerWire",
+      "brand": "DS18",
+      "model": "SW-OFC10GA-250RB",
+      "sourceUrl": "https://ds18.com/products/ds18-sw-ofc10ga-250rb-ofc-10-ga-speaker-wire-250-feet",
+      "verified": true,
+      "notes": "OFC 10-gauge speaker wire, 250 ft, red/black. Strand count not published.",
+      "wire": {
+        "awg": 10,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "ds18-sw-ofc12ga-250rb",
+      "category": "speakerWire",
+      "brand": "DS18",
+      "model": "SW-OFC12GA-250RB",
+      "sourceUrl": "https://ds18.com/products/ds18-sw-ofc12ga-250rb-ofc-12-ga-speaker-wire-250-feet",
+      "verified": true,
+      "notes": "OFC 12-gauge speaker wire, 250 ft, red/black. Strand count not published.",
+      "wire": {
+        "awg": 12,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "ds18-sw-ofc16ga-500rb",
+      "category": "speakerWire",
+      "brand": "DS18",
+      "model": "SW-OFC16GA-500RB",
+      "sourceUrl": "https://ds18.com/products/copy-of-ds18-sw-ofc16ga-500rb-ofc-16-ga-speaker-wire-500-feet",
+      "verified": true,
+      "notes": "OFC 16-gauge speaker wire, 500 ft, red/black. Strand count not published.",
+      "wire": {
+        "awg": 16,
+        "material": "OFC"
+      }
+    },
+    {
+      "id": "ds18-sw-10ga-100rb",
+      "category": "speakerWire",
+      "brand": "DS18",
+      "model": "SW-10GA-100RB",
+      "sourceUrl": "https://ds18.com/products/10-ga-ultra-flex-cca-speaker-wire-100-ft-1",
+      "verified": true,
+      "notes": "Ultra Flex CCA 10-gauge speaker wire, 100 ft, equal-length +/-. Strand count not published.",
+      "wire": {
+        "awg": 10,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "ds18-sw-12ga-100rb",
+      "category": "speakerWire",
+      "brand": "DS18",
+      "model": "SW-12GA-100RB",
+      "sourceUrl": "https://ds18.com/products/12-ga-ultra-flex-cca-speaker-wire-100-ft",
+      "verified": true,
+      "notes": "Ultra Flex CCA 12-gauge speaker wire, 100 ft, equal-length +/-. Strand count not published.",
+      "wire": {
+        "awg": 12,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "ds18-sw-14ga-100rb",
+      "category": "speakerWire",
+      "brand": "DS18",
+      "model": "SW-14GA-100RB",
+      "sourceUrl": "https://ds18.com/products/sw-14ga-100rb",
+      "verified": true,
+      "notes": "Ultra Flex CCA 14-gauge speaker wire, 100 ft, equal-length +/-. Strand count not published.",
+      "wire": {
+        "awg": 14,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "ds18-sw-16ga-100rb",
+      "category": "speakerWire",
+      "brand": "DS18",
+      "model": "SW-16GA-100RB",
+      "sourceUrl": "https://ds18.com/products/16-ga-ultra-flex-cca-speaker-wire-100-ft",
+      "verified": true,
+      "notes": "Ultra Flex CCA 16-gauge speaker wire, 100 ft (from listing title). Strand count not published.",
+      "wire": {
+        "awg": 16,
+        "material": "CCA"
+      }
+    },
+    {
+      "id": "ds18-sw-18ga-100rb",
+      "category": "speakerWire",
+      "brand": "DS18",
+      "model": "SW-18GA-100RB",
+      "sourceUrl": "https://ds18.com/products/18-ga-ultra-flex-cca-speaker-wire-100-ft",
+      "verified": true,
+      "notes": "Ultra Flex CCA 18-gauge speaker wire, 100 ft (from listing title). Strand count not published.",
+      "wire": {
+        "awg": 18,
+        "material": "CCA"
+      }
+    }
+  ]
+}

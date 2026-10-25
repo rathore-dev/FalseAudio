@@ -1,0 +1,186 @@
+{
+  "products": [
+    {
+      "id": "nvx-xw0bk5",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW0BK5",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw0bk5-5-ft-of-frosted-black-1-0-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 1/0 AWG power/ground wire, silver-tinned 100% OFC, 4704 strands, BC-5W2 marine compliant; 5 feet (60 inches); manufacturer power-handling claim up to 4000 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw0bl10",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW0BL10",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw0bl10-10-ft-of-frosted-blue-1-0-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 1/0 AWG power/ground wire, silver-tinned 100% OFC, 4704 strands, BC-5W2 marine compliant; 10 feet (120 inches); manufacturer power-handling claim up to 4000 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw0bl20",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW0BL20",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw0bl20-20-ft-of-frosted-blue-1-0-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 1/0 AWG power/ground wire, silver-tinned 100% OFC, 4704 strands, BC-5W2 marine compliant; 20 feet (240 inches); manufacturer power-handling claim up to 4000 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw0bl25",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW0BL25",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw0bl25-25-ft-of-frosted-blue-1-0-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 1/0 AWG power/ground wire, silver-tinned 100% OFC, 4704 strands, BC-5W2 marine compliant; 25 feet (300 inches); manufacturer power-handling claim up to 4000 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw0bl5",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW0BL5",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw0bl5-5-ft-of-frosted-blue-1-0-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 1/0 AWG power/ground wire, silver-tinned 100% OFC, 4704 strands, BC-5W2 marine compliant; 5 feet (60 inches); manufacturer power-handling claim up to 4000 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw0gr5",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW0GR5",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw0gr5-5-ft-of-frosted-gray-1-0-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 1/0 AWG power/ground wire, silver-tinned 100% OFC, 4704 strands, BC-5W2 marine compliant; 5 feet (60 inches); manufacturer power-handling claim up to 4000 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw0wh20",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW0WH20",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw0wh20-20-ft-of-frosted-white-1-0-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 1/0 AWG power/ground wire, silver-tinned 100% OFC, 4704 strands, BC-5W2 marine compliant; 20 feet (240 inches); manufacturer power-handling claim up to 4000 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 0,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw4bk5",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW4BK5",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw4bk5-5-ft-of-frosted-black-4-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 4 AWG power/ground wire, silver-tinned 100% OFC, 1862 strands, BC-5W2 marine compliant; 5 feet (60 inches); manufacturer power-handling claim up to 1500 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw4bl20",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW4BL20",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw4bl20-20-ft-of-frosted-blue-4-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 4 AWG power/ground wire, silver-tinned 100% OFC, 1862 strands, BC-5W2 marine compliant; 20 feet (240 inches); manufacturer power-handling claim up to 1500 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw4bl5",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW4BL5",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw4bl5-5-ft-of-frosted-blue-4-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 4 AWG power/ground wire, silver-tinned 100% OFC, 1862 strands, BC-5W2 marine compliant; 5 feet (60 inches); manufacturer power-handling claim up to 1500 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw4wh20",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW4WH20",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw4wh20-20-ft-of-frosted-white-4-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 4 AWG power/ground wire, silver-tinned 100% OFC, 1862 strands, BC-5W2 marine compliant; 20 feet (240 inches); manufacturer power-handling claim up to 1500 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw4wh5",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW4WH5",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw4wh5-5-ft-of-frosted-white-4-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 4 AWG power/ground wire, silver-tinned 100% OFC, 1862 strands, BC-5W2 marine compliant; 5 feet (60 inches); manufacturer power-handling claim up to 1500 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 4,
+        "material": "Tinned OFC"
+      }
+    },
+    {
+      "id": "nvx-xw8bl20",
+      "category": "powerWire",
+      "brand": "NVX",
+      "model": "XW8BL20",
+      "series": "EnvyFlex XW",
+      "sourceUrl": "https://www.nvx.com/products/xw8bl20-20-ft-of-frosted-blue-8-gauge-true-spec-100-oxygen-free-copper-envyflex-power-ground-wire",
+      "verified": true,
+      "notes": "EnvyFlex True Spec 8 AWG power/ground wire, silver-tinned 100% OFC, 735 strands, BC-5W2 marine compliant; 20 feet (240 inches); manufacturer power-handling claim up to 800 W RMS (not an ampacity rating). ohmsPerMetre not published - use data/gear/powerWire/_standards.json (generic-ofc-<awg>awg) for voltage drop.",
+      "wire": {
+        "awg": 8,
+        "material": "Tinned OFC"
+      }
+    }
+  ]
+}
