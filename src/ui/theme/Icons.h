@@ -12,7 +12,8 @@ namespace icons
         bolt, car, plug, waveform, activity, clock, filter, chip, document,
         play, stop, check, warning, cross, plus, trash, eye, eyeOff, copy, folder,
         download, refresh, settings, mic, speaker, chevronDown, chevronRight, info,
-        save, open, link, unlink, sun, move, target, sliders, external, minimise, maximise, restore
+        save, open, link, unlink, sun, move, target, sliders, external, minimise, maximise, restore,
+        flask, radio, arrowRight, search, pause, help, power, bell
     };
 
     /** Returns the icon as a path in 0..24 coordinates. Stroked icons are already converted to fills. */

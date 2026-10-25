@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Page.h"
+#include "../theme/Animation.h"
 
 /** Shared widgets. API is a CONTRACT (pages code against it); implementation is owned by the
     shell/widgets worker in Widgets.cpp. Every widget paints itself from theme tokens. */
@@ -36,13 +37,16 @@ public:
     /** Large hero variant (e.g. "Start Auto Tune"). */
     void setHero (bool h) { hero = h; repaint(); }
 private:
+    void buttonStateChanged() override;
     Style style;
     std::optional<icons::Id> icon;
     bool hero = false;
+    anim::Value hoverAnim { *this, 0.0f, 16.0f };
 };
 
 /** Pill-shaped segmented selector. onChange gets the new index. */
-class SegmentedControl : public juce::Component
+class SegmentedControl : public juce::Component,
+                         public juce::SettableTooltipClient
 {
 public:
     explicit SegmentedControl (juce::StringArray options = {});
@@ -58,7 +62,9 @@ private:
     juce::StringArray options;
     int selected = 0, hover = -1;
     float animPos = 0.0f;
+    anim::Value slide { *this, 0.0f, 16.0f };
     int indexAt (juce::Point<int>) const;
+    juce::Rectangle<float> segmentBounds (float index) const;
 };
 
 /** Toggle switch with label on the right. */
@@ -67,10 +73,13 @@ class ToggleSwitch : public juce::ToggleButton
 public:
     explicit ToggleSwitch (const juce::String& label = {});
     void paintButton (juce::Graphics&, bool highlighted, bool down) override;
+private:
+    anim::Value knob { *this, 0.0f, 18.0f };
 };
 
 /** Numeric field: label, value, unit; drag vertically or type. Ranges and step are enforced. */
-class ValueField : public juce::Component
+class ValueField : public juce::Component,
+                   public juce::SettableTooltipClient
 {
 public:
     ValueField (const juce::String& label, const juce::String& unit, double min, double max,
@@ -85,15 +94,24 @@ public:
     void mouseDrag (const juce::MouseEvent&) override;
     void mouseDoubleClick (const juce::MouseEvent&) override;
     void mouseWheelMove (const juce::MouseEvent&, const juce::MouseWheelDetails&) override;
+    void mouseUp (const juce::MouseEvent&) override;
+    void mouseEnter (const juce::MouseEvent&) override;
+    void mouseExit (const juce::MouseEvent&) override;
 private:
+    void showEditor();
+    void commitEditor (bool apply);
+    juce::Rectangle<int> valueArea() const;
     juce::String label, unit;
     double value = 0, minV = 0, maxV = 1, step = 0.1, dragStart = 0;
     int decimals = 1;
     juce::TextEditor editor;
+    bool hovering = false, dragging = false;
+    float dragAccum = 0.0f;
 };
 
 /** Small status chip (e.g. "LIVE", "DEMO", "Reversed polarity"). */
-class Chip : public juce::Component
+class Chip : public juce::Component,
+             public juce::SettableTooltipClient
 {
 public:
     Chip (const juce::String& text = {}, juce::Colour colour = theme::accent);
@@ -102,9 +120,12 @@ public:
     void paint (juce::Graphics&) override;
     std::function<void()> onClick;
     void mouseUp (const juce::MouseEvent&) override;
+    void mouseEnter (const juce::MouseEvent&) override;
+    void mouseExit (const juce::MouseEvent&) override;
 private:
     juce::String text;
     juce::Colour colour;
+    bool hovering = false;
 };
 
 /** Horizontal level meter in dBFS (-90..0) with peak hold; call setLevel from a timer. */

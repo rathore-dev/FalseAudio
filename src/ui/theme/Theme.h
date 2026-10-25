@@ -29,6 +29,9 @@ namespace theme
     const juce::Colour good      { 0xff34D399 };
     const juce::Colour warn      { 0xffFBBF24 };
     const juce::Colour bad       { 0xffF87171 };
+    const juce::Colour onAccent  { 0xff06121A };   // text drawn on an accent fill
+    const juce::Colour overlay   { 0xC0050810 };   // modal backdrop
+    const juce::Colour focus     { 0x9922D3EE };   // keyboard focus ring
 
     // ---- Driver roles -----------------------------------------------------
     const juce::Colour roleSub       { 0xff9F8CFF };
@@ -54,6 +57,9 @@ namespace theme
     constexpr int   railWidth   = 84;
     constexpr int   headerHeight = 52;
     constexpr int   controlHeight = 32;
+    constexpr int   navItemHeight = 64;
+    constexpr int   toastWidth    = 360;
+    constexpr float radiusLg = 14.0f;
 
     juce::Colour roleColour (DriverRole r);
     juce::Colour sideTint (juce::Colour c, Side s);     // right side is slightly shifted
@@ -76,5 +82,16 @@ namespace theme
                    juce::Colour stroke = border, float radius = theme::radius);
     void drawGlow (juce::Graphics& g, juce::Rectangle<float> r, juce::Colour c, float radius, float spread);
     void drawDashedPath (juce::Graphics& g, const juce::Path& p, float thickness, float dash = 6.0f, float gap = 4.0f);
+    /** Soft drop shadow underneath a floating surface (sheets, popups). */
+    void drawShadow (juce::Graphics& g, juce::Rectangle<float> r, float radius, float spread = 18.0f, float alpha = 0.5f);
+    /** Accent keyboard-focus ring just outside r. */
+    void drawFocusRing (juce::Graphics& g, juce::Rectangle<float> r, float radius);
+    /** Pill-shaped rounded rectangle (radius = half height). */
+    void fillPill (juce::Graphics& g, juce::Rectangle<float> r, juce::Colour fill, juce::Colour stroke = juce::Colours::transparentBlack);
+    /** Small uppercase tracking label ("SECTION"). */
+    void drawEyebrow (juce::Graphics& g, const juce::String& text, juce::Rectangle<int> r, juce::Colour c = textMuted,
+                      juce::Justification just = juce::Justification::centredLeft);
+    /** Width of `text` in `font` (JUCE 8 safe). */
+    float textWidth (const juce::Font& font, const juce::String& text);
 }
 } // namespace fa::ui

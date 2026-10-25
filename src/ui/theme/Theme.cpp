@@ -99,4 +99,45 @@ void drawDashedPath (juce::Graphics& g, const juce::Path& p, float thickness, fl
     juce::PathStrokeType (thickness).createDashedStroke (dashed, p, lengths, 2);
     g.fillPath (dashed);
 }
+
+void drawShadow (juce::Graphics& g, juce::Rectangle<float> r, float rad, float spread, float alpha)
+{
+    const int steps = 10;
+    for (int i = steps; i >= 1; --i)
+    {
+        const float t = (float) i / (float) steps;
+        g.setColour (juce::Colours::black.withAlpha (alpha * (1.0f - t) * (1.0f - t) * 0.35f + 0.004f));
+        g.fillRoundedRectangle (r.expanded (spread * t).translated (0.0f, spread * t * 0.35f), rad + spread * t);
+    }
+}
+
+void drawFocusRing (juce::Graphics& g, juce::Rectangle<float> r, float rad)
+{
+    g.setColour (focus);
+    g.drawRoundedRectangle (r.expanded (2.0f), rad + 2.0f, 1.5f);
+}
+
+void fillPill (juce::Graphics& g, juce::Rectangle<float> r, juce::Colour fill, juce::Colour stroke)
+{
+    const float rad = r.getHeight() * 0.5f;
+    g.setColour (fill);
+    g.fillRoundedRectangle (r, rad);
+    if (! stroke.isTransparent())
+    {
+        g.setColour (stroke);
+        g.drawRoundedRectangle (r.reduced (0.5f), rad, 1.0f);
+    }
+}
+
+void drawEyebrow (juce::Graphics& g, const juce::String& text, juce::Rectangle<int> r, juce::Colour c, juce::Justification just)
+{
+    g.setColour (c);
+    g.setFont (fontBold (10.5f).withExtraKerningFactor (0.12f));
+    g.drawText (text.toUpperCase(), r, just, false);
+}
+
+float textWidth (const juce::Font& f, const juce::String& text)
+{
+    return juce::GlyphArrangement::getStringWidth (f, text);
+}
 } // namespace fa::ui::theme

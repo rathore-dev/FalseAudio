@@ -365,6 +365,78 @@ namespace
                 s.addPath (roundRect (5, 8, 11, 11, 1.5f));
                 s.addPath (poly ({ {9, 8}, {9, 5}, {19, 5}, {19, 15}, {16, 15} }, false));
                 break;
+
+            case Id::flask:
+                // demo / virtual car
+                s.addPath (poly ({ {9.5f, 3}, {9.5f, 9.5f}, {4.5f, 18.5f}, {5.5f, 21}, {18.5f, 21}, {19.5f, 18.5f}, {14.5f, 9.5f}, {14.5f, 3} }, true));
+                s.addPath (line (8, 3, 16, 3));
+                f = poly ({ {7.3f, 16}, {16.7f, 16}, {18, 18.8f}, {17.5f, 19.8f}, {6.5f, 19.8f}, {6, 18.8f} }, true);
+                break;
+
+            case Id::radio:
+                // live / on air
+                f.addEllipse (10.0f, 10.0f, 4.0f, 4.0f);
+                {
+                    juce::Path a1; a1.addCentredArc (12, 12, 6, 6, 0, 3.6f, 5.8f, true);
+                    juce::Path a2; a2.addCentredArc (12, 12, 6, 6, 0, 0.5f, 2.7f, true);
+                    juce::Path b1; b1.addCentredArc (12, 12, 9.5f, 9.5f, 0, 3.6f, 5.8f, true);
+                    juce::Path b2; b2.addCentredArc (12, 12, 9.5f, 9.5f, 0, 0.5f, 2.7f, true);
+                    s.addPath (a1); s.addPath (a2); s.addPath (b1); s.addPath (b2);
+                }
+                break;
+
+            case Id::arrowRight:
+                s.addPath (line (4, 12, 20, 12));
+                s.addPath (poly ({ {13.5f, 5.5f}, {20, 12}, {13.5f, 18.5f} }, false));
+                break;
+
+            case Id::search:
+                s.addPath (circle (10.5f, 10.5f, 6.5f));
+                s.addPath (line (15.5f, 15.5f, 21, 21));
+                break;
+
+            case Id::pause:
+                f.addRoundedRectangle (6.0f, 5.0f, 4.5f, 14.0f, 1.5f);
+                f.addRoundedRectangle (13.5f, 5.0f, 4.5f, 14.0f, 1.5f);
+                break;
+
+            case Id::help:
+                s.addPath (circle (12, 12, 9));
+                {
+                    juce::Path q;
+                    q.startNewSubPath (9.2f, 9.6f);
+                    q.cubicTo (9.2f, 7.8f, 10.5f, 6.8f, 12.0f, 6.8f);
+                    q.cubicTo (13.6f, 6.8f, 14.8f, 7.9f, 14.8f, 9.4f);
+                    q.cubicTo (14.8f, 11.4f, 12.0f, 11.6f, 12.0f, 13.8f);
+                    s.addPath (q);
+                }
+                f.addEllipse (11.0f, 16.0f, 2.0f, 2.0f);
+                break;
+
+            case Id::power:
+                {
+                    juce::Path arc;
+                    arc.addCentredArc (12, 13, 8, 8, 0, 0.75f, juce::MathConstants<float>::twoPi - 0.75f, true);
+                    s.addPath (arc);
+                }
+                s.addPath (line (12, 3, 12, 12));
+                break;
+
+            case Id::bell:
+                {
+                    juce::Path b;
+                    b.startNewSubPath (5.0f, 17.0f);
+                    b.lineTo (6.5f, 15.0f);
+                    b.lineTo (6.5f, 10.5f);
+                    b.cubicTo (6.5f, 7.0f, 9.0f, 4.5f, 12.0f, 4.5f);
+                    b.cubicTo (15.0f, 4.5f, 17.5f, 7.0f, 17.5f, 10.5f);
+                    b.lineTo (17.5f, 15.0f);
+                    b.lineTo (19.0f, 17.0f);
+                    b.closeSubPath();
+                    s.addPath (b);
+                }
+                s.addPath (line (10, 20, 14, 20));
+                break;
         }
 
         juce::Path out = stroked (s);
