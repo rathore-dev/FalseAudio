@@ -5,6 +5,8 @@
 namespace fa
 {
 GuardedDspController::GuardedDspController (DspController& inner, Options o) : wrapped (inner), opt (std::move (o)) {}
+GuardedDspController::GuardedDspController (std::shared_ptr<DspController> inner, Options o)
+    : owner (inner), wrapped (*inner), opt (std::move (o)) {}
 
 void GuardedDspController::note (const juce::String& s)
 {
@@ -24,16 +26,45 @@ juce::StringArray GuardedDspController::takeNotes()
     return n;
 }
 
+namespace
+{
+    bool finiteSpec (const FilterSpec& f) { return std::isfinite (f.freq) && std::isfinite (f.q) && std::isfinite (f.gainDb); }
+
+    bool allFinite (const OutputChannel& ch)
+    {
+        const auto& s = ch.settings;
+        if (! std::isfinite (s.gainDb) || ! std::isfinite (s.delayMs) || ! finiteSpec (s.highPass) || ! finiteSpec (s.lowPass))
+            return false;
+        for (auto& f : s.peq)
+            if (! finiteSpec (f))
+                return false;
+        return true;
+    }
+}
+
+SafetyLimits GuardedDspController::getPlannerLimits() const
+{
+    std::lock_guard<std::mutex> l (m);
+    return opt.planner;
+}
+
+void GuardedDspController::setPlannerLimits (const SafetyLimits& s)
+{
+    std::lock_guard<std::mutex> l (m);
+    opt.planner = s;
+}
+
 bool GuardedDspController::sanitize (OutputChannel& ch, juce::StringArray& out) const
 {
     bool changed = false;
     auto& s = ch.settings;
+    const auto limits = getPlannerLimits();
 
     if (ch.role == DriverRole::tweeter && ! ch.isPassiveSet() && ! overrideHp.load())
     {
-        const double floorHz = std::max (CrossoverPlanner::safeHighPassHz (ch, opt.planner),
+        const double floorHz = std::max (CrossoverPlanner::safeHighPassHz (ch, limits),
                                          safety::minTweeterHpHz (ch.driver.fsHz));
-        if (! s.highPass.enabled || s.highPass.freq < floorHz)
+        if (! s.highPass.enabled || ! std::isfinite (s.highPass.freq) || s.highPass.freq < floorHz)
         {
             out.add (ch.label + ": tweeter high-pass raised to " + juce::String (juce::roundToInt (floorHz))
                      + " Hz (protected minimum)");
@@ -41,9 +72,16 @@ bool GuardedDspController::sanitize (OutputChannel& ch, juce::StringArray& out) 
             s.highPass.freq = floorHz;
             changed = true;
         }
+        if (s.highPass.slopeDbPerOct < safety::kMinTweeterHpSlopeDbPerOct)
+        {
+            out.add (ch.label + ": tweeter high-pass slope raised to " + juce::String (safety::kMinTweeterHpSlopeDbPerOct)
+                     + " dB/oct (protected minimum)");
+            s.highPass.slopeDbPerOct = safety::kMinTweeterHpSlopeDbPerOct;
+            changed = true;
+        }
     }
 
-    if (s.gainDb > opt.maxGainDb)
+    if (! std::isfinite (s.gainDb) || s.gainDb > opt.maxGainDb)
     {
         out.add (ch.label + ": gain " + juce::String (s.gainDb, 1) + " dB limited to " + juce::String (opt.maxGainDb, 1) + " dB");
         s.gainDb = opt.maxGainDb;
@@ -54,6 +92,13 @@ bool GuardedDspController::sanitize (OutputChannel& ch, juce::StringArray& out) 
 
 bool GuardedDspController::applyChannel (const OutputChannel& channel, juce::String& error)
 {
+    if (! allFinite (channel))
+    {
+        error = channel.label + ": refused - a setting is NaN/infinite";
+        note (error);
+        return false;
+    }
+
     OutputChannel ch = channel;
     juce::StringArray n;
     sanitize (ch, n);
@@ -69,34 +114,50 @@ bool GuardedDspController::applyChannel (const OutputChannel& channel, juce::Str
     }
 
     const double finalGain = ch.settings.gainDb;
-
-    // Walk big upward gain changes in capped steps.
-    if (havePrev && finalGain > prev.gainDb + opt.maxGainStepDb + 1e-9)
-    {
-        OutputChannel stepCh = ch;
-        for (double g = prev.gainDb + opt.maxGainStepDb; g < finalGain - 1e-9; g += opt.maxGainStepDb)
-        {
-            stepCh.settings.gainDb = g;
-            if (! wrapped.applyChannel (stepCh, error))
-                return false;
-        }
-        note (ch.label + ": gain rise applied in " + juce::String (opt.maxGainStepDb, 1) + " dB steps");
-    }
-
     const bool isTweeter = ch.role == DriverRole::tweeter && ! ch.isPassiveSet();
     const bool xoverChanged = havePrev && (ch.settings.highPass.freq != prev.hpHz || (int) ch.settings.highPass.type != prev.hpType);
     const bool polChanged = havePrev && ch.settings.inverted != prev.inverted;
+    const bool riskyChange = isTweeter && (xoverChanged || polChanged);
+    const bool ramp = havePrev && finalGain > prev.gainDb + opt.maxGainStepDb + 1e-9;
+
+    // A tweeter crossover/polarity change is never written live: mute first. Where the controller cannot
+    // mute, the new crossover is written BEFORE any gain increase (at the previous, not higher, gain).
     bool muted = false;
-    if (isTweeter && wrapped.isAutomatic() && ! ch.settings.muted && (xoverChanged || polChanged))
+    if (riskyChange && ! ch.settings.muted && wrapped.isAutomatic())
     {
         juce::String ignore;
-        muted = wrapped.setMuted (ch, true, ignore);     // controllers without mute simply fail: write anyway
+        muted = wrapped.setMuted (ch, true, ignore);
         if (muted)
             note (ch.label + ": muted during crossover/polarity change");
     }
 
-    const bool ok = wrapped.applyChannel (ch, error);
+    OutputChannel writeCh = ch;
     if (muted)
+        writeCh.settings.muted = true;      // every write while muted keeps it muted
+
+    if (riskyChange && ! muted && ramp)
+    {
+        OutputChannel first = writeCh;
+        first.settings.gainDb = std::min (prev.gainDb, finalGain);
+        if (! wrapped.applyChannel (first, error))
+            return false;
+    }
+
+    // Walk big upward gain changes in capped steps.
+    if (ramp)
+    {
+        OutputChannel stepCh = writeCh;
+        for (double g = prev.gainDb + opt.maxGainStepDb; g < finalGain - 1e-9; g += opt.maxGainStepDb)
+        {
+            stepCh.settings.gainDb = g;
+            if (! wrapped.applyChannel (stepCh, error))
+                return false;           // stays muted if we muted it
+        }
+        note (ch.label + ": gain rise applied in " + juce::String (opt.maxGainStepDb, 1) + " dB steps");
+    }
+
+    const bool ok = wrapped.applyChannel (writeCh, error);
+    if (muted && ok)
     {
         juce::String ignore;
         wrapped.setMuted (ch, false, ignore);

@@ -205,8 +205,8 @@ namespace
             if (session.getMode() != Session::Mode::live) { error = "Switch to Live mode to operate real software."; return false; }
             if (session.getAutoTune().isRunning()) { error = "Auto Tune is running."; return false; }
 
-            AiProfileStore store;
-            if (forceRelearn) store.remove (title);
+            // Same resolver the controller loads with: the map is found by the exact title OR by the fragment the AI saved it under.
+            if (forceRelearn) AiProfileStore().removeFor (title);
 
             AiDspController::Options o;
             o.windowProvider = windowHandle;
@@ -260,20 +260,32 @@ namespace
             const bool needLearn = ! ai->hasMap();
             step (Step::learn, StepState::active);
 
+            // Learn (if there is no map), then verify (if the map is not verified yet), then push the tune.
+            // Nothing is pushed through a map that did not pass a per-output test sound.
+            const bool needVerify = needLearn || ! ai->isMapVerified();
             if (! needLearn)
             {
-                if (onLog) onLog ({ juce::Time::getCurrentTime().formatted ("%H:%M:%S"), "read", "Loaded the saved map for this software", "no AI call needed" });
+                if (onLog) onLog ({ juce::Time::getCurrentTime().formatted ("%H:%M:%S"), "read", "Loaded the saved map for this software",
+                                    needVerify ? "not verified yet: testing each output" : "verified, no AI call needed" });
                 step (Step::learn, StepState::done);
                 step (Step::map, StepState::done);
-                step (Step::verify, StepState::done);
-                beginApply (run);
-                return true;
+                if (! needVerify)
+                {
+                    step (Step::verify, StepState::done);
+                    beginApply (run);
+                    return true;
+                }
+                step (Step::verify, StepState::active);
             }
 
-            juce::Thread::launch ([this, live, run, ai]
+            juce::Thread::launch ([this, live, run, ai, needLearn]
             {
                 juce::String err;
-                const bool ok = ai->learn (err);
+                bool ok = true;
+                if (needLearn)
+                    ok = ai->learn (err);
+                if (ok && ! ai->isMapVerified())
+                    ok = ai->verifyMap (err);
                 juce::MessageManager::callAsync ([this, live, run, ok, err]
                 {
                     if (! *live || run != runId || state != State::running) return;
@@ -300,7 +312,7 @@ namespace
         {
             MapSummary m;
             DspProfile p;
-            if (title.isEmpty() || ! AiProfileStore().load (title, p) || p.bindings.empty())
+            if (title.isEmpty() || ! AiProfileStore().loadFor (title, p) || p.bindings.empty())
                 return m;
             m.exists = true;
             m.software = title;
@@ -323,7 +335,7 @@ namespace
             }
             return m;
         }
-        void deleteMap() override { AiProfileStore().remove (title); if (onMapChanged) onMapChanged(); }
+        void deleteMap() override { AiProfileStore().removeFor (title); if (onMapChanged) onMapChanged(); }
 
     private:
         static const std::vector<DspVendorSoftware>& vendors()

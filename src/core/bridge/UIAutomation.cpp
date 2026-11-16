@@ -764,6 +764,36 @@ juce::Rectangle<int> Automation::windowScreenBounds (void* window)
     return { (int) r.left, (int) r.top, (int) (r.right - r.left), (int) (r.bottom - r.top) };
 }
 
+juce::Rectangle<int> Automation::windowClientBounds (void* window)
+{
+    if (window == nullptr)
+        return {};
+    RECT rc {};
+    POINT tl { 0, 0 };
+    if (! GetClientRect ((HWND) window, &rc) || ! ClientToScreen ((HWND) window, &tl))
+        return {};
+    return { (int) tl.x, (int) tl.y, (int) (rc.right - rc.left), (int) (rc.bottom - rc.top) };
+}
+
+static bool belongsTo (HWND candidate, HWND window)
+{
+    if (candidate == nullptr || window == nullptr)
+        return false;
+    return GetAncestor (candidate, GA_ROOT) == window || GetAncestor (candidate, GA_ROOTOWNER) == window
+           || GetAncestor (GetAncestor (candidate, GA_ROOT), GA_ROOTOWNER) == window;
+}
+
+bool Automation::isForeground (void* window)
+{
+    return window != nullptr && belongsTo (GetForegroundWindow(), (HWND) window);
+}
+
+bool Automation::isWindowAt (void* window, juce::Point<int> p)
+{
+    POINT pt { p.x, p.y };
+    return window != nullptr && belongsTo (WindowFromPoint (pt), (HWND) window);
+}
+
 juce::Point<int> Automation::mousePosition()
 {
     POINT p {};
@@ -799,6 +829,9 @@ void Automation::clickAt (juce::Point<int>, bool) {}
 void Automation::typeText (const juce::String&, bool) {}
 void Automation::pressKeyCombo (int, bool, bool) {}
 juce::Rectangle<int> Automation::windowScreenBounds (void*) { return {}; }
+juce::Rectangle<int> Automation::windowClientBounds (void*) { return {}; }
+bool Automation::isForeground (void*) { return false; }
+bool Automation::isWindowAt (void*, juce::Point<int>) { return false; }
 juce::Point<int> Automation::mousePosition() { return {}; }
 bool Automation::isMouseButtonDown() { return false; }
 #endif

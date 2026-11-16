@@ -12,6 +12,7 @@ class ModeBanner;
 class MicCalPanel;
 class MicCalAssistant;
 class RigGearPanel;
+class MicCheckCard;
 
 /** Hardware page: audio device, routing (DSP L/R outputs, up to 4 mics, loopback), per-mic
     calibration, live meters and a pink-noise level check. Works with any interface or mic. */
@@ -65,6 +66,7 @@ private:
     kit::ScrollBody body;
     std::unique_ptr<ModeBanner> banner;
     std::unique_ptr<RigGearPanel> rigGear;      // interface + microphone products (chosen only here)
+    std::unique_ptr<MicCheckCard> micCheck;     // input-only mic self-test
 
     // ---- device
     Card deviceCard { "Audio interface", "Any WASAPI / DirectSound device" };

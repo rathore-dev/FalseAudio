@@ -28,6 +28,8 @@ namespace fa
 class AutoTuneEngine : private juce::Thread
 {
 public:
+    /** Clips a new EQ boost so the total boost at its frequency stays within the safety limits; false = drop the band. */
+    static bool clipStackedBoost (const OutputChannel& owner, FilterSpec& band, const SystemConfig& config);
     enum class Stage { idle, preflight, protect, measure, crossovers, solve, sumCheck, imaging, apply, verify, noise, report, done, failed, cancelled };
     static juce::String stageName (Stage s);
     static constexpr int numWorkStages = 11;

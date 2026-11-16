@@ -94,6 +94,13 @@ public:
     static juce::Point<int> mousePosition();
     static bool isMouseButtonDown();
 
+    /** Client area (no title bar, borders or system buttons) in screen coordinates. Empty if unknown. */
+    static juce::Rectangle<int> windowClientBounds (void* window);
+    /** True when `window` (or a window it owns, e.g. a popup / modal dialog) is the foreground window. */
+    static bool isForeground (void* window);
+    /** True when the top-level window under the screen point is `window` (or owned by it): nothing covers the point. */
+    static bool isWindowAt (void* window, juce::Point<int> screenPos);
+
 private:
     struct Impl;
     std::unique_ptr<Impl> impl;

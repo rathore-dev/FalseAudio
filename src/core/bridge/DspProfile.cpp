@@ -54,10 +54,25 @@ juce::String DspProfile::keyFor (const juce::String& key, int channel, int band)
     return k;
 }
 
+bool DspProfile::selectsChannels() const
+{
+    if (selectThenEdit)
+        return true;
+    for (auto& kv : bindings)
+        if (kv.first.startsWith ("channel.select"))
+            return true;
+    return false;
+}
+
 const ControlBinding* DspProfile::find (const juce::String& key, int channel, int band) const
 {
+    // An AI-learned map asked for a specific output only answers with that output's own binding, unless it declares
+    // the select-channel-then-edit model. channel.select itself is always per output.
+    const bool scoped = aiLearned && channel >= 0 && (key == "channel.select" || ! selectsChannels());
     for (auto& k : { keyFor (key, channel, band), keyFor (key, channel, -1), keyFor (key, -1, band), keyFor (key, -1, -1) })
     {
+        if (scoped && ! k.contains ("@c"))
+            continue;
         auto it = bindings.find (k);
         if (it != bindings.end())
             return &it->second;
@@ -78,6 +93,11 @@ juce::var DspProfile::toVar() const
         o->setProperty ("aiLearned", true);
         o->setProperty ("learnedAt", learnedAt);
         o->setProperty ("notes", notes);
+        o->setProperty ("verified", verified);
+        juce::Array<juce::var> vo;
+        for (int v : verifiedOutputs) vo.add (v);
+        o->setProperty ("verifiedOutputs", vo);
+        if (selectThenEdit) o->setProperty ("selectThenEdit", true);
     }
 
     auto* b = new juce::DynamicObject();
@@ -97,6 +117,10 @@ DspProfile DspProfile::fromVar (const juce::var& v)
     p.aiLearned = (bool) v.getProperty ("aiLearned", false);
     p.learnedAt = v.getProperty ("learnedAt", {}).toString();
     p.notes = v.getProperty ("notes", {}).toString();
+    p.verified = (bool) v.getProperty ("verified", false);       // legacy maps have no flag: unverified
+    p.selectThenEdit = (bool) v.getProperty ("selectThenEdit", false);
+    if (auto* vo = v.getProperty ("verifiedOutputs", {}).getArray())
+        for (auto& x : *vo) p.verifiedOutputs.push_back ((int) x);
     if (auto* b = v.getProperty ("bindings", {}).getDynamicObject())
         for (auto& prop : b->getProperties())
             p.bindings[prop.name.toString()] = ControlBinding::fromVar (prop.value);

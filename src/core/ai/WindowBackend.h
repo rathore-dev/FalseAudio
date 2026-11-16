@@ -26,6 +26,8 @@ public:
     virtual bool isAttached() const = 0;
     virtual juce::Rectangle<int> windowBounds() const = 0;           // screen coordinates
     virtual juce::String windowTitle() const { return {}; }          // used to find a saved map
+    /** Client area in screen coordinates (no title bar / borders / system buttons). Clicks must land inside it. */
+    virtual juce::Rectangle<int> clientBounds() const { return windowBounds(); }
 
     virtual std::vector<uia::TreeNode> snapshot (int maxNodes, int maxDepth) = 0;
     virtual bool find (const uia::ElementPath& path, uia::ElementInfo& out) = 0;
@@ -38,8 +40,10 @@ public:
     virtual juce::String readValue (const uia::ElementPath& p) = 0;
     virtual bool readToggle (const uia::ElementPath& p, bool& state) = 0;
 
-    virtual void clickAt (juce::Point<int> windowRel, bool doubleClick) = 0;
-    virtual void typeText (const juce::String& text, bool pressEnter) = 0;
+    /** Raw input. Each implementation must make sure the attached window is the foreground window (and, for a click, that
+        it is the window under the point) right before sending, and return false with an error instead of sending otherwise. */
+    virtual bool clickAt (juce::Point<int> windowRel, bool doubleClick, juce::String& error) = 0;
+    virtual bool typeText (const juce::String& text, bool pressEnter, juce::String& error) = 0;
     virtual bool keyCombo (const juce::String& combo, juce::String& error) = 0;
 
     /** Captures the window, downscaled so the long edge is <= maxEdge. */

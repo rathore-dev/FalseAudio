@@ -3,6 +3,7 @@
 #include "hardware/MicCalPanel.h"
 #include "hardware/MicCalAssistant.h"
 #include "hardware/RigGear.h"
+#include "hardware/MicCheckCard.h"
 
 namespace fa::ui
 {
@@ -63,6 +64,11 @@ HardwarePage::HardwarePage (Session& s) : Page (s)
 
     rigGear = std::make_unique<RigGearPanel> (session, [this] { return shell; });
     c.addAndMakeVisible (*rigGear);
+
+    micCheck = std::make_unique<MicCheckCard> (session);
+    micCheck->onMessage = [this] (const juce::String& m, bool good) { toast (m, good ? AppShell::ToastKind::good : AppShell::ToastKind::bad); };
+    micCheck->onHeightChanged = [this] { body.relayout(); };
+    c.addAndMakeVisible (*micCheck);
 
     for (auto* card : { &deviceCard, &routingCard, &calCard, &levelsCard })
         c.addAndMakeVisible (card);
@@ -800,6 +806,10 @@ int HardwarePage::layoutContent (int w)
         yy += juce::jmax (btnH, levelAdvice.getHeight());
         levelsCard.setSize (innerW, chrome + (yy - a.getY()));
         y += levelsCard.getHeight();
+        y += gap2;
+        const int mcH = micCheck->layoutFor (innerW, btnH, chrome);
+        micCheck->setTopLeftPosition (margin, y);
+        y += mcH;
     }
 
     return y + margin;

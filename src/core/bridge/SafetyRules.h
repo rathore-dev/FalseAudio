@@ -12,6 +12,8 @@ inline constexpr double kTweeterHpUnknownFsHz = 1800.0;
 inline constexpr double kMaxOutputGainDb = 0.0;
 /** Largest upward gain change per write; bigger rises are walked in steps. */
 inline constexpr double kMaxGainStepDb = 3.0;
+/** Minimum tweeter high-pass slope (same as the AI SafetyGuard): a 6 dB/oct HP leaves a tweeter exposed. */
+inline constexpr int kMinTweeterHpSlopeDbPerOct = 12;
 
 /** Minimum safe tweeter high-pass: max(Fs x 2, 1.2 kHz); 1.8 kHz when Fs is unknown. */
 inline double minTweeterHpHz (double fsHz) noexcept

@@ -66,6 +66,9 @@ public:
     static Verdict checkPointInWindow (juce::Point<int> rel, juce::Rectangle<int> windowScreenBounds);
     /** An element found by UIA must lie (at least by its centre) inside the attached window. */
     static Verdict checkElementInWindow (juce::Rectangle<int> elementScreenBounds, juce::Rectangle<int> windowScreenBounds);
+    /** Window-relative point that must be in the CLIENT area: not the title bar, borders or system buttons.
+        `clientScreenBounds` is the client rectangle in screen coordinates (empty = use the whole window). */
+    static Verdict checkPointInClient (juce::Point<int> rel, juce::Rectangle<int> windowScreenBounds, juce::Rectangle<int> clientScreenBounds);
     /** Refuses alt+f4, ctrl+w/q, win-key combos, alt+tab, ctrl+alt+del. */
     static Verdict checkKeyCombo (const juce::String& combo);
 
@@ -77,6 +80,14 @@ public:
     bool isMuted (int output) const;
     void noteGain (int output, double gainDb);        // known current value (e.g. read back)
     bool knownGain (int output, double& gainDb) const;
+    /** Read-back of a tweeter's high-pass frequency (Hz; NaN forgets it). Unmuting a tweeter needs a read-back >= protected HP. */
+    void noteHpReadback (int output, double hz);
+    bool hpVerified (int output) const;
+    bool isTweeter (int output) const;
+    /** Free text (item / typed text) that switches a filter off: "Off", "Bypass", "None", "Flat", "Full range"... */
+    static bool isOffFilterText (const juce::String& text);
+    /** True when a control's name suggests it changes an audio parameter (so it can never be a "nav" control). */
+    static bool looksLikeParameterControl (const juce::String& nameOrId);
 
     // ---- value rules (deterministic path) ----------------------------------------------------
     /** Clamps `next` in place: protected tweeter HP, gain step/range, delay, PEQ and crossover
@@ -93,8 +104,11 @@ public:
     // ---- value rules (AI tool path) ----------------------------------------------------------
     /** Validates one write requested by the AI. `param` is one of: nav, save (no audio value), gain, delay, polarity, mute,
         hp.freq, hp.type, lp.freq, lp.type, peq.freq, peq.gain, peq.q. `value` is the numeric
-        value (0/1 for toggles); pass NaN for non-numeric (type selections). */
-    Verdict checkToolWrite (const juce::String& param, int output, double value);
+        value (0/1 for toggles); pass NaN only for type selections (hp.type / lp.type), whose chosen entry goes in `text`.
+        Numeric and toggle params refuse NaN/inf. A tweeter's hp.type may never be Off/bypass, and a tweeter may only be
+        unmuted (mute value 0) after its high-pass was read back at or above the protected frequency.
+        "nav" / "save" are allowed here: the CALLER must have checked that the target control really is navigation. */
+    Verdict checkToolWrite (const juce::String& param, int output, double value, const juce::String& text = {});
 
     static bool isKnownParam (const juce::String& param);
 
@@ -112,5 +126,6 @@ private:
     std::map<int, ChannelInfo> channels;
     std::map<int, bool> muted;
     std::map<int, double> gains;
+    std::map<int, double> hpReadback;
 };
 } // namespace fa

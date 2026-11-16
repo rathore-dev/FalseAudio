@@ -28,32 +28,43 @@ AiDspController::AiDspController (Options o)
 
 juce::String AiDspController::getName() const
 {
-    return hasMap() ? "AI operator - " + profile.name : juce::String ("AI operator");
+    std::lock_guard<std::mutex> l (stateMutex);
+    return ! profile.bindings.empty() ? "AI operator - " + profile.name : juce::String ("AI operator");
 }
 
 bool AiDspController::loadMap()
 {
+    // One resolver (exact title, then the AI-chosen fragment) shared with Relearn / Delete in the UI.
     DspProfile p;
-    if (store.load (windowTitle, p) && p.aiLearned)
+    if (store.loadFor (windowTitle, p))
     {
-        profile = p;
+        std::lock_guard<std::mutex> l (stateMutex);
+        profile = p;           // a legacy map has no verified flag: it loads as unverified
         return true;
     }
-    // The window title often contains a project name: match on the saved identifying fragment.
-    for (auto& f : store.getFolder().findChildFiles (juce::File::findFiles, false, "ai_*.json"))
-        if (DspProfile::load (f, p) && p.aiLearned && p.windowTitleContains.isNotEmpty()
-            && windowTitle.containsIgnoreCase (p.windowTitleContains))
-        {
-            profile = p;
-            return true;
-        }
     return false;
 }
 
 bool AiDspController::saveMap()
 {
-    const auto key = profile.windowTitleContains.isNotEmpty() ? profile.windowTitleContains : windowTitle;
-    return store.save (profile, key);
+    DspProfile copy;
+    {
+        std::lock_guard<std::mutex> l (stateMutex);
+        copy = profile;
+    }
+    const auto key = copy.windowTitleContains.isNotEmpty() ? copy.windowTitleContains : windowTitle;
+    return store.save (copy, key);
+}
+
+bool AiDspController::isMapVerified() const
+{
+    std::lock_guard<std::mutex> l (stateMutex);
+    if (! profile.verified || profile.bindings.empty())
+        return false;
+    for (auto& ch : opts.outputs)
+        if (std::find (profile.verifiedOutputs.begin(), profile.verifiedOutputs.end(), ch.dspOutput) == profile.verifiedOutputs.end())
+            return false;
+    return true;
 }
 
 bool AiDspController::connect (juce::String& error)
@@ -68,7 +79,8 @@ bool AiDspController::connect (juce::String& error)
     guard = std::make_unique<SafetyGuard> (opts.limits, opts.caps);
     guard->setChannels (opts.outputs);
     if (loadMap())
-        log ("Loaded learned map (" + juce::String ((int) profile.bindings.size()) + " controls) for \"" + profile.name + "\".");
+        log ("Loaded learned map (" + juce::String ((int) profile.bindings.size()) + " controls) for \"" + profile.name + "\""
+             + (isMapVerified() ? "." : " - NOT verified yet: it is re-verified (test sound per output) before a tune is pushed."));
     else
         log ("No learned map for this window yet; the AI must learn it first.");
     selectedChannel = -1;
@@ -136,22 +148,21 @@ bool AiDspController::learn (juce::String& error)
     const auto res = agent.learn (opts.outputs, opts.caps, profile, focus);
     activeAgent = nullptr;
 
-    ++stats.learnRuns;
-    stats.usage += res.usage;
-    stats.costUsd += res.costUsd;
+    withStats ([&] (Stats& st) { ++st.learnRuns; st.usage += res.usage; st.costUsd += res.costUsd; });
 
-    if (! res.profile.bindings.empty())
+    // A failed, killed, cancelled or out-of-budget run leaves a half-learned map: never adopt it and never save it.
+    if (! res.success || res.cancelled || guard->isKilled() || res.profile.bindings.empty())
     {
+        error = res.message.isNotEmpty() ? res.message : juce::String ("Learning did not finish.");
+        return false;
+    }
+    {
+        std::lock_guard<std::mutex> l (stateMutex);
         profile = res.profile;
         if (profile.windowTitleContains.isEmpty())
             profile.windowTitleContains = windowTitle;
-        saveMap();
     }
-    if (! res.success)
-    {
-        error = res.message;
-        return false;
-    }
+    saveMap();
     badKeys.clear();
     selectedChannel = -1;
     return true;
@@ -159,9 +170,9 @@ bool AiDspController::learn (juce::String& error)
 
 bool AiDspController::tryHeal (juce::String& error)
 {
-    if (! opts.allowLearning || stats.heals >= opts.maxHeals || guard->isKilled())
+    if (! opts.allowLearning || getStats().heals >= opts.maxHeals || guard->isKilled())
         return false;
-    ++stats.heals;
+    withStats ([] (Stats& st) { ++st.heals; });
     log ("Self-heal: asking the AI to re-learn " + juce::String ((int) badKeys.size()) + " control(s).");
     juce::String e;
     const bool ok = learn (e);
@@ -215,20 +226,20 @@ bool AiDspController::performBinding (const ControlBinding& b, const juce::Strin
             break;
         }
         case M::clickPoint:
-            if (auto v = SafetyGuard::checkPointInWindow (clickPos, wb); ! v) { error = v.reason; return false; }
-            backend->clickAt (clickPos, false);
+            if (auto v = SafetyGuard::checkPointInClient (clickPos, wb, backend->clientBounds()); ! v) { error = v.reason; return false; }
+            ok = backend->clickAt (clickPos, false, error);
             break;
         case M::clickAndType:
         {
-            if (auto v = SafetyGuard::checkPointInWindow (clickPos, wb); ! v) { error = v.reason; return false; }
-            backend->clickAt (clickPos, true);
-            juce::String ke;
-            backend->keyCombo ("ctrl+a", ke);
-            backend->typeText (text, true);
+            if (auto v = SafetyGuard::checkPointInClient (clickPos, wb, backend->clientBounds()); ! v) { error = v.reason; return false; }
+            ok = backend->clickAt (clickPos, true, error)
+                 && backend->keyCombo ("ctrl+a", error)
+                 && backend->typeText (text, true, error);
             break;
         }
     }
-    ++stats.writes;
+    withStats ([] (Stats& st) { ++st.writes; });
+    lastWriteVerified = false;
     if (! ok)
     {
         badKeys.insert (key);
@@ -289,12 +300,13 @@ bool AiDspController::performBinding (const ControlBinding& b, const juce::Strin
 
     if (mismatch)
     {
-        ++stats.mismatches;
+        withStats ([] (Stats& st) { ++st.mismatches; });
         badKeys.insert (key);
         error = "Read-back mismatch for " + key + ": " + detail;
         return false;
     }
-    ++(verified ? stats.verifiedWrites : stats.unverifiedWrites);
+    lastWriteVerified = verified;
+    withStats ([verified] (Stats& st) { ++(verified ? st.verifiedWrites : st.unverifiedWrites); });
     return true;
 }
 
@@ -302,11 +314,35 @@ bool AiDspController::selectChannel (int channel, juce::String& error)
 {
     if (channel == selectedChannel)
         return true;
-    if (const auto* b = profile.find ("channel.select", channel))
+    if (profile.selectsChannels())
+    {
+        // "Select channel, then edit" model: the shared controls edit whatever output is selected, so the selection must exist
+        // for THIS output, and (see tweeterEditAllowed) be confirmed by a read-back before a tweeter is touched.
+        const auto* b = profile.find ("channel.select", channel);
+        if (b == nullptr)
+        {
+            error = "No channel.select control is mapped for output " + juce::String (channel + 1)
+                    + "; refusing to edit the shared controls (they could be editing another output).";
+            badKeys.insert (DspProfile::keyFor ("channel.select", channel));
+            return false;
+        }
         if (! performBinding (*b, DspProfile::keyFor ("channel.select", channel), {}, 0.0, true, error))
             return false;
+        selectConfirmed = lastWriteVerified;
+    }
+    else
+        selectConfirmed = true;          // every output has its own controls: nothing to select
     selectedChannel = channel;
     return true;
+}
+
+bool AiDspController::tweeterEditAllowed (int channel, juce::String& error) const
+{
+    if (! profile.selectsChannels() || selectConfirmed)
+        return true;
+    error = "Output " + juce::String (channel + 1) + " drives a tweeter and the channel selection could not be read back, so it is not certain the "
+            "edited controls belong to this output. Nothing was written.";
+    return false;
 }
 
 AiDspController::Write AiDspController::writeNumeric (const juce::String& key, int channel, int band, double value,
@@ -347,6 +383,7 @@ AiDspController::Write AiDspController::writeToggle (const juce::String& key, in
 AiDspController::Write AiDspController::writeCrossover (const juce::String& prefix, int channel, const FilterSpec& f, juce::String& error)
 {
     const juce::String typeKey = f.enabled ? crossoverKey (f) : juce::String ("OFF");
+    const bool tweeterHp = prefix == "hp" && guard->isTweeter (channel);
     if (const auto* tb = profile.find (prefix + ".type", channel))
     {
         if (tb->valueMap.empty() || tb->valueMap.count (typeKey) > 0)
@@ -355,14 +392,40 @@ AiDspController::Write AiDspController::writeCrossover (const juce::String& pref
             if (! performBinding (*tb, used, typeKey, 0.0, f.enabled, error))
                 return Write::failed;
         }
+        else if (tweeterHp)
+        {
+            error = "Output " + juce::String (channel + 1) + " (tweeter): the high-pass type " + typeKey
+                    + " is not in the learned value map, so the filter cannot be switched on. Channel write aborted, output stays muted.";
+            badKeys.insert (DspProfile::keyFor (prefix + ".type", channel));
+            return Write::failed;
+        }
         else
             log ("Output " + juce::String (channel + 1) + ": the " + prefix + " type " + typeKey + " is not in the learned value map; left as is.");
+    }
+    else if (tweeterHp)
+    {
+        error = "Output " + juce::String (channel + 1) + " (tweeter): no hp.type control is mapped, so the high-pass cannot be enabled. "
+                "Channel write aborted, output stays muted.";
+        badKeys.insert (DspProfile::keyFor (prefix + ".type", channel));
+        return Write::failed;
     }
     else
         log ("Output " + juce::String (channel + 1) + ": no " + prefix + ".type control mapped; filter type left as is.");
 
     if (f.enabled)
-        return writeNumeric (prefix + ".freq", channel, -1, f.freq, false, 0.0, error);
+    {
+        const auto w = writeNumeric (prefix + ".freq", channel, -1, f.freq, false, 0.0, error);
+        if (w == Write::ok && tweeterHp)
+        {
+            // The unmute that follows depends on this read-back: the frequency must really read back at/above the protected HP.
+            double hz = std::numeric_limits<double>::quiet_NaN();
+            if (const auto* fb = profile.find ("hp.freq", channel))
+                if (fb->method == ControlBinding::Method::uiaText || fb->method == ControlBinding::Method::uiaRange)
+                    hz = (leadingNumber (backend->readValue (fb->path)) - fb->offset) / (fb->scale != 0.0 ? fb->scale : 1.0);
+            guard->noteHpReadback (channel, hz);
+        }
+        return w;
+    }
     return Write::ok;
 }
 
@@ -385,8 +448,29 @@ bool AiDspController::applyOnce (const OutputChannel& in, juce::String& error)
     }
 
     const int c = in.dspOutput;
+    if (opts.requireVerifiedMap && ! isMapVerified())
+    {
+        error = "The learned map has not been verified (a test sound per output must confirm which driver each control drives). Verify it before pushing a tune.";
+        return false;
+    }
     if (! selectChannel (c, error))
         return false;
+    if (in.role == DriverRole::tweeter && ! tweeterEditAllowed (c, error))
+        return false;
+    if (in.role == DriverRole::tweeter && in.hasHighPass())
+    {
+        // Pre-flight: a tweeter whose high-pass cannot be enabled is never touched (no gain, no polarity, no unmute).
+        const auto* tb = profile.find ("hp.type", c);
+        const auto wanted = crossoverKey (FilterSpec::crossover (FilterType::highPass, 1000.0, std::max (12, in.settings.highPass.slopeDbPerOct), in.settings.highPass.alignment));
+        if (tb == nullptr || (! tb->valueMap.empty() && tb->valueMap.count (wanted) == 0))
+        {
+            error = "Output " + juce::String (c + 1) + " (tweeter): "
+                    + (tb == nullptr ? juce::String ("no hp.type control is mapped") : "the high-pass type " + wanted + " is not in the learned value map")
+                    + ", so its high-pass cannot be enabled. Channel not written, output left as it is.";
+            badKeys.insert (DspProfile::keyFor ("hp.type", c));
+            return false;
+        }
+    }
 
     // Learn the real current gain (if readable) so the per-step cap is relative to the device.
     double known = 0.0;
@@ -413,7 +497,7 @@ bool AiDspController::applyOnce (const OutputChannel& in, juce::String& error)
     guard->sanitizeChannel (ch, notes);
     for (auto& n : notes)
     {
-        lastNotes.add (n);
+        { std::lock_guard<std::mutex> l (stateMutex); lastNotes.add (n); }
         log ("Safety: " + n);
     }
     const auto& s = ch.settings;
@@ -468,6 +552,11 @@ bool AiDspController::applyOnce (const OutputChannel& in, juce::String& error)
     if (autoMuted)
     {
         juce::String e;
+        if (ch.role == DriverRole::tweeter && ! guard->hpVerified (c))
+        {
+            error = "Not unmuting " + who + " (tweeter): its high-pass could not be read back at or above the protected frequency. It stays muted.";
+            return false;
+        }
         if (! setMutedOnce (c, false, e))
         {
             error = "Could not unmute " + who + ": " + e;
@@ -486,7 +575,7 @@ bool AiDspController::applyChannel (const OutputChannel& channel, juce::String& 
         error = "AI operator is not connected.";
         return false;
     }
-    lastNotes.clear();
+    { std::lock_guard<std::mutex> l (stateMutex); lastNotes.clear(); }
     badKeys.clear();
 
     if (! hasMap())
@@ -570,6 +659,108 @@ bool AiDspController::soloChannels (const SystemConfig& cfg, const juce::StringA
                 return false;
         }
     return endBatch (error);
+}
+
+bool AiDspController::verifyMap (juce::String& error)
+{
+    if (! connected || guard == nullptr)
+    {
+        error = "Not connected.";
+        return false;
+    }
+    if (! hasMap())
+    {
+        error = "There is no map to verify.";
+        return false;
+    }
+    if (isMapVerified())
+        return true;
+    if (opts.agent.verify == nullptr)
+    {
+        error = "The map is not verified and this session cannot play test sounds (Live mode with the measurement rig is needed).";
+        return false;
+    }
+    if (guard->isKilled())
+    {
+        error = "Kill switch active: " + guard->killReason();
+        return false;
+    }
+
+    log ("Verifying the saved map: one test sound per output.");
+    juce::String e;
+    // 1. everything muted, tweeters first
+    for (int pass = 0; pass < 2; ++pass)
+        for (auto& ch : opts.outputs)
+            if ((ch.role == DriverRole::tweeter) == (pass == 0) && ! setMutedOnce (ch.dspOutput, true, e))
+            {
+                error = "Cannot mute output " + juce::String (ch.dspOutput + 1) + " for the test: " + e;
+                return false;
+            }
+
+    std::vector<int> passed;
+    for (auto& ch : opts.outputs)
+    {
+        const int c = ch.dspOutput;
+        if (guard->isKilled()) { error = "Kill switch active: " + guard->killReason(); return false; }
+        if (ch.role == DriverRole::tweeter)
+        {
+            // The protected high-pass goes in (and is read back) while the tweeter is still muted.
+            if (! selectChannel (c, e) || ! tweeterEditAllowed (c, e))
+            {
+                error = e;
+                return false;
+            }
+            guard->noteHpReadback (c, std::numeric_limits<double>::quiet_NaN());
+            const auto hp = FilterSpec::crossover (FilterType::highPass, guard->protectedHpHz (ch));
+            if (writeCrossover ("hp", c, hp, e) != Write::ok || ! guard->hpVerified (c))
+            {
+                error = "Output " + juce::String (c + 1) + " (tweeter) cannot be tested safely: "
+                        + (e.isNotEmpty() ? e : juce::String ("its high-pass could not be read back at the protected frequency.")) + " It stays muted.";
+                return false;
+            }
+        }
+        if (! setMutedOnce (c, false, e))
+        {
+            error = "Cannot unmute output " + juce::String (c + 1) + " for the test: " + e;
+            return false;
+        }
+        DspOperatorAgent::VerifyRequest rq;
+        rq.output = c;
+        rq.mode = "tone";
+        const auto r = opts.agent.verify (rq);
+        juce::String me;
+        if (! setMutedOnce (c, true, me))
+        {
+            error = "Cannot mute output " + juce::String (c + 1) + " again after the test: " + me;
+            return false;
+        }
+        if (! r.performed)
+        {
+            error = "Output " + juce::String (c + 1) + ": test sound not performed (" + r.detail + ").";
+            return false;
+        }
+        if (! r.matches)
+        {
+            error = "Output " + juce::String (c + 1) + ": the test sound came from \"" + r.respondedDriver + "\", not from " + ch.label
+                    + ". The saved map does not match this system; relearn it.";
+            return false;
+        }
+        passed.push_back (c);
+    }
+
+    // restore: outputs un-muted, tweeters last (their high-pass is verified)
+    for (int pass = 0; pass < 2; ++pass)
+        for (auto& ch : opts.outputs)
+            if ((ch.role == DriverRole::tweeter) == (pass == 1))
+                setMutedOnce (ch.dspOutput, false, e);
+
+    {
+        std::lock_guard<std::mutex> l (stateMutex);
+        profile.verified = true;
+        profile.verifiedOutputs = passed;
+    }
+    saveMap();
+    return true;
 }
 
 bool AiDspController::endBatch (juce::String& error)

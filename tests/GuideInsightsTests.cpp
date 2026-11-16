@@ -188,3 +188,54 @@ FA_TEST (tuneInsightsFromAutoTune)
                 std::cout << "      - " << f << "\n";
     std::cout << "      insights computed in " << juce::String (ms, 0) << " ms\n";
 }
+
+FA_TEST (tonalScoreUsesUsableBand)
+{
+    using P = SystemConfig::Preset;
+    for (auto p : { P::active3WaySub, P::passive2WaySub, P::passiveFront, P::fullRangePair, P::singleDriver })
+    {
+        auto cfg = SystemConfig::makePreset (p);
+        VirtualRig rig (cfg, 2);
+        rig.setSimulatedSweepMs (0);
+        AutoTuneEngine engine;
+        engine.onMicPositionChanged = [&rig] (int pos) { rig.setMicPosition (pos); };
+        AutoTuneEngine::Options o;
+        o.micPositions = 2;
+        engine.start (cfg, rig, rig, o);
+        while (engine.isRunning())
+            juce::Thread::sleep (20);
+        const auto r = engine.getLastResult();
+        const auto name = SystemConfig::presetName (p);
+        check (r.success, "Auto-tune ran: " + name, r.error);
+        if (! r.success)
+            continue;
+        const auto in = insights::compute (r, o.sweepSeconds, 10.0, 24000.0);
+
+        // Reference: the old full-range (40 Hz..16 kHz) score from the same bands.
+        auto rms = [&] (double lo, bool left)
+        {
+            double sum = 0.0, mean = 0.0; int n = 0;
+            for (auto& b : in.bands)
+                if (b.freqHz >= lo && b.freqHz <= 16000.0) { mean += (left ? b.leftAfterDb : b.rightAfterDb) - b.targetDb; ++n; }
+            if (n == 0) return 0.0;
+            mean /= n;
+            for (auto& b : in.bands)
+                if (b.freqHz >= lo && b.freqHz <= 16000.0) { const double e = (left ? b.leftAfterDb : b.rightAfterDb) - b.targetDb - mean; sum += e * e; }
+            return std::sqrt (sum / n);
+        };
+        const double oldScore = juce::jlimit (0.0, 100.0, 100.0 - 6.0 * (rms (40.0, true) + (r.rightAfter.isEmpty() ? rms (40.0, true) : rms (40.0, false))));
+        const double sideErr = 0.5 * (r.leftErrorDb + r.rightErrorDb);
+        const juce::String detail = name + ": tonal " + juce::String (in.tonalBalanceScore, 1) + ", old " + juce::String (oldScore, 1)
+                                  + ", side err " + juce::String (sideErr, 1) + " dB";
+
+        if (cfg.hasSubwoofer())
+            check (std::abs (in.tonalBalanceScore - oldScore) <= 2.0, "Sub preset keeps its tonal score", detail);
+        else
+        {
+            check (in.tonalBalanceScore >= oldScore - 0.01, "No-sub tonal score not worse than full-range", detail);
+            if (sideErr < 3.0)
+                check (in.tonalBalanceScore >= 60.0, "No-sub tonal consistent with side error", detail);
+            check (in.summary.joinIntoString (" ").contains ("isn't scored"), "No-sub note present", name);
+        }
+    }
+}

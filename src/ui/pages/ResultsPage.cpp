@@ -362,8 +362,12 @@ void ResultsPage::importPreset()
             return;
         SystemConfig cfg;
         const bool ok = exporters::fromJSON (f.loadFileAsString(), cfg);
-        if (ok)
-            session.setConfig (cfg);
+        const bool applied = ok && session.setConfig (cfg);
+        if (ok && ! applied && shell != nullptr)
+        {
+            shell->toast (Session::configLockedMessage(), AppShell::ToastKind::warn);
+            return;
+        }
         if (shell != nullptr)
             shell->toast (ok ? "Preset " + f.getFileName() + " loaded into the system config"
                              : f.getFileName() + " is not a FalseAudio preset",

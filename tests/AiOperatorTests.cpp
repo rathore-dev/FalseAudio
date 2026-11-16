@@ -8,8 +8,12 @@
 #include "core/ai/SafetyGuard.h"
 #include "core/bridge/AiDspController.h"
 
+#include "core/ai/AiProfileStore.h"
+
+#include <atomic>
 #include <cstdlib>
 #include <deque>
+#include <thread>
 
 using fa::test::check;
 using namespace fa;
@@ -197,9 +201,27 @@ struct FakeWindow : WindowBackend
         s = e->toggle;
         return true;
     }
-    void clickAt (juce::Point<int>, bool) override { ++clicks; log.add ("click"); }
-    void typeText (const juce::String& t, bool) override { log.add ("type " + t); }
-    bool keyCombo (const juce::String&, juce::String&) override { return true; }
+    bool foreground = true;              // false: the window is not the foreground window, raw input must not be sent
+    juce::Rectangle<int> client;         // empty = whole window; otherwise the client area (title bar excluded)
+    juce::Rectangle<int> clientBounds() const override { return client.isEmpty() ? win : client; }
+    bool clickAt (juce::Point<int>, bool, juce::String& er) override
+    {
+        if (! foreground) { er = "the DSP window is not the foreground window"; return false; }
+        ++clicks; log.add ("click");
+        return true;
+    }
+    bool typeText (const juce::String& t, bool, juce::String& er) override
+    {
+        if (! foreground) { er = "the DSP window is not the foreground window"; return false; }
+        log.add ("type " + t);
+        return true;
+    }
+    bool keyCombo (const juce::String& k, juce::String& er) override
+    {
+        if (! foreground) { er = "the DSP window is not the foreground window"; return false; }
+        log.add ("key " + k);
+        return true;
+    }
     bool screenshot (int, WindowScreenshot& out) override { ++screenshots; out.base64 = "AAAA"; out.width = 800; out.height = 600; out.scale = 1.0; return true; }
 
     int writeIndex (const juce::String& entry) const { return log.indexOf (entry); }
@@ -228,6 +250,10 @@ void buildWindow (FakeWindow& w)
         w.add ("Edit", "HPFreq" + juce::String (c), "20", 10, y + 120);
         w.add ("Edit", "LPFreq" + juce::String (c), "20000", 10, y + 150);
     }
+    w.add ("Edit", "HPType1", "", 200, 130);        // ids 13, 14: high-pass type combos (after the loop so earlier ids stay put)
+    w.add ("Edit", "HPType2", "", 200, 330);
+    w.add ("Button", "Select1", "", 300, 10);       // ids 15, 16: channel-select buttons (select-then-edit maps)
+    w.add ("Button", "Select2", "", 300, 210);
 }
 
 ControlBinding uiaBinding (FakeWindow& w, const juce::String& name, ControlBinding::Method m, int decimals = 2)
@@ -257,6 +283,7 @@ DspProfile makeProfile (FakeWindow& w)
         p.bindings[DspProfile::keyFor ("mute", c)]     = uiaBinding (w, "Mute" + n, M::uiaToggle);
         p.bindings[DspProfile::keyFor ("hp.freq", c)]  = uiaBinding (w, "HPFreq" + n, M::uiaText, 0);
         p.bindings[DspProfile::keyFor ("lp.freq", c)]  = uiaBinding (w, "LPFreq" + n, M::uiaText, 0);
+        p.bindings[DspProfile::keyFor ("hp.type", c)]  = uiaBinding (w, "HPType" + n, M::uiaSelect, 0);
     }
     return p;
 }
@@ -289,6 +316,7 @@ struct Rig
         opts.outputs = outputs;
         opts.profilesFolder = folder;
         opts.settleMs = 0;
+        opts.requireVerifiedMap = false;        // most tests drive the replay with a hand-made map; the verification tests turn it on
         opts.agent.consentGiven = true;
         opts.agent.settleMs = 0;
         opts.client.baseBackoffMs = 1;
@@ -534,7 +562,7 @@ FA_TEST (aiMapSaveLoadAndReplay)
         AiProfileStore store (rig.folder);
         check (store.save (makeProfile (*rig.win), "Fake DSP Studio"), "map: save profile");
         DspProfile back;
-        check (store.load ("Fake DSP Studio", back) && back.aiLearned && back.bindings.size() == 12
+        check (store.load ("Fake DSP Studio", back) && back.aiLearned && back.bindings.size() == 14
                && back.bindings.count ("hp.freq@c1") == 1, "map: load round-trips every binding");
     }
 
@@ -893,4 +921,415 @@ FA_TEST (aiOllamaLiveSmoke)
     check (r.ok, "ollama live: request succeeded", r.error);
     check (r.stopReason == "tool_use" && r.content[0]["name"].toString() == "report_color", "ollama live: a tool call came back",
            juce::JSON::toString (r.content, true));
+}
+
+//==============================================================================
+// Safety review fixes (AI path): target classification, tweeter HP, map verification, input confinement.
+namespace
+{
+DspOperatorAgent::VerifyResult verifyOk (const DspOperatorAgent::VerifyRequest&)
+{
+    DspOperatorAgent::VerifyResult r;
+    r.performed = true;
+    r.matches = true;
+    r.respondedDriver = "expected";
+    return r;
+}
+}
+
+FA_TEST (aiGuardRejectsNanOffAndUnverifiedUnmute)
+{
+    DspCapabilities caps;
+    SafetyGuard g (SafetyGuard::Limits(), caps);
+    auto mid = makeChannel (0, DriverRole::midbass, "mid");
+    auto tw = makeChannel (1, DriverRole::tweeter, "tw");
+    tw.driver.fsHz = 1000.0;           // protected HP = 1.6 kHz
+    g.setChannels ({ mid, tw });
+    const double nan = std::numeric_limits<double>::quiet_NaN();
+
+    g.noteMute (1, true);
+    check (! g.checkToolWrite ("hp.freq", 1, nan) && ! g.checkToolWrite ("gain", 0, nan) && ! g.checkToolWrite ("hp.freq", 1, INFINITY),
+           "guard(tool): NaN / inf refused for numeric params");
+    check (! g.checkToolWrite ("mute", 1, nan), "guard(tool): NaN refused for toggles");
+    check (! g.checkToolWrite ("hp.type", 1, nan, "Off") && ! g.checkToolWrite ("hp.type", 1, nan, "Bypass")
+           && ! g.checkToolWrite ("hp.type", 1, nan, "") && (bool) g.checkToolWrite ("hp.type", 1, nan, "LR24"),
+           "guard(tool): tweeter hp.type may not be Off/bypass/unspecified");
+    check ((bool) g.checkToolWrite ("hp.type", 0, nan, "Off"), "guard(tool): a midbass may switch its high-pass off");
+
+    check ((bool) g.checkToolWrite ("mute", 1, 1.0), "guard(tool): muting a tweeter is always allowed");
+    check (! g.checkToolWrite ("mute", 1, 0.0), "guard(tool): tweeter unmute refused without a verified high-pass");
+    g.noteHpReadback (1, 800.0);
+    check (! g.checkToolWrite ("mute", 1, 0.0), "guard(tool): tweeter unmute refused when the read-back HP is below the floor");
+    g.noteHpReadback (1, 2500.0);
+    check ((bool) g.checkToolWrite ("mute", 1, 0.0), "guard(tool): tweeter unmute allowed after a read-back at/above the floor");
+    g.noteHpReadback (1, nan);
+    check (! g.checkToolWrite ("mute", 1, 0.0), "guard(tool): a new hp write invalidates the read-back");
+    check ((bool) g.checkToolWrite ("mute", 0, 0.0), "guard(tool): non-tweeters unmute freely");
+}
+
+FA_TEST (aiAgentClassifiesWritesByTarget)
+{
+    Rig rig ("target");
+    auto& t = *rig.transport;
+    t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("a1", "ui_tree", obj ({})) })));
+    t.queue.push_back (ok200 ("tool_use", arr ({
+        // nav label on a value control: refused
+        toolUse ("b1", "set_value", obj ({ { "element_id", 11 }, { "value", "300" }, { "param", "nav" }, { "output", 2 } })),
+        // clicking the field as nav (focus) is fine, but typing under a nav label is not
+        toolUse ("b2", "click_xy", obj ({ { "x", 50 }, { "y", 341 }, { "param", "nav" } })),
+        toolUse ("b3", "type_text", obj ({ { "text", "300" }, { "press_enter", true }, { "param", "nav" } })),
+        // a real label on a tweeter that is not muted: refused
+        toolUse ("b4", "type_text", obj ({ { "text", "300" }, { "param", "hp.freq" }, { "output", 2 } })),
+        // arrow keys change the focused value: refused
+        toolUse ("b5", "key_combo", obj ({ { "combo", "Up" } })),
+        // the mute checkbox is a parameter control, never nav
+        toolUse ("b6", "toggle", obj ({ { "element_id", 10 }, { "on", false }, { "param", "nav" }, { "output", 2 } })),
+        toolUse ("b7", "toggle", obj ({ { "element_id", 10 }, { "on", true }, { "param", "mute" }, { "output", 2 } })),
+        // Off on a tweeter: refused
+        toolUse ("b8", "select_item", obj ({ { "element_id", 14 }, { "item", "Off" }, { "param", "hp.type" }, { "output", 2 } })),
+        // unmute before the HP is verified: refused
+        toolUse ("b9", "toggle", obj ({ { "element_id", 10 }, { "on", false }, { "param", "mute" }, { "output", 2 } })),
+        // a control that was identified as mute cannot be re-labelled
+        toolUse ("b10", "toggle", obj ({ { "element_id", 10 }, { "on", true }, { "param", "polarity" }, { "output", 2 } })),
+        // low HP: refused; safe HP: written and read back; then the unmute is allowed
+        toolUse ("b11", "set_value", obj ({ { "element_id", 11 }, { "value", "300" }, { "param", "hp.freq" }, { "output", 2 } })),
+        toolUse ("b12", "set_value", obj ({ { "element_id", 11 }, { "value", "9000" }, { "param", "hp.freq" }, { "output", 2 } })),
+        toolUse ("b13", "toggle", obj ({ { "element_id", 10 }, { "on", false }, { "param", "mute" }, { "output", 2 } })) })));
+    t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("c1", "fail", obj ({ { "reason", "test over" } })) })));
+
+    juce::String e;
+    AiDspController c (rig.opts);
+    c.connect (e);
+    c.learn (e);
+    auto& w = *rig.win;
+    check (w.writeIndex ("set HPFreq2=300") < 0, "target: nav label on a value control never wrote it");
+    check (w.writeIndex ("type 300") < 0, "target: nav / unmuted-tweeter type_text never typed");
+    check (w.clicks == 1 && w.writeIndex ("key Up") < 0, "target: focus click allowed, arrow key refused");
+    check (w.writeIndex ("toggle Mute2=1") >= 0, "target: real mute-on write allowed");
+    check (w.writeIndex ("set HPType2=Off") < 0, "target: tweeter high-pass Off refused");
+    check (w.writeIndex ("set HPFreq2=9000") > w.writeIndex ("toggle Mute2=1") && w.writeIndex ("set HPFreq2=9000") >= 0,
+           "target: safe HP written after muting");
+    check (w.writeIndex ("toggle Mute2=0") > w.writeIndex ("set HPFreq2=9000"), "target: unmute only after the read-back HP");
+    int unmutes = 0;
+    for (auto& l : w.log) if (l == "toggle Mute2=0") ++unmutes;
+    check (unmutes == 1, "target: exactly one unmute (the unverified one was refused)", juce::String (unmutes));
+    check (! w.byAuto ("Phase2")->toggle, "target: relabelled control did not change polarity");
+}
+
+FA_TEST (aiClientAreaAndForegroundConfinement)
+{
+    auto run = [] (const juce::String& name, int y, bool foreground, juce::String& body)
+    {
+        Rig rig (name);
+        rig.win->client = { rig.win->win.getX() + 8, rig.win->win.getY() + 30, 784, 562 };   // title bar excluded
+        rig.win->foreground = foreground;
+        auto& t = *rig.transport;
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("a", "click_xy", obj ({ { "x", 300 }, { "y", y }, { "param", "nav" } })) })));
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("b", "fail", obj ({ { "reason", "end" } })) })));
+        juce::String e;
+        AiDspController c (rig.opts);
+        c.connect (e);
+        c.learn (e);
+        body = t.bodies.size() > 1 ? t.bodies[1] : juce::String();
+        return rig.win->clicks;
+    };
+    juce::String body;
+    check (run ("client_title", 10, true, body) == 0 && body.contains ("client area"), "input: a click on the title bar is refused", body.substring (0, 300));
+    check (run ("client_ok", 100, true, body) == 1, "input: a click in the client area goes through");
+    check (run ("client_bg", 100, false, body) == 0 && body.contains ("not sent"), "input: nothing is sent when the window is not in the foreground", body.substring (0, 300));
+
+    check (! SafetyGuard::checkPointInClient ({ 10, 10 }, { 100, 100, 800, 600 }, { 108, 130, 784, 562 })
+           && (bool) SafetyGuard::checkPointInClient ({ 50, 60 }, { 100, 100, 800, 600 }, { 108, 130, 784, 562 }),
+           "input: checkPointInClient rejects the non-client area");
+
+    // Replay path (saved click-point binding) is confined the same way.
+    Rig rig ("client_replay");
+    rig.win->client = { rig.win->win.getX() + 8, rig.win->win.getY() + 30, 784, 562 };
+    auto p = makeProfile (*rig.win);
+    ControlBinding cb;
+    cb.method = ControlBinding::Method::clickPoint;
+    cb.relX = 0.5; cb.relY = 5.0 / 600.0;          // on the title bar
+    cb.settleMs = 0;
+    p.bindings[DspProfile::keyFor ("polarity", 0)] = cb;
+    AiProfileStore (rig.folder).save (p, "Fake DSP Studio");
+    juce::String e;
+    AiDspController c (rig.opts);
+    c.connect (e);
+    auto mid = rig.outputs[0];
+    mid.settings.inverted = true;
+    check (! c.applyChannel (mid, e) && rig.win->clicks == 0, "input: replay click on the title bar refused", e);
+}
+
+FA_TEST (aiReplayAbortsTweeterWithoutHighPassType)
+{
+    for (int variant = 0; variant < 2; ++variant)
+    {
+        Rig rig (variant == 0 ? "hptype_unmapped" : "hptype_notinmap");
+        auto p = makeProfile (*rig.win);
+        if (variant == 0)
+            p.bindings.erase ("hp.type@c1");
+        else
+            p.bindings["hp.type@c1"].valueMap["BW6"] = "Butterworth 6";      // wanted LR24 is not in the map
+        AiProfileStore (rig.folder).save (p, "Fake DSP Studio");
+        rig.opts.allowLearning = false;
+        juce::String e;
+        AiDspController c (rig.opts);
+        c.connect (e);
+        auto tw = rig.outputs[1];
+        tw.driver.fsHz = 1000.0;
+        tw.settings.highPass = FilterSpec::crossover (FilterType::highPass, 4000.0);
+        const bool applied = c.applyChannel (tw, e);
+        check (! applied && (e.containsIgnoreCase ("high-pass type") || e.contains ("hp.type")),
+               "replay: tweeter with an unmappable high-pass type is refused", e);
+        check (! applied, "replay: the channel write is aborted");
+        check (rig.win->writeIndex ("set HPFreq2=4000") < 0 && rig.win->writeIndex ("toggle Mute2=0") < 0,
+               "replay: no frequency written and no unmute for that tweeter");
+        check (! rig.win->byAuto ("Mute2")->toggle || rig.win->writeIndex ("toggle Mute2=1") >= 0, "replay: the tweeter is never left unmuted by this write");
+    }
+}
+
+FA_TEST (aiProfileFindDoesNotFallBackToAnotherOutput)
+{
+    DspProfile p;
+    p.aiLearned = true;
+    ControlBinding b;
+    p.bindings["gain"] = b;                                       // generic: no output number
+    p.bindings["channel.select@c0"] = b;
+    check (p.selectsChannels() && p.find ("gain", 1) != nullptr, "profile: select-then-edit model falls back to the shared control");
+    p.bindings.erase ("channel.select@c0");
+    check (! p.selectsChannels() && p.find ("gain", 1) == nullptr && p.find ("gain") != nullptr,
+           "profile: AI map without a declared select model does not answer a per-output request with a generic binding");
+    p.selectThenEdit = true;
+    check (p.find ("gain", 1) != nullptr && p.find ("channel.select", 1) == nullptr,
+           "profile: declared model uses the shared control, but channel.select stays per output");
+    DspProfile classic = p;
+    classic.aiLearned = false;
+    classic.selectThenEdit = false;
+    check (classic.find ("gain", 1) != nullptr, "profile: classic (taught) profiles keep the generic fallback");
+
+    // Controller: shared controls + channel.select for output 1 only -> output 2 is not written.
+    Rig rig ("selectmodel");
+    DspProfile m;
+    m.aiLearned = true;
+    m.windowTitleContains = "Fake DSP Studio";
+    m.caps.peqBandsPerChannel = 0;
+    using M = ControlBinding::Method;
+    m.bindings["gain"] = uiaBinding (*rig.win, "Gain1", M::uiaText, 1);
+    m.bindings["mute"] = uiaBinding (*rig.win, "Mute1", M::uiaToggle);
+    m.bindings["hp.freq"] = uiaBinding (*rig.win, "HPFreq1", M::uiaText, 0);
+    m.bindings["hp.type"] = uiaBinding (*rig.win, "HPType1", M::uiaSelect, 0);
+    m.bindings["lp.freq"] = uiaBinding (*rig.win, "LPFreq1", M::uiaText, 0);
+    m.bindings["channel.select@c0"] = uiaBinding (*rig.win, "Select1", M::uiaInvoke);
+    AiProfileStore (rig.folder).save (m, "Fake DSP Studio");
+    rig.opts.allowLearning = false;
+    juce::String e;
+    AiDspController c (rig.opts);
+    c.connect (e);
+    auto tw = rig.outputs[1];
+    tw.settings.highPass = FilterSpec::crossover (FilterType::highPass, 4000.0);
+    check (! c.applyChannel (tw, e) && e.contains ("channel.select"), "selectChannel: fails when this output has no channel.select", e);
+    check (rig.win->log.isEmpty(), "selectChannel: nothing written to the shared controls", rig.win->log.joinIntoString (","));
+
+    // Output 2 has a select control, but it is an invoke button (no read-back): a tweeter is not touched through it.
+    m.bindings["channel.select@c1"] = uiaBinding (*rig.win, "Select2", M::uiaInvoke);
+    AiProfileStore (rig.folder).save (m, "Fake DSP Studio");
+    AiDspController c2 (rig.opts);
+    c2.connect (e);
+    check (! c2.applyChannel (tw, e) && e.contains ("read back"), "selectChannel: tweeter edit refused when the selection cannot be read back", e);
+    check (rig.win->writeIndex ("set HPFreq1=4000") < 0, "selectChannel: the shared controls were not written for the tweeter");
+    auto mid = rig.outputs[0];
+    mid.settings.gainDb = -2.0;
+    check (c2.applyChannel (mid, e), "selectChannel: a non-tweeter can still be edited through the select model", e);
+}
+
+FA_TEST (aiMapNotSavedUnlessLearnedAndVerified)
+{
+    // 1. A run that saved bindings and then failed must leave nothing behind.
+    {
+        Rig rig ("persist_fail");
+        auto& t = *rig.transport;
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("a", "ui_tree", obj ({})) })));
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("b", "save_map", obj ({ { "window_title", "Fake DSP Studio" },
+            { "bindings", arr ({ obj ({ { "key", "gain" }, { "output", 1 }, { "method", "text" }, { "element_id", 1 } }) }) } })) })));
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("c", "fail", obj ({ { "reason", "gave up" } })) })));
+        juce::String e;
+        AiDspController c (rig.opts);
+        c.connect (e);
+        check (! c.learn (e), "persist: failed run reports failure", e);
+        check (! c.hasMap() && rig.folder.findChildFiles (juce::File::findFiles, false, "ai_*.json").isEmpty(),
+               "persist: a failed run neither adopts nor saves its half-learned map");
+    }
+    // 2. Budget exhausted mid-run: same.
+    {
+        Rig rig ("persist_budget");
+        rig.opts.limits.maxActions = 3;
+        auto& t = *rig.transport;
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("a", "ui_tree", obj ({})) })));
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("b", "save_map", obj ({
+            { "bindings", arr ({ obj ({ { "key", "gain" }, { "output", 1 }, { "method", "text" }, { "element_id", 1 } }) }) } })) })));
+        for (int i = 0; i < 4; ++i)
+            t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("x" + juce::String (i), "ui_tree", obj ({})) })));
+        juce::String e;
+        AiDspController c (rig.opts);
+        c.connect (e);
+        check (! c.learn (e) && ! c.hasMap() && rig.folder.findChildFiles (juce::File::findFiles, false, "ai_*.json").isEmpty(),
+               "persist: an out-of-budget run saves nothing", e);
+    }
+    // 3. save_map demands verify_channel for every output it maps.
+    {
+        Rig rig ("persist_verify");
+        rig.opts.agent.verify = [] (const DspOperatorAgent::VerifyRequest& rq)
+        {
+            auto r = verifyOk (rq);
+            r.matches = rq.output == 0;               // output 2 answers from the wrong driver
+            r.respondedDriver = r.matches ? "expected" : "other driver";
+            return r;
+        };
+        auto& t = *rig.transport;
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("a", "ui_tree", obj ({})),
+            toolUse ("v1", "verify_channel", obj ({ { "output", 1 } })), toolUse ("v2", "verify_channel", obj ({ { "output", 2 } })),
+            toolUse ("s", "save_map", obj ({ { "bindings", arr ({
+                obj ({ { "key", "gain" }, { "output", 1 }, { "method", "text" }, { "element_id", 1 } }),
+                obj ({ { "key", "gain" }, { "output", 2 }, { "method", "text" }, { "element_id", 7 } }),
+                obj ({ { "key", "hp.freq" }, { "method", "text" }, { "element_id", 5 } }) }) } })) })));
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("d", "done", obj ({ { "summary", "partial" } })) })));
+        juce::String e;
+        AiDspController c (rig.opts);
+        c.connect (e);
+        check (c.learn (e), "persist: run with a partly verified map finishes", e);
+        const auto prof = c.getProfile();
+        check (prof.bindings.count ("gain@c0") == 1 && prof.bindings.count ("gain@c1") == 0 && prof.bindings.count ("hp.freq") == 0,
+               "persist: only bindings of verified outputs are accepted (global binding needs every output verified)");
+        check (t.bodies[1].contains ("verify_channel"), "persist: the refusal tells the model to verify first");
+        check (! prof.verified && ! c.isMapVerified(), "persist: map with an unverified output is flagged unverified");
+        DspProfile onDisk;
+        AiProfileStore (rig.folder).loadFor ("Fake DSP Studio - project 1", onDisk);
+        check (! onDisk.verified, "persist: the unverified flag is stored on disk");
+    }
+    // 4. All outputs verified: flagged verified, survives a reload.
+    {
+        Rig rig ("persist_verified");
+        rig.opts.agent.verify = verifyOk;
+        auto& t = *rig.transport;
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("a", "ui_tree", obj ({})),
+            toolUse ("v1", "verify_channel", obj ({ { "output", 1 } })), toolUse ("v2", "verify_channel", obj ({ { "output", 2 } })),
+            toolUse ("s", "save_map", obj ({ { "window_title", "Fake DSP Studio" }, { "bindings", arr ({
+                obj ({ { "key", "gain" }, { "output", 1 }, { "method", "text" }, { "element_id", 1 } }),
+                obj ({ { "key", "gain" }, { "output", 2 }, { "method", "text" }, { "element_id", 7 } }) }) } })) })));
+        t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("d", "done", obj ({ { "summary", "ok" } })) })));
+        juce::String e;
+        AiDspController c (rig.opts);
+        c.connect (e);
+        check (c.learn (e) && c.isMapVerified(), "persist: fully verified run yields a verified map", e);
+        AiDspController again (rig.opts);
+        again.connect (e);
+        check (again.hasMap() && again.isMapVerified(), "persist: verified flag survives a reload");
+    }
+}
+
+FA_TEST (aiLegacyMapMustBeReverifiedBeforePush)
+{
+    Rig rig ("legacy");
+    rig.opts.requireVerifiedMap = true;
+    rig.opts.allowLearning = false;
+    rig.opts.agent.verify = verifyOk;
+    AiProfileStore (rig.folder).save (makeProfile (*rig.win), "Fake DSP Studio");       // no verified flag: legacy
+    juce::String e;
+    AiDspController c (rig.opts);
+    c.connect (e);
+    check (c.hasMap() && ! c.isMapVerified(), "legacy: a map without the flag loads as unverified");
+    auto mid = rig.outputs[0];
+    mid.settings.gainDb = -2.0;
+    check (! c.applyChannel (mid, e) && e.contains ("not been verified"), "legacy: no tune is pushed through an unverified map", e);
+    check (rig.win->log.isEmpty(), "legacy: nothing was written");
+
+    check (c.verifyMap (e), "legacy: verifyMap passes when every output's test sound matches", e);
+    auto& w = *rig.win;
+    const int hp = w.log.indexOf ("set HPFreq2=" + w.byAuto ("HPFreq2")->value);
+    check (hp >= 0 && hp < w.writeIndex ("toggle Mute2=0"), "legacy: the tweeter's high-pass is written before it is unmuted for the test");
+    check (c.isMapVerified() && c.applyChannel (mid, e), "legacy: after verification the tune is pushed", e);
+    AiDspController again (rig.opts);
+    again.connect (e);
+    check (again.isMapVerified(), "legacy: verification is saved");
+
+    // A mismatching test sound keeps the map unverified.
+    Rig rig2 ("legacy2");
+    rig2.opts.requireVerifiedMap = true;
+    rig2.opts.allowLearning = false;
+    rig2.opts.agent.verify = [] (const DspOperatorAgent::VerifyRequest& rq) { auto r = verifyOk (rq); r.matches = false; r.respondedDriver = "wrong"; return r; };
+    AiProfileStore (rig2.folder).save (makeProfile (*rig2.win), "Fake DSP Studio");
+    AiDspController c2 (rig2.opts);
+    c2.connect (e);
+    check (! c2.verifyMap (e) && ! c2.isMapVerified() && e.contains ("wrong"), "legacy: a mismatching test sound fails verification", e);
+    check (rig2.win->byAuto ("Mute1")->toggle && rig2.win->byAuto ("Mute2")->toggle, "legacy: outputs are left muted after a failed verification");
+}
+
+FA_TEST (aiRelearnAndDeleteFindTheSameFileAsLoad)
+{
+    auto folder = tempFolder ("resolver");
+    AiProfileStore store (folder);
+    DspProfile p;
+    p.aiLearned = true;
+    p.name = "Helix";
+    p.windowTitleContains = "Fake DSP";                              // chosen by the AI, saved under this fragment
+    p.bindings["gain"] = ControlBinding();
+    store.save (p, p.windowTitleContains);
+
+    const juce::String title = "Fake DSP Studio - project 1";        // what the window is really called
+    DspProfile out;
+    check (! store.load (title, out) && ! store.fileFor (title).existsAsFile(), "resolver: exact-title lookup misses an AI-named map (the old bug)");
+    check (store.loadFor (title, out) && out.name == "Helix", "resolver: loadFor finds it by fragment");
+    check (store.removeFor (title), "resolver: removeFor deletes it");
+    check (! store.loadFor (title, out) && store.getFolder().findChildFiles (juce::File::findFiles, false, "ai_*.json").isEmpty(),
+           "resolver: after delete there is no map any more (no stale replay)");
+
+    // Controller: connect loads through the same resolver.
+    Rig rig ("resolver_ctl");
+    DspProfile q = makeProfile (*rig.win);
+    q.windowTitleContains = "Fake DSP";
+    AiProfileStore (rig.folder).save (q, q.windowTitleContains);
+    juce::String e;
+    AiDspController c (rig.opts);
+    c.connect (e);
+    check (c.hasMap(), "resolver: controller loads the fragment-named map");
+    AiProfileStore (rig.folder).removeFor (rig.win->title);
+    AiDspController c2 (rig.opts);
+    c2.connect (e);
+    check (! c2.hasMap(), "resolver: after the UI delete the controller sees no map");
+}
+
+FA_TEST (aiControllerStateIsThreadSafe)
+{
+    Rig rig ("threads");
+    AiProfileStore (rig.folder).save (makeProfile (*rig.win), "Fake DSP Studio");
+    rig.opts.allowLearning = false;
+    juce::String e;
+    AiDspController c (rig.opts);
+    c.connect (e);
+
+    std::atomic<bool> stop { false };
+    std::atomic<long> reads { 0 };
+    std::thread reader ([&]
+    {
+        while (! stop)
+        {
+            const auto st = c.getStats();
+            const auto notes = c.getLastSafetyNotes();
+            const auto prof = c.getProfile();
+            reads += st.writes + notes.size() + (long) prof.bindings.size() + (c.hasMap() ? 1 : 0) + (c.isMapVerified() ? 1 : 0);
+        }
+    });
+    int applied = 0;
+    for (int i = 0; i < 40; ++i)
+    {
+        auto tw = rig.outputs[1];
+        tw.driver.fsHz = 1000.0;
+        tw.settings.highPass = FilterSpec::crossover (FilterType::highPass, 400.0 + i);
+        tw.settings.gainDb = -3.0;
+        applied += c.applyChannel (tw, e) ? 1 : 0;
+    }
+    stop = true;
+    reader.join();
+    check (applied == 40 && c.getStats().writes > 100 && reads > 0, "threads: stats/notes/map read concurrently with writes without a crash",
+           juce::String (applied) + " " + juce::String (c.getStats().writes));
 }

@@ -35,4 +35,34 @@ bool AiProfileStore::remove (const juce::String& windowTitle) const
 {
     return fileFor (windowTitle).deleteFile();
 }
+
+juce::Array<juce::File> AiProfileStore::resolve (const juce::String& windowTitle) const
+{
+    juce::Array<juce::File> found;
+    const auto exact = fileFor (windowTitle);
+    DspProfile p;
+    if (exact.existsAsFile() && DspProfile::load (exact, p) && p.aiLearned)
+        found.add (exact);
+    for (auto& f : dir.findChildFiles (juce::File::findFiles, false, "ai_*.json"))
+        if (f != exact && DspProfile::load (f, p) && p.aiLearned && p.windowTitleContains.isNotEmpty()
+            && windowTitle.containsIgnoreCase (p.windowTitleContains))
+            found.add (f);
+    return found;
+}
+
+bool AiProfileStore::loadFor (const juce::String& windowTitle, DspProfile& out) const
+{
+    for (auto& f : resolve (windowTitle))
+        if (DspProfile::load (f, out))
+            return true;
+    return false;
+}
+
+bool AiProfileStore::removeFor (const juce::String& windowTitle) const
+{
+    bool all = true;
+    for (auto& f : resolve (windowTitle))
+        all = f.deleteFile() && all;
+    return all;
+}
 } // namespace fa

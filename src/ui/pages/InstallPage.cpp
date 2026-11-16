@@ -62,6 +62,7 @@ void InstallPage::pageShown()
 
 void InstallPage::sessionChanged()
 {
+    setEnabled (! session.isConfigLocked());   // no edits while Auto Tune runs
     // config / mode changes affect the plan (HP values, mode-gated checks); coalesce bursts
     if (pendingRebuild)
         return;
@@ -139,7 +140,11 @@ void InstallPage::applySafeLimits()
         return;
     auto cfg = session.getConfig();
     install::applyToConfig (plan, installation, gear::GearDatabase::instance(), cfg);
-    session.setConfig (cfg);
+    if (! session.setConfig (cfg))
+    {
+        toast (Session::configLockedMessage(), AppShell::ToastKind::warn);
+        return;
+    }
     const int n = gains.countUnsafeHp();
     toast (n > 0 ? "Safe crossover limits and driver specs applied to " + juce::String (n) + (n == 1 ? " channel" : " channels")
                  : "Driver specs and safe limits applied to the tuning", AppShell::ToastKind::good);

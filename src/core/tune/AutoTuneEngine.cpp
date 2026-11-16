@@ -509,13 +509,7 @@ bool AutoTuneEngine::stageSolve (RunState& rs)
             so.bandTargets = entry->bands;
     rs.solver = std::make_unique<SystemSolver> (config, rs.data, so);
     auto& solver = *rs.solver;
-    {
-        double lowestHp = 0.0;
-        for (auto& c : config.channels)
-            if (c.role != DriverRole::subwoofer && c.settings.highPass.enabled)
-                lowestHp = lowestHp > 0.0 ? std::min (lowestHp, c.settings.highPass.freq) : c.settings.highPass.freq;
-        evalLowHz = config.hasSubwoofer() ? 40.0 : std::max (40.0, lowestHp * 1.25);
-    }
+    evalLowHz = config.scoredLowHz (40.0);
 
     auto cancelled = [this] { return cancelFlag.load() || threadShouldExit(); };
     progress (0.05, "Checking polarity");                 solver.checkPolarity();
@@ -618,6 +612,28 @@ juce::StringArray AutoTuneEngine::idsFor (Side side) const
 
 /** Closed loop: fit a few broad corrections to what was actually measured and give each band to the
     driver that dominates that frequency (if it has a free EQ slot). Returns true if anything changed. */
+bool AutoTuneEngine::clipStackedBoost (const OutputChannel& owner, FilterSpec& nb, const SystemConfig& config)
+{
+    if (nb.gainDb <= 0.0)
+        return true;
+    // Verify passes must not stack boosts: the TOTAL boost already at this frequency plus the new band
+    // stays within maxBoostDb (and the stricter low-frequency limit near the HP).
+    double existingDb = 0.0;
+    for (auto& e : owner.settings.peq)
+        if (e.enabled && e.type == FilterType::peaking)
+            existingDb += 20.0 * std::log10 (std::max (1.0e-9, std::abs (e.response (nb.freq, config.caps.sampleRate))));
+    double limit = config.safety.maxBoostDb;
+    if (owner.role != DriverRole::subwoofer && owner.settings.highPass.enabled && nb.freq < 2.0 * owner.settings.highPass.freq)
+        limit = std::min (limit, config.safety.maxLowFreqBoostDb);
+    const double room = limit - std::max (0.0, existingDb);
+    if (room < 0.05)
+        return false;
+    nb.gainDb = std::min (nb.gainDb, room);
+    if (config.caps.gainStepDb > 0.0)
+        nb.gainDb = std::floor (nb.gainDb / config.caps.gainStepDb + 1e-9) * config.caps.gainStepDb;
+    return nb.gainDb >= 0.05;
+}
+
 bool AutoTuneEngine::correctResiduals (const FrequencyResponse& leftMeasured, const FrequencyResponse& rightMeasured,
                                        const std::vector<double>& targetDb)
 {
@@ -684,7 +700,10 @@ bool AutoTuneEngine::correctResiduals (const FrequencyResponse& leftMeasured, co
             }
             if (owner != nullptr && (int) owner->settings.peq.size() < config.caps.peqBandsPerChannel)
             {
-                owner->settings.peq.push_back (band);
+                auto nb = band;
+                if (! clipStackedBoost (*owner, nb, config))
+                    continue;
+                owner->settings.peq.push_back (nb);
                 changed = true;
             }
         }

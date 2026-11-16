@@ -101,6 +101,7 @@ juce::var DspOperatorAgent::toolDefinitions()
     t.add (tool ("click_xy", "Click at a point of the screenshot (custom-drawn controls without UI Automation).",
                  { { "x", prop ("integer", "x in screenshot pixels") }, { "y", prop ("integer", "y in screenshot pixels") },
                    { "double_click", prop ("boolean", "double click (to edit a numeric field)") },
+                   { "on", prop ("boolean", "only when this click presses a mute/polarity button: the state it should end in") },
                    { "param", paramProp }, { "output", outProp } }, { "x", "y", "param" }));
     t.add (tool ("type_text", "Type text into the focused control (after click_xy), optionally pressing Enter.",
                  { { "text", prop ("string", "text to type") }, { "press_enter", prop ("boolean", "press Enter afterwards") },
@@ -150,6 +151,15 @@ DspOperatorAgent::Result DspOperatorAgent::learn (const std::vector<OutputChanne
     screenshotsTaken = 0;
     cancelled = false;
     turn = 0;
+    elementRoles.clear();
+    navSeq = 0;
+    clickedRole = {};
+    verifiedOutputs.clear();
+    touchedOutputs.clear();
+    priorVerified.clear();
+    for (int o : existing.verifiedOutputs) priorVerified.insert (o);
+    profile.verified = false;
+    updateVerifiedState();
 
     auto finish = [&] (bool ok, const juce::String& msg)
     {
@@ -494,15 +504,103 @@ bool DspOperatorAgent::resolve (const juce::var& in, uia::ElementInfo& info, juc
     return true;
 }
 
-SafetyGuard::Verdict DspOperatorAgent::declared (const juce::var& in, double value, juce::String& param, int& output0)
+SafetyGuard::Verdict DspOperatorAgent::declared (const juce::var& in, juce::String& param, int& output0)
 {
     param = in.getProperty ("param", {}).toString().trim();
     output0 = hasInt (in, "output") ? (int) in.getProperty ("output", 0) - 1 : -1;
     if (param.isEmpty())
         return SafetyGuard::Verdict::deny ("Declare param (what this control changes).");
-    if (param != "nav" && param != "save" && output0 < 0)
+    if (! isNav (param) && output0 < 0)
         return SafetyGuard::Verdict::deny ("Declare output (1-based) for param " + param + ".");
-    return guard.checkToolWrite (param, output0, value);
+    return SafetyGuard::Verdict::allow();
+}
+
+bool DspOperatorAgent::knownRole (const uia::ElementInfo& info, Role& out) const
+{
+    const auto key = info.path.describe();
+    auto it = elementRoles.find (key);
+    if (it != elementRoles.end())
+    {
+        out = it->second;
+        return true;
+    }
+    for (auto& kv : profile.bindings)          // controls already saved in the map
+        if (kv.second.path.steps.size() > 0 && kv.second.path.describe() == key)
+        {
+            const auto p = kv.first.upToFirstOccurrenceOf ("@", false, false);
+            out.param = (p == "channel.select" || p == "peq.select" || p == "save") ? juce::String ("nav") : p;
+            out.output = kv.first.contains ("@c") ? kv.first.fromFirstOccurrenceOf ("@c", false, false).getIntValue() : -1;
+            out.navSeq = -1;
+            return true;
+        }
+    return false;
+}
+
+void DspOperatorAgent::rememberRole (const uia::ElementInfo& info, const juce::String& param, int out0)
+{
+    Role r;
+    r.param = isNav (param) ? juce::String ("nav") : param;
+    r.output = isNav (param) ? -1 : out0;
+    r.navSeq = navSeq;
+    elementRoles[info.path.describe()] = r;
+    if (isNav (param))
+        ++navSeq;
+}
+
+const uia::ElementInfo* DspOperatorAgent::elementAtScreenPoint (juce::Point<int> screen) const
+{
+    const uia::ElementInfo* best = nullptr;
+    long long bestArea = 0;
+    for (auto& kv : ids)
+    {
+        const auto& b = kv.second.screenBounds;
+        if (b.isEmpty() || ! b.contains (screen))
+            continue;
+        const long long area = (long long) b.getWidth() * b.getHeight();
+        if (best == nullptr || area < bestArea) { best = &kv.second; bestArea = area; }
+    }
+    return best;
+}
+
+SafetyGuard::Verdict DspOperatorAgent::checkTarget (const juce::String& tool, const juce::String& param, int out0, double value,
+                                                    const juce::String& text, const uia::ElementInfo* info)
+{
+    using V = SafetyGuard::Verdict;
+    const bool nav = isNav (param);
+
+    // The label is the model's claim; the target control decides.
+    if (info != nullptr)
+    {
+        Role known;
+        if (knownRole (*info, known))
+        {
+            const bool knownNav = isNav (known.param);
+            if (nav != knownNav || (! nav && known.param != param))
+                return V::deny ("That control was identified as \"" + known.param + "\""
+                                + (known.output >= 0 ? " of output " + juce::String (known.output + 1) : juce::String())
+                                + ", not \"" + param + "\". A control cannot change role.");
+            if (! nav && known.output >= 0 && known.output != out0 && known.navSeq == navSeq)
+                return V::deny ("That control was used for output " + juce::String (known.output + 1) + " and you now say output "
+                                + juce::String (out0 + 1) + ". Select the other output first (param nav) if one editor serves all outputs.");
+        }
+        else if (nav)
+        {
+            const juce::String ident = info->name + " " + info->automationId;
+            const bool valueLike = info->supportsRange || (info->supportsValue && ! info->supportsSelection && tool != "select_item");
+            if (tool == "set_value" || tool == "type_text")
+                return V::deny ("A control that takes a value is never navigation; declare what it changes (gain, hp.freq ...).");
+            if (valueLike && tool != "click_xy")
+                return V::deny ("That control holds a value, so it is not navigation: declare what it changes.");
+            if (SafetyGuard::looksLikeParameterControl (ident) && ! (info->supportsValue && tool == "click_xy"))
+                return V::deny ("\"" + info->name + "\" looks like an audio parameter control, not navigation: declare what it changes.");
+        }
+    }
+    else if (nav && (tool == "set_value" || tool == "type_text"))
+        return V::deny ("Free-form text goes into a parameter: declare what it changes (gain, hp.freq ...) and the output; nav/save are not allowed here.");
+
+    if (nav)
+        return V::allow();
+    return guard.checkToolWrite (param, out0, value, text);
 }
 
 DspOperatorAgent::Outcome DspOperatorAgent::toolWrite (const juce::String& name, const juce::var& in)
@@ -515,10 +613,12 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolWrite (const juce::String& name,
     double value = std::numeric_limits<double>::quiet_NaN();
     if (name == "set_value")   value = numberFrom (inp.getProperty ("value", {}).toString());
     if (name == "toggle")      value = (bool) inp.getProperty ("on", false) ? 1.0 : 0.0;
+    const auto itemText = name == "select_item" ? inp.getProperty ("item", {}).toString()
+                        : name == "set_value"   ? inp.getProperty ("value", {}).toString() : juce::String();
 
     juce::String param;
     int out0 = -1;
-    if (auto v = declared (inp, value, param, out0); ! v)
+    if (auto v = declared (inp, param, out0); ! v)
     {
         o.isError = true;
         o.text = "Refused by safety rules: " + v.reason;
@@ -533,6 +633,15 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolWrite (const juce::String& name,
         o.text = err;
         return o;
     }
+    if (auto v = checkTarget (name, param, out0, value, itemText, &info); ! v)
+    {
+        o.isError = true;
+        o.text = "Refused by safety rules: " + v.reason;
+        return o;
+    }
+    const bool tweeterOut = ! isNav (param) && out0 >= 0 && guard.isTweeter (out0);
+    if (tweeterOut && (param == "hp.type" || param == "hp.freq"))
+        guard.noteHpReadback (out0, std::numeric_limits<double>::quiet_NaN());     // must be read back again after this write
 
     bool ok = false;
     if (name == "set_value")
@@ -556,10 +665,13 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolWrite (const juce::String& name,
     if (opts.settleMs > 0)
         juce::Thread::sleep (opts.settleMs);
 
+    rememberRole (info, param, out0);
     if (param == "mute" && name == "toggle")
         guard.noteMute (out0, value > 0.5);
     if (param == "gain" && std::isfinite (value))
         guard.noteGain (out0, value);
+    if (tweeterOut && param == "hp.freq" && name == "set_value")
+        guard.noteHpReadback (out0, numberFrom (window.readValue (info.path)));
 
     o.text = "OK.";
     bool st = false;
@@ -582,9 +694,13 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolReadValue (const juce::var& in)
         return o;
     }
     bool st = false;
-    o.text = "value=\"" + window.readValue (info.path) + "\"";
+    const auto read = window.readValue (info.path);
+    o.text = "value=\"" + read + "\"";
     if (window.readToggle (info.path, st))
         o.text += " toggle=" + juce::String (st ? "on" : "off");
+    Role role;
+    if (knownRole (info, role) && role.param == "hp.freq" && role.output >= 0 && guard.isTweeter (role.output))
+        guard.noteHpReadback (role.output, numberFrom (read));
     return o;
 }
 
@@ -593,7 +709,7 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolClick (const juce::var& in)
     Outcome o;
     juce::String param;
     int out0 = -1;
-    if (auto v = declared (in, std::numeric_limits<double>::quiet_NaN(), param, out0); ! v)
+    if (auto v = declared (in, param, out0); ! v)
     {
         o.isError = true;
         o.text = "Refused by safety rules: " + v.reason;
@@ -602,13 +718,61 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolClick (const juce::var& in)
     const juce::Point<int> real (juce::roundToInt ((int) in.getProperty ("x", 0) / viewScale),
                                  juce::roundToInt ((int) in.getProperty ("y", 0) / viewScale));
     const auto wb = window.windowBounds();
-    if (auto v = SafetyGuard::checkPointInWindow (real, wb); ! v)
+    if (auto v = SafetyGuard::checkPointInClient (real, wb, window.clientBounds()); ! v)
     {
         o.isError = true;
         o.text = "Refused: " + v.reason;
         return o;
     }
-    window.clickAt (real, (bool) in.getProperty ("double_click", false));
+
+    // What is under the point decides what this click is, not the label.
+    const juce::Point<int> screen (wb.getX() + real.x, wb.getY() + real.y);
+    const auto* under = elementAtScreenPoint (screen);
+    double value = std::numeric_limits<double>::quiet_NaN();
+    if (in.hasProperty ("on") && ! in["on"].isVoid())
+        value = (bool) in.getProperty ("on", false) ? 1.0 : 0.0;
+    if (auto v = checkTarget ("click_xy", param, out0, value, {}, under); ! v)
+    {
+        o.isError = true;
+        o.text = "Refused by safety rules: " + v.reason;
+        return o;
+    }
+    if (under == nullptr && isNav (param))      // custom-drawn: a saved non-nav click point at this spot is not navigation
+        for (auto& kv : profile.bindings)
+        {
+            const auto& cb = kv.second;
+            if ((cb.method == ControlBinding::Method::clickPoint || cb.method == ControlBinding::Method::clickAndType)
+                && std::abs (cb.relX * wb.getWidth() - real.x) < 10 && std::abs (cb.relY * wb.getHeight() - real.y) < 10)
+            {
+                const auto p = kv.first.upToFirstOccurrenceOf ("@", false, false);
+                if (p != "channel.select" && p != "peq.select" && p != "save")
+                {
+                    o.isError = true;
+                    o.text = "Refused by safety rules: that point is the saved control \"" + p + "\", not navigation: declare what it changes.";
+                    return o;
+                }
+            }
+        }
+
+    juce::String err;
+    if (! window.clickAt (real, (bool) in.getProperty ("double_click", false), err))
+    {
+        o.isError = true;
+        o.text = "Click not sent: " + err;
+        return o;
+    }
+    clickedRole = {};
+    if (under != nullptr)
+        knownRole (*under, clickedRole);
+    if (! isNav (param))
+    {
+        if (param == "mute" && std::isfinite (value))
+            guard.noteMute (out0, value > 0.5);
+        if (guard.isTweeter (out0) && (param == "hp.freq" || param == "hp.type"))
+            guard.noteHpReadback (out0, std::numeric_limits<double>::quiet_NaN());
+    }
+    else
+        ++navSeq;
     if (opts.settleMs > 0)
         juce::Thread::sleep (opts.settleMs);
     o.text = "Clicked.";
@@ -621,15 +785,38 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolType (const juce::var& in)
     const auto text = in.getProperty ("text", {}).toString();
     juce::String param;
     int out0 = -1;
-    if (auto v = declared (in, numberFrom (text), param, out0); ! v)
+    if (auto v = declared (in, param, out0); ! v)
     {
         o.isError = true;
         o.text = "Refused by safety rules: " + v.reason;
         return o;
     }
-    window.typeText (text, (bool) in.getProperty ("press_enter", false));
-    if (param == "gain" && std::isfinite (numberFrom (text)))
-        guard.noteGain (out0, numberFrom (text));
+    const double value = numberFrom (text);
+    if (auto v = checkTarget ("type_text", param, out0, value, text, nullptr); ! v)
+    {
+        o.isError = true;
+        o.text = "Refused by safety rules: " + v.reason;
+        return o;
+    }
+    if (clickedRole.param.isNotEmpty() && (isNav (clickedRole.param) || clickedRole.param != param
+                                           || (clickedRole.output >= 0 && clickedRole.output != out0)))
+    {
+        o.isError = true;
+        o.text = "Refused by safety rules: the control you clicked is \"" + clickedRole.param + "\", not \"" + param + "\".";
+        return o;
+    }
+    if (guard.isTweeter (out0) && (param == "hp.freq" || param == "hp.type"))
+        guard.noteHpReadback (out0, std::numeric_limits<double>::quiet_NaN());   // typed blind: cannot be read back from here
+
+    juce::String err;
+    if (! window.typeText (text, (bool) in.getProperty ("press_enter", false), err))
+    {
+        o.isError = true;
+        o.text = "Text not sent: " + err;
+        return o;
+    }
+    if (param == "gain" && std::isfinite (value))
+        guard.noteGain (out0, value);
     if (opts.settleMs > 0)
         juce::Thread::sleep (opts.settleMs);
     o.text = "Typed.";
@@ -644,6 +831,20 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolKey (const juce::var& in)
     {
         o.isError = true;
         o.text = "Refused: " + v.reason;
+        return o;
+    }
+    // Arrow / Home / End / Page keys, typed characters, Delete ... change the value of whatever has focus: that is a
+    // parameter write the guard cannot classify. Only navigation / commit keys are allowed here.
+    const auto norm = combo.toLowerCase().removeCharacters (" ");
+    static const char* const allowed[] = { "tab", "shift+tab", "escape", "esc", "return", "enter", "ctrl+a", "f2" };
+    bool permitted = false;
+    for (auto* a : allowed)
+        if (norm == a) permitted = true;
+    if (! permitted)
+    {
+        o.isError = true;
+        o.text = "Refused by safety rules: key \"" + combo + "\" can change the value of the focused control. Only Tab, Escape, Return, F2 and ctrl+a "
+                 "are allowed; enter values with set_value, or click_xy + type_text with param and output.";
         return o;
     }
     juce::String err;
@@ -669,6 +870,11 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolVerify (const juce::var& in)
     rq.output = (int) in.getProperty ("output", 1) - 1;
     rq.mode = in.getProperty ("mode", "tone").toString();
     const auto r = opts.verify (rq);
+    if (r.performed && r.matches)
+        verifiedOutputs.insert (rq.output);
+    else if (r.performed)
+        verifiedOutputs.erase (rq.output);
+    updateVerifiedState();
     if (! r.performed)
         o.text = "Test not performed: " + r.detail;
     else
@@ -676,6 +882,19 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolVerify (const juce::var& in)
                  + "Responded driver: " + r.respondedDriver + (r.respondedBand.isNotEmpty() ? ", band: " + r.respondedBand : juce::String())
                  + (r.detail.isNotEmpty() ? ". " + r.detail : juce::String());
     return o;
+}
+
+void DspOperatorAgent::updateVerifiedState()
+{
+    std::set<int> good = verifiedOutputs;
+    for (int o : priorVerified)
+        if (touchedOutputs.count (o) == 0)
+            good.insert (o);
+    profile.verifiedOutputs.assign (good.begin(), good.end());
+    bool all = ! outputsInUse.empty();
+    for (auto& ch : outputsInUse)
+        all = all && good.count (ch.dspOutput) > 0;
+    profile.verified = all;
 }
 
 DspOperatorAgent::Outcome DspOperatorAgent::toolSaveMap (const juce::var& in)
@@ -703,6 +922,29 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolSaveMap (const juce::var& in)
             if (! keys.contains (key)) { problems.add ("unknown key \"" + key + "\""); continue; }
             auto mit = methods.find (mname);
             if (mit == methods.end()) { problems.add (key + ": unknown method \"" + mname + "\""); continue; }
+
+            // Every output a binding drives must have passed verify_channel first (when the app can run that test).
+            const int chOut = hasInt (b, "output") ? (int) b.getProperty ("output", 1) - 1 : -1;
+            {
+                std::vector<int> touched;
+                if (key != "save")
+                {
+                    if (chOut >= 0) touched.push_back (chOut);
+                    else for (auto& oc : outputsInUse) touched.push_back (oc.dspOutput);
+                }
+                juce::StringArray unverified;
+                for (int t : touched)
+                {
+                    touchedOutputs.insert (t);
+                    if (opts.verify != nullptr && verifiedOutputs.count (t) == 0)
+                        unverified.add (juce::String (t + 1));
+                }
+                if (unverified.size() > 0)
+                {
+                    problems.add (key + ": output " + unverified.joinIntoString (", ") + " has not passed verify_channel (call verify_channel for it first; a tweeter's role must be confirmed before it is mapped)");
+                    continue;
+                }
+            }
 
             ControlBinding cb;
             cb.method = mit->second;
@@ -742,6 +984,7 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolSaveMap (const juce::var& in)
         }
     }
 
+    updateVerifiedState();
     profile.aiLearned = true;
     profile.learnedAt = juce::Time::getCurrentTime().toISO8601 (true);
     if (in.getProperty ("dsp_name", {}).toString().isNotEmpty())           profile.name = in.getProperty ("dsp_name", {}).toString();

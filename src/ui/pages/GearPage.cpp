@@ -578,6 +578,7 @@ void GearPage::pageHidden()
 
 void GearPage::sessionChanged()
 {
+    setEnabled (! session.isConfigLocked());   // no edits while Auto Tune runs
     car.setConfig (session.getConfig());
     car.setSeat (session.getConfig().listeningSeat);
     rebuildRows();
@@ -780,7 +781,11 @@ void GearPage::applyToTuning()
     auto cfg = session.getConfig();
     const auto plan = install::buildPlan (inst, cfg, db);
     install::applyToConfig (plan, inst, db, cfg);
-    session.setConfig (cfg);
+    if (! session.setConfig (cfg))
+    {
+        toast (Session::configLockedMessage(), AppShell::ToastKind::warn);
+        return;
+    }
 
     juce::String msg = "Driver specs applied to the tuning config";
     if (! plan.warnings.isEmpty())

@@ -40,6 +40,7 @@ SystemPage::SystemPage (Session& s) : Page (s)
         layoutCard.addAndMakeVisible (w);
     layoutSummary.setTextColour (theme::text);
     kit::styleCombo (presetBox);
+    presetBox.setComponentID ("car.preset");
     presetBox.setTextWhenNothingSelected ("Choose a topology...");
     presetBox.setTooltip ("Ready-made speaker topologies: active, passive component sets, full-range or a single driver.");
     for (int i = 0; i <= (int) SystemConfig::Preset::singleDriver; ++i)
@@ -158,6 +159,7 @@ void SystemPage::pageShown()
 
 void SystemPage::sessionChanged()
 {
+    setEnabled (! session.isConfigLocked());   // no edits while Auto Tune runs
     refreshFromSession();
 }
 
@@ -186,7 +188,11 @@ void SystemPage::applyLayout()
         return;
     const int ways = waysSeg.getSelected() + 2;
     const int sub  = subSeg.getSelected();
-    session.setLayout (ways, sub > 0, sub == 2);
+    if (! session.setLayout (ways, sub > 0, sub == 2))
+    {
+        toast (Session::configLockedMessage());
+        return;
+    }
     toast (juce::String (ways) + "-way" + (sub == 0 ? "" : sub == 1 ? " + mono sub" : " + stereo subs") + " layout created");
 }
 
@@ -200,7 +206,11 @@ void SystemPage::applyPreset (SystemConfig::Preset p)
     fresh.caps = old.caps;
     fresh.safety = old.safety;
     fresh.target = old.target;
-    session.setConfig (fresh);   // also rebuilds the demo rig, so Demo mode follows the topology
+    if (! session.setConfig (fresh))   // also rebuilds the demo rig, so Demo mode follows the topology
+    {
+        toast (Session::configLockedMessage());
+        return;
+    }
     toast (SystemConfig::presetName (p) + " topology created");
 }
 
@@ -210,7 +220,8 @@ void SystemPage::editConfig (std::function<void (SystemConfig&)> edit)
         return;
     auto cfg = session.getConfig();
     edit (cfg);
-    session.setConfig (cfg);
+    if (! session.setConfig (cfg))
+        toast (Session::configLockedMessage());
 }
 
 void SystemPage::editTarget (std::function<void (TargetCurve&)> edit)

@@ -29,6 +29,7 @@ void SafetyGuard::resetSession()
     tokens = 0;
     muted.clear();
     gains.clear();
+    hpReadback.clear();
 }
 
 SafetyGuard::Verdict SafetyGuard::checkBudget() const
@@ -74,6 +75,19 @@ SafetyGuard::Verdict SafetyGuard::checkPointInWindow (juce::Point<int> rel, juce
         return Verdict::deny ("Point (" + juce::String (rel.x) + "," + juce::String (rel.y)
                               + ") is outside the attached window (" + juce::String (w.getWidth()) + "x"
                               + juce::String (w.getHeight()) + ").");
+    return Verdict::allow();
+}
+
+SafetyGuard::Verdict SafetyGuard::checkPointInClient (juce::Point<int> rel, juce::Rectangle<int> w, juce::Rectangle<int> client)
+{
+    if (auto v = checkPointInWindow (rel, w); ! v)
+        return v;
+    if (client.isEmpty())
+        return Verdict::allow();
+    const juce::Point<int> screen (w.getX() + rel.x, w.getY() + rel.y);
+    if (! client.contains (screen))
+        return Verdict::deny ("Point (" + juce::String (rel.x) + "," + juce::String (rel.y)
+                              + ") is on the title bar, a border or a system button, not in the window's client area.");
     return Verdict::allow();
 }
 
@@ -141,6 +155,53 @@ bool SafetyGuard::knownGain (int output, double& g) const
         return false;
     g = it->second;
     return true;
+}
+
+void SafetyGuard::noteHpReadback (int output, double hz)
+{
+    std::lock_guard<std::mutex> lock (m);
+    if (std::isfinite (hz)) hpReadback[output] = hz; else hpReadback.erase (output);
+}
+
+bool SafetyGuard::hpVerified (int output) const
+{
+    std::lock_guard<std::mutex> lock (m);
+    auto c = channels.find (output);
+    auto r = hpReadback.find (output);
+    if (c == channels.end() || r == hpReadback.end())
+        return false;
+    return r->second + 0.5 >= c->second.protectedHp;
+}
+
+bool SafetyGuard::isTweeter (int output) const
+{
+    std::lock_guard<std::mutex> lock (m);
+    auto c = channels.find (output);
+    return c != channels.end() && c->second.role == DriverRole::tweeter;
+}
+
+bool SafetyGuard::isOffFilterText (const juce::String& text)
+{
+    const auto t = text.trim().toLowerCase();
+    if (t.isEmpty())
+        return false;
+    static const char* const words[] = { "off", "bypass", "none", "disable", "flat", "full range", "fullrange", "full-range", "thru", "through",
+                                         "all pass", "allpass", "no filter", "linear" };
+    for (auto* w : words)
+        if (t.contains (w))
+            return true;
+    return t == "0" || t == "-" || t == "0 hz";
+}
+
+bool SafetyGuard::looksLikeParameterControl (const juce::String& s)
+{
+    const auto t = s.toLowerCase();
+    static const char* const words[] = { "mute", "gain", "level", "volume", "delay", "phase", "polar", "invert", "pass", "hp", "lp", "filter",
+                                         "cross", "slope", "freq", "bypass", "eq", "boost", "cut", "trim", "q factor" };
+    for (auto* w : words)
+        if (t.contains (w))
+            return true;
+    return false;
 }
 
 //==============================================================================
@@ -273,7 +334,7 @@ bool SafetyGuard::isKnownParam (const juce::String& p)
     return false;
 }
 
-SafetyGuard::Verdict SafetyGuard::checkToolWrite (const juce::String& param, int output, double value)
+SafetyGuard::Verdict SafetyGuard::checkToolWrite (const juce::String& param, int output, double value, const juce::String& text)
 {
     if (! isKnownParam (param))
         return Verdict::deny ("Unknown param \"" + param + "\". Declare what the control is: nav, save, gain, delay, polarity, mute, "
@@ -294,6 +355,21 @@ SafetyGuard::Verdict SafetyGuard::checkToolWrite (const juce::String& param, int
 
     const bool numeric = std::isfinite (value);
     const bool tweeter = ci.role == DriverRole::tweeter;
+    const bool typeParam = param == "hp.type" || param == "lp.type";
+
+    // Everything except a type selection is a number or a 0/1 toggle: NaN/inf must not slip past the range checks.
+    if (! typeParam && ! numeric)
+        return Verdict::deny ("Param \"" + param + "\" needs a finite numeric value (got none). Use set_value / toggle, not select_item / invoke / click_xy.");
+    if (typeParam && tweeter && param == "hp.type")
+    {
+        if (text.trim().isEmpty())
+            return Verdict::deny ("Say which high-pass type to select on the tweeter (the item text).");
+        if (isOffFilterText (text))
+            return Verdict::deny ("A tweeter's high-pass must never be set to Off/bypass.");
+    }
+    if (tweeter && param == "mute" && value < 0.5 && ! hpVerified (output))
+        return Verdict::deny ("Output " + juce::String (output + 1) + " drives a tweeter: it may only be unmuted after its high-pass frequency was written and read back at or above "
+                              + juce::String (juce::roundToInt (ci.protectedHp)) + " Hz (read_value on the hp.freq control).");
 
     if (tweeter && (param.startsWith ("hp.") || param.startsWith ("lp.") || param == "polarity") && ! isMuted (output))
         return Verdict::deny ("Mute output " + juce::String (output + 1) + " (param \"mute\") before changing its crossover or polarity: it drives a tweeter.");

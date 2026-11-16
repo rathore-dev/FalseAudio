@@ -43,10 +43,14 @@ public:
 
     // ---- System -----------------------------------------------------------
     const SystemConfig& getConfig() const noexcept { return config; }
-    void setConfig (const SystemConfig& c);
-    void setLayout (int waysPerSide, bool withSub, bool stereoSub = false);
-    void setTarget (const TargetCurve& t);
-    void updateChannel (const OutputChannel& ch);
+    /** True while an Auto Tune is running: config edits are refused (they would race the tune and be overwritten).
+        The edit calls below return false in that case; the UI should disable its controls and tell the user. */
+    bool isConfigLocked() const noexcept { return autoTune.isRunning(); }
+    static const char* configLockedMessage() noexcept { return "Auto Tune is running - wait for it to finish (or cancel it) before changing the system."; }
+    bool setConfig (const SystemConfig& c);
+    bool setLayout (int waysPerSide, bool withSub, bool stereoSub = false);
+    bool setTarget (const TargetCurve& t);
+    bool updateChannel (const OutputChannel& ch);
 
     // ---- Hardware ---------------------------------------------------------
     AudioEngine&  getAudio() noexcept        { return audio; }
@@ -61,8 +65,11 @@ public:
 
     // ---- DSP --------------------------------------------------------------
     DspKind getDspKind() const noexcept { return mode == Mode::demo ? DspKind::virtualDemo : liveDspKind; }
-    void useManualDsp();
-    void setDspController (std::unique_ptr<DspController> controller, DspKind kind);
+    /** DSP switches return false (and change nothing) while an Auto Tune is running. A controller that a worker
+        (background push, Auto Tune, AI learn) still uses is never destroyed under it: workers hold shared ownership
+        (via the guard), and a replaced AI controller is killed and kept alive until the session ends. Never blocks. */
+    bool useManualDsp();
+    bool setDspController (std::unique_ptr<DspController> controller, DspKind kind);
 
     /** Drive the vendor's DSP software with a taught profile. The window provider returns the
         HWND of the DSP app (e.g. DspWindowHost::getAttached().handle). */
@@ -82,8 +89,10 @@ public:
     /** The app side of verify_channel: solo-play a tone/sweep on a DSP output and report which driver responded. */
     void setVerifyChannelHandler (DspOperatorAgent::VerifyFn fn) { verifyChannelHandler = std::move (fn); }
     DspController& getDsp();
+    std::shared_ptr<DspController> getDspShared();
     /** getDsp() wrapped in a GuardedDspController: use for EVERY write (tweeter HP floor, gain <= 0 dB, step cap). */
     DspController& getGuardedDsp();
+    std::shared_ptr<GuardedDspController> getGuardedDspShared();
     MeasurementSource& getSource();
 
     // ---- Auto tune --------------------------------------------------------
@@ -140,6 +149,8 @@ private:
     void autoTuneMeasurement (const Measurement& m) override;
     void autoTuneFinished (const AutoTuneEngine::Result& r) override;
     void rebuildDemoRig();
+    void retireDsp();
+    void applyGuardLimits();
     void saveSettings();
     void loadSettings();
 
@@ -149,12 +160,16 @@ private:
 
     AudioEngine audio;
     LiveAnalyzer analyzer { audio };
-    std::unique_ptr<VirtualRig> demoRig;
-    std::unique_ptr<DspController> liveDsp;
-    std::unique_ptr<GuardedDspController> activeGuard;
-    std::vector<std::unique_ptr<GuardedDspController>> retiredGuards;   // kept alive (a worker may still hold one)
+    std::shared_ptr<VirtualRig> demoRig;
+    std::shared_ptr<DspController> liveDsp;
+    std::shared_ptr<GuardedDspController> activeGuard;
+    std::shared_ptr<GuardedDspController> tuneGuard;     // held while an Auto Tune runs (it keeps the DSP + rig alive)
+    std::shared_ptr<VirtualRig> tuneRig;
+    std::vector<std::shared_ptr<DspController>> retiredAi;   // killed AI controllers; a learn thread may still be inside one
+    std::vector<std::shared_ptr<ChannelVerifier>> retiredVerifiers;
+    unsigned configRevision = 0, tuneStartRevision = 0;
     DspOperatorAgent::VerifyFn verifyChannelHandler;
-    std::unique_ptr<ChannelVerifier> channelVerifier;   // default verify_channel for DspKind::aiOperator
+    std::shared_ptr<ChannelVerifier> channelVerifier;   // default verify_channel for DspKind::aiOperator
 
     AutoTuneEngine autoTune;
     AutoTuneEngine::Options autoTuneOptions;
@@ -175,11 +190,13 @@ private:
     // Channel writes to an automatic DSP outside the auto tune (e.g. image nudges), done on a
     // background thread because DSP controllers may block.
     void applyChannelsInBackground (const std::vector<OutputChannel>& channels);
-    void finishDspApply();                   // drops queued writes and waits (before replacing a DSP)
+    void finishDspApply (bool wait = false); // drops queued writes and orphans the worker (never blocks unless wait)
     juce::CriticalSection dspApplyLock;
     std::map<juce::String, OutputChannel> dspApplyQueue;
     bool dspApplyBusy = false;               // guarded by dspApplyLock
     std::unique_ptr<juce::Thread> dspApplyThread;
+    std::shared_ptr<std::atomic<bool>> dspApplyStale = std::make_shared<std::atomic<bool>> (false);
+    std::vector<std::unique_ptr<juce::Thread>> orphanedApplyThreads;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Session)
 };

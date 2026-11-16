@@ -63,15 +63,7 @@ JudgeScore judge (const SystemConfig& config, const DriverDataMap& data)
             if (passive::contains (notches, f[i]))
                 we[i] = 0.0;
 
-    double lowestHp = 0.0;
-    bool anySub = false;
-    for (auto& c : config.channels)
-    {
-        if (c.role == DriverRole::subwoofer) { anySub = true; continue; }
-        if (c.settings.highPass.enabled)
-            lowestHp = lowestHp > 0.0 ? std::min (lowestHp, c.settings.highPass.freq) : c.settings.highPass.freq;
-    }
-    const double evalLow = anySub ? 30.0 : std::max (30.0, lowestHp * 1.25);
+    const double evalLow = config.scoredLowHz (30.0);
 
     std::vector<std::vector<std::vector<cplx>>> contrib (model.channels().size());
     for (size_t k = 0; k < model.channels().size(); ++k)

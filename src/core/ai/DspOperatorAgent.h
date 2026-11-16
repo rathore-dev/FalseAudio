@@ -7,6 +7,8 @@
 #include "WindowBackend.h"
 #include "../bridge/DspProfile.h"
 #include <atomic>
+#include <map>
+#include <set>
 
 namespace fa
 {
@@ -113,7 +115,19 @@ private:
     Outcome toolSaveMap (const juce::var& in);
 
     bool resolve (const juce::var& in, uia::ElementInfo& info, juce::String& error);
-    SafetyGuard::Verdict declared (const juce::var& in, double value, juce::String& param, int& output0);
+    /** Reads param/output from the call. Refuses a missing param (and a missing output unless nav/save). */
+    SafetyGuard::Verdict declared (const juce::var& in, juce::String& param, int& output0);
+    /** Classifies the write by its TARGET (the element, or what is under the click point), never by the label alone:
+        a value control can not be "nav", a control that was declared or saved as X can not change role, and the label
+        is then checked by SafetyGuard::checkToolWrite. `info` may be null for free-form input. */
+    SafetyGuard::Verdict checkTarget (const juce::String& tool, const juce::String& param, int out0, double value, const juce::String& text,
+                                      const uia::ElementInfo* info);
+    struct Role { juce::String param; int output = -1; int navSeq = 0; };
+    bool knownRole (const uia::ElementInfo& info, Role& out) const;
+    void rememberRole (const uia::ElementInfo& info, const juce::String& param, int out0);
+    const uia::ElementInfo* elementAtScreenPoint (juce::Point<int> screen) const;
+    void updateVerifiedState();
+    static bool isNav (const juce::String& p) { return p == "nav" || p == "save"; }
     void say (const juce::String& s) const { if (opts.log != nullptr) opts.log (s); }
     void report (const juce::String& stage);
 
@@ -130,5 +144,10 @@ private:
     DspProfile profile;
     std::vector<OutputChannel> outputsInUse;
     int turn = 0;
+    std::map<juce::String, Role> elementRoles;       // element path -> what it was declared as
+    int navSeq = 0;                                  // counts navigation actions (channel / band selection)
+    Role clickedRole;                                // role of the element the last click_xy landed on (param empty: unknown)
+    std::set<int> verifiedOutputs;                   // outputs whose verify_channel test passed in this run
+    std::set<int> priorVerified, touchedOutputs;
 };
 } // namespace fa

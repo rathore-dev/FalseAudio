@@ -84,13 +84,57 @@ namespace
         juce::String readValue (const uia::ElementPath& p) override { return a.readValue (hwnd(), p); }
         bool readToggle (const uia::ElementPath& p, bool& s) override { return a.readToggle (hwnd(), p, s); }
 
-        void clickAt (juce::Point<int> rel, bool dbl) override
+        juce::Rectangle<int> clientBounds() const override
         {
-            bringToFront();
-            const auto b = windowBounds();
-            uia::Automation::clickAt ({ b.getX() + rel.x, b.getY() + rel.y }, dbl);
+            const auto c = uia::Automation::windowClientBounds (hwnd());
+            return c.isEmpty() ? windowBounds() : c;
         }
-        void typeText (const juce::String& t, bool enter) override { bringToFront(); uia::Automation::typeText (t, enter); }
+
+        /** Brings the window forward and confirms it really is the foreground window. Called again right before every send. */
+        bool foregroundReady (juce::String& error)
+        {
+            if (! isAttached())
+            {
+                error = "The DSP window is gone.";
+                return false;
+            }
+            bringToFront();
+            for (int i = 0; i < 10 && ! uia::Automation::isForeground (hwnd()); ++i)
+                juce::Thread::sleep (30);
+            if (! uia::Automation::isForeground (hwnd()))
+            {
+                error = "The DSP window is not the foreground window, so no click or keystroke was sent (it could have reached another application).";
+                return false;
+            }
+            return true;
+        }
+
+        bool clickAt (juce::Point<int> rel, bool dbl, juce::String& error) override
+        {
+            if (! foregroundReady (error))
+                return false;
+            const auto b = windowBounds();
+            const juce::Point<int> screen (b.getX() + rel.x, b.getY() + rel.y);
+            if (! clientBounds().contains (screen))
+            {
+                error = "Click refused: the point is on the title bar, a border or a system button.";
+                return false;
+            }
+            if (! uia::Automation::isWindowAt (hwnd(), screen) || ! uia::Automation::isForeground (hwnd()))
+            {
+                error = "Click refused: another window covers that point or took the focus.";
+                return false;
+            }
+            uia::Automation::clickAt (screen, dbl);
+            return true;
+        }
+        bool typeText (const juce::String& t, bool enter, juce::String& error) override
+        {
+            if (! foregroundReady (error))
+                return false;
+            uia::Automation::typeText (t, enter);
+            return true;
+        }
         bool keyCombo (const juce::String& combo, juce::String& error) override
         {
             int vk = 0; bool ctrl = false, shift = false;
@@ -99,7 +143,8 @@ namespace
                 error = "Unsupported key combination \"" + combo + "\" (supported: ctrl/shift + letter, digit, F1-F12, Return, Tab, Escape, arrows ...).";
                 return false;
             }
-            bringToFront();
+            if (! foregroundReady (error))
+                return false;
             uia::Automation::pressKeyCombo (vk, ctrl, shift);
             return true;
         }

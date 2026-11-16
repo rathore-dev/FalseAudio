@@ -22,7 +22,9 @@ Session::~Session()
     measureCancel = true;
     if (measureThread != nullptr)
         measureThread->stopThread (5000);
-    finishDspApply();
+    finishDspApply (true);
+    for (auto& t : orphanedApplyThreads)
+        t->stopThread (10000);
     audio.stopPlayback();
     saveSettings();
 }
@@ -104,12 +106,11 @@ MicSelfTestReport Session::runMicSelfTest (double seconds, std::atomic<bool>& ca
         return r;
     }
     const auto cal = audio.getCalibration (0);
-    juce::String devName = "umik";
+    juce::String devName;
     if (auto* dev = audio.getDeviceManager().getCurrentAudioDevice())
         devName = dev->getName();
-    auto ep = readCaptureEndpointVolume (devName);
-    if (! ep.valid && devName != "umik")
-        ep = readCaptureEndpointVolume ("umik");
+    const auto ep = endpointVolumeForDevice (devName);
+    // Never fall back to the UMIK's endpoint for another device: its Windows level is not this mic's.
     auto r = analyseMicRecording (x, sr, cal.isValid() ? &cal : nullptr, ep.valid ? &ep : nullptr);
     if (wall > 0.0)
         r.measuredRate = (double) x.size() / wall;
@@ -134,47 +135,60 @@ void Session::setMode (Mode m)
 void Session::rebuildDemoRig()
 {
     finishDspApply();
-    demoRig = std::make_unique<VirtualRig> (config, 1);
+    demoRig = std::make_shared<VirtualRig> (config, 1);
     // A realistic installer mistake for the demo to find.
     for (auto& c : config.channels)
         if (c.side == Side::right && c.role == DriverRole::midrange)
             demoRig->getCar().driver (c.id).wiredInverted = true;
 }
 
-void Session::setConfig (const SystemConfig& c)
+bool Session::setConfig (const SystemConfig& c)
 {
+    if (isConfigLocked())
+        return false;
+    ++configRevision;
     config = c;
     imageBalanceDb = 0.0;
     rebuildDemoRig();
     saveSettings();
     sendChangeMessage();
+    return true;
 }
 
-void Session::setLayout (int ways, bool withSub, bool stereoSub)
+bool Session::setLayout (int ways, bool withSub, bool stereoSub)
 {
     auto fresh = SystemConfig::makeLayout (ways, withSub, stereoSub);
     fresh.name = config.name;
     fresh.caps = config.caps;
     fresh.safety = config.safety;
     fresh.target = config.target;
-    setConfig (fresh);
+    return setConfig (fresh);
 }
 
-void Session::setTarget (const TargetCurve& t)
+bool Session::setTarget (const TargetCurve& t)
 {
+    if (isConfigLocked())
+        return false;
+    ++configRevision;
     config.target = t;
     saveSettings();
     sendChangeMessage();
+    return true;
 }
 
-void Session::updateChannel (const OutputChannel& ch)
+bool Session::updateChannel (const OutputChannel& ch)
 {
+    if (isConfigLocked())
+        return false;
     if (auto* c = config.find (ch.id))
     {
+        ++configRevision;
         *c = ch;
         saveSettings();
         sendChangeMessage();
+        return true;
     }
+    return false;
 }
 
 void Session::setRouting (const AudioRouting& r)
@@ -199,10 +213,13 @@ bool Session::loadCalibration (int micIndex, const juce::File& file, juce::Strin
 }
 
 //==============================================================================
-void Session::useManualDsp()
+bool Session::useManualDsp()
 {
+    if (autoTune.isRunning())
+        return false;
     finishDspApply();
-    liveDsp = std::make_unique<ManualDspController> (config.caps, [this] (const juce::String& title, const juce::StringArray& steps)
+    retireDsp();
+    liveDsp = std::make_shared<ManualDspController> (config.caps, [this] (const juce::String& title, const juce::StringArray& steps)
     {
         AutoTuneEngine::UserAction a;
         a.kind = AutoTuneEngine::UserAction::Kind::manualDsp;
@@ -213,30 +230,32 @@ void Session::useManualDsp()
     });
     liveDspKind = DspKind::manual;
     sendChangeMessage();
+    return true;
 }
 
 bool Session::useNativeMiniDsp (const MiniDspController::Options& options, juce::String& error)
 {
+    if (autoTune.isRunning()) { error = configLockedMessage(); return false; }
     auto c = std::make_unique<MiniDspController> (options);
     if (! c->connect (error))
         return false;
     config.caps = c->getCapabilities();
-    setDspController (std::move (c), DspKind::nativeMiniDsp);
-    return true;
+    return setDspController (std::move (c), DspKind::nativeMiniDsp);
 }
 
 bool Session::useNativeDsp408 (const Dsp408Controller::Options& options, juce::String& error)
 {
+    if (autoTune.isRunning()) { error = configLockedMessage(); return false; }
     auto c = std::make_unique<Dsp408Controller> (options);
     if (! c->connect (error))
         return false;
     config.caps = c->getCapabilities();
-    setDspController (std::move (c), DspKind::nativeDsp408);
-    return true;
+    return setDspController (std::move (c), DspKind::nativeDsp408);
 }
 
 bool Session::useAiOperator (AiDspController::Options options, juce::String& error)
 {
+    if (autoTune.isRunning()) { error = configLockedMessage(); return false; }
     if (options.outputs.empty())
         options.outputs = config.channels;
     if (options.agent.verify == nullptr)
@@ -246,7 +265,10 @@ bool Session::useAiOperator (AiDspController::Options options, juce::String& err
         // Default: the real verifier on the current measurement source (Demo: the virtual rig).
         ChannelVerifier::Options vo;
         vo.shouldAbort = [this] { auto* ai = getAiOperator(); return ai != nullptr && ai->getGuard().isKilled(); };
-        channelVerifier = std::make_unique<ChannelVerifier> ([this]() -> MeasurementSource& { return getSource(); },
+        // The previous verifier stays alive: an old agent's verify lambda may still point at it.
+        if (channelVerifier != nullptr)
+            retiredVerifiers.push_back (channelVerifier);
+        channelVerifier = std::make_shared<ChannelVerifier> ([this]() -> MeasurementSource& { return getSource(); },
                                                              [this]() -> const SystemConfig& { return config; }, vo);
         options.agent.verify = channelVerifier->asVerifyFn();
     }
@@ -254,8 +276,7 @@ bool Session::useAiOperator (AiDspController::Options options, juce::String& err
     if (! c->connect (error))
         return false;
     config.caps = c->getCapabilities();
-    setDspController (std::move (c), DspKind::aiOperator);
-    return true;
+    return setDspController (std::move (c), DspKind::aiOperator);
 }
 
 AiDspController* Session::getAiOperator() noexcept
@@ -279,12 +300,38 @@ void Session::useUIAutomationDsp (const DspProfile& profile, std::function<void*
     setDspController (std::move (controller), DspKind::uiAutomation);
 }
 
-void Session::setDspController (std::unique_ptr<DspController> controller, DspKind kind)
+void Session::retireDsp()
 {
+    // An AI controller may be inside a learn thread (HTTP call): stop it and keep it alive for the session.
+    if (auto ai = std::dynamic_pointer_cast<AiDspController> (liveDsp))
+    {
+        ai->kill ("DSP mode changed");
+        retiredAi.push_back (std::move (liveDsp));
+    }
+    liveDsp.reset();   // anything else: workers hold it through the guard's shared ownership
+}
+
+bool Session::setDspController (std::unique_ptr<DspController> controller, DspKind kind)
+{
+    if (autoTune.isRunning())
+        return false;
     finishDspApply();
-    liveDsp = std::move (controller);
+    retireDsp();
+    liveDsp = std::shared_ptr<DspController> (std::move (controller));
     liveDspKind = kind;
     sendChangeMessage();
+    return true;
+}
+
+std::shared_ptr<DspController> Session::getDspShared()
+{
+    if (mode == Mode::demo || liveDsp == nullptr)
+    {
+        if (demoRig == nullptr)
+            rebuildDemoRig();
+        return demoRig;
+    }
+    return liveDsp;
 }
 
 DspController& Session::getDsp()
@@ -300,14 +347,21 @@ DspController& Session::getDsp()
 
 DspController& Session::getGuardedDsp()
 {
-    auto& inner = getDsp();
-    if (activeGuard == nullptr || &activeGuard->getInner() != &inner)
+    return *getGuardedDspShared();
+}
+
+std::shared_ptr<GuardedDspController> Session::getGuardedDspShared()
+{
+    auto inner = getDspShared();
+    if (activeGuard == nullptr || &activeGuard->getInner() != inner.get())
     {
-        if (activeGuard != nullptr)
-            retiredGuards.push_back (std::move (activeGuard));
-        activeGuard = std::make_unique<GuardedDspController> (inner);
+        // A worker holding the old guard keeps it (and the controller inside) alive.
+        GuardedDspController::Options o;
+        o.planner = config.safety;
+        activeGuard = std::make_shared<GuardedDspController> (inner, o);
     }
-    return *activeGuard;
+    activeGuard->setPlannerLimits (config.safety);   // always the session's current limits
+    return activeGuard;
 }
 
 MeasurementSource& Session::getSource()
@@ -347,11 +401,18 @@ bool Session::startAutoTune (juce::String& error)
         autoTune.onMicPositionChanged = nullptr;
     }
 
-    if (! autoTune.start (config, getSource(), getGuardedDsp(), autoTuneOptions))
+    // The worker uses the guard (-> DSP) and, in Demo, the rig as source: hold them until it finishes.
+    tuneGuard = getGuardedDspShared();
+    tuneRig = mode == Mode::demo ? demoRig : nullptr;
+    tuneStartRevision = configRevision;
+    if (! autoTune.start (config, getSource(), *tuneGuard, autoTuneOptions))
     {
+        tuneGuard.reset();
+        tuneRig.reset();
         error = "Could not start the auto tune.";
         return false;
     }
+    sendChangeMessage();   // lets the UI lock its config controls
     return true;
 }
 
@@ -364,12 +425,18 @@ void Session::autoTuneFinished (const AutoTuneEngine::Result& r)
 {
     tuneResult = r;
     hasResult = r.success;
-    if (r.success)
+    // Edits are refused while a tune runs, so the revision only differs if something bypassed that:
+    // then the user's config wins and the result stays available in tuneResult only.
+    if (r.success && configRevision == tuneStartRevision)
     {
         config = r.tunedConfig;
+        ++configRevision;
         imageBalanceDb = 0.0;
         saveSettings();
     }
+    // The worker is past its last DSP/source use when it reports its result.
+    tuneGuard.reset();
+    tuneRig.reset();
     sendChangeMessage();
 }
 
@@ -428,8 +495,9 @@ void Session::measureOnce (Feed feed, const juce::String& label,
 
     auto* source = &getSource();
     const auto sampleRate = source->getSampleRate();
+    std::shared_ptr<VirtualRig> rigKeep = mode == Mode::demo ? demoRig : nullptr;   // keeps the demo source alive
 
-    measureThread = std::make_unique<OneShotThread> ([this, source, sampleRate, feed, label, onDone]
+    measureThread = std::make_unique<OneShotThread> ([this, source, sampleRate, feed, label, onDone, rigKeep]
     {
         SweepRequest req;
         req.sweep.sampleRate = sampleRate;
@@ -534,14 +602,26 @@ juce::StringArray Session::pushConfigToDsp (bool& automatic)
     return steps;
 }
 
-void Session::finishDspApply()
+void Session::finishDspApply (bool wait)
 {
     {
         const juce::ScopedLock sl (dspApplyLock);
         dspApplyQueue.clear();
+        dspApplyStale->store (true);          // a running worker stops after its current write
+        dspApplyBusy = false;
+        dspApplyStale = std::make_shared<std::atomic<bool>> (false);
     }
     if (dspApplyThread != nullptr)
-        dspApplyThread->waitForThreadToExit (10000);
+    {
+        if (wait)
+            dspApplyThread->stopThread (10000);
+        else if (dspApplyThread->isThreadRunning())
+            orphanedApplyThreads.push_back (std::move (dspApplyThread));   // never block the message thread
+        dspApplyThread.reset();
+    }
+    orphanedApplyThreads.erase (std::remove_if (orphanedApplyThreads.begin(), orphanedApplyThreads.end(),
+                                                [] (auto& t) { return ! t->isThreadRunning(); }),
+                                orphanedApplyThreads.end());
 }
 
 void Session::applyChannelsInBackground (const std::vector<OutputChannel>& channels)
@@ -557,14 +637,17 @@ void Session::applyChannelsInBackground (const std::vector<OutputChannel>& chann
         dspApplyThread->waitForThreadToExit (2000); // it has already drained the queue and is returning
 
     dspApplyBusy = true;
-    auto* dsp = &getGuardedDsp();
-    dspApplyThread = std::make_unique<OneShotThread> ([this, dsp]
+    auto dsp = getGuardedDspShared();               // the worker owns the guard (and the DSP inside it)
+    auto stale = dspApplyStale;
+    dspApplyThread = std::make_unique<OneShotThread> ([this, dsp, stale]
     {
         for (;;)
         {
             std::map<juce::String, OutputChannel> work;
             {
                 const juce::ScopedLock lock (dspApplyLock);
+                if (stale->load())
+                    return;                          // the DSP was replaced: queue and busy flag belong to a newer worker
                 if (dspApplyQueue.empty())
                 {
                     dspApplyBusy = false;
@@ -574,6 +657,8 @@ void Session::applyChannelsInBackground (const std::vector<OutputChannel>& chann
             }
             for (auto& [id, ch] : work)
             {
+                if (stale->load())
+                    return;
                 juce::String err;
                 if (! dsp->applyChannel (ch, err))
                 {
@@ -608,6 +693,11 @@ bool Session::saveSession (const juce::File& f, juce::String& error) const
 
 bool Session::loadSession (const juce::File& f, juce::String& error)
 {
+    if (autoTune.isRunning() || measuringNow.load())
+    {
+        error = autoTune.isRunning() ? juce::String (configLockedMessage()) : juce::String ("Wait for the current measurement to finish.");
+        return false;
+    }
     const auto v = juce::JSON::parse (f.loadFileAsString());
     if (! v.isObject() || ! v.getProperty ("format", {}).toString().startsWith ("FalseAudio session"))
     {
@@ -615,6 +705,7 @@ bool Session::loadSession (const juce::File& f, juce::String& error)
         return false;
     }
 
+    ++configRevision;
     config = SystemConfig::fromVar (v["config"]);
     audio.setRouting (AudioRouting::fromVar (v["routing"]));
 

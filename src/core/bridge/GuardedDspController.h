@@ -5,6 +5,7 @@
 #include <atomic>
 #include <functional>
 #include <map>
+#include <memory>
 #include <mutex>
 
 namespace fa
@@ -26,6 +27,8 @@ public:
     };
 
     explicit GuardedDspController (DspController& inner, Options o = {});
+    /** Shared ownership: the guard keeps the controller alive for as long as any worker holds the guard. */
+    explicit GuardedDspController (std::shared_ptr<DspController> inner, Options o = {});
 
     DspController& getInner() const noexcept { return wrapped; }
 
@@ -36,6 +39,9 @@ public:
     /** Descriptions of every clamp made since the last call (also passed to onNote). */
     juce::StringArray takeNotes();
     std::function<void (const juce::String&)> onNote;
+
+    SafetyLimits getPlannerLimits() const;
+    void setPlannerLimits (const SafetyLimits& s);
 
     /** Pure rule (HP floor, gain ceiling): clamps `ch` in place; returns true when something changed. */
     bool sanitize (OutputChannel& ch, juce::StringArray& notes) const;
@@ -53,6 +59,7 @@ public:
 
 private:
     struct Last { double gainDb = 0; double hpHz = 0; int hpType = 0; bool inverted = false; };
+    std::shared_ptr<DspController> owner;   // may be empty (borrowed reference)
     DspController& wrapped;
     Options opt;
     std::atomic<bool> overrideHp { false };

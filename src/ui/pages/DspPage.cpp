@@ -345,6 +345,11 @@ void DspPage::connectNativeWithRate (const dsp::UsbDevice& device, double sample
             }
             auto cfg = safe->session.getConfig();
             cfg.caps = (*holder)->getCapabilities();
+            if (safe->session.isConfigLocked())
+            {
+                safe->notify (Session::configLockedMessage(), AppShell::ToastKind::warn);
+                return;
+            }
             safe->session.setConfig (cfg);
             safe->session.setDspController (std::move (*holder), is408 ? Session::DspKind::nativeDsp408 : Session::DspKind::nativeMiniDsp);
             safe->uiMode = modeNative;

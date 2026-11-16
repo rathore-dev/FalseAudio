@@ -540,8 +540,8 @@ private:
                     continue;
                 Param p { Kind::xoverPair, lo, up };
                 p.base1 = pr.init[lo].lowPass.freq;
-                p.base2 = pr.init[up].highPass.freq;
                 p.minHp = minHighPass (up);
+                p.base2 = std::max (pr.init[up].highPass.freq, p.minHp);
                 p.cur = currentOctaveSteps (pr.state[up].highPass.freq, p.base2);
                 p.lo = -8; p.hi = 8; p.step = 2; p.minStep = 1;
                 if (haveTwin && ! rchain.empty()) { p.mir = { rchain[i] }; p.mir2 = { rchain[i + 1] }; }
@@ -552,8 +552,8 @@ private:
             if (! chain.empty() && cfg.hasSubwoofer() && opts.tuneSubIntegration && pr.init[chain[0]].highPass.enabled)
             {
                 Param p { Kind::xoverHP, chain[0] };
-                p.base2 = pr.init[chain[0]].highPass.freq;
                 p.minHp = minHighPass (chain[0]);
+                p.base2 = std::max (pr.init[chain[0]].highPass.freq, p.minHp);
                 p.cur = currentOctaveSteps (pr.state[chain[0]].highPass.freq, p.base2);
                 p.lo = -6; p.hi = 6; p.step = 2; p.minStep = 1;
                 if (opts.constrained)
@@ -712,7 +712,7 @@ private:
                 const double lp = snap (p.base1, v), hp = snap (p.base2, v);
                 const auto& upS = pr.state[p.k2];
                 const auto& loS = pr.state[p.k];
-                if (hp < std::min (p.minHp, p.base2) - 1e-6) return false;          // tweeter/mid safety
+                if (hp < p.minHp - 1e-6) return false;          // tweeter/mid safety: the floor alone, never relaxed by the start value
                 if (upS.lowPass.enabled && hp > upS.lowPass.freq / 1.5) return false;
                 if (loS.highPass.enabled && lp < loS.highPass.freq * 1.5) return false;
                 pr.state[p.k].lowPass.freq = lp;
@@ -728,7 +728,7 @@ private:
             {
                 const double hp = snap (p.base2, v);
                 const auto& s = pr.state[p.k];
-                if (hp < std::min (p.minHp, p.base2) - 1e-6) return false;
+                if (hp < p.minHp - 1e-6) return false;
                 if (s.lowPass.enabled && hp > s.lowPass.freq / 1.5) return false;
                 pr.state[p.k].highPass.freq = hp;
                 pr.cache[p.k].parts[0] = pr.partOf (pr.state[p.k].highPass);
@@ -1003,6 +1003,21 @@ juce::String describeChange (const juce::String& what, double a, double b, int d
 Outcome refine (SystemConfig& config, const DriverDataMap& data, const Options& options)
 {
     Outcome out;
+    // Safety first: any enabled HP that starts below its safe floor (loaded or hand-edited config) is
+    // raised to the floor before anything else, so neither the search nor the "no improvement" path keeps it.
+    for (auto& ch : config.channels)
+    {
+        auto& hp = ch.settings.highPass;
+        if (ch.role == DriverRole::subwoofer || ! hp.enabled)
+            continue;
+        const double floorHz = CrossoverPlanner::safeHighPassHz (ch, config.safety);
+        if (! std::isfinite (hp.freq) || hp.freq < floorHz)
+        {
+            out.notes.add (ch.label + ": high-pass " + juce::String (juce::roundToInt (hp.freq)) + " Hz was below the safe minimum; raised to "
+                           + juce::String (juce::roundToInt (floorHz)) + " Hz");
+            hp.freq = floorHz;
+        }
+    }
     const SystemConfig original = config;
 
     Problem pr (config, data, options);

@@ -281,6 +281,21 @@ std::vector<const OutputChannel*> SystemConfig::channelsFor (Side side) const
     return out;
 }
 
+double SystemConfig::scoredLowHz (double floorHz) const
+{
+    // Same band rule as the engine score and the judge: with a sub, score down to the floor;
+    // without one, bass below 1.25 x the lowest non-sub high-pass isn't scored.
+    double lowestHp = 0.0;
+    for (auto& c : channels)
+    {
+        if (c.role == DriverRole::subwoofer)
+            return floorHz;
+        if (c.settings.highPass.enabled)
+            lowestHp = lowestHp > 0.0 ? std::min (lowestHp, c.settings.highPass.freq) : c.settings.highPass.freq;
+    }
+    return std::max (floorHz, lowestHp * 1.25);
+}
+
 bool SystemConfig::hasSubwoofer() const
 {
     for (auto& c : channels)
@@ -502,11 +517,12 @@ SystemConfig SystemConfig::fromVar (const juce::var& v)
             ch.id = c.getProperty ("id", {}).toString();
             ch.label = c.getProperty ("label", {}).toString();
             ch.side = (Side) (int) c.getProperty ("side", 0);
-            ch.role = (DriverRole) (int) c.getProperty ("role", 1);
+            ch.role = (DriverRole) juce::jlimit (0, 4, (int) c.getProperty ("role", 1));
             ch.dspOutput = c.getProperty ("dspOutput", 0);
             // Legacy configs have no "kind": derive it from the role (fully active layouts).
             ch.kind = c.hasProperty ("kind") ? (ChannelKind) juce::jlimit (0, 3, (int) c.getProperty ("kind", 0))
                                              : OutputChannel::defaultKindFor (ch.role);
+            ch.normaliseKind();   // kind and role always agree, whatever the file said
             if (c.hasProperty ("passive"))
             {
                 const auto po = c["passive"];

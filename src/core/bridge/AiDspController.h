@@ -11,6 +11,7 @@
 #include "../ai/SafetyGuard.h"
 #include "../ai/WindowBackend.h"
 #include <memory>
+#include <mutex>
 #include <set>
 
 namespace fa
@@ -53,6 +54,7 @@ public:
         int maxHeals = 2;                                  // AI re-learns allowed per session
         int settleMs = 60;                                 // after each UI write, before read-back
         bool allowLearning = true;                         // false: never call the AI (replay only)
+        bool requireVerifiedMap = true;                    // applyChannel refuses a map that did not pass verify_channel for every output
     };
 
     struct Stats
@@ -66,9 +68,9 @@ public:
 
     juce::String getName() const override;
     bool isAutomatic() const override { return true; }
-    DspCapabilities getCapabilities() const override { return hasMap() ? profile.caps : opts.caps; }
+    DspCapabilities getCapabilities() const override { std::lock_guard<std::mutex> l (stateMutex); return ! profile.bindings.empty() ? profile.caps : opts.caps; }
     bool connect (juce::String& error) override;
-    bool isConnected() const override { return connected; }
+    bool isConnected() const override { return connected.load(); }
 
     bool applyChannel (const OutputChannel& channel, juce::String& error) override;
     bool setMuted (const OutputChannel& channel, bool muted, juce::String& error) override;
@@ -77,8 +79,14 @@ public:
     bool endBatch (juce::String& error) override;
 
     /** True when a learned map is loaded. */
-    bool hasMap() const { return ! profile.bindings.empty(); }
-    const DspProfile& getProfile() const noexcept { return profile; }
+    bool hasMap() const { std::lock_guard<std::mutex> l (stateMutex); return ! profile.bindings.empty(); }
+    /** Snapshot copy (the worker may be learning). */
+    DspProfile getProfile() const { std::lock_guard<std::mutex> l (stateMutex); return profile; }
+    /** True when the loaded/learned map passed verify_channel for every output. Legacy and unverified maps are false. */
+    bool isMapVerified() const;
+    /** Re-verifies a loaded map before a tune is pushed through it: every output is muted, then (tweeter: protected HP written and
+        read back first) unmuted alone while the app plays a test sound that must come from the expected driver. Blocking, worker thread. */
+    bool verifyMap (juce::String& error);
 
     /** Builds the LLM client for Options::provider (Claude with the key provider, or Ollama). */
     std::unique_ptr<LlmClient> makeLlmClient() const;
@@ -93,9 +101,9 @@ public:
     void kill (const juce::String& why = "Stopped by user");
     void resetSafety();
     SafetyGuard& getGuard() noexcept { return *guard; }
-    Stats getStats() const { return stats; }
+    Stats getStats() const { std::lock_guard<std::mutex> l (stateMutex); return stats; }
     /** Messages about values the guard changed during the last applyChannel. */
-    juce::StringArray getLastSafetyNotes() const { return lastNotes; }
+    juce::StringArray getLastSafetyNotes() const { std::lock_guard<std::mutex> l (stateMutex); return lastNotes; }
 
 private:
     enum class Write { ok, notBound, failed };
@@ -106,8 +114,12 @@ private:
     AiProfileStore store;
     DspProfile profile;
     juce::String windowTitle;
-    bool connected = false, batching = false;
+    std::atomic<bool> connected { false };
+    bool batching = false;
+    bool lastWriteVerified = false;                       // the last performBinding had a real read-back
+    bool selectConfirmed = true;                          // select-then-edit model: the channel selection was read back
     int selectedChannel = -1;
+    mutable std::mutex stateMutex;                        // guards stats, lastNotes and the profile (UI thread reads them)
     Stats stats;
     juce::StringArray lastNotes;
     std::map<int, OutputChannel> lastApplied;
@@ -116,6 +128,7 @@ private:
 
     void log (const juce::String& s) const { if (opts.agent.log != nullptr) opts.agent.log (s); }
     bool selectChannel (int channel, juce::String& error);
+    bool tweeterEditAllowed (int channel, juce::String& error) const;
     Write writeNumeric (const juce::String& key, int channel, int band, double value, bool allowMissingIfNeutral,
                         double neutral, juce::String& error);
     Write writeToggle (const juce::String& key, int channel, bool on, bool neutral, juce::String& error);
@@ -125,6 +138,7 @@ private:
     bool applyOnce (const OutputChannel& ch, juce::String& error);
     bool setMutedOnce (int output, bool muted, juce::String& error);
     bool tryHeal (juce::String& error);
+    template <typename F> void withStats (F&& f) { std::lock_guard<std::mutex> l (stateMutex); f (stats); }
     bool saveMap();
     bool loadMap();
 };

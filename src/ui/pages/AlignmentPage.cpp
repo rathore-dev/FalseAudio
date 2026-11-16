@@ -104,6 +104,7 @@ void AlignmentPage::pageShown()
 
 void AlignmentPage::sessionChanged()
 {
+    setEnabled (! session.isConfigLocked());   // no edits while Auto Tune runs
     refreshFromSession();
 }
 
@@ -119,7 +120,8 @@ void AlignmentPage::editConfig (std::function<void (SystemConfig&)> edit)
         return;
     auto cfg = session.getConfig();
     edit (cfg);
-    session.setConfig (cfg);
+    if (! session.setConfig (cfg))
+        toast (Session::configLockedMessage(), AppShell::ToastKind::warn);
 }
 
 std::map<juce::String, double> AlignmentPage::arrivals() const

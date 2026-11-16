@@ -110,4 +110,15 @@ EndpointVolume readCaptureEndpointVolume (const juce::String&) { EndpointVolume 
 bool setCaptureEndpointVolumeScalar (const juce::String&, double, juce::String& e) { e = "Windows only"; return false; }
 bool setCaptureEndpointVolumeDb (const juce::String&, double, juce::String& e) { e = "Windows only"; return false; }
 #endif
+
+EndpointVolume endpointVolumeForDevice (const juce::String& deviceName, const std::function<EndpointVolume (const juce::String&)>& reader)
+{
+    if (deviceName.trim().isEmpty())
+    {
+        EndpointVolume r;
+        r.error = "Input device unknown - Windows mic level not applied";
+        return r;
+    }
+    return reader ? reader (deviceName) : readCaptureEndpointVolume (deviceName);
+}
 } // namespace fa

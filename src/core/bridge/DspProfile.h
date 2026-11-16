@@ -48,8 +48,19 @@ struct DspProfile
     bool aiLearned = false;
     juce::String learnedAt;                  // ISO time
     juce::String notes;                      // free text: value formats, units, quirks
+    /** True only when every output this map drives passed verify_channel (a physical test sound came from the expected
+        driver). Legacy / unverified maps load as false and must be re-verified before a tune is pushed through them. */
+    bool verified = false;
+    std::vector<int> verifiedOutputs;        // 0-based DSP outputs confirmed by verify_channel
+    /** Explicit "select a channel, then edit one shared set of controls" model. Also implied by any channel.select@cN binding. */
+    bool selectThenEdit = false;
 
-    /** Most specific binding for a slot: key@cN@bM, key@cN, key@bM, key. */
+    /** True when this (AI-learned) profile edits one channel at a time through a channel.select control. */
+    bool selectsChannels() const;
+
+    /** Most specific binding for a slot: key@cN@bM, key@cN, key@bM, key.
+        AI-learned profiles do NOT fall back to a binding without an output number when a channel is asked for, unless the
+        profile declares the "select channel then edit" model (selectsChannels()): a generic control could be editing another output. */
     const ControlBinding* find (const juce::String& key, int channel = -1, int band = -1) const;
 
     static juce::String keyFor (const juce::String& key, int channel = -1, int band = -1);

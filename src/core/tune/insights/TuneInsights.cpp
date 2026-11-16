@@ -313,9 +313,10 @@ Insights compute (const AutoTuneEngine::Result& result, double sweepSeconds, dou
         const bool hasAfter = ! result.leftAfter.isEmpty() && ! result.targetDb.empty();
         if (hasAfter)
         {
-            const double tl = offsetFreeRms (in.bands, 40.0, 16000.0, [] (auto& r) { return r.leftAfterDb; }, [] (auto& r) { return r.targetDb; });
+            const double lowHz = cfg.scoredLowHz (40.0);
+            const double tl = offsetFreeRms (in.bands, lowHz, 16000.0, [] (auto& r) { return r.leftAfterDb; }, [] (auto& r) { return r.targetDb; });
             const double tr = result.rightAfter.isEmpty() ? tl
-                            : offsetFreeRms (in.bands, 40.0, 16000.0, [] (auto& r) { return r.rightAfterDb; }, [] (auto& r) { return r.targetDb; });
+                            : offsetFreeRms (in.bands, lowHz, 16000.0, [] (auto& r) { return r.rightAfterDb; }, [] (auto& r) { return r.targetDb; });
             in.tonalBalanceScore = juce::jlimit (0.0, 100.0, 100.0 - 12.0 * 0.5 * (tl + tr));
         }
 
@@ -339,6 +340,8 @@ Insights compute (const AutoTuneEngine::Result& result, double sweepSeconds, dou
     in.summary.add ("Tonal balance " + juce::String (juce::roundToInt (in.tonalBalanceScore)) + "/100, imaging "
                     + juce::String (juce::roundToInt (in.imagingScore)) + "/100, cleanliness "
                     + juce::String (juce::roundToInt (in.cleanlinessScore)) + "/100.");
+    if (! cfg.hasSubwoofer() && cfg.scoredLowHz (40.0) > 40.0)
+        in.summary.add ("Bass below " + hz (cfg.scoredLowHz (40.0)) + " isn't scored: no subwoofer.");
     if (! result.leftAfter.isEmpty())
         in.summary.add ("Left is within " + juce::String (result.leftErrorDb, 1) + " dB and right within "
                         + juce::String (result.rightErrorDb, 1) + " dB (RMS) of the target.");

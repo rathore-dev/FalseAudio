@@ -159,6 +159,7 @@ struct SystemConfig
     std::vector<OutputChannel*> channelsFor (Side side);
     std::vector<const OutputChannel*> channelsFor (Side side) const;
     bool hasSubwoofer() const;
+    double scoredLowHz (double floorHz) const;   // low edge of the scored band (see .cpp)
 
     /** True when a non-sub channel exists on the right side (otherwise there is nothing to match
         left to right: a single mono driver, or a one-sided test). */
