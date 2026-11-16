@@ -5,7 +5,7 @@ namespace fa
 {
 namespace
 {
-constexpr double kRefOffsetDb = 112.0;    // 94 dB SPL + 18 dB (UMIK-1 nominal -18 dBFS @ 94 dB SPL)
+constexpr double kRefOffsetDb = 124.0206; // 94 + 24 + 2 x 3.0103, see MicSelfTest.h
 
 double db10 (double p) { return 10.0 * std::log10 (std::max (p, 1e-20)); }
 
@@ -16,6 +16,8 @@ double rawA (double f)
          / ((f2 + 20.6 * 20.6) * std::sqrt ((f2 + 107.7 * 107.7) * (f2 + 737.9 * 737.9)) * (f2 + 12194.0 * 12194.0));
 }
 }
+
+double micSplOffsetDb (double sens, double endpointDb) { return kRefOffsetDb - sens - endpointDb; }
 
 double aWeightingDb (double hz)
 {
@@ -35,7 +37,7 @@ juce::String MicSelfTestReport::verdictName (Verdict v)
     }
 }
 
-MicSelfTestReport analyseMicRecording (const std::vector<float>& x, double sr, const MicCalibration* cal)
+MicSelfTestReport analyseMicRecording (const std::vector<float>& x, double sr, const MicCalibration* cal, const EndpointVolume* ep)
 {
     MicSelfTestReport r;
     r.sampleRate = sr;
@@ -67,7 +69,22 @@ MicSelfTestReport analyseMicRecording (const std::vector<float>& x, double sr, c
     const bool haveCurve = cal != nullptr && cal->isValid();
     r.absolute = haveCurve && cal->sensitivityDb != 0.0;
     r.sensFactorDb = r.absolute ? cal->sensitivityDb : 0.0;
-    const double offset = kRefOffsetDb - r.sensFactorDb;
+    if (ep != nullptr && ep->valid)
+    {
+        r.endpointKnown = true;
+        r.endpointDb = ep->levelDb;
+        r.endpointScalar = ep->scalar;
+    }
+    r.recommendedEndpointDb = kRecommendedEndpointDb;
+    const double offset = micSplOffsetDb (r.sensFactorDb, r.endpointDb);
+    r.fullScaleDbSpl = offset - 10.0 * std::log10 (2.0);
+    if (r.endpointKnown && std::abs (r.endpointDb - kRecommendedEndpointDb) > 0.6)
+    {
+        r.volumeWarning = true;
+        r.volumeMessage = "Windows mic level is " + juce::String (r.endpointDb, 1) + " dB (" + juce::String (juce::roundToInt (r.endpointScalar * 100.0))
+                        + "%), recommended " + juce::String (kRecommendedEndpointDb, 0) + " dB. Readings are corrected for it, but a higher level lowers headroom (full scale = "
+                        + juce::String (r.fullScaleDbSpl, 0) + " dB SPL). Use \"Set to recommended\" and do not change it between calibration and tuning.";
+    }
 
     // Welch power spectrum, Hann, 50% overlap, DC removed. Bin powers sum to the mean square.
     const int N = 32768;
@@ -227,7 +244,10 @@ juce::String MicSelfTestReport::toText() const
     s << "Peak / RMS     : " << juce::String (peakDbFS, 1) << " / " << juce::String (rmsDbFS, 1) << " dBFS\n";
     s << "Clipped samples: " << clippedSamples << "\n";
     s << "DC offset      : " << juce::String (dcOffset * 100.0, 4) << " % FS (" << juce::String (dcDbFS, 1) << " dBFS)\n";
-    s << "Calibrated     : " << (absolute ? "yes, sens " + juce::String (sensFactorDb, 3) + " dB (SPL = dBFS + 112 - sens)" : juce::String ("no")) << "\n";
+    s << "Calibrated     : " << (absolute ? "yes, sens " + juce::String (sensFactorDb, 3) + " dB (SPL = dBFS + 124.02 - sens - endpoint)" : juce::String ("no")) << "\n";
+    s << "Windows level  : " << (endpointKnown ? juce::String (endpointDb, 2) + " dB (" + juce::String (endpointScalar * 100.0, 0) + "%)" : juce::String ("unknown")) << "\n";
+    if (volumeWarning) s << "Level warning  : " << volumeMessage << "\n";
+    s << "Full scale     : " << juce::String (fullScaleDbSpl, 1) << " dB SPL (sine)\n";
     s << "Noise floor    : " << juce::String (levelZDbSpl, 1) << " dB SPL Z, " << juce::String (levelADbSpl, 1) << " dBA\n";
     s << "Hum            : " << (humDetected ? juce::String ((int) humFundamentalHz) + " Hz family, " + humDetail
                                               + ", " + juce::String (humDbSpl, 1) + " dB SPL" : juce::String ("none")) << "\n";

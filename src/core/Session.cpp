@@ -104,7 +104,13 @@ MicSelfTestReport Session::runMicSelfTest (double seconds, std::atomic<bool>& ca
         return r;
     }
     const auto cal = audio.getCalibration (0);
-    auto r = analyseMicRecording (x, sr, cal.isValid() ? &cal : nullptr);
+    juce::String devName = "umik";
+    if (auto* dev = audio.getDeviceManager().getCurrentAudioDevice())
+        devName = dev->getName();
+    auto ep = readCaptureEndpointVolume (devName);
+    if (! ep.valid && devName != "umik")
+        ep = readCaptureEndpointVolume ("umik");
+    auto r = analyseMicRecording (x, sr, cal.isValid() ? &cal : nullptr, ep.valid ? &ep : nullptr);
     if (wall > 0.0)
         r.measuredRate = (double) x.size() / wall;
     return r;

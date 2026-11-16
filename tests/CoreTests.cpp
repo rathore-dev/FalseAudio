@@ -617,6 +617,14 @@ static void testListeningTracks()
 int main()
 {
     juce::ScopedJuceInitialiser_GUI juceInit;
+    // FA_TEST_ONLY=<substring>: run only the registered tests whose name contains it (skips the legacy block).
+    const auto only = juce::SystemStats::getEnvironmentVariable ("FA_TEST_ONLY", {});
+    if (only.isNotEmpty())
+    {
+        for (auto& t : fa::test::registry())
+            if (juce::String (t.name).contains (only)) { std::cout << t.name << std::endl; t.fn(); }
+        return fa::test::failureCount() == 0 ? 0 : 1;
+    }
     testCrossoverSums();
     testSweepMeasurement();
     testArrivalEstimate();

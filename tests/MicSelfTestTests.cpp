@@ -3,6 +3,7 @@
 #include "TestRegistry.h"
 #include "core/measure/MicSelfTest.h"
 #include "core/audio/AudioEngine.h"
+#include "core/audio/EndpointVolume.h"
 #include <iostream>
 
 using namespace fa;
@@ -38,22 +39,45 @@ MicCalibration flatCal (double sens)
 
 FA_TEST (micSelfTestToneLevel)
 {
-    // 1 kHz tone, RMS -40 dBFS, sens -1.268 dB: SPL = -40 + 112 + 1.268 = 73.268 dB; A-weighted equals Z at 1 kHz.
+    // 1 kHz tone, RMS -40 dBFS, sens -1.268 dB: SPL = -40 + 124.0206 + 1.268 = 85.289 dB (REW convention); A-weighted equals Z at 1 kHz.
     auto x = tone (1000.0, 0.01, 48000.0, 5.0);
     const auto cal = flatCal (-1.268);
     const auto r = analyseMicRecording (x, 48000.0, &cal);
     fa::test::check (std::abs (r.rmsDbFS + 40.0) < 0.05, "RMS dBFS of a known tone", juce::String (r.rmsDbFS, 3));
     fa::test::check (r.absolute, "Calibration with sens factor gives absolute levels");
-    fa::test::check (std::abs (r.levelZDbSpl - 73.268) < 0.15, "Z level = dBFS + 112 - sens", juce::String (r.levelZDbSpl, 3));
-    fa::test::check (std::abs (r.levelADbSpl - 73.268) < 0.15, "A level at 1 kHz equals Z", juce::String (r.levelADbSpl, 3));
+    fa::test::check (std::abs (r.levelZDbSpl - 85.289) < 0.15, "Z level = dBFS + 124.02 - sens", juce::String (r.levelZDbSpl, 3));
+    fa::test::check (std::abs (r.levelADbSpl - 85.289) < 0.15, "A level at 1 kHz equals Z", juce::String (r.levelADbSpl, 3));
     fa::test::check (std::abs (r.peakDbFS + 37.0) < 0.1, "Peak of a sine is RMS + 3 dB", juce::String (r.peakDbFS, 2));
     fa::test::check (std::abs (r.dcOffset) < 1e-4 && r.clippedSamples == 0, "No DC, no clipping");
     // The 1/3-octave band holding the tone carries all of the power.
     double best = -999.0, centre = 0.0;
     for (size_t i = 0; i < r.bandDbSpl.size(); ++i)
         if (r.bandDbSpl[i] > best) { best = r.bandDbSpl[i]; centre = r.bandCentreHz[i]; }
-    fa::test::check (std::abs (centre - 1000.0) < 1.0 && std::abs (best - 73.268) < 0.15, "1/3-octave band at 1 kHz",
+    fa::test::check (std::abs (centre - 1000.0) < 1.0 && std::abs (best - 85.289) < 0.15, "1/3-octave band at 1 kHz",
                      juce::String (centre, 0) + " Hz " + juce::String (best, 2));
+}
+
+FA_TEST (micSelfTestMatchesRew)
+{
+    // REW 5.40, UMIK-1 serial 7165149, 90 deg file (sens -1.268), endpoint 0 dB: input-cal.dBFSAt94dBSPL = -28.2577,
+    // REW dBFS is sine-referenced (full-scale sine = 0 dBFS = -3.01 dB mean square).
+    // A 94 dB SPL tone therefore reads -28.2577 dBFS (sine) = -31.2680 dBFS RMS.
+    const double rewDbfsAt94 = -28.2577;
+    auto x = tone (1000.0, std::pow (10.0, (rewDbfsAt94 - 3.0103) / 20.0), 48000.0, 5.0);
+    const auto cal = flatCal (-1.268);
+    const auto r = analyseMicRecording (x, 48000.0, &cal);
+    fa::test::check (std::abs (r.levelZDbSpl - 94.0) < 0.1, "REW's 94 dB SPL reference tone reads 94 dB", juce::String (r.levelZDbSpl, 3));
+    // Windows endpoint volume +6 dB amplifies the signal; the same acoustic level must still read 94 dB.
+    EndpointVolume ep; ep.found = ep.valid = true; ep.levelDb = 6.0; ep.scalar = 0.7;
+    auto y = x;
+    for (auto& v : y) v *= 2.0f;   // +6.02 dB
+    const auto r2 = analyseMicRecording (y, 48000.0, &cal, &ep);
+    fa::test::check (std::abs (r2.levelZDbSpl - 94.0) < 0.1 + 0.02, "Endpoint volume is compensated", juce::String (r2.levelZDbSpl, 3));
+    fa::test::check (r2.volumeWarning && r2.volumeMessage.isNotEmpty() && r2.endpointKnown, "Level off the recommended value raises a warning");
+    EndpointVolume ep0; ep0.found = ep0.valid = true; ep0.levelDb = 0.0; ep0.scalar = 0.537;
+    const auto r3 = analyseMicRecording (x, 48000.0, &cal, &ep0);
+    fa::test::check (! r3.volumeWarning && r3.volumeMessage.isEmpty(), "Recommended level: no warning");
+    fa::test::check (std::abs (r3.fullScaleDbSpl - 122.29) < 0.05, "Full-scale sine headroom", juce::String (r3.fullScaleDbSpl, 2));
 }
 
 FA_TEST (micSelfTestCalibrationCurve)
@@ -64,7 +88,7 @@ FA_TEST (micSelfTestCalibrationCurve)
     cal.gainDb = { 6.0, 6.0, 6.0 };
     auto x = tone (1000.0, 0.01, 48000.0, 3.0);
     const auto r = analyseMicRecording (x, 48000.0, &cal);
-    fa::test::check (std::abs (r.levelZDbSpl - (-40.0 + 112.0 + 2.0 - 6.0)) < 0.15, "Calibration curve is removed",
+    fa::test::check (std::abs (r.levelZDbSpl - (-40.0 + 124.0206 + 2.0 - 6.0)) < 0.15, "Calibration curve is removed",
                      juce::String (r.levelZDbSpl, 2));
 }
 
@@ -137,12 +161,14 @@ FA_TEST (micSelfTestLiveUmik)
     auto& dm = engine.getDeviceManager();
 
     juce::String devName, typeName;
+    const auto envType = juce::SystemStats::getEnvironmentVariable ("FA_LIVE_TYPE", {});   // e.g. "Windows Audio (Exclusive Mode)"
+    const juce::String preferredType = envType.isNotEmpty() ? envType : juce::String ("Windows Audio");
     for (auto* type : dm.getAvailableDeviceTypes())
     {
         type->scanForDevices();
         for (auto& n : type->getDeviceNames (true))
             std::cout << "    [" << type->getTypeName() << "] input: " << n << "\n";
-        if (devName.isEmpty() && type->getTypeName() == "Windows Audio")
+        if (devName.isEmpty() && type->getTypeName() == preferredType)
             for (auto& n : type->getDeviceNames (true))
                 if (n.containsIgnoreCase ("umik"))
                     { devName = n; typeName = type->getTypeName(); }
@@ -185,9 +211,21 @@ FA_TEST (micSelfTestLiveUmik)
     if (! ok)
         return;
 
-    auto rep = analyseMicRecording (x, sr, &cal);
+    const auto ep = readCaptureEndpointVolume (devName);
+    std::cout << "    endpoint volume: " << ep.levelDb << " dB (scalar " << ep.scalar << ", valid " << ep.valid << ")" << std::endl;
+    auto rep = analyseMicRecording (x, sr, &cal, ep.valid ? &ep : nullptr);
     rep.measuredRate = (double) x.size() / wall;
     std::cout << rep.toText();
     fa::test::check (rep.verdict != MicSelfTestReport::Verdict::noData, "Self test produced a verdict",
                      MicSelfTestReport::verdictName (rep.verdict));
+}
+
+FA_TEST (endpointVolumeLiveUmik)
+{
+    if (juce::SystemStats::getEnvironmentVariable ("FA_LIVE_MIC", {}) != "1")
+        return;
+    const auto v = readCaptureEndpointVolume ("umik");
+    std::cout << "  [LIVE] endpoint '" << v.deviceName << "' level " << v.levelDb << " dB, scalar " << v.scalar
+              << ", range " << v.minDb << ".." << v.maxDb << " step " << v.stepDb << ", muted " << v.muted << " " << v.error << std::endl;
+    fa::test::check (v.valid, "Read UMIK endpoint volume", v.error);
 }

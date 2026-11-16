@@ -87,11 +87,11 @@ namespace
         return dbFromMag (p);
     }
 
-    /** UMIK convention: nominal -18 dBFS at 94 dB SPL, corrected by the file's "Sens Factor". */
+    /** Same convention as MicSelfTest (checked against REW with a UMIK-1): dBFS_rms + 124.02 - Sens Factor. */
     double splOffsetFor (const MicCalibration& cal, bool& absolute)
     {
         absolute = cal.isValid() && cal.sensitivityDb != 0.0;
-        return absolute ? 94.0 + 18.0 - cal.sensitivityDb : 0.0;
+        return absolute ? 124.0206 - cal.sensitivityDb : 0.0;
     }
 } // namespace
 
