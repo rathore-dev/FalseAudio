@@ -92,6 +92,24 @@ void Session::saveSettings()
     settings->saveIfNeeded();
 }
 
+MicSelfTestReport Session::runMicSelfTest (double seconds, std::atomic<bool>& cancelFlag)
+{
+    std::vector<float> x;
+    double sr = 0.0, wall = 0.0;
+    juce::String err;
+    if (! audio.recordInput (seconds, x, sr, cancelFlag, err, &wall))
+    {
+        MicSelfTestReport r;
+        r.message = err;
+        return r;
+    }
+    const auto cal = audio.getCalibration (0);
+    auto r = analyseMicRecording (x, sr, cal.isValid() ? &cal : nullptr);
+    if (wall > 0.0)
+        r.measuredRate = (double) x.size() / wall;
+    return r;
+}
+
 //==============================================================================
 void Session::setMode (Mode m)
 {

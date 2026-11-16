@@ -3,6 +3,7 @@
 #include <juce_audio_devices/juce_audio_devices.h>
 #include "MeasurementSource.h"
 #include "../measure/Calibration.h"
+#include "../tune/MethodologyStages.h"
 
 namespace fa
 {
@@ -32,6 +33,7 @@ struct GeneratorSettings
 };
 
 class AudioEngine : public MeasurementSource,
+                    public method::NoiseProbe,
                     private juce::AudioIODeviceCallback
 {
 public:
@@ -58,6 +60,20 @@ public:
     std::vector<Measurement> measureSweep (const SweepRequest& request,
                                            std::atomic<bool>& cancelFlag,
                                            juce::String& error) override;
+
+    /** Records `seconds` from the first selected mic input with every output silent (no stimulus,
+        generator and playback are bypassed while it runs). `wallSeconds` (optional) receives the
+        elapsed wall-clock time, so the delivered sample rate can be verified. */
+    bool recordInput (double seconds, std::vector<float>& samples, double& sampleRate,
+                      std::atomic<bool>& cancelFlag, juce::String& error, double* wallSeconds = nullptr);
+
+    // method::NoiseProbe: the tuning engine's noise-stage silence recording (1.5 s of the mic input).
+    bool recordSilence (std::vector<float>& samples, double& sampleRate, std::atomic<bool>& cancelFlag,
+                        juce::String& error) override;
+
+    /** Opens `deviceName` (of the current device type) for INPUT ONLY: no output device or channels
+        are opened, so nothing can ever be played. Returns an error string, empty on success. */
+    juce::String openInputOnly (const juce::String& deviceName, double sampleRate = 0.0);
 
     // Generator (for RTA / listening checks)
     void setGenerator (const GeneratorSettings& g);

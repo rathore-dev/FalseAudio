@@ -146,6 +146,94 @@ juce::StringArray AudioEngine::getOutputChannelNames() const
 }
 
 //==============================================================================
+bool AudioEngine::recordInput (double seconds, std::vector<float>& samples, double& sampleRateOut,
+                               std::atomic<bool>& cancelFlag, juce::String& error, double* wallSeconds)
+{
+    samples.clear();
+    if (cancelFlag.load())
+    {
+        error = "Cancelled.";
+        return false;
+    }
+    if (deviceManager.getCurrentAudioDevice() == nullptr)
+    {
+        error = "No audio device is open.";
+        return false;
+    }
+    const auto r = getRouting();
+    if (r.micInputs.empty() || r.micInputs.front() < 0 || r.micInputs.front() >= numIns)
+    {
+        error = "No active microphone input selected.";
+        return false;
+    }
+    if (activeCapture.load() != nullptr)
+    {
+        error = "A measurement is already running.";
+        return false;
+    }
+
+    auto cap = std::make_unique<Capture>();       // empty stimulus, no outputs: pure silence out
+    cap->inputs = { r.micInputs.front() };
+    const int total = std::max (1, (int) (seconds * sampleRate));
+    cap->recorded.assign (1, std::vector<float> ((size_t) total, 0.0f));
+    activeCapture.store (cap.get());
+
+    const auto timeoutMs = (juce::uint32) (1000.0 * total / sampleRate) + 3000;
+    const auto start = juce::Time::getMillisecondCounter();
+    const double t0 = juce::Time::getMillisecondCounterHiRes();
+    while (cap->position.load() < total)
+    {
+        if (cancelFlag.load())
+        {
+            error = "Cancelled.";
+            break;
+        }
+        if (juce::Time::getMillisecondCounter() - start > timeoutMs)
+        {
+            error = "The audio device stopped delivering audio.";
+            break;
+        }
+        juce::Thread::sleep (10);
+    }
+    const double t1 = juce::Time::getMillisecondCounterHiRes();
+    activeCapture.store (nullptr);
+    waitForCallbackToFinish();
+
+    if (error.isNotEmpty())
+        return false;
+    if (wallSeconds != nullptr)
+        *wallSeconds = (t1 - t0) / 1000.0;
+    sampleRateOut = sampleRate;
+    samples = std::move (cap->recorded.front());
+    return true;
+}
+
+bool AudioEngine::recordSilence (std::vector<float>& samples, double& sampleRateOut,
+                                 std::atomic<bool>& cancelFlag, juce::String& error)
+{
+    return recordInput (1.5, samples, sampleRateOut, cancelFlag, error);
+}
+
+juce::String AudioEngine::openInputOnly (const juce::String& deviceName, double rate)
+{
+    juce::AudioDeviceManager::AudioDeviceSetup setup;
+    deviceManager.getAudioDeviceSetup (setup);
+    setup.inputDeviceName = deviceName;
+    setup.outputDeviceName = {};
+    setup.useDefaultInputChannels = false;
+    setup.inputChannels.clear();
+    setup.inputChannels.setRange (0, 2, true);   // JUCE keeps only the channels the device has
+    setup.useDefaultOutputChannels = false;
+    setup.outputChannels.clear();
+    setup.sampleRate = rate;                      // 0 = device default
+    setup.bufferSize = 0;
+    deviceManager.removeAudioCallback (this);
+    auto err = deviceManager.setAudioDeviceSetup (setup, true);
+    deviceManager.addAudioCallback (this);
+    return err;
+}
+
+//==============================================================================
 std::vector<Measurement> AudioEngine::measureSweep (const SweepRequest& request,
                                                     std::atomic<bool>& cancelFlag,
                                                     juce::String& error)

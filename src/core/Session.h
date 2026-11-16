@@ -2,6 +2,7 @@
 
 #include <juce_data_structures/juce_data_structures.h>
 #include "audio/AudioEngine.h"
+#include "measure/MicSelfTest.h"
 #include "audio/ListeningTracks.h"
 #include <optional>
 #include "audio/LiveAnalyzer.h"
@@ -53,6 +54,10 @@ public:
     void setRouting (const AudioRouting& r);
     bool loadCalibration (int micIndex, const juce::File& file, juce::String& error);
     MicCalibration getCalibration (int micIndex) const { return audio.getCalibration (micIndex); }
+
+    /** Input-only mic check (nothing is played): records `seconds` from mic 1 and analyses it with
+        its calibration. Blocking - call from a worker thread. On failure the verdict is noData. */
+    MicSelfTestReport runMicSelfTest (double seconds, std::atomic<bool>& cancelFlag);
 
     // ---- DSP --------------------------------------------------------------
     DspKind getDspKind() const noexcept { return mode == Mode::demo ? DspKind::virtualDemo : liveDspKind; }
