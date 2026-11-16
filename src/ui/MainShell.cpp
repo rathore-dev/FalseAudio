@@ -82,6 +82,7 @@ MainShell::MainShell (Session& s)
 
     showPage (PageId::autoTune);
 
+#if FA_QA_HOOKS
     {
         auto args = JUCEApplication::getCommandLineParameterArray();
         const int i = args.indexOf ("--qa-script");
@@ -91,6 +92,7 @@ MainShell::MainShell (Session& s)
             startTimer (50);
         }
     }
+#endif
 }
 
 MainShell::~MainShell()
@@ -301,6 +303,7 @@ void MainShell::autoTuneFinished (const AutoTuneEngine::Result& r)
         toast ("Auto Tune stopped: " + r.error, ToastKind::bad);
 }
 
+#if FA_QA_HOOKS
 // ---- DEV-ONLY QA automation -------------------------------------------------------
 Component* MainShell::findQa (Component& root, const String& key)
 {
@@ -346,6 +349,17 @@ bool MainShell::runQaLine (const String& raw)
         Logger::writeToLog ("QA: click target not found: " + arg);
         return true;
     }
+    if (cmd == "type" || cmd == "segment")      // type <componentId> <text> | segment <componentId> <index>
+    {
+        const auto id = arg.upToFirstOccurrenceOf (" ", false, false);
+        const auto rest = arg.fromFirstOccurrenceOf (" ", false, false).trim();
+        auto* c = findQa (*this, id);
+        if (auto* te = dynamic_cast<TextEditor*> (c)) te->setText (rest, true);
+        else if (auto* sc = dynamic_cast<SegmentedControl*> (c)) sc->setSelected (rest.getIntValue(), sendNotification);
+        else if (auto* cb = dynamic_cast<ComboBox*> (c)) cb->setSelectedId (rest.getIntValue(), sendNotification);
+        else Logger::writeToLog ("QA: " + cmd + " target not found: " + id);
+        return true;
+    }
     if (cmd == "scroll")
     {
         std::function<Viewport* (Component&)> findVp = [&] (Component& r) -> Viewport*
@@ -389,6 +403,9 @@ bool MainShell::runQaLine (const String& raw)
     return true;
 }
 
+#endif
+
+#if FA_QA_HOOKS
 void MainShell::timerCallback()
 {
     if (qaWaitMs > 0) { qaWaitMs -= getTimerInterval(); return; }
@@ -398,4 +415,7 @@ void MainShell::timerCallback()
     if (qaIndex >= qaLines.size())
         stopTimer();
 }
+#else
+void MainShell::timerCallback() { stopTimer(); }
+#endif
 } // namespace fa::ui

@@ -8,7 +8,16 @@ namespace fa
 enum class DriverRole { subwoofer, midbass, midrange, tweeter, fullrange };
 enum class Side       { left, right, mono };
 
+/** How an output channel is wired to its speaker(s).
+      activeDriver  one driver per DSP output (the classic fully active layout)
+      passiveSet    woofer + tweeter behind a passive crossover on ONE output (component set or coax):
+                    the DSP can only shape the whole set (HP, delay, level, polarity, PEQ)
+      fullRange     one full-range driver on the output (pair, or a single mono driver in a test box)
+      sub           subwoofer output */
+enum class ChannelKind { activeDriver, passiveSet, fullRange, sub };
+
 juce::String toString (DriverRole r);
+juce::String toString (ChannelKind k);
 juce::String toString (Side s);
 
 /** What we know about a physical driver. Everything is optional; sensible defaults are
@@ -22,6 +31,16 @@ struct DriverInfo
     double xmaxMm      = 0.0;
 
     double effectiveDiameterM (DriverRole role) const;
+};
+
+/** What we know about the passive network of a passiveSet channel (all optional). */
+struct PassiveSetInfo
+{
+    double crossoverHz = 0.0;     // 0 = unknown
+    int    slopeDbPerOct = 12;
+    bool   coaxial = false;       // tweeter mounted in front of the woofer (no big offset)
+    juce::String tweeterModel;
+    double tweeterSizeInches = 1.0;
 };
 
 /** Settings that live in the DSP for one output channel. */
@@ -50,11 +69,22 @@ struct OutputChannel
     Side         side = Side::left;
     DriverRole   role = DriverRole::midbass;
     int          dspOutput = 0; // 0-based output index on the DSP
-    DriverInfo   driver;
+    DriverInfo   driver;        // for a passiveSet: the woofer
     ChannelSettings settings;
+    ChannelKind  kind = ChannelKind::activeDriver;
+    PassiveSetInfo passive;     // only meaningful when kind == passiveSet
+
+    bool isPassiveSet() const { return kind == ChannelKind::passiveSet; }
+    /** True when one output carries more than one driver (or one driver over its whole range):
+        no crossover between channels exists to tune, and the DSP cannot touch what is inside. */
+    bool coversWholeBand() const { return kind == ChannelKind::passiveSet || role == DriverRole::fullrange; }
+
+    /** Keeps kind and role consistent (call after editing either). */
+    void normaliseKind();
+    static ChannelKind defaultKindFor (DriverRole r);
 
     bool hasHighPass() const { return role != DriverRole::subwoofer; }
-    bool hasLowPass()  const { return role != DriverRole::tweeter && role != DriverRole::fullrange; }
+    bool hasLowPass()  const { return (role != DriverRole::tweeter && role != DriverRole::fullrange) || isPassiveSet(); }
 };
 
 /** What the target DSP can do; the optimiser quantises its results to these limits. */
@@ -129,6 +159,21 @@ struct SystemConfig
     std::vector<OutputChannel*> channelsFor (Side side);
     std::vector<const OutputChannel*> channelsFor (Side side) const;
     bool hasSubwoofer() const;
+
+    /** True when a non-sub channel exists on the right side (otherwise there is nothing to match
+        left to right: a single mono driver, or a one-sided test). */
+    bool isStereo() const;
+    bool hasPassiveSets() const;
+    /** True when the channel belongs to a side's front chain (a mono non-sub driver counts as left). */
+    static bool inFrontChain (const OutputChannel& c, Side side)
+    {
+        return c.role != DriverRole::subwoofer && (c.side == side || (c.side == Side::mono && side == Side::left));
+    }
+
+    /** Ready-made topologies (SystemPage presets). */
+    enum class Preset { active3WaySub, active2WaySub, passive2WaySub, passiveFront, fullRangePair, singleDriver };
+    static SystemConfig makePreset (Preset p);
+    static juce::String presetName (Preset p);
 
     /** Ready-made layouts: ways = 2, 3 or 4 per side, optional sub (mono or stereo). */
     static SystemConfig makeLayout (int waysPerSide, bool withSub, bool stereoSub = false);

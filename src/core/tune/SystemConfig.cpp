@@ -26,6 +26,42 @@ juce::String toString (Side s)
     return {};
 }
 
+juce::String toString (ChannelKind k)
+{
+    switch (k)
+    {
+        case ChannelKind::activeDriver: return "Active driver";
+        case ChannelKind::passiveSet:   return "Passive set";
+        case ChannelKind::fullRange:    return "Full range";
+        case ChannelKind::sub:          return "Subwoofer";
+    }
+    return {};
+}
+
+ChannelKind OutputChannel::defaultKindFor (DriverRole r)
+{
+    if (r == DriverRole::subwoofer) return ChannelKind::sub;
+    if (r == DriverRole::fullrange) return ChannelKind::fullRange;
+    return ChannelKind::activeDriver;
+}
+
+void OutputChannel::normaliseKind()
+{
+    switch (kind)
+    {
+        case ChannelKind::passiveSet:
+            if (role == DriverRole::subwoofer || role == DriverRole::tweeter || role == DriverRole::fullrange)
+                role = DriverRole::midbass;   // the woofer carries the set
+            break;
+        case ChannelKind::fullRange:    role = DriverRole::fullrange; break;
+        case ChannelKind::sub:          role = DriverRole::subwoofer; break;
+        case ChannelKind::activeDriver:
+            if (role == DriverRole::subwoofer || role == DriverRole::fullrange)
+                kind = defaultKindFor (role);
+            break;
+    }
+}
+
 double DriverInfo::effectiveDiameterM (DriverRole role) const
 {
     double inches = sizeInches;
@@ -253,6 +289,91 @@ bool SystemConfig::hasSubwoofer() const
     return false;
 }
 
+bool SystemConfig::isStereo() const
+{
+    for (auto& c : channels)
+        if (c.side == Side::right && c.role != DriverRole::subwoofer)
+            return true;
+    return false;
+}
+
+bool SystemConfig::hasPassiveSets() const
+{
+    for (auto& c : channels)
+        if (c.isPassiveSet())
+            return true;
+    return false;
+}
+
+juce::String SystemConfig::presetName (Preset p)
+{
+    switch (p)
+    {
+        case Preset::active3WaySub:  return "Active 3-way + sub";
+        case Preset::active2WaySub:  return "Active 2-way + sub";
+        case Preset::passive2WaySub: return "Passive 2-way front + sub";
+        case Preset::passiveFront:   return "Passive front only";
+        case Preset::fullRangePair:  return "Full-range pair";
+        case Preset::singleDriver:   return "Single driver (test box)";
+    }
+    return {};
+}
+
+SystemConfig SystemConfig::makePreset (Preset p)
+{
+    SystemConfig cfg;
+    switch (p)
+    {
+        case Preset::active3WaySub:  cfg = makeLayout (3, true); break;
+        case Preset::active2WaySub:  cfg = makeLayout (2, true); break;
+        case Preset::passive2WaySub:
+        case Preset::passiveFront:
+        {
+            int out = 0;
+            for (auto side : { Side::left, Side::right })
+            {
+                OutputChannel ch;
+                ch.side = side;
+                ch.role = DriverRole::midbass;
+                ch.kind = ChannelKind::passiveSet;
+                ch.dspOutput = out++;
+                ch.id = side == Side::left ? "FL.set" : "FR.set";
+                ch.label = side == Side::left ? "Left Component Set" : "Right Component Set";
+                ch.driver.sizeInches = 6.5;
+                cfg.channels.push_back (ch);
+            }
+            if (p == Preset::passive2WaySub)
+            {
+                OutputChannel sub;
+                sub.side = Side::mono;
+                sub.role = DriverRole::subwoofer;
+                sub.kind = ChannelKind::sub;
+                sub.dspOutput = out++;
+                sub.id = "SUB";
+                sub.label = "Subwoofer";
+                cfg.channels.push_back (sub);
+            }
+            break;
+        }
+        case Preset::fullRangePair:  cfg = makeLayout (1, false); break;
+        case Preset::singleDriver:
+        {
+            OutputChannel ch;
+            ch.side = Side::mono;
+            ch.role = DriverRole::fullrange;
+            ch.kind = ChannelKind::fullRange;
+            ch.dspOutput = 0;
+            ch.id = "DRV";
+            ch.label = "Driver";
+            ch.driver.sizeInches = 5.25;
+            cfg.channels.push_back (ch);
+            break;
+        }
+    }
+    cfg.name = presetName (p);
+    return cfg;
+}
+
 SystemConfig SystemConfig::makeLayout (int ways, bool withSub, bool stereoSub)
 {
     SystemConfig cfg;
@@ -287,6 +408,7 @@ SystemConfig SystemConfig::makeLayout (int ways, bool withSub, bool stereoSub)
                 ch.driver.sizeInches = 8.0;
                 roleName = "kick";
             }
+            ch.kind = OutputChannel::defaultKindFor (ch.role);
             ch.id = prefix + "." + roleName;
             ch.label = (side == Side::left ? "Left " : "Right ") + (ways == 4 && i == 0 ? juce::String ("Kick") : toString (ch.role));
             cfg.channels.push_back (ch);
@@ -303,6 +425,7 @@ SystemConfig SystemConfig::makeLayout (int ways, bool withSub, bool stereoSub)
                 ch.side = side;
                 ch.role = DriverRole::subwoofer;
                 ch.dspOutput = out++;
+                ch.kind = ChannelKind::sub;
                 ch.id = side == Side::left ? "SUB.L" : "SUB.R";
                 ch.label = side == Side::left ? "Subwoofer L" : "Subwoofer R";
                 cfg.channels.push_back (ch);
@@ -314,6 +437,7 @@ SystemConfig SystemConfig::makeLayout (int ways, bool withSub, bool stereoSub)
             ch.side = Side::mono;
             ch.role = DriverRole::subwoofer;
             ch.dspOutput = out++;
+            ch.kind = ChannelKind::sub;
             ch.id = "SUB";
             ch.label = "Subwoofer";
             cfg.channels.push_back (ch);
@@ -339,6 +463,17 @@ juce::var SystemConfig::toVar() const
         co->setProperty ("side", (int) c.side);
         co->setProperty ("role", (int) c.role);
         co->setProperty ("dspOutput", c.dspOutput);
+        co->setProperty ("kind", (int) c.kind);
+        if (c.isPassiveSet())
+        {
+            auto* po = new juce::DynamicObject();
+            po->setProperty ("xover", c.passive.crossoverHz);
+            po->setProperty ("slope", c.passive.slopeDbPerOct);
+            po->setProperty ("coax", c.passive.coaxial);
+            po->setProperty ("tweeterModel", c.passive.tweeterModel);
+            po->setProperty ("tweeterSize", c.passive.tweeterSizeInches);
+            co->setProperty ("passive", juce::var (po));
+        }
         co->setProperty ("model", c.driver.model);
         co->setProperty ("size", c.driver.sizeInches);
         co->setProperty ("fs", c.driver.fsHz);
@@ -369,6 +504,18 @@ SystemConfig SystemConfig::fromVar (const juce::var& v)
             ch.side = (Side) (int) c.getProperty ("side", 0);
             ch.role = (DriverRole) (int) c.getProperty ("role", 1);
             ch.dspOutput = c.getProperty ("dspOutput", 0);
+            // Legacy configs have no "kind": derive it from the role (fully active layouts).
+            ch.kind = c.hasProperty ("kind") ? (ChannelKind) juce::jlimit (0, 3, (int) c.getProperty ("kind", 0))
+                                             : OutputChannel::defaultKindFor (ch.role);
+            if (c.hasProperty ("passive"))
+            {
+                const auto po = c["passive"];
+                ch.passive.crossoverHz = po.getProperty ("xover", 0.0);
+                ch.passive.slopeDbPerOct = po.getProperty ("slope", 12);
+                ch.passive.coaxial = po.getProperty ("coax", false);
+                ch.passive.tweeterModel = po.getProperty ("tweeterModel", {}).toString();
+                ch.passive.tweeterSizeInches = po.getProperty ("tweeterSize", 1.0);
+            }
             ch.driver.model = c.getProperty ("model", {}).toString();
             ch.driver.sizeInches = c.getProperty ("size", 0.0);
             ch.driver.fsHz = c.getProperty ("fs", 0.0);

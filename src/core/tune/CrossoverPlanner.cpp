@@ -1,4 +1,5 @@
 #include "CrossoverPlanner.h"
+#include "../bridge/SafetyRules.h"
 
 namespace fa
 {
@@ -23,7 +24,7 @@ namespace
     {
         std::vector<const OutputChannel*> v;
         for (auto& c : cfg.channels)
-            if (c.side == side && c.role != DriverRole::subwoofer)
+            if (SystemConfig::inFrontChain (c, side))
                 v.push_back (&c);
         std::stable_sort (v.begin(), v.end(), [] (auto* a, auto* b) { return roleRank (*a) < roleRank (*b); });
         return v;
@@ -61,12 +62,43 @@ double CrossoverPlanner::dispersionLimitHz (const OutputChannel& ch)
     return 1.5 * speedOfSound / (2.0 * pi * radius);
 }
 
+double CrossoverPlanner::usableHighPassHz (const OutputChannel& ch)
+{
+    const auto& d = ch.driver;
+    const bool full = ch.role == DriverRole::fullrange;
+
+    // Size-based guess when Fs is unknown (what a typical driver of that size can play cleanly).
+    auto bySize = [&]
+    {
+        const double in = d.sizeInches > 0.0 ? d.sizeInches : (full ? 4.0 : 6.5);
+        if (in <= 3.5) return 160.0;
+        if (in <= 4.5) return 120.0;
+        if (in <= 5.5) return 95.0;
+        if (in <= 6.75) return 75.0;
+        return 55.0;
+    };
+
+    if (d.fsHz > 0.0)
+    {
+        // Excursion-limited: small Xmax needs the HP well above Fs, a long-throw driver can go close.
+        double factor = full ? 1.25 : 1.3;
+        if (d.xmaxMm > 0.0)
+            factor = d.xmaxMm < 4.0 ? 2.0 : d.xmaxMm < 6.0 ? 1.6 : d.xmaxMm < 9.0 ? 1.35 : factor;
+        return std::max (full ? 40.0 : 45.0, d.fsHz * factor);
+    }
+    return full ? bySize() : std::max (45.0, bySize() * 0.9);
+}
+
 double CrossoverPlanner::safeHighPassHz (const OutputChannel& ch, const SafetyLimits& s)
 {
+    if (ch.coversWholeBand())
+        return usableHighPassHz (ch);
+
     const double fs = ch.driver.fsHz;
     switch (ch.role)
     {
-        case DriverRole::tweeter:   return fs > 0 ? fs * s.tweeterMinHpFactor : s.minTweeterHpHz;
+        case DriverRole::tweeter:   return fs > 0 ? std::max (safety::minTweeterHpHz (fs), fs * s.tweeterMinHpFactor)
+                                                  : std::max (safety::minTweeterHpHz (fs), s.minTweeterHpHz);
         case DriverRole::midrange:  return std::max (s.minMidrangeHpHz, fs * 1.2);
         case DriverRole::midbass:   return std::max (s.minMidbassHpHz, fs);
         case DriverRole::fullrange: return std::max (s.minMidrangeHpHz * 0.4, fs * 1.2);
@@ -110,8 +142,15 @@ std::vector<CrossoverPlanner::Decision> CrossoverPlanner::planDefaults (const Sy
                 if (ch.role == DriverRole::midbass && ch.driver.sizeInches >= 8.0 && hasSub)
                     d.hpHz = 60.0;
                 d.hpHz = std::max (d.hpHz, safeHighPassHz (ch, cfg.safety));
-                d.reasons.add (hasSub ? "Lowest front way: 80 Hz HP lets the sub carry deep bass (process rule)."
-                                      : "No sub: HP set just above the driver's safe limit.");
+                if (ch.isPassiveSet())
+                    d.reasons.add ("Passive set: the woofer/tweeter crossover is inside the speaker, so only an HP to protect the woofer ("
+                                   + juce::String (juce::roundToInt (d.hpHz)) + " Hz) is set; no crossover, tweeter delay or per-driver level.");
+                else if (ch.role == DriverRole::fullrange)
+                    d.reasons.add ("Full-range driver: HP " + juce::String (juce::roundToInt (d.hpHz))
+                                   + " Hz from its usable range (Fs/excursion); no crossover to set.");
+                else
+                    d.reasons.add (hasSub ? "Lowest front way: 80 Hz HP lets the sub carry deep bass (process rule)."
+                                          : "No sub: HP set just above the driver's safe limit.");
             }
             else
             {

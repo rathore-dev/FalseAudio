@@ -18,17 +18,20 @@ namespace
                            "so you can learn the whole workflow without hardware. Nothing to connect.";
             case 1: return "Works with every DSP ever made. FalseAudio measures and computes the tune, then shows each change as "
                            "a checklist - you type the values into your DSP software and press Done.";
+            case 4: return "Recommended for any DSP: Claude looks at your DSP software window, learns where every output's gain, delay, polarity, "
+                           "crossover, EQ and mute controls are, then types the computed tune in and verifies each write. The learned map is saved, "
+                           "so later runs need no AI. Uses your own Anthropic API key; safety limits are enforced in code.";
             case 3: return "Recommended when your DSP is supported: FalseAudio talks to it over USB directly - no vendor software, "
                            "no clicking, every value lands exactly. Supported: miniDSP units (2x4 HD, C-DSP 8x12, DDRC, Flex, SHD...) "
                            "and the Dayton Audio DSP-408. A backup of the DSP is saved before the first write.";
-            default: return "FalseAudio drives your DSP vendor software itself through Windows UI Automation, using a profile you "
+            default: return "Advanced fallback: FalseAudio drives your DSP vendor software itself through Windows UI Automation, using a profile you "
                             "teach once per DSP model. Attach the software below, pick or teach a profile, then allow control.";
         }
     }
 }
 
 DspPage::DspPage (Session& s)
-    : Page (s), nativePanel (s), manualPanel (s), exportPanel (s), wizard (s, host)
+    : Page (s), nativePanel (s), manualPanel (s), aiOperator (dsp::createDemoAiOperator()), exportPanel (s), wizard (s, host)
 {
     // ---- direct USB card
     addChildComponent (nativeCard);
@@ -41,13 +44,18 @@ DspPage::DspPage (Session& s)
     // ---- mode card
     addAndMakeVisible (modeCard);
     modeCard.addAndMakeVisible (modeControl);
-    modeControl.onChange = [this] (int i) { userChoseMode (i); };
+    modeControl.onChange = [this] (int i) { userChoseMode (modeForSegment (i)); };
+    modeControl.setComponentID ("dsp.mode");
     explanation.setFont (theme::font (13.0f));
     explanation.setColour (juce::Label::textColourId, theme::textDim);
     explanation.setJustificationType (juce::Justification::topLeft);
     explanation.setBorderSize ({ 0, 0, 0, 0 });
     explanation.setMinimumHorizontalScale (1.0f);
     modeCard.addAndMakeVisible (explanation);
+    sendBtn.setComponentID ("dsp.send");
+    sendBtn.setTooltip ("Push the whole current tune (every channel) to the DSP. Manual DSPs get a step list to copy.");
+    sendBtn.onClick = [this] { sendConfigToDsp (session, shell); };
+    modeCard.addAndMakeVisible (sendBtn);
     for (auto* c : { &modeChip, &dspChip, &attachChip, &consentChip })
         modeCard.addAndMakeVisible (c);
     consentChip.onClick = [this]
@@ -105,6 +113,10 @@ DspPage::DspPage (Session& s)
     sideCard.addChildComponent (manualPanel);
     manualPanel.toast = [this] (const juce::String& m, AppShell::ToastKind k) { notify (m, k); };
 
+    sideCard.addChildComponent (aiPanel);
+    aiPanel.toast = [this] (const juce::String& m, AppShell::ToastKind k) { notify (m, k); };
+    aiPanel.setFacade (aiOperator.get());
+
     sideCard.addChildComponent (profilePicker);
     profilePicker.toast = [this] (const juce::String& m, AppShell::ToastKind k) { notify (m, k); };
     profilePicker.onUse = [this] (const DspProfile& p, const juce::File& f) { requestControl (p, f); };
@@ -130,7 +142,7 @@ DspPage::DspPage (Session& s)
     };
 
     // restore
-    uiMode = juce::jlimit (0, 3, settings.get (kUiModeKey, "0").getIntValue());
+    uiMode = juce::jlimit (0, 4, settings.get (kUiModeKey, juce::String (modeAi)).getIntValue());
     syncModeFromSession();
     const auto lastProfile = juce::File (settings.get (kLastProfileKey));
     if (lastProfile.existsAsFile())
@@ -143,6 +155,7 @@ DspPage::DspPage (Session& s)
         }
     }
 
+    updateAiTarget();
     refreshChips();
     updateSidePanel();
     startTimer (500);
@@ -151,6 +164,7 @@ DspPage::DspPage (Session& s)
 DspPage::~DspPage()
 {
     stopTimer();
+    aiPanel.stopNow();
     wizard.stop();
     host.onStateChanged = nullptr;
     host.detach();
@@ -174,6 +188,7 @@ void DspPage::pageShown()
 
 void DspPage::pageHidden()
 {
+    aiPanel.stopNow();   // never keep operating the DSP while the user is on another page
     // The foreign HWND is a child of our top-level window: make sure it hides with the page.
     if (teaching)
         wizard.stop();
@@ -222,6 +237,7 @@ void DspPage::timerCallback()
 void DspPage::sessionChanged()
 {
     syncModeFromSession();
+    updateAiTarget();
     manualPanel.refresh();
     nativePanel.refresh();          // picks up warnings / mapping report after a tune
     refreshChips();
@@ -414,6 +430,8 @@ void DspPage::userChoseMode (int index)
         return;
     }
 
+    if (index != modeAi)
+        aiPanel.stopNow();
     uiMode = index;
     settings.set (kUiModeKey, juce::String (index));
 
@@ -437,6 +455,11 @@ void DspPage::userChoseMode (int index)
             else if (session.getDspKind() != Session::DspKind::uiAutomation && ! controlAllowed)
                 notify (host.isAttached() ? "Pick a profile and press Allow control." : "Attach your DSP software, then pick or teach a profile.");
             break;
+        case modeAi:
+            if (teaching) stopTeaching();
+            if (isNativeKind())
+                session.useManualDsp();
+            break;
         case modeNative:
             if (teaching) stopTeaching();
             session.setMode (Session::Mode::live);
@@ -457,13 +480,57 @@ void DspPage::syncModeFromSession()
 {
     switch (session.getDspKind())
     {
-        case Session::DspKind::virtualDemo:  uiMode = modeVirtual; break;
+        case Session::DspKind::virtualDemo:  if (uiMode != modeAi) uiMode = modeVirtual; break;
         case Session::DspKind::uiAutomation: uiMode = modeAutomatic; break;
         case Session::DspKind::nativeMiniDsp:
         case Session::DspKind::nativeDsp408: uiMode = modeNative; break;
         case Session::DspKind::manual:       if (uiMode == modeVirtual) uiMode = modeManual; break;
     }
-    modeControl.setSelected (uiMode, juce::dontSendNotification);
+    modeControl.setSelected (segmentFor (uiMode), juce::dontSendNotification);
+}
+
+int DspPage::segmentFor (int mode)
+{
+    static const int order[] = { modeAi, modeVirtual, modeManual, modeNative, modeAutomatic };
+    for (int i = 0; i < 5; ++i) if (order[i] == mode) return i;
+    return 0;
+}
+
+int DspPage::modeForSegment (int segment)
+{
+    static const int order[] = { modeAi, modeVirtual, modeManual, modeNative, modeAutomatic };
+    return order[juce::jlimit (0, 4, segment)];
+}
+
+void DspPage::ensureAiOperatorKind()
+{
+    // Live mode drives the real AI operator; Demo mode keeps the simulation.
+    const bool wantLive = session.getMode() == Session::Mode::live;
+    if (wantLive == aiIsLive || aiPanel.isRunning())
+        return;
+    aiIsLive = wantLive;
+    setAiOperator (wantLive ? dsp::createLiveAiOperator (session, [this] { return host.getAttached().handle; })
+                            : dsp::createDemoAiOperator());
+    if (host.isAttached())
+        aiPanel.setTarget (host.getAttached().processName, host.getAttached().title);
+}
+
+void DspPage::updateAiTarget()
+{
+    ensureAiOperatorKind();
+    if (host.isAttached())
+        aiPanel.setTarget (host.getAttached().processName, host.getAttached().title);
+    else if (session.getMode() == Session::Mode::demo)
+        aiPanel.setTarget ("DemoDSP.exe", "Demo DSP Console (simulated)");   // lets the AI flow be tried without hardware
+    else
+        aiPanel.setTarget ({}, {});
+}
+
+void DspPage::setAiOperator (std::unique_ptr<dsp::AiOperatorFacade> op)
+{
+    aiPanel.setFacade (nullptr);
+    aiOperator = std::move (op);
+    aiPanel.setFacade (aiOperator.get());
 }
 
 bool DspPage::isNativeKind() const
@@ -533,14 +600,16 @@ void DspPage::updateSidePanel()
     const bool m = uiMode == modeManual && ! teaching;
     const bool a = uiMode == modeAutomatic && ! teaching;
     const bool n = uiMode == modeNative && ! teaching;
+    const bool ai = uiMode == modeAi && ! teaching;
 
     virtualInfo.setVisible (v);
     tryAutoTune.setVisible (v);
     manualPanel.setVisible (m);
     profilePicker.setVisible (a);
+    aiPanel.setVisible (ai);
     nativeInfo.setVisible (n);
     wizard.setVisible (teaching);
-    exportPanel.setVisible (! teaching);
+    exportPanel.setVisible (! teaching && ! ai);
 
     // Direct USB replaces the embedded-software card with the device panel
     nativeCard.setVisible (n);
@@ -554,8 +623,8 @@ void DspPage::updateSidePanel()
     panelBtn.setIcon (wide ? icons::Id::restore : icons::Id::maximise);
     panelBtn.setEnabled (! teaching);
 
-    sideCard.setTitle (teaching ? "Teach wizard" : v ? "Virtual rig" : m ? "Manual guided" : n ? "Direct USB" : "Automation profiles",
-                       teaching ? "Click controls inside the DSP software" : v ? "Demo mode" : m ? "Checklist during Auto Tune"
+    sideCard.setTitle (teaching ? "Teach wizard" : ai ? "AI operator" : v ? "Virtual rig" : m ? "Manual guided" : n ? "Direct USB" : "Automation profiles",
+                       teaching ? "Click controls inside the DSP software" : ai ? "" : v ? "Demo mode" : m ? "Checklist during Auto Tune"
                                 : n ? "Limitations & backup" : "Per DSP model");
     explanation.setText (explanationFor (uiMode), juce::dontSendNotification);
     resized();
@@ -618,6 +687,7 @@ void DspPage::hostStateChanged()
     launching = false;
     showHost (host.isAttached() && isShowing());
     wizard.windowChanged();
+    updateAiTarget();
     refreshChips();
     if (host.isAttached() && uiMode == modeAutomatic && ! teaching)
         profilePicker.refresh();
@@ -740,7 +810,8 @@ void DspPage::resized()
         return;
 
     const int gap = theme::pad;
-    const int sideW = juce::jlimit (340, 460, (int) (r.getWidth() * 0.32));
+    const int sideW = uiMode == modeAi ? juce::jlimit (400, 520, (int) (r.getWidth() * 0.38))
+                                       : juce::jlimit (340, 460, (int) (r.getWidth() * 0.32));
 
     // ---- mode card
     const int modeH = 136;
@@ -749,7 +820,7 @@ void DspPage::resized()
         auto c = modeCard.getContentArea();
         auto top = c.removeFromTop (36);
         auto chipsCol = top.removeFromRight (std::min (360, top.getWidth() / 2));
-        modeControl.setBounds (top.removeFromLeft (std::min (520, top.getWidth())).withHeight (34));
+        modeControl.setBounds (top.removeFromLeft (std::min (660, top.getWidth())).withHeight (34));
 
         // chips: right-aligned row
         int x = chipsCol.getRight();
@@ -761,6 +832,8 @@ void DspPage::resized()
             x -= w + 6;
         }
         c.removeFromTop (6);
+        sendBtn.setBounds (c.removeFromRight (190).removeFromBottom (36).withTrimmedTop (2));
+        c.removeFromRight (16);
         explanation.setBounds (c);
     }
     r.removeFromTop (gap);
@@ -780,9 +853,12 @@ void DspPage::resized()
         }
         else
         {
-            auto ex = c.removeFromBottom (dsp::ExportPanel::idealHeight());
-            exportPanel.setBounds (ex);
-            c.removeFromBottom (theme::pad);
+            if (uiMode != modeAi)
+            {
+                auto ex = c.removeFromBottom (dsp::ExportPanel::idealHeight());
+                exportPanel.setBounds (ex);
+                c.removeFromBottom (theme::pad);
+            }
             // divider drawn by card border; content above
             if (uiMode == modeVirtual)
             {
@@ -792,6 +868,8 @@ void DspPage::resized()
             }
             else if (uiMode == modeNative)
                 nativeInfo.setBounds (c.removeFromTop (std::min (nativeInfo.idealHeight (c.getWidth()), c.getHeight())));
+            else if (uiMode == modeAi)
+                aiPanel.setBounds (c);
             else if (uiMode == modeManual)
                 manualPanel.setBounds (c);
             else

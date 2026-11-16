@@ -29,6 +29,11 @@ ReportPage::ReportPage (Session& s) : Page (s), document (s)
     jsonButton.onClick    = [this] { exportAs (Export::json); };
     sessionButton.onClick = [this] { exportAs (Export::session); };
 
+    addAndMakeVisible (openButton);
+    addAndMakeVisible (importButton);
+    openButton.onClick   = [this] { openSession(); };
+    importButton.onClick = [this] { importPreset(); };
+
     refresh();
 }
 
@@ -74,17 +79,22 @@ void ReportPage::paint (juce::Graphics& g)
 void ReportPage::resized()
 {
     auto area = getLocalBounds().reduced (theme::padLg, theme::pad);
-    empty.setBounds (area);
+    empty.setBounds (area.withTrimmedTop (toolbarH));
 
     auto bar = area.removeFromTop (toolbarH);
     bar.removeFromLeft (60);
-    const int bw = std::min (150, (bar.getWidth() - 4 * 8) / 5);
+    constexpr int rbw = 128;
+    openButton.setBounds (bar.removeFromRight (rbw).withSizeKeepingCentre (rbw, 34));
+    bar.removeFromRight (8);
+    importButton.setBounds (bar.removeFromRight (rbw).withSizeKeepingCentre (rbw, 34));
+    bar.removeFromRight (8);
+    const int bw = std::max (80, std::min (150, (bar.getWidth() - 4 * 8 - 160) / 4));
     for (auto* b : { &textButton, &rewButton, &apoButton, &jsonButton })
     {
         b->setBounds (bar.removeFromLeft (bw).withSizeKeepingCentre (bw, 34));
         bar.removeFromLeft (8);
     }
-    sessionButton.setBounds (bar.removeFromRight (std::min (160, bar.getWidth())).withSizeKeepingCentre (std::min (160, bar.getWidth()), 34));
+    sessionButton.setBounds (bar.removeFromRight (std::min (140, bar.getWidth())).withSizeKeepingCentre (std::min (140, bar.getWidth()), 34));
 
     area.removeFromTop (theme::pad / 2);
     viewport.setBounds (area);
@@ -115,6 +125,45 @@ void ReportPage::writeAndToast (const juce::File& f, const juce::String& content
     if (shell != nullptr)
         shell->toast (ok ? what + " saved to " + f.getFileName() : "Could not write " + f.getFullPathName(),
                       ok ? AppShell::ToastKind::good : AppShell::ToastKind::bad);
+}
+
+void ReportPage::openSession()
+{
+    const auto docs = juce::File::getSpecialLocation (juce::File::userDocumentsDirectory);
+    chooser = std::make_unique<juce::FileChooser> ("Open a FalseAudio session", docs, "*.fasession");
+    chooser->launchAsync (juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectFiles,
+                          [this] (const juce::FileChooser& fc)
+    {
+        const auto f = fc.getResult();
+        if (f == juce::File())
+            return;
+        juce::String error;
+        const bool ok = session.loadSession (f, error);
+        if (shell != nullptr)
+            shell->toast (ok ? "Session loaded from " + f.getFileName() : error,
+                          ok ? AppShell::ToastKind::good : AppShell::ToastKind::bad);
+    });
+}
+
+void ReportPage::importPreset()
+{
+    const auto docs = juce::File::getSpecialLocation (juce::File::userDocumentsDirectory);
+    chooser = std::make_unique<juce::FileChooser> ("Import a FalseAudio preset", docs, "*.json");
+    chooser->launchAsync (juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectFiles,
+                          [this] (const juce::FileChooser& fc)
+    {
+        const auto f = fc.getResult();
+        if (f == juce::File())
+            return;
+        SystemConfig cfg;
+        const bool ok = exporters::fromJSON (f.loadFileAsString(), cfg);
+        if (ok)
+            session.setConfig (cfg);
+        if (shell != nullptr)
+            shell->toast (ok ? "Preset " + f.getFileName() + " loaded into the system config"
+                             : f.getFileName() + " is not a FalseAudio preset",
+                          ok ? AppShell::ToastKind::good : AppShell::ToastKind::bad);
+    });
 }
 
 void ReportPage::exportAs (Export kind)

@@ -44,6 +44,11 @@ struct DspProfile
     DspCapabilities caps;
     std::map<juce::String, ControlBinding> bindings;
 
+    // Additive (AI operator): profiles written by the AI keep what it learned about value formats.
+    bool aiLearned = false;
+    juce::String learnedAt;                  // ISO time
+    juce::String notes;                      // free text: value formats, units, quirks
+
     /** Most specific binding for a slot: key@cN@bM, key@cN, key@bM, key. */
     const ControlBinding* find (const juce::String& key, int channel = -1, int band = -1) const;
 

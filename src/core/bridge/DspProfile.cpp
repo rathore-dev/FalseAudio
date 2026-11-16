@@ -73,6 +73,12 @@ juce::var DspProfile::toVar() const
     o->setProperty ("process", processName);
     o->setProperty ("title", windowTitleContains);
     o->setProperty ("caps", caps.toVar());
+    if (aiLearned)
+    {
+        o->setProperty ("aiLearned", true);
+        o->setProperty ("learnedAt", learnedAt);
+        o->setProperty ("notes", notes);
+    }
 
     auto* b = new juce::DynamicObject();
     for (auto& [k, v] : bindings)
@@ -88,6 +94,9 @@ DspProfile DspProfile::fromVar (const juce::var& v)
     p.processName = v.getProperty ("process", {}).toString();
     p.windowTitleContains = v.getProperty ("title", {}).toString();
     p.caps = DspCapabilities::fromVar (v.getProperty ("caps", {}));
+    p.aiLearned = (bool) v.getProperty ("aiLearned", false);
+    p.learnedAt = v.getProperty ("learnedAt", {}).toString();
+    p.notes = v.getProperty ("notes", {}).toString();
     if (auto* b = v.getProperty ("bindings", {}).getDynamicObject())
         for (auto& prop : b->getProperties())
             p.bindings[prop.name.toString()] = ControlBinding::fromVar (prop.value);

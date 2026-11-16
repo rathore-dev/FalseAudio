@@ -1,5 +1,6 @@
 #include "Optimizer.h"
 #include "PredictionModel.h"
+#include "../PassiveNotch.h"
 
 namespace fa::advanced
 {
@@ -45,9 +46,32 @@ JudgeScore judge (const SystemConfig& config, const DriverDataMap& data)
 
     const auto& f = model.freqs();
     const auto& t = model.targetDb();
-    const auto& we = model.erbWeights();
+    auto we = model.erbWeights();
     const auto N = model.size();
     const int P = model.numPositions();
+
+    // Topology: things the DSP cannot change are not held against the tune.
+    //  - crossover-region notches inside a passive set (network + woofer/tweeter offset)
+    //  - bass below the lowest front driver's HP when there is no sub (it only needs to be flat above it)
+    std::map<juce::String, FrequencyResponse> setResponses;
+    for (auto& c : config.channels)
+        if (c.isPassiveSet())
+            if (auto it = data.find (c.id); it != data.end() && ! it->second.positions.empty())
+                setResponses[c.id] = powerAverage (it->second.positions);
+    for (auto& [id, notches] : passive::findAll (config, setResponses))
+        for (size_t i = 0; i < N; ++i)
+            if (passive::contains (notches, f[i]))
+                we[i] = 0.0;
+
+    double lowestHp = 0.0;
+    bool anySub = false;
+    for (auto& c : config.channels)
+    {
+        if (c.role == DriverRole::subwoofer) { anySub = true; continue; }
+        if (c.settings.highPass.enabled)
+            lowestHp = lowestHp > 0.0 ? std::min (lowestHp, c.settings.highPass.freq) : c.settings.highPass.freq;
+    }
+    const double evalLow = anySub ? 30.0 : std::max (30.0, lowestHp * 1.25);
 
     std::vector<std::vector<std::vector<cplx>>> contrib (model.channels().size());
     for (size_t k = 0; k < model.channels().size(); ++k)
@@ -116,8 +140,8 @@ JudgeScore judge (const SystemConfig& config, const DriverDataMap& data)
 
     //==========================================================================
     // Tonal balance
-    const double eL = weightedRms ([&] (size_t i) { return L[i] - t[i] - off; }, 30.0, 16000.0);
-    const double eR = weightedRms ([&] (size_t i) { return R[i] - t[i] - off; }, 30.0, 16000.0);
+    const double eL = weightedRms ([&] (size_t i) { return L[i] - t[i] - off; }, evalLow, 16000.0);
+    const double eR = weightedRms ([&] (size_t i) { return R[i] - t[i] - off; }, evalLow, 16000.0);
     const double tonalErr = 0.5 * (eL + eR);
     const double tonal = clampScore (100.0 - 14.0 * over (tonalErr, 0.5));
     if (tonal < 85.0)
@@ -138,7 +162,7 @@ JudgeScore judge (const SystemConfig& config, const DriverDataMap& data)
     }
     const bool hasSub = fSub > 0.0;
 
-    const double extension = 0.5 * (mean ([&] (size_t i) { return over (t[i] + off - L[i], 1.0); }, 25.0, 40.0)
+    const double extension = ! hasSub ? 0.0 : 0.5 * (mean ([&] (size_t i) { return over (t[i] + off - L[i], 1.0); }, 25.0, 40.0)
                                    + mean ([&] (size_t i) { return over (t[i] + off - R[i], 1.0); }, 25.0, 40.0));
     double integration = 0.0;
     if (hasSub)

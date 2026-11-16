@@ -317,7 +317,7 @@
       "model": "PW 165/1 L0018-04S",
       "sourceUrl": "https://loudspeakerdatabase.com/SEAS/PW_165-1_L0018-04S",
       "verified": false,
-      "notes": "Specs from loudspeakerdatabase.com (third-party compilation of the maker datasheet mirrored at https://loudspeakerdatabase.com/SEAS/PW_165-1_L0018-04S/SEAS_PW_165-1_L0018-04S.pdf). Sensitivity 1W/1m is LSDB's normalised figure. SEAS home-audio driver (as used in custom car installs).",
+      "notes": "Specs from loudspeakerdatabase.com (third-party compilation of the maker datasheet mirrored at https://loudspeakerdatabase.com/SEAS/PW_165-1_L0018-04S/SEAS_PW_165-1_L0018-04S.pdf). Sensitivity 1W/1m is LSDB's normalised figure. SEAS home-audio driver (as used in custom car installs). Data fix: powerRmsW (250) was greater than powerPeakW (100) - implausible and unresolvable from the source, so the power rating was removed (treated as unknown).",
       "driver": {
         "nominalOhms": 4,
         "reOhms": 3.3,
@@ -333,7 +333,6 @@
         "leMh": 0.78,
         "sensitivityDb": 87.3,
         "sensitivityRef": "1W/1m",
-        "powerRmsW": 250,
         "powerPeakW": 100,
         "freqLowHz": 50,
         "freqHighHz": 3000,

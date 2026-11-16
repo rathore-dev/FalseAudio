@@ -41,6 +41,14 @@ struct ElementInfo
     double rangeMin = 0.0, rangeMax = 0.0;
 };
 
+/** One element of a window snapshot (see Automation::snapshot). */
+struct TreeNode
+{
+    int parent = -1;     // index into the snapshot vector, -1 for the root's direct children
+    int depth = 0;
+    ElementInfo info;    // info.path is relative to the snapshot's root window
+};
+
 /** Thin wrapper over Windows UI Automation + SendInput. Every function is safe to call from
     any thread (COM is initialised per call site). On non-Windows platforms all calls fail. */
 class Automation
@@ -67,6 +75,16 @@ public:
     bool invoke    (void* rootWindow, const ElementPath& path, juce::String& error) const;
     bool selectItem (void* rootWindow, const ElementPath& path, const juce::String& itemText, juce::String& error) const;
     juce::String readValue (void* rootWindow, const ElementPath& path) const;
+
+    // ---- additive API used by the AI operator ------------------------------------------------
+    /** Depth-first snapshot of the control view under rootWindow (paths are root-relative, bounds
+        are screen coordinates, pattern flags and values are filled in). Stops after maxNodes. */
+    std::vector<TreeNode> snapshot (void* rootWindow, int maxNodes, int maxDepth) const;
+    /** Reads a toggle/checkbox state. False if the element is missing or not a toggle. */
+    bool readToggle (void* rootWindow, const ElementPath& path, bool& state) const;
+    /** Captures the window (PrintWindow, falls back to a screen copy) as an opaque RGB image. */
+    static juce::Image captureWindow (void* window);
+    static void bringToFront (void* window);
 
     // Raw input fallback (for custom-drawn controls without UI Automation support)
     static void clickAt (juce::Point<int> screenPos, bool doubleClick = false);

@@ -23,6 +23,16 @@ public:
         bool   wiredInverted = false;
         std::vector<FilterSpec> resonances;  // breakup, cabin modes, etc.
 
+        /** Passive 2-way set on one output: the fields above describe the woofer; the tweeter is
+            summed through a simulated 12 dB/oct passive network at passiveXoverHz, mounted
+            tweeterOffsetM further from the listener than the woofer (it nulls the crossover region). */
+        bool   passiveSet = false;
+        double passiveXoverHz = 2500.0;
+        double tweeterOffsetM = 0.068;   // ~half a wavelength at 2.5 kHz: a deep crossover null
+        double tweeterSensitivityDb = 0.5;
+        bool   tweeterWiredInverted = true;  // normal for a 12 dB network (keeps woofer and tweeter in phase at the crossover)
+        std::vector<FilterSpec> tweeterResonances;
+
         /** Static nonlinearity at the driver input (Hammerstein model), only used by
             measureSwept(): y = x + h2 * x^2 + h3 * x^3, x in full-scale units. For a sine of
             amplitude A this gives H2 = h2*A/2 and H3 = h3*A^2/4 relative to the fundamental. */

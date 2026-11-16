@@ -335,12 +335,21 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
 
         cp.loadOhms   = calc::combineLoad (coilOhms, coils, count, du.wiring);
         cp.driverRmsW = ds != nullptr ? ds->powerRmsW * count : 0.0;
+        if (role == DriverRole::tweeter && cp.driverRmsW <= 0.0)
+        {
+            cp.driverRmsW = calc::kUnknownTweeterRmsW * count;
+            cp.tweeterRmsAssumed = true;
+            cp.warnings.add ("Tweeter RMS rating unknown - capped at a conservative " + num (cp.driverRmsW, 0)
+                             + " W (not the amp's full power). Enter its RMS rating to raise the cap.");
+        }
 
         juce::String powerNote;
         if (amp != nullptr)
         {
             cp.ampPowerAtLoadW = calc::ampPowerAtLoad (*amp, cp.loadOhms, slot.bridged, &powerNote);
             const double minOhms = amp->minStableOhms * (slot.bridged ? 2.0 : 1.0);
+            if (minOhms > 0 && cp.loadOhms < minOhms - 1.0e-6)
+                cp.belowMinStableOhms = true;
             if (minOhms > 0 && cp.loadOhms < minOhms - 1.0e-6)
                 cp.warnings.add ("DANGER: " + num (cp.loadOhms, 2) + " ohm is below the amp's minimum stable load of "
                                  + num (minOhms, 2) + " ohm" + (slot.bridged ? " (bridged = 2 x per-channel minimum)" : "")
@@ -350,6 +359,9 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
             if (cp.ampPowerAtLoadW <= 0)
                 needSpecs (ampProd->displayName(), juce::String (slot.bridged ? "bridged " : "") + "RMS power per channel (4/2/1 ohm)",
                            "compute the power at this load and the gain voltage");
+            if (amp->minStableOhms <= 0)
+                cp.warnings.add ("Warning: this amp's minimum stable impedance is unknown, so the " + num (cp.loadOhms, 2)
+                                 + " ohm load cannot be verified. Check the amp's manual before connecting.");
             if (amp->minStableOhms <= 0)
                 needSpecs (ampProd->displayName(), "minimum stable impedance", "verify the " + num (cp.loadOhms, 2) + " ohm load is safe");
         }
@@ -363,6 +375,7 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
         else                                             targetW = cp.driverRmsW;
 
         cp.targetVoltageRms = calc::voltageForPower (targetW, cp.loadOhms);
+        cp.targetVoltageRms *= std::pow (10.0, -calc::kEqHeadroomDb / 20.0);   // ~3 dB headroom for EQ boost
         cp.powerRatio = cp.driverRmsW > 0 ? cp.ampPowerAtLoadW / cp.driverRmsW : 0.0;
         if (cp.powerRatio > juce::jlimit (1.0, 1.25, inst.ampToDriverPowerHeadroom))
             cp.warnings.add ("Amp can deliver " + num (cp.ampPowerAtLoadW, 0) + " W but the driver(s) are rated "
@@ -854,7 +867,8 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
             juce::String why;
             why << "V = sqrt(P x R) = sqrt(" << num (targetW, 0) << " W x " << num (cp.loadOhms, 2) << " ohm) = "
                 << num (cp.targetVoltageRms, 1) << " V. P = min(amp " << num (cp.ampPowerAtLoadW, 0) << " W at "
-                << num (cp.loadOhms, 2) << " ohm, driver RMS " << num (cp.driverRmsW, 0) << " W).";
+                << num (cp.loadOhms, 2) << " ohm, driver RMS " << num (cp.driverRmsW, 0) << " W), minus "
+                << num (calc::kEqHeadroomDb, 0) << " dB headroom for EQ boost (the voltage shown already includes it).";
 
             if (internal)
             {
@@ -1044,6 +1058,66 @@ void applyToConfig (const Plan& plan, const Installation& inst, const ProductLoo
 
     double minMidbassHp = 0, minMidrangeHp = 0, minTweeterHp = 0, minTweeterFactor = 0;
     auto keepMin = [] (double& v, double x) { if (x > 0) v = v > 0 ? std::min (v, x) : x; };
+
+    // Topology: a component set (or coax) on ONE output is a passive set. Only when the set's
+    // woofer and tweeter are assigned to separate outputs do they stay active drivers.
+    std::vector<juce::String> orphanTweeters;
+    for (auto& du : inst.drivers)
+    {
+        auto* ch = config.find (du.channelId);
+        const auto* p = find (du.productId);
+        if (ch == nullptr || p == nullptr || ch->role == DriverRole::tweeter || ch->role == DriverRole::subwoofer)
+            continue;
+        const bool isSet = p->componentSet.has_value();
+        const bool isCoax = p->category == gear::Category::driverCoax;
+        if (! isSet && ! isCoax)
+            continue;
+
+        bool splitOnOutputs = false;     // same product also on a tweeter channel of the same side?
+        for (auto& other : inst.drivers)
+            if (auto* oc = config.find (other.channelId); oc != nullptr && oc != ch && oc->role == DriverRole::tweeter
+                                                          && oc->side == ch->side && other.productId == du.productId)
+                splitOnOutputs = true;
+        if (splitOnOutputs)
+            continue;
+
+        ch->kind = ChannelKind::passiveSet;
+        ch->role = DriverRole::midbass;
+        ch->passive.coaxial = isCoax;
+        if (isSet)
+        {
+            ch->passive.crossoverHz = p->componentSet->crossoverHz;
+            if (p->componentSet->crossoverSlopeDbPerOct > 0)
+                ch->passive.slopeDbPerOct = juce::roundToInt (p->componentSet->crossoverSlopeDbPerOct);
+            if (const auto* tw = gear::componentSubDriver (*p, gear::ComponentRole::tweeter, find))
+                ch->passive.tweeterSizeInches = tw->sizeInches;
+            ch->passive.tweeterModel = p->displayName();
+        }
+        ch->label = juce::String (ch->side == Side::left ? "Left " : ch->side == Side::right ? "Right " : "")
+                  + (isCoax ? "Coaxial" : "Component Set");
+
+        // The set's tweeter shares this output: drop the now orphaned active tweeter channel.
+        for (auto& c : config.channels)
+            if (c.role == DriverRole::tweeter && c.side == ch->side && ! c.isPassiveSet())
+            {
+                bool assigned = false;
+                for (auto& other : inst.drivers)
+                    assigned = assigned || other.channelId == c.id;
+                if (! assigned)
+                    orphanTweeters.push_back (c.id);
+            }
+    }
+    for (auto& id : orphanTweeters)
+    {
+        const auto it = std::find_if (config.channels.begin(), config.channels.end(), [&] (auto& c) { return c.id == id; });
+        if (it == config.channels.end())
+            continue;
+        const int removedOutput = it->dspOutput;
+        config.channels.erase (it);
+        for (auto& c : config.channels)
+            if (c.dspOutput > removedOutput)
+                --c.dspOutput;
+    }
 
     for (auto& du : inst.drivers)
     {

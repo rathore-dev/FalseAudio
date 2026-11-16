@@ -85,6 +85,10 @@ file(GLOB_RECURSE FA_APP_SOURCES CONFIGURE_DEPENDS
 target_sources(FalseAudio PRIVATE ${FA_APP_SOURCES})
 target_link_libraries(FalseAudio PRIVATE FalseAudioCore)
 
+# Dev/QA automation hook (--qa-script). OFF in release/packaged builds.
+option(FA_QA_HOOKS "Compile the --qa-script automation hook" OFF)
+target_compile_definitions(FalseAudio PRIVATE FA_QA_HOOKS=$<BOOL:${FA_QA_HOOKS}>)
+
 # ---------------------------------------------------------------------------
 # Headless tests for the analysis maths (synthetic systems, no hardware).
 # ---------------------------------------------------------------------------

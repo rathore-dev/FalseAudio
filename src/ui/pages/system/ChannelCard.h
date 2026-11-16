@@ -9,7 +9,7 @@ namespace fa::ui
 class ChannelCard : public juce::Component
 {
 public:
-    static constexpr int height = 150;
+    static constexpr int height = 196;
 
     ChannelCard (const OutputChannel& ch,
                  std::function<void (const OutputChannel&)> onEditFn,
@@ -18,8 +18,33 @@ public:
           roleChip (toString (ch.role), theme::roleColour (ch.role)),
           outField ("DSP out", "", 1, 32, 1, 0),
           sizeField ("Size", "in", 0, 24, 0.5, 1),
-          fsField ("Fs", "Hz", 0, 5000, 1, 0)
+          fsField ("Fs", "Hz", 0, 5000, 1, 0),
+          xoverField ("Xover", "Hz", 0, 8000, 50, 0)
     {
+        addAndMakeVisible (kindBox);
+        addAndMakeVisible (xoverField);
+        kit::styleCombo (kindBox);
+        kindBox.addItem ("Active driver (own output)", 1);
+        kindBox.addItem ("Passive set (woofer + tweeter, 1 output)", 2);
+        kindBox.addItem ("Full range driver", 3);
+        kindBox.addItem ("Subwoofer", 4);
+        kindBox.setTooltip ("How this output is wired: one driver per output, a component set or coax behind a passive "
+                            "crossover, a single full-range driver, or a sub.");
+        kindBox.onChange = [this]
+        {
+            if (updatingUi) return;
+            const auto k = (ChannelKind) (kindBox.getSelectedId() - 1);
+            if (k == channel.kind) return;
+            if (k == ChannelKind::activeDriver && (channel.role == DriverRole::fullrange || channel.role == DriverRole::subwoofer))
+                channel.role = DriverRole::midbass;
+            channel.kind = k;
+            channel.normaliseKind();
+            push();
+        };
+        xoverField.onChange = [this] (double v) { channel.passive.crossoverHz = v; push(); };
+        xoverField.setTooltip ("Passive crossover point of the set (0 = unknown). The DSP cannot change it; it is only used "
+                               "to look for the crossover notch.");
+
         addAndMakeVisible (roleChip);
         addAndMakeVisible (outField);
         addAndMakeVisible (sizeField);
@@ -43,6 +68,17 @@ public:
         outField.setValue (ch.dspOutput + 1);
         sizeField.setValue (ch.driver.sizeInches);
         fsField.setValue (ch.driver.fsHz);
+        {
+            const juce::ScopedValueSetter<bool> svs (updatingUi, true);
+            kindBox.setSelectedId ((int) ch.kind + 1, juce::dontSendNotification);
+        }
+        xoverField.setValue (ch.passive.crossoverHz);
+        const bool passiveSet = ch.isPassiveSet();
+        if (xoverField.isVisible() != passiveSet)
+        {
+            xoverField.setVisible (passiveSet);
+            resized();
+        }
         if (! modelEditor.hasKeyboardFocus (true))
             modelEditor.setText (ch.driver.model, juce::dontSendNotification);
         repaint();
@@ -89,11 +125,20 @@ public:
         roleChip.setBounds (top.removeFromRight (roleChip.getIdealWidth()).withSizeKeepingCentre (roleChip.getIdealWidth(), 20));
 
         b.removeFromTop (14);
+        kindBox.setBounds (b.removeFromTop (kit::btnH - 4));
+        b.removeFromTop (kit::gap);
         auto row = b.removeFromTop (kit::fieldH);
-        const int fw = (row.getWidth() - 2 * kit::gap) / 3;
+        const int cols = channel.isPassiveSet() ? 4 : 3;
+        const int fw = (row.getWidth() - (cols - 1) * kit::gap) / cols;
         outField.setBounds (row.removeFromLeft (fw));  row.removeFromLeft (kit::gap);
         sizeField.setBounds (row.removeFromLeft (fw)); row.removeFromLeft (kit::gap);
-        fsField.setBounds (row);
+        if (cols == 4)
+        {
+            fsField.setBounds (row.removeFromLeft (fw)); row.removeFromLeft (kit::gap);
+            xoverField.setBounds (row);
+        }
+        else
+            fsField.setBounds (row);
         b.removeFromTop (kit::gap);
         modelEditor.setBounds (b.removeFromTop (kit::btnH - 2));
     }
@@ -129,7 +174,9 @@ private:
     std::function<void (const OutputChannel&)> onEdit;
     std::function<void (const juce::String&)> onSelect;
     Chip roleChip;
-    ValueField outField, sizeField, fsField;
+    ValueField outField, sizeField, fsField, xoverField;
+    juce::ComboBox kindBox;
+    bool updatingUi = false;
     juce::TextEditor modelEditor;
     bool selected = false, hover = false;
 };

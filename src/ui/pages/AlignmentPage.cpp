@@ -1,4 +1,5 @@
 #include "AlignmentPage.h"
+#include "../components/DspSend.h"
 
 namespace fa::ui
 {
@@ -52,6 +53,9 @@ AlignmentPage::AlignmentPage (Session& s) : Page (s)
 
     tableCard.addAndMakeVisible (zeroBtn);
     tableCard.addAndMakeVisible (tapeBtn);
+    tableCard.addAndMakeVisible (sendBtn);
+    sendBtn.setTooltip ("Write the current delay, gain and polarity of every channel to the DSP");
+    sendBtn.onClick = [this] { sendConfigToDsp (session, shell); };
     tableCard.addAndMakeVisible (header);
     zeroBtn.onClick = [this]
     {
@@ -321,6 +325,8 @@ int AlignmentPage::layoutContent (int w)
         zeroBtn.setBounds (tools.removeFromLeft (150));
         tools.removeFromLeft (gap);
         tapeBtn.setBounds (tools.removeFromLeft (230));
+        tools.removeFromLeft (gap);
+        sendBtn.setBounds (tools.removeFromLeft (124));
         a.removeFromTop (gap2);
         header.setBounds (a.removeFromTop (22));
         for (auto& r : rows)

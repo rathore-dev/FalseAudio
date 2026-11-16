@@ -3,12 +3,16 @@
 #include "../Page.h"
 #include "../AppShell.h"
 #include "../components/Widgets.h"
+#include "../components/DspSend.h"
 #include "dsp/DspCommon.h"
 #include "dsp/ProfilePicker.h"
 #include "dsp/TeachWizard.h"
 #include "dsp/ManualPanel.h"
 #include "dsp/ExportPanel.h"
 #include "dsp/NativePanel.h"
+#include "dsp/AiPanel.h"
+#include "dsp/AiOperatorFacade.h"
+#include "dsp/AiOperatorLive.h"
 
 namespace fa::ui
 {
@@ -27,13 +31,18 @@ public:
 
     void pageShown() override;
     void pageHidden() override;
+
+    /** Replaces the AI operator back-end (default: the demo simulation). The page takes ownership. */
+    void setAiOperator (std::unique_ptr<dsp::AiOperatorFacade> op);
     void sessionChanged() override;
 
     void paint (juce::Graphics&) override;
     void resized() override;
 
 private:
-    enum UiMode { modeVirtual = 0, modeManual = 1, modeAutomatic = 2, modeNative = 3 };
+    enum UiMode { modeVirtual = 0, modeManual = 1, modeAutomatic = 2, modeNative = 3, modeAi = 4 };
+    static int segmentFor (int mode);
+    static int modeForSegment (int segment);
 
     void timerCallback() override;
 
@@ -50,6 +59,9 @@ private:
     void detachDsp();
     void hostStateChanged();
     void showHost (bool show);
+    void updateAiTarget();
+    void ensureAiOperatorKind();
+    bool aiIsLive = false;
 
     // automation profiles
     void requestControl (const DspProfile& profile, const juce::File& file);
@@ -86,9 +98,10 @@ private:
 
     // ---- top: mode
     Card modeCard { "Control mode" };
-    SegmentedControl modeControl { { "Virtual (demo)", "Manual guided", "Automatic (UI Automation)", "Direct USB (no clicking)" } };
+    SegmentedControl modeControl { { "AI operator (recommended)", "Virtual demo", "Manual guided", "Direct USB", "UI Automation (advanced)" } };
     Chip modeChip, dspChip, attachChip, consentChip;
     juce::Label explanation;
+    FaButton sendBtn { "Send tune to DSP", FaButton::Style::primary, icons::Id::arrowRight };
 
     // ---- main: embedded DSP software
     Card hostCard { "DSP software", "Attach a running window or launch your vendor tool" };
@@ -114,6 +127,8 @@ private:
     dsp::InfoPanel nativeInfo { icons::Id::plug };
     FaButton tryAutoTune { "Go to Auto Tune", FaButton::Style::primary, icons::Id::bolt };
     dsp::ManualPanel manualPanel;
+    std::unique_ptr<dsp::AiOperatorFacade> aiOperator;
+    dsp::AiPanel aiPanel;
     dsp::ProfilePicker profilePicker;
     dsp::ExportPanel exportPanel;
     dsp::TeachWizard wizard;      // after host: destroyed before it

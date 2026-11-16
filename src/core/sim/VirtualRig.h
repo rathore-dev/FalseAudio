@@ -3,6 +3,7 @@
 #include "VirtualCar.h"
 #include "../bridge/DspController.h"
 #include "../audio/MeasurementSource.h"
+#include "../tune/MethodologyStages.h"
 
 namespace fa
 {
@@ -10,7 +11,8 @@ namespace fa
     simulated microphones. Implements both the DSP and the measurement interfaces so the
     auto-tuner runs unchanged. */
 class VirtualRig : public DspController,
-                   public MeasurementSource
+                   public MeasurementSource,
+                   public method::NoiseProbe
 {
 public:
     explicit VirtualRig (const SystemConfig& layout, int numMics = 1, juce::uint32 seed = 42);
@@ -22,6 +24,12 @@ public:
 
     /** Simulated sweep duration so the UI shows realistic progress (0 = instant). */
     void setSimulatedSweepMs (int ms) { sweepMs = ms; }
+
+    /** Test hook: this channel injects noise (hiss, or 50 Hz hum + harmonics) at `dbFS` RMS whenever its output is enabled. */
+    void setChannelNoise (const juce::String& channelId, double dbFS, bool hum = false);
+
+    // method::NoiseProbe
+    bool recordSilence (std::vector<float>& samples, double& sampleRate, std::atomic<bool>& cancelFlag, juce::String& error) override;
 
     // DspController
     juce::String getName() const override { return "Virtual DSP (demo car)"; }
@@ -47,5 +55,8 @@ private:
     int numMics = 1;
     int micPosition = 0;
     int sweepMs = 400;
+    struct InjectedNoise { double dbFS = -120.0; bool hum = false; };
+    std::map<juce::String, InjectedNoise> injectedNoise;
+    juce::uint32 noiseSeed = 7;
 };
 } // namespace fa

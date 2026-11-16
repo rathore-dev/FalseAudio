@@ -19,9 +19,12 @@ int StageTimeline::stageIndex (Stage s)
         case Stage::measure:    return 2;
         case Stage::crossovers: return 3;
         case Stage::solve:      return 4;
-        case Stage::apply:      return 5;
-        case Stage::verify:     return 6;
-        case Stage::report:     return 7;
+        case Stage::sumCheck:   return 5;
+        case Stage::imaging:    return 6;
+        case Stage::apply:      return 7;
+        case Stage::verify:     return 8;
+        case Stage::noise:      return 9;
+        case Stage::report:     return 10;
         default:                return -1;
     }
 }
@@ -35,8 +38,11 @@ juce::String StageTimeline::shortDescription (Stage s)
         case Stage::measure:    return "Every driver, every seat";
         case Stage::crossovers: return "From measured bandwidth";
         case Stage::solve:      return "Polarity, time, levels, EQ";
+        case Stage::sumCheck:   return "Cancellation fix, polarity";
+        case Stage::imaging:    return "Centre image, level only";
         case Stage::apply:      return "Write to the DSP";
         case Stage::verify:     return "Re-measure, close the loop";
+        case Stage::noise:      return "Hiss and ground-noise check";
         case Stage::report:     return "Score and findings";
         default:                return {};
     }
@@ -127,7 +133,8 @@ void StageTimeline::paint (juce::Graphics& g)
 {
     constexpr int n = AutoTuneEngine::numWorkStages;
     static const Stage stages[n] = { Stage::preflight, Stage::protect, Stage::measure, Stage::crossovers,
-                                     Stage::solve, Stage::apply, Stage::verify, Stage::report };
+                                     Stage::solve, Stage::sumCheck, Stage::imaging, Stage::apply, Stage::verify,
+                                     Stage::noise, Stage::report };
 
     auto area = getLocalBounds();
     const bool compact = area.getWidth() < 760;

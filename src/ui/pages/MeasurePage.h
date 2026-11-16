@@ -48,6 +48,9 @@ private:
     ProgressBarFa progress;
     SegmentedControl smoothingSelector { { "Off", "1/48", "1/24", "1/12", "1/6", "1/3", "1/1", "Psy", "Var" } };
     ToggleSwitch targetToggle { "Target" };
+    FaButton exportButton { "Export", FaButton::Style::secondary, icons::Id::download };
+    std::unique_ptr<juce::FileChooser> chooser;
+    void exportSelected();
 
     // ---- library ----
     MeasurementLibrary library;

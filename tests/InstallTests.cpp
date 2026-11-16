@@ -11,6 +11,8 @@ using fa::test::check;
 
 namespace
 {
+    const double kHeadroom = std::pow (10.0, -calc::kEqHeadroomDb / 20.0);   // gain staging leaves ~3 dB for EQ boost
+
     gear::Product makeSource (const juce::String& id, gear::Category cat, double preoutV, int maxStep, double maxInV = 0)
     {
         gear::Product p;
@@ -232,7 +234,7 @@ FA_TEST (installFullPlan)
 
     const auto* sub = planFor (plan, "SUB");
     check (sub != nullptr && near (sub->loadOhms, 2.0, 1e-9), "Sub load 2 ohm");
-    check (sub != nullptr && near (sub->targetVoltageRms, 31.62, 0.002), "Sub gain target 31.6 V (500 W @ 2 ohm)",
+    check (sub != nullptr && near (sub->targetVoltageRms, 31.62 * kHeadroom, 0.002), "Sub gain target 31.6 V (500 W @ 2 ohm)",
            sub != nullptr ? juce::String (sub->targetVoltageRms, 2) : juce::String());
     check (sub != nullptr && sub->recommendedLpHz > 40 && sub->recommendedLpHz < 90, "Sub LP half an octave below front HP",
            sub != nullptr ? juce::String (sub->recommendedLpHz, 0) : juce::String());
@@ -240,7 +242,7 @@ FA_TEST (installFullPlan)
     const auto* tw = planFor (plan, "FL.tweeter");
     check (tw != nullptr && tw->recommendedHpHz >= 1.6 * 700.0, "Tweeter HP >= 1.6 x Fs",
            tw != nullptr ? juce::String (tw->recommendedHpHz, 0) : juce::String());
-    check (tw != nullptr && near (tw->targetVoltageRms, std::sqrt (60.0 * 4.0), 1e-6), "Tweeter gain limited to driver RMS (60 W, amp 75 W)");
+    check (tw != nullptr && near (tw->targetVoltageRms, std::sqrt (60.0 * 4.0) * kHeadroom, 1e-6), "Tweeter gain limited to driver RMS (60 W, amp 75 W)");
 
     const auto* mb = planFor (plan, "FL.midbass");
     check (mb != nullptr && mb->targetVoltageRms <= std::sqrt (100.0 * 4.0) + 1e-9, "Midbass never above its RMS rating");
@@ -255,9 +257,9 @@ FA_TEST (installFullPlan)
     {
         bassBoost |= i.title.contains ("Bass boost 0 dB");
         xoverOff  |= i.title.contains ("Crossover switches OFF");
-        gain316   |= i.area.startsWith ("Amp 2") && i.title.contains ("31.6 V");
+        gain316   |= i.area.startsWith ("Amp 2") && i.title.contains ("22.4 V");   // 31.6 V minus 3 dB EQ headroom
     }
-    check (bassBoost && xoverOff && gain316, "Amp instructions: bass boost 0, filters off, sub gain 31.6 V");
+    check (bassBoost && xoverOff && gain316, "Amp instructions: bass boost 0, filters off, sub gain 22.4 V (31.6 V - 3 dB headroom)");
 
     // Dangerous load is flagged
     auto bad = rig;
@@ -333,7 +335,7 @@ FA_TEST (installPartialUserGear)
     check (fuseEstimate, "Power wire sized from the amp fuse rating, labelled as an estimate");
 
     const auto* mb = planFor (plan, "FL.midbass");
-    check (mb != nullptr && near (mb->targetVoltageRms, std::sqrt (80.0 * 4.0), 1e-6), "Gain target from driver RMS when amp power unknown");
+    check (mb != nullptr && near (mb->targetVoltageRms, std::sqrt (80.0 * 4.0) * kHeadroom, 1e-6), "Gain target from driver RMS when amp power unknown");
     const auto* tw = planFor (plan, "FL.tweeter");
     check (tw != nullptr && tw->recommendedHpHz >= 2.0 * 900.0 - 1e-6, "Tweeter without Xmax: HP >= 2 x Fs",
            tw != nullptr ? juce::String (tw->recommendedHpHz, 0) : juce::String());
@@ -411,7 +413,7 @@ FA_TEST (installQ1WorkedMono1500)
         const auto plan = buildPlan (rig.inst, rig.config, rig.lookup());
         const auto* sub = planFor (plan, "SUB");
         check (sub != nullptr && near (sub->loadOhms, 1.0, 1e-9) && near (sub->ampPowerAtLoadW, 1500, 1e-9), "1500 W @ 1 ohm");
-        check (sub != nullptr && near (sub->targetVoltageRms, std::sqrt (1500.0), 1e-6), "Gain target 38.7 V");
+        check (sub != nullptr && near (sub->targetVoltageRms, std::sqrt (1500.0) * kHeadroom, 1e-6), "Gain target 38.7 V");
         check (! plan.wires.empty(), "Power wire checked");
         if (plan.wires.empty())
             continue;
@@ -519,7 +521,7 @@ FA_TEST (installQ1FiveChannelSubGroup)
     for (auto& w : plan.warnings)
         loadDanger = loadDanger || (w.startsWith ("SUB") && w.contains ("DANGER"));
     check (! loadDanger, "1 ohm on the 1-ohm-stable sub group is NOT flagged against the mains' 2 ohm minimum");
-    check (sp != nullptr && near (sp->targetVoltageRms, std::sqrt (600.0 * 1.0), 1e-6), "Sub gain target sqrt(600 x 1) = 24.5 V");
+    check (sp != nullptr && near (sp->targetVoltageRms, std::sqrt (600.0 * 1.0) * kHeadroom, 1e-6), "Sub gain target sqrt(600 x 1) = 24.5 V");
     const auto* mp = planFor (plan, "FL.midbass");
     check (mp != nullptr && near (mp->ampPowerAtLoadW, 75.0, 1e-9), "Mains still use the main group (75 W @ 4 ohm)");
 
@@ -671,4 +673,61 @@ FA_TEST (installRecommendedHpBySlopeAndComponentSet)
     check (wf != nullptr && wf->driverRmsW == midbass().powerRmsW, "Woofer channel uses the referenced woofer specs");
     const auto sub = gear::componentSubDriver (set, gear::ComponentRole::woofer, rig.lookup());
     check (sub != nullptr && sub->fsHz == midbass().fsHz, "componentSubDriver resolves a referenced product");
+}
+
+//==============================================================================
+// Danger states: below-min-ohms is a blocking red state; missing minStableOhms warns; unknown tweeter RMS capped; headroom.
+FA_TEST (installDangerStatesAndHeadroom)
+{
+    {
+        auto r = makeFullRig();
+        r.add (makeAmp ("amp2", 2, { { "4ohm", 100.0 }, { "2ohm", 150.0 } }, 4.0));   // min stable 4 ohm
+        r.inst.amps[0].ampId = "amp2";
+        r.inst.amps[0].channelIds = { "FL.midbass", "FR.midbass" };
+        r.inst.drivers.clear();
+        auto lowZ = midbass();
+        lowZ.nominalOhms = 2; lowZ.coilOhms = 2; lowZ.reOhms = 1.6;
+        r.add (driverProduct ("mb2", gear::Category::driverMidbass, lowZ));
+        r.inst.drivers = { { "FL.midbass", "mb2", 1, "single" }, { "FR.midbass", "mb2", 1, "single" } };
+        r.inst.amps.resize (1);
+        const auto plan = buildPlan (r.inst, r.config, r.lookup());
+        const auto* cp = planFor (plan, "FL.midbass");
+        check (cp != nullptr && cp->belowMinStableOhms && cp->isDanger(), "2 ohm on a 4-ohm-minimum amp is a blocking danger state");
+        bool dangerWarning = false;
+        for (auto& w : cp->warnings) dangerWarning = dangerWarning || w.startsWith ("DANGER");
+        check (dangerWarning, "...with a DANGER warning");
+        bool safetyDanger = false;
+        for (auto& i : plan.instructions)
+            safetyDanger = safetyDanger || (i.area == "Safety" && i.severity == Instruction::Severity::danger && i.detail.contains ("DANGER"));
+        check (safetyDanger, "...and a danger-severity Safety instruction");
+    }
+    {
+        auto r = makeFullRig();
+        r.add (makeAmp ("amp0", 6, { { "4ohm", 75.0 } }, 0.0));   // minStableOhms unknown
+        r.inst.amps[0].ampId = "amp0";
+        const auto plan = buildPlan (r.inst, r.config, r.lookup());
+        const auto* cp = planFor (plan, "FL.midbass");
+        bool warned = false;
+        for (auto& w : cp->warnings) warned = warned || w.contains ("minimum stable impedance is unknown");
+        check (cp != nullptr && warned && ! cp->belowMinStableOhms, "Missing minStableOhms is a warning, not danger");
+    }
+    {
+        auto r = makeFullRig();
+        auto noRms = tweeter();
+        noRms.powerRmsW = 0;
+        r.add (driverProduct ("tw", gear::Category::driverTweeter, noRms));
+        const auto plan = buildPlan (r.inst, r.config, r.lookup());
+        const auto* tw = planFor (plan, "FL.tweeter");
+        check (tw != nullptr && tw->tweeterRmsAssumed && near (tw->driverRmsW, calc::kUnknownTweeterRmsW, 1e-9),
+               "Unknown tweeter RMS gets a conservative cap", tw != nullptr ? juce::String (tw->driverRmsW, 1) : juce::String());
+        check (tw != nullptr && tw->targetVoltageRms <= std::sqrt (calc::kUnknownTweeterRmsW * tw->loadOhms) + 1e-9,
+               "...and the gain target follows the cap, not the amp's full power");
+    }
+    {
+        auto r = makeFullRig();
+        const auto p2 = buildPlan (r.inst, r.config, r.lookup());
+        const auto* mb = planFor (p2, "FL.midbass");
+        check (near (calc::kEqHeadroomDb, 3.0, 1e-9) && mb != nullptr && mb->targetVoltageRms <= std::sqrt (mb->ampPowerAtLoadW * mb->loadOhms) * kHeadroom + 1e-9,
+               "Gain target leaves 3 dB headroom below the full-power voltage");
+    }
 }

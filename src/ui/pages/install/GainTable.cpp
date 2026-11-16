@@ -164,6 +164,13 @@ void GainTable::Table::paint (juce::Graphics& g)
             g.setColour (theme::bg3.withAlpha (0.6f));
             g.fillRoundedRectangle (full.toFloat().reduced (-4.0f, 2.0f), theme::radiusSm);
         }
+        if (p.isDanger())   // below the amp's minimum stable load: red, unmissable, unlike minor notes
+        {
+            g.setColour (theme::bad.withAlpha (0.14f));
+            g.fillRoundedRectangle (full.toFloat().reduced (-4.0f, 1.0f), theme::radiusSm);
+            g.setColour (theme::bad);
+            g.fillRect (full.getX() - 4, full.getY() + 2, 3, full.getHeight() - 4);
+        }
         if (i + 1 < rows.size())
         {
             g.setColour (theme::border.withAlpha (0.6f));
@@ -236,7 +243,8 @@ void GainTable::Table::paint (juce::Graphics& g)
         if (! cols.compact)
         {
             auto st = c.removeFromLeft (cols.status);
-            if (r.hpUnsafe)                    ikit::drawBadge (g, st, "Raise HP", theme::warn, juce::Justification::centredRight);
+            if (p.isDanger())                  ikit::drawBadge (g, st, "DANGER", theme::bad, juce::Justification::centredRight);
+            else if (r.hpUnsafe)               ikit::drawBadge (g, st, "Raise HP", theme::warn, juce::Justification::centredRight);
             else if (! p.warnings.isEmpty())   ikit::drawBadge (g, st, "Check", theme::warn, juce::Justification::centredRight);
             else                               ikit::drawBadge (g, st, "OK", theme::good, juce::Justification::centredRight);
         }
@@ -249,9 +257,12 @@ void GainTable::Table::paint (juce::Graphics& g)
             for (auto& w : p.warnings)
             {
                 auto line = wa.removeFromTop (warnLineH);
-                icons::draw (g, icons::Id::warning, line.removeFromLeft (14).toFloat().withSizeKeepingCentre (11.0f, 11.0f), theme::warn.withAlpha (0.8f));
+                const bool danger = w.startsWith ("DANGER");
+                icons::draw (g, icons::Id::warning, line.removeFromLeft (14).toFloat().withSizeKeepingCentre (11.0f, 11.0f),
+                             danger ? theme::bad : theme::warn.withAlpha (0.8f));
                 line.removeFromLeft (6);
-                g.setColour (theme::warn.withAlpha (0.9f));
+                g.setColour (danger ? theme::bad : theme::warn.withAlpha (0.9f));
+                g.setFont (danger ? theme::fontBold (11.5f) : theme::font (11.5f));
                 g.drawText (w, line, juce::Justification::centredLeft, true);
             }
         }

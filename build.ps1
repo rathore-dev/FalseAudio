@@ -8,6 +8,7 @@ param(
     [switch] $Run,
     [switch] $Clean,
     [string] $BuildDir = "",          # separate folder per parallel worker, e.g. build/w1
+    [switch] $QaHooks,                # compile the --qa-script automation hook (dev/QA builds only)
     [switch] $KeepGoing,              # continue past failing files (ninja -k 0)
     [int] $Jobs = 0                   # parallel compile jobs; defaults to 3 for per-worker builds so many workers can share the PC
 )
@@ -34,7 +35,7 @@ foreach ($p in @("C:\Program Files\CMake\bin", "$env:LOCALAPPDATA\Microsoft\WinG
 
 if ($Clean -and (Test-Path $buildDir)) { Remove-Item -Recurse -Force $buildDir }
 
-cmake -S $root -B $buildDir -G Ninja "-DCMAKE_BUILD_TYPE=$Config"
+cmake -S $root -B $buildDir -G Ninja "-DCMAKE_BUILD_TYPE=$Config" "-DFA_QA_HOOKS=$(if ($QaHooks) { 'ON' } else { 'OFF' })"
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 if ($Jobs -le 0 -and $BuildDir) { $Jobs = 3 }

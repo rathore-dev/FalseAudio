@@ -11,7 +11,7 @@ VirtualCar::VirtualCar (const SystemConfig& layout, juce::uint32 s) : seed (s)
     for (auto& ch : layout.channels)
     {
         Driver d;
-        const bool left = ch.side == Side::left;
+        const bool left = ch.side != Side::right;   // a mono driver is treated as the near (driver side) one
 
         // Driver seat: left speakers are closer.
         switch (ch.role)
@@ -45,6 +45,15 @@ VirtualCar::VirtualCar (const SystemConfig& layout, juce::uint32 s) : seed (s)
                 break;
         }
 
+        if (ch.isPassiveSet())
+        {
+            d.passiveSet = true;
+            d.passiveXoverHz = ch.passive.crossoverHz > 0.0 ? ch.passive.crossoverHz : 2500.0;
+            d.tweeterOffsetM = ch.passive.coaxial ? 0.01 : 0.068;
+            d.highRollHz = 6000.0;   // the woofer's own roll-off sits well above the network
+            d.tweeterResonances = { FilterSpec::peq (left ? 9000.0 : 10500.0, 1.5, -4.0), FilterSpec::peq (14500.0, 1.4, 4.0) };
+        }
+
         d.sensitivityDb += rng.nextDouble() * 2.0 - 1.0;
         drivers[ch.id] = d;
 
@@ -71,6 +80,20 @@ cplx VirtualCar::acoustic (const juce::String& id, double f, int position, doubl
         h *= FilterSpec::crossover (FilterType::lowPass, d.highRollHz, 12, Alignment::butterworth).response (f, fs);
     for (auto& r : d.resonances)
         h *= r.response (f, fs);
+
+    if (d.passiveSet)
+    {
+        // Passive 2-way: LP on the woofer, HP on the tweeter (12 dB/oct Butterworth network), tweeter
+        // further away by tweeterOffsetM and normally wired inverted.
+        const auto lp = FilterSpec::crossover (FilterType::lowPass, d.passiveXoverHz, 12, Alignment::butterworth);
+        const auto hp = FilterSpec::crossover (FilterType::highPass, d.passiveXoverHz, 12, Alignment::butterworth);
+        cplx tw = magFromDb (d.tweeterSensitivityDb) * (d.tweeterWiredInverted ? -1.0 : 1.0);
+        tw *= FilterSpec::crossover (FilterType::highPass, 1100.0, 12, Alignment::butterworth).response (f, fs);
+        for (auto& r : d.tweeterResonances)
+            tw *= r.response (f, fs);
+        tw *= hp.response (f, fs) * std::polar (1.0, -2.0 * pi * f * d.tweeterOffsetM / speedOfSound);
+        h = h * lp.response (f, fs) + tw;
+    }
 
     // Mic position moves the head ~5 cm and changes reflection timing a little.
     const double posShiftM = 0.05 * (position % 3 - 1);

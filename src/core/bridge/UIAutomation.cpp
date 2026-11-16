@@ -8,6 +8,8 @@
  #pragma comment (lib, "ole32.lib")
  #pragma comment (lib, "oleaut32.lib")
  #pragma comment (lib, "uiautomationcore.lib")
+ #pragma comment (lib, "gdi32.lib")
+ #pragma comment (lib, "user32.lib")
 #endif
 
 namespace fa::uia
@@ -533,6 +535,169 @@ juce::String Automation::readValue (void* rootWindow, const ElementPath& path) c
     return el.name();
 }
 
+bool Automation::readToggle (void* rootWindow, const ElementPath& path, bool& state) const
+{
+    ComScope com;
+    auto a = impl->create();
+    auto el = a ? impl->resolve (a.p, (HWND) rootWindow, path) : Element();
+    if (! el.e)
+        return false;
+    if (auto tp = el.pattern<IUIAutomationTogglePattern> (UIA_TogglePatternId))
+    {
+        ToggleState st = ToggleState_Off;
+        tp->get_CurrentToggleState (&st);
+        state = st == ToggleState_On;
+        return true;
+    }
+    return false;
+}
+
+std::vector<TreeNode> Automation::snapshot (void* rootWindow, int maxNodes, int maxDepth) const
+{
+    std::vector<TreeNode> out;
+    ComScope com;
+    auto a = impl->create();
+    if (! a || rootWindow == nullptr)
+        return out;
+    Element root;
+    if (FAILED (a->ElementFromHandle ((HWND) rootWindow, root.e.put())) || ! root.e)
+        return out;
+    ComPtr<IUIAutomationTreeWalker> walker;
+    a->get_ControlViewWalker (walker.put());
+
+    struct Walk
+    {
+        IUIAutomationTreeWalker* walker;
+        std::vector<TreeNode>& out;
+        int maxNodes, maxDepth;
+
+        static void fill (Element& el, ElementInfo& info)
+        {
+            info.valid = true;
+            info.controlType = el.type();
+            info.name = el.name();
+            info.automationId = el.automationId();
+            info.className = el.className();
+            info.screenBounds = el.bounds();
+            if (auto vp = el.pattern<IUIAutomationValuePattern> (UIA_ValuePatternId))
+            {
+                info.supportsValue = true;
+                BSTR b = nullptr;
+                vp->get_CurrentValue (&b);
+                info.value = fromBstr (b);
+            }
+            if (auto rp = el.pattern<IUIAutomationRangeValuePattern> (UIA_RangeValuePatternId))
+            {
+                info.supportsRange = true;
+                rp->get_CurrentMinimum (&info.rangeMin);
+                rp->get_CurrentMaximum (&info.rangeMax);
+                if (info.value.isEmpty())
+                {
+                    double v = 0;
+                    rp->get_CurrentValue (&v);
+                    info.value = juce::String (v);
+                }
+            }
+            info.supportsToggle    = (bool) el.pattern<IUIAutomationTogglePattern> (UIA_TogglePatternId);
+            info.supportsInvoke    = (bool) el.pattern<IUIAutomationInvokePattern> (UIA_InvokePatternId);
+            info.supportsSelection = (bool) el.pattern<IUIAutomationSelectionItemPattern> (UIA_SelectionItemPatternId);
+            info.supportsExpand    = (bool) el.pattern<IUIAutomationExpandCollapsePattern> (UIA_ExpandCollapsePatternId);
+        }
+
+        void visit (IUIAutomationElement* parentEl, const ElementPath& parentPath, int parentIdx, int depth)
+        {
+            if (depth > maxDepth)
+                return;
+            std::map<juce::String, int> seen; // type|automationId -> count so far
+            Element child;
+            walker->GetFirstChildElement (parentEl, child.e.put());
+            while (child.e && (int) out.size() < maxNodes)
+            {
+                TreeNode n;
+                n.parent = parentIdx;
+                n.depth = depth;
+                fill (child, n.info);
+
+                PathStep step;
+                step.controlType = n.info.controlType;
+                step.automationId = n.info.automationId;
+                step.name = n.info.name;
+                step.className = n.info.className;
+                step.index = seen[step.controlType + "|" + step.automationId]++;
+                n.info.path = parentPath;
+                n.info.path.steps.push_back (step);
+
+                const int myIdx = (int) out.size();
+                const auto myPath = n.info.path;
+                out.push_back (std::move (n));
+                visit (child.e.p, myPath, myIdx, depth + 1);
+
+                Element next;
+                walker->GetNextSiblingElement (child.e.p, next.e.put());
+                child = std::move (next);
+            }
+        }
+    };
+
+    Walk w { walker.p, out, maxNodes, maxDepth };
+    w.visit (root.e.p, {}, -1, 0);
+    return out;
+}
+
+juce::Image Automation::captureWindow (void* window)
+{
+    HWND h = (HWND) window;
+    RECT r {};
+    if (h == nullptr || ! GetWindowRect (h, &r))
+        return {};
+    const int w = r.right - r.left, ht = r.bottom - r.top;
+    if (w <= 0 || ht <= 0 || w > 8192 || ht > 8192)
+        return {};
+
+    HDC screen = GetDC (nullptr);
+    HDC mem = CreateCompatibleDC (screen);
+    HBITMAP bmp = CreateCompatibleBitmap (screen, w, ht);
+    HGDIOBJ old = SelectObject (mem, bmp);
+    if (! PrintWindow (h, mem, 2 /* PW_RENDERFULLCONTENT */))
+        BitBlt (mem, 0, 0, w, ht, screen, r.left, r.top, SRCCOPY);
+
+    BITMAPINFO bi {};
+    bi.bmiHeader.biSize = sizeof (BITMAPINFOHEADER);
+    bi.bmiHeader.biWidth = w;
+    bi.bmiHeader.biHeight = -ht; // top-down
+    bi.bmiHeader.biPlanes = 1;
+    bi.bmiHeader.biBitCount = 32;
+    bi.bmiHeader.biCompression = BI_RGB;
+
+    juce::Image img (juce::Image::RGB, w, ht, false);
+    {
+        juce::Image::BitmapData bd (img, juce::Image::BitmapData::writeOnly);
+        std::vector<uint32_t> buf ((size_t) w * (size_t) ht);
+        GetDIBits (mem, bmp, 0, (UINT) ht, buf.data(), &bi, DIB_RGB_COLORS);
+        for (int y = 0; y < ht; ++y)
+            for (int x = 0; x < w; ++x)
+            {
+                const auto px = buf[(size_t) y * (size_t) w + (size_t) x];
+                bd.setPixelColour (x, y, juce::Colour ((juce::uint8) ((px >> 16) & 0xff), (juce::uint8) ((px >> 8) & 0xff),
+                                                       (juce::uint8) (px & 0xff)));
+            }
+    }
+    SelectObject (mem, old);
+    DeleteObject (bmp);
+    DeleteDC (mem);
+    ReleaseDC (nullptr, screen);
+    return img;
+}
+
+void Automation::bringToFront (void* window)
+{
+    if (window != nullptr)
+    {
+        ShowWindow ((HWND) window, SW_SHOWNORMAL);
+        SetForegroundWindow ((HWND) window);
+    }
+}
+
 //==============================================================================
 void Automation::clickAt (juce::Point<int> p, bool doubleClick)
 {
@@ -626,6 +791,10 @@ bool Automation::setToggle (void*, const ElementPath&, bool, juce::String& e) co
 bool Automation::invoke (void*, const ElementPath&, juce::String& e) const { e = "Windows only"; return false; }
 bool Automation::selectItem (void*, const ElementPath&, const juce::String&, juce::String& e) const { e = "Windows only"; return false; }
 juce::String Automation::readValue (void*, const ElementPath&) const { return {}; }
+std::vector<TreeNode> Automation::snapshot (void*, int, int) const { return {}; }
+bool Automation::readToggle (void*, const ElementPath&, bool&) const { return false; }
+juce::Image Automation::captureWindow (void*) { return {}; }
+void Automation::bringToFront (void*) {}
 void Automation::clickAt (juce::Point<int>, bool) {}
 void Automation::typeText (const juce::String&, bool) {}
 void Automation::pressKeyCombo (int, bool, bool) {}

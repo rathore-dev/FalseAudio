@@ -5,7 +5,10 @@
 #include "audio/ListeningTracks.h"
 #include <optional>
 #include "audio/LiveAnalyzer.h"
+#include "ai/ChannelVerifier.h"
+#include "bridge/AiDspController.h"
 #include "bridge/DspController.h"
+#include "bridge/GuardedDspController.h"
 #include "bridge/Exporters.h"
 #include "bridge/UIAutomationController.h"
 #include "bridge/native/MiniDspController.h"
@@ -25,7 +28,7 @@ class Session : public juce::ChangeBroadcaster,
 {
 public:
     enum class Mode { demo, live };
-    enum class DspKind { virtualDemo, manual, uiAutomation, nativeMiniDsp, nativeDsp408 };
+    enum class DspKind { virtualDemo, manual, uiAutomation, nativeMiniDsp, nativeDsp408, aiOperator };
 
     Session();
     ~Session() override;
@@ -64,7 +67,18 @@ public:
         current state before the first write. Return false with an error if the unit isn't found. */
     bool useNativeMiniDsp (const MiniDspController::Options& options, juce::String& error);
     bool useNativeDsp408 (const Dsp408Controller::Options& options, juce::String& error);
+    /** AI operator: Claude works out any vendor DSP window (no teaching); the learned map is replayed
+        without API calls. `options.outputs` / `options.caps` default to the current config, and
+        `options.agent.verify` to the handler set with setVerifyChannelHandler(). Connects (attach
+        window + load saved map) but does NOT learn: if getAiOperator()->hasMap() is false, call
+        getAiOperator()->learn(error) on a worker thread after the user consented. */
+    bool useAiOperator (AiDspController::Options options, juce::String& error);
+    AiDspController* getAiOperator() noexcept;
+    /** The app side of verify_channel: solo-play a tone/sweep on a DSP output and report which driver responded. */
+    void setVerifyChannelHandler (DspOperatorAgent::VerifyFn fn) { verifyChannelHandler = std::move (fn); }
     DspController& getDsp();
+    /** getDsp() wrapped in a GuardedDspController: use for EVERY write (tweeter HP floor, gain <= 0 dB, step cap). */
+    DspController& getGuardedDsp();
     MeasurementSource& getSource();
 
     // ---- Auto tune --------------------------------------------------------
@@ -111,6 +125,12 @@ public:
     /** Accumulated image offset in dB (> 0: left side lowered, < 0: right side lowered). */
     double getImageBalanceDb() const noexcept { return imageBalanceDb; }
 
+    /** Writes the whole current config (crossovers, PEQ, delay, gain, polarity) to the DSP.
+        Automatic DSPs (and the Demo virtual car) are updated in the background and `automatic`
+        is set; for a manual DSP nothing is sent and the returned steps are what the user has
+        to type in. Returns empty while an Auto Tune is running. */
+    juce::StringArray pushConfigToDsp (bool& automatic);
+
 private:
     void autoTuneMeasurement (const Measurement& m) override;
     void autoTuneFinished (const AutoTuneEngine::Result& r) override;
@@ -126,6 +146,10 @@ private:
     LiveAnalyzer analyzer { audio };
     std::unique_ptr<VirtualRig> demoRig;
     std::unique_ptr<DspController> liveDsp;
+    std::unique_ptr<GuardedDspController> activeGuard;
+    std::vector<std::unique_ptr<GuardedDspController>> retiredGuards;   // kept alive (a worker may still hold one)
+    DspOperatorAgent::VerifyFn verifyChannelHandler;
+    std::unique_ptr<ChannelVerifier> channelVerifier;   // default verify_channel for DspKind::aiOperator
 
     AutoTuneEngine autoTune;
     AutoTuneEngine::Options autoTuneOptions;

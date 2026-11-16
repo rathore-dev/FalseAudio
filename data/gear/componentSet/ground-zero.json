@@ -392,8 +392,9 @@
       "model": "GZUC 165.2SQ-ACT",
       "sourceUrl": "https://www.ground-zero-audio.com/en/gzuc-165-2sq-act-2/",
       "verified": true,
-      "notes": "2-way component speakers. Impedance: 4 + 4 ohms. Power handling: 80 / 130 Watts + 120 / 180 Watts. Tweeter: GZUT 28SQ. High performance midwoofer: GZUK 165SQ.",
+      "notes": "2-way component speakers. Impedance: 4 + 4 ohms. Power handling: 80 / 130 Watts + 120 / 180 Watts. Tweeter: GZUT 28SQ. High performance midwoofer: GZUK 165SQ. Data fix: nominalOhms 4 added from the stated impedance (4 ohm per way).",
       "driver": {
+        "nominalOhms": 4,
         "sizeInches": 6.5,
         "freqLowHz": 40,
         "freqHighHz": 25000,
@@ -426,8 +427,9 @@
       "model": "GZUC 165.3SQ-ACT",
       "sourceUrl": "https://www.ground-zero-audio.com/en/gzuc-165-3sq-act-2/",
       "verified": true,
-      "notes": "3-way component speakers for active use. Impedance: 4 + 4 + 4 ohms. Power handling: 80 / 90 / 120 Watts. Tweeter: GZUT 28SQ. Midrange Speaker: GZUM 55SQ. High performance midwoofer: GZUK 165SQ.",
+      "notes": "3-way component speakers for active use. Impedance: 4 + 4 + 4 ohms. Power handling: 80 / 90 / 120 Watts. Tweeter: GZUT 28SQ. Midrange Speaker: GZUM 55SQ. High performance midwoofer: GZUK 165SQ. Data fix: nominalOhms 4 added from the stated impedance (4 ohm per way).",
       "driver": {
+        "nominalOhms": 4,
         "sizeInches": 6.5,
         "freqLowHz": 40,
         "freqHighHz": 25000,

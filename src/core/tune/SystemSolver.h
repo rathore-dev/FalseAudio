@@ -2,6 +2,7 @@
 
 #include "SystemConfig.h"
 #include "AutoEQ.h"
+#include "PassiveNotch.h"
 #include "../measure/Measurement.h"
 #include <map>
 
@@ -51,6 +52,7 @@ public:
         std::map<juce::String, bool>   wiringInverted;
         double leftRmsErrorDb = 0.0, rightRmsErrorDb = 0.0, leftRightMatchDb = 0.0;
         std::vector<std::pair<double, double>> sumDips; // (freq, depth) of L+R cancellation dips
+        std::map<juce::String, std::vector<PassiveNotch>> passiveNotches;   // unfixable crossover-region notches
     };
 
     SystemSolver (SystemConfig& config, const DriverDataMap& data, Options options);
@@ -74,10 +76,21 @@ public:
     void equalise();
     void analyseSum();
 
+    /** L+R cancellation dips (freq, depth dB) of the current settings, without touching the report.
+        Optionally returns the left/right tonal match (RMS dB, 100 Hz..10 kHz) and the mean cancellation
+        depth over 30 Hz..16 kHz (dB, 0 = none). */
+    std::vector<std::pair<double, double>> findSumDips (double* leftRightMatchDb = nullptr, double* meanDeficitDb = nullptr) const;
+
+    /** Re-derives the right side's EQ by matching it to the (current) left side, as equalise() does. */
+    void rematchRightToLeft();
+
     /** Runs every step in the process order. */
     Report solveAll();
 
     const Report& getReport() const { return report; }
+
+    /** Crossover-region notches found in each passive set's measured response. */
+    const std::map<juce::String, std::vector<PassiveNotch>>& getPassiveNotches() const { return passiveNotches; }
 
 private:
     SystemConfig& cfg;
@@ -85,7 +98,10 @@ private:
     Options opts;
     Report report;
     std::vector<double> freqs;
+    std::map<juce::String, std::vector<PassiveNotch>> passiveNotches;
 
+    std::pair<double, double> timingBand (const OutputChannel& ch) const;
+    std::vector<double> notchWeights (const OutputChannel& ch, std::vector<double> weights) const;
     std::pair<double, double> dominantBand (const OutputChannel& ch) const;
     double inPhaseCost (const FrequencyResponse& a, const FrequencyResponse& b, double fLow, double fHigh) const;
     void equaliseSide (Side side, const std::vector<double>& targetDb, double& rmsOut);

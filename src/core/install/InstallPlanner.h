@@ -81,6 +81,9 @@ struct ChannelPlan
     double excursionLimitedHpHz = 0;      // HP needed so Xmax isn't exceeded at full power
     double recommendedHpHz = 0, recommendedLpHz = 0;
     juce::StringArray warnings;
+    bool belowMinStableOhms = false;      // load is under the amp's minimum stable impedance: blocking DANGER
+    bool tweeterRmsAssumed = false;       // tweeter RMS unknown: conservative cap used instead of amp power
+    bool isDanger() const { return belowMinStableOhms; }
 };
 
 struct Plan
@@ -97,6 +100,10 @@ struct Plan
 /** Pure calculations from specs (no audio). */
 namespace calc
 {
+    /** Gain staging leaves this much room below the target voltage so EQ boost does not clip the amp / overdrive the driver. */
+    constexpr double kEqHeadroomDb = 3.0;
+    /** Per-driver power assumed for a tweeter whose RMS rating is unknown (a typical dome tweeter is 20-50 W; stay low). */
+    constexpr double kUnknownTweeterRmsW = 20.0;
     double copperResistancePerMetre (double awg, const juce::String& material);  // ohm/m
     double copperResistancePerMetreMm2 (double mm2, const juce::String& material);  // ohm/m from a measured cross-section
     double mm2FromAwg (double awg);

@@ -28,6 +28,8 @@ public:
 
 private:
     enum class Export { text, rew, apo, json, session };
+    void openSession();
+    void importPreset();
 
     void refresh();
     void exportAs (Export kind);
@@ -48,6 +50,9 @@ private:
     FaButton apoButton     { "Equalizer APO", FaButton::Style::secondary, icons::Id::download };
     FaButton jsonButton    { "JSON preset", FaButton::Style::secondary, icons::Id::download };
     FaButton sessionButton { "Save session", FaButton::Style::primary, icons::Id::save };
+
+    FaButton openButton    { "Open session", FaButton::Style::secondary, icons::Id::download };
+    FaButton importButton  { "Import preset", FaButton::Style::secondary, icons::Id::download };
 
     std::unique_ptr<juce::FileChooser> chooser;
 

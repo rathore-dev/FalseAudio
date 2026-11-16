@@ -15,18 +15,25 @@ namespace fa
       2 Protect       safe crossovers, flat EQ, zero delay (tweeters can't be hurt)
       3 Measure       every driver alone, at every mic position
       4 Crossovers    refine points from the measured drivers
-      5 Solve         polarity, time alignment, crossover phase, levels, EQ (left, then right to left)
-      6 Apply         write everything to the DSP
-      7 Verify        measure left, right and both; correct residual error (closed loop)
-      8 Report        scores, warnings, before/after curves
+      5 Solve         polarity, time alignment, crossover phase, levels, EQ (left, then right to left),
+                      then optimiser refinement inside the methodology rules
+      6 L+R check     L+R sum cancellation: corrected by polarity where possible, else reported
+      7 Imaging       left/right balance by LEVEL only (never delay)
+      8 Apply         write everything to the DSP
+      9 Verify        measure left, right and both; correct residual error (closed loop)
+     10 Noise         silent-floor check per channel: hiss / ground-loop hum
+     11 Report        scores, warnings, before/after curves
 
     Listener callbacks always arrive on the message thread. */
 class AutoTuneEngine : private juce::Thread
 {
 public:
-    enum class Stage { idle, preflight, protect, measure, crossovers, solve, apply, verify, report, done, failed, cancelled };
+    enum class Stage { idle, preflight, protect, measure, crossovers, solve, sumCheck, imaging, apply, verify, noise, report, done, failed, cancelled };
     static juce::String stageName (Stage s);
-    static constexpr int numWorkStages = 8;
+    static constexpr int numWorkStages = 11;
+
+    /** Sweep level for a driver role: min (requested, role cap (tweeters lowest), safety.sweepLevelDbFS). */
+    static double sweepLevelForRole (DriverRole role, double requestedDbFS, const SafetyLimits& safety);
 
     struct Options
     {
@@ -109,10 +116,32 @@ private:
     void progress (double fraction, const juce::String& message);
     void finish (Result result);
 
-    std::vector<Measurement> sweep (Feed feed, const juce::String& label, juce::String& error);
+    struct RunState;
+    bool stagePreflight (RunState&);
+    bool stageProtect (RunState&);
+    bool stageMeasure (RunState&);
+    bool levelCheck (RunState&);
+    bool measureDrivers (RunState&);
+    bool stageCrossovers (RunState&);
+    bool stageSolve (RunState&);
+    bool stageSumCheck (RunState&);
+    bool stageImaging (RunState&);
+    bool stageApply (RunState&);
+    bool stageVerify (RunState&);
+    bool stageNoise (RunState&);
+    bool stageReport (RunState&);
+    bool correctResiduals (const FrequencyResponse& leftMeasured, const FrequencyResponse& rightMeasured,
+                           const std::vector<double>& targetDb);
+    bool correctGraphic (Side side, const FrequencyResponse& measured, const std::vector<double>& rel, const AutoEQ::Settings& s);
+    juce::StringArray idsFor (Side side) const;
+    double levelForChannel (const OutputChannel& c) const;
+    double levelForIds (const juce::StringArray& ids) const;
+
+    std::vector<Measurement> sweep (Feed feed, const juce::String& label, juce::String& error, double levelDbFS);
     FrequencyResponse measureSide (Feed feed, const juce::StringArray& ids, const juce::String& label,
                                    std::vector<Measurement>& sink, juce::String& error);
     double sideError (const FrequencyResponse& r, const std::vector<double>& targetDb) const;
+    double evalLowHz = 40.0;   // lowest frequency judged: higher when there is no sub (bass below the front HP is not fixable)
 
     /** Posts f to the message thread unless this engine has been destroyed by then. */
     void postToListeners (std::function<void (Listener&)> f);

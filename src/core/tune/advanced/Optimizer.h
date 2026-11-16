@@ -16,6 +16,10 @@ struct Options
     double tonalWeight = 1.0, symmetryWeight = 1.5, summationWeight = 1.2, boostPenalty = 0.3;
     bool allowAllPass = false;        // only if caps.hasAllPass
     bool tuneSubIntegration = true;
+    /** Methodology rules (default on): sub LP tied to front HP / sqrt(2), left and right crossovers
+        equal, EQ optimised on the left (right follows by delta; the engine then re-matches it to the
+        left), and no delay / polarity / all-pass changes. */
+    bool constrained = true;
 };
 
 struct Outcome
@@ -32,8 +36,6 @@ struct CostBreakdown
 {
     double tonal = 0, symmetry = 0, summationLR = 0, summationSide = 0, boost = 0, regularisation = 0, total = 0;
 };
-
-CostBreakdown evaluateCost (const SystemConfig& config, const DriverDataMap& data, const Options& options = {});
 
 /** Simulated judge: scores a predicted/measured result the way competition judges listen
     (tonal accuracy, stage width/height proxies, centre focus, bass up front, linearity,

@@ -211,6 +211,34 @@ bool Session::useNativeDsp408 (const Dsp408Controller::Options& options, juce::S
     return true;
 }
 
+bool Session::useAiOperator (AiDspController::Options options, juce::String& error)
+{
+    if (options.outputs.empty())
+        options.outputs = config.channels;
+    if (options.agent.verify == nullptr)
+        options.agent.verify = verifyChannelHandler;
+    if (options.agent.verify == nullptr)
+    {
+        // Default: the real verifier on the current measurement source (Demo: the virtual rig).
+        ChannelVerifier::Options vo;
+        vo.shouldAbort = [this] { auto* ai = getAiOperator(); return ai != nullptr && ai->getGuard().isKilled(); };
+        channelVerifier = std::make_unique<ChannelVerifier> ([this]() -> MeasurementSource& { return getSource(); },
+                                                             [this]() -> const SystemConfig& { return config; }, vo);
+        options.agent.verify = channelVerifier->asVerifyFn();
+    }
+    auto c = std::make_unique<AiDspController> (options);
+    if (! c->connect (error))
+        return false;
+    config.caps = c->getCapabilities();
+    setDspController (std::move (c), DspKind::aiOperator);
+    return true;
+}
+
+AiDspController* Session::getAiOperator() noexcept
+{
+    return liveDspKind == DspKind::aiOperator ? dynamic_cast<AiDspController*> (liveDsp.get()) : nullptr;
+}
+
 void Session::useUIAutomationDsp (const DspProfile& profile, std::function<void*()> windowProvider)
 {
     auto controller = std::make_unique<UIAutomationController> (profile, std::move (windowProvider),
@@ -244,6 +272,18 @@ DspController& Session::getDsp()
         return *demoRig;
     }
     return *liveDsp;
+}
+
+DspController& Session::getGuardedDsp()
+{
+    auto& inner = getDsp();
+    if (activeGuard == nullptr || &activeGuard->getInner() != &inner)
+    {
+        if (activeGuard != nullptr)
+            retiredGuards.push_back (std::move (activeGuard));
+        activeGuard = std::make_unique<GuardedDspController> (inner);
+    }
+    return *activeGuard;
 }
 
 MeasurementSource& Session::getSource()
@@ -283,7 +323,7 @@ bool Session::startAutoTune (juce::String& error)
         autoTune.onMicPositionChanged = nullptr;
     }
 
-    if (! autoTune.start (config, getSource(), getDsp(), autoTuneOptions))
+    if (! autoTune.start (config, getSource(), getGuardedDsp(), autoTuneOptions))
     {
         error = "Could not start the auto tune.";
         return false;
@@ -446,6 +486,30 @@ juce::StringArray Session::nudgeImage (double db)
     return steps;
 }
 
+juce::StringArray Session::pushConfigToDsp (bool& automatic)
+{
+    juce::StringArray steps;
+    automatic = false;
+    if (autoTune.isRunning())
+        return steps;
+
+    auto& dsp = getDsp();
+    if (dsp.isAutomatic())
+    {
+        automatic = true;
+        applyChannelsInBackground (config.channels);
+        return steps;
+    }
+
+    const auto caps = dsp.getCapabilities();
+    for (auto& ch : config.channels)
+    {
+        steps.add ("--- " + ch.label + " (output " + juce::String (ch.dspOutput + 1) + ")");
+        steps.addArray (ManualDspController::describeChannel (ch, &caps));
+    }
+    return steps;
+}
+
 void Session::finishDspApply()
 {
     {
@@ -469,7 +533,7 @@ void Session::applyChannelsInBackground (const std::vector<OutputChannel>& chann
         dspApplyThread->waitForThreadToExit (2000); // it has already drained the queue and is returning
 
     dspApplyBusy = true;
-    auto* dsp = &getDsp();
+    auto* dsp = &getGuardedDsp();
     dspApplyThread = std::make_unique<OneShotThread> ([this, dsp]
     {
         for (;;)

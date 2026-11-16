@@ -40,6 +40,7 @@ private:
     ToggleSwitch showAllToggle { "All channels" };
     ToggleSwitch predictedToggle { "Predicted acoustic" };
     ToggleSwitch sumToggle { "Side sum" };
+    FaButton sendButton { "Send to DSP", FaButton::Style::primary, icons::Id::bolt };
     FaButton copyButton { juce::String (juce::CharPointer_UTF8 ("Copy L \xE2\x86\x92 R")), FaButton::Style::secondary, icons::Id::copy };
     PeqTable peqTable;
     GraphicBands graphicBands;

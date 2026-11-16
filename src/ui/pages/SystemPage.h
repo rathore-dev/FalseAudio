@@ -35,6 +35,7 @@ private:
     void updateTargetPlot();
     void selectChannel (const juce::String& id);
     void applyLayout();
+    void applyPreset (SystemConfig::Preset p);
     void editTarget (std::function<void (TargetCurve&)> edit);
     void editConfig (std::function<void (SystemConfig&)> edit);
     void importTarget();
@@ -46,6 +47,8 @@ private:
 
     // ---- layout wizard
     Card layoutCard { "Layout", "Front stage" };
+    kit::Caption presetCaption { "Quick preset" };
+    juce::ComboBox presetBox;
     kit::Caption waysCaption { "Ways per side" }, subCaption { "Subwoofer" }, seatCaption { "Listening seat" },
                  steerCaption { "Steering wheel" };
     SegmentedControl waysSeg { { "2-way", "3-way", "4-way" } };

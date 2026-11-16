@@ -1,4 +1,5 @@
 #include "Optimizer.h"
+#include "../PassiveNotch.h"
 #include "PredictionModel.h"
 #include "../CrossoverPlanner.h"
 #include "../GraphicEQ.h"
@@ -33,6 +34,31 @@ public:
     {
         for (auto& mc : model.channels())
             init.push_back (cfg.channels[mc.cfgIndex].settings);
+
+        // Topology: a passive set's crossover-region notches and (without a sub) the bass below the
+        // lowest front driver are things the DSP cannot fix; exclude them from the tonal cost and
+        // never let a band boost into a notch.
+        we = model.erbWeights();
+        notches.resize (init.size());
+        double lowestHp = 0.0;
+        bool anySub = false;
+        for (size_t k = 0; k < init.size(); ++k)
+        {
+            const auto& ch = cfg.channels[model.channels()[k].cfgIndex];
+            if (ch.role == DriverRole::subwoofer) { anySub = true; continue; }
+            if (init[k].highPass.enabled)
+                lowestHp = lowestHp > 0.0 ? std::min (lowestHp, init[k].highPass.freq) : init[k].highPass.freq;
+            if (! ch.isPassiveSet())
+                continue;
+            auto it = d.find (ch.id);
+            if (it == d.end() || it->second.positions.empty())
+                continue;
+            notches[k] = passive::findNotches (powerAverage (it->second.positions), ch.passive.crossoverHz);
+            for (size_t i = 0; i < we.size(); ++i)
+                if (passive::contains (notches[k], model.freqs()[i]))
+                    we[i] = 0.0;
+        }
+        tonalLow = anySub ? 25.0 : std::max (25.0, lowestHp * 1.25);
         state = init;
         cache.resize (state.size());
         for (size_t k = 0; k < state.size(); ++k)
@@ -47,6 +73,7 @@ public:
     }
 
     const Model& getModel() const { return model; }
+    bool inNotch (size_t k, double freq) const { return k < notches.size() && passive::contains (notches[k], freq); }
     size_t numChannels() const { return state.size(); }
     const OutputChannel& channel (size_t k) const { return cfg.channels[model.channels()[k].cfgIndex]; }
 
@@ -118,7 +145,6 @@ public:
         CostBreakdown cb;
         const auto& f = model.freqs();
         const auto& t = model.targetDb();
-        const auto& we = model.erbWeights();
         const auto N = model.size();
         const int P = model.numPositions();
         // One pass over channels/positions accumulates every power spectrum the terms need
@@ -175,7 +201,7 @@ public:
             double acc = 0.0, wsum = 0.0;
             for (size_t i = 0; i < N; ++i)
             {
-                if (f[i] < 25.0 || f[i] > 16000.0)
+                if (f[i] < tonalLow || f[i] > 16000.0)
                     continue;
                 const double e = d[i] - t[i] - off;
                 const double w = we[i] * ws[i];
@@ -256,6 +282,9 @@ private:
     Model model;
     Options opts;
     std::vector<double> wsL, wsR, halfPeriod;
+    std::vector<double> we;                          // ERB weights with unfixable regions zeroed
+    double tonalLow = 25.0;
+    std::vector<std::vector<PassiveNotch>> notches;  // per model channel
 
     // Scratch buffers reused by cost() (single-threaded use only).
     mutable std::array<std::vector<double>, 6> scratch;
@@ -273,6 +302,7 @@ public:
     {
         budget = std::max (2000, opts.maxIterations * 60);
         best = pr.cost().total;
+        buildTwins();
     }
 
     enum class Kind { delay, gain, polarity, bandGain, xoverPair, xoverLP, xoverHP };
@@ -285,6 +315,9 @@ public:
         double lo = 0, hi = 0, step = 1, minStep = 1, cur = 0;
         double base1 = 0, base2 = 0;   // crossover reference frequencies
         double minHp = 0;              // safety floor for the HP that moves
+        // Methodology: the same move is applied to the right-side twin(s) (equal crossovers, level
+        // deltas, EQ deltas) and, for the front HP, to the sub LP(s), which stay at HP / sqrt(2).
+        std::vector<size_t> mir, mir2, subs;
     };
 
     double run()
@@ -306,13 +339,21 @@ public:
 
             for (size_t k = 0; k < pr.numChannels(); ++k)
             {
-                if (! subAllowed (k))
+                if (! subAllowed (k) || frozen (k))
                     continue;
                 auto& s = pr.state[k];
                 const double hp = pr.getHalfPeriod (k);
-                s.delayMs = quantDelay (juce::jlimit (delayLo (k), delayHi (k), s.delayMs + (rng.nextDouble() - 0.5) * hp));
+                if (! opts.constrained)   // delays are never touched under the methodology rules
+                    s.delayMs = quantDelay (juce::jlimit (delayLo (k), delayHi (k), s.delayMs + (rng.nextDouble() - 0.5) * hp));
+                const double oldGain = s.gainDb;
                 s.gainDb = quantGain (juce::jlimit (gainLo (k), gainHi (k), s.gainDb + (rng.nextDouble() - 0.5) * 1.0));
                 pr.contribOnly (k);
+                if (twin[k] >= 0)
+                {
+                    const auto t = (size_t) twin[k];
+                    pr.state[t].gainDb = quantGain (juce::jlimit (gainLo (t), gainHi (t), pr.state[t].gainDb + (s.gainDb - oldGain)));
+                    pr.contribOnly (t);
+                }
             }
             best = pr.cost().total;
             buildParams();
@@ -337,6 +378,34 @@ private:
     std::vector<Param> params;
     double best = 0.0;
     int evals = 0, budget = 0;
+    std::vector<long> twin;   // left channel -> its right counterpart (constrained stereo only), else -1
+
+    void buildTwins()
+    {
+        const auto& mch = pr.getModel().channels();
+        twin.assign (mch.size(), -1);
+        if (! opts.constrained || ! cfg.isStereo())
+            return;
+        std::vector<bool> used (mch.size(), false);
+        for (size_t k = 0; k < mch.size(); ++k)
+        {
+            if (mch[k].side != Side::left)
+                continue;
+            for (size_t j = 0; j < mch.size(); ++j)
+                if (! used[j] && mch[j].side == Side::right && mch[j].role == mch[k].role)
+                {
+                    twin[k] = (long) j;
+                    used[j] = true;
+                    break;
+                }
+        }
+    }
+
+    /** Right-side channels follow the left (crossovers, level deltas, EQ matched to the left afterwards). */
+    bool frozen (size_t k) const
+    {
+        return opts.constrained && cfg.isStereo() && pr.getModel().channels()[k].side == Side::right;
+    }
 
     bool subAllowed (size_t k) const
     {
@@ -389,6 +458,8 @@ private:
         const auto& s = pr.init[k];
         if (pr.getModel().channels()[k].role != DriverRole::subwoofer && s.highPass.enabled && freq < 2.0 * s.highPass.freq)
             lim = std::min (lim, cfg.safety.maxLowFreqBoostDb);   // excursion protection
+        if (pr.inNotch (k, freq))
+            lim = std::min (lim, 0.0);                             // passive-network notch: never boost into it
         return lim;
     }
 
@@ -407,8 +478,8 @@ private:
         // 1) phase: delays and polarity
         for (size_t k = 0; k < mch.size(); ++k)
         {
-            if (! subAllowed (k) || pr.state[k].muted)
-                continue;
+            if (opts.constrained || ! subAllowed (k) || pr.state[k].muted)
+                continue;   // constrained: delay and polarity belong to the alignment stage
             Param p { Kind::delay, k };
             p.lo = delayLo (k);
             p.hi = delayHi (k);
@@ -424,9 +495,10 @@ private:
         // 2) levels
         for (size_t k = 0; k < mch.size(); ++k)
         {
-            if (! subAllowed (k) || pr.state[k].muted)
+            if (! subAllowed (k) || pr.state[k].muted || frozen (k))
                 continue;
             Param p { Kind::gain, k };
+            if (twin[k] >= 0) p.mir = { (size_t) twin[k] };
             p.lo = gainLo (k);
             p.hi = gainHi (k);
             p.cur = pr.state[k].gainDb;
@@ -436,7 +508,7 @@ private:
         }
 
         // 3) crossover points (1/24-octave moves, +-1/3 octave, both sides of each pair together)
-        for (auto side : { Side::left, Side::right })
+        auto chainOf = [&] (Side side)
         {
             std::vector<size_t> chain;
             for (size_t k = 0; k < mch.size(); ++k)
@@ -446,6 +518,20 @@ private:
             {
                 return pr.init[a].highPass.freq < pr.init[b].highPass.freq;
             });
+            return chain;
+        };
+        std::vector<size_t> subsList;
+        for (size_t k = 0; k < mch.size(); ++k)
+            if (mch[k].role == DriverRole::subwoofer && opts.tuneSubIntegration && pr.init[k].lowPass.enabled && ! pr.state[k].muted)
+                subsList.push_back (k);
+
+        for (auto side : { Side::left, Side::right })
+        {
+            if (opts.constrained && cfg.isStereo() && side == Side::right)
+                continue;   // right crossovers are moved together with the left ones
+            const auto chain = chainOf (side);
+            const auto rchain = (opts.constrained && cfg.isStereo() && side == Side::left) ? chainOf (Side::right) : std::vector<size_t>{};
+            const bool haveTwin = rchain.size() == chain.size();
 
             for (size_t i = 0; i + 1 < chain.size(); ++i)
             {
@@ -458,6 +544,7 @@ private:
                 p.minHp = minHighPass (up);
                 p.cur = currentOctaveSteps (pr.state[up].highPass.freq, p.base2);
                 p.lo = -8; p.hi = 8; p.step = 2; p.minStep = 1;
+                if (haveTwin && ! rchain.empty()) { p.mir = { rchain[i] }; p.mir2 = { rchain[i + 1] }; }
                 params.push_back (p);
             }
 
@@ -469,11 +556,18 @@ private:
                 p.minHp = minHighPass (chain[0]);
                 p.cur = currentOctaveSteps (pr.state[chain[0]].highPass.freq, p.base2);
                 p.lo = -6; p.hi = 6; p.step = 2; p.minStep = 1;
+                if (opts.constrained)
+                {
+                    p.subs = subsList;   // sub LP stays at HP / sqrt(2)
+                    if (haveTwin && ! rchain.empty()) p.mir = { rchain[0] };
+                }
                 params.push_back (p);
             }
         }
         for (size_t k = 0; k < mch.size(); ++k)
         {
+            if (opts.constrained)
+                break;   // the sub LP is tied to the front HP above
             if (mch[k].role != DriverRole::subwoofer || ! opts.tuneSubIntegration || ! pr.init[k].lowPass.enabled)
                 continue;
             Param p { Kind::xoverLP, k };
@@ -489,7 +583,7 @@ private:
         const bool graphic = cfg.caps.isGraphic();
         for (size_t k = 0; k < mch.size(); ++k)
         {
-            if (! subAllowed (k) || pr.state[k].muted || (graphic && ! cfg.caps.graphicPerChannel))
+            if (! subAllowed (k) || pr.state[k].muted || frozen (k) || (graphic && ! cfg.caps.graphicPerChannel))
                 continue;
             for (int b = 0; b < (int) pr.state[k].peq.size(); ++b)
             {
@@ -508,6 +602,13 @@ private:
                 }
                 Param p { Kind::bandGain, k };
                 p.band = b;
+                if (twin[k] >= 0)
+                {
+                    const auto t = (size_t) twin[k];
+                    if ((size_t) b < pr.state[t].peq.size() && pr.state[t].peq[(size_t) b].type == band.type
+                        && pr.state[t].peq[(size_t) b].freq == band.freq)
+                        p.mir = { t };
+                }
                 p.cur = band.gainDb;
                 p.lo = std::min (p.cur, std::max (graphic ? cfg.caps.graphicMaxCutDb : cfg.caps.peqMinGainDb, p.cur - 6.0));
                 p.hi = std::max (p.cur, std::min (bandBoostLimit (k, band.freq), p.cur + 6.0));
@@ -532,8 +633,49 @@ private:
     Snapshot snapshot() const { return { pr.state, pr.cache }; }
     void restore (const Snapshot& s) { pr.state = s.state; pr.cache = s.cache; }
 
-    /** Applies a parameter value; returns false if it violates a constraint (state untouched). */
+    /** Applies a parameter value (and its right-side twins / tied sub LPs); false if a constraint is violated
+        (the caller restores the state). */
     bool apply (const Param& p, double v, std::vector<size_t>& touched)
+    {
+        if (! applyOne (p, v, touched))
+            return false;
+        for (size_t i = 0; i < p.mir.size(); ++i)
+        {
+            Param t = p;
+            t.k = p.mir[i];
+            t.k2 = i < p.mir2.size() ? p.mir2[i] : (size_t) -1;
+            t.mir.clear(); t.mir2.clear(); t.subs.clear();
+            double tv = v;
+            if (p.kind == Kind::gain)
+                tv = quantGain (juce::jlimit (gainLo (t.k), gainHi (t.k), pr.init[t.k].gainDb + (v - pr.init[p.k].gainDb)));
+            else if (p.kind == Kind::bandGain)
+            {
+                const double d = v - pr.init[p.k].peq[(size_t) p.band].gainDb;
+                const double lim = bandBoostLimit (t.k, pr.state[t.k].peq[(size_t) p.band].freq);
+                tv = juce::jlimit (cfg.caps.isGraphic() ? cfg.caps.graphicMaxCutDb : cfg.caps.peqMinGainDb, lim,
+                                   pr.init[t.k].peq[(size_t) p.band].gainDb + d);
+                tv = cfg.caps.isGraphic() ? quantGraphic (tv) : quantGain (tv);
+            }
+            std::vector<size_t> tt;
+            if (! applyOne (t, tv, tt))
+                return false;
+            touched.insert (touched.end(), tt.begin(), tt.end());
+        }
+        if (p.kind == Kind::xoverHP)
+            for (auto sk : p.subs)
+            {
+                const double lp = CrossoverPlanner::snapFrequency (pr.state[p.k].highPass.freq / std::sqrt (2.0), cfg.caps);
+                if (pr.state[sk].highPass.enabled && lp < pr.state[sk].highPass.freq * 1.5)
+                    return false;
+                pr.state[sk].lowPass.freq = lp;
+                pr.cache[sk].parts[1] = pr.partOf (pr.state[sk].lowPass);
+                pr.product (sk);
+                touched.push_back (sk);
+            }
+        return true;
+    }
+
+    bool applyOne (const Param& p, double v, std::vector<size_t>& touched)
     {
         auto snap = [this] (double base, double steps) { return CrossoverPlanner::snapFrequency (base * std::pow (2.0, steps / 24.0), cfg.caps); };
         touched.clear();
@@ -625,26 +767,64 @@ private:
             int partIndex = -1;
         };
         std::vector<Saved> saved;
-        for (auto k : { p.k, p.k2 })
+        auto addSaved = [&] (size_t k, int partIndex)
         {
             if (k >= pr.numChannels())
-                continue;
+                return;
             Saved sv { k, pr.state[k], {}, {}, pr.cache[k].contrib };
-            if (p.kind == Kind::bandGain)       sv.partIndex = p.band + 2;
-            else if (p.kind == Kind::xoverHP)   sv.partIndex = 0;
-            else if (p.kind == Kind::xoverLP)   sv.partIndex = 1;
-            else if (p.kind == Kind::xoverPair) sv.partIndex = k == p.k ? 1 : 0;
+            sv.partIndex = partIndex;
             if (sv.partIndex >= 0)
             {
                 sv.filt = pr.cache[k].filt;
                 sv.part = pr.cache[k].parts[(size_t) sv.partIndex];
             }
             saved.push_back (std::move (sv));
+        };
+        auto addFor = [&] (const Param& q)
+        {
+            for (auto k : { q.k, q.k2 })
+            {
+                int pi = -1;
+                if (q.kind == Kind::bandGain)       pi = q.band + 2;
+                else if (q.kind == Kind::xoverHP)   pi = 0;
+                else if (q.kind == Kind::xoverLP)   pi = 1;
+                else if (q.kind == Kind::xoverPair) pi = k == q.k ? 1 : 0;
+                addSaved (k, pi);
+            }
+        };
+        addFor (p);
+        for (size_t i = 0; i < p.mir.size(); ++i)
+        {
+            Param t = p;
+            t.k = p.mir[i];
+            t.k2 = i < p.mir2.size() ? p.mir2[i] : (size_t) -1;
+            addFor (t);
         }
+        for (auto sk : p.subs)
+            addSaved (sk, 1);
+
+        auto restoreSaved = [&]
+        {
+            for (auto it = saved.rbegin(); it != saved.rend(); ++it)
+            {
+                auto& sv = *it;
+                auto& cache = pr.cache[sv.k];
+                pr.state[sv.k] = std::move (sv.s);
+                cache.contrib = std::move (sv.contrib);
+                if (sv.partIndex >= 0)
+                {
+                    cache.filt = std::move (sv.filt);
+                    cache.parts[(size_t) sv.partIndex] = std::move (sv.part);
+                }
+            }
+        };
 
         std::vector<size_t> touched;
         if (! apply (p, v, touched))
+        {
+            restoreSaved();
             return false;
+        }
 
         ++evals;
         const double c = pr.cost().total;
@@ -653,17 +833,7 @@ private:
             best = c;
             return true;
         }
-        for (auto& sv : saved)
-        {
-            auto& cache = pr.cache[sv.k];
-            pr.state[sv.k] = std::move (sv.s);
-            cache.contrib = std::move (sv.contrib);
-            if (sv.partIndex >= 0)
-            {
-                cache.filt = std::move (sv.filt);
-                cache.parts[(size_t) sv.partIndex] = std::move (sv.part);
-            }
-        }
+        restoreSaved();
         return false;
     }
 
@@ -740,6 +910,8 @@ private:
 
         for (size_t k = 0; k < mch.size(); ++k)
         {
+            if (frozen (k))
+                continue;
             for (int b = (int) pr.state[k].peq.size() - 1; b >= 0; --b)
             {
                 const auto band = pr.state[k].peq[(size_t) b];
@@ -747,7 +919,8 @@ private:
                     continue;
                 for (size_t j = 0; j < mch.size(); ++j)
                 {
-                    if (j == k || mch[j].side != mch[k].side || (int) pr.state[j].peq.size() >= slots || ! subAllowed (j))
+                    if (j == k || mch[j].side != mch[k].side || (int) pr.state[j].peq.size() >= slots || ! subAllowed (j)
+                        || frozen (j))
                         continue;
                     // Only between drivers that overlap at the band's frequency (within the crossover region).
                     const auto& sj = pr.state[j];
@@ -778,7 +951,7 @@ private:
             }
         }
 
-        if (opts.allowAllPass && cfg.caps.hasAllPass)
+        if (opts.allowAllPass && cfg.caps.hasAllPass && ! opts.constrained)
         {
             for (auto& p : params)
             {
@@ -827,12 +1000,6 @@ juce::String describeChange (const juce::String& what, double a, double b, int d
 } // namespace
 
 //==============================================================================
-CostBreakdown evaluateCost (const SystemConfig& config, const DriverDataMap& data, const Options& options)
-{
-    Problem pr (config, data, options);
-    return pr.cost();
-}
-
 Outcome refine (SystemConfig& config, const DriverDataMap& data, const Options& options)
 {
     Outcome out;

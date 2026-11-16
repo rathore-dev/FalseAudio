@@ -25,8 +25,18 @@ namespace
                 b.db[i] = dbFromMag (std::abs (c.response (f[i], s.sampleRate)));
         }
 
+        bool inNoBoost (double freq) const
+        {
+            for (auto& r : s.noBoostRanges)
+                if (freq >= r.first && freq <= r.second)
+                    return true;
+            return false;
+        }
+
         double boostLimit (double freq) const
         {
+            if (inNoBoost (freq))
+                return std::min (s.noBoostLimitDb, s.maxBoostDb);
             return (s.lfBoostLimitBelowHz > 0.0 && freq < s.lfBoostLimitBelowHz)
                        ? std::min (s.maxBoostDb, s.lfBoostLimitDb) : s.maxBoostDb;
         }
@@ -177,11 +187,12 @@ AutoEQ::Result AutoEQ::solve (const FrequencyResponse& measured,
         p.f.push_back (f);
         p.m.push_back (mi);
         p.t.push_back (targetDb[i]);
-        p.w.push_back (weights.empty() ? 1.0 : weights[i]);
+        const bool exempt = p.inNoBoost (f);
+        p.w.push_back (exempt ? 0.0 : weights.empty() ? 1.0 : weights[i]);
 
         // Narrow deep dips (much lower than the broad trend) are cancellations: don't chase them.
         const double narrowness = mi - broad.magnitudeDb (i);
-        p.dipW.push_back (narrowness < -4.0 ? s.dipWeight * 0.1 : s.dipWeight);
+        p.dipW.push_back (exempt ? 0.0 : narrowness < -4.0 ? s.dipWeight * 0.1 : s.dipWeight);
     }
 
     if (p.f.size() < 4)

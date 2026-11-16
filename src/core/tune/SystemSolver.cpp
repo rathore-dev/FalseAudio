@@ -33,6 +33,41 @@ namespace
 SystemSolver::SystemSolver (SystemConfig& config, const DriverDataMap& d, Options o)
     : cfg (config), data (d), opts (o), freqs (analysisFrequencies())
 {
+    // Passive sets: find the crossover-region notches the DSP can't fix (EQ must stay out of them).
+    std::map<juce::String, FrequencyResponse> responses;
+    for (auto& c : cfg.channels)
+    {
+        auto it = data.find (c.id);
+        if (c.isPassiveSet() && it != data.end() && ! it->second.positions.empty())
+            responses[c.id] = powerAverage (it->second.positions);
+    }
+    passiveNotches = passive::findAll (cfg, responses);
+    report.passiveNotches = passiveNotches;
+}
+
+std::vector<double> SystemSolver::notchWeights (const OutputChannel& ch, std::vector<double> w) const
+{
+    auto it = passiveNotches.find (ch.id);
+    if (it == passiveNotches.end())
+        return w;
+    if (w.empty())
+        w.assign (freqs.size(), 1.0);
+    for (size_t i = 0; i < w.size() && i < freqs.size(); ++i)
+        if (passive::contains (it->second, freqs[i]))
+            w[i] = 0.0;
+    return w;
+}
+
+std::pair<double, double> SystemSolver::timingBand (const OutputChannel& ch) const
+{
+    auto b = dominantBand (ch);
+    if (ch.isPassiveSet())
+    {
+        // The woofer carries the set below its internal crossover; the tweeter's offset would blur timing above.
+        const double top = ch.passive.crossoverHz > 0.0 ? ch.passive.crossoverHz * 0.7 : 1500.0;
+        b.second = std::max (b.first * 2.5, std::min (b.second, top));
+    }
+    return b;
 }
 
 int SystemSolver::numPositions() const
@@ -100,7 +135,7 @@ std::pair<double, double> SystemSolver::dominantBand (const OutputChannel& ch) c
     const auto& s = ch.settings;
     const double lo = (s.highPass.enabled && ch.role != DriverRole::subwoofer) ? s.highPass.freq : 20.0;
     double hi = s.lowPass.enabled ? s.lowPass.freq : 20000.0;
-    if (ch.role == DriverRole::tweeter || ch.role == DriverRole::fullrange)
+    if (ch.role == DriverRole::tweeter || ch.role == DriverRole::fullrange || ch.isPassiveSet())
         hi = std::min (hi, 16000.0);
     return { lo, std::max (hi, lo * 1.5) };
 }
@@ -137,7 +172,7 @@ void SystemSolver::checkPolarity()
         if (it == data.end() || it->second.positions.empty())
             continue;
 
-        auto [lo, hi] = dominantBand (ch);
+        auto [lo, hi] = timingBand (ch);
         const auto est = estimateArrival (it->second.positions[0], lo * 1.2, hi / 1.2);
 
         // What the DSP was doing during the measurement must be removed from the verdict.
@@ -169,7 +204,7 @@ void SystemSolver::alignTime()
         if (it == data.end() || it->second.positions.empty())
             continue;
 
-        auto [lo, hi] = dominantBand (ch);
+        auto [lo, hi] = timingBand (ch);
         if (ch.role == DriverRole::subwoofer)
         {
             lo = 25.0;
@@ -265,8 +300,12 @@ void SystemSolver::refineCrossoverPhase()
     {
         std::vector<OutputChannel*> chain;
         for (auto& c : cfg.channels)
-            if (c.side == side && c.role != DriverRole::subwoofer && data.count (c.id) > 0)
+            if (SystemConfig::inFrontChain (c, side) && data.count (c.id) > 0)
                 chain.push_back (&c);
+        if (chain.size() == 1 && chain.front()->coversWholeBand())
+            report.notes.add (chain.front()->label + ": crossover phase search skipped ("
+                              + (chain.front()->isPassiveSet() ? "the woofer/tweeter crossover is passive and fixed"
+                                                               : "single full-range driver, nothing to phase against") + ")");
         std::sort (chain.begin(), chain.end(), [] (auto* a, auto* b)
         {
             const double fa = a->settings.lowPass.enabled ? a->settings.lowPass.freq : 1.0e6;
@@ -295,7 +334,7 @@ void SystemSolver::refineCrossoverPhase()
                 continue;
             const OutputChannel* lowest = nullptr;
             for (auto& c : cfg.channels)
-                if (c.side == side && c.role != DriverRole::subwoofer && data.count (c.id) > 0)
+                if (SystemConfig::inFrontChain (c, side) && data.count (c.id) > 0)
                     if (lowest == nullptr || c.settings.highPass.freq < lowest->settings.highPass.freq)
                         lowest = &c;
             if (lowest != nullptr)
@@ -391,7 +430,7 @@ void SystemSolver::equaliseSide (Side side, const std::vector<double>& targetDb,
 {
     std::vector<OutputChannel*> chain;
     for (auto& c : cfg.channels)
-        if (c.side == side && c.role != DriverRole::subwoofer && data.count (c.id) > 0)
+        if (SystemConfig::inFrontChain (c, side) && data.count (c.id) > 0)
             chain.push_back (&c);
     std::sort (chain.begin(), chain.end(), [] (auto* a, auto* b) { return a->settings.highPass.freq < b->settings.highPass.freq; });
 
@@ -469,7 +508,8 @@ void SystemSolver::equaliseSide (Side side, const std::vector<double>& targetDb,
             for (int p = 0; p < numPositions(); ++p)
                 sums.push_back (predictSum (sideChannels (side), p));
             const auto res = GraphicEQ::solve (powerAverage (sums), targetDb, cfg.caps,
-                                               graphicSettings (cfg, lo, hi, lo * 2.0), AutoEQ::spatialWeights (sums));
+                                               graphicSettings (cfg, lo, hi, lo * 2.0),
+                                               notchWeights (*ch, AutoEQ::spatialWeights (sums)));
             ch->settings.peq = res.filters;
             report.notes.add (ch->label + ": " + describeGraphicFit (res));
             continue;
@@ -491,6 +531,8 @@ void SystemSolver::equaliseSide (Side side, const std::vector<double>& targetDb,
         s.lfBoostLimitBelowHz = lo * 2.0;
         s.lfBoostLimitDb = cfg.safety.maxLowFreqBoostDb;
         s.gainStepDb = cfg.caps.gainStepDb;
+        if (auto nt = passiveNotches.find (ch->id); nt != passiveNotches.end())
+            s.noBoostRanges = passive::ranges (nt->second);   // never boost into a passive-network notch
 
         const auto res = AutoEQ::solve (powerAverage (sums), targetDb, s, AutoEQ::spatialWeights (sums));
         ch->settings.peq = res.filters;
@@ -531,6 +573,11 @@ void SystemSolver::equalise()
             v += offset;
         return t;
     };
+
+    for (auto& c : cfg.channels)
+        if (auto nt = passiveNotches.find (c.id); nt != passiveNotches.end())
+            for (auto& n : nt->second)
+                report.notes.add (passive::describe (c, n));
 
     const auto leftTarget = anchoredTarget (Side::left);
 
@@ -580,6 +627,12 @@ void SystemSolver::equalise()
     equaliseSide (Side::left, leftTarget, report.leftRmsErrorDb);
 
     // 3) Right to target, or to the corrected left side (process rule: keeps the centre image).
+    if (! cfg.isStereo())
+    {
+        report.rightRmsErrorDb = report.leftRmsErrorDb;
+        report.notes.add ("Right-side matching skipped: only one side has a driver (single driver / no L/R pair).");
+        return;
+    }
     std::vector<double> rightTarget;
     if (opts.matchRightToLeft)
     {
@@ -593,9 +646,15 @@ void SystemSolver::equalise()
     equaliseSide (Side::right, rightTarget, report.rightRmsErrorDb);
 }
 
-void SystemSolver::analyseSum()
+std::vector<std::pair<double, double>> SystemSolver::findSumDips (double* leftRightMatchDb, double* meanDeficitDb) const
 {
-    report.sumDips.clear();
+    std::vector<std::pair<double, double>> dips;
+    if (leftRightMatchDb != nullptr)
+        *leftRightMatchDb = 0.0;
+    if (meanDeficitDb != nullptr)
+        *meanDeficitDb = 0.0;
+    if (! cfg.isStereo())
+        return dips;   // one driver / one side: no L+R sum to cancel
 
     std::vector<FrequencyResponse> both, lefts, rights;
     std::vector<const OutputChannel*> all;
@@ -615,13 +674,16 @@ void SystemSolver::analyseSum()
 
     // A dip in L+R that isn't in L or R alone is a phase (delay) problem.
     bool inDip = false;
-    double dipF = 0.0, dipDepth = 0.0;
+    double dipF = 0.0, dipDepth = 0.0, deficitSum = 0.0;
+    int deficitN = 0;
     for (size_t i = 0; i < freqs.size(); ++i)
     {
         if (freqs[i] < 30.0 || freqs[i] > 16000.0)
             continue;
         const double expected = dbFromMag (std::abs (lAvg.values[i]) + std::abs (rAvg.values[i])) - 3.0;
         const double deficit = expected - sumAvg.magnitudeDb (i);
+        deficitSum += std::max (0.0, deficit);
+        ++deficitN;
         if (deficit > 6.0)
         {
             if (! inDip || deficit > dipDepth)
@@ -633,28 +695,49 @@ void SystemSolver::analyseSum()
         }
         else if (inDip)
         {
-            report.sumDips.emplace_back (dipF, dipDepth);
+            dips.emplace_back (dipF, dipDepth);
             inDip = false;
             dipDepth = 0.0;
         }
     }
 
+    if (meanDeficitDb != nullptr)
+        *meanDeficitDb = deficitN > 0 ? deficitSum / deficitN : 0.0;
+
+    // Left/right tonal match (what keeps the centre image stable).
+    if (leftRightMatchDb != nullptr)
+    {
+        double acc = 0.0;
+        int n = 0;
+        for (size_t i = 0; i < freqs.size(); ++i)
+            if (freqs[i] >= 100.0 && freqs[i] <= 10000.0)
+                { acc += std::pow (lAvg.magnitudeDb (i) - rAvg.magnitudeDb (i), 2.0); ++n; }
+        *leftRightMatchDb = n > 0 ? std::sqrt (acc / n) : 0.0;
+    }
+    return dips;
+}
+
+void SystemSolver::analyseSum()
+{
+    report.sumDips = findSumDips (&report.leftRightMatchDb);
+
     for (auto& [f, d] : report.sumDips)
         report.warnings.add ("L+R cancellation of " + juce::String (d, 1) + " dB at " + juce::String (juce::roundToInt (f))
                              + " Hz" + (d >= 9.0 ? " - check delays (process step 7)." : "."));
+}
 
-    // Left/right tonal match (what keeps the centre image stable).
-    double acc = 0.0;
-    int n = 0;
-    for (size_t i = 0; i < freqs.size(); ++i)
-        if (freqs[i] >= 100.0 && freqs[i] <= 10000.0)
-            { acc += std::pow (lAvg.magnitudeDb (i) - rAvg.magnitudeDb (i), 2.0); ++n; }
-    report.leftRightMatchDb = n > 0 ? std::sqrt (acc / n) : 0.0;
+void SystemSolver::rematchRightToLeft()
+{
+    if (! cfg.isStereo())
+        return;
+    const auto left = smoothFractionalOctave (averagedSideSum (Side::left), 3.0);
+    equaliseSide (Side::right, left.magnitudeDb(), report.rightRmsErrorDb);
 }
 
 SystemSolver::Report SystemSolver::solveAll()
 {
     report = {};
+    report.passiveNotches = passiveNotches;
     checkPolarity();
     alignTime();
     refineCrossoverPhase();

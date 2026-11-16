@@ -108,6 +108,9 @@ MeasurePage::MeasurePage (Session& s) : Page (s)
     // ---- main -------------------------------------------------------------
     viewSelector.onChange = [this] (int i) { setView ((View) i); };
     addAndMakeVisible (viewSelector);
+    exportButton.setTooltip ("Save the selected measurement's frequency response as a REW-style text file (Hz, dB, phase)");
+    exportButton.onClick = [this] { exportSelected(); };
+    addAndMakeVisible (exportButton);
 
     freqPlot.setUnits (FrequencyPlot::Units::dB);
     freqPlot.setRanges (10.0, 24000.0, -40.0, 20.0);
@@ -203,12 +206,46 @@ void MeasurePage::resized()
     mainCardArea = r;
 
     auto viewRow = r.removeFromTop (viewRowHeight).reduced (theme::pad, 6);
-    viewSelector.setBounds (viewRow.removeFromLeft (juce::jmin (viewRow.getWidth(), 640)));
+    exportButton.setBounds (viewRow.removeFromRight (100));
+    viewSelector.setBounds (viewRow.removeFromLeft (juce::jmin (viewRow.getWidth() - 8, 640)));
 
     auto plotArea = r.reduced (1, 1).withTrimmedTop (4);
     freqPlot.setBounds (plotArea);
     timePlot.setBounds (plotArea);
     waterfall.setBounds (plotArea);
+}
+
+void MeasurePage::exportSelected()
+{
+    const auto* m = selectedMeasurement();
+    if (m == nullptr || m->response.isEmpty())
+    {
+        if (shell != nullptr)
+            shell->toast ("Select a measurement in the library first", AppShell::ToastKind::warn);
+        return;
+    }
+
+    juce::String text;
+    text << "* Measurement data exported by FalseAudio\n* " << displayName (*m) << "\n* Freq(Hz), SPL(dB), Phase(degrees)\n";
+    for (size_t i = 0; i < m->response.size(); ++i)
+        text << juce::String (m->response.freqs[i], 3) << ", " << juce::String (m->response.magnitudeDb (i), 2)
+             << ", " << juce::String (m->response.phaseDeg (i), 2) << "\n";
+
+    const auto docs = juce::File::getSpecialLocation (juce::File::userDocumentsDirectory);
+    const auto name = juce::File::createLegalFileName (displayName (*m)) + ".txt";
+    chooser = std::make_unique<juce::FileChooser> ("Export measurement", docs.getChildFile (name), "*.txt");
+    chooser->launchAsync (juce::FileBrowserComponent::saveMode | juce::FileBrowserComponent::canSelectFiles
+                              | juce::FileBrowserComponent::warnAboutOverwriting,
+                          [this, text] (const juce::FileChooser& fc)
+    {
+        const auto f = fc.getResult();
+        if (f == juce::File())
+            return;
+        const bool ok = f.replaceWithText (text);
+        if (shell != nullptr)
+            shell->toast (ok ? "Measurement saved to " + f.getFileName() : "Could not write " + f.getFullPathName(),
+                          ok ? AppShell::ToastKind::good : AppShell::ToastKind::bad);
+    });
 }
 
 void MeasurePage::pageShown()

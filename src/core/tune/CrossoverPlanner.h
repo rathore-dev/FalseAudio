@@ -36,6 +36,10 @@ public:
     /** Frequency above which a driver of this size starts beaming (ka ~ 1.5). */
     static double dispersionLimitHz (const OutputChannel& ch);
 
+    /** Usable low end of a passive set's woofer or a full-range driver: from Fs and Xmax when known
+        (excursion-limited), else from the cone size. */
+    static double usableHighPassHz (const OutputChannel& ch);
+
     /** Lowest safe HP for the driver. */
     static double safeHighPassHz (const OutputChannel& ch, const SafetyLimits& s);
 

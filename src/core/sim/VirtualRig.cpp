@@ -29,6 +29,55 @@ bool VirtualRig::setMuted (const OutputChannel& channel, bool muted, juce::Strin
     return true;
 }
 
+void VirtualRig::setChannelNoise (const juce::String& channelId, double dbFS, bool hum)
+{
+    const juce::ScopedLock sl (lock);
+    injectedNoise[channelId] = { dbFS, hum };
+}
+
+bool VirtualRig::recordSilence (std::vector<float>& samples, double& sampleRate, std::atomic<bool>& cancelFlag, juce::String& error)
+{
+    if (cancelFlag.load())
+    {
+        error = "Cancelled.";
+        return false;
+    }
+
+    sampleRate = 48000.0;
+    const size_t n = (size_t) (1.5 * sampleRate);
+    samples.assign (n, 0.0f);
+
+    std::vector<InjectedNoise> active;
+    {
+        const juce::ScopedLock sl (lock);
+        for (auto& [id, ch] : dspState)
+            if (! ch.settings.muted)
+                if (auto it = injectedNoise.find (id); it != injectedNoise.end())
+                    active.push_back (it->second);
+    }
+
+    juce::Random rng (noiseSeed++);
+    const double floorAmp = magFromDb (-90.0);   // the quiet cabin + mic floor
+    const double twoPi = juce::MathConstants<double>::twoPi;
+    for (size_t i = 0; i < n; ++i)
+    {
+        double v = floorAmp * (rng.nextDouble() * 2.0 - 1.0);
+        for (auto& a : active)
+        {
+            const double amp = magFromDb (a.dbFS);
+            if (a.hum)
+            {
+                const double t = (double) i / sampleRate;
+                v += amp * 1.2 * (std::sin (twoPi * 50.0 * t) + 0.5 * std::sin (twoPi * 100.0 * t));
+            }
+            else
+                v += amp * 1.7320508 * (rng.nextDouble() * 2.0 - 1.0);   // uniform noise with RMS = amp
+        }
+        samples[i] = (float) v;
+    }
+    return true;
+}
+
 std::vector<Measurement> VirtualRig::measureSweep (const SweepRequest& request, std::atomic<bool>& cancelFlag,
                                                    juce::String& error)
 {

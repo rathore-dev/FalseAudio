@@ -67,7 +67,7 @@ namespace
         }
         const int heroBottom = y;
 
-        const int stepsH = 26 + 8 * 46;
+        const int stepsH = 26 + AutoTuneEngine::numWorkStages * 46;
         if (twoCol)
         {
             L.steps = { width - inner - stepsW, inner, stepsW, stepsH };
@@ -284,14 +284,15 @@ void TuneIdleView::paint (juce::Graphics& g)
 
         static const AutoTuneEngine::Stage stages[] = {
             AutoTuneEngine::Stage::preflight, AutoTuneEngine::Stage::protect, AutoTuneEngine::Stage::measure,
-            AutoTuneEngine::Stage::crossovers, AutoTuneEngine::Stage::solve, AutoTuneEngine::Stage::apply,
-            AutoTuneEngine::Stage::verify, AutoTuneEngine::Stage::report };
+            AutoTuneEngine::Stage::crossovers, AutoTuneEngine::Stage::solve, AutoTuneEngine::Stage::sumCheck,
+            AutoTuneEngine::Stage::imaging, AutoTuneEngine::Stage::apply, AutoTuneEngine::Stage::verify,
+            AutoTuneEngine::Stage::noise, AutoTuneEngine::Stage::report };
 
         const float railX = (float) r.getX() + 14.0f;
         g.setColour (theme::border);
-        g.fillRect (railX - 0.5f, (float) r.getY() + 14.0f, 1.0f, (float) (7 * 46));
+        g.fillRect (railX - 0.5f, (float) r.getY() + 14.0f, 1.0f, (float) ((AutoTuneEngine::numWorkStages - 1) * 46));
 
-        for (int i = 0; i < 8; ++i)
+        for (int i = 0; i < AutoTuneEngine::numWorkStages; ++i)
         {
             auto row = r.removeFromTop (46);
             juce::Rectangle<float> dot (railX - 11.0f, (float) row.getY() + 3.0f, 22.0f, 22.0f);

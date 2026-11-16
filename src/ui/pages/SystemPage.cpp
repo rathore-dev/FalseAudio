@@ -34,11 +34,22 @@ SystemPage::SystemPage (Session& s) : Page (s)
         c.addAndMakeVisible (card);
 
     // ---- layout wizard
-    for (auto* w : std::initializer_list<juce::Component*> { &waysCaption, &waysSeg, &subCaption, &subSeg,
+    for (auto* w : std::initializer_list<juce::Component*> { &presetCaption, &presetBox, &waysCaption, &waysSeg, &subCaption, &subSeg,
                                                              &seatCaption, &seatSeg, &steerCaption, &steerSeg,
                                                              &layoutSummary, &layoutHint })
         layoutCard.addAndMakeVisible (w);
     layoutSummary.setTextColour (theme::text);
+    kit::styleCombo (presetBox);
+    presetBox.setTextWhenNothingSelected ("Choose a topology...");
+    presetBox.setTooltip ("Ready-made speaker topologies: active, passive component sets, full-range or a single driver.");
+    for (int i = 0; i <= (int) SystemConfig::Preset::singleDriver; ++i)
+        presetBox.addItem (SystemConfig::presetName ((SystemConfig::Preset) i), i + 1);
+    presetBox.onChange = [this]
+    {
+        if (updating || presetBox.getSelectedId() <= 0)
+            return;
+        applyPreset ((SystemConfig::Preset) (presetBox.getSelectedId() - 1));
+    };
     waysSeg.onChange = [this] (int) { applyLayout(); };
     subSeg.onChange  = [this] (int) { applyLayout(); };
     seatSeg.onChange = [this] (int seat)
@@ -179,6 +190,20 @@ void SystemPage::applyLayout()
     toast (juce::String (ways) + "-way" + (sub == 0 ? "" : sub == 1 ? " + mono sub" : " + stereo subs") + " layout created");
 }
 
+void SystemPage::applyPreset (SystemConfig::Preset p)
+{
+    if (updating)
+        return;
+    const auto& old = session.getConfig();
+    auto fresh = SystemConfig::makePreset (p);
+    fresh.name = old.name;
+    fresh.caps = old.caps;
+    fresh.safety = old.safety;
+    fresh.target = old.target;
+    session.setConfig (fresh);   // also rebuilds the demo rig, so Demo mode follows the topology
+    toast (SystemConfig::presetName (p) + " topology created");
+}
+
 void SystemPage::editConfig (std::function<void (SystemConfig&)> edit)
 {
     if (updating)
@@ -242,7 +267,17 @@ void SystemPage::rebuildChannelCards()
     for (auto& ch : cfg.channels)
     {
         auto card = std::make_unique<ChannelCard> (ch,
-            [this] (const OutputChannel& edited) { if (! updating) session.updateChannel (edited); },
+            [this] (const OutputChannel& edited)
+            {
+                if (updating)
+                    return;
+                // A topology change must rebuild the demo rig too: go through setConfig.
+                const auto* cur = session.getConfig().find (edited.id);
+                if (cur != nullptr && (cur->kind != edited.kind || cur->role != edited.role))
+                    editConfig ([edited] (SystemConfig& c) { if (auto* o = c.find (edited.id)) *o = edited; });
+                else
+                    session.updateChannel (edited);
+            },
             [this] (const juce::String& id) { selectChannel (id); });
         channelList.addAndMakeVisible (*card);
         channelCards.push_back (std::move (card));
@@ -368,8 +403,20 @@ void SystemPage::refreshFromSession()
     int maxOut = 0;
     for (auto& ch : cfg.channels)
         maxOut = juce::jmax (maxOut, ch.dspOutput + 1);
+    int nPassive = 0, nFull = 0;
+    for (auto& ch : cfg.channels)
+    {
+        nPassive += ch.isPassiveSet() ? 1 : 0;
+        nFull += ch.role == DriverRole::fullrange ? 1 : 0;
+    }
     layoutSummary.setText (juce::String (cfg.channels.size()) + " channels" + kit::sep() + juce::String (maxOut) + " DSP outputs"
-                           + kit::sep() + (cfg.hasSubwoofer() ? "sub" : "no sub"));
+                           + kit::sep() + (cfg.hasSubwoofer() ? "sub" : "no sub")
+                           + (nPassive > 0 ? kit::sep() + juce::String (nPassive) + " passive set" + (nPassive > 1 ? "s" : "") : juce::String())
+                           + (nFull > 0 ? kit::sep() + juce::String (nFull) + " full range" : juce::String()));
+    presetBox.setSelectedId (0, juce::dontSendNotification);
+    layoutHint.setText ("Changing the layout or preset rebuilds the channel list with fresh defaults. Driver details, "
+                        "crossovers and EQ for the old layout are discarded. Set a channel's type to Passive set when a component "
+                        "set or coax runs from one amp channel: the tuner then skips crossover and tweeter work for it.");
     channelsCard.setTitle ("Channels", juce::String (cfg.channels.size()) + " outputs");
 
     steerSeg.setSelected (kit::isRightHandDrive (session) ? 1 : 0);
@@ -422,11 +469,13 @@ int SystemPage::layoutContent (int w)
     // ---- Row A: layout | car | channels -----------------------------------
     const int leftW  = juce::jlimit (260, 320, innerW / 4);
     const int rightW = wide ? juce::jlimit (360, 420, innerW / 3) : 0;
-    const int rowH   = 584;
+    const int rowH   = 656;
 
     layoutCard.setBounds (margin, y, leftW, rowH);
     {
         auto a = layoutCard.getContentArea();
+        presetCaption.setBounds (a.removeFromTop (16)); a.removeFromTop (6);
+        presetBox.setBounds (a.removeFromTop (btnH));   a.removeFromTop (gap2);
         waysCaption.setBounds (a.removeFromTop (16)); a.removeFromTop (6);
         waysSeg.setBounds (a.removeFromTop (btnH));   a.removeFromTop (gap2);
         subCaption.setBounds (a.removeFromTop (16));  a.removeFromTop (6);

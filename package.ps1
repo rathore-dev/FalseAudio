@@ -77,25 +77,18 @@ if ($iscc) {
     Write-Host "NOTE: Inno Setup 6 is not installed - installer skipped. Install it and re-run package.ps1 to get dist\FalseAudio-$version-Setup.exe."
 }
 
-# Smoke test: single exe alone in an empty temp folder, 8 s alive + Equipment DB loaded (QA snapshot)
+# Smoke test: shipped single exe (no QA hook compiled in) alone in an empty temp folder must stay alive 12 s
 $tmp = Join-Path $env:TEMP ("FalseAudio_smoke_" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory $tmp | Out-Null
 $test = Join-Path $tmp "FalseAudio.exe"
 Copy-Item $single $test
-$snap = Join-Path $dist "smoke-gear.png"
-if (Test-Path $snap) { Remove-Item $snap -Force }
-$qa = Join-Path $tmp "qa.txt"
-"page gear`nwait 3000`nsnap $snap`nquit" | Set-Content $qa -Encoding ASCII
-$p = Start-Process $test -ArgumentList @("--qa-script", "`"$qa`"") -WorkingDirectory $tmp -PassThru
-Start-Sleep -Seconds 8
+$p = Start-Process $test -WorkingDirectory $tmp -PassThru
+Start-Sleep -Seconds 12
 $alive = -not $p.HasExited
-# startup (audio device scan) can take 10-20 s on a loaded PC: wait up to 90 s for the snapshot
-$deadline = (Get-Date).AddSeconds(90)
-while ((-not (Test-Path $snap)) -and (-not $p.HasExited) -and ((Get-Date) -lt $deadline)) { Start-Sleep -Milliseconds 500 }
-Start-Sleep -Seconds 1
+$title = ""
+if ($alive) { $p.Refresh(); $title = $p.MainWindowTitle }
 if (-not $p.HasExited) { Stop-Process $p -Force }
 Start-Sleep -Milliseconds 500
 Remove-Item $tmp -Recurse -Force -ErrorAction SilentlyContinue
 if (-not $alive) { Write-Host "SMOKE TEST FAILED: exited with code $($p.ExitCode)"; exit 1 }
-if (-not (Test-Path $snap)) { Write-Host "SMOKE TEST FAILED: gear page snapshot not produced"; exit 1 }
-Write-Host "SMOKE TEST PASSED: single exe stayed alive 8 s; gear page snapshot: $snap (inspect it to confirm products are listed)"
+Write-Host "SMOKE TEST PASSED: shipped exe (no QA hooks) stayed alive 12 s (window title: '$title')"

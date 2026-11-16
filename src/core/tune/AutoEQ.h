@@ -32,6 +32,10 @@ public:
         double lfBoostLimitBelowHz = 0.0;// stricter boost limit below this frequency
         double lfBoostLimitDb = 3.0;
         double gainStepDb = 0.1;
+        /** Frequency ranges (lo, hi) the EQ must not try to fix (passive-network notches): they are
+            left out of the fit and any band centred inside is limited to noBoostLimitDb. */
+        std::vector<std::pair<double, double>> noBoostRanges;
+        double noBoostLimitDb = 0.0;
     };
 
     struct Result

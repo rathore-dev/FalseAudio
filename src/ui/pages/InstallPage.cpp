@@ -29,11 +29,18 @@ InstallPage::InstallPage (Session& s)
         h.danger = checklist.countOpen (ikit::Severity::danger);
         h.important = checklist.countOpen (ikit::Severity::important);
         for (auto& w : plan.wires) if (! w.ok) ++h.wireUpgrades;
-        for (auto& ch : plan.channels) h.channelWarnings += ch.warnings.size();
+        for (auto& ch : plan.channels) { h.channelWarnings += ch.warnings.size(); if (ch.isDanger()) ++h.danger; }
         summary.setPlan (plan, installation, gear::GearDatabase::instance(), h);
     };
     gains.onApply = [this] { applySafeLimits(); };
-    setup.onSwitchToLive = [this] { session.setMode (Session::Mode::live); toast ("Switched to Live mode", AppShell::ToastKind::good); };
+    setup.onSwitchToLive = [this]
+    {
+        session.setMode (Session::Mode::live);
+        if (session.getMode() == Session::Mode::live)
+            toast ("Switched to Live mode", AppShell::ToastKind::good);
+        else
+            toast ("Can't switch mode while Auto Tune is running", AppShell::ToastKind::warn);
+    };
     setup.onToast = [this] (const juce::String& m, AppShell::ToastKind k) { toast (m, k); };
     empty.onAction = [this] { if (shell != nullptr) shell->showPage (PageId::gear); };
 
