@@ -19,7 +19,7 @@ public:
     explicit AutoTunePage (Session& s);
     ~AutoTunePage() override;
 
-    juce::String getTitle() const override    { return "Auto Tune"; }
+    juce::String getTitle() const override    { return "Tune"; }
     juce::String getSubtitle() const override { return "One click: measure, align, cross over, equalise, verify"; }
     icons::Id getIcon() const override        { return icons::Id::bolt; }
 

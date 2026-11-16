@@ -148,7 +148,7 @@ void GainTable::Table::paint (juce::Graphics& g)
     {
         g.setColour (theme::textMuted);
         g.setFont (theme::font (13.0f));
-        g.drawText ("No channels planned yet - assign speakers to amp channels on the Equipment page.",
+        g.drawText ("No channels planned yet - assign speakers to amp channels under Car > Equipment.",
                     bounds.removeFromTop (baseRowH), juce::Justification::centredLeft, true);
         return;
     }

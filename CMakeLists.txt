@@ -74,7 +74,10 @@ endif()
 juce_add_gui_app(FalseAudio
     PRODUCT_NAME "FalseAudio"
     COMPANY_NAME "FalseAudio"
-    VERSION ${PROJECT_VERSION})
+    VERSION ${PROJECT_VERSION}
+    ICON_BIG   "${CMAKE_CURRENT_SOURCE_DIR}/resources/icon/FalseAudio_1024.png"
+    ICON_SMALL "${CMAKE_CURRENT_SOURCE_DIR}/resources/icon/FalseAudio_256.png"
+    DESCRIPTION "FalseAudio automated car audio tuning")
 
 juce_generate_juce_header(FalseAudio)
 

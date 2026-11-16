@@ -20,7 +20,8 @@ public:
     ~MainShell() override;
 
     // AppShell
-    void showPage (PageId id) override;
+    void showPage (PageId id, const juce::String& tab = {}) override;
+    void refreshHeader() override;
     Page* getPage (PageId id) override;
     void showSheet (std::unique_ptr<juce::Component> content, int width, int height) override;
     void closeSheet() override;

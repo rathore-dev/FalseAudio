@@ -5,10 +5,11 @@
 
 namespace fa::ui
 {
-/** Left navigation rail: brand mark, grouped icon+label buttons (one per page) with a gliding
-    selection pill, and a version footer. Items are grouped under small section labels
-    (TUNE / SETUP / EXPERT); when the window is short the rail compacts to icon-only buttons
-    with the group separators kept as hairlines, so everything always fits at 720 px. */
+/** Left navigation rail: brand mark, icon+label buttons (one per page) with a gliding
+    selection pill, and a version footer. Items may be grouped under small section labels.
+    An item flagged `manualTools` (Expert) is pinned to the bottom, separated by a hairline
+    and a small "MANUAL TOOLS" caption, and drawn quieter than the everyday pages. When the
+    window is short the rail compacts to icon-only buttons, so everything fits at 720 px. */
 class NavRail : public juce::Component
 {
 public:
@@ -19,6 +20,7 @@ public:
         icons::Id icon;
         juce::String section;     // first item of each new section starts a group
         juce::String tooltip;
+        bool manualTools = false; // pinned to the bottom, de-emphasised
     };
 
     NavRail();
@@ -43,6 +45,7 @@ private:
         bool compact = false;
         std::vector<int> itemY;          // top of each item
         std::vector<int> sectionY;       // top of each section label (same index as items; -1 if none)
+        int manualCaptionY = -1;         // top of the "MANUAL TOOLS" caption block (-1 if none)
     };
 
     Layout computeLayout() const;

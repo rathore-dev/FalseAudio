@@ -125,7 +125,7 @@ private:
     Card sideCard { "Virtual rig" };
     dsp::InfoPanel virtualInfo { icons::Id::car };
     dsp::InfoPanel nativeInfo { icons::Id::plug };
-    FaButton tryAutoTune { "Go to Auto Tune", FaButton::Style::primary, icons::Id::bolt };
+    FaButton tryAutoTune { "Go to Tune", FaButton::Style::primary, icons::Id::bolt };
     dsp::ManualPanel manualPanel;
     std::unique_ptr<dsp::AiOperatorFacade> aiOperator;
     dsp::AiPanel aiPanel;

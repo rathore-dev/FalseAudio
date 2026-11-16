@@ -1,4 +1,5 @@
 #include "LivePage.h"
+#include "system/PageKit.h"
 
 namespace fa::ui
 {
@@ -48,8 +49,9 @@ LivePage::LivePage (Session& s) : Page (s)
     modeSelector.onChange = [this] (int i) { setMode ((Mode) i); };
     addAndMakeVisible (modeSelector);
 
-    micSelector.onChange = [this] (int i) { micIndex = i; peakHold.clear(); session.getAnalyzer().reset(); spl.resetHold(); };
-    addChildComponent (micSelector);
+    micChip.setTooltip ("The analyzer microphone is chosen on the Rig page - click to open it");
+    micChip.onClick = [this] { if (shell != nullptr) shell->showPage (PageId::rig); };
+    addAndMakeVisible (micChip);
 
     banner.onAction = [this] { session.setMode (Session::Mode::live); };
     addChildComponent (banner);
@@ -191,10 +193,9 @@ void LivePage::resized()
     modeSelector.setBounds (top.removeFromLeft (260).withHeight (theme::controlHeight).withY (controlY));
     top.removeFromLeft (theme::pad);
 
-    if (micSelector.isVisible())
     {
-        const int mics = (int) session.getAudio().getRouting().micInputs.size();
-        micSelector.setBounds (top.removeFromLeft (juce::jmin (240, 72 * juce::jmax (1, mics))).withHeight (theme::controlHeight).withY (controlY));
+        const int cw = 176;
+        micChip.setBounds (top.removeFromLeft (cw).withHeight (24).withY (top.getY() + (topRowHeight - 24) / 2));
         top.removeFromLeft (theme::pad);
     }
     banner.setBounds (top.withHeight (36).withY (top.getY() + 2));
@@ -304,20 +305,19 @@ void LivePage::updateAvailability()
 
     const auto routing = session.getAudio().getRouting();
     const int mics = (int) routing.micInputs.size();
-    if (mics > 1)
     {
-        juce::StringArray names;
-        for (int i = 0; i < mics; ++i)
-            names.add ("Mic " + juce::String (i + 1));
-        micSelector.setOptions (names);
-        micIndex = juce::jlimit (0, mics - 1, micIndex);
-        micSelector.setSelected (micIndex);
-        micSelector.setVisible (true);
-    }
-    else
-    {
-        micIndex = 0;
-        micSelector.setVisible (false);
+        const int wanted = juce::jlimit (0, juce::jmax (0, mics - 1), kit::liveAnalyzerMic (session));
+        if (wanted != micIndex)
+        {
+            micIndex = wanted;
+            peakHold.clear();
+            session.getAnalyzer().reset();
+            spl.resetHold();
+        }
+        juce::String text = demo ? "Virtual mic" : "Mic " + juce::String (micIndex + 1);
+        if (! demo && mics > 1)
+            text << " of " << mics;
+        micChip.set (text + "  -  set on Rig", theme::textDim);
     }
 
     if (! liveAvailable)

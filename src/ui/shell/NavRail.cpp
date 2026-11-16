@@ -9,6 +9,7 @@ namespace
     constexpr int logoAreaHeight = 72;
     constexpr int footerHeight   = 26;
     constexpr int pillInset      = 8;
+    constexpr int manualCaptionH = 30;     // hairline + "MANUAL TOOLS" caption above the pinned item
 }
 
 /** One rail entry. Paints only its icon and label; the rail paints the gliding pill behind. */
@@ -35,15 +36,16 @@ public:
             g.fillRoundedRectangle (r.reduced ((float) pillInset, 3.0f), 12.0f);
         }
 
-        const Colour c = selected ? theme::accent : (highlighted ? theme::text : theme::textDim);
+        const Colour idle = item.manualTools ? theme::textMuted : theme::textDim;
+        const Colour c = selected ? theme::accent : (highlighted ? theme::text : idle);
         if (compact)
         {
-            const float s = 20.0f;
+            const float s = item.manualTools ? 18.0f : 20.0f;
             icons::draw (g, item.icon, Rectangle<float> (r.getCentreX() - s * 0.5f, r.getCentreY() - s * 0.5f, s, s), c);
         }
         else
         {
-            const float s = 22.0f;
+            const float s = item.manualTools ? 19.0f : 22.0f;
             const float top = r.getY() + (r.getHeight() - (s + 3.0f + 13.0f)) * 0.5f;
             icons::draw (g, item.icon, Rectangle<float> (r.getCentreX() - s * 0.5f, top, s, s), c);
             g.setColour (c);
@@ -117,10 +119,14 @@ NavRail::Layout NavRail::computeLayout() const
 
     int numSections = 0;
     String last;
+    bool hasManual = false;
     for (auto& it : items)
+    {
         if (it.section.isNotEmpty() && it.section != last) { ++numSections; last = it.section; }
+        hasManual = hasManual || it.manualTools;
+    }
 
-    const int available = getHeight() - logoAreaHeight - footerHeight;
+    const int available = getHeight() - logoAreaHeight - footerHeight - (hasManual ? manualCaptionH + 4 : 0);
 
     // Prefer full icon+label items; shrink, then fall back to compact icon-only.
     int itemH = (available - numSections * 22) / n;
@@ -147,6 +153,14 @@ NavRail::Layout NavRail::computeLayout() const
             l.sectionY[(size_t) i] = y;
             y += l.sectionHeight;
             last = it.section;
+        }
+        if (it.manualTools)
+        {
+            // pinned above the version footer, whatever the window height
+            const int top = jmax (y + manualCaptionH, getHeight() - footerHeight - 4 - l.itemHeight);
+            l.manualCaptionY = top - manualCaptionH;
+            l.itemY[(size_t) i] = top;
+            continue;
         }
         l.itemY[(size_t) i] = y;
         y += l.itemHeight;
@@ -228,6 +242,20 @@ void NavRail::paint (Graphics& g)
         {
             theme::drawEyebrow (g, items[i].section, Rectangle<int> (0, sy + 4, getWidth(), layout.sectionHeight - 4),
                                 theme::textMuted, Justification::centred);
+        }
+    }
+
+    // "manual tools" divider above the pinned Expert item
+    if (layout.manualCaptionY >= 0)
+    {
+        g.setColour (theme::border);
+        g.fillRect (14, layout.manualCaptionY + 6, getWidth() - 28, 1);
+        if (! layout.compact)
+        {
+            g.setColour (theme::textMuted.withAlpha (0.8f));
+            g.setFont (theme::fontMedium (8.5f));
+            g.drawText ("MANUAL TOOLS", Rectangle<int> (0, layout.manualCaptionY + 12, getWidth() - 1, 14),
+                        Justification::centred, false);
         }
     }
 

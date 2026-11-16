@@ -42,7 +42,7 @@ InstallPage::InstallPage (Session& s)
             toast ("Can't switch mode while Auto Tune is running", AppShell::ToastKind::warn);
     };
     setup.onToast = [this] (const juce::String& m, AppShell::ToastKind k) { toast (m, k); };
-    empty.onAction = [this] { if (shell != nullptr) shell->showPage (PageId::gear); };
+    empty.onAction = [this] { if (shell != nullptr) shell->showPage (PageId::car, "equipment"); };
 
     InstallationStore::instance().addChangeListener (&storeListener);
 }

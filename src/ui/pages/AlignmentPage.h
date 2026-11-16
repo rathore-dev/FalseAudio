@@ -53,7 +53,6 @@ private:
 
     Card tableCard { "Channels", "" };
     FaButton zeroBtn { "Zero all delays", FaButton::Style::secondary, icons::Id::refresh };
-    FaButton sendBtn { "Send to DSP", FaButton::Style::primary, icons::Id::bolt };
     FaButton tapeBtn { "Distances from tape measure", FaButton::Style::secondary, icons::Id::move };
     TableHeader header;
     std::vector<std::unique_ptr<AlignmentRow>> rows;

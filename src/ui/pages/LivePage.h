@@ -35,7 +35,7 @@ private:
 
     // ---- top row ----
     SegmentedControl modeSelector { { "RTA", "Transfer function" } };
-    SegmentedControl micSelector;
+    Chip micChip { "Mic 1", theme::textDim };      // read-only: the microphone is chosen on the Rig page
     DemoBanner banner { juce::String (juce::CharPointer_UTF8 ("Live analysis needs real hardware \xE2\x80\x94 switch to Live mode in the header.")), "Switch to Live" };
 
     // ---- RTA ----

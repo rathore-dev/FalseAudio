@@ -48,7 +48,7 @@ void HeaderBar::refresh()
         if (name.length() > 28)
             name = name.substring (0, 26).trimEnd() + juce::String (juce::CharPointer_UTF8 ("…"));
         audioChip.set (name, c);
-        audioChip.setTooltip ("Audio interface - change it on the Hardware page");
+        audioChip.setTooltip ("Audio interface - change it on the Rig page");
     }
 
     // DSP link

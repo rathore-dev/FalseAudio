@@ -4,9 +4,10 @@
 
 namespace fa::ui
 {
-/** Identifiers of every page, in navigation-rail order. */
-enum class PageId { autoTune, system, hardware, measure, live, alignment, crossoverEq, dsp, report,
-                    gear, install, insights };   // appended: Equipment, Install & Gains, Insights
+/** Identifiers of the seven top-level pages, in navigation-rail order.
+    Car hosts the sub-tabs "layout" and "equipment"; Expert hosts "measure", "live",
+    "alignment" and "crossover" (see showPage (id, tab)). */
+enum class PageId { autoTune, results, car, install, rig, dsp, expert };
 
 /** The main window content: header (title, Demo/Live pill), navigation rail, page area, and
     an overlay layer for modal sheets and toasts.
@@ -16,7 +17,11 @@ class AppShell : public juce::Component
 public:
     ~AppShell() override = default;
 
-    virtual void showPage (PageId id) = 0;
+    /** Shows a page; `tab` optionally opens one of its sub-tabs, e.g. (PageId::expert, "alignment").
+        With an empty tab the page reopens on the sub-tab it last showed. */
+    virtual void showPage (PageId id, const juce::String& tab = {}) = 0;
+    /** Re-reads the current page's title / subtitle (container pages call this on a tab change). */
+    virtual void refreshHeader() = 0;
     virtual Page* getPage (PageId id) = 0;
 
     /** Shows `content` centred in a dimmed modal sheet (owned by the shell until closed).

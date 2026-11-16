@@ -333,7 +333,7 @@ void MeasurementSetup::StepList::paint (juce::Graphics& g)
     {
         g.setColour (theme::textMuted);
         g.setFont (theme::font (13.0f));
-        g.drawText ("Pick your audio interface and measurement mic on the Equipment page for exact settings.", b.removeFromTop (24),
+        g.drawText ("Pick your audio interface and measurement mic on the Rig page for exact settings.", b.removeFromTop (24),
                     juce::Justification::centredLeft, true);
         return;
     }

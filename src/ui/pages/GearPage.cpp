@@ -481,7 +481,7 @@ GearPage::GearPage (Session& s) : Page (s)
     for (auto* w : std::initializer_list<juce::Component*> { &sourceHeader, &headUnitSlot, &dspSlot, &dacSlot,
                                                              &ampHeader, &addAmpBtn, &ampEmpty,
                                                              &speakerHeader, &carCard,
-                                                             &rigHeader, &interfaceSlot, &mic1Slot, &mic2Slot,
+                                                             &rigHeader, &rigCard,
                                                              &elecHeader, &alternatorSlot, &batterySlot, &elecCard })
         c.addAndMakeVisible (w);
 
@@ -502,15 +502,17 @@ GearPage::GearPage (Session& s) : Page (s)
     bindSlot (batterySlot, "Battery", [] (install::Installation& i) -> juce::String& { return i.batteryId; });
     alternatorSlot.setHint ("Rated output sets the current budget when no amps value is typed");
     batterySlot.setHint ("Capacity (Ah) is taken from the product when not typed below");
-    bindSlot (interfaceSlot, "Audio interface", [] (install::Installation& i) -> juce::String& { return i.audioInterfaceId; });
-    bindSlot (mic1Slot, "Microphone 1", [] (install::Installation& i) -> juce::String& { if (i.micIds.empty()) i.micIds.push_back ({}); return i.micIds[0]; });
-    bindSlot (mic2Slot, "Microphone 2", [] (install::Installation& i) -> juce::String& { while (i.micIds.size() < 2) i.micIds.push_back ({}); return i.micIds[1]; });
+    for (auto* chip : { &rigInterfaceChip, &rigMic1Chip, &rigMic2Chip })
+    {
+        rigCard.addAndMakeVisible (chip);
+        chip->setTooltip ("Chosen on the Rig page");
+        chip->onClick = [this] { if (shell != nullptr) shell->showPage (PageId::rig); };
+    }
+    rigCard.addAndMakeVisible (rigBtn);
+    rigBtn.onClick = [this] { if (shell != nullptr) shell->showPage (PageId::rig); };
     headUnitSlot.setHint ("Pre-out voltage sets the clean volume and amp gains");
     dspSlot.setHint ("Stand-alone DSP or DSP amplifier");
     dacSlot.setHint ("Only if a separate DAC sits between source and DSP");
-    interfaceSlot.setHint ("USB interface driving the sweeps and mic inputs");
-    mic1Slot.setHint ("Measurement microphone at the listening seat");
-    mic2Slot.setHint ("Second mic for the two-seat workflow");
 
     addAmpBtn.onClick = [this] { editInstallation ([] (install::Installation& i) { i.amps.push_back ({}); }); };
 
@@ -591,7 +593,7 @@ void GearPage::setLoadingState (bool loading)
 void GearPage::timerCallback()
 {
     shimmer = std::fmod (shimmer + 0.02f, 1.0f);
-    for (auto* s : { &headUnitSlot, &dspSlot, &dacSlot, &interfaceSlot, &mic1Slot, &mic2Slot, &alternatorSlot, &batterySlot })
+    for (auto* s : { &headUnitSlot, &dspSlot, &dacSlot, &alternatorSlot, &batterySlot })
         s->setLoading (s->getProductId().isNotEmpty(), shimmer);
     for (auto& a : ampCards) a->setLoading (true, shimmer);
     for (auto& d : driverRows) d->setLoading (true, shimmer);
@@ -643,12 +645,20 @@ void GearPage::refreshFromStore()
     headUnitSlot.setProductId (inst.headUnitId);
     dspSlot.setProductId (inst.dspId);
     dacSlot.setProductId (inst.dacId);
-    interfaceSlot.setProductId (inst.audioInterfaceId);
-    mic1Slot.setProductId (inst.micIds.size() > 0 ? inst.micIds[0] : juce::String());
-    mic2Slot.setProductId (inst.micIds.size() > 1 ? inst.micIds[1] : juce::String());
+    {
+        auto chipFor = [this] (Chip& chip, const juce::String& what, const juce::String& id)
+        {
+            const auto* p = id.isNotEmpty() && GearLoader::ready() ? gear::GearDatabase::instance().find (id) : nullptr;
+            const auto name = p != nullptr ? p->displayName() : (id.isNotEmpty() ? id : juce::String ("not chosen"));
+            chip.set (what + ": " + name, id.isNotEmpty() ? theme::accent : theme::textDim);
+        };
+        chipFor (rigInterfaceChip, "Interface", inst.audioInterfaceId);
+        chipFor (rigMic1Chip, "Mic 1", inst.micIds.size() > 0 ? inst.micIds[0] : juce::String());
+        chipFor (rigMic2Chip, "Mic 2", inst.micIds.size() > 1 ? inst.micIds[1] : juce::String());
+    }
     alternatorSlot.setProductId (inst.alternatorId);
     batterySlot.setProductId (inst.batteryId);
-    for (auto* s : { &headUnitSlot, &dspSlot, &dacSlot, &interfaceSlot, &mic1Slot, &mic2Slot, &alternatorSlot, &batterySlot })
+    for (auto* s : { &headUnitSlot, &dspSlot, &dacSlot, &alternatorSlot, &batterySlot })
         s->setLoading (dbLoading && s->getProductId().isNotEmpty(), shimmer);
     for (auto& a : ampCards) a->update (inst, cfg, dbLoading, shimmer);
     for (auto& d : driverRows) d->update (inst, dbLoading, shimmer);
@@ -924,17 +934,19 @@ int GearPage::layoutContent (int width)
     // ---- rig
     section (rigHeader);
     {
-        std::vector<juce::Component*> slots { &interfaceSlot, &mic1Slot, &mic2Slot };
-        const int cols = w >= 900 ? 3 : 1;
-        const int cw = (w - gap2 * (cols - 1)) / cols;
-        int x = x0, col = 0;
-        for (auto* s : slots)
+        // read-only: the rig is chosen on the Rig page
+        const int h = btnH + gap2 * 2;
+        rigCard.setBounds (x0, y, w, h);
+        auto r = rigCard.getLocalBounds().reduced (gap2);
+        rigBtn.setBounds (r.removeFromRight (120));
+        r.removeFromRight (gap2);
+        for (auto* chip : { &rigInterfaceChip, &rigMic1Chip, &rigMic2Chip })
         {
-            s->setBounds (x, y, cw, SlotCard::height);
-            if (++col == cols) { col = 0; x = x0; y += SlotCard::height + gap2; } else x += cw + gap2;
+            const int cw = juce::jmin (chip->getIdealWidth(), r.getWidth());
+            chip->setBounds (r.removeFromLeft (cw).withSizeKeepingCentre (cw, 24));
+            r.removeFromLeft (gap);
         }
-        if (col != 0) y += SlotCard::height + gap2;
-        y += margin - gap2;
+        y += h + margin;
     }
 
     // ---- electrical

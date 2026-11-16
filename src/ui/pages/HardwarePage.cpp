@@ -2,6 +2,7 @@
 #include "hardware/ModeBanner.h"
 #include "hardware/MicCalPanel.h"
 #include "hardware/MicCalAssistant.h"
+#include "hardware/RigGear.h"
 
 namespace fa::ui
 {
@@ -59,6 +60,9 @@ HardwarePage::HardwarePage (Session& s) : Page (s)
         toast (wantLive ? "Live mode: sweeps now use your interface" : "Demo mode: virtual car and microphones",
                AppShell::ToastKind::good);
     };
+
+    rigGear = std::make_unique<RigGearPanel> (session, [this] { return shell; });
+    c.addAndMakeVisible (*rigGear);
 
     for (auto* card : { &deviceCard, &routingCard, &calCard, &levelsCard })
         c.addAndMakeVisible (card);
@@ -182,6 +186,7 @@ void HardwarePage::resized()
 
 void HardwarePage::pageShown()
 {
+    rigGear->activate();
     refreshDevices();
     refreshRouting();
     refreshCalibration();
@@ -307,6 +312,7 @@ void HardwarePage::refreshRouting()
     const juce::ScopedValueSetter<bool> svs (updating, true);
     auto& audio = session.getAudio();
     const auto r = audio.getRouting();
+    rigGear->setRoutedMics ((int) r.micInputs.size());
     const auto outs = audio.getOutputChannelNames();
     const auto ins  = audio.getInputChannelNames();
 
@@ -656,6 +662,9 @@ int HardwarePage::layoutContent (int w)
 
     banner->setBounds (margin, y, innerW, ModeBanner::height);
     y += ModeBanner::height + gap2;
+
+    rigGear->setBounds (margin, y, innerW, rigGear->heightFor (innerW));
+    y += rigGear->getHeight() + margin;
 
     // ---- device card
     deviceCard.setBounds (margin, y, colW, 300);

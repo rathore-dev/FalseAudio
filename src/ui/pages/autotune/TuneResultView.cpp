@@ -256,7 +256,7 @@ private:
     Card notesCard { "What changed" };
     NotesView notes;
 
-    FaButton reportButton { "View full report", FaButton::Style::primary, icons::Id::document };
+    FaButton reportButton { "View full results", FaButton::Style::primary, icons::Id::document };
     FaButton againButton  { "Run again", FaButton::Style::secondary, icons::Id::refresh };
 };
 

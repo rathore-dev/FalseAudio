@@ -14,10 +14,10 @@ AutoTunePage::AutoTunePage (Session& s)
 
     idleView.onStart = [this] { startTune(); };
     idleView.onHeightChanged = [this] { resized(); };
-    idleView.onViewReport = [this] { if (shell != nullptr) shell->showPage (PageId::report); };
+    idleView.onViewReport = [this] { if (shell != nullptr) shell->showPage (PageId::results); };
     runningView.onCancel = [this] { cancelTune(); };
     resultView.onRunAgain = [this] { setState (State::idle); };
-    resultView.onViewReport = [this] { if (shell != nullptr) shell->showPage (PageId::report); };
+    resultView.onViewReport = [this] { if (shell != nullptr) shell->showPage (PageId::results); };
 
     session.getAutoTune().addListener (this);
 

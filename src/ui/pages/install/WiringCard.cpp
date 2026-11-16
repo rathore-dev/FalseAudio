@@ -93,7 +93,7 @@ void WiringCard::Table::paint (juce::Graphics& g)
     {
         g.setColour (theme::textMuted);
         g.setFont (theme::font (13.0f));
-        g.drawText ("No wire runs to check yet - add amplifiers and their power wire on the Equipment page.",
+        g.drawText ("No wire runs to check yet - add amplifiers and their power wire under Car > Equipment.",
                     bounds.removeFromTop (rowH), juce::Justification::centredLeft, true);
         return;
     }

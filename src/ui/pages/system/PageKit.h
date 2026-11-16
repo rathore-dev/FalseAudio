@@ -206,6 +206,11 @@ inline juce::PropertiesFile& uiPrefs (Session& s)
     return *prefs;
 }
 
+/** Which routed microphone the Live analyzer (RTA / transfer function) listens to. Chosen on
+    the Rig page only; the Live tab just shows it. */
+inline int liveAnalyzerMic (Session& s)            { return uiPrefs (s).getIntValue ("liveAnalyzerMic", 0); }
+inline void setLiveAnalyzerMic (Session& s, int i) { uiPrefs (s).setValue ("liveAnalyzerMic", i); }
+
 inline bool isRightHandDrive (Session& s)          { return uiPrefs (s).getBoolValue ("rightHandDrive", false); }
 inline void setRightHandDrive (Session& s, bool b) { uiPrefs (s).setValue ("rightHandDrive", b); }
 

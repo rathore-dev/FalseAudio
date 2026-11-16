@@ -54,7 +54,7 @@ private:
     GainTable gains;
     MeasurementSetup setup;
     EmptyState empty { icons::Id::plug, "No equipment selected yet",
-                       "Pick your head unit, DSP, amplifiers, speakers and wiring on the Equipment page - "
+                       "Pick your head unit, DSP, amplifiers, speakers and wiring under Car > Equipment - "
                        "this page then works out every setting for you.", "Go to Equipment" };
 
     install::Plan plan;

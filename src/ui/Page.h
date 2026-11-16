@@ -30,7 +30,14 @@ public:
     virtual void pageHidden() {}
     virtual void sessionChanged() {}
 
-    /** Set by the shell; lets pages navigate ("Go to Hardware") and show sheets/toasts. */
+    /** Sub-tabs (container pages such as Car and Expert). Plain pages have none. */
+    virtual bool showTab (const juce::String& /*key*/) { return false; }
+    virtual juce::String getCurrentTab() const { return {}; }
+
+    /** Called by the shell (and by container pages for their children). */
+    virtual void setShell (AppShell* s) { shell = s; }
+
+    /** Set by the shell; lets pages navigate ("Go to Rig") and show sheets/toasts. */
     AppShell* shell = nullptr;
 
 protected:

@@ -11,6 +11,7 @@ namespace fa::ui
 class ModeBanner;
 class MicCalPanel;
 class MicCalAssistant;
+class RigGearPanel;
 
 /** Hardware page: audio device, routing (DSP L/R outputs, up to 4 mics, loopback), per-mic
     calibration, live meters and a pink-noise level check. Works with any interface or mic. */
@@ -21,9 +22,9 @@ public:
     explicit HardwarePage (Session& s);
     ~HardwarePage() override;
 
-    juce::String getTitle() const override    { return "Hardware"; }
-    juce::String getSubtitle() const override { return "Audio interface, routing and microphones"; }
-    icons::Id getIcon() const override        { return icons::Id::plug; }
+    juce::String getTitle() const override    { return "Rig"; }
+    juce::String getSubtitle() const override { return "Audio interface, microphones and calibration"; }
+    icons::Id getIcon() const override        { return icons::Id::mic; }
 
     void paint (juce::Graphics&) override;
     void resized() override;
@@ -63,6 +64,7 @@ private:
 
     kit::ScrollBody body;
     std::unique_ptr<ModeBanner> banner;
+    std::unique_ptr<RigGearPanel> rigGear;      // interface + microphone products (chosen only here)
 
     // ---- device
     Card deviceCard { "Audio interface", "Any WASAPI / DirectSound device" };

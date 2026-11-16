@@ -22,8 +22,8 @@ Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
 PrivilegesRequired=admin
-#if FileExists("FalseAudio.ico")
-SetupIconFile=FalseAudio.ico
+#if FileExists("..\resources\icon\FalseAudio.ico")
+SetupIconFile=..\resources\icon\FalseAudio.ico
 #endif
 
 [Tasks]

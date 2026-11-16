@@ -1,5 +1,4 @@
 #include "CrossoverEqPage.h"
-#include "../components/DspSend.h"
 #include "core/dsp/Spectrum.h"
 
 namespace fa::ui
@@ -85,10 +84,6 @@ CrossoverEqPage::CrossoverEqPage (Session& s) : Page (s)
     copyButton.setTooltip ("Mirror every left channel's filters, EQ, gain and polarity onto the matching right channel (delays are kept)");
     copyButton.onClick = [this] { copyLeftToRight(); };
     addAndMakeVisible (copyButton);
-
-    sendButton.setTooltip ("Write the current crossovers, EQ, delay and gain of every channel to the DSP");
-    sendButton.onClick = [this] { if (pendingWrite) timerCallback(); sendConfigToDsp (session, shell); };
-    addAndMakeVisible (sendButton);
 
     // ---- PEQ table --------------------------------------------------------
     peqTable.onBandChanged = [this] (int idx, const FilterSpec& f)
@@ -191,8 +186,6 @@ void CrossoverEqPage::resized()
 
     auto header = r.removeFromTop (plotHeaderH).reduced (theme::pad, 8);
     header.removeFromLeft (juce::jmin (280, header.getWidth() / 3));   // title area (painted)
-    sendButton.setBounds (header.removeFromRight (124));
-    header.removeFromRight (theme::grid);
     copyButton.setBounds (header.removeFromRight (120));
     header.removeFromRight (theme::pad);
     const bool wide = header.getWidth() > 420;

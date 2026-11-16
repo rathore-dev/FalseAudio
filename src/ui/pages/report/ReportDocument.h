@@ -20,7 +20,7 @@ private:
 };
 
 /** The printable report body, laid out as a document: header, metrics, before/after plots,
-    settings table, findings, notes, footer. Lives inside the ReportPage's viewport. */
+    settings table, findings, notes, footer. Lives inside the Results page's scroll area. */
 class ReportDocument : public juce::Component
 {
 public:
@@ -28,6 +28,11 @@ public:
 
     void setResult (const AutoTuneEngine::Result& result);
     int idealHeight (int width) const;
+
+    /** Details-only: just the tune sheet (car header, final DSP settings, findings, tuner
+        notes) at full width. The Results page uses this below its score / before-after
+        sections so the score, judge sheet and plots appear once on that page. */
+    void setDetailsOnly (bool b);
 
     void paint (juce::Graphics&) override;
     void resized() override;
@@ -45,6 +50,8 @@ private:
     Session& session;
     AutoTuneEngine::Result result;
     juce::Time completedAt;
+    bool detailsOnly = false;
+    int numMeasurements = 0;
 
     ScoreRing ring;
     MetricTile leftErr  { "Left error", "dB" };

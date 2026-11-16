@@ -70,7 +70,7 @@ void ManualPanel::updatePreview()
     const int idx = channelBox.getSelectedId() - 1;
     if (idx < 0 || idx >= (int) chans.size())
     {
-        preview.setText ("No output channels configured.\nSet up your system on the System page.", false);
+        preview.setText ("No output channels configured.\nSet up your system under Car > Layout.", false);
         return;
     }
     const auto lines = ManualDspController::describeChannel (chans[(size_t) idx]);

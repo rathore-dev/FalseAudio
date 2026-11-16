@@ -1,5 +1,4 @@
 #include "AlignmentPage.h"
-#include "../components/DspSend.h"
 
 namespace fa::ui
 {
@@ -53,9 +52,6 @@ AlignmentPage::AlignmentPage (Session& s) : Page (s)
 
     tableCard.addAndMakeVisible (zeroBtn);
     tableCard.addAndMakeVisible (tapeBtn);
-    tableCard.addAndMakeVisible (sendBtn);
-    sendBtn.setTooltip ("Write the current delay, gain and polarity of every channel to the DSP");
-    sendBtn.onClick = [this] { sendConfigToDsp (session, shell); };
     tableCard.addAndMakeVisible (header);
     zeroBtn.onClick = [this]
     {
@@ -203,7 +199,7 @@ void AlignmentPage::updateTimeline()
         : "Delays currently applied. Run Auto Tune to see measured arrivals from each driver.");
     carHint.setText (measured
         ? "Rings grow with arrival time: the farthest driver (largest ring) gets zero delay, nearer drivers wait for it."
-        : "No measurement yet - rings appear after Auto Tune (or a measured alignment on the Measure page).");
+        : "No measurement yet - rings appear after Auto Tune (or a measured alignment on the Measure tab).");
 }
 
 void AlignmentPage::refreshFromSession()
@@ -325,8 +321,6 @@ int AlignmentPage::layoutContent (int w)
         zeroBtn.setBounds (tools.removeFromLeft (150));
         tools.removeFromLeft (gap);
         tapeBtn.setBounds (tools.removeFromLeft (230));
-        tools.removeFromLeft (gap);
-        sendBtn.setBounds (tools.removeFromLeft (124));
         a.removeFromTop (gap2);
         header.setBounds (a.removeFromTop (22));
         for (auto& r : rows)

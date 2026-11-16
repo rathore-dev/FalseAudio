@@ -85,15 +85,15 @@ private:
 
     // ---- speakers
     gearkit::SectionHeader speakerHeader { "Step 3", "Speakers", "One driver per DSP channel from your layout. Click a speaker on the car to choose it." };
-    Card carCard { "Your layout", "From the System page" };
+    Card carCard { "Your layout", "From Layout" };
     CarView car;
     std::vector<std::unique_ptr<DriverRow>> driverRows;
 
     // ---- measurement rig
-    gearkit::SectionHeader rigHeader { "Step 4", "Measurement rig", "The interface and microphones used to measure. Two mics enable the dual-seat workflow." };
-    SlotCard interfaceSlot { "Audio interface", { gear::Category::audioInterface } };
-    SlotCard mic1Slot { "Microphone 1", { gear::Category::measurementMic } };
-    SlotCard mic2Slot { "Microphone 2 (optional)", { gear::Category::measurementMic } };
+    gearkit::SectionHeader rigHeader { "Step 4", "Measurement rig", "The interface and microphones used to measure are chosen on the Rig page." };
+    Card rigCard;
+    Chip rigInterfaceChip, rigMic1Chip, rigMic2Chip;
+    FaButton rigBtn { "Open Rig", FaButton::Style::secondary, icons::Id::arrowRight };
 
     // ---- electrical
     gearkit::SectionHeader elecHeader { "Step 5", "Electrical", "Used for current draw, wire gauge and fuse recommendations." };

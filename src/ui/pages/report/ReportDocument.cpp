@@ -2,9 +2,10 @@
 
 namespace fa::ui
 {
+constexpr int docMarginFull = 40;     // document margins (full report)
+
 namespace
 {
-    constexpr int docMargin = 40;     // document margins
     constexpr int sheetMaxWidth = 1120;
     constexpr int sectionGap = 36;
     constexpr int titleH = 30;
@@ -207,6 +208,19 @@ ReportDocument::ReportDocument (Session& s) : session (s)
     addAndMakeVisible (notes);
 }
 
+void ReportDocument::setDetailsOnly (bool b)
+{
+    detailsOnly = b;
+    ring.setVisible (! b);
+    for (auto* t : { &leftErr, &rightErr, &match, &duration, &sweeps })
+        t->setVisible (! b);
+    for (auto* p : { &plotL, &plotR, &plotSum })
+        p->setVisible (! b);
+    judgePanel.setVisible (! b && judgePanel.hasData());
+    resized();
+    repaint();
+}
+
 void ReportDocument::setResult (const AutoTuneEngine::Result& r)
 {
     completedAt = juce::Time::getCurrentTime();
@@ -215,6 +229,7 @@ void ReportDocument::setResult (const AutoTuneEngine::Result& r)
             completedAt = m.timestamp;
 
     result = r;
+    numMeasurements = (int) r.measurements.size();
     result.measurements.clear();           // IRs are large; the document only needs the count
 
     ring.setScore (r.score, true);
@@ -227,7 +242,7 @@ void ReportDocument::setResult (const AutoTuneEngine::Result& r)
                 juce::String ((int) r.tunedConfig.channels.size()) + " outputs");
 
     judgePanel.set (r.sqScore, r.refineCostBefore, r.refineCostAfter);
-    judgePanel.setVisible (judgePanel.hasData());
+    judgePanel.setVisible (! detailsOnly && judgePanel.hasData());
     tune::populateResultPlot (plotL, r, 0);
     tune::populateResultPlot (plotR, r, 1);
     tune::populateResultPlot (plotSum, r, 2);
@@ -241,13 +256,22 @@ void ReportDocument::setResult (const AutoTuneEngine::Result& r)
 ReportDocument::Layout ReportDocument::computeLayout (int width) const
 {
     Layout L;
-    const int sheetW = std::min (sheetMaxWidth, width);
+    const int docMargin = detailsOnly ? 28 : fa::ui::docMarginFull;
+    const int sheetW = detailsOnly ? width : std::min (sheetMaxWidth, width);
     const int margin = (width - sheetW) / 2 + docMargin;    // sheet is centred when the page is wider
     const int contentW = sheetW - docMargin * 2;
     const bool wide = contentW >= 760;
     int y = docMargin;
 
     L.sheet = { margin - docMargin, 0, sheetW, 0 };
+
+    if (detailsOnly)
+    {
+        L.header = { margin, y, contentW, 92 };
+        y += 92 + 20;
+    }
+    else
+    {
     L.header = { margin, y, contentW, 118 };
     L.ring = { margin + contentW - 112, y - 6, 112, 118 };
     y += 118 + 24;
@@ -282,6 +306,7 @@ ReportDocument::Layout ReportDocument::computeLayout (int width) const
     }
     L.plotSum = { margin, y, contentW, 220 };
     y += 220 + sectionGap;
+    }
 
     L.tableTitle = { margin, y, contentW, titleH };
     y += titleH + 8;
@@ -363,15 +388,15 @@ void ReportDocument::paint (juce::Graphics& g)
     const auto& cfg = result.tunedConfig;
 
     // Header
-    auto h = L.header.withTrimmedRight (140);
+    auto h = detailsOnly ? L.header : L.header.withTrimmedRight (140);
     g.setColour (theme::accent);
     g.setFont (theme::fontBold (11.0f));
-    g.drawText ("FALSEAUDIO  -  AUTO TUNE REPORT", h.removeFromTop (18), juce::Justification::centredLeft);
-    h.removeFromTop (6);
+    g.drawText (detailsOnly ? "TUNE SHEET" : "FALSEAUDIO  -  AUTO TUNE REPORT", h.removeFromTop (18), juce::Justification::centredLeft);
+    h.removeFromTop (detailsOnly ? 2 : 6);
     g.setColour (theme::text);
-    g.setFont (theme::display (30.0f));
-    g.drawText (cfg.name.isNotEmpty() ? cfg.name : "Untitled car", h.removeFromTop (40), juce::Justification::centredLeft, true);
-    h.removeFromTop (6);
+    g.setFont (theme::display (detailsOnly ? 22.0f : 30.0f));
+    g.drawText (cfg.name.isNotEmpty() ? cfg.name : "Untitled car", h.removeFromTop (detailsOnly ? 30 : 40), juce::Justification::centredLeft, true);
+    h.removeFromTop (detailsOnly ? 2 : 6);
     g.setColour (theme::textDim);
     g.setFont (theme::font (13.0f));
     const juce::String meta = completedAt.formatted ("%d %B %Y, %H:%M") + "   |   " + tune::layoutSummary (cfg)
@@ -382,13 +407,16 @@ void ReportDocument::paint (juce::Graphics& g)
     g.setColour (theme::textMuted);
     g.setFont (theme::font (12.0f));
     g.drawText ("DSP: " + tune::dspKindName (session) + "   |   " + juce::String (cfg.caps.peqBandsPerChannel)
-                + " PEQ / channel   |   delay step " + juce::String (cfg.caps.delayStepMs, 2) + " ms",
+                + " PEQ / channel   |   delay step " + juce::String (cfg.caps.delayStepMs, 2) + " ms"
+                + (detailsOnly ? "   |   " + tune::formatDuration (result.seconds) + " run, " + juce::String (numMeasurements) + " measurements"
+                               : juce::String()),
                 h.removeFromTop (18), juce::Justification::centredLeft, true);
 
-    if (judgePanel.hasData())
+    if (! detailsOnly && judgePanel.hasData())
         drawSectionTitle (g, L.judgeTitle, "Simulated SQ judge",
                           "Weighted categories, 0-100 each" + juce::String (result.refineCostBefore > 0.0 ? "  |  after competition refine" : ""));
-    drawSectionTitle (g, L.plotsTitle, "Before and after", "1/6-octave smoothed  |  0 dB = target midrange level  |  dashed = target");
+    if (! detailsOnly)
+        drawSectionTitle (g, L.plotsTitle, "Before and after", "1/6-octave smoothed  |  0 dB = target midrange level  |  dashed = target");
     drawSectionTitle (g, L.tableTitle, "Final DSP settings", juce::String ((int) cfg.channels.size()) + " outputs - type these into any DSP");
     drawSectionTitle (g, L.findingsTitle, "Findings", result.report.warnings.isEmpty() ? "No warnings" : juce::String (result.report.warnings.size()) + " warnings");
     drawSectionTitle (g, L.notesTitle, "What the tuner decided", juce::String (result.report.notes.size()) + " notes");

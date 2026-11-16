@@ -1,17 +1,12 @@
 #include "MainShell.h"
 #include "components/Widgets.h"
 #include "pages/AutoTunePage.h"
-#include "pages/SystemPage.h"
-#include "pages/HardwarePage.h"
-#include "pages/MeasurePage.h"
-#include "pages/LivePage.h"
-#include "pages/AlignmentPage.h"
-#include "pages/CrossoverEqPage.h"
-#include "pages/DspPage.h"
-#include "pages/ReportPage.h"
-#include "pages/GearPage.h"
+#include "pages/ResultsPage.h"
+#include "pages/CarPage.h"
 #include "pages/InstallPage.h"
-#include "pages/InsightsPage.h"
+#include "pages/HardwarePage.h"
+#include "pages/DspPage.h"
+#include "pages/ExpertPage.h"
 
 namespace fa::ui
 {
@@ -19,25 +14,38 @@ using namespace juce;
 
 namespace
 {
-    constexpr int numPages = 12;
+    constexpr int numPages = 7;
 
-    struct RailEntry { PageId id; const char* section; };
+    struct RailEntry { PageId id; const char* label; const char* tooltip; bool manualTools; };
 
-    /** Rail order: grouped by how often a user needs them; PageId order is the storage order. */
+    /** The rail: six everyday pages, then Expert pinned to the bottom as "manual tools". */
     const RailEntry railOrder[] =
     {
-        { PageId::autoTune,    "Tune" },
-        { PageId::insights,    "Tune" },
-        { PageId::report,      "Tune" },
-        { PageId::system,      "Setup" },
-        { PageId::gear,        "Setup" },
-        { PageId::install,     "Setup" },
-        { PageId::hardware,    "Setup" },
-        { PageId::dsp,         "Setup" },
-        { PageId::measure,     "Expert" },
-        { PageId::live,        "Expert" },
-        { PageId::alignment,   "Expert" },
-        { PageId::crossoverEq, "Expert" },
+        { PageId::autoTune, "Tune",            "Tune - one click: measure, align, cross over, equalise, verify", false },
+        { PageId::results,  "Results",         "Results - score, before / after, diagnostics, settings and exports", false },
+        { PageId::car,      "Car",             "Car - speaker layout and the equipment fitted", false },
+        { PageId::install,  "Install & Gains", "Install & Gains - wire checks, gain settings and manual adjustments", false },
+        { PageId::rig,      "Rig",             "Rig - audio interface, microphones and calibration", false },
+        { PageId::dsp,      "DSP",             "DSP - connect, control and send the tune to your DSP", false },
+        { PageId::expert,   "Expert",          "Expert - manual tools: Measure, Live RTA, Alignment, Crossovers & EQ", true },
+    };
+
+    struct PageAlias { const char* name; PageId id; const char* tab; };
+
+    /** Names understood by the QA hook command `page <name>`: the seven pages, their sub-tabs,
+        and every pre-merge page name (so older scripts keep working). */
+    const PageAlias pageAliases[] =
+    {
+        { "tune", PageId::autoTune, "" },      { "autotune", PageId::autoTune, "" },
+        { "results", PageId::results, "" },    { "report", PageId::results, "" },   { "insights", PageId::results, "" },
+        { "car", PageId::car, "" },            { "layout", PageId::car, "layout" }, { "system", PageId::car, "layout" },
+        { "equipment", PageId::car, "equipment" }, { "gear", PageId::car, "equipment" },
+        { "install", PageId::install, "" },
+        { "rig", PageId::rig, "" },            { "hardware", PageId::rig, "" },
+        { "dsp", PageId::dsp, "" },
+        { "expert", PageId::expert, "" },      { "measure", PageId::expert, "measure" },
+        { "live", PageId::expert, "live" },    { "alignment", PageId::expert, "alignment" },
+        { "crossover", PageId::expert, "crossover" }, { "crossovereq", PageId::expert, "crossover" },
     };
 }
 
@@ -71,7 +79,7 @@ MainShell::MainShell (Session& s)
     std::vector<NavRail::Item> items;
     for (auto& e : railOrder)
         if (auto* p = getPage (e.id))
-            items.push_back ({ e.id, p->getTitle(), p->getIcon(), e.section, p->getTitle() + " - " + p->getSubtitle() });
+            items.push_back ({ e.id, e.label, p->getIcon(), {}, e.tooltip, e.manualTools });
     rail.setItems (std::move (items));
     rail.onSelect = [this] (PageId id) { showPage (id); };
 
@@ -107,22 +115,17 @@ MainShell::~MainShell()
 void MainShell::buildPages()
 {
     pages.resize (numPages);
-    pages[indexOf (PageId::autoTune)]    = std::make_unique<AutoTunePage> (session);
-    pages[indexOf (PageId::system)]      = std::make_unique<SystemPage> (session);
-    pages[indexOf (PageId::hardware)]    = std::make_unique<HardwarePage> (session);
-    pages[indexOf (PageId::measure)]     = std::make_unique<MeasurePage> (session);
-    pages[indexOf (PageId::live)]        = std::make_unique<LivePage> (session);
-    pages[indexOf (PageId::alignment)]   = std::make_unique<AlignmentPage> (session);
-    pages[indexOf (PageId::crossoverEq)] = std::make_unique<CrossoverEqPage> (session);
-    pages[indexOf (PageId::dsp)]         = std::make_unique<DspPage> (session);
-    pages[indexOf (PageId::report)]      = std::make_unique<ReportPage> (session);
-    pages[indexOf (PageId::gear)]        = std::make_unique<GearPage> (session);
-    pages[indexOf (PageId::install)]     = std::make_unique<InstallPage> (session);
-    pages[indexOf (PageId::insights)]    = std::make_unique<InsightsPage> (session);
+    pages[indexOf (PageId::autoTune)] = std::make_unique<AutoTunePage> (session);
+    pages[indexOf (PageId::results)]  = std::make_unique<ResultsPage> (session);
+    pages[indexOf (PageId::car)]      = std::make_unique<CarPage> (session);        // Layout + Equipment
+    pages[indexOf (PageId::install)]  = std::make_unique<InstallPage> (session);
+    pages[indexOf (PageId::rig)]      = std::make_unique<HardwarePage> (session);
+    pages[indexOf (PageId::dsp)]      = std::make_unique<DspPage> (session);
+    pages[indexOf (PageId::expert)]   = std::make_unique<ExpertPage> (session);     // Measure, Live, Alignment, Crossovers & EQ
 
     for (auto& p : pages)
     {
-        p->shell = this;
+        p->setShell (this);
         pageHost.addChildComponent (*p);
     }
 }
@@ -134,15 +137,25 @@ Page* MainShell::getPage (PageId id)
     return (i >= 0 && i < (int) pages.size()) ? pages[(size_t) i].get() : nullptr;
 }
 
-void MainShell::showPage (PageId id)
+void MainShell::refreshHeader()
+{
+    if (auto* p = hasCurrentPage ? getPage (currentPage) : nullptr)
+        header.setPage (p->getTitle(), p->getSubtitle());
+}
+
+void MainShell::showPage (PageId id, const String& tab)
 {
     auto* next = getPage (id);
     if (next == nullptr)
         return;
 
+    if (tab.isNotEmpty())
+        next->showTab (tab);       // before pageShown(), so only the requested sub-tab wakes up
+
     if (hasCurrentPage && currentPage == id)
     {
         rail.setSelected (id);
+        refreshHeader();
         return;
     }
 
@@ -332,13 +345,24 @@ bool MainShell::runQaLine (const String& raw)
 
     if (cmd == "page")
     {
-        static const std::pair<const char*, PageId> names[] = {
-            { "autotune", PageId::autoTune }, { "system", PageId::system }, { "hardware", PageId::hardware },
-            { "measure", PageId::measure }, { "live", PageId::live }, { "alignment", PageId::alignment },
-            { "crossover", PageId::crossoverEq }, { "dsp", PageId::dsp }, { "report", PageId::report },
-            { "gear", PageId::gear }, { "install", PageId::install }, { "insights", PageId::insights } };
-        for (auto& n : names)
-            if (arg.equalsIgnoreCase (n.first)) { showPage (n.second); return true; }
+        // page <name> [tab]   e.g. "page expert alignment"; old page names are aliases
+        const auto name = arg.upToFirstOccurrenceOf (" ", false, false);
+        const auto tab  = arg.fromFirstOccurrenceOf (" ", false, false).trim();
+        for (auto& a : pageAliases)
+            if (name.equalsIgnoreCase (a.name))
+            {
+                showPage (a.id, tab.isNotEmpty() ? tab : String (a.tab));
+                return true;
+            }
+        Logger::writeToLog ("QA: unknown page: " + arg);
+        return true;
+    }
+    if (cmd == "tab")       // tab <name>: sub-tab of the current page (Car, Expert)
+    {
+        auto* p = hasCurrentPage ? getPage (currentPage) : nullptr;
+        if (p == nullptr || ! p->showTab (arg))
+            Logger::writeToLog ("QA: unknown tab: " + arg);
+        refreshHeader();
         return true;
     }
     if (cmd == "wait")      { qaWaitMs = arg.getIntValue(); return true; }
