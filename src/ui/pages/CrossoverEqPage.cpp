@@ -1,3 +1,4 @@
+#include "core/tune/BandPlacement.h"
 #include "CrossoverEqPage.h"
 #include "core/dsp/Spectrum.h"
 
@@ -111,7 +112,14 @@ CrossoverEqPage::CrossoverEqPage (Session& s) : Page (s)
         peqTable.setSelected (idx);
         rebuildNodes();
     };
-    peqTable.onAddBand = [this] { addBand (1000.0, 0.0); };
+    peqTable.onAddBand = [this]
+    {
+        std::vector<double> used;
+        if (const auto* sel = selectedChannel())
+            for (const auto& b : sel->settings.peq)
+                used.push_back (b.freq);
+        addBand (nextBandFrequency (used), 0.0);
+    };
     peqTable.onResetAll = [this]
     {
         const auto* ch = selectedChannel();
@@ -170,9 +178,14 @@ void CrossoverEqPage::resized()
     // ---- left column ------------------------------------------------------
     auto left = r.removeFromLeft (juce::jlimit (260, leftColumnW, r.getWidth() / 4));
     r.removeFromLeft (theme::pad);
-    lowPassEditor.setBounds (left.removeFromBottom (FilterEditor::idealHeight));
+    const bool compact = left.getHeight() < 2 * FilterEditor::idealHeight + 3 * theme::pad + 260;
+    lowPassEditor.setCompact (compact);
+    highPassEditor.setCompact (compact);
+    channelList.setCompact (compact);
+    const int edH = compact ? FilterEditor::compactHeight : FilterEditor::idealHeight;
+    lowPassEditor.setBounds (left.removeFromBottom (edH));
     left.removeFromBottom (theme::pad);
-    highPassEditor.setBounds (left.removeFromBottom (FilterEditor::idealHeight));
+    highPassEditor.setBounds (left.removeFromBottom (edH));
     left.removeFromBottom (theme::pad);
     channelList.setBounds (left);
 

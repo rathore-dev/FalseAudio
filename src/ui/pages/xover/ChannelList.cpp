@@ -55,7 +55,7 @@ public:
         if (selected && ! muted)
             theme::drawGlow (g, stripe, colour, 2.0f, 5.0f);
 
-        auto inner = r.reduced (24, 9).withTrimmedLeft (0);
+        auto inner = r.reduced (24, r.getHeight() < 52 ? 6 : 9).withTrimmedLeft (0);
 
         // side badge on the right
         auto badge = inner.removeFromRight (22).withSizeKeepingCentre (22, 18).toFloat();
@@ -133,6 +133,15 @@ void ChannelList::paint (juce::Graphics& g)
     g.fillRect (1, headerHeight, getWidth() - 2, 1);
 }
 
+void ChannelList::setCompact (bool c)
+{
+    const int h = c ? 44 : rowHeight;
+    if (h == rowH) return;
+    rowH = h;
+    layoutRows();
+    repaint();
+}
+
 void ChannelList::resized()
 {
     viewport.setBounds (getLocalBounds().withTrimmedTop (headerHeight + 4).reduced (1, 0).withTrimmedBottom (4));
@@ -142,12 +151,12 @@ void ChannelList::resized()
 void ChannelList::layoutRows()
 {
     const int w = viewport.getMaximumVisibleWidth();
-    content.setSize (w, (int) rows.size() * rowHeight);
+    content.setSize (w, (int) rows.size() * rowH);
     int y = 0;
     for (auto& row : rows)
     {
-        row->setBounds (0, y, w, rowHeight);
-        y += rowHeight;
+        row->setBounds (0, y, w, rowH);
+        y += rowH;
     }
 }
 } // namespace fa::ui

@@ -42,6 +42,18 @@ INSTALL
   FalseAudio.exe is fully self-contained (no DLLs or data folder needed).
   Optional: a data\gear folder next to the exe overrides the built-in equipment database.
 
+USER GUIDE
+  UserGuide.md (next to this file) explains everything. Key steps:
+  1. Start in Demo mode: Tune > Start Auto Tune runs on a simulated car, no hardware needed.
+  2. Rig: choose your interface and mic, load the mic calibration (UMIK-1: 90 degree file
+     for a mic pointing at the roof), keep the Windows mic level at 0 dB, press Run mic check.
+  3. Car: pick the speaker preset, then list your gear on the Equipment tab.
+  4. Install & Gains: follow the wiring, fuse and DMM gain steps (speakers disconnected).
+  5. Switch to Live (header), put the mic at the listening position, volume LOW, then
+     Tune > Start Auto Tune. Results shows the score and the exports.
+  6. DSP: pick Direct USB (miniDSP, DSP-408), AI operator (Claude or local Ollama) or
+     Manual guided. Everything is saved in %APPDATA%\FalseAudio.
+
 WHAT TO TEST
   - App starts, all pages open, Demo/Live switch works.
   - Equipment page: pick products, add your own, apply driver specs.
@@ -52,6 +64,10 @@ IF IT CRASHES
   Send the file  %APPDATA%\FalseAudio\crash.log
   (paste that path into Explorer's address bar), plus what you were doing.
 "@ | Set-Content (Join-Path $stage "README.txt") -Encoding UTF8
+
+$guide = Join-Path $root "docs\UserGuide.md"
+if (-not (Test-Path $guide)) { throw "docs\UserGuide.md not found" }
+Copy-Item $guide $stage
 
 $single = Join-Path $dist "FalseAudio-$version-win64.exe"
 Copy-Item $exe $single -Force

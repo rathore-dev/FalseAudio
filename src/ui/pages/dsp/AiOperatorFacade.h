@@ -110,6 +110,12 @@ public:
     std::function<void()> onMapChanged;                         // call getMap() again
 };
 
+/** Real, harmless GET <url>/api/tags on a background thread; reports whether Ollama answers and has `model`.
+    Used by both Demo and Live (no data is sent, nothing is started). `done` runs on the message thread
+    only while *alive is still true. */
+void probeOllama (const juce::String& url, const juce::String& model, std::shared_ptr<bool> alive,
+                  std::function<void (bool ok, juce::String message)> done);
+
 /** Timer-driven simulation: a full run with fake log, cost, thumbnail and map. Used in Demo mode. */
 std::unique_ptr<AiOperatorFacade> createDemoAiOperator();
 } // namespace fa::ui::dsp

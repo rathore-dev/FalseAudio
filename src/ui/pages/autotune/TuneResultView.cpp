@@ -1,4 +1,5 @@
 #include "TuneResultView.h"
+#include "core/tune/Verdict.h"
 
 namespace fa::ui
 {
@@ -11,13 +12,12 @@ namespace
     constexpr int buttonRowH = 48;
     constexpr int cardHeaderH = 48;
 
-    juce::String verdictFor (int score)
+    juce::String verdictFor (const AutoTuneEngine::Result& r)
     {
-        if (score >= 90) return "Reference-grade";
-        if (score >= 80) return "Excellent";
-        if (score >= 65) return "Good";
-        if (score >= 45) return "Fair - check findings";
-        return "Needs attention";
+        // Same sub-score formulas as the insights (tonal from L/R error, imaging from L/R match); cleanliness unknown here.
+        const double tonal = 100.0 - 12.0 * 0.5 * (r.leftErrorDb + r.rightErrorDb);
+        const double imaging = 100.0 - 15.0 * r.matchDb;
+        return fa::verdictLabel (r.score, juce::jmax (1.0, tonal), juce::jmax (1.0, imaging), 0.0);
     }
 
     juce::String verdictDetail (const AutoTuneEngine::Result& r)
@@ -62,7 +62,7 @@ public:
         a.removeFromTop (std::min (a.getWidth() - 24, 196) + 24);
         g.setColour (theme::scoreColour (result.score));
         g.setFont (theme::display (20.0f));
-        g.drawText (verdictFor (result.score), a.removeFromTop (28), juce::Justification::centred);
+        g.drawText (verdictFor (result), a.removeFromTop (28), juce::Justification::centred);
 
         juce::AttributedString as;
         as.setJustification (juce::Justification::centred);

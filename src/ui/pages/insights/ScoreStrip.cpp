@@ -35,7 +35,7 @@ ScoreStrip::ScoreStrip()
 void ScoreStrip::set (const AutoTuneEngine::Result& r, const insights::Insights& in)
 {
     overallScore = r.score;
-    verdict = insightsui::verdictFor (r.score);
+    verdict = insightsui::verdictFor (r.score, in.tonalBalanceScore, in.imagingScore, in.cleanlinessScore);
 
     juce::StringArray lines;
     for (int i = 0; i < in.summary.size() && i < 3; ++i)

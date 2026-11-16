@@ -16,6 +16,9 @@ public:
     void setChannels (const SystemConfig& config, const juce::String& selectedId);
     std::function<void (const juce::String&)> onSelect;
 
+    /** Shorter rows so more channels fit in short windows. */
+    void setCompact (bool c);
+
     void paint (juce::Graphics& g) override;
     void resized() override;
 
@@ -25,6 +28,7 @@ private:
     juce::Component content;
     std::vector<std::unique_ptr<Row>> rows;
     int count = 0;
+    int rowH = 58;
 
     void layoutRows();
 

@@ -5,6 +5,7 @@
 #include "../../components/Widgets.h"
 #include "../../components/Plots.h"
 #include "core/tune/insights/TuneInsights.h"
+#include "core/tune/Verdict.h"
 
 /** Small shared helpers for the Insights page: colour scales (heat / distortion / SNR), number
     formatting, channel lookups and a few paint utilities. UI only - all maths lives in
@@ -27,6 +28,8 @@ namespace fa::ui::insightsui
     juce::String formatPercent (double percent);
     juce::String formatBandHz (double lowHz, double highHz);
     juce::String verdictFor (int score);
+    /** Grade label capped by the weakest key sub-score (see fa::gradeScoreFor). */
+    juce::String verdictFor (int score, double tonal, double imaging, double clean);
 
     const OutputChannel* findChannel (const SystemConfig& cfg, const juce::String& channelId);
     juce::Colour channelColour (const SystemConfig& cfg, const juce::String& channelId);

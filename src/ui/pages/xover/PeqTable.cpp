@@ -146,6 +146,7 @@ PeqTable::PeqTable()
     viewport.setScrollBarThickness (6);
     addAndMakeVisible (viewport);
 
+    addButton.setComponentID ("xo.addband");
     addButton.onClick = [this] { if (onAddBand) onAddBand(); };
     addAndMakeVisible (addButton);
 

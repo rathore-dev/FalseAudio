@@ -1,3 +1,4 @@
+#include "core/tune/Verdict.h"
 #include "InsightsCommon.h"
 
 namespace fa::ui::insightsui
@@ -48,11 +49,12 @@ juce::String formatBandHz (double lowHz, double highHz)
 
 juce::String verdictFor (int score)
 {
-    if (score >= 90) return "Reference-grade";
-    if (score >= 80) return "Excellent";
-    if (score >= 65) return "Good";
-    if (score >= 45) return "Fair - check findings";
-    return "Needs attention";
+    return fa::verdictLabel (score);
+}
+
+juce::String verdictFor (int score, double tonal, double imaging, double clean)
+{
+    return fa::verdictLabel (score, tonal, imaging, clean);
 }
 
 const OutputChannel* findChannel (const SystemConfig& cfg, const juce::String& channelId)

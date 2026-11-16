@@ -128,33 +128,7 @@ namespace
         }
         void testOllama (std::function<void (bool, juce::String)> done) override
         {
-            auto live = alive;
-            const auto base = ps.ollamaUrl.trimCharactersAtEnd ("/");
-            const auto wanted = ps.ollamaModel;
-            juce::Thread::launch ([live, base, wanted, done]
-            {
-                bool ok = false;
-                juce::String msg;
-                auto stream = juce::URL (base + "/api/tags").createInputStream (
-                    juce::URL::InputStreamOptions (juce::URL::ParameterHandling::inAddress).withConnectionTimeoutMs (4000));
-                if (stream == nullptr)
-                    msg = "Ollama is not running at " + base + ". Start it (ollama serve) and try again.";
-                else
-                {
-                    const auto json = juce::JSON::parse (stream->readEntireStreamAsString());
-                    bool found = false;
-                    if (auto* arr = json.getProperty ("models", {}).getArray())
-                        for (auto& m : *arr)
-                        {
-                            const auto n = m.getProperty ("name", {}).toString();
-                            if (n.equalsIgnoreCase (wanted) || n.upToFirstOccurrenceOf (":", false, false).equalsIgnoreCase (wanted)) found = true;
-                        }
-                    ok = found;
-                    msg = found ? "Ollama is running and " + wanted + " is installed."
-                                : "Ollama is running, but " + wanted + " is not installed. Run: ollama pull " + wanted;
-                }
-                juce::MessageManager::callAsync ([live, done, ok, msg] { if (*live && done) done (ok, msg); });
-            });
+            probeOllama (ps.ollamaUrl, ps.ollamaModel, alive, std::move (done));
         }
 
         // ---- settings

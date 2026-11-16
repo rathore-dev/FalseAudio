@@ -104,6 +104,14 @@ FilterSpec FilterEditor::getSpec() const
     return spec;
 }
 
+void FilterEditor::setCompact (bool c)
+{
+    if (compact == c) return;
+    compact = c;
+    resized();
+    repaint();
+}
+
 void FilterEditor::emit()
 {
     repaint();
@@ -124,7 +132,7 @@ void FilterEditor::paint (juce::Graphics& g)
     auto r = getLocalBounds();
     theme::fillCard (g, r.toFloat(), theme::bg2, spec.enabled ? accent.withAlpha (0.35f) : theme::border);
 
-    auto header = r.removeFromTop (40).reduced (theme::pad, 0);
+    auto header = r.removeFromTop (headerH()).reduced (theme::pad, 0);
     g.setColour (theme::text);
     g.setFont (theme::fontMedium (13.0f));
     g.drawText (highPass ? "High-pass" : "Low-pass", header, juce::Justification::centredLeft);
@@ -149,13 +157,13 @@ void FilterEditor::paint (juce::Graphics& g)
 void FilterEditor::resized()
 {
     auto r = getLocalBounds().reduced (theme::pad, 0);
-    auto header = r.removeFromTop (40);
+    auto header = r.removeFromTop (headerH());
     enable.setBounds (header.removeFromRight (48).withSizeKeepingCentre (48, 28));
 
     freq.setBounds (r.removeFromTop (theme::controlHeight));
-    r.removeFromTop (18);
+    r.removeFromTop (gapH());
     slope.setBounds (r.removeFromTop (theme::controlHeight));
-    r.removeFromTop (18);
+    r.removeFromTop (gapH());
     alignment.setBounds (r.removeFromTop (theme::controlHeight));
 }
 } // namespace fa::ui

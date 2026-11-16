@@ -3,13 +3,43 @@
 
 namespace fa::ui::dsp
 {
+void probeOllama (const juce::String& url, const juce::String& model, std::shared_ptr<bool> live,
+                  std::function<void (bool, juce::String)> done)
+{
+    const auto base = url.trim().trimCharactersAtEnd ("/");
+    juce::Thread::launch ([live, base, model, done]
+    {
+        bool ok = false;
+        juce::String msg;
+        auto stream = juce::URL (base + "/api/tags").createInputStream (
+            juce::URL::InputStreamOptions (juce::URL::ParameterHandling::inAddress).withConnectionTimeoutMs (4000));
+        if (stream == nullptr)
+            msg = "Ollama is not running at " + base + ". Start it (ollama serve) and try again.";
+        else
+        {
+            const auto json = juce::JSON::parse (stream->readEntireStreamAsString());
+            bool found = false;
+            if (auto* arr = json.getProperty ("models", {}).getArray())
+                for (auto& m : *arr)
+                {
+                    const auto n = m.getProperty ("name", {}).toString();
+                    if (n.equalsIgnoreCase (model) || n.upToFirstOccurrenceOf (":", false, false).equalsIgnoreCase (model)) found = true;
+                }
+            ok = found;
+            msg = found ? "Ollama is running and " + model + " is installed."
+                        : "Ollama is running, but " + model + " is not installed. Run: ollama pull " + model;
+        }
+        juce::MessageManager::callAsync ([live, done, ok, msg] { if (*live && done) done (ok, msg); });
+    });
+}
+
 namespace
 {
     class DemoAiOperator : public AiOperatorFacade, private juce::Timer
     {
     public:
         DemoAiOperator() { budget = 2.0; }
-        ~DemoAiOperator() override { stopTimer(); }
+        ~DemoAiOperator() override { *alive = false; stopTimer(); }
 
         bool hasKey() const override { return keySaved; }
         juce::String keyHint() const override { return keySaved ? "sk-ant-...d3mo" : juce::String(); }
@@ -35,10 +65,7 @@ namespace
         void setOllama (const juce::String& u, const juce::String& m) override { ollamaUrl = u; ollamaModel = m; }
         void testOllama (std::function<void (bool, juce::String)> done) override
         {
-            juce::Timer::callAfterDelay (700, [done, m = ollamaModel]
-            {
-                if (done) done (true, "Ollama reachable (demo), model " + m + " is installed.");
-            });
+            probeOllama (ollamaUrl, ollamaModel, alive, std::move (done));   // real request, even in Demo
         }
 
         std::vector<ModelOption> models() const override
@@ -189,6 +216,7 @@ namespace
             return img;
         }
 
+        std::shared_ptr<bool> alive = std::make_shared<bool> (true);
         bool keySaved = false, consent = false, relearn = true;
         juce::String model = "opus-5.5", proc, title, provider = "claude", ollamaUrl = "http://localhost:11434", ollamaModel = "qwen3-vl:4b";
         double budget = 2.0;

@@ -3,6 +3,8 @@
 #include "TestRegistry.h"
 #include "core/guide/SetupGuide.h"
 #include "core/tune/insights/TuneInsights.h"
+#include "core/tune/Verdict.h"
+#include "core/tune/BandPlacement.h"
 #include "core/sim/VirtualRig.h"
 
 using namespace fa;
@@ -238,4 +240,30 @@ FA_TEST (tonalScoreUsesUsableBand)
             check (in.summary.joinIntoString (" ").contains ("isn't scored"), "No-sub note present", name);
         }
     }
+}
+
+FA_TEST (headlineGradeCappedBySubScores)
+{
+    using juce::String;
+    check (String (verdictLabel (92, 90, 88, 85)) == "Reference-grade", "All sub-scores high keeps Reference-grade");
+    check (String (verdictLabel (90, 95, 20, 90)) != "Reference-grade", "Very low imaging blocks Reference-grade");
+    check (gradeScoreFor (90, 95, 20, 90) <= 44 + 6, "Imaging 20 caps headline near 40");
+    check (String (verdictLabel (90, 95, 25, 90)) == "Fair - check findings", "Sub-score 25 caps label at Fair");
+    check (String (verdictLabel (90, 55, 90, 90)) == "Excellent" || String (verdictLabel (90, 55, 90, 90)) == "Good",
+           "Sub-score 55 caps at Good/Excellent");
+    check (String (verdictLabel (90, 80, 80, 0)) == "Reference-grade", "Cleanliness 0 (no driver data) is ignored");
+    check (gradeScoreFor (50, 90, 90, 90) == 50, "Cap never raises a low score");
+}
+
+FA_TEST (addBandPlacesDistinctFrequencies)
+{
+    std::vector<double> used;
+    for (int i = 0; i < 8; ++i)
+    {
+        const double f = nextBandFrequency (used);
+        for (double u : used)
+            check (std::abs (std::log2 (f / u)) > 0.3, "New band distinct from existing", juce::String (f) + " vs " + juce::String (u));
+        used.push_back (f);
+    }
+    check (nextBandFrequency ({}) == 1000.0, "First band at 1 kHz");
 }

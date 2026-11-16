@@ -32,6 +32,7 @@ Name: "desktopicon"; Description: "Create a &desktop shortcut"; Flags: unchecked
 [Files]
 Source: "{#StageDir}\FalseAudio.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#StageDir}\README.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#StageDir}\UserGuide.md"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\FalseAudio"; Filename: "{app}\FalseAudio.exe"
