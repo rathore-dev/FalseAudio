@@ -140,6 +140,10 @@ void visitItem (S& x, V& v)
     {
         v ("minV", x.minV);     v ("maxV", x.maxV);     v ("label", x.label);
     }
+    else if constexpr (std::is_same_v<T, SlopeHp>)
+    {
+        v ("slopeDbPerOct", x.slopeDbPerOct);   v ("hpHz", x.hpHz);
+    }
     else if constexpr (std::is_same_v<T, BoxRecommendation>)
     {
         v ("type", x.type);     v ("litres", x.litres); v ("tuningHz", x.tuningHz);
@@ -361,6 +365,8 @@ void visitDriver (S& d, V& v)
     v ("recommendedHpHz", d.recommendedHpHz);   v ("recommendedLpHz", d.recommendedLpHz);
     v ("tsWiring", d.tsWiring);                 v ("switchableImpedance", d.switchableImpedance);
     v ("cutoutShape", d.cutoutShape);
+    v ("cutoutWidthMm", d.cutoutWidthMm);       v ("cutoutHeightMm", d.cutoutHeightMm);
+    v ("recommendedHpBySlope", d.recommendedHpBySlope);
     v ("secondarySensitivityDb", d.secondarySensitivityDb);
     v ("secondarySensitivityRef", d.secondarySensitivityRef);
     v ("boxRecommendations", d.boxRecommendations);
@@ -509,6 +515,38 @@ void writeBlock (juce::DynamicObject& parent, const char* key, const std::option
     parent.setProperty (key, juce::var (w.obj.get()));
 }
 
+void readComponentPart (const juce::var& v, ComponentPart& part)
+{
+    if (! v.isObject())
+        return;
+    Reader r { v };
+    r ("productId", part.productId);
+    readBlock (v, "driver", part.driver, [] (auto& s, auto& vis) { visitDriver (s, vis); });
+}
+
+void readComponentSet (const juce::var& v, std::optional<ComponentSetSpecs>& out)
+{
+    const auto cs = v.getProperty ("componentSet", {});
+    if (! cs.isObject())
+        return;
+    ComponentSetSpecs c;
+    readComponentPart (cs.getProperty ("woofer", {}), c.woofer);
+    readComponentPart (cs.getProperty ("tweeter", {}), c.tweeter);
+    Reader r { cs };
+    r ("crossoverHz", c.crossoverHz);
+    r ("crossoverSlopeDbPerOct", c.crossoverSlopeDbPerOct);
+    out = c;
+}
+
+juce::var writeComponentPart (const ComponentPart& part)
+{
+    juce::DynamicObject::Ptr o = new juce::DynamicObject();
+    if (part.productId.isNotEmpty())
+        o->setProperty ("productId", part.productId);
+    writeBlock (*o, "driver", part.driver, [] (auto& s, auto& vis) { visitDriver (s, vis); });
+    return juce::var (o.get());
+}
+
 /** Parses one product entry; returns false (with a reason) when it isn't usable. */
 bool parseProduct (const juce::var& v, std::optional<Category> fallbackCategory, Product& p, juce::String& reason)
 {
@@ -554,6 +592,8 @@ bool parseProduct (const juce::var& v, std::optional<Category> fallbackCategory,
     readBlock (v, "battery", p.battery, [] (auto& s, auto& vis) { visitBattery (s, vis); });
     readBlock (v, "alternator", p.alternator, [] (auto& s, auto& vis) { visitAlternator (s, vis); });
     readBlock (v, "fuse", p.fuse, [] (auto& s, auto& vis) { visitFuse (s, vis); });
+
+    readComponentSet (v, p.componentSet);
 
     if (p.source.has_value())
         finishSource (*p.source, v.getProperty ("source", {}));
@@ -625,6 +665,16 @@ juce::var Product::toVar() const
     writeBlock (*o, "alternator", alternator, [] (auto& s, auto& vis) { visitAlternator (s, vis); });
     writeBlock (*o, "fuse", fuse, [] (auto& s, auto& vis) { visitFuse (s, vis); });
 
+    if (componentSet.has_value())
+    {
+        juce::DynamicObject::Ptr c = new juce::DynamicObject();
+        c->setProperty ("woofer", writeComponentPart (componentSet->woofer));
+        c->setProperty ("tweeter", writeComponentPart (componentSet->tweeter));
+        if (componentSet->crossoverHz != 0.0)           c->setProperty ("crossoverHz", componentSet->crossoverHz);
+        if (componentSet->crossoverSlopeDbPerOct != 0.0) c->setProperty ("crossoverSlopeDbPerOct", componentSet->crossoverSlopeDbPerOct);
+        o->setProperty ("componentSet", juce::var (c.get()));
+    }
+
     // awg 0 means 1/0, so keep it explicitly when no mm2 size is given
     if (wire.has_value() && wire->awg == 0.0 && wire->mm2 == 0.0)
         if (auto* w = o->getProperty ("wire").getDynamicObject())
@@ -686,6 +736,8 @@ void addDriverSummary (const DriverSpecs& d, juce::StringArray& out)
     if (d.xmaxMm > 0)        out.add ("Xmax " + num (d.xmaxMm, 1) + " mm");
     if (d.sensitivityDb > 0) out.add (num (d.sensitivityDb, 1) + " dB");
     if (d.powerRmsW > 0)     out.add (num (d.powerRmsW, 0) + " W RMS");
+    if (d.cutoutShape.equalsIgnoreCase ("oval") && d.cutoutWidthMm > 0 && d.cutoutHeightMm > 0)
+        out.add ("Cutout " + num (d.cutoutWidthMm, 0) + "x" + num (d.cutoutHeightMm, 0) + " mm oval");
     if (d.mountingDepthMm > 0) out.add ("Depth " + num (d.mountingDepthMm, 1) + " mm");
     if (! d.boxRecommendations.empty())
     {
@@ -824,6 +876,28 @@ void addFuseSummary (const FuseSpecs& f, juce::StringArray& out)
         out.add (f.type + " fuse");
 }
 } // namespace
+
+double recommendedHpForSlope (const DriverSpecs& d, double slopeDbPerOct)
+{
+    for (auto& e : d.recommendedHpBySlope)
+        if (e.hpHz > 0 && std::abs (e.slopeDbPerOct - slopeDbPerOct) < 0.5)
+            return e.hpHz;
+    return d.recommendedHpHz;
+}
+
+const DriverSpecs* componentSubDriver (const Product& set, ComponentRole role,
+                                       const std::function<const Product*(const juce::String&)>& lookup)
+{
+    if (! set.componentSet.has_value())
+        return nullptr;
+    const auto& part = role == ComponentRole::woofer ? set.componentSet->woofer : set.componentSet->tweeter;
+    if (part.driver.has_value())
+        return &*part.driver;
+    if (part.productId.isNotEmpty() && lookup)
+        if (const auto* p = lookup (part.productId); p != nullptr && p->driver.has_value())
+            return &*p->driver;
+    return nullptr;
+}
 
 juce::StringArray specsSummary (const Product& p)
 {

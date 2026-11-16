@@ -98,6 +98,7 @@ struct Plan
 namespace calc
 {
     double copperResistancePerMetre (double awg, const juce::String& material);  // ohm/m
+    double copperResistancePerMetreMm2 (double mm2, const juce::String& material);  // ohm/m from a measured cross-section
     double mm2FromAwg (double awg);
     double awgFromMm2 (double mm2);
     double ampCurrentDraw (double totalRmsW, double efficiencyPercent, double supplyV);

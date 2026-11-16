@@ -44,6 +44,11 @@ All fields are optional unless the app's custom-product form marks them required
   - *new* `switchableImpedance`: free text, e.g. "2 or 4 ohm (JBL SSI)". Informational; still give
     nominalOhms for the default setting and explain in `notes`.
   - *new* `cutoutShape`: "round" (default when omitted) | "square". For square, `cutoutMm` = side length.
+  - *new* `cutoutShape: "oval"` with `cutoutWidthMm` + `cutoutHeightMm` (e.g. 6x9 = 160 x 230). `cutoutMm` is then
+    omitted (or the larger side). Files without these fields are unchanged.
+  - *new* `recommendedHpBySlope`: `[ { "slopeDbPerOct": 12, "hpHz": 90 }, { "slopeDbPerOct": 24, "hpHz": 60 } ]` when the
+    maker's recommended high-pass depends on the filter slope. The planner assumes LR4 (24 dB/oct) and uses that entry,
+    falling back to the single `recommendedHpHz`.
   - *new* `secondarySensitivityDb` + `secondarySensitivityRef`: a second published sensitivity
     (e.g. maker gives both 1W/1m and 2.83V/1m). Put the primary figure in sensitivityDb/sensitivityRef.
   - *new* `boxRecommendations`: `[ { "type": "sealed" | "ported", "litres": 28, "tuningHz": 32 } ]`
@@ -84,6 +89,16 @@ All fields are optional unless the app's custom-product form marks them required
   - *new* `delayRangeMs`: `[min, max]` per-channel delay range (a single number = max). `maxDelayMs` is
     filled from max when omitted.
 - `wire`: awg (0 = 1/0, -1 = 2/0), mm2, material ("OFC" | "CCA" | "Tinned OFC"), ohmsPerMetre, ampacityA
+  - When `mm2` is the MEASURED conductor cross-section and differs from the AWG label (e.g. a "12 AWG" CCA that is
+    really 2.01 mm2), give both: the planner uses `mm2` for resistance / voltage drop / fuse checks and keeps `awg` as the label.
+    A published `ohmsPerMetre` / `ampacityA` still wins over the computed values.
+- *new* `componentSet` (products in category componentSet; keep the usual `driver` block for the set's overall/woofer data):
+  `{ "woofer": { "productId": "<driverMidbass id>", "driver": { ...driver fields... } },
+     "tweeter": { "productId": "<driverTweeter id>", "driver": { ... } },
+     "crossoverHz": 3000, "crossoverSlopeDbPerOct": 12 }`.
+  Each part may reference a separate product (`productId`) and/or embed `driver` specs; embedded specs win. The planner
+  uses the tweeter part for tweeter channels (its T/S, recommendedHpHz) and the woofer part for all other channels,
+  falling back to the set's own `driver` block. `crossoverHz` / `crossoverSlopeDbPerOct` = the supplied passive crossover.
 - `audioInterface`: inputs, outputs, micPreamps, phantomPower, hasLoopback, asio, maxGainDb, maxOutputDbu,
   sampleRates [..], connection
 - `mic`: type ("USB" | "XLR" | *new* "TRRS"), needsPhantom, sensitivityMvPa, calFileAvailable, calFileUrl,

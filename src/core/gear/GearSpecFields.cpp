@@ -164,7 +164,9 @@ void addDriverOptional (std::vector<SpecField>& f, bool isSub)
     f.push_back (number ("driver.recommendedLpHz", "Recommended low-pass", "Hz", "Crossover plan", "", false, 20, 40000));
     f.push_back (number ("driver.mountingDepthMm", "Mounting depth", "mm", "Install fit", "", false, 5, 500));
     f.push_back (number ("driver.cutoutMm", "Cut-out diameter", "mm", "Install fit", "Side length for square cut-outs", false, 10, 600));
-    f.push_back (text ("driver.cutoutShape", "Cut-out shape", "Install fit", "", false, { "round", "square" }));
+    f.push_back (text ("driver.cutoutShape", "Cut-out shape", "Install fit", "", false, { "round", "square", "oval" }));
+    f.push_back (number ("driver.cutoutWidthMm", "Oval cut-out width", "mm", "Install fit", "Only for oval cut-outs", false, 10, 600));
+    f.push_back (number ("driver.cutoutHeightMm", "Oval cut-out height", "mm", "Install fit", "Only for oval cut-outs", false, 10, 600));
     f.push_back (text ("driver.switchableImpedance", "Switchable impedance", "Amp load / wiring",
                        "e.g. \"2 or 4 " FA_OHM " (SSI)\"", false));
 }

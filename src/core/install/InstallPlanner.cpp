@@ -288,8 +288,12 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
         cp.channelId = du.channelId;
         const auto* ch   = config.find (du.channelId);
         const auto* prod = find (du.productId);
-        const gear::DriverSpecs* ds = prod != nullptr && prod->driver ? &*prod->driver : nullptr;
         const DriverRole role = ch != nullptr ? ch->role : (prod != nullptr ? roleFromCategory (prod->category) : DriverRole::fullrange);
+        const gear::DriverSpecs* ds = prod != nullptr && prod->driver ? &*prod->driver : nullptr;
+        if (prod != nullptr && prod->componentSet)   // component set: the channel's own sub-driver (tweeter vs woofer)
+            if (const auto* sub = gear::componentSubDriver (*prod, role == DriverRole::tweeter ? gear::ComponentRole::tweeter
+                                                                                             : gear::ComponentRole::woofer, find))
+                ds = sub;
         const int count = std::max (1, du.count);
         const auto slot = findAmpSlot (inst, du.channelId);
         const auto* ampProd = slot.ampIndex >= 0 ? find (inst.amps[(size_t) slot.ampIndex].ampId) : nullptr;
@@ -381,7 +385,7 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
         hp = std::max (hp, cp.excursionLimitedHpHz);
         if (ds != nullptr)
         {
-            hp = std::max (hp, ds->recommendedHpHz);
+            hp = std::max (hp, gear::recommendedHpForSlope (*ds, 24.0));   // planner assumes LR4 (24 dB/oct)
             cp.recommendedLpHz = ds->recommendedLpHz;
         }
         cp.recommendedHpHz = hp;
@@ -471,16 +475,24 @@ Plan buildPlan (const Installation& inst, const SystemConfig& config, const Prod
         // Wire: product spec first, then the gauge typed in.
         double awg = use.powerWireAwg;
         juce::String material = use.powerWireMaterial.isNotEmpty() ? use.powerWireMaterial : juce::String ("OFC");
-        double ohmsPerM = 0, ampacity = 0;
+        double ohmsPerM = 0, ampacity = 0, measuredMm2 = 0;
         if (const auto* wp = find (use.powerWireId); wp != nullptr && wp->wire)
         {
-            if (wp->wire->awg != 0 || wp->wire->mm2 <= 0) awg = wp->wire->awg;
-            else                                           awg = calc::awgFromMm2 (wp->wire->mm2);
+            // A measured cross-section (mm2) beats the AWG label (e.g. CCA sold as "12 AWG" that is really ~2 mm2).
+            if (wp->wire->mm2 > 0)
+            {
+                measuredMm2 = wp->wire->mm2;
+                awg = calc::awgFromMm2 (measuredMm2);
+            }
+            else
+                awg = wp->wire->awg;
             if (wp->wire->material.isNotEmpty()) material = wp->wire->material;
             ohmsPerM = wp->wire->ohmsPerMetre;
             ampacity = wp->wire->ampacityA;
         }
-        if (ohmsPerM <= 0) ohmsPerM = calc::copperResistancePerMetre (awg, material);
+        if (ohmsPerM <= 0)
+            ohmsPerM = measuredMm2 > 0 ? calc::copperResistancePerMetreMm2 (measuredMm2, material)
+                                       : calc::copperResistancePerMetre (awg, material);
         if (ampacity <= 0) ampacity = calc::wireAmpacityA (awg, material);
 
         // Round trip = power run + ground run (ground assumed the same gauge; chassis path neglected).
@@ -1039,9 +1051,14 @@ void applyToConfig (const Plan& plan, const Installation& inst, const ProductLoo
         if (ch == nullptr)
             continue;
         const auto* p = find (du.productId);
-        if (p != nullptr && p->driver)
+        const gear::DriverSpecs* dsp = p != nullptr && p->driver ? &*p->driver : nullptr;
+        if (p != nullptr && p->componentSet)
+            if (const auto* sub = gear::componentSubDriver (*p, ch->role == DriverRole::tweeter ? gear::ComponentRole::tweeter
+                                                                                                 : gear::ComponentRole::woofer, find))
+                dsp = sub;
+        if (p != nullptr && dsp != nullptr)
         {
-            const auto& d = *p->driver;
+            const auto& d = *dsp;
             const int n = std::max (1, du.count);
             ch->driver.model      = p->displayName() + (n > 1 ? " x" + juce::String (n) : juce::String());
             ch->driver.sizeInches = d.sizeInches;

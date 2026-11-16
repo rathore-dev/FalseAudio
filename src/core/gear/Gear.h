@@ -45,6 +45,14 @@ struct BoxRecommendation
     bool operator== (const BoxRecommendation& o) const { return type == o.type && litres == o.litres && tuningHz == o.tuningHz; }
 };
 
+/** Manufacturer-recommended high-pass for a given crossover slope (e.g. 12 dB/oct -> 80 Hz, 24 dB/oct -> 60 Hz). */
+struct SlopeHp
+{
+    double slopeDbPerOct = 0;
+    double hpHz = 0;
+    bool operator== (const SlopeHp& o) const { return slopeDbPerOct == o.slopeDbPerOct && hpHz == o.hpHz; }
+};
+
 /** Thiele/Small and mechanical parameters of a driver (SI-ish units noted). */
 struct DriverSpecs
 {
@@ -62,7 +70,9 @@ struct DriverSpecs
     // Re / Le / BL were measured: "single" (one coil / SVC), "series" or "parallel" (DVC, both coils).
     juce::String tsWiring;
     juce::String switchableImpedance;   // e.g. "2 or 4 ohm (JBL SSI)" - informational
-    juce::String cutoutShape;           // "round" (default) | "square"; cutoutMm = diameter or side length
+    juce::String cutoutShape;           // "round" (default) | "square" | "oval"; cutoutMm = diameter or side length
+    double cutoutWidthMm = 0, cutoutHeightMm = 0;   // oval cut-out (cutoutShape "oval"): width x height
+    std::vector<SlopeHp> recommendedHpBySlope;      // optional slope-dependent recommended high-pass
     double secondarySensitivityDb = 0;  // a second published sensitivity figure ...
     juce::String secondarySensitivityRef; // ... and its reference ("1W/1m" | "2.83V/1m")
     std::vector<BoxRecommendation> boxRecommendations;
@@ -209,6 +219,21 @@ struct FuseSpecs
     juce::String type;                  // "ANL" | "mini-ANL" | "MIDI" | "MAXI" | "AGU" | "ATC" | "breaker"
 };
 
+/** One half of a component set: a reference to a separate product and/or embedded driver specs. */
+struct ComponentPart
+{
+    juce::String productId;             // id of a driverMidbass / driverTweeter product (optional)
+    std::optional<DriverSpecs> driver;  // embedded specs; take precedence over the referenced product
+};
+
+/** componentSet block: woofer + tweeter and the passive crossover that ships with them. */
+struct ComponentSetSpecs
+{
+    ComponentPart woofer, tweeter;
+    double crossoverHz = 0;             // passive crossover point (woofer low-pass / tweeter high-pass)
+    double crossoverSlopeDbPerOct = 0;  // passive crossover slope, if published
+};
+
 /** One product. Only the spec block matching its category is meaningful. */
 struct Product
 {
@@ -230,12 +255,23 @@ struct Product
     std::optional<BatterySpecs> battery;
     std::optional<AlternatorSpecs> alternator;
     std::optional<FuseSpecs> fuse;
+    std::optional<ComponentSetSpecs> componentSet;   // componentSet products: woofer / tweeter / passive crossover
 
     juce::String displayName() const { return brand + " " + model; }
 
     juce::var toVar() const;
     static Product fromVar (const juce::var& v);
 };
+
+/** Recommended high-pass (Hz) for a slope: the slopeDbPerOct entry of recommendedHpBySlope when present,
+    else the single recommendedHpHz (0 = none). */
+double recommendedHpForSlope (const DriverSpecs& d, double slopeDbPerOct);
+
+enum class ComponentRole { woofer, tweeter };
+/** Resolved sub-driver of a componentSet (embedded specs first, else the referenced product's driver block).
+    Returns nullptr when neither is available. The lookup may be empty (embedded only). */
+const DriverSpecs* componentSubDriver (const Product& set, ComponentRole role,
+                                       const std::function<const Product*(const juce::String&)>& lookup);
 
 /** Human readable key specs for list rows, e.g. { "Fs 32 Hz", "Xmax 6.5 mm", "90 W RMS" }.
     Join with joinIntoString (juce::String (juce::CharPointer_UTF8 (" · "))) for a one-line summary. */

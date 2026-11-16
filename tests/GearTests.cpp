@@ -651,3 +651,26 @@ FA_TEST (gearAmpChannelGroups)
     const auto summary = specsSummary (prod).joinIntoString (" | ");
     check (summary.contains ("x 4") && summary.contains ("(sub)"), "Gear: specsSummary shows channel groups", summary);
 }
+
+FA_TEST (gearOvalAndComponentSet)
+{
+    const auto p = parseJson (R"({ "category": "componentSet", "brand": "X", "model": "Set",
+        "driver": { "sizeInches": 6.5, "cutoutShape": "oval", "cutoutWidthMm": 160, "cutoutHeightMm": 230,
+                    "recommendedHpHz": 80, "recommendedHpBySlope": [ { "slopeDbPerOct": 12, "hpHz": 90 }, { "slopeDbPerOct": 24, "hpHz": 60 } ] },
+        "componentSet": { "woofer": { "productId": "x-woofer" }, "tweeter": { "driver": { "fsHz": 900, "recommendedHpHz": 3000 } },
+                         "crossoverHz": 3200, "crossoverSlopeDbPerOct": 12 } })");
+    check (p.driver && p.driver->cutoutWidthMm == 160 && p.driver->cutoutHeightMm == 230, "Gear: oval cutout parsed");
+    bool shown = false;
+    for (auto& s : specsSummary (p))
+        shown = shown || s.contains ("160x230");
+    check (shown, "Gear: oval cutout in specsSummary");
+    check (p.driver && recommendedHpForSlope (*p.driver, 24) == 60 && recommendedHpForSlope (*p.driver, 12) == 90
+               && recommendedHpForSlope (*p.driver, 36) == 80, "Gear: HP by slope");
+    check (p.componentSet && p.componentSet->woofer.productId == "x-woofer" && p.componentSet->crossoverHz == 3200
+               && p.componentSet->tweeter.driver && p.componentSet->tweeter.driver->fsHz == 900, "Gear: componentSet parsed");
+    const auto back = Product::fromVar (p.toVar());
+    check (back.componentSet && back.componentSet->tweeter.driver && back.componentSet->tweeter.driver->recommendedHpHz == 3000
+               && back.driver && back.driver->recommendedHpBySlope.size() == 2, "Gear: componentSet + slope table round trip");
+    const auto old = parseJson (R"({ "category": "componentSet", "brand": "X", "model": "Old", "driver": { "sizeInches": 6.5 } })");
+    check (! old.componentSet && ! componentSubDriver (old, ComponentRole::woofer, {}), "Gear: legacy componentSet loads, no sub-drivers");
+}

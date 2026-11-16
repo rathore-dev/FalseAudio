@@ -610,3 +610,65 @@ FA_TEST (installQ1DvcTsWiring)
     check (near (xp, std::sqrt (2.0) * x1, 1e-6), "DVC both coils = sqrt 2 x one coil at the same power",
            juce::String (xp, 2) + " vs " + juce::String (x1, 2) + " mm");
 }
+
+FA_TEST (installWireMeasuredMm2)
+{
+    // "12 AWG" CCA that is really 2.01 mm2 must be planned with its measured area, not the AWG label.
+    auto run = [] (double awgLabel, double mm2)
+    {
+        auto rig = makeMono1500Rig (4.0, "CCA");
+        gear::Product w;
+        w.id = "wire"; w.category = gear::Category::powerWire; w.brand = "Test"; w.model = "wire";
+        gear::WireSpecs ws;
+        ws.awg = awgLabel; ws.mm2 = mm2; ws.material = "CCA";
+        w.wire = ws;
+        rig.add (w);
+        rig.inst.amps[0].powerWireId = "wire";
+        const auto plan = buildPlan (rig.inst, rig.config, rig.lookup());
+        return plan.wires.empty() ? 0.0 : plan.wires.front().voltageDropV / plan.wires.front().currentA;   // = R round trip
+    };
+    const double rLabel = run (12.0, 0.0);
+    const double rMeasured = run (12.0, 2.01);
+    const double expected = calc::copperResistancePerMetreMm2 (2.01, "CCA") * 5.5;
+    check (rLabel > 0 && rMeasured > rLabel * 1.5, "Measured 2.01 mm2 gives clearly higher resistance than the 12 AWG label",
+           juce::String (rLabel * 1000, 2) + " vs " + juce::String (rMeasured * 1000, 2) + " mohm");
+    check (near (rMeasured, expected, 1e-6), "Resistance = rho_CCA / measured mm2 x round trip");
+}
+
+FA_TEST (installRecommendedHpBySlopeAndComponentSet)
+{
+    gear::DriverSpecs d = midbass();
+    d.recommendedHpHz = 500;
+    d.recommendedHpBySlope = { { 12.0, 400.0 }, { 24.0, 250.0 } };
+    check (gear::recommendedHpForSlope (d, 24.0) == 250.0 && gear::recommendedHpForSlope (d, 12.0) == 400.0
+               && gear::recommendedHpForSlope (d, 48.0) == 500.0, "Slope table lookup with single-value fallback");
+
+    auto rig = makeFullRig();
+    rig.add (driverProduct ("mb2", gear::Category::driverMidbass, d));
+    rig.inst.drivers[2].productId = "mb2";   // FL.midbass
+    const auto plan = buildPlan (rig.inst, rig.config, rig.lookup());
+    const auto* cp = planFor (plan, "FL.midbass");
+    check (cp != nullptr && cp->recommendedHpHz >= 250.0 && cp->recommendedHpHz < 400.0, "Planner uses the LR4 (24 dB) entry",
+           cp != nullptr ? juce::String (cp->recommendedHpHz, 1) : juce::String());
+
+    // component set: tweeter channel takes the tweeter's data, woofer channel the woofer's
+    gear::Product set;
+    set.id = "set"; set.category = gear::Category::componentSet; set.brand = "Test"; set.model = "set";
+    gear::ComponentSetSpecs cs;
+    cs.tweeter.driver = tweeter();
+    cs.tweeter.driver->recommendedHpHz = 3500;
+    cs.woofer.productId = "mb";
+    cs.crossoverHz = 3000;
+    set.componentSet = cs;
+    rig.add (set);
+    rig.inst.drivers[0].productId = "set";   // FL.tweeter
+    rig.inst.drivers[2].productId = "set";   // FL.midbass
+    const auto plan2 = buildPlan (rig.inst, rig.config, rig.lookup());
+    const auto* tw = planFor (plan2, "FL.tweeter");
+    const auto* wf = planFor (plan2, "FL.midbass");
+    check (tw != nullptr && tw->recommendedHpHz >= 3500.0, "Tweeter channel uses the set's tweeter HP",
+           tw != nullptr ? juce::String (tw->recommendedHpHz, 1) : juce::String());
+    check (wf != nullptr && wf->driverRmsW == midbass().powerRmsW, "Woofer channel uses the referenced woofer specs");
+    const auto sub = gear::componentSubDriver (set, gear::ComponentRole::woofer, rig.lookup());
+    check (sub != nullptr && sub->fsHz == midbass().fsHz, "componentSubDriver resolves a referenced product");
+}

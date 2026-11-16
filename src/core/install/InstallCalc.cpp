@@ -139,6 +139,12 @@ double copperResistancePerMetre (double awg, const juce::String& material)
     return isCca (material) ? r * ccaFactor : r;
 }
 
+double copperResistancePerMetreMm2 (double mm2, const juce::String& material)
+{
+    const double r = copperResistivity / (mm2 * 1.0e-6);
+    return isCca (material) ? r * ccaFactor : r;
+}
+
 double wireAmpacityA (double awg, const juce::String& material)
 {
     // Conservative car-audio fuse guideline for OFC power wire (bundled, in-cabin runs, 105 degC insulation).
