@@ -1,0 +1,140 @@
+{
+  "products": [
+    {
+      "id": "pioneer-ts-z65ch",
+      "category": "componentSet",
+      "brand": "Pioneer",
+      "model": "TS-Z65CH",
+      "series": "Z-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-z65ch",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6.5in 2-way component, 29 mm aluminium-alloy dome tweeter. Crossover 4500 Hz acoustic / 1900 Hz electric.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 110,
+        "powerPeakW": 330,
+        "freqLowHz": 30,
+        "freqHighHz": 96000
+      }
+    },
+    {
+      "id": "pioneer-ts-z65c",
+      "category": "componentSet",
+      "brand": "Pioneer",
+      "model": "TS-Z65C",
+      "series": "Z-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-z65c",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6.5in 2-way component. Crossover 4000 Hz acoustic / 1800 Hz electric. Tweeter depth 5/8in (16 mm).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 32,
+        "freqHighHz": 96000,
+        "mountingDepthMm": 63.5,
+        "cutoutMm": 143
+      }
+    },
+    {
+      "id": "pioneer-ts-a1601c",
+      "category": "componentSet",
+      "brand": "Pioneer",
+      "model": "TS-A1601C",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a1601c",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6.5in 2-way component.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 350,
+        "freqLowHz": 33,
+        "freqHighHz": 58000,
+        "mountingDepthMm": 59,
+        "cutoutMm": 143
+      }
+    },
+    {
+      "id": "pioneer-ts-a653ch",
+      "category": "componentSet",
+      "brand": "Pioneer",
+      "model": "TS-A653CH",
+      "series": "A-Series MAX",
+      "sourceUrl": "https://usa.pioneer/products/ts-a653ch",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6.5in 2-way component.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 85,
+        "powerPeakW": 370,
+        "freqLowHz": 33,
+        "freqHighHz": 58000
+      }
+    },
+    {
+      "id": "pioneer-ts-a693ch",
+      "category": "componentSet",
+      "brand": "Pioneer",
+      "model": "TS-A693CH",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a693ch",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x9 2-way component. Oval 6x9/6x8: sizeInches and cutoutMm omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 105,
+        "powerPeakW": 460
+      }
+    },
+    {
+      "id": "pioneer-ts-d65c",
+      "category": "componentSet",
+      "brand": "Pioneer",
+      "model": "TS-D65C",
+      "series": "D-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-d65c",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6.5in 2-way component, swivel tweeters. Tweeter depth 5/8in.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 84,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 90,
+        "mountingDepthMm": 63.5
+      }
+    },
+    {
+      "id": "pioneer-ts-d69c",
+      "category": "componentSet",
+      "brand": "Pioneer",
+      "model": "TS-D69C",
+      "series": "D-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-d69c",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x9 2-way component. Oval 6x9/6x8: sizeInches and cutoutMm omitted. Tweeter depth 5/8in.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 110,
+        "mountingDepthMm": 72.9
+      }
+    }
+  ]
+}

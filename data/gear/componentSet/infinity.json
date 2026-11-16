@@ -1,0 +1,63 @@
+{
+  "products": [
+    {
+      "id": "infinity-ref-5030cx",
+      "category": "componentSet",
+      "brand": "Infinity",
+      "model": "REF-5030cx",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 5-1/4in component system.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 65,
+        "powerPeakW": 195,
+        "freqLowHz": 67,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "infinity-ref-6530cx",
+      "category": "componentSet",
+      "brand": "Infinity",
+      "model": "REF-6530cx",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 6-1/2in component system (sold as REF-6520cx in some channels).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 90,
+        "powerPeakW": 270,
+        "freqLowHz": 53,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "infinity-ref-9630cx",
+      "category": "componentSet",
+      "brand": "Infinity",
+      "model": "REF-9630cx",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 6x9in component system; oval so sizeInches omitted.",
+      "driver": {
+        "nominalOhms": 3,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 125,
+        "powerPeakW": 375,
+        "freqLowHz": 46,
+        "freqHighHz": 21000
+      }
+    }
+  ]
+}

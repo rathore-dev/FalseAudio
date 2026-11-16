@@ -1,0 +1,59 @@
+{
+  "products": [
+    {
+      "id": "sony-xs-gtf6939",
+      "category": "driverCoax",
+      "brand": "Sony",
+      "model": "XS-GTF6939",
+      "series": "GTF",
+      "sourceUrl": "https://www.sony.com.au/electronics/car-speakers/xs-gtf6939/specifications",
+      "verified": true,
+      "notes": "Regional Sony site spec page (Sony US site not fetchable). Sony 'rated power' used as powerRmsW where no RMS figure given; sizeInches omitted (only metric size on page). 6x9in 3-way. AU page: 420 W peak, 60 W RMS, 92 dB, 50-22000 Hz. Manual states 50 W rated, 92+-2 dB at 4 ohm (nominalOhms from manual).",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 60,
+        "powerPeakW": 420,
+        "freqLowHz": 50,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "sony-xs-gtf1639",
+      "category": "driverCoax",
+      "brand": "Sony",
+      "model": "XS-GTF1639",
+      "series": "GTF",
+      "sourceUrl": "https://www.sony.com.au/electronics/car-speakers/xs-gtf1639/specifications",
+      "verified": true,
+      "notes": "Regional Sony site spec page (Sony US site not fetchable). Sony 'rated power' used as powerRmsW where no RMS figure given; sizeInches omitted (only metric size on page). 16 cm 3-way. AU page: 270 W peak, 45 W RMS, 90 dB, 55-24000 Hz. Sony manual shows different figures (230 W max, 30 W rated, 89+-2 dB, 65-24000 Hz), so regional revisions conflict; AU page values used. Some retailers mark this model discontinued.",
+      "driver": {
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 45,
+        "powerPeakW": 270,
+        "freqLowHz": 55,
+        "freqHighHz": 24000
+      }
+    },
+    {
+      "id": "sony-xs-gtf1339",
+      "category": "driverCoax",
+      "brand": "Sony",
+      "model": "XS-GTF1339",
+      "series": "GTF",
+      "sourceUrl": "https://store.sony.com.my/blogs/6543232598050_39282602410018/6543232598050_specifications",
+      "verified": true,
+      "notes": "Regional Sony site spec page (Sony US site not fetchable). Sony 'rated power' used as powerRmsW where no RMS figure given; sizeInches omitted (only metric size on page). 13 cm 3-way. Sony Malaysia spec: 230 W peak, 35 W RMS, 89 dB, 65-24000 Hz.",
+      "driver": {
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 35,
+        "powerPeakW": 230,
+        "freqLowHz": 65,
+        "freqHighHz": 24000
+      }
+    }
+  ]
+}

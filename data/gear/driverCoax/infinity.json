@@ -1,0 +1,180 @@
+{
+  "products": [
+    {
+      "id": "infinity-ref-3032cfx",
+      "category": "driverCoax",
+      "brand": "Infinity",
+      "model": "REF-3032cfx",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 3-1/2in (87 mm) coaxial.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 91,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 25,
+        "powerPeakW": 75,
+        "freqLowHz": 85,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "infinity-ref-4032cfx",
+      "category": "driverCoax",
+      "brand": "Infinity",
+      "model": "REF-4032cfx",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 4in (100 mm) coaxial.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 3,
+        "sensitivityDb": 92,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 35,
+        "powerPeakW": 105,
+        "freqLowHz": 75,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "infinity-ref-5032cfx",
+      "category": "driverCoax",
+      "brand": "Infinity",
+      "model": "REF-5032cfx",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 5-1/4in (130 mm) coaxial.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 3,
+        "sensitivityDb": 92,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 45,
+        "powerPeakW": 135,
+        "freqLowHz": 67,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "infinity-ref-6532ix",
+      "category": "driverCoax",
+      "brand": "Infinity",
+      "model": "REF-6532ix",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 6-1/2in (160 mm) coaxial.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "powerPeakW": 180,
+        "freqLowHz": 53,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "infinity-ref-6532ex",
+      "category": "driverCoax",
+      "brand": "Infinity",
+      "model": "REF-6532ex",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 6-1/2in shallow-mount coaxial.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 3,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 55,
+        "powerPeakW": 165,
+        "freqLowHz": 57,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "infinity-ref-6432cfx",
+      "category": "driverCoax",
+      "brand": "Infinity",
+      "model": "REF-6432cfx",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 4x6in coaxial; oval so sizeInches omitted.",
+      "driver": {
+        "nominalOhms": 3,
+        "sensitivityDb": 92,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 45,
+        "powerPeakW": 135,
+        "freqLowHz": 75,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "infinity-ref-8632cfx",
+      "category": "driverCoax",
+      "brand": "Infinity",
+      "model": "REF-8632cfx",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 6x8in coaxial; oval so sizeInches omitted.",
+      "driver": {
+        "nominalOhms": 3,
+        "sensitivityDb": 93,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 60,
+        "powerPeakW": 180,
+        "freqLowHz": 49,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "infinity-ref-9632ix",
+      "category": "driverCoax",
+      "brand": "Infinity",
+      "model": "REF-9632ix",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 6x9in coaxial; oval so sizeInches omitted.",
+      "driver": {
+        "nominalOhms": 3,
+        "sensitivityDb": 94,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 46,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "infinity-ref-9633ix",
+      "category": "driverCoax",
+      "brand": "Infinity",
+      "model": "REF-9633ix",
+      "series": "Reference",
+      "sourceUrl": "https://bilradiospes.no/media/multicase/documents/infinity/h%c3%b8yttalere/infinity%20reference%20spesifikasjoner.pdf",
+      "verified": true,
+      "notes": "Harman/Infinity Reference Speakers datasheet (2017, hosted by an Infinity dealer). Sensitivity @2.83V/1m. Depth/cutout not in sheet. Newer 65x2 revisions (e.g. REF-6522ix) exist; their pages blocked fetching. 6x9in 3-way; oval so sizeInches omitted.",
+      "driver": {
+        "nominalOhms": 3,
+        "sensitivityDb": 94,
+        "sensitivityRef": "2.83V/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 46,
+        "freqHighHz": 30000
+      }
+    }
+  ]
+}

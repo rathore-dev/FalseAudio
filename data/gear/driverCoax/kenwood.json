@@ -1,0 +1,220 @@
+{
+  "products": [
+    {
+      "id": "kenwood-kfc-x1741",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-X1741",
+      "series": "X-Series",
+      "sourceUrl": "http://www.kenwood.com/sg/car/speaker&amplifier/pm_x/",
+      "verified": true,
+      "notes": "Kenwood Singapore regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.17 cm round coaxial.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 240,
+        "freqLowHz": 67,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "kenwood-kfc-x174",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-X174",
+      "series": "X-Series",
+      "sourceUrl": "http://www.kenwood.com/sg/car/speaker&amplifier/pm_x/",
+      "verified": true,
+      "notes": "Kenwood Singapore regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.17 cm round coaxial.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 240,
+        "freqLowHz": 69,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "kenwood-kfc-xh170",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-XH170",
+      "series": "XH-Series",
+      "sourceUrl": "http://www.kenwood.com/sg/car/speaker&amplifier/pm_x/",
+      "verified": true,
+      "notes": "Kenwood Singapore regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.17 cm 2-way. Table lists 3 ohm nominal impedance.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 3,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 45,
+        "freqHighHz": 40000
+      }
+    },
+    {
+      "id": "kenwood-kfc-ps1797",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-PS1797",
+      "series": "PS-Series",
+      "sourceUrl": "http://www.kenwood.com/india/car/speaker&amplifier/pm_ps/",
+      "verified": true,
+      "notes": "Kenwood India regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.17 cm 2-way.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 350,
+        "freqLowHz": 73,
+        "freqHighHz": 18000
+      }
+    },
+    {
+      "id": "kenwood-kfc-ps1697",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-PS1697",
+      "series": "PS-Series",
+      "sourceUrl": "http://www.kenwood.com/india/car/speaker&amplifier/pm_ps/",
+      "verified": true,
+      "notes": "Kenwood India regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.16 cm 2-way.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 350,
+        "freqLowHz": 76,
+        "freqHighHz": 18000
+      }
+    },
+    {
+      "id": "kenwood-kfc-ps1397",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-PS1397",
+      "series": "PS-Series",
+      "sourceUrl": "http://www.kenwood.com/india/car/speaker&amplifier/pm_ps/",
+      "verified": true,
+      "notes": "Kenwood India regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.13 cm 2-way.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 330,
+        "freqLowHz": 82,
+        "freqHighHz": 21000
+      }
+    },
+    {
+      "id": "kenwood-kfc-ps1097",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-PS1097",
+      "series": "PS-Series",
+      "sourceUrl": "http://www.kenwood.com/india/car/speaker&amplifier/pm_ps/",
+      "verified": true,
+      "notes": "Kenwood India regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.10 cm 2-way.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 240,
+        "freqLowHz": 64,
+        "freqHighHz": 20000
+      }
+    },
+    {
+      "id": "kenwood-kfc-ps6977",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-PS6977",
+      "series": "PS-Series",
+      "sourceUrl": "http://www.kenwood.com/india/car/speaker&amplifier/pm_ps/",
+      "verified": true,
+      "notes": "Kenwood India regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.6x9 3-way. 6x9in oval: sizeInches omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 130,
+        "powerPeakW": 570,
+        "freqLowHz": 63,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "kenwood-kfc-ps6987",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-PS6987",
+      "series": "PS-Series",
+      "sourceUrl": "http://www.kenwood.com/india/car/speaker&amplifier/pm_ps/",
+      "verified": true,
+      "notes": "Kenwood India regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.6x9 4-way. 6x9in oval: sizeInches omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 140,
+        "powerPeakW": 670,
+        "freqLowHz": 60,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "kenwood-kfc-ps6997",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-PS6997",
+      "series": "PS-Series",
+      "sourceUrl": "http://www.kenwood.com/india/car/speaker&amplifier/pm_ps/",
+      "verified": true,
+      "notes": "Kenwood India regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.6x9 5-way. 6x9in oval: sizeInches omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 150,
+        "powerPeakW": 720,
+        "freqLowHz": 58,
+        "freqHighHz": 22000
+      }
+    },
+    {
+      "id": "kenwood-kfc-ps6997ex",
+      "category": "driverCoax",
+      "brand": "Kenwood",
+      "model": "KFC-PS6997EX",
+      "series": "PS-Series",
+      "sourceUrl": "http://www.kenwood.com/india/car/speaker&amplifier/pm_ps/",
+      "verified": true,
+      "notes": "Kenwood India regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.6x9 5-way. 6x9in oval: sizeInches omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 160,
+        "powerPeakW": 770,
+        "freqLowHz": 55,
+        "freqHighHz": 22000
+      }
+    }
+  ]
+}

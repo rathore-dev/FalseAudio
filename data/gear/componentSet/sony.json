@@ -1,0 +1,33 @@
+{
+  "products": [
+    {
+      "id": "sony-xs-gs1621c",
+      "category": "componentSet",
+      "brand": "Sony",
+      "model": "XS-GS1621C",
+      "series": "GS",
+      "sourceUrl": "https://store.sony.co.nz/car-speaker/XSGS1621C.html",
+      "verified": true,
+      "notes": "Regional Sony site spec page (Sony US site not fetchable). Sony 'rated power' used as powerRmsW where no RMS figure given; sizeInches omitted (only metric size on page). 16 cm 2-way component. Sony NZ/Malaysia: 320 W peak, 75 W rated. Sensitivity 87 dB / 4 ohm only seen on retailers, so omitted.",
+      "driver": {
+        "powerRmsW": 75,
+        "powerPeakW": 320
+      }
+    },
+    {
+      "id": "sony-xs-gs1631c",
+      "category": "componentSet",
+      "brand": "Sony",
+      "model": "XS-GS1631C",
+      "series": "GS",
+      "sourceUrl": "https://www.sony-mea.com/microsite/caraudio/car-speakers-amplifiers/xs-160gs.html",
+      "verified": true,
+      "notes": "Regional Sony site spec page (Sony US site not fetchable). Sony 'rated power' used as powerRmsW where no RMS figure given; sizeInches omitted (only metric size on page). 16 cm 3-way component. Sony ME: 320 W peak, 87+-2 dB (1W/1m). RMS conflicts across Sony regional pages (120 W ME vs 65 W Malaysia), so powerRmsW omitted.",
+      "driver": {
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerPeakW": 320
+      }
+    }
+  ]
+}

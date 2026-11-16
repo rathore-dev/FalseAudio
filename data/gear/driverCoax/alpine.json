@@ -1,0 +1,126 @@
+{
+  "products": [
+    {
+      "id": "alpine-s2-s40",
+      "category": "driverCoax",
+      "brand": "Alpine",
+      "model": "S2-S40",
+      "series": "S-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/s-series-speakers-s2s40",
+      "verified": true,
+      "notes": "4in coaxial, 3/4in tweeter. alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity published as dB without reference (S-Series 1W/1m per Alpine convention not stated), so sensitivityRef omitted.",
+      "driver": {
+        "sizeInches": 4,
+        "powerRmsW": 45,
+        "powerPeakW": 140,
+        "freqLowHz": 97,
+        "freqHighHz": 40000,
+        "sensitivityDb": 86
+      }
+    },
+    {
+      "id": "alpine-s2-s50",
+      "category": "driverCoax",
+      "brand": "Alpine",
+      "model": "S2-S50",
+      "series": "S-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/s-series-speakers-s2s50",
+      "verified": true,
+      "notes": "5-1/4in coaxial, 3/4in tweeter. alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity published as dB without reference (S-Series 1W/1m per Alpine convention not stated), so sensitivityRef omitted.",
+      "driver": {
+        "sizeInches": 5.25,
+        "powerRmsW": 55,
+        "powerPeakW": 170,
+        "freqLowHz": 80,
+        "freqHighHz": 40000,
+        "sensitivityDb": 87
+      }
+    },
+    {
+      "id": "alpine-s2-s65",
+      "category": "driverCoax",
+      "brand": "Alpine",
+      "model": "S2-S65",
+      "series": "S-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/s-series-speakers-s2s65",
+      "verified": true,
+      "notes": "6.5in coaxial, 1in tweeter. alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity published as dB without reference (S-Series 1W/1m per Alpine convention not stated), so sensitivityRef omitted.",
+      "driver": {
+        "sizeInches": 6.5,
+        "powerRmsW": 80,
+        "powerPeakW": 240,
+        "freqLowHz": 70,
+        "freqHighHz": 40000,
+        "sensitivityDb": 88
+      }
+    },
+    {
+      "id": "alpine-s2-s69",
+      "category": "driverCoax",
+      "brand": "Alpine",
+      "model": "S2-S69",
+      "series": "S-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/s-series-speakers-s2s69",
+      "verified": true,
+      "notes": "6x9in coaxial, 1in tweeter. alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity published as dB without reference (S-Series 1W/1m per Alpine convention not stated), so sensitivityRef omitted.",
+      "driver": {
+        "sizeInches": 6,
+        "powerRmsW": 85,
+        "powerPeakW": 260,
+        "freqLowHz": 85,
+        "freqHighHz": 40000,
+        "sensitivityDb": 90
+      }
+    },
+    {
+      "id": "alpine-s2-s69c",
+      "category": "driverCoax",
+      "brand": "Alpine",
+      "model": "S2-S69C",
+      "series": "S-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/s-series-speakers-s2s69c",
+      "verified": true,
+      "notes": "Page titles it '6x9 Component' but spec lists a 3in midrange with built-in 3/4in tweeters (coaxial, 3-way style); filed as driverCoax. sizeInches omitted (6x9 oval). alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity published as dB without reference (S-Series 1W/1m per Alpine convention not stated), so sensitivityRef omitted.",
+      "driver": {
+        "powerRmsW": 85,
+        "powerPeakW": 260,
+        "freqLowHz": 65,
+        "freqHighHz": 40000,
+        "sensitivityDb": 90
+      }
+    },
+    {
+      "id": "alpine-r2-s65",
+      "category": "driverCoax",
+      "brand": "Alpine",
+      "model": "R2-S65",
+      "series": "R-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/r-series-speakers-r2s65",
+      "verified": true,
+      "notes": "6.5in coaxial, 1in tweeter. alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity not published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 65,
+        "freqHighHz": 40000
+      }
+    },
+    {
+      "id": "alpine-r2-s69",
+      "category": "driverCoax",
+      "brand": "Alpine",
+      "model": "R2-S69",
+      "series": "R-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/r-series-speakers-r2s69",
+      "verified": true,
+      "notes": "6x9in coaxial, 1in tweeter. sizeInches omitted (oval). alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity not published.",
+      "driver": {
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 60,
+        "freqHighHz": 40000
+      }
+    }
+  ]
+}

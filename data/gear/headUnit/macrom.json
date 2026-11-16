@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": "macrom-dl5300dab",
+      "category": "headUnit",
+      "brand": "Macrom",
+      "model": "DL5300DAB",
+      "sourceUrl": "https://www.macrom.it/it/d/dl5300dab-sintolettore-amfm-1din-con-dab-bluetooth-2-microfoni-2-porte-usb-e-sd",
+      "verified": true,
+      "notes": "1 DIN AM/FM + DAB+ receiver, Bluetooth, 2 USB, SD. Max output 4 x 50 W (peak rating, not RMS). Page shows only an 'EQ effect' icon. Product page states 2 pre-outs (Uscite preamplificate: 2); preout voltage, EQ type/bands, crossovers and SNR are not published, so omitted.",
+      "source": {
+        "preoutChannels": 2
+      }
+    },
+    {
+      "id": "macrom-m-dl3300dab",
+      "category": "headUnit",
+      "brand": "Macrom",
+      "model": "M-DL3300DAB",
+      "sourceUrl": "https://www.macrom.it/it/d/m-dl3300dab-sintolettore-amfm-1din-con-dab-bluetooth-lettore-usb-e-sd",
+      "verified": true,
+      "notes": "1 DIN AM/FM + DAB+ receiver, Bluetooth, USB, SD. Max output 4 x 50 W (peak rating, not RMS). Listed as sold out on the page. Product page states 2 pre-outs (Uscite preamplificate: 2); preout voltage, EQ type/bands, crossovers and SNR are not published, so omitted.",
+      "source": {
+        "preoutChannels": 2
+      }
+    },
+    {
+      "id": "macrom-t6562bt",
+      "category": "headUnit",
+      "brand": "Macrom",
+      "model": "T6562BT",
+      "sourceUrl": "https://www.macrom.it/it/d/t6562bt-monitor-multimediale-android-1-din-con-retrofit-usb-dab",
+      "verified": true,
+      "notes": "1 DIN Android multimedia monitor with USB/DAB retrofit. Android unit: DSP features not stated on page; 'EQ' icon only. Product page states 2 pre-outs (Uscite preamplificate: 2); preout voltage, EQ type/bands, crossovers and SNR are not published, so omitted.",
+      "source": {
+        "preoutChannels": 2
+      }
+    }
+  ]
+}

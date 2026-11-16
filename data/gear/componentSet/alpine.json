@@ -1,0 +1,55 @@
+{
+  "products": [
+    {
+      "id": "alpine-s2-s65c",
+      "category": "componentSet",
+      "brand": "Alpine",
+      "model": "S2-S65C",
+      "series": "S-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/s-series-speakers-s2s65c",
+      "verified": true,
+      "notes": "6.5in woofer + 1in adjustable tweeters, in-line crossovers. alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity published as dB without reference (S-Series 1W/1m per Alpine convention not stated), so sensitivityRef omitted.",
+      "driver": {
+        "sizeInches": 6.5,
+        "powerRmsW": 80,
+        "powerPeakW": 240,
+        "freqLowHz": 70,
+        "freqHighHz": 40000,
+        "sensitivityDb": 88
+      }
+    },
+    {
+      "id": "alpine-r2-s65c",
+      "category": "componentSet",
+      "brand": "Alpine",
+      "model": "R2-S65C",
+      "series": "R-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/r-series-speakers-r2s65c",
+      "verified": true,
+      "notes": "6.5in mid-bass + 1in magnesium dome tweeter, 2 in-line crossovers. alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity not published.",
+      "driver": {
+        "sizeInches": 6.5,
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 65,
+        "freqHighHz": 40000
+      }
+    },
+    {
+      "id": "alpine-r2-s69c",
+      "category": "componentSet",
+      "brand": "Alpine",
+      "model": "R2-S69C",
+      "series": "R-Series",
+      "sourceUrl": "https://www.alpine-usa.com/product/r-series-speakers-r2s69c",
+      "verified": true,
+      "notes": "6x9in mid-bass + 1in magnesium dome tweeter, 2 in-line crossovers. sizeInches omitted (oval). alpine-usa.com product page tech specs. Impedance, depth and cutout not published, so omitted. Sensitivity not published.",
+      "driver": {
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 60,
+        "freqHighHz": 40000
+      }
+    }
+  ]
+}

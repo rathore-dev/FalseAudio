@@ -1,0 +1,105 @@
+{
+  "products": [
+    {
+      "id": "ground-zero-gzta-2155x-ii",
+      "category": "ampMulti",
+      "brand": "Ground Zero",
+      "model": "GZTA 2155X-II",
+      "series": "Titanium",
+      "sourceUrl": "https://www.ground-zero-audio.com/wp-content/uploads/GZTA-X-II_OM_EN_012017.pdf",
+      "verified": true,
+      "notes": "Owner's manual (shared with GZTA 4125X-II). Power CEA-2006-A at 1% THD+N; bridged 1x300 W @4 ohm (400 W at 10% THD+N). SNR > 70 dB, damping factor > 100. Supply voltage not stated.",
+      "amp": {
+        "channels": 2,
+        "rmsPerChannelW": {
+          "4ohm": 100,
+          "2ohm": 150,
+          "bridged4ohm": 300
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 70,
+        "thdPercent": 0.08,
+        "dampingFactor": 100,
+        "fuseRatingA": 40,
+        "fuseCount": 2,
+        "amplifierClass": "A/B",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "ground-zero-gzta-4125x-ii",
+      "category": "ampMulti",
+      "brand": "Ground Zero",
+      "model": "GZTA 4125X-II",
+      "series": "Titanium",
+      "sourceUrl": "https://www.ground-zero-audio.com/wp-content/uploads/GZTA-X-II_OM_EN_012017.pdf",
+      "verified": true,
+      "notes": "Owner's manual (shared with GZTA 2155X-II). Power CEA-2006-A at 1% THD+N; bridged 2x260 W @4 ohm (320 W at 10% THD+N). Bass boost 0-12 dB at 45 Hz on CH3/4. SNR > 70 dB, damping factor > 100. Supply voltage not stated.",
+      "amp": {
+        "channels": 4,
+        "rmsPerChannelW": {
+          "4ohm": 90,
+          "2ohm": 130,
+          "bridged4ohm": 260
+        },
+        "inputSensitivityMinV": 0.5,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 70,
+        "thdPercent": 0.09,
+        "dampingFactor": 100,
+        "fuseRatingA": 70,
+        "fuseCount": 2,
+        "amplifierClass": "A/B",
+        "minStableOhms": 2,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasHpf": true,
+        "hasLpf": true
+      }
+    },
+    {
+      "id": "ground-zero-gzta-5120x-ii",
+      "category": "ampMulti",
+      "brand": "Ground Zero",
+      "model": "GZTA 5120X-II",
+      "series": "Titanium",
+      "sourceUrl": "https://www.ground-zero-audio.com/wp-content/uploads/GZTA-5120X-II_OM_EN_012017.pdf",
+      "verified": true,
+      "notes": "Owner's manual. Power CEA-2006-A at 1% THD+N: CH1-4 50 W@4 / 70 W@2 ohm (bridged 130 W @4); CH5 180 W@4 / 260 W@2 ohm. Subsonic 10-50 Hz and bandpass on CH5. SNR > 75 dB, damping factor > 100. Supply voltage not stated.",
+      "amp": {
+        "channels": 5,
+        "rmsPerChannelW": {
+          "4ohm": 50,
+          "2ohm": 70,
+          "bridged4ohm": 130
+        },
+        "channelGroups": [
+          {
+            "channels": 1,
+            "label": "sub",
+            "rmsPerChannelW": {
+              "4ohm": 180,
+              "2ohm": 260
+            },
+            "minStableOhms": 2
+          }
+        ],
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 75,
+        "thdPercent": 0.1,
+        "dampingFactor": 100,
+        "fuseRatingA": 70,
+        "fuseCount": 2,
+        "amplifierClass": "A/B",
+        "minStableOhms": 2,
+        "hasHpf": true,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    }
+  ]
+}

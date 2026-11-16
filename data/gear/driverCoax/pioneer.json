@@ -1,0 +1,401 @@
+{
+  "products": [
+    {
+      "id": "pioneer-ts-z65f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-Z65F",
+      "series": "Z-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-z65f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6.5in 2-way, swivel tweeter. Hi-Res. RMS/peak (110/330 W) per search excerpt of page, may overlap with TS-Z65CH rating; verify.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 110,
+        "powerPeakW": 330,
+        "freqLowHz": 32,
+        "freqHighHz": 96000,
+        "mountingDepthMm": 63.5,
+        "cutoutMm": 143
+      }
+    },
+    {
+      "id": "pioneer-ts-a1681f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A1681F",
+      "series": "A-Series Plus",
+      "sourceUrl": "https://usa.pioneer/products/ts-a1681f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6.5in 4-way.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 350,
+        "freqLowHz": 35,
+        "freqHighHz": 29000,
+        "mountingDepthMm": 59,
+        "cutoutMm": 143
+      }
+    },
+    {
+      "id": "pioneer-ts-a1671f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A1671F",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a1671f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6.5in 3-way.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 70,
+        "powerPeakW": 320,
+        "freqLowHz": 37,
+        "freqHighHz": 31000,
+        "mountingDepthMm": 59,
+        "cutoutMm": 143
+      }
+    },
+    {
+      "id": "pioneer-ts-a653fh",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A653FH",
+      "series": "A-Series MAX",
+      "sourceUrl": "https://usa.pioneer/products/ts-a653fh",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6.5in 2-way.",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 91,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 75,
+        "powerPeakW": 340,
+        "freqLowHz": 40,
+        "freqHighHz": 49000,
+        "mountingDepthMm": 48,
+        "cutoutMm": 143
+      }
+    },
+    {
+      "id": "pioneer-ts-a1371f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A1371F",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a1371f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 5.25in 3-way.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 89,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 300,
+        "freqLowHz": 44,
+        "freqHighHz": 52000,
+        "mountingDepthMm": 54,
+        "cutoutMm": 121
+      }
+    },
+    {
+      "id": "pioneer-ts-a523fh",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A523FH",
+      "series": "A-Series MAX",
+      "sourceUrl": "https://usa.pioneer/products/ts-a523fh",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 5.25in 2-way. Page lists cutout 5-5/8in which conflicts with 5.25in size, so cutoutMm omitted.",
+      "driver": {
+        "sizeInches": 5.25,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 55,
+        "powerPeakW": 320,
+        "freqLowHz": 39,
+        "freqHighHz": 49000,
+        "mountingDepthMm": 54
+      }
+    },
+    {
+      "id": "pioneer-ts-a1081f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A1081F",
+      "series": "A-Series Plus",
+      "sourceUrl": "https://usa.pioneer/products/ts-a1081f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 4in coaxial; Pioneer pages disagree between 2-way and 3-way.",
+      "driver": {
+        "sizeInches": 4,
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 50,
+        "powerPeakW": 230,
+        "freqLowHz": 82,
+        "freqHighHz": 40000,
+        "mountingDepthMm": 43
+      }
+    },
+    {
+      "id": "pioneer-ts-a879",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A879",
+      "series": "A-Series Plus",
+      "sourceUrl": "https://usa.pioneer/products/ts-a879",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 3.5in 2-way. RMS (100 W) is quoted with inline crossover (850 Hz); freqLow 52 Hz is without it.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 85,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 450,
+        "freqLowHz": 52,
+        "freqHighHz": 33000,
+        "mountingDepthMm": 34.9
+      }
+    },
+    {
+      "id": "pioneer-ts-a878",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A878",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a878",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 3.5in 2-way.",
+      "driver": {
+        "sizeInches": 3.5,
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 15,
+        "powerPeakW": 60,
+        "freqLowHz": 60,
+        "freqHighHz": 28000,
+        "mountingDepthMm": 34.9
+      }
+    },
+    {
+      "id": "pioneer-ts-a709",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A709",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a709",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 2.75in 2-way. RMS (100 W) quoted with packaged crossover (850 Hz); freqLow 101 Hz without filter.",
+      "driver": {
+        "sizeInches": 2.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 82,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 450,
+        "freqLowHz": 101,
+        "freqHighHz": 34000,
+        "mountingDepthMm": 31.8
+      }
+    },
+    {
+      "id": "pioneer-ts-a6991f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A6991F",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a6991f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x9 5-way. Oval 6x9/6x8: sizeInches and cutoutMm omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 120,
+        "powerPeakW": 700,
+        "freqLowHz": 29,
+        "freqHighHz": 33000,
+        "mountingDepthMm": 85.7
+      }
+    },
+    {
+      "id": "pioneer-ts-a6971f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A6971F",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a6971f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x9 4-way, multi-fit adapters. Page says 100 W 'nominal' power. Oval 6x9/6x8: sizeInches and cutoutMm omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 600,
+        "freqLowHz": 29,
+        "freqHighHz": 33000,
+        "mountingDepthMm": 72.9
+      }
+    },
+    {
+      "id": "pioneer-ts-a6961f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A6961F",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a6961f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x9 4-way. Oval 6x9/6x8: sizeInches and cutoutMm omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 90,
+        "powerPeakW": 450,
+        "freqLowHz": 29,
+        "freqHighHz": 28000,
+        "mountingDepthMm": 72.9
+      }
+    },
+    {
+      "id": "pioneer-ts-a6991fh",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A6991FH",
+      "series": "A-Series MAX",
+      "sourceUrl": "https://usa.pioneer/products/ts-a6991fh",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x9 5-way. Oval 6x9/6x8: sizeInches and cutoutMm omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 93,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 150,
+        "powerPeakW": 750,
+        "freqLowHz": 29,
+        "freqHighHz": 31000
+      }
+    },
+    {
+      "id": "pioneer-ts-a693fh",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A693FH",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a693fh",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x9 2-way. Oval 6x9/6x8: sizeInches and cutoutMm omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 92,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 95,
+        "powerPeakW": 460
+      }
+    },
+    {
+      "id": "pioneer-ts-a683fh",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A683FH",
+      "series": "A-Series MAX",
+      "sourceUrl": "https://usa.pioneer/products/ts-a683fh",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x8 2-way. Oval 6x9/6x8: sizeInches and cutoutMm omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 90,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 85,
+        "powerPeakW": 370
+      }
+    },
+    {
+      "id": "pioneer-ts-a6881f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-A6881F",
+      "series": "A-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-a6881f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x8 4-way. Oval 6x9/6x8: sizeInches and cutoutMm omitted. Spec table says 88 dB but a feature bullet says 90 dB; table value used.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 350
+      }
+    },
+    {
+      "id": "pioneer-ts-d68f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-D68F",
+      "series": "D-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-d68f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x8 2-way. Oval 6x9/6x8: sizeInches and cutoutMm omitted. No peak/freq published in excerpts.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 80,
+        "mountingDepthMm": 63.5
+      }
+    },
+    {
+      "id": "pioneer-ts-d69f",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-D69F",
+      "series": "D-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-d69f",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x9 2-way, swivel tweeters. Oval 6x9/6x8: sizeInches and cutoutMm omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 110,
+        "freqLowHz": 33,
+        "freqHighHz": 42000,
+        "mountingDepthMm": 72.9
+      }
+    },
+    {
+      "id": "pioneer-ts-f6935r",
+      "category": "driverCoax",
+      "brand": "Pioneer",
+      "model": "TS-F6935R",
+      "series": "F-Series",
+      "sourceUrl": "https://usa.pioneer/products/ts-f6935r",
+      "verified": true,
+      "notes": "usa.pioneer product page spec table (retrieved via site search excerpts). RMS = Pioneer 'continuous power handling'. 6x9 3-way. Page excerpt: ~30 W RMS and ~88 dB (approximate values as published). Oval 6x9/6x8: sizeInches and cutoutMm omitted.",
+      "driver": {
+        "nominalOhms": 4,
+        "sensitivityDb": 88,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 30
+      }
+    }
+  ]
+}

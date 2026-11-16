@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "kenwood-kfc-xh170c",
+      "category": "componentSet",
+      "brand": "Kenwood",
+      "model": "KFC-XH170C",
+      "series": "XH-Series",
+      "sourceUrl": "http://www.kenwood.com/sg/car/speaker&amplifier/pm_x/",
+      "verified": true,
+      "notes": "Kenwood Singapore regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.17 cm component. Table lists 3 ohm nominal impedance.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 3,
+        "sensitivityDb": 87,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 100,
+        "powerPeakW": 300,
+        "freqLowHz": 43,
+        "freqHighHz": 40000
+      }
+    },
+    {
+      "id": "kenwood-kfc-ps170c",
+      "category": "componentSet",
+      "brand": "Kenwood",
+      "model": "KFC-PS170C",
+      "series": "PS-Series",
+      "sourceUrl": "http://www.kenwood.com/india/car/speaker&amplifier/pm_ps/",
+      "verified": true,
+      "notes": "Kenwood India regional product table (Kenwood US pages not reachable). Peak/RMS = Kenwood peak/RMS input power. Metric size converted to nominal inches. Depth/cutout not published there.17 cm component.",
+      "driver": {
+        "sizeInches": 6.75,
+        "nominalOhms": 4,
+        "sensitivityDb": 86,
+        "sensitivityRef": "1W/1m",
+        "powerRmsW": 80,
+        "powerPeakW": 400,
+        "freqLowHz": 58,
+        "freqHighHz": 22000
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "products": [
+    {
+      "id": "ground-zero-gzta-1-800dx-ii",
+      "category": "ampMono",
+      "brand": "Ground Zero",
+      "model": "GZTA 1.800DX-II",
+      "series": "Titanium",
+      "sourceUrl": "https://www.ground-zero-audio.com/wp-content/uploads/GZTA-DX-II_OM_EN_012017.pdf",
+      "verified": true,
+      "notes": "Owner's manual (shared with 1.1200DX-II). Power CEA-2006-A at 1% THD+N: 350 W@4, 550 W@2, 850 W@1 ohm. Bass boost 0-12 dB at 45 Hz, subsonic 10-50 Hz, LPF 30-250 Hz. SNR > 75 dB, damping factor > 100. Fuses printed as '3 x 30A 4 x 30A' for the two models in order. Supply voltage not stated.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 350,
+          "2ohm": 550,
+          "1ohm": 850
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 75,
+        "thdPercent": 0.2,
+        "dampingFactor": 100,
+        "fuseRatingA": 90,
+        "fuseCount": 3,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    },
+    {
+      "id": "ground-zero-gzta-1-1200dx-ii",
+      "category": "ampMono",
+      "brand": "Ground Zero",
+      "model": "GZTA 1.1200DX-II",
+      "series": "Titanium",
+      "sourceUrl": "https://www.ground-zero-audio.com/wp-content/uploads/GZTA-DX-II_OM_EN_012017.pdf",
+      "verified": true,
+      "notes": "Owner's manual (shared with 1.800DX-II). Power CEA-2006-A at 1% THD+N: 400 W@4, 800 W@2, 1300 W@1 ohm. Bass boost 0-12 dB at 45 Hz, subsonic 10-50 Hz, LPF 30-250 Hz. Fuse count 4 x 30 A inferred from manual's two-column table ('3 x 30A 4 x 30A'). Supply voltage not stated.",
+      "amp": {
+        "channels": 1,
+        "rmsPerChannelW": {
+          "4ohm": 400,
+          "2ohm": 800,
+          "1ohm": 1300
+        },
+        "inputSensitivityMinV": 0.2,
+        "inputSensitivityMaxV": 9,
+        "snrDb": 75,
+        "thdPercent": 0.2,
+        "dampingFactor": 100,
+        "fuseRatingA": 120,
+        "fuseCount": 4,
+        "amplifierClass": "D",
+        "minStableOhms": 1,
+        "hasBassBoost": true,
+        "bassBoostMaxDb": 12,
+        "hasLpf": true,
+        "hasSubsonic": true
+      }
+    }
+  ]
+}
