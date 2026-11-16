@@ -3,3 +3,5 @@ external/JUCE/
 *.user
 .vs/
 .vscode/
+
+dist/
