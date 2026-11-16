@@ -1,0 +1,860 @@
+{
+  "products": [
+    {
+      "id": "cerwin-vega-spcl182",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "SPCL182",
+      "series": "Stroker Pro Classic",
+      "sourceUrl": "https://cerwinvega.com/products/spcl182-stroker-pro-classic-subwoofer-spcl182-18-3600w",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 18.0,
+        "nominalOhms": 2,
+        "voiceCoils": 1
+      }
+    },
+    {
+      "id": "cerwin-vega-spcl152",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "SPCL152",
+      "series": "Stroker Pro Classic",
+      "sourceUrl": "https://cerwinvega.com/products/spcl152-stroker-pro-classic-15-dual-2-ohm-spl-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 2,
+        "voiceCoils": 1
+      }
+    },
+    {
+      "id": "cerwin-vega-v15dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V15DV2",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-15-2ω-dvc-subwoofer-v15dv2-1",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-v15dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V15DV4",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-15-4ω-dvc-subwoofer-v15dv4-1",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-st124d",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "ST124D",
+      "series": "Stroker",
+      "sourceUrl": "https://cerwinvega.com/products/st124d-stroker-2000-watts-4-ohms-1000watts-rms",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-st104d",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "ST104D",
+      "series": "Stroker",
+      "sourceUrl": "https://cerwinvega.com/products/st104d-stroker-1600-watts-4-ohms-800watts-rms-power-handling",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-st102d",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "ST102D",
+      "series": "Stroker",
+      "sourceUrl": "https://cerwinvega.com/products/st102d-stroker-1600-watts-2-ohms-800watts-rms-power",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-v12dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V12DV4",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-12-4ω-dvc-subwoofer-v12dv4-1",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-v12dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V12DV2",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-12-2ω-dvc-subwoofer-v12dv2-1",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-v10dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V10DV2",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-10-2ω-dvc-subwoofer-v10dv2-1",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-v10dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V10DV4",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-10-4ω-dvc-subwoofer-v10dv4-1",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-h15dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H15DV2",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-subwoofer-hed-15-subwoofer-dual-2ω",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-h15dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H15DV4",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-subwoofer-hed-15-subwoofer-dual-4ω",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax12d2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX12D2",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax12d2-12-dual-2-ohm-high-performance-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax15d4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX15D4",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax15d4-15-dual-4-ohm-high-performance-subwoofer-3000w",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax15d2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX15D2",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax15d2-15-dual-2-ohm-high-performance-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-v154dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V154DV2",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/v154dv2-15-inch-dual-4-ohm-high-performance-550watts",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-v152dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V152DV2",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/v152dv2-15-inch-dual-2-ohm-high-performance-550w",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-v8dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V8DV4",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-8-4ω-dvc-subwoofer-v8dv4-1",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-v8dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V8DV2",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-8-2ω-dvc-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-vmaxs124",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAXS124",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmaxs124-12-dual-4-ohm-high-performance",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-vmaxs122",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAXS122",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmaxs122-12-dual-2-ohm-high-performance-shallow-series",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax12d4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX12D4",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax12d4-12-dual-4-ohm-high-performance-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-h12dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H12DV2",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-subwoofer-hed-12-subwoofer-dual-2ω",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-h12dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H12DV4",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-subwoofer-hed-12-subwoofer-dual-4ω",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-hs12dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "HS12DV2",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-slim-subwoofer-hed-12-shallow-mount-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-hs12dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "HS12DV4",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-edition-slim-subwoofer-hed-12-shallow-mount",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-vmaxs104",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAXS104",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmaxs104-10-dual-4-ohm-shallow-series-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-vmaxs102",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAXS102",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmaxs102-10-dual-2-ohm-high-performance-shallow",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax10d4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX10D4",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax10d4-10-dual-4-ohm-high-performance-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax10d2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX10D2",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax10d2-10-dual-2-ohm-high-performance-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-hs10dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "HS10DV4",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-slim-subwoofer-hed-10-shallow-mount",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-hs10dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "HS10DV2",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-slim-subwoofer-hed-10-shallow-mount-subwoofer-dual",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-h10dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H10DV4",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-2024-subwoofer-hed-10-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-h10dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H10DV2",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hed-2024-edition-subwoofer-hed-10-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-v65dv4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V65DV4",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-6-54ω-dvc-subwoofer-v65dv4-1",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-v65dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V65DV2",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/vega-2024-edition-subwoofer-6-52ω-dvc-subwoofer-v65dv2-1",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-v102dv2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "V102DV2",
+      "series": "Vega",
+      "sourceUrl": "https://cerwinvega.com/products/v102dv2-10-dual-2-ohm-1100w-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-h7124d",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H7124D",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/h7124d-1200w-max-10-dvc-4ohm-250w-rms-power-handling",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax8d4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX8D4",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax8d4-8-dual-4-ohm-high-performance-subwoofer-1000w-max",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax8d2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX8D2",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax8d2-8-dual-2-ohm-high-performance-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-h7124s",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H7124S",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/h7124s-1000w-max-10-svc-4ohm-200w-rms-power-handling",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 1
+      }
+    },
+    {
+      "id": "cerwin-vega-h7104d",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H7104D",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/h7104d-1200w-max-10-svc-4o-250w-rms-power-handling",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-hs122d",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "HS122D",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/hs122d-hs122d-hed-dvc-shallow-subwoofer-12-2-ohm-black",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-h7104s",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "H7104S",
+      "series": "HED",
+      "sourceUrl": "https://cerwinvega.com/products/h7104s-10-single-4-ohm-hed-series-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 1
+      }
+    },
+    {
+      "id": "cerwin-vega-hs102d",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "HS102D",
+      "series": "",
+      "sourceUrl": "https://cerwinvega.com/products/hs102d-hed-dvc-shallow-subwoofer-10-2-ohm-black",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax65d4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX65D4",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax65d4-6-5-4-ohm-high-performance-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-vmax65d2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "VMAX65D2",
+      "series": "VMAXX",
+      "sourceUrl": "https://cerwinvega.com/products/vmax65d2-6-5-2-ohm-400w-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 6.5,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2
+      }
+    },
+    {
+      "id": "cerwin-vega-xed12v2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "XED12V2",
+      "series": "XED",
+      "sourceUrl": "https://cerwinvega.com/products/xed12v2-12-single-4-ohm-xtreme-energy-design-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 1
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp12d4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "CVP12D4",
+      "series": "CVP",
+      "sourceUrl": "https://cerwinvega.com/products/cvp12d4-12-150w-rms-300-w-max-power-handling-4-ohms",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-xed10v2",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "XED10V2",
+      "series": "XED",
+      "sourceUrl": "https://cerwinvega.com/products/xed10v2-10-single-4-ohm-xtreme-energy-design-subwoofer",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 1
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp12s4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "CVP12S4",
+      "series": "CVP",
+      "sourceUrl": "https://cerwinvega.com/products/cvp12s4-12-150w-rms-300-w-max-power-handling-4-ohms",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 1
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp10d4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "CVP10D4",
+      "series": "CVP",
+      "sourceUrl": "https://cerwinvega.com/products/cvp104-10-dual-4-ohm-150w-rms-300w-max-power-handling",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4
+      }
+    },
+    {
+      "id": "cerwin-vega-cvp10s4",
+      "category": "subwoofer",
+      "brand": "Cerwin-Vega",
+      "model": "CVP10S4",
+      "series": "CVP",
+      "sourceUrl": "https://cerwinvega.com/products/cvp-10s4-10-svc-4-ohm-150w-rms-300w-max-power-handling",
+      "verified": true,
+      "notes": "Only size, impedance and coil type from the Cerwin-Vega product title are recorded. Power ratings, T/S parameters and box recommendations are in the per-product one-sheet PDFs, which could not be retrieved (site rate-limited this session).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 1
+      }
+    }
+  ]
+}

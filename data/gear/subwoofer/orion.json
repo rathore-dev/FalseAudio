@@ -1,0 +1,829 @@
+{
+  "products": [
+    {
+      "id": "orion-xtrpro804d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO804D",
+      "series": "XTR Pro",
+      "sourceUrl": "https://orioncaraudio.com/products/orion-xtrpro804d-8-inch-dual-4-ohm-competition-subwoofer-1000w-rms-bass-power",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1000,
+        "powerPeakW": 4000
+      }
+    },
+    {
+      "id": "orion-xtrpro802d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO802D",
+      "series": "XTR Pro",
+      "sourceUrl": "https://orioncaraudio.com/products/orion-xtrpro802d-8-inch-dual-2-ohm-competition-subwoofer-1000w-rms-bass-power",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 1000,
+        "powerPeakW": 4000
+      }
+    },
+    {
+      "id": "orion-hcca802",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA802",
+      "series": "HCCA",
+      "sourceUrl": "https://orioncaraudio.com/products/orion-hcca802-8-inch-dual-2-ohm-high-performance-subwoofer-1500w-rms-bass-power",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 1500,
+        "powerPeakW": 6000
+      }
+    },
+    {
+      "id": "orion-hcca804",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA804",
+      "series": "HCCA",
+      "sourceUrl": "https://orioncaraudio.com/products/orion-hcca804-8-inch-dual-4-ohm-high-performance-subwoofer-1500w-rms-bass-power",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1500,
+        "powerPeakW": 6000
+      }
+    },
+    {
+      "id": "orion-xtr8d4",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR8D4",
+      "series": "XTR",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr8d4-8-inch-subwoofer-350-watts-rms-4-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 350,
+        "powerPeakW": 1400
+      }
+    },
+    {
+      "id": "orion-xtr8d2",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR8D2",
+      "series": "XTR",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr8d2-8-inch-subwoofer-350-watts-rms-2-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 350,
+        "powerPeakW": 1400
+      }
+    },
+    {
+      "id": "orion-cbw804d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "CBW804D",
+      "series": "Cobalt",
+      "sourceUrl": "https://orioncaraudio.com/products/cbw804d-8-inch-subwoofer-200-watts-rms-dual-4-ohm",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 200,
+        "powerPeakW": 800
+      }
+    },
+    {
+      "id": "orion-cbw804s",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "CBW804S",
+      "series": "Cobalt",
+      "sourceUrl": "https://orioncaraudio.com/products/cbw804s-8-inch-subwoofer-200-watts-rms-4-ohm",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "powerRmsW": 200,
+        "powerPeakW": 800
+      }
+    },
+    {
+      "id": "orion-xtrpro-sw10d2",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO-SW10D2",
+      "series": "XTRPRO Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro-sw10d2",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 600,
+        "powerPeakW": 2400
+      }
+    },
+    {
+      "id": "orion-xtrpro-sw10d4",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO-SW10D4",
+      "series": "XTRPRO Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro-sw10d4-10-shallow-subwoofer-dual-4-ohm-2400w-max",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 600,
+        "powerPeakW": 2400
+      }
+    },
+    {
+      "id": "orion-xtrpro-sw12d4",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO-SW12D4",
+      "series": "XTRPRO Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro-sw12d4-12-shallow-subwoofer-dual-4-ohm-3200w-max-1",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 800,
+        "powerPeakW": 3200
+      }
+    },
+    {
+      "id": "orion-xtrpro-sw12d2",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO-SW12D2",
+      "series": "XTRPRO Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro-sw12d4-12-shallow-subwoofer-dual-4-ohm-3200w-max",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 800,
+        "powerPeakW": 3200
+      }
+    },
+    {
+      "id": "orion-xtr12swd4",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR12SWD4",
+      "series": "XTR Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr12swd4",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 500,
+        "powerPeakW": 2000
+      }
+    },
+    {
+      "id": "orion-xtr12swd2",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR12SWD2",
+      "series": "XTR Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr12swd2",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 500,
+        "powerPeakW": 2000
+      }
+    },
+    {
+      "id": "orion-xtr10swd4",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR10SWD4",
+      "series": "XTR Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr10swd4",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 400,
+        "powerPeakW": 1600
+      }
+    },
+    {
+      "id": "orion-xtr10swd2",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR10SWD2",
+      "series": "XTR Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr10swd2",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 400,
+        "powerPeakW": 1600
+      }
+    },
+    {
+      "id": "orion-xtr8swd4",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR8SWD4",
+      "series": "XTR Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr8swd4",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 300,
+        "powerPeakW": 1200
+      }
+    },
+    {
+      "id": "orion-xtr8swd2",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR8SWD2",
+      "series": "XTR Shallow",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr8swd2",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 8.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 300,
+        "powerPeakW": 1200
+      }
+    },
+    {
+      "id": "orion-xtrpro154d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO154D",
+      "series": "XTR Pro",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro154d-15-inch-subwoofer-2000-watts-rms-4-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 2000,
+        "powerPeakW": 8000
+      }
+    },
+    {
+      "id": "orion-xtrpro152d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO152D",
+      "series": "XTR Pro",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro152d-15-inch-subwoofer-2000-watts-rms-2-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 2000,
+        "powerPeakW": 8000
+      }
+    },
+    {
+      "id": "orion-xtrpro124d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO124D",
+      "series": "XTR Pro",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro124d-12-inch-subwoofer-1500-watts-rms-4-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1500,
+        "powerPeakW": 6000
+      }
+    },
+    {
+      "id": "orion-xtrpro122d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO122D",
+      "series": "XTR Pro",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro122d-12-inch-subwoofer-1500-watts-rms-2-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 1500,
+        "powerPeakW": 6000
+      }
+    },
+    {
+      "id": "orion-xtrpro104d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO104D",
+      "series": "XTR Pro",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro104d-10-inch-subwoofer-1250-watts-rms-4-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 1250,
+        "powerPeakW": 5000
+      }
+    },
+    {
+      "id": "orion-xtrpro102d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTRPRO102D",
+      "series": "XTR Pro",
+      "sourceUrl": "https://orioncaraudio.com/products/xtrpro102d-10-inch-subwoofer-1250-watts-rms-2-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 1250,
+        "powerPeakW": 5000
+      }
+    },
+    {
+      "id": "orion-cbw124d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "CBW124D",
+      "series": "Cobalt",
+      "sourceUrl": "https://orioncaraudio.com/products/cbw124d-12-inch-subwoofer-400-watts-rms-4-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 400,
+        "powerPeakW": 1600
+      }
+    },
+    {
+      "id": "orion-cbw124s",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "CBW124S",
+      "series": "Cobalt",
+      "sourceUrl": "https://orioncaraudio.com/products/cbw124s-12-inch-subwoofer-400w-rms-4-ohm-svc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "powerRmsW": 400,
+        "powerPeakW": 1600
+      }
+    },
+    {
+      "id": "orion-cbw104d",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "CBW104D",
+      "series": "Cobalt",
+      "sourceUrl": "https://orioncaraudio.com/products/cbw104d-10-inch-subwoofer-300-watts-rms-4-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 300,
+        "powerPeakW": 1200
+      }
+    },
+    {
+      "id": "orion-cbw104s",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "CBW104S",
+      "series": "Cobalt",
+      "sourceUrl": "https://orioncaraudio.com/products/cbw104s-10-inch-subwoofer-300-watts-rms-4-ohm-svc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 1,
+        "powerRmsW": 300,
+        "powerPeakW": 1200
+      }
+    },
+    {
+      "id": "orion-hcca151splx",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA151SPLX",
+      "series": "HCCA SPLX",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca151splx-15-inch-subwoofer-7500-watts-rms-1-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 1,
+        "voiceCoils": 2,
+        "coilOhms": 1,
+        "powerRmsW": 7500,
+        "powerPeakW": 30000
+      }
+    },
+    {
+      "id": "orion-hcca181splx",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA181SPLX",
+      "series": "HCCA SPLX",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca181splx-18-inch-subwoofer-7500-watts-rms-1-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 18.0,
+        "nominalOhms": 1,
+        "voiceCoils": 2,
+        "coilOhms": 1,
+        "powerRmsW": 7500,
+        "powerPeakW": 30000
+      }
+    },
+    {
+      "id": "orion-hcca121splx",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA121SPLX",
+      "series": "HCCA SPLX",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca121splx-12-inch-subwoofer-7500-watts-rms-1-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 1,
+        "voiceCoils": 2,
+        "coilOhms": 1,
+        "powerRmsW": 7500,
+        "powerPeakW": 30000
+      }
+    },
+    {
+      "id": "orion-hcca154spl",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA154SPL",
+      "series": "HCCA SPL",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca154spl",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 5000,
+        "powerPeakW": 20000
+      }
+    },
+    {
+      "id": "orion-hcca152spl",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA152SPL",
+      "series": "HCCA SPL",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca152spl",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 5000,
+        "powerPeakW": 20000
+      }
+    },
+    {
+      "id": "orion-hcca151spl",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA151SPL",
+      "series": "HCCA SPL",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca151spl",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 1,
+        "voiceCoils": 2,
+        "coilOhms": 1,
+        "powerRmsW": 5000,
+        "powerPeakW": 20000
+      }
+    },
+    {
+      "id": "orion-hcca102",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA102",
+      "series": "HCCA",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca102-10-inch-subwoofer-2000-watts-rms-2-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 2000,
+        "powerPeakW": 8000
+      }
+    },
+    {
+      "id": "orion-hcca104",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA104",
+      "series": "HCCA",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca104-10-inch-subwoofer-2000-watts-rms-4-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 2000,
+        "powerPeakW": 8000
+      }
+    },
+    {
+      "id": "orion-hcca154",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA154",
+      "series": "HCCA",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca154-15-inch-subwoofer-2500-watts-rms-4-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 2500,
+        "powerPeakW": 10000
+      }
+    },
+    {
+      "id": "orion-hcca152",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA152",
+      "series": "HCCA",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca152-15-inch-subwoofer-2500-watts-rms-2-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 2500,
+        "powerPeakW": 10000
+      }
+    },
+    {
+      "id": "orion-hcca124",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA124",
+      "series": "HCCA",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca124-12-inch-subwoofer-2500-watts-rms-4-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 2500,
+        "powerPeakW": 10000
+      }
+    },
+    {
+      "id": "orion-hcca122",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "HCCA122",
+      "series": "HCCA",
+      "sourceUrl": "https://orioncaraudio.com/products/hcca122-12-inch-subwoofer-2500-watts-rms-2-ohm-dvc",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 2500,
+        "powerPeakW": 10000
+      }
+    },
+    {
+      "id": "orion-xtr10d4",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR10D4",
+      "series": "XTR",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr104d",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 500,
+        "powerPeakW": 2000
+      }
+    },
+    {
+      "id": "orion-xtr10d2",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR10D2",
+      "series": "XTR",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr10d2",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 10.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 500,
+        "powerPeakW": 2000
+      }
+    },
+    {
+      "id": "orion-xtr12d2",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR12D2",
+      "series": "XTR",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr122d",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 600,
+        "powerPeakW": 2400
+      }
+    },
+    {
+      "id": "orion-xtr12d4",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR12D4",
+      "series": "XTR",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr124d",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 12.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 600,
+        "powerPeakW": 2400
+      }
+    },
+    {
+      "id": "orion-xtr15d2",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR15D2",
+      "series": "XTR",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr152d",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 2,
+        "voiceCoils": 2,
+        "coilOhms": 2,
+        "powerRmsW": 750,
+        "powerPeakW": 3000
+      }
+    },
+    {
+      "id": "orion-xtr15d4",
+      "category": "subwoofer",
+      "brand": "Orion",
+      "model": "XTR15D4",
+      "series": "XTR",
+      "sourceUrl": "https://orioncaraudio.com/products/xtr154d",
+      "verified": true,
+      "notes": "Specs limited to what the Orion product feed (orioncaraudio.com/products.json) publishes: size, impedance/coil config, RMS/peak (peak may be labelled max). No T/S parameters, box recommendations or dimensions are published there; product pages were not retrievable (HTTP 429).",
+      "driver": {
+        "sizeInches": 15.0,
+        "nominalOhms": 4,
+        "voiceCoils": 2,
+        "coilOhms": 4,
+        "powerRmsW": 750,
+        "powerPeakW": 3000
+      }
+    }
+  ]
+}
