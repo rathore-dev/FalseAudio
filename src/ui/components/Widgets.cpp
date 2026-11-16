@@ -308,6 +308,11 @@ void ToggleSwitch::paintButton (Graphics& g, bool highlighted, bool down)
 {
     const bool on = getToggleState();
     const bool enabled = isEnabled();
+    if (! hasPainted)
+    {
+        hasPainted = true;
+        knob.snap (on ? 1.0f : 0.0f);
+    }
     knob.setTarget (on ? 1.0f : 0.0f);
     const float t = knob.get();
 

@@ -913,7 +913,7 @@ Outcome refine (SystemConfig& config, const DriverDataMap& data, const Options& 
         if (std::abs (b.delayMs - a.delayMs) > 1e-6)
             out.notes.add (ch.label + ": " + describeChange ("delay", a.delayMs, b.delayMs, 2, "ms")
                            + (ch.role == DriverRole::subwoofer ? " - sub/front phase at " : " - phase match at ")
-                           + juce::String (fc, 0) + " Hz across all mic positions");
+                           + juce::String (juce::roundToInt (fc)) + " Hz across all mic positions");
         if (a.inverted != b.inverted)
             out.notes.add (ch.label + ": polarity " + (b.inverted ? "inverted" : "normal")
                            + " - sums better with its neighbours (fewer cancellations).");
@@ -921,7 +921,7 @@ Outcome refine (SystemConfig& config, const DriverDataMap& data, const Options& 
             out.notes.add (ch.label + ": " + describeChange ("level", a.gainDb, b.gainDb, 1, "dB") + " - band balance/L-R symmetry");
         if (std::abs (b.highPass.freq - a.highPass.freq) > 1e-6 && b.highPass.enabled)
             out.notes.add (ch.label + ": " + describeChange ("high-pass", a.highPass.freq, b.highPass.freq, 0, "Hz")
-                           + " (safe minimum " + juce::String (CrossoverPlanner::safeHighPassHz (ch, config.safety), 0) + " Hz respected)");
+                           + " (safe minimum " + juce::String (juce::roundToInt (CrossoverPlanner::safeHighPassHz (ch, config.safety))) + " Hz respected)");
         if (std::abs (b.lowPass.freq - a.lowPass.freq) > 1e-6 && b.lowPass.enabled)
             out.notes.add (ch.label + ": " + describeChange ("low-pass", a.lowPass.freq, b.lowPass.freq, 0, "Hz")
                            + " - smoother summation with the neighbouring way");

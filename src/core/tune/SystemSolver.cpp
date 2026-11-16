@@ -203,7 +203,7 @@ void SystemSolver::alignTime()
         {
             ch->settings.delayMs = quantiseDelay (latest - a);
             report.notes.add (ch->label + ": arrives at " + juce::String (a, 2) + " ms ("
-                              + juce::String (msToMetres (a) * 100.0, 0) + " cm), delay "
+                              + juce::String (juce::roundToInt (msToMetres (a) * 100.0)) + " cm), delay "
                               + juce::String (ch->settings.delayMs, 2) + " ms");
         }
     }
@@ -255,7 +255,7 @@ void SystemSolver::refineCrossoverPhase()
         if (bestFlip)
             lower.settings.inverted = ! original.inverted;
 
-        report.notes.add (lower.label + ": crossover phase at " + juce::String (fc, 0) + " Hz refined by "
+        report.notes.add (lower.label + ": crossover phase at " + juce::String (juce::roundToInt (fc)) + " Hz refined by "
                           + juce::String (bestDelta, 2) + " ms" + (bestFlip ? " and polarity flipped" : "")
                           + " (summing loss " + juce::String (bestCost, 2) + " dB)");
     };
@@ -640,7 +640,7 @@ void SystemSolver::analyseSum()
     }
 
     for (auto& [f, d] : report.sumDips)
-        report.warnings.add ("L+R cancellation of " + juce::String (d, 1) + " dB at " + juce::String (f, 0)
+        report.warnings.add ("L+R cancellation of " + juce::String (d, 1) + " dB at " + juce::String (juce::roundToInt (f))
                              + " Hz" + (d >= 9.0 ? " - check delays (process step 7)." : "."));
 
     // Left/right tonal match (what keeps the centre image stable).

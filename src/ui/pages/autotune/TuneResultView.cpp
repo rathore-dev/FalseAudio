@@ -211,9 +211,10 @@ public:
         else
         {
             auto row = area.removeFromTop (std::max (fH, nH));
-            findingsCard.setBounds (row.removeFromLeft (halfW));
+            // each card takes only its own content height (no empty stretched box beside a taller one)
+            findingsCard.setBounds (row.removeFromLeft (halfW).removeFromTop (fH));
             row.removeFromLeft (gap);
-            notesCard.setBounds (row);
+            notesCard.setBounds (row.removeFromTop (nH));
         }
         findings.setBounds (findingsCard.getContentArea());
         notes.setBounds (notesCard.getContentArea());

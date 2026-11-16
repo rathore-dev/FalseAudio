@@ -223,7 +223,7 @@ void AlignmentPage::refreshFromSession()
         muted += ch.settings.muted ? 1 : 0;
     }
     juce::String sub = juce::String (cfg.channels.size()) + " channels" + kit::sep() + "longest delay " + theme::formatMs (maxDelay, 2)
-                       + "  (" + juce::String (msToMetres (maxDelay) * 100.0, 0) + " cm)";
+                       + "  (" + juce::String (juce::roundToInt (msToMetres (maxDelay) * 100.0)) + " cm)";
     if (inverted > 0) sub << kit::sep() << inverted << " inverted";
     if (muted > 0)    sub << kit::sep() << muted << " muted";
     tableCard.setTitle ("Channels", sub);

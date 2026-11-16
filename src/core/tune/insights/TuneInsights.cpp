@@ -284,7 +284,7 @@ Insights compute (const AutoTuneEngine::Result& result, double sweepSeconds, dou
             d.findings.add (name + ": wired with reversed polarity - inverted in the DSP (or swap its + and - wires)");
 
         if (d.snrDb < 30.0)
-            d.findings.add (name + ": low signal-to-noise (" + juce::String (d.snrDb, 0) + " dB) - measure louder or in a quieter place");
+            d.findings.add (name + ": low signal-to-noise (" + juce::String (juce::roundToInt (d.snrDb)) + " dB) - measure louder or in a quieter place");
 
         if (ch.hasHighPass() && d.usableLowHz > 0.0 && ch.settings.highPass.freq < d.usableLowHz * 0.5)
             d.findings.add (name + ": high-pass at " + hz (ch.settings.highPass.freq) + " is below the driver's usable range (from "

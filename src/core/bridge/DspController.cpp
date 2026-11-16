@@ -63,10 +63,10 @@ juce::StringArray ManualDspController::describeChannel (const OutputChannel& ch,
                + (s.inverted ? "180 deg" : "0 deg") + (s.muted ? ", MUTED" : ""));
 
     if (s.highPass.enabled)
-        lines.add ("    HP: " + juce::String (s.highPass.freq, 0) + " Hz, " + juce::String (s.highPass.slopeDbPerOct)
+        lines.add ("    HP: " + juce::String (juce::roundToInt (s.highPass.freq)) + " Hz, " + juce::String (s.highPass.slopeDbPerOct)
                    + " dB/oct " + toString (s.highPass.alignment));
     if (s.lowPass.enabled)
-        lines.add ("    LP: " + juce::String (s.lowPass.freq, 0) + " Hz, " + juce::String (s.lowPass.slopeDbPerOct)
+        lines.add ("    LP: " + juce::String (juce::roundToInt (s.lowPass.freq)) + " Hz, " + juce::String (s.lowPass.slopeDbPerOct)
                    + " dB/oct " + toString (s.lowPass.alignment));
 
     const bool graphic = caps != nullptr ? (caps->isGraphic() && isGraphicLayout (s.peq, caps->graphicCentres()))

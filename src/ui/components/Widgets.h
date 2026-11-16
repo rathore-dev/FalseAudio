@@ -75,6 +75,7 @@ public:
     void paintButton (juce::Graphics&, bool highlighted, bool down) override;
 private:
     anim::Value knob { *this, 0.0f, 18.0f };
+    bool hasPainted = false;   // first paint snaps the knob to the current state (no OFF->ON flash)
 };
 
 /** Numeric field: label, value, unit; drag vertically or type. Ranges and step are enforced. */

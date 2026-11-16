@@ -86,7 +86,11 @@ public:
         {
             g.setColour (theme::text);
             g.setFont (theme::fontMedium (14.0f));
-            g.drawText ("Choose " + titleText.toLowerCase(), inner.removeFromTop (22), juce::Justification::centredLeft, true);
+            // lower-case the first letter only, so acronyms (DAC, DSP) stay upper-case
+            auto chooseWhat = titleText;
+            if (chooseWhat.length() > 1 && ! juce::CharacterFunctions::isUpperCase (chooseWhat[1]))
+                chooseWhat = chooseWhat.substring (0, 1).toLowerCase() + chooseWhat.substring (1);
+            g.drawText ("Choose " + chooseWhat, inner.removeFromTop (22), juce::Justification::centredLeft, true);
             g.setColour (theme::textMuted);
             g.setFont (theme::font (12.0f));
             g.drawText (hintText.isNotEmpty() ? hintText : "Search the database or add your own", inner.removeFromTop (18),

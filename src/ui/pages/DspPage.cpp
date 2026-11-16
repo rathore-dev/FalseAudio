@@ -556,7 +556,7 @@ void DspPage::updateSidePanel()
 
     sideCard.setTitle (teaching ? "Teach wizard" : v ? "Virtual rig" : m ? "Manual guided" : n ? "Direct USB" : "Automation profiles",
                        teaching ? "Click controls inside the DSP software" : v ? "Demo mode" : m ? "Checklist during Auto Tune"
-                                : n ? "Limitations & backup" : "One profile per DSP model");
+                                : n ? "Limitations & backup" : "Per DSP model");
     explanation.setText (explanationFor (uiMode), juce::dontSendNotification);
     resized();
 }

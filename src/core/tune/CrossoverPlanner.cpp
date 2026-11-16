@@ -123,13 +123,13 @@ std::vector<CrossoverPlanner::Decision> CrossoverPlanner::planDefaults (const Sy
                 if (fc < floorHz)
                 {
                     fc = floorHz;
-                    d.reasons.add ("Raised to protect " + ch.label + " (>= " + juce::String (floorHz, 0) + " Hz).");
+                    d.reasons.add ("Raised to protect " + ch.label + " (>= " + juce::String (juce::roundToInt (floorHz)) + " Hz).");
                 }
                 if (fc > ceilHz && floorHz <= ceilHz)
                 {
                     fc = std::max (floorHz, ceilHz);
                     d.reasons.add ("Lowered so " + lower.label + " still disperses widely (beaming above ~"
-                                   + juce::String (ceilHz, 0) + " Hz).");
+                                   + juce::String (juce::roundToInt (ceilHz)) + " Hz).");
                 }
                 if (floorHz > ceilHz)
                     d.reasons.add ("Warning: " + lower.label + " beams below the safe HP of " + ch.label
@@ -228,7 +228,7 @@ std::vector<CrossoverPlanner::Decision> CrossoverPlanner::planFromMeasurements (
                     const double newFc = std::max (limit / 2.0, safeHighPassHz (upper, cfg.safety));
                     if (newFc < fc)
                     {
-                        dL->reasons.add (lower.label + " is only clean to " + juce::String (limit, 0)
+                        dL->reasons.add (lower.label + " is only clean to " + juce::String (juce::roundToInt (limit))
                                          + " Hz; crossover moved down to keep an octave of margin.");
                         fc = newFc;
                     }
@@ -265,7 +265,7 @@ std::vector<CrossoverPlanner::Decision> CrossoverPlanner::planFromMeasurements (
                     const double newFc = std::min (lowLimit * 2.0, std::max (dispersionLimitHz (lower) * 1.5, fc));
                     if (newFc > fc)
                     {
-                        dU->reasons.add (upper.label + " loses output below " + juce::String (lowLimit, 0)
+                        dU->reasons.add (upper.label + " loses output below " + juce::String (juce::roundToInt (lowLimit))
                                          + " Hz; crossover moved up for an octave of margin.");
                         fc = newFc;
                     }

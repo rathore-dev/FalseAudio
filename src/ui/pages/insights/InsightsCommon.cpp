@@ -113,10 +113,8 @@ static juce::TextLayout layoutFor (const juce::String& text, float width, const 
 {
     juce::AttributedString as;
     as.setJustification (juce::Justification::topLeft);
-    as.setFont (font);
-    as.setColour (colour);
     as.setWordWrap (juce::AttributedString::byWord);
-    as.append (text);
+    as.append (text, font, colour);   // append with font/colour: setColour before append is ignored
     juce::TextLayout tl;
     tl.createLayout (as, std::max (10.0f, width));
     return tl;

@@ -192,8 +192,8 @@ bool TargetLibrary::import (const juce::File& file, Entry& out, juce::String& er
     }
     if (c.points.front().first > 200.0 || c.points.back().first < 5000.0)
     {
-        error = file.getFileName() + " only covers " + juce::String (c.points.front().first, 0) + " - "
-              + juce::String (c.points.back().first, 0) + " Hz; a target must span at least 200 Hz - 5 kHz.";
+        error = file.getFileName() + " only covers " + juce::String (juce::roundToInt (c.points.front().first)) + " - "
+              + juce::String (juce::roundToInt (c.points.back().first)) + " Hz; a target must span at least 200 Hz - 5 kHz.";
         return false;
     }
 

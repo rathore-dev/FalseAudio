@@ -252,7 +252,7 @@ bool AutoTuneEngine::runStages (Result& result)
         double lastSnr = 100.0;
         for (int attempt = 0; attempt < 4 && probe != nullptr; ++attempt)
         {
-            progress (0.0, "Level check (" + juce::String (options.sweepLevelDbFS, 0) + " dBFS)");
+            progress (0.0, "Level check (" + juce::String (juce::roundToInt (options.sweepLevelDbFS)) + " dBFS)");
             if (! dsp->soloChannels (config, { probe->id }, error))
                 return fail (error);
 
@@ -285,10 +285,10 @@ bool AutoTuneEngine::runStages (Result& result)
 
         // Don't tune on data that can't be trusted.
         if (lastClipped)
-            return fail ("The microphone input still clips at " + juce::String (options.sweepLevelDbFS, 0)
+            return fail ("The microphone input still clips at " + juce::String (juce::roundToInt (options.sweepLevelDbFS))
                          + " dBFS. Lower the mic preamp gain (or the amp gain) and try again.");
         if (lastSnr < 15.0)
-            return fail ("Almost no signal reached the microphone (signal-to-noise " + juce::String (lastSnr, 0)
+            return fail ("Almost no signal reached the microphone (signal-to-noise " + juce::String (juce::roundToInt (lastSnr))
                          + " dB). Check the mic input, the DSP input routing, that the amp is on and the volume is up.");
     }
 
@@ -333,7 +333,7 @@ bool AutoTuneEngine::runStages (Result& result)
             for (auto& m : ms)
             {
                 if (m.snrDb < 25.0)
-                    result.report.warnings.add (c.label + ": low signal-to-noise (" + juce::String (m.snrDb, 0)
+                    result.report.warnings.add (c.label + ": low signal-to-noise (" + juce::String (juce::roundToInt (m.snrDb))
                                                 + " dB). Is the speaker connected and the amp on?");
                 if (m.clipped)
                     result.report.warnings.add (c.label + ": the mic input clipped during this sweep - its response may be wrong.");

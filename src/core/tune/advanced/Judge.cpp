@@ -181,7 +181,7 @@ JudgeScore judge (const SystemConfig& config, const DriverDataMap& data)
     const double stage = clampScore (100.0 - 5.0 * hfShort - std::min (30.0, 1.5 * over (leak, -20.0)) - 8.0 * over (lean, 0.5));
     if (stage < 85.0)
         js.comments.add ("Stage: HF shortfall " + juce::String (hfShort, 1) + " dB, sub leakage "
-                         + juce::String (leak, 0) + " dB re front, L/R lean " + juce::String (lean, 1) + " dB.");
+                         + juce::String (juce::roundToInt (leak)) + " dB re front, L/R lean " + juce::String (lean, 1) + " dB.");
 
     //==========================================================================
     // Centre focus
@@ -281,7 +281,7 @@ JudgeScore judge (const SystemConfig& config, const DriverDataMap& data)
     const double noise = clampScore (100.0 - 3.0 * over (worstNet, 6.0) - 4.0 * over (tweeterGain, 0.0) - 0.4 * over (totalBoost, 25.0));
     if (noise < 85.0)
         js.comments.add ("Noise: gain structure adds up to +" + juce::String (worstNet, 1) + " dB on one channel, "
-                         + juce::String (totalBoost, 0) + " dB of EQ boost in total (raises hiss).");
+                         + juce::String (juce::roundToInt (totalBoost)) + " dB of EQ boost in total (raises hiss).");
 
     js.categories["Tonal balance"] = tonal;
     js.categories["Bass extension & up front"] = bass;
