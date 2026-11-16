@@ -43,3 +43,11 @@ No vendor documents a preset or config file format. Because of that, `presetFile
 - **Qt5 apps (Helix PC-Tool):** turn on accessibility and expect graph and knob widgets to be opaque. Prefer keyboard entry into numeric spin boxes.
 - **Legacy miniDSP plugins (Adobe/Harman AIR):** these expose almost nothing to UIA. This is another reason to use the protocol route.
 - **Profiles should record unit conventions per tool:** delay in ms, cm or samples, the Q definition (for example, RBJ half-gain Q on the DSP-408), and the sample rate (miniDSP 2x4 HD is 96 kHz; DSP-408 is 48 kHz). Get these wrong and filters land in the wrong place.
+
+## Official download pages and install detection
+
+Each vendor has `officialDownloadPage` (vendor's own domain only, or null), `officialDownloadPageVerified` (how it was checked on 2026-11-16) and `install` (`paths` with %ENV% variables, `exeNames`, `uninstallNames` = substrings matched against the Windows Uninstall registry DisplayName). Used by `src/core/DspSoftware.*`. The app only opens the page in the browser; it never downloads or runs installers.
+
+## Official download pages and install detection
+
+Each vendor has `officialDownloadPage` (vendor's own domain only, or null), `officialDownloadPageVerified` (how it was checked on 2026-11-16) and `install` (`paths` with %ENV% variables and forward slashes, `exeNames`, `uninstallNames` = substrings matched against the Windows Uninstall registry DisplayName). Used by `src/core/DspSoftware.*`. The app only opens the page in the browser; it never downloads or runs installers.

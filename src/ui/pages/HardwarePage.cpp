@@ -1,6 +1,7 @@
 #include "HardwarePage.h"
 #include "hardware/ModeBanner.h"
 #include "hardware/MicCalPanel.h"
+#include "hardware/MicCalAssistant.h"
 
 namespace fa::ui
 {
@@ -130,6 +131,13 @@ HardwarePage::HardwarePage (Session& s) : Page (s)
 
     // ---- calibration
     calCard.addAndMakeVisible (calHint);
+    calAssistant = std::make_unique<MicCalAssistant> (session);
+    calAssistant->onApplied = [this] { refreshCalibration(); };
+    calAssistant->onMessage = [this] (const juce::String& m, bool good)
+    {
+        if (! m.startsWith ("Type the serial")) toast (m, good ? AppShell::ToastKind::good : AppShell::ToastKind::bad);
+    };
+    calCard.addAndMakeVisible (*calAssistant);
 
     // ---- levels
     for (auto* w : std::initializer_list<juce::Component*> { &outMeter.name, &outMeter.value, &outMeter.meter, &outMeter.clip,
@@ -400,6 +408,24 @@ void HardwarePage::refreshCalibration()
         }
         body.relayout();
     }
+    if (calAssistant != nullptr)
+        calAssistant->setMicCount ((int) r.micInputs.size());
+
+    // Auto-select: input device name contains the serial of a stored UMIK file (90 deg preferred in cars).
+    if (auto* dev = session.getAudio().getDeviceManager().getCurrentAudioDevice())
+        for (size_t i = 0; i < r.micInputs.size(); ++i)
+            if (! session.getCalibration ((int) i).isValid())
+            {
+                const auto dir = CalibrationDownloader::defaultCalibrationDir();
+                const auto serial = CalibrationDownloader::serialInDeviceName (dev->getName(), dir);
+                if (serial.isEmpty()) break;
+                auto f = CalibrationDownloader::findStored (dir, serial, CalibrationDownloader::Angle::deg90);
+                if (! f.existsAsFile()) f = CalibrationDownloader::findStored (dir, serial, CalibrationDownloader::Angle::deg0);
+                juce::String err;
+                if (f.existsAsFile() && session.loadCalibration ((int) i, f, err))
+                    return refreshCalibration();
+            }
+
     for (size_t i = 0; i < calPanels.size(); ++i)
     {
         const int in = r.micInputs[i];
@@ -727,10 +753,14 @@ int HardwarePage::layoutContent (int w)
         auto a = calCard.getContentArea();
         std::vector<juce::Component*> items;
         for (auto& p : calPanels) items.push_back (p.get());
+        const int ah = MicCalAssistant::heightFor (a.getWidth());
+        const int topY = a.getY();
+        calAssistant->setBounds (a.getX(), a.getY(), a.getWidth(), ah);
+        a.removeFromTop (ah + gap2);
         int yy = a.getY() + gridLayout (a, items, 300, MicCalPanel::height, gap2, gap2) + gap2;
         calHint.setBounds (a.getX(), yy, a.getWidth(), calHint.heightFor (a.getWidth()));
         yy += calHint.getHeight();
-        calCard.setSize (innerW, chrome + (yy - a.getY()));
+        calCard.setSize (innerW, chrome + (yy - topY));
         y += calCard.getHeight() + gap2;
     }
 

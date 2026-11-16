@@ -43,7 +43,25 @@
         "https://www.minidsp.com/community/threads/new-builds-for-all-plugins.18433/latest",
         "https://www.minidsp.com/applications/rew/rew-autoeq-step-by-step",
         "https://www.minidsp.com/community/threads/cant-import-eq-files-from-rew.23391/latest"
-      ]
+      ],
+      "officialDownloadPage": "https://www.minidsp.com/",
+      "officialDownloadPageVerified": "bot-blocked (403 to scripts); site root named by miniDSP support articles",
+      "install": {
+        "paths": [
+          "%ProgramFiles%/miniDSP",
+          "%ProgramFiles(x86)%/miniDSP",
+          "%LOCALAPPDATA%/miniDSP"
+        ],
+        "exeNames": [
+          "miniDSP Device Console.exe",
+          "miniDSP.exe"
+        ],
+        "uninstallNames": [
+          "miniDSP",
+          "Device Console"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "helix-dsp-pc-tool",
@@ -77,7 +95,24 @@
         "https://pasmag.com/technology/test-reports-reviews/helix-dsp-pro-signal-processor-review",
         "https://www.caraudio.com/threads/helix-p-dsp-and-digital-designs-amps-2-dd-s4s-and-an-m1a.589570/",
         "https://www.audiotec-fischer.de/media/pdf/03/d2/a7/2020-05-Car-Hifi-Bericht-DSP-PC-Tool-V4_en.pdf"
-      ]
+      ],
+      "officialDownloadPage": "https://www.audiotec-fischer.de/en/tools/dsp-pc-tool/downloads/",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [
+          "%ProgramFiles(x86)%/Audiotec Fischer/DSP PC-Tool",
+          "%ProgramFiles%/Audiotec Fischer/DSP PC-Tool",
+          "%ProgramFiles(x86)%/ATF DSP PC-TOOL"
+        ],
+        "exeNames": [
+          "ATF_DSP_PC-TOOL.exe"
+        ],
+        "uninstallNames": [
+          "DSP PC-Tool",
+          "ATF DSP PC"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "audison-bit-drive",
@@ -109,7 +144,22 @@
         "https://frankiesautoelectrics.com.au/product/audison-bitonehv-13-channel-stand-alone-digital-signal-processor-bit-one-hd-virtuoso",
         "https://onlinecarstereo.com/CarAudio/p_54333_Audison_Bit_One_HD.aspx",
         "https://github.com/lilindian16/customDRC"
-      ]
+      ],
+      "officialDownloadPage": "https://www.audisonbitdrive.eu/",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [
+          "%ProgramFiles%/Audison/bit Drive",
+          "%ProgramFiles(x86)%/Audison/bit Drive"
+        ],
+        "exeNames": [
+          "bit Drive.exe"
+        ],
+        "uninstallNames": [
+          "bit Drive"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "audison-prima",
@@ -135,7 +185,20 @@
       "sources": [
         "https://pasmag.com/technology/test-reports-reviews/audison-ap89-bit-amplifier-review",
         "https://www.bestcaraudio.com/product-spotlight-audison-ap8-9-bit/"
-      ]
+      ],
+      "officialDownloadPage": "https://audison.com/",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16 (audison.eu redirects here)",
+      "install": {
+        "paths": [
+          "%ProgramFiles%/Audison",
+          "%ProgramFiles(x86)%/Audison"
+        ],
+        "exeNames": [],
+        "uninstallNames": [
+          "Audison"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "mosconi-gladen",
@@ -163,7 +226,15 @@
         "https://theaudio.co/products/mosconi-dsp-6to8-aerospace-digital-signal-processor",
         "https://pasmag.com/technology/digital-signal-processors/mosconi-8to12-aerospace-dsp",
         "https://masori.de/en/products/gladen-gladiator-dsp-accessories"
-      ]
+      ],
+      "officialDownloadPage": null,
+      "officialDownloadPageVerified": "not verified: no official page found",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "zapco-adsp",
@@ -190,7 +261,20 @@
         "https://www.worldwidestereo.com/products/zapco-dsp-z8-iv-at-8-channel-dsp-with-autotune-and-lcd-remote-control",
         "https://masori.de/en/collections/zapco/products/dsp-iv-series-dsp-z8-iv-at",
         "https://apps.apple.com/app/id1446881973"
-      ]
+      ],
+      "officialDownloadPage": "https://www.zapco.com/",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [
+          "%ProgramFiles(x86)%/Zapco",
+          "%ProgramFiles%/Zapco"
+        ],
+        "exeNames": [],
+        "uninstallNames": [
+          "Zapco"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "jl-audio-tun",
@@ -219,7 +303,15 @@
         "https://apps.apple.com/app/id1327789107",
         "https://worldwidestereo.com/products/jl-audio-fix-86-oem-integration-dsp",
         "https://www.onlinecarstereo.com/CarAudio/p_45960_JL_Audio_TwK-88.aspx"
-      ]
+      ],
+      "officialDownloadPage": null,
+      "officialDownloadPageVerified": "not verified: no official page found",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "rockford-dsr1",
@@ -247,7 +339,15 @@
         "https://apps.apple.com/app/id1219095940",
         "https://masori.de/en/products/rockford-fosgate-dsr1-4-channel-dsp",
         "https://rockfordfosgate.com/news/rockford-fosgate-dsr1-digital-signal-processor-now-available/"
-      ]
+      ],
+      "officialDownloadPage": "https://rockfordfosgate.com/",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "alpine-pxe",
@@ -275,7 +375,21 @@
         "https://www.worldwidestereo.com/products/alpine-pxe-c80-88-optim8-8-channel-amplifier-sound-processor",
         "https://www.alpine-usa.com/company/press/2008/achieving-superior-sound-is-a-snap-with-new-head-unit-add-on-imprint-audio-processor-from-alpine-electronics",
         "https://www.abt.com/Alpine-System-Integration-Audio-Processor-PXEH650/p/32573.html"
-      ]
+      ],
+      "officialDownloadPage": "https://www.alpine-usa.com/support",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [
+          "%ProgramFiles(x86)%/Alpine",
+          "%ProgramFiles%/Alpine"
+        ],
+        "exeNames": [],
+        "uninstallNames": [
+          "Alpine PXE",
+          "Alpine Tuning"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "focal-fsp",
@@ -302,7 +416,21 @@
         "https://focal.com/fsp-8-dsp-manager",
         "https://www.soundoftristate.com/focal-fsp-8-8-channel-digital-signal-processor",
         "https://brl.se/bilder/artiklar/pdf/401FSP8.pdf"
-      ]
+      ],
+      "officialDownloadPage": "https://www.focal.com/fsp-8-dsp-manager",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [
+          "%ProgramFiles(x86)%/Focal",
+          "%ProgramFiles%/Focal"
+        ],
+        "exeNames": [],
+        "uninstallNames": [
+          "FSP",
+          "DSP Manager"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "kenwood-jvc",
@@ -327,7 +455,15 @@
       "notes": "Head-unit DSP, no PC tool found. Provide a typed tuning sheet constrained to 13-band EQ.",
       "sources": [
         "https://mwm.ai/apps/kenwood-dsp-control/1202137715"
-      ]
+      ],
+      "officialDownloadPage": null,
+      "officialDownloadPageVerified": "not verified: no official page found",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "dayton-dsp-408",
@@ -361,7 +497,23 @@
         "https://raw.githubusercontent.com/nick0451/dsp408-tuner/main/docs/dsp408-protocol.md",
         "https://www.avnirvana.com/threads/rew-export-dsp-408.12104/latest",
         "https://www.daytonaudio.com/images/resources/230-500-dayton-audio-dsp-408-manual(2).pdf"
-      ]
+      ],
+      "officialDownloadPage": "https://www.daytonaudio.com/product/1551/dsp-408-4x8-dsp-digital-signal-processor-for-home-and-car-audio",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [
+          "%ProgramFiles(x86)%/DSP-408",
+          "%ProgramFiles%/DSP-408"
+        ],
+        "exeNames": [
+          "DSP-408.exe"
+        ],
+        "uninstallNames": [
+          "DSP-408",
+          "DSP408"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "taramps-pro",
@@ -388,7 +540,15 @@
         "https://www.taramps.com.br/en/produto/pro-2-4s-bt/",
         "https://apps.apple.com/app/id6768624444",
         "https://www.taramps.com.br/wp-content/uploads/2025/06/MN_PRO-2.4BT_ENG.pdf"
-      ]
+      ],
+      "officialDownloadPage": null,
+      "officialDownloadPageVerified": "not verified: no official page found",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "banda",
@@ -413,7 +573,15 @@
       "notes": "Only a retailer listing found (32-bit/96 kHz, 4in/8out, EQ/crossover/limiter/gain via app).",
       "sources": [
         "https://www.neweggbusiness.com/p/9B-17A-06SD-00016"
-      ]
+      ],
+      "officialDownloadPage": null,
+      "officialDownloadPageVerified": "not verified: no official page found",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "sundown",
@@ -436,7 +604,15 @@
       "slopes": "unknown",
       "automationRecommendation": "manual",
       "notes": "No information found on a Sundown DSP product/software in this research pass.",
-      "sources": []
+      "sources": [],
+      "officialDownloadPage": null,
+      "officialDownloadPageVerified": "not verified: no official page found",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "musway",
@@ -464,7 +640,20 @@
         "https://www.onlinecarstereo.com/CarAudio/p_85547_Musway_TUNE12.aspx",
         "https://masori.de/en/products/musway-m6v3-24v-6-channel-dsp-amplifier",
         "https://apps.appfollow.io/ios/musway-dsp/1411107333?country=us"
-      ]
+      ],
+      "officialDownloadPage": "https://www.musway.de/",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [
+          "%ProgramFiles(x86)%/Musway",
+          "%ProgramFiles%/Musway"
+        ],
+        "exeNames": [],
+        "uninstallNames": [
+          "Musway"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "kicker-key",
@@ -490,7 +679,15 @@
       "sources": [
         "https://www.kicker.com/key-technology",
         "https://pasmag.com/technology/amplifiers/kicker-key-technology"
-      ]
+      ],
+      "officialDownloadPage": "https://www.kicker.com/key-technology",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "audiocontrol-dm",
@@ -518,7 +715,21 @@
         "https://audiocontrol.com//downloads/technical-bulletins/tb-dm-smart-dsp-5-12-2023.pdf",
         "https://www.audiocontrol.com/knowledge-base/dm-810-setup-walk-thru/",
         "https://www.audiocontrol.com/downloads/car/current/dm-series/dm-series-literature.pdf"
-      ]
+      ],
+      "officialDownloadPage": "https://audiocontrol.com/",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [
+          "%ProgramFiles(x86)%/AudioControl",
+          "%ProgramFiles%/AudioControl"
+        ],
+        "exeNames": [],
+        "uninstallNames": [
+          "AudioControl",
+          "DM Smart"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "arc-audio-pro",
@@ -545,7 +756,20 @@
         "https://creativeaudio.net/ps8-pro/",
         "https://masori.de/en/products/ps8-pro-en",
         "https://pasmag.com/technology/test-reports-reviews/arc-audio-ps8-pro-dsp-processor-review"
-      ]
+      ],
+      "officialDownloadPage": "https://www.arcaudio.com/",
+      "officialDownloadPageVerified": "HTTP 200 2026-11-16",
+      "install": {
+        "paths": [
+          "%ProgramFiles(x86)%/ARC Audio",
+          "%ProgramFiles%/ARC Audio"
+        ],
+        "exeNames": [],
+        "uninstallNames": [
+          "ARC Audio"
+        ],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "phoenix-gold",
@@ -572,7 +796,15 @@
         "https://cdn.shopify.com/s/files/1/0357/6584/6153/files/dspmanual.pdf",
         "https://www.carcommunications.co.uk/phoenix-gold-zda4-8-zd-series-4-channel-dsp-audio-amplifier",
         "https://masori.de/en/products/zqdsp12-en"
-      ]
+      ],
+      "officialDownloadPage": null,
+      "officialDownloadPageVerified": "not verified: no official page found",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "dirac-live-car",
@@ -600,7 +832,15 @@
         "https://audioholics.com/audio-technologies/dirac-for-cars",
         "https://www.avnirvana.com/threads/minidsp-c-dsp-8x12-dl-processor-%E2%80%93-review-and-setup-tuning-guide.16912/",
         "https://www.minidsp.com/community/threads/dirac-live-in-car-a-shared-experience.13194/page-3"
-      ]
+      ],
+      "officialDownloadPage": null,
+      "officialDownloadPageVerified": "not verified: no official page found",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     },
     {
       "id": "generic-chinese-hid-dsp",
@@ -627,7 +867,15 @@
       "notes": "ADAU1452 based. Not in the requested list but relevant: cheap Chinese DSP amps share a few OEM platforms; one protocol driver can cover many brands. Warning in repo: never send WRITE_DSP to CH0.",
       "sources": [
         "https://github.com/nikakoy131/audiobeat-octapro-8-2-reverse"
-      ]
+      ],
+      "officialDownloadPage": null,
+      "officialDownloadPageVerified": "not verified: no official page found",
+      "install": {
+        "paths": [],
+        "exeNames": [],
+        "uninstallNames": [],
+        "note": "Heuristic: paths/names are typical, not confirmed from installers."
+      }
     }
   ]
 }

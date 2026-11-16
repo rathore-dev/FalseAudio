@@ -10,6 +10,7 @@ namespace fa::ui
 {
 class ModeBanner;
 class MicCalPanel;
+class MicCalAssistant;
 
 /** Hardware page: audio device, routing (DSP L/R outputs, up to 4 mics, loopback), per-mic
     calibration, live meters and a pink-noise level check. Works with any interface or mic. */
@@ -86,6 +87,7 @@ private:
 
     // ---- calibration
     Card calCard { "Microphone calibration", "Manufacturer files" };
+    std::unique_ptr<MicCalAssistant> calAssistant;
     std::vector<std::unique_ptr<MicCalPanel>> calPanels;
     kit::Note calHint { "UMIK-1: download both files from miniDSP using the serial number. Use the 0-degree file when the mic "
                         "points at the speakers and the 90-degree file when it points at the roof (recommended in cars)." };
