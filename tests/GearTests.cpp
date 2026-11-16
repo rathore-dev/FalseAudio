@@ -402,6 +402,33 @@ FA_TEST (gearRealDataLoads)
     check (mismatches == 0, "Gear: real products round-trip stably", juce::String (mismatches) + " " + first);
 }
 
+FA_TEST (gearEmbeddedMatchesFolder)
+{
+    const auto repo = findRepoGear();
+    GearDatabase folderDb, embeddedDb;
+    const auto t0 = std::chrono::steady_clock::now();
+    const int nFolder = repo.isDirectory() ? folderDb.loadFolder (repo) : 0;
+    const auto t1 = std::chrono::steady_clock::now();
+    const int nEmbedded = embeddedDb.loadEmbedded();
+    const auto t2 = std::chrono::steady_clock::now();
+    std::cout << "    gear load time: folder "
+              << std::chrono::duration_cast<std::chrono::milliseconds> (t1 - t0).count() << " ms, embedded "
+              << std::chrono::duration_cast<std::chrono::milliseconds> (t2 - t1).count() << " ms\n";
+    check (nEmbedded > 0, "Gear: embedded blob loads", juce::String (nEmbedded));
+    if (repo.isDirectory())
+    {
+        check (nEmbedded == nFolder && embeddedDb.size() == folderDb.size(),
+               "Gear: embedded blob has same product count as data/gear",
+               juce::String (embeddedDb.size()) + " vs " + juce::String (folderDb.size()));
+        int missing = 0;
+        for (auto* p : folderDb.search ({}, std::nullopt, 0))
+            if (embeddedDb.find (p->id) == nullptr)
+                ++missing;
+        check (missing == 0, "Gear: every folder product is in the embedded blob", juce::String (missing));
+    }
+    check (embeddedDb.getLoadWarnings().isEmpty(), "Gear: embedded blob loads with 0 warnings");
+}
+
 //==============================================================================
 namespace
 {

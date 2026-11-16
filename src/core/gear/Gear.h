@@ -371,7 +371,10 @@ public:
 
     /** Loads every *.json file under the folder (recursively). Returns number of products loaded from it. */
     int loadFolder (const juce::File& folder);
+    /** Loads the gear database embedded in the executable (a zip of data/gear linked at build time). No disk access. */
+    int loadEmbedded();
     /** Default locations: <exe>/data/gear, <repo>/data/gear (dev, found by walking up from the exe),
+        and, when neither folder exists, the copy embedded in the exe (loadEmbedded),
         <appdata>/FalseAudio/Gear (user). Clears first. Returns size(). */
     int loadDefaults();
     /** Loads a folder whose products override everything (used for the user folder). */
@@ -405,6 +408,8 @@ public:
 private:
     int loadFolderImpl (const juce::File& folder, bool userSource);
     int loadFile (const juce::File& file, bool userSource);
+    int loadText (const juce::String& text, const juce::String& fullName, const juce::String& shortName,
+                  const juce::String& parentFolderName, bool userSource);
     bool insert (Product&& p, bool userSource);
     void warn (const juce::String& message);
     bool writeUserFile (const std::function<void (juce::Array<juce::var>&)>& edit, juce::String& error);

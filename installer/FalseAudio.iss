@@ -1,4 +1,5 @@
-; Inno Setup 6 script. Normally compiled by package.ps1, which stages dist\FalseAudio first
+; Inno Setup 6 script. The exe is self-contained (static CRT, gear DB embedded): only exe + README are installed.
+; Normally compiled by package.ps1, which stages dist\FalseAudio first
 ; and passes /DAppVersion=x.y.z. Manual: ISCC /DAppVersion=0.1.0 installer\FalseAudio.iss
 #ifndef AppVersion
   #define AppVersion "0.1.0"
@@ -30,9 +31,7 @@ Name: "desktopicon"; Description: "Create a &desktop shortcut"; Flags: unchecked
 
 [Files]
 Source: "{#StageDir}\FalseAudio.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#StageDir}\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#StageDir}\README.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#StageDir}\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\FalseAudio"; Filename: "{app}\FalseAudio.exe"

@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.22)
 
+# Static MSVC runtime (single self-contained exe). Must be set before project() and before JUCE is added.
+cmake_policy(SET CMP0091 NEW)
 project(FalseAudio VERSION 0.1.0 LANGUAGES C CXX)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -17,10 +20,23 @@ endif()
 # Embedded data: the HouseCurves target collection (full curves + per-band sums).
 # ---------------------------------------------------------------------------
 file(GLOB_RECURSE FA_HOUSE_CURVES CONFIGURE_DEPENDS HouseCurves/*.txt)
+# The gear database (data/gear/**/*.json) is zipped at build time and embedded as "gear_zip".
+# Any JSON change re-packs the zip (and relinks) automatically.
+file(GLOB_RECURSE FA_GEAR_JSON CONFIGURE_DEPENDS data/gear/*.json)
+set(FA_GEAR_ZIP ${CMAKE_BINARY_DIR}/embedded/gear_zip.zip)
+add_custom_command(
+    OUTPUT ${FA_GEAR_ZIP}
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/embedded
+    COMMAND ${CMAKE_COMMAND} -E rm -f ${FA_GEAR_ZIP}
+    COMMAND ${CMAKE_COMMAND} -E tar cf ${FA_GEAR_ZIP} --format=zip -- .
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/data/gear
+    DEPENDS ${FA_GEAR_JSON}
+    COMMENT "Packing data/gear into embedded zip"
+    VERBATIM)
 juce_add_binary_data(FalseAudioData
     HEADER_NAME FalseAudioData.h
     NAMESPACE FalseAudioData
-    SOURCES ${FA_HOUSE_CURVES})
+    SOURCES ${FA_HOUSE_CURVES} ${FA_GEAR_ZIP})
 
 # ---------------------------------------------------------------------------
 # Core library: measurement, analysis, auto-tune and DSP bridge.

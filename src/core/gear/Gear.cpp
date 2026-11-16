@@ -1,4 +1,5 @@
 #include "Gear.h"
+#include "FalseAudioData.h"
 
 #include <algorithm>
 #include <cmath>
@@ -1168,10 +1169,16 @@ bool GearDatabase::insert (Product&& p, bool userSource)
 
 int GearDatabase::loadFile (const juce::File& file, bool userSource)
 {
-    const auto text = file.loadFileAsString();
+    return loadText (file.loadFileAsString(), file.getFullPathName(), file.getFileName(),
+                     file.getParentDirectory().getFileName(), userSource);
+}
+
+int GearDatabase::loadText (const juce::String& text, const juce::String& fullName, const juce::String& shortName,
+                            const juce::String& parentFolderName, bool userSource)
+{
     if (text.trim().isEmpty())
     {
-        warn ("Empty file skipped: " + file.getFullPathName());
+        warn ("Empty file skipped: " + fullName);
         return 0;
     }
 
@@ -1179,7 +1186,7 @@ int GearDatabase::loadFile (const juce::File& file, bool userSource)
     const auto result = juce::JSON::parse (text, root);
     if (result.failed())
     {
-        warn ("Invalid JSON in " + file.getFullPathName() + ": " + result.getErrorMessage());
+        warn ("Invalid JSON in " + fullName + ": " + result.getErrorMessage());
         return 0;
     }
 
@@ -1187,12 +1194,12 @@ int GearDatabase::loadFile (const juce::File& file, bool userSource)
     auto* arr = list.getArray();
     if (arr == nullptr)
     {
-        warn ("No \"products\" array in " + file.getFullPathName());
+        warn ("No \"products\" array in " + fullName);
         return 0;
     }
 
     // folder name gives the category when an entry omits it
-    const auto fallback = tryCategoryFromString (file.getParentDirectory().getFileName());
+    const auto fallback = tryCategoryFromString (parentFolderName);
 
     int loaded = 0;
     for (int i = 0; i < arr->size(); ++i)
@@ -1201,7 +1208,7 @@ int GearDatabase::loadFile (const juce::File& file, bool userSource)
         juce::String reason;
         if (! parseProduct (arr->getReference (i), fallback, p, reason))
         {
-            warn (file.getFileName() + " entry " + juce::String (i) + " skipped: " + reason);
+            warn (shortName + " entry " + juce::String (i) + " skipped: " + reason);
             continue;
         }
 
@@ -1239,6 +1246,41 @@ int GearDatabase::loadUserFolder (const juce::File& folder)
     return loadFolderImpl (folder, true);
 }
 
+int GearDatabase::loadEmbedded()
+{
+    int size = 0;
+    const auto* data = FalseAudioData::getNamedResource ("gear_zip_zip", size);
+    if (data == nullptr || size <= 0)
+        return 0;
+
+    juce::MemoryInputStream stream (data, (size_t) size, false);
+    juce::ZipFile zip (stream);
+
+    // deterministic order, same as loadFolderImpl
+    std::vector<std::pair<juce::String, int>> entries;
+    for (int i = 0; i < zip.getNumEntries(); ++i)
+    {
+        const auto* e = zip.getEntry (i);
+        if (e != nullptr && e->filename.endsWithIgnoreCase (".json"))
+            entries.emplace_back (e->filename, i);
+    }
+    std::sort (entries.begin(), entries.end(), [] (const auto& a, const auto& b)
+               { return a.first.compareIgnoreCase (b.first) < 0; });
+
+    int total = 0;
+    for (auto& [name, idx] : entries)
+    {
+        std::unique_ptr<juce::InputStream> in (zip.createStreamForEntry (idx));
+        if (in == nullptr)
+            continue;
+        const auto text = in->readEntireStreamAsString();
+        const auto parts = juce::StringArray::fromTokens (name, "/", "");
+        total += loadText (text, "embedded:" + name, parts[parts.size() - 1],
+                           parts.size() >= 2 ? parts[parts.size() - 2] : juce::String(), false);
+    }
+    return total;
+}
+
 int GearDatabase::loadDefaults()
 {
     clear();
@@ -1267,6 +1309,9 @@ int GearDatabase::loadDefaults()
 
     for (auto& f : folders)
         loadFolder (f);
+
+    if (folders.isEmpty())
+        loadEmbedded();   // single-exe distribution: database is linked into the binary
 
     loadUserFolder (getUserFolder());
     return size();

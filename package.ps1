@@ -3,7 +3,7 @@
 #   .\package.ps1 -SkipBuild   reuse existing build
 param(
     [switch] $SkipBuild,
-    [string] $BuildDir = "build\p1",
+    [string] $BuildDir = "build\lead",
     [int] $Jobs = 3
 )
 $ErrorActionPreference = "Stop"
@@ -28,31 +28,19 @@ if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
 New-Item -ItemType Directory -Force $stage | Out-Null
 Copy-Item $exe $stage
 
-# MSVC runtime DLLs (newest redist version found)
-$redistRoots = @("${env:ProgramFiles(x86)}\Microsoft Visual Studio", "$env:ProgramFiles\Microsoft Visual Studio")
-$crt = $null
-foreach ($r in $redistRoots) {
-    if (-not (Test-Path $r)) { continue }
-    $crt = Get-ChildItem $r -Recurse -Directory -Filter "Microsoft.VC143.CRT" -ErrorAction SilentlyContinue |
-           Where-Object { $_.FullName -like '*\x64\*' -and $_.FullName -like '*Redist\MSVC*' } |
-           Sort-Object FullName -Descending | Select-Object -First 1
-    if ($crt) { break }
-}
-if (-not $crt) { throw "MSVC redist CRT folder not found" }
-Write-Host "Runtime DLLs from $($crt.FullName)"
-Copy-Item (Join-Path $crt.FullName "*.dll") $stage
-
-Copy-Item (Join-Path $root "data\gear") (Join-Path $stage "data\gear") -Recurse
+# Self-contained exe: static CRT + gear database embedded, so nothing else is staged.
 
 @"
 FalseAudio $version - tester build (Windows 64-bit)
 
 INSTALL
-  1. Right-click the zip -> Extract All... (do NOT run from inside the zip).
-  2. Open the extracted FalseAudio folder and run FalseAudio.exe.
+  1. Right-click the zip -> Extract All... (do NOT run from inside the zip),
+     or just use the single FalseAudio-$version-win64.exe.
+  2. Run FalseAudio.exe.
   3. Windows SmartScreen may warn because the app is unsigned:
      click "More info" -> "Run anyway".
-  Keep the data\ folder and the .dll files next to FalseAudio.exe.
+  FalseAudio.exe is fully self-contained (no DLLs or data folder needed).
+  Optional: a data\gear folder next to the exe overrides the built-in equipment database.
 
 WHAT TO TEST
   - App starts, all pages open, Demo/Live switch works.
@@ -64,6 +52,10 @@ IF IT CRASHES
   Send the file  %APPDATA%\FalseAudio\crash.log
   (paste that path into Explorer's address bar), plus what you were doing.
 "@ | Set-Content (Join-Path $stage "README.txt") -Encoding UTF8
+
+$single = Join-Path $dist "FalseAudio-$version-win64.exe"
+Copy-Item $exe $single -Force
+Write-Host ("Single exe: {0} ({1:N1} MB)" -f $single, ((Get-Item $single).Length / 1MB))
 
 $zip = Join-Path $dist "FalseAudio-$version-win64.zip"
 if (Test-Path $zip) { Remove-Item $zip -Force }
@@ -85,14 +77,25 @@ if ($iscc) {
     Write-Host "NOTE: Inno Setup 6 is not installed - installer skipped. Install it and re-run package.ps1 to get dist\FalseAudio-$version-Setup.exe."
 }
 
-# Smoke test: extract zip to temp, launch, confirm alive ~8 s
+# Smoke test: single exe alone in an empty temp folder, 8 s alive + Equipment DB loaded (QA snapshot)
 $tmp = Join-Path $env:TEMP ("FalseAudio_smoke_" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory $tmp | Out-Null
-tar -x -f $zip -C $tmp
-$p = Start-Process (Join-Path $tmp "FalseAudio\FalseAudio.exe") -PassThru
+$test = Join-Path $tmp "FalseAudio.exe"
+Copy-Item $single $test
+$snap = Join-Path $dist "smoke-gear.png"
+if (Test-Path $snap) { Remove-Item $snap -Force }
+$qa = Join-Path $tmp "qa.txt"
+"page gear`nwait 3000`nsnap $snap`nquit" | Set-Content $qa -Encoding ASCII
+$p = Start-Process $test -ArgumentList @("--qa-script", "`"$qa`"") -WorkingDirectory $tmp -PassThru
 Start-Sleep -Seconds 8
 $alive = -not $p.HasExited
-if ($alive) { Stop-Process $p -Force }
+# startup (audio device scan) can take 10-20 s on a loaded PC: wait up to 90 s for the snapshot
+$deadline = (Get-Date).AddSeconds(90)
+while ((-not (Test-Path $snap)) -and (-not $p.HasExited) -and ((Get-Date) -lt $deadline)) { Start-Sleep -Milliseconds 500 }
+Start-Sleep -Seconds 1
+if (-not $p.HasExited) { Stop-Process $p -Force }
 Start-Sleep -Milliseconds 500
 Remove-Item $tmp -Recurse -Force -ErrorAction SilentlyContinue
-if ($alive) { Write-Host "SMOKE TEST PASSED: stayed alive 8 s" } else { Write-Host "SMOKE TEST FAILED: exited with code $($p.ExitCode)"; exit 1 }
+if (-not $alive) { Write-Host "SMOKE TEST FAILED: exited with code $($p.ExitCode)"; exit 1 }
+if (-not (Test-Path $snap)) { Write-Host "SMOKE TEST FAILED: gear page snapshot not produced"; exit 1 }
+Write-Host "SMOKE TEST PASSED: single exe stayed alive 8 s; gear page snapshot: $snap (inspect it to confirm products are listed)"
