@@ -189,3 +189,13 @@ target_link_libraries(FalseAudioTests PRIVATE FalseAudioCore)
 if(FA_USE_PCH)
     target_precompile_headers(FalseAudioTests PRIVATE ${FA_PCH_HEADERS})
 endif()
+
+# ---------------------------------------------------------------------------
+# DEV/TEST ONLY: fake vendor DSP window for the AI operator live harness (tests/FakeDspLiveTests.cpp,
+# FA_FAKEDSP_LIVE=1). Not built by default, not packaged.
+# ---------------------------------------------------------------------------
+juce_add_gui_app(FakeDspConsole PRODUCT_NAME "FakeDspConsole")
+target_sources(FakeDspConsole PRIVATE tools/fakedsp/FakeDspConsole.cpp tools/fakedsp/FakeDspState.h)
+target_link_libraries(FakeDspConsole PRIVATE fa_juce)
+set_target_properties(FakeDspConsole PROPERTIES EXCLUDE_FROM_ALL TRUE)
+target_include_directories(FalseAudioTests PRIVATE tools/fakedsp)

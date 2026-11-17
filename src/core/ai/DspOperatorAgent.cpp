@@ -69,6 +69,7 @@ juce::String DspOperatorAgent::compactSystemPrompt()
     return R"(You operate a DSP tuning program window for FalseAudio through tools. Goal: find which control sets each output's gain, delay, polarity, mute, high-pass, low-pass and PEQ, then call save_map and finish with done.
 
 Rules:
+- Think very briefly (two sentences at most), then call the tool. Do not plan ahead and do not list hypothetical element ids.
 - Call exactly ONE tool per turn. Arguments must be valid JSON that matches the tool schema. Output numbers are 1-based.
 - Start with ui_tree. Take a screenshot only when the tree is not enough.
 - Every set_value, toggle, select_item, invoke, click_xy and type_text needs param (gain, delay, polarity, mute, hp.freq, hp.type, lp.freq, lp.type, peq.freq, peq.gain, peq.q, nav or save) and the output number.
@@ -200,7 +201,7 @@ DspOperatorAgent::Result DspOperatorAgent::learn (const std::vector<OutputChanne
 
     const auto tools = toolDefinitions();
     const auto system = opts.compact ? compactSystemPrompt() : systemPrompt();
-    int nudges = 0;
+    int nudges = 0, truncations = 0;
 
     for (turn = 1; turn <= opts.maxTurns; ++turn)
     {
@@ -223,7 +224,17 @@ DspOperatorAgent::Result DspOperatorAgent::learn (const std::vector<OutputChanne
         if (r.isRefusal())   // never run tools from a refused turn
             return finish (false, "Claude declined this request (refusal" + (r.refusalCategory.isNotEmpty() ? ": " + r.refusalCategory : juce::String()) + ").");
         if (r.stopReason == "max_tokens")
+        {
+            // A small local model that reasons at length can use its whole token budget before it emits the tool call.
+            // Ask it once or twice more to be brief instead of abandoning the whole session.
+            if (client.isLocal() && ++truncations <= 3)
+            {
+                say ("Reply cut off (max_tokens) before a tool call; asking the model to be brief (" + juce::String (truncations) + "/3).");
+                messages.add (makeObj ({ { "role", "user" }, { "content", "Your reply was cut off before the tool call. Do not reason at length: answer with exactly ONE tool call now." } }));
+                continue;
+            }
             return finish (false, "Claude's reply was cut off (max_tokens); raise max tokens or lower effort.");
+        }
 
         messages.add (makeObj ({ { "role", "assistant" }, { "content", r.content } }));   // verbatim, thinking blocks included
 
@@ -266,7 +277,7 @@ DspOperatorAgent::Result DspOperatorAgent::learn (const std::vector<OutputChanne
                 }
                 else
                     o = runTool (name, input);
-                say ("[" + name + "] " + o.text.upToFirstOccurrenceOf ("\n", false, false).substring (0, 160));
+                say ("[" + name + "]" + (o.isError ? " ERROR: " : " ") + o.text.upToFirstOccurrenceOf ("\n", false, false).substring (0, 160));
                 if (o.finished) { finished = true; success = o.success; finalText = o.text; }
             }
 
@@ -418,6 +429,7 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolUiTree()
     Outcome o;
     const auto wb = window.windowBounds();
     const auto nodes = window.snapshot (opts.treeMaxNodes, opts.treeMaxDepth);
+    const auto client = window.clientBounds();
     ids.clear();
     juce::String t;
     int shown = 0;
@@ -425,6 +437,10 @@ DspOperatorAgent::Outcome DspOperatorAgent::toolUiTree()
     {
         const auto& n = nodes[i].info;
         if (n.screenBounds.isEmpty())
+            continue;
+        // The title bar and its system buttons (Minimize / Maximize / Close, system menu) are not part of the DSP's controls:
+        // they are never offered to the model, so they can neither cost tokens nor be pressed.
+        if (! client.isEmpty() && ! client.contains (n.screenBounds.getCentre()))
             continue;
         if (opts.compact && n.name.isEmpty() && n.value.isEmpty()
             && ! (n.supportsRange || n.supportsValue || n.supportsToggle || n.supportsInvoke || n.supportsSelection))
@@ -498,6 +514,11 @@ bool DspOperatorAgent::resolve (const juce::var& in, uia::ElementInfo& info, juc
     if (auto v = SafetyGuard::checkElementInWindow (live.screenBounds, window.windowBounds()); ! v)
     {
         error = v.reason;
+        return false;
+    }
+    if (const auto client = window.clientBounds(); ! client.isEmpty() && ! client.contains (live.screenBounds.getCentre()))
+    {
+        error = "That element is part of the window frame (title bar / system buttons), not a DSP control.";
         return false;
     }
     info = it->second;

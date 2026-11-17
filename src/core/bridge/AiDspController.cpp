@@ -117,7 +117,9 @@ DspOperatorAgent::Options AiDspController::effectiveAgentOptions() const
     if (opts.provider == LlmProvider::ollama)
     {
         a.compact = true;
-        a.maxTurns = std::min (a.maxTurns, 30);
+        // Mapping needs about four calls per output (select it, unmute, verify_channel, mute) before the first save_map is accepted
+        // (a binding is only saved for outputs that passed verify_channel), so a flat 30 turns cannot work for a 7-output system.
+        a.maxTurns = std::min (a.maxTurns, std::max (30, 20 + 8 * (int) opts.outputs.size()));
         a.maxScreenshots = std::min (a.maxScreenshots, 6);
         a.screenshotMaxEdge = std::min (a.screenshotMaxEdge, 768);
         a.treeMaxNodes = std::min (a.treeMaxNodes, 150);
@@ -149,6 +151,10 @@ bool AiDspController::learn (juce::String& error)
     activeAgent = nullptr;
 
     withStats ([&] (Stats& st) { ++st.learnRuns; st.usage += res.usage; st.costUsd += res.costUsd; });
+    {
+        std::lock_guard<std::mutex> l (stateMutex);
+        lastRun = { res.profile, res.turns, res.actions, res.success, res.message };
+    }
 
     // A failed, killed, cancelled or out-of-budget run leaves a half-learned map: never adopt it and never save it.
     if (! res.success || res.cancelled || guard->isKilled() || res.profile.bindings.empty())

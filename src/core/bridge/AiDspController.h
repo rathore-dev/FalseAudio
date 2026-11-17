@@ -80,6 +80,9 @@ public:
 
     /** True when a learned map is loaded. */
     bool hasMap() const { std::lock_guard<std::mutex> l (stateMutex); return ! profile.bindings.empty(); }
+    /** Diagnostics of the most recent learn() run, successful or not (a failed run is never adopted or saved). */
+    struct LastRun { DspProfile profile; int turns = 0, actions = 0; bool success = false; juce::String message; };
+    LastRun getLastRun() const { std::lock_guard<std::mutex> l (stateMutex); return lastRun; }
     /** Snapshot copy (the worker may be learning). */
     DspProfile getProfile() const { std::lock_guard<std::mutex> l (stateMutex); return profile; }
     /** True when the loaded/learned map passed verify_channel for every output. Legacy and unverified maps are false. */
@@ -122,6 +125,7 @@ private:
     mutable std::mutex stateMutex;                        // guards stats, lastNotes and the profile (UI thread reads them)
     Stats stats;
     juce::StringArray lastNotes;
+    LastRun lastRun;
     std::map<int, OutputChannel> lastApplied;
     std::set<juce::String> badKeys;                       // keys that failed in the current call
     std::atomic<DspOperatorAgent*> activeAgent { nullptr };

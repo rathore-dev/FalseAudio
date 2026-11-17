@@ -849,6 +849,37 @@ FA_TEST (aiOllamaMalformedArgsRetry)
     check (c.hasMap(), "ollama agent: map saved");
 }
 
+FA_TEST (aiOllamaTruncatedReplyIsRetried)
+{
+    // A local reasoning model that burns its token budget before the tool call is asked to be brief, not abandoned.
+    Rig rig ("ollama_truncated");
+    auto& t = *rig.transport;
+    t.queue.push_back (ollama200 ({}, "", 100, 2048, "length"));                                  // cut off, nothing usable
+    t.queue.push_back (ollama200 (arr ({ ollamaCall ("ui_tree", obj ({})) })));
+    t.queue.push_back (ollama200 (arr ({ ollamaCall ("save_map", obj ({
+        { "bindings", arr ({ obj ({ { "key", "gain" }, { "output", 1 }, { "method", "text" }, { "element_id", 1 } }) }) } })) })));
+    t.queue.push_back (ollama200 (arr ({ ollamaCall ("done", obj ({ { "summary", "ok" } })) })));
+    AiDspController c (ollamaOptions (rig));
+    juce::String e;
+    c.connect (e);
+    check (c.learn (e), "ollama truncated: learning continues after one cut-off reply", e);
+    check (t.bodies.size() == 4 && t.bodies[1].contains ("cut off"), "ollama truncated: the retry asks for a single brief tool call");
+
+    Rig rig2 ("ollama_truncated2");
+    for (int i = 0; i < 5; ++i)
+        rig2.transport->queue.push_back (ollama200 ({}, "", 100, 2048, "length"));
+    AiDspController c2 (ollamaOptions (rig2));
+    c2.connect (e);
+    check (! c2.learn (e) && e.contains ("cut off"), "ollama truncated: repeated truncation still ends the session", e);
+    check (rig2.transport->bodies.size() == 4, "ollama truncated: at most three retries", juce::String ((int) rig2.transport->bodies.size()));
+
+    // The turn cap of the small-model profile grows with the number of outputs.
+    auto o = ollamaOptions (rig);
+    o.outputs.resize (7, o.outputs[0]);
+    AiDspController c3 (o);
+    check (c3.effectiveAgentOptions().maxTurns >= 70, "ollama profile: 7 outputs get enough turns", juce::String (c3.effectiveAgentOptions().maxTurns));
+}
+
 FA_TEST (aiProviderSwitching)
 {
     Rig rig ("provider");
@@ -866,7 +897,7 @@ FA_TEST (aiProviderSwitching)
         auto cl = c.makeLlmClient();
         check (cl->providerName() == "ollama" && cl->isLocal(), "provider: ollama selected");
         const auto a = c.effectiveAgentOptions();
-        check (a.compact && a.consentGiven == o.agent.consentGiven && a.maxTurns <= 30 && a.screenshotMaxEdge <= 768 && a.treeMaxNodes <= 150 && a.maxScreenshots <= 6,
+        check (a.compact && a.consentGiven == o.agent.consentGiven && a.maxTurns <= std::max (30, 20 + 8 * (int) o.outputs.size()) && a.screenshotMaxEdge <= 768 && a.treeMaxNodes <= 150 && a.maxScreenshots <= 6,
                "provider: ollama gets the small-model profile");
     }
     {
@@ -1014,6 +1045,24 @@ FA_TEST (aiAgentClassifiesWritesByTarget)
     for (auto& l : w.log) if (l == "toggle Mute2=0") ++unmutes;
     check (unmutes == 1, "target: exactly one unmute (the unverified one was refused)", juce::String (unmutes));
     check (! w.byAuto ("Phase2")->toggle, "target: relabelled control did not change polarity");
+}
+
+FA_TEST (aiTitleBarControlsAreNotOffered)
+{
+    Rig rig ("titlebar");
+    rig.win->client = { rig.win->win.getX() + 8, rig.win->win.getY() + 30, 784, 562 };
+    auto& closeBtn = rig.win->add ("Button", "Close", "", 760, 5);           // in the title bar, inside the window rectangle
+    closeBtn.bounds = { rig.win->win.getX() + 760, rig.win->win.getY() + 4, 30, 20 };
+    auto& t = *rig.transport;
+    t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("a", "ui_tree", obj ({})) })));
+    t.queue.push_back (ok200 ("tool_use", arr ({ toolUse ("b", "fail", obj ({ { "reason", "end" } })) })));
+    juce::String e;
+    AiDspController c (rig.opts);
+    c.connect (e);
+    c.learn (e);
+    check (t.bodies.size() == 2, "titlebar: two turns", juce::String ((int) t.bodies.size()));
+    check (t.bodies.size() == 2 && ! t.bodies[1].contains ("\\\"Close\\\"") && t.bodies[1].contains ("Delay1"),
+           "titlebar: the Close button is not in the ui_tree, the DSP controls are", t.bodies.size() == 2 ? t.bodies[1].fromFirstOccurrenceOf ("tool_result", false, false).substring (0, 500) : juce::String());
 }
 
 FA_TEST (aiClientAreaAndForegroundConfinement)
