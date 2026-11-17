@@ -234,6 +234,109 @@ juce::String AudioEngine::openInputOnly (const juce::String& deviceName, double 
 }
 
 //==============================================================================
+std::vector<CaptureAttempt> planCaptureAttempts (CaptureMode mode, const juce::String& currentType,
+                                                 const juce::StringArray& availableTypes)
+{
+    static const juce::String shared ("Windows Audio"), excl ("Windows Audio (Exclusive Mode)");
+    std::vector<CaptureAttempt> out;
+    const bool isWasapi = currentType == shared || currentType == excl;
+    if (! isWasapi)
+    {
+        out.push_back ({ currentType, false, {} });   // ASIO / DirectSound / CoreAudio ...: used as chosen
+        return out;
+    }
+    const bool haveExcl = availableTypes.contains (excl), haveShared = availableTypes.contains (shared);
+    const juce::String noExcl = "WASAPI exclusive mode is not available on this system.";
+    const juce::String fallback = "Using shared-mode Windows audio: Windows noise suppression / audio enhancements may be "
+                                  "active on the mic and make the noise floor read too low. Results are less trustworthy.";
+    switch (mode)
+    {
+        case CaptureMode::shared:
+            if (haveShared) out.push_back ({ shared, false, {} });
+            break;
+        case CaptureMode::exclusive:
+            if (haveExcl) out.push_back ({ excl, true, {} });
+            break;
+        case CaptureMode::autoPreferExclusive:
+            if (haveExcl) out.push_back ({ excl, true, {} });
+            if (haveShared) out.push_back ({ shared, false, haveExcl ? fallback : noExcl + " " + fallback });
+            break;
+    }
+    return out;
+}
+
+juce::String AudioEngine::beginMeasurementPath (bool* failed)
+{
+    if (failed != nullptr) *failed = false;
+    if (pathActive)
+        return pathNote;
+    auto* dev = deviceManager.getCurrentAudioDevice();
+    if (dev == nullptr)
+        return {};
+
+    juce::StringArray types;
+    for (auto* t : deviceManager.getAvailableDeviceTypes())
+        types.add (t->getTypeName());
+
+    savedType = deviceManager.getCurrentAudioDeviceType();
+    deviceManager.getAudioDeviceSetup (savedSetup);
+    const auto plan = planCaptureAttempts (captureMode, savedType, types);
+
+    juce::StringArray problems;
+    for (const auto& a : plan)
+    {
+        if (a.typeName == savedType)
+        {
+            pathActive = true; pathSwitched = false; pathExclusive = a.exclusive;
+            pathNote = a.warning.isNotEmpty() ? juce::String (problems.joinIntoString (" ") + " " + a.warning).trim() : juce::String();
+            return pathNote;
+        }
+        deviceManager.removeAudioCallback (this);
+        deviceManager.setCurrentAudioDeviceType (a.typeName, true);
+        auto setup = savedSetup;
+        juce::String err = deviceManager.setAudioDeviceSetup (setup, true);
+        if (err.isNotEmpty() && setup.sampleRate != 0.0)
+        {
+            setup.sampleRate = 0.0;                      // exclusive mode needs a format the device supports natively
+            err = deviceManager.setAudioDeviceSetup (setup, true);
+        }
+        deviceManager.addAudioCallback (this);
+        if (err.isEmpty() && deviceManager.getCurrentAudioDevice() != nullptr)
+        {
+            pathActive = true; pathSwitched = true; pathExclusive = a.exclusive;
+            pathNote = a.warning.isNotEmpty() ? juce::String (problems.joinIntoString (" ") + " " + a.warning).trim() : juce::String();
+            return pathNote;
+        }
+        problems.add ((a.exclusive ? "Exclusive mode could not be opened (" : "Shared mode could not be opened (")
+                      + (err.isNotEmpty() ? err : juce::String ("device did not start"))
+                      + "); the device may be in use by another application (e.g. REW) or not support this format.");
+    }
+
+    // Nothing opened: put the original back.
+    deviceManager.removeAudioCallback (this);
+    deviceManager.setCurrentAudioDeviceType (savedType, true);
+    deviceManager.setAudioDeviceSetup (savedSetup, true);
+    deviceManager.addAudioCallback (this);
+    if (failed != nullptr) *failed = true;
+    return problems.joinIntoString (" ");
+}
+
+void AudioEngine::endMeasurementPath()
+{
+    if (! pathActive)
+        return;
+    pathActive = false;
+    pathExclusive = false;
+    if (! pathSwitched)
+        return;
+    pathSwitched = false;
+    deviceManager.removeAudioCallback (this);          // the exclusive stream is released, other apps get audio back
+    deviceManager.setCurrentAudioDeviceType (savedType, true);
+    deviceManager.setAudioDeviceSetup (savedSetup, true);
+    deviceManager.addAudioCallback (this);
+}
+
+//==============================================================================
 std::vector<Measurement> AudioEngine::measureSweep (const SweepRequest& request,
                                                     std::atomic<bool>& cancelFlag,
                                                     juce::String& error)

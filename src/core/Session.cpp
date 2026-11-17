@@ -60,6 +60,7 @@ void Session::loadSettings()
     if (cfgJson.isNotEmpty() && exporters::fromJSON (cfgJson, loaded))
         config = loaded;
 
+    audio.setCaptureMode ((CaptureMode) juce::jlimit (0, 2, settings->getIntValue ("captureMode", 0)));
     const auto routing = juce::JSON::parse (settings->getValue ("routing"));
     if (routing.isObject())
         audio.setRouting (AudioRouting::fromVar (routing));
@@ -82,6 +83,7 @@ void Session::saveSettings()
 
     settings->setValue ("liveMode", mode == Mode::live);
     settings->setValue ("config", exporters::toJSON (config));
+    settings->setValue ("captureMode", (int) audio.getCaptureMode());
     settings->setValue ("routing", juce::JSON::toString (audio.getRouting().toVar()));
     for (int i = 0; i < 8; ++i)
     {
@@ -94,15 +96,28 @@ void Session::saveSettings()
     settings->saveIfNeeded();
 }
 
+void Session::setCaptureMode (CaptureMode m)
+{
+    audio.setCaptureMode (m);
+    saveSettings();
+}
+
 MicSelfTestReport Session::runMicSelfTest (double seconds, std::atomic<bool>& cancelFlag)
 {
     std::vector<float> x;
     double sr = 0.0, wall = 0.0;
     juce::String err;
-    if (! audio.recordInput (seconds, x, sr, cancelFlag, err, &wall))
+    // Measurement path: exclusive WASAPI when possible (bypasses Windows capture processing), restored afterwards.
+    const bool pathWasOpen = audio.isMeasurementPathActive();
+    bool pathFailed = false;
+    const auto pathNote = audio.beginMeasurementPath (&pathFailed);
+    struct Restore { AudioEngine& a; bool keep; ~Restore() { if (! keep) a.endMeasurementPath(); } } restore { audio, pathWasOpen };
+    const bool ok = ! pathFailed && audio.recordInput (seconds, x, sr, cancelFlag, err, &wall);
+    if (! ok)
     {
         MicSelfTestReport r;
-        r.message = err;
+        r.message = pathFailed ? pathNote : err;
+        setCaptureWarning (pathNote);
         return r;
     }
     const auto cal = audio.getCalibration (0);
@@ -114,6 +129,12 @@ MicSelfTestReport Session::runMicSelfTest (double seconds, std::atomic<bool>& ca
     auto r = analyseMicRecording (x, sr, cal.isValid() ? &cal : nullptr, ep.valid ? &ep : nullptr);
     if (wall > 0.0)
         r.measuredRate = (double) x.size() / wall;
+    juce::String warn = pathNote;
+    if (r.processingSuspected)
+        warn = (warn + " " + kProcessingWarning).trim();
+    setCaptureWarning (warn);
+    if (pathNote.isNotEmpty() && r.verdict != MicSelfTestReport::Verdict::noData)
+        r.message = (r.message + " " + pathNote).trim();
     return r;
 }
 
@@ -391,6 +412,36 @@ bool Session::startAutoTune (juce::String& error)
 
     stopListeningTrack();
 
+    // Live: open the measurement path (exclusive when possible) and check the mic is not being processed by Windows.
+    setCaptureWarning ({});
+    tunePathOpen = false;
+    if (mode == Mode::live && audio.getDeviceManager().getCurrentAudioDevice() != nullptr)
+    {
+        bool failed = false;
+        auto note = audio.beginMeasurementPath (&failed);
+        if (failed)
+        {
+            setCaptureWarning (note);
+            error = "Could not open the audio devices for measurement. " + note;
+            return false;
+        }
+        tunePathOpen = true;
+        std::atomic<bool> noCancel { false };
+        std::vector<float> quiet; double sr = 0.0; juce::String e2;
+        if (audio.recordInput (1.0, quiet, sr, noCancel, e2))
+        {
+            const auto cal = audio.getCalibration (0);
+            juce::String devName;
+            if (auto* dev = audio.getDeviceManager().getCurrentAudioDevice())
+                devName = dev->getName();
+            const auto ep = endpointVolumeForDevice (devName);
+            const auto rep = analyseMicRecording (quiet, sr, cal.isValid() ? &cal : nullptr, ep.valid ? &ep : nullptr);
+            if (rep.processingSuspected)
+                note = (note + " " + kProcessingWarning).trim();
+        }
+        setCaptureWarning (note);
+    }
+
     if (mode == Mode::demo)
     {
         rebuildDemoRig();
@@ -409,6 +460,7 @@ bool Session::startAutoTune (juce::String& error)
     {
         tuneGuard.reset();
         tuneRig.reset();
+        if (tunePathOpen) { audio.endMeasurementPath(); tunePathOpen = false; }
         error = "Could not start the auto tune.";
         return false;
     }
@@ -437,6 +489,12 @@ void Session::autoTuneFinished (const AutoTuneEngine::Result& r)
     // The worker is past its last DSP/source use when it reports its result.
     tuneGuard.reset();
     tuneRig.reset();
+    if (tunePathOpen)
+    {
+        // Restore the normal device type/setup (hands exclusive devices back to other applications).
+        tunePathOpen = false;
+        audio.endMeasurementPath();
+    }
     sendChangeMessage();
 }
 
@@ -508,7 +566,20 @@ void Session::measureOnce (Feed feed, const juce::String& label,
         req.label = label;
 
         juce::String err;
-        auto ms = source->measureSweep (req, measureCancel, err);
+        const bool live = source == &audio;
+        const bool pathWasOpen = audio.isMeasurementPathActive();
+        bool pathFailed = false;
+        juce::String pathNote;
+        if (live)
+            pathNote = audio.beginMeasurementPath (&pathFailed);
+        setCaptureWarning (pathNote);
+        std::vector<Measurement> ms;
+        if (pathFailed)
+            err = "Could not open the audio devices for measurement. " + pathNote;
+        else
+            ms = source->measureSweep (req, measureCancel, err);
+        if (live && ! pathWasOpen)
+            audio.endMeasurementPath();
 
         juce::MessageManager::callAsync ([this, ms, err, onDone]
         {

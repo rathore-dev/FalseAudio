@@ -60,6 +60,8 @@ void AutoTunePage::startTune()
             shell->toast (error, AppShell::ToastKind::bad);
         return;
     }
+    if (shell != nullptr && session.getCaptureWarning().isNotEmpty())
+        shell->toast (session.getCaptureWarning(), AppShell::ToastKind::warn);
     lastStage = AutoTuneEngine::Stage::preflight;
     runningView.begin();
     setState (State::running);

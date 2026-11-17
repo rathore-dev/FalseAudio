@@ -16,7 +16,7 @@ namespace fa
     The calibration curve is subtracted per frequency. */
 struct MicSelfTestReport
 {
-    enum class Verdict { ok, tooQuiet, clipping, hum, noData };
+    enum class Verdict { ok, tooQuiet, clipping, hum, noData, processed };
 
     // what was captured
     double sampleRate = 0.0;          // as reported by the device
@@ -55,12 +55,30 @@ struct MicSelfTestReport
     double humDbSpl = -200.0;         // power sum of the detected harmonics
     juce::String humDetail;           // e.g. "50 Hz +14 dB, 100 Hz +11 dB"
 
+    // Windows capture processing (noise suppression / voice clarity / AGC APOs) removes stationary noise, so a
+    // shared-mode capture reads implausibly quiet. See captureProcessingSuspected().
+    bool   processingSuspected = false;
+
     Verdict verdict = Verdict::noData;
     juce::String message;
 
     static juce::String verdictName (Verdict v);
     juce::String toText() const;
 };
+
+/** Thresholds for captureProcessingSuspected(). A UMIK-1's own noise is ~29 dBA; Windows-processed shared-mode input
+    measured ~5 dBA while exclusive mode read 43 dBA. */
+constexpr double kProcessingMaxNoiseZDbSpl = 15.0;   // calibrated Z-weighted room noise below this is not physical
+constexpr double kProcessingMaxNoiseRmsDbFS = -100.0;// digital noise below this while a probe tone arrives
+constexpr double kDigitalSilenceDbFS = -140.0;       // at/below this the input is dead, not processed
+
+/** True when a noise-floor recording is implausibly quiet for a live mic, i.e. Windows audio processing is probably
+    active on it. `absolute`/`levelZDbSpl` come from a calibrated report. If `probeToneReceived` is true the mic
+    demonstrably works, so a digital RMS below -100 dBFS also counts. Digital silence (dead input) is not flagged. */
+bool captureProcessingSuspected (double rmsDbFS, bool absolute, double levelZDbSpl, bool probeToneReceived = false);
+
+constexpr const char* kProcessingWarning = "Windows audio processing appears active on the mic (noise floor implausibly low). "
+    "Use WASAPI exclusive mode or switch off Audio Enhancements / Microphone effects for this device in Windows Sound settings.";
 
 /** A-weighting in dB, normalised to exactly 0 dB at 1 kHz. */
 double aWeightingDb (double hz);

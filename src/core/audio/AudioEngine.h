@@ -32,6 +32,23 @@ struct GeneratorSettings
     Feed   feed = Feed::both;
 };
 
+/** Which input/output path a measurement uses. Shared-mode WASAPI runs the Windows capture effects (noise suppression,
+    voice clarity, AGC), which strip stationary noise and make measurements untrustworthy. Exclusive mode bypasses them.
+    (JUCE does not expose AUDCLNT_STREAMOPTIONS_RAW for shared streams, so there is no "raw shared" option.) */
+enum class CaptureMode { autoPreferExclusive, shared, exclusive };
+
+struct CaptureAttempt
+{
+    juce::String typeName;      // JUCE device type to open
+    bool exclusive = false;
+    juce::String warning;       // non-empty when this attempt is a degraded fallback
+};
+
+/** Ordered list of device types to try for a measurement. Pure (unit tested). `currentType` is the type in use now,
+    `availableTypes` the JUCE types present. Non-WASAPI types (ASIO, DirectSound, ...) are used as they are. */
+std::vector<CaptureAttempt> planCaptureAttempts (CaptureMode mode, const juce::String& currentType,
+                                                 const juce::StringArray& availableTypes);
+
 class AudioEngine : public MeasurementSource,
                     public method::NoiseProbe,
                     private juce::AudioIODeviceCallback
@@ -48,6 +65,19 @@ public:
 
     void setRouting (const AudioRouting& r);
     AudioRouting getRouting() const;
+
+    /** Measurement path (see CaptureMode). Default: auto = exclusive when possible, else shared with a warning. */
+    void setCaptureMode (CaptureMode m) { captureMode = m; }
+    CaptureMode getCaptureMode() const noexcept { return captureMode; }
+
+    /** Switches the open device(s) to the measurement path (same devices, exclusive type when possible). Returns a
+        warning/info line ("" when nothing to say); `failed` is set when no attempt could open the devices (the original
+        setup is then restored). Idempotent until endMeasurementPath() restores the original type and setup, which
+        hands the devices back to other applications. Call from one thread at a time. */
+    juce::String beginMeasurementPath (bool* failed = nullptr);
+    void endMeasurementPath();
+    bool isMeasurementPathActive() const noexcept { return pathActive; }
+    bool isMeasurementPathExclusive() const noexcept { return pathExclusive; }
 
     /** Calibration per mic (index into routing.micInputs). */
     void setCalibration (int micIndex, const MicCalibration& cal);
@@ -112,6 +142,10 @@ private:
     float nextGeneratorSample();
 
     juce::AudioDeviceManager deviceManager;
+    CaptureMode captureMode = CaptureMode::autoPreferExclusive;
+    bool pathActive = false, pathExclusive = false, pathSwitched = false;
+    juce::String pathNote, savedType;
+    juce::AudioDeviceManager::AudioDeviceSetup savedSetup;
     mutable juce::CriticalSection lock;
 
     AudioRouting routing;

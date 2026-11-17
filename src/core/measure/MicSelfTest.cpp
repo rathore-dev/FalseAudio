@@ -33,8 +33,18 @@ juce::String MicSelfTestReport::verdictName (Verdict v)
         case Verdict::tooQuiet: return "Too quiet";
         case Verdict::clipping: return "Clipping";
         case Verdict::hum:      return "Mains hum";
+        case Verdict::processed:return "Processed input";
         default:                return "No data";
     }
+}
+
+bool captureProcessingSuspected (double rmsDbFS, bool absolute, double levelZDbSpl, bool probeToneReceived)
+{
+    if (rmsDbFS <= kDigitalSilenceDbFS)
+        return false;
+    if (absolute && levelZDbSpl < kProcessingMaxNoiseZDbSpl)
+        return true;
+    return probeToneReceived && rmsDbFS < kProcessingMaxNoiseRmsDbFS;
 }
 
 MicSelfTestReport analyseMicRecording (const std::vector<float>& x, double sr, const MicCalibration* cal, const EndpointVolume* ep)
@@ -207,7 +217,13 @@ MicSelfTestReport analyseMicRecording (const std::vector<float>& x, double sr, c
     }
 
     // Verdict
-    if (r.rmsDbFS < -100.0 || (r.absolute && r.levelADbSpl < 10.0))
+    r.processingSuspected = captureProcessingSuspected (r.rmsDbFS, r.absolute, r.levelZDbSpl);
+    if (r.processingSuspected)
+    {
+        r.verdict = MicSelfTestReport::Verdict::processed;
+        r.message = kProcessingWarning;
+    }
+    else if (r.rmsDbFS < -100.0 || (r.absolute && r.levelADbSpl < 10.0))
     {
         r.verdict = MicSelfTestReport::Verdict::tooQuiet;
         r.message = "Input is almost silent (" + juce::String (r.rmsDbFS, 1) + " dBFS RMS). Wrong device or channel, muted, or the mic is unplugged.";

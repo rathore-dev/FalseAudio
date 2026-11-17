@@ -63,6 +63,12 @@ public:
         its calibration. Blocking - call from a worker thread. On failure the verdict is noData. */
     MicSelfTestReport runMicSelfTest (double seconds, std::atomic<bool>& cancelFlag);
 
+    /** Latest warning about the measurement path (shared-mode fallback, exclusive open failure, Windows capture
+        processing detected). Empty when fine. Refreshed by startAutoTune() and runMicSelfTest(). */
+    juce::String getCaptureWarning() const { const juce::ScopedLock sl (warnLock); return captureWarning; }
+    void setCaptureMode (CaptureMode m);   // persisted; the user's explicit device-type choice
+    CaptureMode getCaptureMode() const { return audio.getCaptureMode(); }
+
     // ---- DSP --------------------------------------------------------------
     DspKind getDspKind() const noexcept { return mode == Mode::demo ? DspKind::virtualDemo : liveDspKind; }
     /** DSP switches return false (and change nothing) while an Auto Tune is running. A controller that a worker
@@ -168,6 +174,10 @@ private:
     std::vector<std::shared_ptr<DspController>> retiredAi;   // killed AI controllers; a learn thread may still be inside one
     std::vector<std::shared_ptr<ChannelVerifier>> retiredVerifiers;
     unsigned configRevision = 0, tuneStartRevision = 0;
+    mutable juce::CriticalSection warnLock;
+    juce::String captureWarning;
+    void setCaptureWarning (const juce::String& w) { const juce::ScopedLock sl (warnLock); captureWarning = w; }
+    bool tunePathOpen = false;   // measurement path opened by startAutoTune, restored in autoTuneFinished
     DspOperatorAgent::VerifyFn verifyChannelHandler;
     std::shared_ptr<ChannelVerifier> channelVerifier;   // default verify_channel for DspKind::aiOperator
 

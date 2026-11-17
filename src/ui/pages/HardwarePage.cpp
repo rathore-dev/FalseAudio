@@ -86,6 +86,11 @@ HardwarePage::HardwarePage (Session& s) : Page (s)
     {
         if (updating) return;
         session.getAudio().getDeviceManager().setCurrentAudioDeviceType (typeBox.getText(), true);
+        // An explicit device-type choice is respected for measurements: shared stays shared, exclusive stays exclusive.
+        if (typeBox.getText() == "Windows Audio")
+            session.setCaptureMode (fa::CaptureMode::shared);
+        else if (typeBox.getText() == "Windows Audio (Exclusive Mode)")
+            session.setCaptureMode (fa::CaptureMode::exclusive);
         refreshDevices();
     };
     outBox.onChange = [this] { applyDeviceSetup(); };
