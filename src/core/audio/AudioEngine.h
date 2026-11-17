@@ -2,6 +2,7 @@
 
 #include <juce_audio_devices/juce_audio_devices.h>
 #include "MeasurementSource.h"
+#include "OutputProcessor.h"
 #include "../measure/Calibration.h"
 #include "../tune/MethodologyStages.h"
 
@@ -79,6 +80,12 @@ public:
     bool isMeasurementPathActive() const noexcept { return pathActive; }
     bool isMeasurementPathExclusive() const noexcept { return pathExclusive; }
 
+    /** Software DSP: every stimulus played on the left/right outputs (sweeps, listening tracks) is rendered through it
+        (DSP output 0 = routing.leftOutput, 1 = routing.rightOutput). nullptr = unprocessed. Processed sweeps are hard-limited
+        to kMaxProcessedPeakDbFS. The live generator (RTA) is not processed. */
+    void setOutputProcessor (std::shared_ptr<OutputProcessor> p);
+    static constexpr double kMaxProcessedPeakDbFS = -10.0;
+
     /** Calibration per mic (index into routing.micInputs). */
     void setCalibration (int micIndex, const MicCalibration& cal);
     MicCalibration getCalibration (int micIndex) const;
@@ -151,6 +158,7 @@ private:
     AudioRouting routing;
     std::map<int, MicCalibration> calibrations;
     GeneratorSettings generator;
+    std::shared_ptr<OutputProcessor> outputProcessor;   // guarded by `lock`
 
     double sampleRate = 48000.0;
     int numIns = 0, numOuts = 0;
@@ -159,6 +167,7 @@ private:
     struct Capture
     {
         std::vector<float> stimulus;
+        std::vector<std::vector<float>> perOutput; // optional, parallel to `outputs`: the processed signal (empty = stimulus)
         std::vector<std::vector<float>> recorded; // per entry in `inputs`
         std::vector<int> inputs;
         std::vector<int> outputs;

@@ -21,6 +21,7 @@ namespace
             case 4: return "Recommended for any DSP: Claude looks at your DSP software window, learns where every output's gain, delay, polarity, "
                            "crossover, EQ and mute controls are, then types the computed tune in and verifies each write. The learned map is saved, "
                            "so later runs need no AI. Uses your own Anthropic API key; safety limits are enforced in code.";
+            case 5: return "Built-in (software): for testing, or for PC playback; export to Equalizer APO afterwards.";
             case 3: return "Recommended when your DSP is supported: FalseAudio talks to it over USB directly - no vendor software, "
                            "no clicking, every value lands exactly. Supported: miniDSP units (2x4 HD, C-DSP 8x12, DDRC, Flex, SHD...) "
                            "and the Dayton Audio DSP-408. A backup of the DSP is saved before the first write.";
@@ -142,7 +143,7 @@ DspPage::DspPage (Session& s)
     };
 
     // restore
-    uiMode = juce::jlimit (0, 4, settings.get (kUiModeKey, juce::String (modeAi)).getIntValue());
+    uiMode = juce::jlimit (0, 5, settings.get (kUiModeKey, juce::String (modeAi)).getIntValue());
     syncModeFromSession();
     const auto lastProfile = juce::File (settings.get (kLastProfileKey));
     if (lastProfile.existsAsFile())
@@ -465,6 +466,12 @@ void DspPage::userChoseMode (int index)
             if (isNativeKind())
                 session.useManualDsp();
             break;
+        case modeBuiltin:
+            if (teaching) stopTeaching();
+            session.setMode (Session::Mode::live);
+            if (session.getDspKind() != Session::DspKind::softwareDsp)
+                session.useSoftwareDsp();
+            break;
         case modeNative:
             if (teaching) stopTeaching();
             session.setMode (Session::Mode::live);
@@ -489,22 +496,24 @@ void DspPage::syncModeFromSession()
         case Session::DspKind::uiAutomation: uiMode = modeAutomatic; break;
         case Session::DspKind::nativeMiniDsp:
         case Session::DspKind::nativeDsp408: uiMode = modeNative; break;
-        case Session::DspKind::manual:       if (uiMode == modeVirtual) uiMode = modeManual; break;
+        case Session::DspKind::manual:       if (uiMode == modeVirtual || uiMode == modeBuiltin) uiMode = modeManual; break;
+        case Session::DspKind::softwareDsp:  uiMode = modeBuiltin; break;
+        case Session::DspKind::aiOperator:   break;
     }
     modeControl.setSelected (segmentFor (uiMode), juce::dontSendNotification);
 }
 
 int DspPage::segmentFor (int mode)
 {
-    static const int order[] = { modeAi, modeVirtual, modeManual, modeNative, modeAutomatic };
-    for (int i = 0; i < 5; ++i) if (order[i] == mode) return i;
+    static const int order[] = { modeAi, modeVirtual, modeManual, modeNative, modeAutomatic, modeBuiltin };
+    for (int i = 0; i < 6; ++i) if (order[i] == mode) return i;
     return 0;
 }
 
 int DspPage::modeForSegment (int segment)
 {
-    static const int order[] = { modeAi, modeVirtual, modeManual, modeNative, modeAutomatic };
-    return order[juce::jlimit (0, 4, segment)];
+    static const int order[] = { modeAi, modeVirtual, modeManual, modeNative, modeAutomatic, modeBuiltin };
+    return order[juce::jlimit (0, 5, segment)];
 }
 
 void DspPage::ensureAiOperatorKind()
@@ -553,6 +562,7 @@ void DspPage::refreshChips()
     {
         case Session::DspKind::virtualDemo:  dspChip.set ("Virtual rig", theme::accent); break;
         case Session::DspKind::manual:       dspChip.set ("Manual (guided)", theme::warn); break;
+        case Session::DspKind::softwareDsp:  dspChip.set ("Built-in (software)", theme::good); break;
         case Session::DspKind::uiAutomation: dspChip.set ("Auto: " + session.getDsp().getName(), theme::good); break;
         case Session::DspKind::nativeMiniDsp:
         case Session::DspKind::nativeDsp408: dspChip.set ("USB: " + session.getDsp().getName(), theme::good); break;
@@ -628,9 +638,10 @@ void DspPage::updateSidePanel()
     panelBtn.setIcon (wide ? icons::Id::restore : icons::Id::maximise);
     panelBtn.setEnabled (! teaching);
 
-    sideCard.setTitle (teaching ? "Teach wizard" : ai ? "AI operator" : v ? "Virtual rig" : m ? "Manual guided" : n ? "Direct USB" : "Automation profiles",
+    const bool bi = uiMode == modeBuiltin && ! teaching;
+    sideCard.setTitle (teaching ? "Teach wizard" : ai ? "AI operator" : v ? "Virtual rig" : m ? "Manual guided" : n ? "Direct USB" : bi ? "Built-in (software)" : "Automation profiles",
                        teaching ? "Click controls inside the DSP software" : ai ? "" : v ? "Demo mode" : m ? "Checklist during Auto Tune"
-                                : n ? "Limitations & backup" : "Per DSP model");
+                                : n ? "Limitations & backup" : bi ? "The app's own DSP" : "Per DSP model");
     explanation.setText (explanationFor (uiMode), juce::dontSendNotification);
     resized();
 }
@@ -825,7 +836,7 @@ void DspPage::resized()
         auto c = modeCard.getContentArea();
         auto top = c.removeFromTop (36);
         auto chipsCol = top.removeFromRight (std::min (360, top.getWidth() / 2));
-        modeControl.setBounds (top.removeFromLeft (std::min (660, top.getWidth())).withHeight (34));
+        modeControl.setBounds (top.removeFromLeft (std::min (800, top.getWidth())).withHeight (34));
 
         // chips: right-aligned row
         int x = chipsCol.getRight();

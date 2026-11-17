@@ -502,6 +502,14 @@ bool AutoTuneEngine::stageCrossovers (RunState& rs)
 bool AutoTuneEngine::stageSolve (RunState& rs)
 {
     setStage (Stage::solve);
+    // Keep a few EQ slots free: the verify pass can only correct what the solve left room for.
+    struct BandReserve
+    {
+        DspCapabilities& caps; int saved;
+        ~BandReserve() { caps.peqBandsPerChannel = saved; }
+    } bandReserve { config.caps, config.caps.peqBandsPerChannel };
+    if (! config.caps.isGraphic() && config.caps.peqBandsPerChannel >= 8 && options.reserveVerifyBands > 0)
+        config.caps.peqBandsPerChannel = std::max (6, config.caps.peqBandsPerChannel - options.reserveVerifyBands);
     SystemSolver::Options so;
     so.matchRightToLeft = options.matchRightToLeft;
     if (options.useBandTargets)
@@ -540,6 +548,9 @@ bool AutoTuneEngine::stageSolve (RunState& rs)
             solver.rematchRightToLeft();
         }
     }
+    // The solver and the optimiser limit each band, not the sum of overlapping bands: enforce the limit on the net EQ.
+    for (auto& c : config.channels)
+        limitTotalBoost (c, config, &rs.refined.notes);
     rs.result.refineCostBefore = rs.refined.costBefore;
     rs.result.refineCostAfter = rs.refined.costAfter;
     progress (1.0, "Solved");
@@ -632,6 +643,102 @@ bool AutoTuneEngine::clipStackedBoost (const OutputChannel& owner, FilterSpec& n
     if (config.caps.gainStepDb > 0.0)
         nb.gainDb = std::floor (nb.gainDb / config.caps.gainStepDb + 1e-9) * config.caps.gainStepDb;
     return nb.gainDb >= 0.05;
+}
+
+bool AutoTuneEngine::limitTotalBoost (OutputChannel& ch, const SystemConfig& config, juce::StringArray* notes)
+{
+    auto& peq = ch.settings.peq;
+    if (peq.empty() || config.caps.isGraphic())
+        return false;
+
+    const double fs = config.caps.sampleRate > 0.0 ? config.caps.sampleRate : 48000.0;
+
+    // The optimiser can leave several near-identical bands at one frequency (each below the per-band limit). Merge them
+    // into one band (gains add): same response, fewer slots used, and the limit below then sees what the DSP really does.
+    bool merged = false;
+    for (size_t i = 0; i < peq.size(); ++i)
+    {
+        if (peq[i].type != FilterType::peaking || ! peq[i].enabled)
+            continue;
+        for (size_t j = peq.size(); --j > i;)
+        {
+            auto& a = peq[i];
+            const auto& b = peq[j];
+            if (b.type != FilterType::peaking || ! b.enabled
+                || std::abs (std::log2 (b.freq / a.freq)) > 0.03 || std::abs (b.q / a.q - 1.0) > 0.12)
+                continue;
+            a.freq = std::sqrt (a.freq * b.freq);
+            a.q = 0.5 * (a.q + b.q);
+            a.gainDb += b.gainDb;
+            peq.erase (peq.begin() + (long) j);
+            merged = true;
+        }
+    }
+    const bool lfLimited = ch.role != DriverRole::subwoofer && ch.settings.highPass.enabled;
+    const double hp = ch.settings.highPass.freq;
+    auto limitAt = [&] (double f)
+    {
+        double lim = config.safety.maxBoostDb;
+        if (lfLimited && f < 2.0 * hp)
+            lim = std::min (lim, config.safety.maxLowFreqBoostDb);
+        return lim;
+    };
+
+    const auto grid = makeLogFrequencies (20.0, std::min (20000.0, fs * 0.45), 24);
+    auto bandDb = [&] (const FilterSpec& b, double f) { return 20.0 * std::log10 (std::max (1.0e-9, std::abs (b.response (f, fs)))); };
+
+    bool changed = merged, reduced = false;
+    for (int iter = 0; iter < 60; ++iter)
+    {
+        double worstExcess = 0.0, worstF = 0.0;
+        for (double f : grid)
+        {
+            double total = 0.0;
+            for (auto& b : peq)
+                if (b.enabled)
+                    total += bandDb (b, f);
+            const double excess = total - limitAt (f);
+            if (excess > worstExcess) { worstExcess = excess; worstF = f; }
+        }
+        if (worstExcess < 0.05)
+            break;
+
+        // Only the bands that really contribute at the worst frequency are reduced (a distant band's skirt is not touched).
+        double maxContribution = 0.0;
+        for (auto& b : peq)
+            if (b.enabled && b.gainDb > 0.0)
+                maxContribution = std::max (maxContribution, bandDb (b, worstF));
+        if (maxContribution < 0.01)
+            break;                                  // the excess is not from EQ boosts (nothing to reduce)
+        double boostHere = 0.0;
+        for (auto& b : peq)
+            if (b.enabled && b.gainDb > 0.0 && bandDb (b, worstF) >= 0.25 * maxContribution)
+                boostHere += bandDb (b, worstF);
+        const double scale = juce::jlimit (0.0, 0.98, (boostHere - worstExcess) / boostHere);
+        for (auto& b : peq)
+            if (b.enabled && b.gainDb > 0.0 && bandDb (b, worstF) >= 0.25 * maxContribution)
+                b.gainDb *= scale;
+        changed = reduced = true;
+    }
+
+    if (changed)
+    {
+        const double step = config.caps.gainStepDb;
+        if (step > 0.0)
+            for (auto& b : peq)
+                if (b.gainDb < 0.0)
+                    b.gainDb = std::round (b.gainDb / step) * step;
+        for (auto& b : peq)
+            if (b.gainDb > 0.0 && step > 0.0)
+                b.gainDb = std::floor (b.gainDb / step + 1e-9) * step;     // quantise DOWN: stays inside the limit
+        peq.erase (std::remove_if (peq.begin(), peq.end(), [] (const FilterSpec& b) { return b.type == FilterType::peaking && std::abs (b.gainDb) < 0.05; }), peq.end());
+        if (notes != nullptr && merged)
+            notes->add (ch.label + ": near-identical EQ bands merged into one (frees slots for the verify pass)");
+        if (notes != nullptr && reduced)
+            notes->add (ch.label + ": stacked EQ boosts reduced to stay within +" + juce::String (config.safety.maxBoostDb, 1)
+                        + " dB (+" + juce::String (config.safety.maxLowFreqBoostDb, 1) + " dB near the high-pass)");
+    }
+    return changed;
 }
 
 bool AutoTuneEngine::correctResiduals (const FrequencyResponse& leftMeasured, const FrequencyResponse& rightMeasured,

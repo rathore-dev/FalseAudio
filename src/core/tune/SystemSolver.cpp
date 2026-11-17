@@ -194,6 +194,8 @@ void SystemSolver::checkPolarity()
     }
 }
 
+namespace { constexpr double kMaxPlausibleLeftRightArrivalSpreadMs = 6.0; }
+
 void SystemSolver::alignTime()
 {
     std::map<juce::String, double> arrival;
@@ -227,6 +229,25 @@ void SystemSolver::alignTime()
 
     if (arrival.empty())
         return;
+
+    // Plausibility: the left and right driver of the same role sit within a couple of metres of the listener, so their
+    // arrivals cannot differ by tens of milliseconds. A bigger spread means one measurement is bad (noise spike or a
+    // glitching device picked as the IR peak): aligning to it would delay a healthy speaker by a huge amount. Skip the
+    // L/R alignment for that pair and say so.
+    for (auto& l : cfg.channels)
+        for (auto& r : cfg.channels)
+        {
+            if (l.side != Side::left || r.side != Side::right || l.role != r.role || l.role == DriverRole::subwoofer)
+                continue;
+            auto a = arrival.find (l.id), b = arrival.find (r.id);
+            if (a == arrival.end() || b == arrival.end() || std::abs (a->second - b->second) <= kMaxPlausibleLeftRightArrivalSpreadMs)
+                continue;
+            report.warnings.add (l.label + " / " + r.label + ": arrival times differ by " + juce::String (std::abs (a->second - b->second), 1)
+                                 + " ms (more than " + juce::String (kMaxPlausibleLeftRightArrivalSpreadMs, 0) + " ms is not physically plausible) - "
+                                 "one of the two sweeps is unreliable. Left/right time alignment skipped for this pair; measure again.");
+            const double common = std::min (a->second, b->second);
+            a->second = b->second = common;
+        }
 
     double latest = -1.0e9;
     for (auto& [id, a] : arrival)

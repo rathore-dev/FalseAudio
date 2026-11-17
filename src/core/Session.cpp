@@ -254,6 +254,29 @@ bool Session::useManualDsp()
     return true;
 }
 
+bool Session::useSoftwareDsp()
+{
+    if (autoTune.isRunning())
+        return false;
+    auto caps = SoftwareDspController::defaultCapabilities();
+    if (const double fs = audio.getSampleRate(); fs > 0.0)
+        caps.sampleRate = fs;
+    auto c = std::make_shared<SoftwareDspController> (caps);
+    finishDspApply();
+    retireDsp();
+    liveDsp = c;
+    liveDspKind = DspKind::softwareDsp;
+    audio.setOutputProcessor (c);
+    config.caps = c->getCapabilities();
+    sendChangeMessage();
+    return true;
+}
+
+SoftwareDspController* Session::getSoftwareDsp() noexcept
+{
+    return liveDspKind == DspKind::softwareDsp ? dynamic_cast<SoftwareDspController*> (liveDsp.get()) : nullptr;
+}
+
 bool Session::useNativeMiniDsp (const MiniDspController::Options& options, juce::String& error)
 {
     if (autoTune.isRunning()) { error = configLockedMessage(); return false; }
@@ -323,6 +346,7 @@ void Session::useUIAutomationDsp (const DspProfile& profile, std::function<void*
 
 void Session::retireDsp()
 {
+    audio.setOutputProcessor (nullptr);   // the built-in DSP (if any) stops shaping what the engine plays
     // An AI controller may be inside a learn thread (HTTP call): stop it and keep it alive for the session.
     if (auto ai = std::dynamic_pointer_cast<AiDspController> (liveDsp))
     {

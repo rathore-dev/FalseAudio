@@ -40,7 +40,7 @@ public:
     void resized() override;
 
 private:
-    enum UiMode { modeVirtual = 0, modeManual = 1, modeAutomatic = 2, modeNative = 3, modeAi = 4 };
+    enum UiMode { modeVirtual = 0, modeManual = 1, modeAutomatic = 2, modeNative = 3, modeAi = 4, modeBuiltin = 5 };
     static int segmentFor (int mode);
     static int modeForSegment (int segment);
 
@@ -98,7 +98,7 @@ private:
 
     // ---- top: mode
     Card modeCard { "Control mode" };
-    SegmentedControl modeControl { { "AI operator (recommended)", "Virtual demo", "Manual guided", "Direct USB", "UI Automation (advanced)" } };
+    SegmentedControl modeControl { { "AI operator (recommended)", "Virtual demo", "Manual guided", "Direct USB", "UI Automation (advanced)", "Built-in (software)" } };
     Chip modeChip, dspChip, attachChip, consentChip;
     juce::Label explanation;
     FaButton sendBtn { "Send tune to DSP", FaButton::Style::primary, icons::Id::arrowRight };

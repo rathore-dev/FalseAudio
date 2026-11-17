@@ -30,6 +30,11 @@ class AutoTuneEngine : private juce::Thread
 public:
     /** Clips a new EQ boost so the total boost at its frequency stays within the safety limits; false = drop the band. */
     static bool clipStackedBoost (const OutputChannel& owner, FilterSpec& band, const SystemConfig& config);
+    /** Enforces the boost limits on the NET EQ of a channel (sum of all its bands), not just per band: overlapping boost bands
+        (the solver and the optimiser each limit one band) must not add up past safety.maxBoostDb, or past the stricter
+        maxLowFreqBoostDb below 2x the high-pass. Reduces the contributing boost bands until the limit holds; returns true if
+        anything changed. `notes` (optional) receives one line per channel changed. */
+    static bool limitTotalBoost (OutputChannel& ch, const SystemConfig& config, juce::StringArray* notes = nullptr);
     enum class Stage { idle, preflight, protect, measure, crossovers, solve, sumCheck, imaging, apply, verify, noise, report, done, failed, cancelled };
     static juce::String stageName (Stage s);
     static constexpr int numWorkStages = 11;
@@ -50,6 +55,8 @@ public:
                                           // (when config.target is a TargetLibrary built-in with bands)
         bool   competitionRefine = true;  // joint perceptual optimisation after the solver (advanced::refine)
         int    refineIterations = 200;    // ~90 % of the gain of 400 in half the time
+        int    reserveVerifyBands = 2;    // PEQ slots per channel the solve leaves free for the verify pass (0 = none; only
+                                          // applied when the DSP has >= 8 bands). Without them the closed loop has no band to add.
     };
 
     struct UserAction

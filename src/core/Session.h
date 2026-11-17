@@ -14,6 +14,7 @@
 #include "bridge/UIAutomationController.h"
 #include "bridge/native/MiniDspController.h"
 #include "bridge/native/Dsp408Controller.h"
+#include "bridge/SoftwareDspController.h"
 #include "sim/VirtualRig.h"
 #include "tune/AutoTuneEngine.h"
 
@@ -29,7 +30,7 @@ class Session : public juce::ChangeBroadcaster,
 {
 public:
     enum class Mode { demo, live };
-    enum class DspKind { virtualDemo, manual, uiAutomation, nativeMiniDsp, nativeDsp408, aiOperator };
+    enum class DspKind { virtualDemo, manual, uiAutomation, nativeMiniDsp, nativeDsp408, aiOperator, softwareDsp };
 
     Session();
     ~Session() override;
@@ -75,6 +76,11 @@ public:
         (background push, Auto Tune, AI learn) still uses is never destroyed under it: workers hold shared ownership
         (via the guard), and a replaced AI controller is killed and kept alive until the session ends. Never blocks. */
     bool useManualDsp();
+    /** The app's own DSP ("Built-in (software)"): the AudioEngine applies its per-output settings to every stimulus it plays
+        (measurement sweeps, listening tracks), so Auto Tune can close its loop without a hardware DSP. For testing, or for PC
+        playback (export to Equalizer APO afterwards). Goes through the guard like every other controller. */
+    bool useSoftwareDsp();
+    SoftwareDspController* getSoftwareDsp() noexcept;
     bool setDspController (std::unique_ptr<DspController> controller, DspKind kind);
 
     /** Drive the vendor's DSP software with a taught profile. The window provider returns the

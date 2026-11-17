@@ -363,6 +363,38 @@ std::vector<Measurement> AudioEngine::measureSweep (const SweepRequest& request,
     if (request.feed != Feed::left)  cap->outputs.push_back (r.rightOutput);
     if (r.loopbackOutput >= 0)       cap->outputs.push_back (r.loopbackOutput);
 
+    // Software DSP: render the stimulus through each output's chain (offline, never on the audio thread).
+    std::shared_ptr<OutputProcessor> processor;
+    {
+        const juce::ScopedLock sl (lock);
+        processor = outputProcessor;
+    }
+    juce::StringArray processedWarnings;
+    if (processor != nullptr)
+    {
+        cap->perOutput.assign (cap->outputs.size(), {});
+        const float limit = (float) magFromDb (kMaxProcessedPeakDbFS);
+        for (size_t k = 0; k < cap->outputs.size(); ++k)
+        {
+            const int o = cap->outputs[k];
+            const int dspOut = o == r.leftOutput ? 0 : o == r.rightOutput ? 1 : -1;
+            if (dspOut < 0 || ! processor->processOutput (dspOut, cap->stimulus, sampleRate, cap->perOutput[k]))
+            {
+                cap->perOutput[k].clear();
+                continue;
+            }
+            float pk = 0.0f;
+            for (auto v : cap->perOutput[k]) pk = std::max (pk, std::abs (v));
+            if (pk > limit)
+            {
+                const float scale = limit / pk;
+                for (auto& v : cap->perOutput[k]) v *= scale;
+                processedWarnings.add ("Software DSP output " + juce::String (dspOut + 1) + " would peak at " + juce::String (dbFromMag (pk), 1)
+                                       + " dBFS: scaled down to the " + juce::String (kMaxProcessedPeakDbFS, 0) + " dBFS ceiling.");
+            }
+        }
+    }
+
     cap->inputs = r.micInputs;
     const bool useLoopback = r.loopbackInput >= 0 && r.loopbackOutput >= 0
                           && r.loopbackInput < numIns && r.loopbackOutput < numOuts;
@@ -409,7 +441,7 @@ std::vector<Measurement> AudioEngine::measureSweep (const SweepRequest& request,
         return dbFromMag (p);
     };
 
-    juce::StringArray warnings;
+    juce::StringArray warnings = processedWarnings;
 
     // Timing reference. With a loopback cable the IR's time zero is the true electrical output
     // start. Without one, the internal stimulus is the reference and time zero includes the
@@ -586,10 +618,16 @@ void AudioEngine::audioDeviceIOCallbackWithContext (const float* const* in, int 
         for (int i = 0; i < numSamples; ++i, ++pos)
         {
             const float s = pos < stimLen ? cap->stimulus[(size_t) pos] : 0.0f;
-            for (auto o : cap->outputs)
+            for (size_t k = 0; k < cap->outputs.size(); ++k)
+            {
+                const int o = cap->outputs[k];
+                float v = s;
+                if (k < cap->perOutput.size() && ! cap->perOutput[k].empty())
+                    v = pos < (int) cap->perOutput[k].size() ? cap->perOutput[k][(size_t) pos] : 0.0f;
                 if (o >= 0 && o < numOutputChannels && out[o] != nullptr)
-                    out[o][i] = s;
-            outPeak = std::max (outPeak, std::abs (s));
+                    out[o][i] = v;
+                outPeak = std::max (outPeak, std::abs (v));
+            }
 
             if (pos < recLen)
             {
@@ -698,6 +736,22 @@ void AudioEngine::playStereo (std::vector<float> left, std::vector<float> right,
     const size_t len = std::min (left.size(), right.size());
     left.resize (len);
     right.resize (len);
+    {
+        std::shared_ptr<OutputProcessor> processor;
+        {
+            const juce::ScopedLock sl (lock);
+            processor = outputProcessor;
+        }
+        if (processor != nullptr)
+        {
+            // Software DSP: render through the L/R chains (delay shifts the track; the loop wraps at the longer length).
+            std::vector<float> pl, pr;
+            if (processor->processOutput (0, left, sampleRate, pl)) { pl.resize (std::max (pl.size(), len)); left = std::move (pl); }
+            if (processor->processOutput (1, right, sampleRate, pr)) { pr.resize (std::max (pr.size(), len)); right = std::move (pr); }
+            const size_t n = std::max (left.size(), right.size());
+            left.resize (n); right.resize (n);
+        }
+    }
     pb->left = std::move (left);
     pb->right = std::move (right);
     pb->loop = loop;
@@ -711,6 +765,12 @@ void AudioEngine::playStereo (std::vector<float> left, std::vector<float> right,
     activePlayback.store (pb.get());
     waitForCallbackToFinish();
     ownedPlayback = std::move (pb); // frees the previous playback, which the audio thread has let go of
+}
+
+void AudioEngine::setOutputProcessor (std::shared_ptr<OutputProcessor> p)
+{
+    const juce::ScopedLock sl (lock);
+    outputProcessor = std::move (p);
 }
 
 void AudioEngine::stopPlayback()
