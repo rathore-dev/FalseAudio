@@ -383,6 +383,13 @@ bool Automation::setText (void* rootWindow, const ElementPath& path, const juce:
         return false;
     }
 
+    // Synthesised keys go to whatever window has focus, so only send them while the target is in front.
+    auto targetHasFocus = [rootWindow]
+    {
+        const auto fg = GetForegroundWindow();
+        return fg != nullptr && GetAncestor (fg, GA_ROOT) == GetAncestor ((HWND) rootWindow, GA_ROOT);
+    };
+
     if (auto vp = el.pattern<IUIAutomationValuePattern> (UIA_ValuePatternId))
     {
         auto bstr = SysAllocString (text.toWideCharPointer());
@@ -392,6 +399,11 @@ bool Automation::setText (void* rootWindow, const ElementPath& path, const juce:
         {
             // Most numeric boxes only commit on Enter / focus change.
             el.e->SetFocus();
+            if (! targetHasFocus())
+            {
+                error = "Value set but not committed: the DSP window is not in front";
+                return false;
+            }
             pressKeyCombo (VK_RETURN);
             return true;
         }
@@ -399,6 +411,11 @@ bool Automation::setText (void* rootWindow, const ElementPath& path, const juce:
 
     // Fallback: focus, select all, type.
     el.e->SetFocus();
+    if (! targetHasFocus())
+    {
+        error = "The DSP window is not in front; no keys were sent";
+        return false;
+    }
     const auto b = el.bounds();
     clickAt (b.getCentre());
     pressKeyCombo ('A', true);
